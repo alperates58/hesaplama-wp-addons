@@ -149,6 +149,7 @@ hesaplama-wp-addons/
 
 ## Önemli Kurallar
 
+- **Mevcut modüllere kesinlikle dokunma.** `modules/` altındaki mevcut klasörler değiştirilemez. Sadece yeni klasör ekle.
 - **Sunucuya istek atmayan** (client-side) hesaplamalar yaz — PHP sadece HTML render eder
 - **Türkçe** etiket, placeholder ve hata mesajları kullan
 - **`HC_VERSION`** sabitini değiştirme — sadece modül ekle
