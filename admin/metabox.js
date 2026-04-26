@@ -66,25 +66,29 @@ jQuery(function ($) {
                 }
             });
 
-            // Yoast + etiketleri sunucu tarafında kaydet (en güvenilir yöntem)
+            // Yoast + etiketleri sunucu tarafında kaydet, sonra sayfayı otomatik yenile
             if (postId) {
-                $.post(hcMetabox.ajaxurl, {
-                    action:               'hc_update_post_meta',
-                    nonce:                hcMetabox.nonce,
-                    post_id:              postId,
-                    odak_anahtar_kelime:  d.odak_anahtar_kelime || '',
-                    meta_baslik:          d.meta_baslik          || '',
-                    meta_aciklama:        d.meta_aciklama         || '',
-                    etiketler:            etiketler
-                }, function(metaResp) {
-                    if (metaResp.success) {
-                        // Sayfayı yenile — Yoast alanları artık DB'de, reload'da görünür
-                        $('#hc-mb-success').html(
-                            '✓ İçerik eklendi, Yoast ve etiketler kaydedildi. ' +
-                            '<a href="' + window.location.href + '">Sayfayı yenile →</a>'
-                        ).show();
-                    }
-                });
+                // Önce yazıyı kaydet (içerik DB'ye işlensin)
+                $('#publish, #save-post').first().trigger('click');
+
+                setTimeout(function () {
+                    $.post(hcMetabox.ajaxurl, {
+                        action:               'hc_update_post_meta',
+                        nonce:                hcMetabox.nonce,
+                        post_id:              postId,
+                        odak_anahtar_kelime:  d.odak_anahtar_kelime || '',
+                        meta_baslik:          d.meta_baslik          || '',
+                        meta_aciklama:        d.meta_aciklama         || '',
+                        etiketler:            etiketler
+                    }, function(metaResp) {
+                        if (metaResp.success) {
+                            $('#hc-mb-success').html('✓ Kaydedildi, sayfa yenileniyor...').show();
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1200);
+                        }
+                    });
+                }, 1500); // kayıt tamamlanana kadar bekle
             } else {
                 $('#hc-mb-success').text('✓ İçerik editöre eklendi.').show();
             }
