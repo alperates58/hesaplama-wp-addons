@@ -193,4 +193,9 @@ YANIT FORMATÜ — sadece geçerli JSON döndür, başka hiçbir şey ekleme:
 }
 PROMPT;
     }
+
+    /* Başlık tabanlı prompt — URL olmadan */
+    public function build_prompt_from_title( $title ) {
+        return $this->build_prompt( '', "Konu: {$title} hesaplama aracı. Hesaplamaa.com'daki bu hesap makinesi için SEO makalesi yaz." );
+    }
 }

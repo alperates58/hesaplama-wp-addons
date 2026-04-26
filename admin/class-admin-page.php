@@ -171,26 +171,38 @@ class HC_Admin_Page {
     }
 
     private function render_modules_tab() {
+        global $wpdb;
         $modules_dir = HC_PLUGIN_DIR . 'modules/';
         $modules     = [];
         if ( is_dir( $modules_dir ) ) {
             foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $path ) {
-                $slug = basename( $path );
+                $slug      = basename( $path );
                 $meta_file = $path . '/meta.json';
-                $meta = file_exists( $meta_file )
+                $meta      = file_exists( $meta_file )
                     ? json_decode( file_get_contents( $meta_file ), true )
                     : [];
+                $shortcode  = '[hc_' . str_replace( '-', '_', $slug ) . ']';
+                $created    = file_exists( $meta_file ) ? filemtime( $meta_file ) : filemtime( $path );
+                $post_count = (int) $wpdb->get_var( $wpdb->prepare(
+                    "SELECT COUNT(*) FROM {$wpdb->posts}
+                     WHERE post_content LIKE %s AND post_status != 'trash' AND post_type = 'post'",
+                    '%' . $wpdb->esc_like( $shortcode ) . '%'
+                ) );
                 $modules[] = [
-                    'slug'      => $slug,
-                    'name'      => $meta['name']      ?? $slug,
-                    'shortcode' => '[hc_' . str_replace( '-', '_', $slug ) . ']',
-                    'desc'      => $meta['desc']      ?? '',
+                    'slug'       => $slug,
+                    'name'       => $meta['name'] ?? $slug,
+                    'shortcode'  => $shortcode,
+                    'desc'       => $meta['desc'] ?? '',
+                    'created'    => $created,
+                    'post_count' => $post_count,
                 ];
             }
         }
+        usort( $modules, fn( $a, $b ) => $b['created'] <=> $a['created'] );
+        $nonce = wp_create_nonce( 'hc_ajax_nonce' );
         ?>
         <div class="hc-card">
-            <h2>Aktif Modüller</h2>
+            <h2>Aktif Modüller <span style="font-size:13px;font-weight:normal;color:#888;">(<?php echo count($modules); ?> modül)</span></h2>
             <?php if ( empty( $modules ) ): ?>
                 <p>Henüz modül yok. <code>modules/</code> klasörüne hesap makinesi ekleyin.</p>
             <?php else: ?>
@@ -199,8 +211,10 @@ class HC_Admin_Page {
                         <tr>
                             <th>Hesap Makinesi</th>
                             <th>Shortcode</th>
-                            <th>Açıklama</th>
-                            <th style="width:130px;"></th>
+                            <th style="width:220px;">Açıklama</th>
+                            <th style="width:70px; text-align:center;">Yazı</th>
+                            <th style="width:110px;">Eklenme</th>
+                            <th style="width:120px;"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -208,16 +222,26 @@ class HC_Admin_Page {
                         <tr>
                             <td><strong><?php echo esc_html( $m['name'] ); ?></strong></td>
                             <td><code><?php echo esc_html( $m['shortcode'] ); ?></code></td>
-                            <td><?php echo esc_html( $m['desc'] ); ?></td>
+                            <td style="font-size:12px; color:#555;"><?php echo esc_html( $m['desc'] ); ?></td>
+                            <td style="text-align:center;">
+                                <?php if ( $m['post_count'] > 0 ): ?>
+                                    <a href="<?php echo admin_url( 'edit.php?s=' . urlencode( $m['shortcode'] ) . '&post_type=post' ); ?>">
+                                        <?php echo $m['post_count']; ?>
+                                    </a>
+                                <?php else: ?>
+                                    <span style="color:#aaa;">0</span>
+                                <?php endif; ?>
+                            </td>
+                            <td style="font-size:12px; color:#666;"><?php echo date_i18n( 'd M Y', $m['created'] ); ?></td>
                             <td>
                                 <button
-                                    class="button hc-yazi-ekle-btn"
+                                    class="button button-small hc-yazi-ekle-btn"
                                     data-name="<?php echo esc_attr( $m['name'] ); ?>"
                                     data-shortcode="<?php echo esc_attr( $m['shortcode'] ); ?>"
-                                    data-nonce="<?php echo esc_attr( wp_create_nonce( 'hc_ajax_nonce' ) ); ?>">
+                                    data-nonce="<?php echo esc_attr( $nonce ); ?>">
                                     + Yazı Ekle
                                 </button>
-                                <span class="hc-yazi-ekle-msg" style="display:none; font-size:12px; color:#666;"></span>
+                                <span class="hc-yazi-ekle-msg" style="display:none; font-size:11px;"></span>
                             </td>
                         </tr>
                         <?php endforeach; ?>

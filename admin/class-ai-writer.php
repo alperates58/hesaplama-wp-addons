@@ -8,7 +8,8 @@ class HC_AI_Writer {
         add_action( 'wp_ajax_hc_generate_article',  [ $this, 'ajax_generate' ] );
         add_action( 'wp_ajax_hc_save_draft',        [ $this, 'ajax_save_draft' ] );
         add_action( 'wp_ajax_hc_check_ai_usage',    [ $this, 'ajax_check_usage' ] );
-        add_action( 'wp_ajax_hc_create_module_post', [ $this, 'ajax_create_module_post' ] );
+        add_action( 'wp_ajax_hc_create_module_post',  [ $this, 'ajax_create_module_post' ] );
+        add_action( 'wp_ajax_hc_update_post_meta',    [ $this, 'ajax_update_post_meta' ] );
     }
 
     public function handle_ai_settings_save() {
@@ -25,29 +26,58 @@ class HC_AI_Writer {
         exit;
     }
 
-    /* AJAX: URL'den makale üret */
+    /* AJAX: Mevcut yazının Yoast + etiket meta'sını güncelle */
+    public function ajax_update_post_meta() {
+        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
+        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
+
+        $post_id     = intval( $_POST['post_id']            ?? 0 );
+        $odak_kw     = sanitize_text_field( $_POST['odak_anahtar_kelime'] ?? '' );
+        $meta_baslik = sanitize_text_field( $_POST['meta_baslik']         ?? '' );
+        $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama']   ?? '' );
+        $etiketler   = array_map( 'sanitize_text_field', (array) ( $_POST['etiketler'] ?? [] ) );
+
+        if ( ! $post_id || ! get_post( $post_id ) ) wp_send_json_error( 'Geçersiz yazı.' );
+
+        update_post_meta( $post_id, '_yoast_wpseo_focuskw',  $odak_kw );
+        update_post_meta( $post_id, '_yoast_wpseo_title',    $meta_baslik );
+        update_post_meta( $post_id, '_yoast_wpseo_metadesc', $meta_acik );
+
+        if ( $etiketler ) {
+            wp_set_post_tags( $post_id, $etiketler, false );
+        }
+
+        wp_send_json_success();
+    }
+
+    /* AJAX: URL'den (veya başlıktan) makale üret */
     public function ajax_generate() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
         if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
 
-        $url = esc_url_raw( $_POST['url'] ?? '' );
-        if ( ! $url ) wp_send_json_error( 'URL gerekli.' );
+        $url   = esc_url_raw( $_POST['url']   ?? '' );
+        $title = sanitize_text_field( $_POST['title'] ?? '' );
 
-        // Sayfayı çek
-        $resp = wp_remote_get( $url, [
-            'timeout'    => 15,
-            'user-agent' => 'Mozilla/5.0 (compatible; HesaplamaSuite/1.0)',
-        ] );
+        // URL yoksa başlık zorunlu
+        if ( ! $url && ! $title ) wp_send_json_error( 'URL veya başlık gerekli.' );
 
         $page_text = '';
-        if ( ! is_wp_error( $resp ) && wp_remote_retrieve_response_code( $resp ) === 200 ) {
-            $html      = wp_remote_retrieve_body( $resp );
-            $page_text = $this->extract_text( $html );
+        if ( $url ) {
+            $resp = wp_remote_get( $url, [
+                'timeout'    => 15,
+                'user-agent' => 'Mozilla/5.0 (compatible; HesaplamaSuite/1.0)',
+            ] );
+            if ( ! is_wp_error( $resp ) && wp_remote_retrieve_response_code( $resp ) === 200 ) {
+                $page_text = $this->extract_text( wp_remote_retrieve_body( $resp ) );
+            }
         }
 
         $provider = new HC_AI_Provider();
-        $prompt   = $provider->build_prompt( $url, $page_text );
-        $result   = $provider->generate( $prompt );
+        // URL yoksa başlık tabanlı prompt kullan
+        $prompt = $url
+            ? $provider->build_prompt( $url, $page_text )
+            : $provider->build_prompt_from_title( $title );
+        $result = $provider->generate( $prompt );
 
         if ( is_wp_error( $result ) ) {
             wp_send_json_error( $result->get_error_message() );

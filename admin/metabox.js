@@ -3,8 +3,14 @@ jQuery(function ($) {
     $('#hc-mb-btn').on('click', function () {
         var url       = $('#hc-mb-url').val().trim();
         var shortcode = $('#hc-mb-shortcode').val();
+        var postTitle = $('#title').val().trim();
+        var postId    = $('#post_ID').val();
 
-        if (!url) { alert('Lütfen URL girin.'); return; }
+        // URL yoksa başlıktan üret
+        if (!url && !postTitle) {
+            alert('URL girin veya yazı başlığını doldurun.');
+            return;
+        }
 
         $('#hc-mb-error').hide();
         $('#hc-mb-success').hide();
@@ -14,7 +20,8 @@ jQuery(function ($) {
         $.post(hcMetabox.ajaxurl, {
             action: 'hc_generate_article',
             nonce:  hcMetabox.nonce,
-            url:    url
+            url:    url,
+            title:  postTitle
         })
         .done(function (resp) {
             $('#hc-mb-loading').hide();
@@ -30,58 +37,56 @@ jQuery(function ($) {
                 return;
             }
 
-            var d       = resp.data;
-            var icerik  = d.icerik || '';
+            var d      = resp.data;
+            var icerik = d.icerik || '';
 
             // Shortcode en üste ekle
             if (shortcode) {
                 icerik = '<p>' + shortcode + '</p>\n\n' + icerik;
             }
 
-            // --- Başlığı doldur ---
-            if (d.baslik && $('#title').length) {
+            // Başlığı doldur (sadece boşsa)
+            if (d.baslik && !$('#title').val().trim()) {
                 $('#title').val(d.baslik).trigger('input');
-                // WP başlık önizlemesini güncelle
                 $('#title-prompt-text').hide();
             }
 
-            // --- İçeriği TinyMCE veya textarea'ya doldur ---
+            // TinyMCE veya textarea
             if (typeof tinyMCE !== 'undefined' && tinyMCE.get('content')) {
                 tinyMCE.get('content').setContent(icerik);
             } else {
                 $('#content').val(icerik);
             }
 
-            // --- Yoast SEO alanlarını doldur ---
-            // Focus keyword
-            $('input[name="yoast_wpseo_focuskw"], #focus-keyword-input-metabox, .wpseo-metabox-keyword-input')
-                .first().val(d.odak_anahtar_kelime || '').trigger('input change');
+            // Etiketleri WP tag box'a ekle
+            var etiketler = Array.isArray(d.etiketler) ? d.etiketler : [];
+            etiketler.forEach(function (tag) {
+                if (typeof tagBox !== 'undefined') {
+                    tagBox.flushTags($('#post_tag.tagsdiv'), $('<span>' + tag + '</span>'), 1);
+                }
+            });
 
-            // Meta açıklama (hidden input + visible textarea)
-            $('textarea[name="yoast_wpseo_metadesc"], input[name="yoast_wpseo_metadesc"]')
-                .val(d.meta_aciklama || '').trigger('input change');
-
-            // SEO title (genelde post title'dan otomatik gelir ama varsa set et)
-            $('input[name="yoast_wpseo_title"]')
-                .val(d.meta_baslik || '').trigger('input change');
-
-            // Etiketler — WP tag input'una ekle
-            if (d.etiketler && Array.isArray(d.etiketler)) {
-                d.etiketler.forEach(function (tag) {
-                    // WP classic editor tag box
-                    if (typeof tagBox !== 'undefined') {
-                        tagBox.flushTags($('#post_tag.tagsdiv'), false, tag);
+            // Yoast + etiketleri sunucu tarafında kaydet (en güvenilir yöntem)
+            if (postId) {
+                $.post(hcMetabox.ajaxurl, {
+                    action:               'hc_update_post_meta',
+                    nonce:                hcMetabox.nonce,
+                    post_id:              postId,
+                    odak_anahtar_kelime:  d.odak_anahtar_kelime || '',
+                    meta_baslik:          d.meta_baslik          || '',
+                    meta_aciklama:        d.meta_aciklama         || '',
+                    etiketler:            etiketler
+                }, function(metaResp) {
+                    if (metaResp.success) {
+                        // Sayfayı yenile — Yoast alanları artık DB'de, reload'da görünür
+                        $('#hc-mb-success').html(
+                            '✓ İçerik eklendi, Yoast ve etiketler kaydedildi. ' +
+                            '<a href="' + window.location.href + '">Sayfayı yenile →</a>'
+                        ).show();
                     }
                 });
-            }
-
-            $('#hc-mb-success').show();
-
-            // Kelime sayısını güncelle
-            if (typeof wordCountL10n !== 'undefined' && typeof wp !== 'undefined' && wp.utils) {
-                setTimeout(function () {
-                    $('#content').trigger('input');
-                }, 300);
+            } else {
+                $('#hc-mb-success').text('✓ İçerik editöre eklendi.').show();
             }
         })
         .fail(function (xhr) {

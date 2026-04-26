@@ -62,8 +62,8 @@ class HC_Post_Metabox {
         ?>
         <div id="hc-mb-wrap">
             <div class="hc-mb-group">
-                <label>Hesaplama Aracı URL</label>
-                <input type="url" id="hc-mb-url" placeholder="https://hesaplamaa.com/..."
+                <label>Hesaplama Aracı URL <small style="font-weight:normal;color:#999;">(opsiyonel)</small></label>
+                <input type="url" id="hc-mb-url" placeholder="Boş bırakılırsa başlıktan üretir"
                        style="width:100%; margin-top:4px;" />
             </div>
 
