@@ -26,6 +26,50 @@ jQuery(function ($) {
         $('#hc-ma-count').text($(this).val().length);
     });
 
+    /* ---- Kullanım kontrol ---- */
+    $(document).on('click', '#hc-check-usage-btn', function () {
+        var $btn     = $(this);
+        var $card    = $('#hc-usage-card');
+        var $content = $('#hc-usage-content');
+
+        $btn.prop('disabled', true).text('Kontrol ediliyor...');
+        $card.hide();
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_check_ai_usage',
+            nonce:  hcAdmin.nonce
+        })
+        .done(function (resp) {
+            $btn.prop('disabled', false).text('Kullanımı Kontrol Et');
+            if (!resp.success) {
+                $content.html('<p style="color:#d63638;">Hata: ' + resp.data + '</p>');
+                $card.show();
+                return;
+            }
+            var d    = resp.data;
+            var html = '<table style="width:100%;border-collapse:collapse;">';
+            if (d.kalan_kredi !== undefined) {
+                html += '<tr><td style="padding:6px 0;border-bottom:1px solid #eee;">Kalan Kredi</td><td style="text-align:right;font-weight:700;color:#1d7917;">$' + d.kalan_kredi + '</td></tr>';
+                html += '<tr><td style="padding:6px 0;border-bottom:1px solid #eee;">Toplam Verilen</td><td style="text-align:right;">$' + d.toplam_kredi + '</td></tr>';
+                html += '<tr><td style="padding:6px 0;border-bottom:1px solid #eee;">Harcanan</td><td style="text-align:right;">$' + d.harcanan + '</td></tr>';
+            }
+            if (d.bu_ay_harcama !== undefined) {
+                html += '<tr><td style="padding:6px 0;">Bu Ay Harcama</td><td style="text-align:right;">$' + d.bu_ay_harcama + '</td></tr>';
+            }
+            if (d.durum) {
+                html += '<tr><td colspan="2" style="padding:8px 0;color:#1d7917;">' + d.durum + '</td></tr>';
+            }
+            html += '</table>';
+            $content.html(html);
+            $card.show();
+        })
+        .fail(function () {
+            $btn.prop('disabled', false).text('Kullanımı Kontrol Et');
+            $content.html('<p style="color:#d63638;">Sunucu hatası.</p>');
+            $card.show();
+        });
+    });
+
     /* ---- Makale oluştur ---- */
     $(document).on('click', '#hc-writer-btn', function () {
         var url = $('#hc-writer-url').val().trim();

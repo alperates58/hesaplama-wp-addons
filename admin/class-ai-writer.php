@@ -4,9 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class HC_AI_Writer {
 
     public function __construct() {
-        add_action( 'admin_init',              [ $this, 'handle_ai_settings_save' ] );
-        add_action( 'wp_ajax_hc_generate_article', [ $this, 'ajax_generate' ] );
-        add_action( 'wp_ajax_hc_save_draft',       [ $this, 'ajax_save_draft' ] );
+        add_action( 'admin_init',                   [ $this, 'handle_ai_settings_save' ] );
+        add_action( 'wp_ajax_hc_generate_article',  [ $this, 'ajax_generate' ] );
+        add_action( 'wp_ajax_hc_save_draft',        [ $this, 'ajax_save_draft' ] );
+        add_action( 'wp_ajax_hc_check_ai_usage',    [ $this, 'ajax_check_usage' ] );
     }
 
     public function handle_ai_settings_save() {
@@ -63,6 +64,21 @@ class HC_AI_Writer {
         wp_send_json_success( $data );
     }
 
+    /* AJAX: OpenAI kullanım/kredi sorgula */
+    public function ajax_check_usage() {
+        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
+
+        $provider = new HC_AI_Provider();
+        $result   = $provider->get_openai_usage();
+
+        if ( is_wp_error( $result ) ) {
+            wp_send_json_error( $result->get_error_message() );
+        }
+
+        wp_send_json_success( $result );
+    }
+
     /* AJAX: WP taslak olarak kaydet + Yoast alanları */
     public function ajax_save_draft() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
@@ -115,6 +131,19 @@ class HC_AI_Writer {
         $provider = new HC_AI_Provider();
         $s        = $provider->get_settings();
         $saved    = isset( $_GET['saved'] );
+
+        $openai_modeller = [
+            'gpt-4o-mini'  => 'GPT-4o Mini — Ucuz, Hızlı (Önerilen)',
+            'gpt-4o'       => 'GPT-4o — En Güçlü',
+            'gpt-4-turbo'  => 'GPT-4 Turbo',
+            'gpt-3.5-turbo'=> 'GPT-3.5 Turbo — En Ucuz',
+        ];
+        $gemini_modeller = [
+            'gemini-2.0-flash-lite' => 'Gemini 2.0 Flash Lite',
+            'gemini-2.0-flash'      => 'Gemini 2.0 Flash',
+            'gemini-1.5-flash'      => 'Gemini 1.5 Flash',
+            'gemini-1.5-pro'        => 'Gemini 1.5 Pro',
+        ];
         ?>
         <?php if ( $saved ): ?>
             <div class="notice notice-success is-dismissible"><p>AI ayarları kaydedildi.</p></div>
@@ -122,53 +151,88 @@ class HC_AI_Writer {
 
         <div class="hc-card">
             <h2>Yapay Zeka Ayarları</h2>
-            <div class="notice notice-warning inline" style="margin:0 0 16px;">
-                <p>
-                    ⚠️ API key'i <strong>Google AI Studio</strong>'dan alın (Google Cloud Console'dan değil):<br>
-                    <a href="https://aistudio.google.com/app/apikey" target="_blank"><strong>aistudio.google.com/app/apikey</strong></a>
-                    → "Create API key" → "Create API key in new project"
-                </p>
-            </div>
 
             <form method="post">
                 <?php wp_nonce_field( 'hc_save_ai_settings' ); ?>
                 <table class="form-table">
                     <tr>
-                        <th><label for="api_key">Gemini API Key</label></th>
+                        <th><label for="provider">Sağlayıcı</label></th>
+                        <td>
+                            <select id="hc-ai-provider" name="provider" onchange="hcToggleProvider(this.value)">
+                                <option value="openai" <?php selected( $s['provider'], 'openai' ); ?>>OpenAI (ChatGPT)</option>
+                                <option value="gemini" <?php selected( $s['provider'], 'gemini' ); ?>>Google Gemini</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="api_key">API Key</label></th>
                         <td>
                             <input type="password" id="api_key" name="api_key"
                                    value="<?php echo esc_attr( $s['api_key'] ); ?>"
-                                   class="regular-text" placeholder="AIza..." />
+                                   class="regular-text"
+                                   placeholder="<?php echo $s['provider'] === 'gemini' ? 'AIza...' : 'sk-...'; ?>" />
+                            <p class="description" id="hc-key-hint">
+                                <?php if ( $s['provider'] === 'openai' ): ?>
+                                    <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com/api-keys</a> → Create new secret key
+                                <?php else: ?>
+                                    <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a>
+                                <?php endif; ?>
+                            </p>
                         </td>
                     </tr>
                     <tr>
                         <th><label for="model">Model</label></th>
                         <td>
                             <select id="model" name="model">
-                                <?php
-                                $modeller = [
-                                    'gemini-2.0-flash-lite'    => 'Gemini 2.0 Flash Lite (Ücretsiz, En Hızlı)',
-                                    'gemini-2.0-flash'         => 'Gemini 2.0 Flash (Ücretsiz)',
-                                    'gemini-1.5-flash'         => 'Gemini 1.5 Flash (Ücretsiz)',
-                                    'gemini-1.5-flash-latest'  => 'Gemini 1.5 Flash Latest (Ücretsiz)',
-                                    'gemini-1.5-pro'           => 'Gemini 1.5 Pro (Ücretli)',
-                                ];
-                                foreach ( $modeller as $val => $label ):
-                                ?>
-                                    <option value="<?php echo esc_attr( $val ); ?>"
-                                        <?php selected( $s['model'], $val ); ?>>
-                                        <?php echo esc_html( $label ); ?>
-                                    </option>
-                                <?php endforeach; ?>
+                                <optgroup label="OpenAI" id="hc-openai-models"
+                                    <?php echo $s['provider'] === 'gemini' ? 'style="display:none"' : ''; ?>>
+                                    <?php foreach ( $openai_modeller as $val => $label ): ?>
+                                        <option value="<?php echo esc_attr( $val ); ?>"
+                                            <?php selected( $s['model'], $val ); ?>>
+                                            <?php echo esc_html( $label ); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </optgroup>
+                                <optgroup label="Gemini" id="hc-gemini-models"
+                                    <?php echo $s['provider'] === 'openai' ? 'style="display:none"' : ''; ?>>
+                                    <?php foreach ( $gemini_modeller as $val => $label ): ?>
+                                        <option value="<?php echo esc_attr( $val ); ?>"
+                                            <?php selected( $s['model'], $val ); ?>>
+                                            <?php echo esc_html( $label ); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </optgroup>
                             </select>
                         </td>
                     </tr>
                 </table>
                 <p class="submit">
                     <button type="submit" name="hc_save_ai" class="button button-primary">Kaydet</button>
+                    <button type="button" id="hc-check-usage-btn" class="button" style="margin-left:8px;">
+                        Kullanımı Kontrol Et
+                    </button>
                 </p>
             </form>
         </div>
+
+        <div id="hc-usage-card" class="hc-card" style="display:none; border-left:4px solid #2271b1;">
+            <h2>Kullanım Durumu</h2>
+            <div id="hc-usage-content"></div>
+            <p style="margin-top:12px;">
+                <a href="https://platform.openai.com/usage" target="_blank">
+                    → Detaylı kullanım için platform.openai.com/usage
+                </a>
+            </p>
+        </div>
+
+        <script>
+        function hcToggleProvider(val) {
+            var isOpenai = val === 'openai';
+            document.getElementById('hc-openai-models').style.display = isOpenai ? '' : 'none';
+            document.getElementById('hc-gemini-models').style.display = isOpenai ? 'none' : '';
+            document.getElementById('api_key').placeholder = isOpenai ? 'sk-...' : 'AIza...';
+        }
+        </script>
         <?php
     }
 
