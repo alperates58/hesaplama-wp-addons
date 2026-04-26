@@ -1,0 +1,33 @@
+.hc-burc-uyumu-hesaplama-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-burc-uyumu-hesaplama-title {
+    margin: 0 0 8px;
+    text-align: center;
+    font-weight: 700;
+    color: #2d3a4a;
+}
+
+.hc-burc-uyumu-hesaplama-seviye {
+    margin: 6px 0 8px;
+    text-align: center;
+    font-weight: 600;
+    color: #6b2f88;
+}
+
+.hc-burc-uyumu-hesaplama-yorum {
+    margin: 0;
+    text-align: center;
+    color: #444;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .hc-burc-uyumu-hesaplama-grid {
+        grid-template-columns: 1fr;
+    }
+}
