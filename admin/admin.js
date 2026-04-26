@@ -135,7 +135,8 @@ jQuery(function ($) {
             odak_anahtar_kelime:  $('#hc-r-odak').val(),
             meta_baslik:          $('#hc-r-meta-baslik').val(),
             meta_aciklama:        $('#hc-r-meta-acik').val(),
-            etiketler:            etiketler
+            etiketler:            etiketler,
+            shortcode:            $('#hc-writer-shortcode').val()
         }, function (resp) {
             $('#hc-save-draft-btn').prop('disabled', false);
             if (resp.success) {

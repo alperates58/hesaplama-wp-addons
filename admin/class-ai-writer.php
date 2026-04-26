@@ -90,6 +90,12 @@ class HC_AI_Writer {
         $meta_baslik = sanitize_text_field( $_POST['meta_baslik']         ?? '' );
         $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama']   ?? '' );
         $etiketler   = array_map( 'sanitize_text_field', (array) ( $_POST['etiketler'] ?? [] ) );
+        $shortcode   = sanitize_text_field( $_POST['shortcode']           ?? '' );
+
+        // Shortcode içeriğin en üstüne ekle
+        if ( $shortcode ) {
+            $icerik = '<p>' . $shortcode . '</p>' . "\n\n" . $icerik;
+        }
 
         $post_id = wp_insert_post( [
             'post_title'   => $baslik,
@@ -237,6 +243,20 @@ class HC_AI_Writer {
     }
 
     public function render_writer_tab() {
+        // Aktif modüller
+        $modules_dir = HC_PLUGIN_DIR . 'modules/';
+        $modules     = [];
+        if ( is_dir( $modules_dir ) ) {
+            foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $path ) {
+                $slug      = basename( $path );
+                $meta_file = $path . '/meta.json';
+                $meta      = file_exists( $meta_file ) ? json_decode( file_get_contents( $meta_file ), true ) : [];
+                $modules[] = [
+                    'name'      => $meta['name'] ?? $slug,
+                    'shortcode' => '[hc_' . str_replace( '-', '_', $slug ) . ']',
+                ];
+            }
+        }
         ?>
         <div class="hc-card">
             <h2>Yazı Oluştur</h2>
@@ -247,6 +267,21 @@ class HC_AI_Writer {
                 <input type="url" id="hc-writer-url" class="large-text"
                        placeholder="https://hesaplamaa.com/..." />
             </div>
+
+            <?php if ( $modules ): ?>
+            <div class="hc-form-group">
+                <label for="hc-writer-shortcode"><strong>Hesap Makinesi Shortcode</strong> <small>(yazının en üstüne eklenir)</small></label>
+                <select id="hc-writer-shortcode" class="regular-text">
+                    <option value="">— Ekleme —</option>
+                    <?php foreach ( $modules as $m ): ?>
+                        <option value="<?php echo esc_attr( $m['shortcode'] ); ?>">
+                            <?php echo esc_html( $m['name'] ); ?> — <?php echo esc_html( $m['shortcode'] ); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php endif; ?>
+
             <button id="hc-writer-btn" class="button button-primary" style="margin-bottom:20px;">
                 ✨ Makale Oluştur
             </button>

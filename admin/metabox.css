@@ -1,0 +1,14 @@
+#hc-mb-wrap label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+}
+
+.hc-mb-group {
+    margin-bottom: 10px;
+}
+
+#hc-mb-wrap input[type="url"],
+#hc-mb-wrap select {
+    font-size: 13px;
+}
