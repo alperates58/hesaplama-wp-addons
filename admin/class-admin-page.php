@@ -30,6 +30,8 @@ class HC_Admin_Page {
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),
             'checking'    => 'Kontrol ediliyor...',
             'norepo'      => 'Önce repo adresini kaydedin.',
+            'generating'  => '⏳ Yapay zeka makaleyi yazıyor (20-60 sn)...',
+            'saving'      => 'Kaydediliyor...',
         ] );
     }
 
@@ -58,6 +60,14 @@ class HC_Admin_Page {
                    class="nav-tab <?php echo $tab === 'modules' ? 'nav-tab-active' : ''; ?>">
                     Modüller
                 </a>
+                <a href="?page=hesaplama-suite&tab=writer"
+                   class="nav-tab <?php echo $tab === 'writer' ? 'nav-tab-active' : ''; ?>">
+                    ✨ Yazı Oluştur
+                </a>
+                <a href="?page=hesaplama-suite&tab=ai-settings"
+                   class="nav-tab <?php echo $tab === 'ai-settings' ? 'nav-tab-active' : ''; ?>">
+                    AI Ayarları
+                </a>
                 <a href="?page=hesaplama-suite&tab=github"
                    class="nav-tab <?php echo $tab === 'github' ? 'nav-tab-active' : ''; ?>">
                     GitHub Ayarları
@@ -66,8 +76,11 @@ class HC_Admin_Page {
 
             <div class="hc-tab-content">
                 <?php
-                if ( $tab === 'github' ) $this->render_github_tab();
-                else                    $this->render_modules_tab();
+                $writer = new HC_AI_Writer();
+                if ( $tab === 'github' )      $this->render_github_tab();
+                elseif ( $tab === 'writer' )  $writer->render_writer_tab();
+                elseif ( $tab === 'ai-settings' ) $writer->render_ai_settings_tab();
+                else                          $this->render_modules_tab();
                 ?>
             </div>
         </div>

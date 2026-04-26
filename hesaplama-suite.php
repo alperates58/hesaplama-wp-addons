@@ -17,8 +17,11 @@ define( 'HC_PLUGIN_FILE', __FILE__ );
 
 require_once HC_PLUGIN_DIR . 'includes/class-github-updater.php';
 require_once HC_PLUGIN_DIR . 'includes/class-calculator-loader.php';
+require_once HC_PLUGIN_DIR . 'includes/class-ai-provider.php';
 require_once HC_PLUGIN_DIR . 'admin/class-admin-page.php';
+require_once HC_PLUGIN_DIR . 'admin/class-ai-writer.php';
 
 new HC_Github_Updater();
 new HC_Calculator_Loader();
 new HC_Admin_Page();
+new HC_AI_Writer();
