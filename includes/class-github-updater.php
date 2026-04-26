@@ -89,8 +89,9 @@ class HC_Github_Updater {
 
         if ( is_wp_error( $unzip ) ) return $unzip->get_error_message();
 
-        // GitHub ZIP'i repo-branch/ klasörüne çıkarır, doğru isimle taşı
-        $extracted_dir = $plugin_base . '/' . str_replace( '/', '-', $s['repo'] ) . '-' . $s['branch'];
+        // GitHub ZIP'i repoadi-branch/ klasörüne çıkarır (kullanıcı adı olmadan)
+        $repo_name     = basename( $s['repo'] ); // 'alperates58/hesaplama-wp-addons' → 'hesaplama-wp-addons'
+        $extracted_dir = $plugin_base . '/' . $repo_name . '-' . $s['branch'];
         $plugin_slug   = basename( $dest );
 
         if ( is_dir( $extracted_dir ) ) {

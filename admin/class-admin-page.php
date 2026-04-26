@@ -149,8 +149,8 @@ class HC_Admin_Page {
                 <?php wp_nonce_field( 'hc_update_from_github' ); ?>
                 <input type="hidden" name="action" value="hc_update_from_github" />
                 <button type="submit" class="button button-primary hc-update-btn"
-                        onclick="return confirm('GitHub\'dan güncellemek istediğinize emin misiniz?')">
-                    ↓ GitHub\'dan Güncelle
+                        onclick="return confirm('GitHub dan guncellemek istediginize emin misiniz?')">
+                    &#8595; GitHub&apos;dan G&uuml;ncelle
                 </button>
             </form>
         </div>
