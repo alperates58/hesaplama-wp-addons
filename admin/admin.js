@@ -1,5 +1,8 @@
 jQuery(function ($) {
 
+    // Yüklenme kontrolü — browser konsolunda "HC Admin JS v1.0.3" görünmeli
+    console.log('HC Admin JS v1.0.3 yüklendi.');
+
     /* ---- GitHub versiyon kontrol ---- */
     $('#hc-check-version').on('click', function () {
         var $result = $('#hc-version-result');
@@ -37,12 +40,22 @@ jQuery(function ($) {
             action: 'hc_generate_article',
             nonce:  hcAdmin.nonce,
             url:    url
-        }, function (resp) {
+        })
+        .done(function (resp, status, xhr) {
             $('#hc-writer-loading').hide();
             $('#hc-writer-btn').prop('disabled', false).text('✨ Makale Oluştur');
 
-            if (!resp.success) {
-                $('#hc-writer-error').text('Hata: ' + resp.data).show();
+            // JSON string gelirse parse et
+            if (typeof resp === 'string') {
+                try { resp = JSON.parse(resp); } catch(e) {
+                    $('#hc-writer-error').text('JSON parse hatası. Ham yanıt: ' + resp.substring(0, 200)).show();
+                    return;
+                }
+            }
+
+            if (!resp || !resp.success) {
+                var msg = (resp && resp.data) ? resp.data : 'Bilinmeyen hata.';
+                $('#hc-writer-error').text('Hata: ' + msg).show();
                 return;
             }
 
@@ -54,10 +67,11 @@ jQuery(function ($) {
             $('#hc-r-baslik').val(d.baslik || '');
             $('#hc-r-icerik').val(d.icerik || '');
             $('#hc-writer-result').show();
-        }).fail(function () {
+        })
+        .fail(function (xhr) {
             $('#hc-writer-loading').hide();
             $('#hc-writer-btn').prop('disabled', false).text('✨ Makale Oluştur');
-            $('#hc-writer-error').text('Sunucu hatası oluştu.').show();
+            $('#hc-writer-error').text('Sunucu hatası: HTTP ' + xhr.status + ' — ' + xhr.responseText.substring(0, 150)).show();
         });
     });
 
