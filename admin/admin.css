@@ -1,0 +1,29 @@
+.hc-wrap { max-width: 900px; }
+
+.hc-tab-content { margin-top: 20px; }
+
+.hc-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+.hc-card h2 {
+    margin-top: 0;
+    padding-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.hc-update-box {
+    border-left: 4px solid #2271b1;
+}
+
+.hc-update-btn {
+    font-size: 14px !important;
+    padding: 6px 16px !important;
+    height: auto !important;
+}
