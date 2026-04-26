@@ -8,6 +8,7 @@ class HC_AI_Writer {
         add_action( 'wp_ajax_hc_generate_article',  [ $this, 'ajax_generate' ] );
         add_action( 'wp_ajax_hc_save_draft',        [ $this, 'ajax_save_draft' ] );
         add_action( 'wp_ajax_hc_check_ai_usage',    [ $this, 'ajax_check_usage' ] );
+        add_action( 'wp_ajax_hc_create_module_post', [ $this, 'ajax_create_module_post' ] );
     }
 
     public function handle_ai_settings_save() {
@@ -62,6 +63,54 @@ class HC_AI_Writer {
         }
 
         wp_send_json_success( $data );
+    }
+
+    /* AJAX: Modül için taslak yazı oluştur ve editöre yönlendir */
+    public function ajax_create_module_post() {
+        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
+        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
+
+        $name      = sanitize_text_field( $_POST['name']      ?? '' );
+        $shortcode = sanitize_text_field( $_POST['shortcode'] ?? '' );
+
+        if ( ! $name ) wp_send_json_error( 'Modül adı eksik.' );
+
+        // Aynı başlıkta yazı var mı kontrol et
+        $existing = get_page_by_title( $name, OBJECT, 'post' );
+        if ( $existing ) {
+            wp_send_json_success( [
+                'edit_url'  => admin_url( 'post.php?post=' . $existing->ID . '&action=edit' ),
+                'existing'  => true,
+            ] );
+        }
+
+        // Türkçe karakterleri dönüştür, slug oluştur
+        $slug = $this->turkish_slug( $name );
+
+        $post_id = wp_insert_post( [
+            'post_title'   => $name,
+            'post_name'    => $slug,
+            'post_content' => $shortcode ? $shortcode : '',
+            'post_status'  => 'draft',
+            'post_type'    => 'post',
+        ] );
+
+        if ( is_wp_error( $post_id ) ) {
+            wp_send_json_error( $post_id->get_error_message() );
+        }
+
+        wp_send_json_success( [
+            'edit_url' => admin_url( 'post.php?post=' . $post_id . '&action=edit' ),
+            'existing' => false,
+        ] );
+    }
+
+    private function turkish_slug( $text ) {
+        $tr = [ 'ş','Ş','ı','İ','ğ','Ğ','ü','Ü','ö','Ö','ç','Ç' ];
+        $en = [ 's','s','i','i','g','g','u','u','o','o','c','c' ];
+        $text = str_replace( $tr, $en, $text );
+        $text = sanitize_title( $text );
+        return $text;
     }
 
     /* AJAX: OpenAI kullanım/kredi sorgula */

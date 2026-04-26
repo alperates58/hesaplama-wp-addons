@@ -200,6 +200,7 @@ class HC_Admin_Page {
                             <th>Hesap Makinesi</th>
                             <th>Shortcode</th>
                             <th>Açıklama</th>
+                            <th style="width:130px;"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -208,6 +209,16 @@ class HC_Admin_Page {
                             <td><strong><?php echo esc_html( $m['name'] ); ?></strong></td>
                             <td><code><?php echo esc_html( $m['shortcode'] ); ?></code></td>
                             <td><?php echo esc_html( $m['desc'] ); ?></td>
+                            <td>
+                                <button
+                                    class="button hc-yazi-ekle-btn"
+                                    data-name="<?php echo esc_attr( $m['name'] ); ?>"
+                                    data-shortcode="<?php echo esc_attr( $m['shortcode'] ); ?>"
+                                    data-nonce="<?php echo esc_attr( wp_create_nonce( 'hc_ajax_nonce' ) ); ?>">
+                                    + Yazı Ekle
+                                </button>
+                                <span class="hc-yazi-ekle-msg" style="display:none; font-size:12px; color:#666;"></span>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

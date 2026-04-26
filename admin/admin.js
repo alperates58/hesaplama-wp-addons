@@ -26,6 +26,37 @@ jQuery(function ($) {
         $('#hc-ma-count').text($(this).val().length);
     });
 
+    /* ---- Modül için yazı ekle ---- */
+    $(document).on('click', '.hc-yazi-ekle-btn', function () {
+        var $btn  = $(this);
+        var $msg  = $btn.siblings('.hc-yazi-ekle-msg');
+        var name  = $btn.data('name');
+        var sc    = $btn.data('shortcode');
+        var nonce = $btn.data('nonce');
+
+        $btn.prop('disabled', true).text('Oluşturuluyor...');
+        $msg.hide();
+
+        $.post(hcAdmin.ajaxurl, {
+            action:    'hc_create_module_post',
+            nonce:     nonce,
+            name:      name,
+            shortcode: sc
+        }, function (resp) {
+            $btn.prop('disabled', false).text('+ Yazı Ekle');
+            if (!resp.success) {
+                $msg.text('Hata: ' + resp.data).css('color','#d63638').show();
+                return;
+            }
+            if (resp.data.existing) {
+                $msg.html('Zaten var. <a href="' + resp.data.edit_url + '">Aç →</a>').css('color','#e67e22').show();
+            } else {
+                // Direkt editöre git
+                window.location.href = resp.data.edit_url;
+            }
+        });
+    });
+
     /* ---- Kullanım kontrol ---- */
     $(document).on('click', '#hc-check-usage-btn', function () {
         var $btn     = $(this);
