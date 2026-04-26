@@ -88,18 +88,24 @@ Global CSS sınıfları (`assets/style.css`'ten miras alır):
 .hc-result-value    → büyük sonuç değeri
 ```
 
-### 5. Commit ve Push
+### 5. Commit ve Gönder
 
 ```bash
 git add modules/{slug}/
 git commit -m "feat: {Hesap Makinesi Adı} modülü eklendi
 
 Shortcode: [hc_{slug_alt_cizgi}]
-Kaynak: {URL}
-
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
-git push origin main
+Kaynak: {URL}"
 ```
+
+**Araç türüne göre:**
+
+| Araç | Sonraki adım |
+|------|-------------|
+| **Claude Code** (web/desktop) | `git push origin main` ile direkt push yap |
+| **Codex** | Push yapma. Commit'i yap, ardından arayüzdeki **"PR oluştur"** butonuna bas. Kullanıcı PR'ı merge edecek. |
+
+> Codex'te remote tanımlı olmayabilir. `git push` başarısız olursa PR oluştur yeterli.
 
 ---
 
