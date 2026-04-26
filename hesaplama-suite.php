@@ -10,7 +10,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'HC_VERSION',    '1.0.3' );
+define( 'HC_VERSION',    '1.0.4' );
 define( 'HC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'HC_PLUGIN_FILE', __FILE__ );

@@ -122,10 +122,13 @@ class HC_AI_Writer {
 
         <div class="hc-card">
             <h2>Yapay Zeka Ayarları</h2>
-            <p>
-                Google AI Studio'dan ücretsiz API key alabilirsiniz:
-                <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com</a>
-            </p>
+            <div class="notice notice-warning inline" style="margin:0 0 16px;">
+                <p>
+                    ⚠️ API key'i <strong>Google AI Studio</strong>'dan alın (Google Cloud Console'dan değil):<br>
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank"><strong>aistudio.google.com/app/apikey</strong></a>
+                    → "Create API key" → "Create API key in new project"
+                </p>
+            </div>
 
             <form method="post">
                 <?php wp_nonce_field( 'hc_save_ai_settings' ); ?>
@@ -144,10 +147,11 @@ class HC_AI_Writer {
                             <select id="model" name="model">
                                 <?php
                                 $modeller = [
-                                    'gemini-2.0-flash'         => 'Gemini 2.0 Flash (Ücretsiz, Önerilen)',
+                                    'gemini-2.0-flash-lite'    => 'Gemini 2.0 Flash Lite (Ücretsiz, En Hızlı)',
+                                    'gemini-2.0-flash'         => 'Gemini 2.0 Flash (Ücretsiz)',
                                     'gemini-1.5-flash'         => 'Gemini 1.5 Flash (Ücretsiz)',
+                                    'gemini-1.5-flash-latest'  => 'Gemini 1.5 Flash Latest (Ücretsiz)',
                                     'gemini-1.5-pro'           => 'Gemini 1.5 Pro (Ücretli)',
-                                    'gemini-2.0-flash-thinking-exp' => 'Gemini 2.0 Flash Thinking (Deneysel)',
                                 ];
                                 foreach ( $modeller as $val => $label ):
                                 ?>
