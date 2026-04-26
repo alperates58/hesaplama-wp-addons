@@ -1,0 +1,5 @@
+{
+  "name": "Aşk Uyumu Hesaplama",
+  "desc": "Doğum tarihine göre burç ve numeroloji uyumu hesaplar, uyum yüzdesi ve yorum verir.",
+  "shortcode": "[hc_ask_uyumu]"
+}
