@@ -23,8 +23,14 @@ class HC_Admin_Page {
 
     public function enqueue_admin_assets( $hook ) {
         if ( $hook !== 'toplevel_page_hesaplama-suite' ) return;
-        wp_enqueue_style( 'hc-admin', HC_PLUGIN_URL . 'admin/admin.css', [], HC_VERSION );
-        wp_enqueue_script( 'hc-admin', HC_PLUGIN_URL . 'admin/admin.js', [ 'jquery' ], HC_VERSION, true );
+
+        $script_file = HC_PLUGIN_DIR . 'admin/admin.js';
+        $style_file  = HC_PLUGIN_DIR . 'admin/admin.css';
+        $script_ver  = file_exists( $script_file ) ? HC_VERSION . '-' . filemtime( $script_file ) : HC_VERSION;
+        $style_ver   = file_exists( $style_file ) ? HC_VERSION . '-' . filemtime( $style_file ) : HC_VERSION;
+
+        wp_enqueue_style( 'hc-admin', HC_PLUGIN_URL . 'admin/admin.css', [], $style_ver );
+        wp_enqueue_script( 'hc-admin', HC_PLUGIN_URL . 'admin/admin.js', [ 'jquery' ], $script_ver, true );
         wp_localize_script( 'hc-admin', 'hcAdmin', [
             'nonce'       => wp_create_nonce( 'hc_ajax_nonce' ),
             'ajaxurl'     => admin_url( 'admin-ajax.php' ),

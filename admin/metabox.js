@@ -1,5 +1,16 @@
 jQuery(function ($) {
 
+    function hcSetFieldValue($field, value) {
+        if (!$field.length || !value) return;
+        $field.val(value).trigger('input').trigger('change');
+    }
+
+    function hcFillYoastFields(data) {
+        hcSetFieldValue($('#yoast_wpseo_focuskw, input[name="_yoast_wpseo_focuskw"]'), data.odak_anahtar_kelime || '');
+        hcSetFieldValue($('#yoast_wpseo_title, input[name="_yoast_wpseo_title"]'), data.meta_baslik || '');
+        hcSetFieldValue($('#yoast_wpseo_metadesc, textarea[name="_yoast_wpseo_metadesc"]'), data.meta_aciklama || '');
+    }
+
     $('#hc-mb-btn').on('click', function () {
         var url       = $('#hc-mb-url').val().trim();
         var shortcode = $('#hc-mb-shortcode').val();
@@ -39,6 +50,7 @@ jQuery(function ($) {
 
             var d      = resp.data;
             var icerik = d.icerik || '';
+            hcFillYoastFields(d);
 
             // Shortcode en üste ekle
             if (shortcode) {

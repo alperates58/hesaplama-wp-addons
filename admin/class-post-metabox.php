@@ -22,18 +22,23 @@ class HC_Post_Metabox {
     public function enqueue( $hook ) {
         if ( ! in_array( $hook, [ 'post.php', 'post-new.php' ] ) ) return;
 
+        $script_file = HC_PLUGIN_DIR . 'admin/metabox.js';
+        $style_file  = HC_PLUGIN_DIR . 'admin/metabox.css';
+        $script_ver  = file_exists( $script_file ) ? HC_VERSION . '-' . filemtime( $script_file ) : HC_VERSION;
+        $style_ver   = file_exists( $style_file ) ? HC_VERSION . '-' . filemtime( $style_file ) : HC_VERSION;
+
         wp_enqueue_script(
             'hc-metabox',
             HC_PLUGIN_URL . 'admin/metabox.js',
             [ 'jquery' ],
-            HC_VERSION,
+            $script_ver,
             true
         );
         wp_enqueue_style(
             'hc-metabox',
             HC_PLUGIN_URL . 'admin/metabox.css',
             [],
-            HC_VERSION
+            $style_ver
         );
         wp_localize_script( 'hc-metabox', 'hcMetabox', [
             'nonce'   => wp_create_nonce( 'hc_ajax_nonce' ),
