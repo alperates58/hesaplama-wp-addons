@@ -1,0 +1,80 @@
+#hc-emekli-maasi-hesaplama-2026 {
+    max-width: 760px;
+}
+
+.hc-emekli-maasi-hesaplama-2026-grid {
+    display: grid;
+    gap: 14px 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hc-emekli-maasi-hesaplama-2026-btn {
+    margin-top: 6px;
+}
+
+.hc-emekli-maasi-hesaplama-2026-summary {
+    align-items: flex-start;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+}
+
+.hc-emekli-maasi-hesaplama-2026-summary span {
+    color: #4b5563;
+    font-size: 13px;
+}
+
+.hc-emekli-maasi-hesaplama-2026-table {
+    border-collapse: collapse;
+    font-size: 14px;
+    width: 100%;
+}
+
+.hc-emekli-maasi-hesaplama-2026-table td {
+    border-bottom: 1px solid #eef2f7;
+    padding: 9px 0;
+}
+
+.hc-emekli-maasi-hesaplama-2026-table td:first-child {
+    color: #4b5563;
+}
+
+.hc-emekli-maasi-hesaplama-2026-table td:last-child {
+    color: #111827;
+    font-weight: 700;
+    text-align: right;
+}
+
+.hc-emekli-maasi-hesaplama-2026-note {
+    background: #f8fafc;
+    border-left: 3px solid #2563eb;
+    color: #334155;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 14px 0 0;
+    padding: 10px 12px;
+}
+
+@media (max-width: 480px) {
+    .hc-emekli-maasi-hesaplama-2026-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-emekli-maasi-hesaplama-2026-table {
+        font-size: 13px;
+    }
+
+    .hc-emekli-maasi-hesaplama-2026-table td {
+        display: block;
+        padding: 6px 0;
+        text-align: left;
+    }
+
+    .hc-emekli-maasi-hesaplama-2026-table td:last-child {
+        padding-bottom: 10px;
+        text-align: left;
+    }
+}
