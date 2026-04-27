@@ -252,7 +252,7 @@ function hcMaasTabloHesapla2026() {
     var maliyetGoster = document.getElementById('hc-maas-maliyet').checked;
     var indirim5 = document.getElementById('hc-maas-indirim5').checked;
     var indirim2 = document.getElementById('hc-maas-indirim2').checked;
-    var istisna = document.getElementById('hc-maas-istisna').checked;
+    var istisna = true;
 
     hcMaasBosAylariOncekiyleDoldur();
 

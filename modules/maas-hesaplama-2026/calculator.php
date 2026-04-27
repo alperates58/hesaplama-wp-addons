@@ -58,7 +58,6 @@ function hc_render_maas_hesaplama_2026( $atts ) {
                 <label><input type="checkbox" id="hc-maas-maliyet" checked /> İşveren maliyetini göster</label>
                 <label><input type="checkbox" id="hc-maas-indirim5" checked /> Sigorta primi işveren payının hesabında 5 puanlık indirim dikkate alınsın.</label>
                 <label><input type="checkbox" id="hc-maas-indirim2" /> Sigorta primi işveren payının hesabında 2 puanlık indirim dikkate alınsın.</label>
-                <label><input type="checkbox" id="hc-maas-istisna" checked /> Asgari ücret GV / Damga istisnası uygula</label>
             </div>
         </div>
 
