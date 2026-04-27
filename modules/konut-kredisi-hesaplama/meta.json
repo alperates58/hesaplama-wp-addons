@@ -1,0 +1,5 @@
+{
+  "name": "Konut Kredisi Hesaplama",
+  "desc": "Konut kredisi tutarı, vade ve aylık faiz oranına göre taksit, toplam ödeme ve faiz yükünü hesaplar.",
+  "shortcode": "[hc_konut_kredisi_hesaplama]"
+}
