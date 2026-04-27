@@ -23,6 +23,16 @@ function hcTL(n) {
     return hcRound2(n).toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
+function hcTLInput(n) {
+    return hcRound2(n).toLocaleString('tr-TR', { maximumFractionDigits: 2 });
+}
+
+function hcMaasParseTutar(value) {
+    if (typeof value !== 'string') return NaN;
+    var temiz = value.replace(/\s/g, '').replace(/\./g, '').replace(',', '.');
+    return parseFloat(temiz);
+}
+
 function hcGelirVergisi(kumulatifOnce, matrahAy) {
     var kalan = matrahAy;
     var vergi = 0;
@@ -109,7 +119,7 @@ function hcSgkIsverenOran(indirim5, indirim2) {
 }
 
 function hcMaasTableRowInput(i) {
-    return '<input type="number" class="hc-maas-input" id="hc-maas-ay-' + i + '" min="0" step="0.01" />';
+    return '<input type="text" inputmode="decimal" class="hc-maas-input" id="hc-maas-ay-' + i + '" data-month-index="' + i + '" autocomplete="off" />';
 }
 
 function hcBosDeger() {
@@ -179,6 +189,63 @@ function hcMaasIsverenKolonlariGuncelle() {
     }
 }
 
+function hcMaasMedeniDurumGuncelle() {
+    var medeni = document.getElementById('hc-maas-medeni').value;
+    var esi = document.getElementById('hc-maas-esi');
+
+    if (medeni === 'bekar') {
+        esi.value = 'evet';
+        esi.disabled = true;
+        esi.setAttribute('aria-disabled', 'true');
+    } else {
+        esi.disabled = false;
+        esi.removeAttribute('aria-disabled');
+    }
+}
+
+function hcMaasSonrakiAylariDoldur(input) {
+    var index = parseInt(input.getAttribute('data-month-index'), 10);
+    var tutar = hcMaasParseTutar(input.value);
+
+    if (isNaN(index) || isNaN(tutar) || tutar <= 0) return;
+
+    input.value = hcTLInput(tutar);
+
+    var inputs = document.querySelectorAll('#hc-maas-hesaplama-2026 .hc-maas-input');
+    for (var i = index + 1; i < inputs.length; i++) {
+        inputs[i].value = hcTLInput(tutar);
+    }
+}
+
+function hcMaasInputlariBagla() {
+    var inputs = document.querySelectorAll('#hc-maas-hesaplama-2026 .hc-maas-input');
+
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('change', function() {
+            hcMaasSonrakiAylariDoldur(this);
+        });
+        inputs[i].addEventListener('blur', function() {
+            hcMaasSonrakiAylariDoldur(this);
+        });
+    }
+}
+
+function hcMaasBosAylariOncekiyleDoldur() {
+    var inputs = document.querySelectorAll('#hc-maas-hesaplama-2026 .hc-maas-input');
+    var sonTutar = null;
+
+    for (var i = 0; i < inputs.length; i++) {
+        var tutar = hcMaasParseTutar(inputs[i].value);
+
+        if (!isNaN(tutar) && tutar > 0) {
+            sonTutar = tutar;
+            inputs[i].value = hcTLInput(tutar);
+        } else if (sonTutar !== null) {
+            inputs[i].value = hcTLInput(sonTutar);
+        }
+    }
+}
+
 function hcMaasTabloHesapla2026() {
     var tur = document.getElementById('hc-maas-ucret-tipi').value;
     var cocuk = parseInt(document.getElementById('hc-maas-cocuk').value, 10);
@@ -186,6 +253,8 @@ function hcMaasTabloHesapla2026() {
     var indirim5 = document.getElementById('hc-maas-indirim5').checked;
     var indirim2 = document.getElementById('hc-maas-indirim2').checked;
     var istisna = document.getElementById('hc-maas-istisna').checked;
+
+    hcMaasBosAylariOncekiyleDoldur();
 
     if (isNaN(cocuk) || cocuk < 0) {
         alert('Çocuk sayısı 0 veya daha büyük olmalıdır.');
@@ -222,7 +291,7 @@ function hcMaasTabloHesapla2026() {
     for (var i = 0; i < rows.length; i++) {
         var row = rows[i];
         var input = row.querySelector('.hc-maas-input');
-        var girilen = parseFloat(input.value);
+        var girilen = hcMaasParseTutar(input.value);
 
         if (isNaN(girilen) || girilen <= 0) {
             alert(HC_MAAS_2026.aylar[i] + ' için geçerli bir tutar girin.');
@@ -262,7 +331,7 @@ function hcMaasTabloHesapla2026() {
         row.querySelector('[data-k="issizlikIsveren"]').textContent = maliyetGoster ? hcTL(issizlikIsveren) : '';
         row.querySelector('[data-k="toplamMaliyet"]').textContent = maliyetGoster ? hcTL(toplamMaliyet) : '';
 
-        input.value = hcTL(tur === 'brutten' ? hesap.brut : hesap.net).replace(/\./g, '').replace(',', '.');
+        input.value = hcTLInput(tur === 'brutten' ? hesap.brut : hesap.net);
 
         toplam.brut += hesap.brut;
         toplam.sskIsci += hesap.sskIsci;
@@ -293,7 +362,10 @@ function hcMaasTabloHesapla2026() {
     hcOlusturTablo();
     hcMaasBaslikGuncelle();
     hcMaasIsverenKolonlariGuncelle();
+    hcMaasMedeniDurumGuncelle();
+    hcMaasInputlariBagla();
 
     document.getElementById('hc-maas-ucret-tipi').addEventListener('change', hcMaasBaslikGuncelle);
     document.getElementById('hc-maas-maliyet').addEventListener('change', hcMaasIsverenKolonlariGuncelle);
+    document.getElementById('hc-maas-medeni').addEventListener('change', hcMaasMedeniDurumGuncelle);
 })();

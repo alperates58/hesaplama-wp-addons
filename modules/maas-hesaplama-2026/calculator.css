@@ -1,6 +1,6 @@
 #hc-maas-hesaplama-2026 {
     box-sizing: border-box;
-    max-width: 1080px;
+    max-width: 1240px;
     width: 100%;
 }
 
@@ -29,6 +29,12 @@
 #hc-maas-hesaplama-2026 .hc-form-group select {
     font-size: 13px;
     padding: 6px 9px;
+}
+
+#hc-maas-hesaplama-2026 .hc-form-group select:disabled {
+    background: #f3f4f6;
+    color: #6b7280;
+    cursor: not-allowed;
 }
 
 .hc-maas-hesaplama-2026-checks {
@@ -72,7 +78,7 @@
 .hc-maas-hesaplama-2026-table {
     border-collapse: collapse;
     font-size: 11px;
-    min-width: 1040px;
+    min-width: 1180px;
     table-layout: fixed;
     width: 100%;
 }
@@ -96,8 +102,13 @@
 
 .hc-maas-hesaplama-2026-table th:first-child,
 .hc-maas-hesaplama-2026-table td:first-child {
-    width: 62px;
+    width: 56px;
     text-align: left;
+}
+
+.hc-maas-hesaplama-2026-table th:nth-child(2),
+.hc-maas-hesaplama-2026-table td:nth-child(2) {
+    width: 92px;
 }
 
 .hc-maas-month {
@@ -109,10 +120,11 @@
     border: 1px solid #cfd4dc;
     border-radius: 3px;
     box-sizing: border-box;
-    font-size: 11px;
-    height: 24px;
-    max-width: 78px;
-    padding: 2px 4px;
+    font-size: 12px;
+    height: 26px;
+    max-width: 88px;
+    min-width: 78px;
+    padding: 2px 6px;
     text-align: right;
     width: 100%;
 }
@@ -155,10 +167,10 @@
 
     .hc-maas-hesaplama-2026-table {
         font-size: 10px;
-        min-width: 1000px;
+        min-width: 1120px;
     }
 
     .hc-maas-input {
-        max-width: 92px;
+        max-width: 88px;
     }
 }
