@@ -16,14 +16,30 @@ Kullanıcı bir hesap makinesi sayfasının URL'ini paylaştığında şu adıml
 - URL'deki hesap makinesinin **giriş alanlarını** belirle
 - **Hesaplama formülünü / mantığını** çıkart
 - **Çıktı formatını** (sonuç tipi, birimler, yorumlar) anla
-- Sayfa içeriğini okuyamazsan (403 vb.) web search veya genel bilgini kullan
+- Sayfa içeriğini okuyamazsan (403 vb.) **web araması yap** ve güncel, doğru hesaplama yöntemini bul
+- Hesaplama yöntemi veya formülde belirsizlik varsa yine web araması ile doğrula; bulduğun kaynağı commit mesajına ekle
 
-### 2. Modül Slug'ı Belirle
+### 2. Birim ve Dil Kuralları
+
+> **Bu kurallar tüm modüller için zorunludur, istisnasız uygulanır.**
+
+- **Dil:** Tüm etiketler, placeholder'lar, hata mesajları, yorum metinleri ve açıklamalar **Türkçe** olmalıdır.
+- **Birim sistemi:** Yalnızca **SI birimleri** kullan:
+  - Uzunluk → **metre (m)** veya santimetre (cm) — gerekiyorsa ikisi birden, ama inch/feet yasak
+  - Kütle / Ağırlık → **kilogram (kg)** — pound/lbs yasak
+  - Alan → **m²**
+  - Hacim → **litre (L)** veya **m³**
+  - Sıcaklık → **°C** (Celsius) — Fahrenheit yasak
+  - Para → **TL (₺)** — döviz gerektiren modüllerde kullanıcıdan kur girmesini iste
+  - Diğer SI temel birimleri (A, mol, cd…) gerektiği gibi kullanılabilir
+- Birim dönüşümü gerektiren bir kaynak formül varsa (örn. ABD merkezli hesaplayıcı lbs kullanıyor) formülü SI'ya dönüştürerek yaz; orijinal imperial birimi koda **asla** dahil etme.
+
+### 3. Modül Slug'ı Belirle
 - URL'den veya içerikten Türkçe, kısa bir slug türet
 - Format: `kucuk-harf-tire-ile` (örn: `beden-kitle-indeksi`, `kredi-hesaplama`)
 - Klasör: `modules/{slug}/`
 
-### 3. Dört Dosya Oluştur
+### 4. Dört Dosya Oluştur
 
 #### `modules/{slug}/meta.json`
 ```json
@@ -70,13 +86,15 @@ function hc_render_{slug_alt_cizgi}( $atts ) {
 - Girdi validasyonu yap, eksik alan varsa `alert()` ile uyar
 - Sonucu `.hc-result` div'ine yaz, `visible` class'ı ekle
 - Sayıları Türkçe formatla: `n.toLocaleString('tr-TR')`
+- **Tüm giriş alanları SI biriminde olmalı** (placeholder'larda birimi belirt, örn. `placeholder="kg"`, `placeholder="cm"`)
+- **Sonuç çıktısında birimi açıkça yaz** (örn. `"23,5 kg/m²"`, `"1.250 ₺"`)
 
 #### `modules/{slug}/calculator.css`
 - Modüle özel stiller (genel stiller `assets/style.css`'te)
 - Class prefix: `.hc-{slug}-` kullan
 - Responsive: `@media (max-width: 480px)` ekle
 
-### 4. Stil Kuralları
+### 5. Stil Kuralları
 
 Global CSS sınıfları (`assets/style.css`'ten miras alır):
 ```
@@ -88,14 +106,15 @@ Global CSS sınıfları (`assets/style.css`'ten miras alır):
 .hc-result-value    → büyük sonuç değeri
 ```
 
-### 5. Commit ve Gönder
+### 6. Commit ve Gönder
 
 ```bash
 git add modules/{slug}/
 git commit -m "feat: {Hesap Makinesi Adı} modülü eklendi
 
 Shortcode: [hc_{slug_alt_cizgi}]
-Kaynak: {URL}"
+Kaynak: {URL}
+Formül kaynağı (web araması yapıldıysa): {Kaynak URL}"
 ```
 
 **Araç türüne göre:**
@@ -151,12 +170,14 @@ hesaplama-wp-addons/
 
 - **Mevcut modüllere kesinlikle dokunma.** `modules/` altındaki mevcut klasörler değiştirilemez. Sadece yeni klasör ekle.
 - **Sunucuya istek atmayan** (client-side) hesaplamalar yaz — PHP sadece HTML render eder
-- **Türkçe** etiket, placeholder ve hata mesajları kullan
+- **Türkçe** etiket, placeholder ve hata mesajları kullan — **istisnasız**
+- **SI birimleri** kullan — imperial birim (inch, feet, lbs, °F vb.) koda kesinlikle girmesin
 - **`HC_VERSION`** sabitini değiştirme — sadece modül ekle
 - **`hesaplama-suite.php`** ana dosyasına dokunma
 - `assets/style.css` global stilleri değiştirme, modüle özel CSS'i kendi dosyasına yaz
 - Her modül tamamen bağımsız çalışmalı, diğer modüllere bağımlılık olmamalı
 - Formülleri ve hesaplama mantığını yorumsuz, temiz kod olarak yaz
+- Kaynak sayfayı okuyamazsan formülü web aramasıyla bul; tahminle veya eski bilgiyle hesaplama yazma
 
 ---
 
@@ -176,11 +197,12 @@ Kullanıcı `https://example.com/bmi-hesaplama` verirse:
 **`modules/beden-kitle-indeksi/calculator.js`** (özet)
 ```javascript
 function hcBedenKitleIndeksiHesapla() {
-    var boy  = parseFloat(document.getElementById('hc-bki-boy').value);
-    var kilo = parseFloat(document.getElementById('hc-bki-kilo').value);
+    // Girişler SI biriminde: boy cm, kilo kg
+    var boy  = parseFloat(document.getElementById('hc-bki-boy').value);   // cm
+    var kilo = parseFloat(document.getElementById('hc-bki-kilo').value);  // kg
     if (!boy || !kilo) { alert('Lütfen tüm alanları doldurun.'); return; }
-    var bmi = kilo / ((boy / 100) * (boy / 100));
-    // ... sonucu göster
+    var bmi = kilo / Math.pow(boy / 100, 2);  // kg/m²
+    // ... sonucu Türkçe formatla ve göster
     document.getElementById('hc-bki-result').classList.add('visible');
 }
 ```
