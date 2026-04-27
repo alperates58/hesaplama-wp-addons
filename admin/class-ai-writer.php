@@ -29,15 +29,35 @@ class HC_AI_Writer {
     /* AJAX: Mevcut yazının Yoast + etiket meta'sını güncelle */
     public function ajax_update_post_meta() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
-
         $post_id     = intval( $_POST['post_id']            ?? 0 );
-        $odak_kw     = sanitize_text_field( $_POST['odak_anahtar_kelime'] ?? '' );
-        $meta_baslik = sanitize_text_field( $_POST['meta_baslik']         ?? '' );
-        $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama']   ?? '' );
-        $etiketler   = array_map( 'sanitize_text_field', (array) ( $_POST['etiketler'] ?? [] ) );
-
         if ( ! $post_id || ! get_post( $post_id ) ) wp_send_json_error( 'Geçersiz yazı.' );
+        if ( ! current_user_can( 'edit_post', $post_id ) ) wp_send_json_error( 'Yetkisiz.' );
+
+        $baslik      = sanitize_text_field( wp_unslash( $_POST['baslik']              ?? '' ) );
+        $icerik      = wp_kses_post( wp_unslash( $_POST['icerik']                     ?? '' ) );
+        $odak_kw     = sanitize_text_field( wp_unslash( $_POST['odak_anahtar_kelime'] ?? '' ) );
+        $meta_baslik = sanitize_text_field( wp_unslash( $_POST['meta_baslik']         ?? '' ) );
+        $meta_acik   = sanitize_textarea_field( wp_unslash( $_POST['meta_aciklama']   ?? '' ) );
+        $etiketler   = $this->normalize_article_tags( (array) ( $_POST['etiketler'] ?? [] ), $baslik, $odak_kw );
+
+        $post_data = [
+            'ID' => $post_id,
+        ];
+
+        if ( $baslik ) {
+            $post_data['post_title'] = $baslik;
+        }
+
+        if ( $icerik ) {
+            $post_data['post_content'] = $icerik;
+        }
+
+        if ( count( $post_data ) > 1 ) {
+            $updated = wp_update_post( $post_data, true );
+            if ( is_wp_error( $updated ) ) {
+                wp_send_json_error( $updated->get_error_message() );
+            }
+        }
 
         update_post_meta( $post_id, '_yoast_wpseo_focuskw',  $odak_kw );
         update_post_meta( $post_id, '_yoast_wpseo_title',    $meta_baslik );
@@ -48,6 +68,40 @@ class HC_AI_Writer {
         }
 
         wp_send_json_success();
+    }
+
+    private function normalize_article_tags( $tags, $title = '', $focus_keyword = '' ) {
+        $raw_tags = array_map( 'sanitize_text_field', array_map( 'wp_unslash', (array) $tags ) );
+        $bad_tags = [ '2024', '2025', '2026', 'hesaplama aracı', 'hesaplama', 'ssk', 'bağ-kur', 'bag-kur' ];
+        $clean = [];
+
+        foreach ( $raw_tags as $tag ) {
+            $tag = trim( preg_replace( '/\s+/', ' ', $tag ) );
+            $lower = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
+            $word_count = count( preg_split( '/\s+/', $tag, -1, PREG_SPLIT_NO_EMPTY ) );
+
+            if ( strlen( $tag ) < 4 || in_array( $lower, $bad_tags, true ) || $word_count > 4 ) {
+                continue;
+            }
+
+            $clean[ $lower ] = $tag;
+        }
+
+        $fallbacks = array_filter( [
+            $focus_keyword,
+            $title,
+            $focus_keyword ? $focus_keyword . ' 2026' : '',
+        ] );
+
+        foreach ( $fallbacks as $tag ) {
+            $tag = sanitize_text_field( $tag );
+            $lower = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
+            if ( $tag && ! isset( $clean[ $lower ] ) ) {
+                $clean[ $lower ] = $tag;
+            }
+        }
+
+        return array_slice( array_values( $clean ), 0, 5 );
     }
 
     /* AJAX: URL'den (veya başlıktan) makale üret */
@@ -168,7 +222,7 @@ class HC_AI_Writer {
         $odak_kw     = sanitize_text_field( $_POST['odak_anahtar_kelime'] ?? '' );
         $meta_baslik = sanitize_text_field( $_POST['meta_baslik']         ?? '' );
         $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama']   ?? '' );
-        $etiketler   = array_map( 'sanitize_text_field', (array) ( $_POST['etiketler'] ?? [] ) );
+        $etiketler   = $this->normalize_article_tags( (array) ( $_POST['etiketler'] ?? [] ), $baslik, $odak_kw );
         $shortcode   = sanitize_text_field( $_POST['shortcode']           ?? '' );
 
         // Shortcode içeriğin en üstüne ekle

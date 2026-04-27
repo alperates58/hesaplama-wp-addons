@@ -169,6 +169,7 @@ KURALLAR:
 - Etken çatı, %30+ geçiş kelimesi, ardışık cümlelerde aynı kelime başlamayacak
 - Odak anahtar kelime ilk paragrafta, alt başlıklarda ve metin boyunca eşit dağılacak
 - Yoast SEO yeşil puanı hedefleniyor
+- Etiketler 3-5 adet olacak; tek kelimelik, sadece yıl içeren veya çok genel etiket yazma. Arama niyetini taşıyan 2-4 kelimelik etiketler üret. Örnek: "emekli maaşı hesaplama", "2026 emekli maaşı", "emekli ikramiyesi".
 - Yaklaşık 2000 kelime
 - Kişisel deneyim benzeri insansı ifadeler kullan
 
