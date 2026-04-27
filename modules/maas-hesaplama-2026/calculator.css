@@ -1,0 +1,75 @@
+.hc-maas-hesaplama-2026-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-maas-hesaplama-2026-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+}
+
+.hc-maas-hesaplama-2026-title {
+    margin: 6px 0 12px;
+    color: #344054;
+}
+
+.hc-maas-hesaplama-2026-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+}
+
+.hc-maas-hesaplama-2026-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1400px;
+    font-size: 13px;
+}
+
+.hc-maas-hesaplama-2026-table th,
+.hc-maas-hesaplama-2026-table td {
+    border: 1px solid #e5e7eb;
+    padding: 6px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.hc-maas-hesaplama-2026-table th:first-child,
+.hc-maas-hesaplama-2026-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.hc-maas-month { min-width: 82px; }
+
+.hc-maas-input {
+    width: 110px;
+    padding: 4px 6px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+}
+
+.hc-maas-hesaplama-2026-table tfoot th,
+.hc-maas-hesaplama-2026-table tfoot td {
+    background: #f8fafc;
+    font-weight: 700;
+}
+
+.hc-maas-hesaplama-2026-note {
+    margin: 12px 0 0;
+    color: #5f6776;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+    .hc-maas-hesaplama-2026-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-maas-input {
+        width: 95px;
+    }
+}

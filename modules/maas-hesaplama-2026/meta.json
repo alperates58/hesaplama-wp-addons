@@ -1,0 +1,5 @@
+{
+  "name": "Maaş Hesaplama 2026 (Brüt/Net)",
+  "desc": "2026 oranlarıyla brütten nete ve netten brüte maaş hesaplar; gelir vergisi dilimi etkisini gösterir.",
+  "shortcode": "[hc_maas_hesaplama_2026]"
+}
