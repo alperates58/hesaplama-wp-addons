@@ -1,0 +1,5 @@
+{
+  "name": "Ay Burcu Hesaplama",
+  "desc": "Doğum tarihi, saati ve UTC farkına göre Ay burcunu ve burç içi derecesini hesaplar.",
+  "shortcode": "[hc_ay_burcu_hesaplama]"
+}

@@ -1,0 +1,102 @@
+.hc-ay-burcu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-ay-burcu-not {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hc-ay-burcu-result {
+    border-left-color: #4a7c8c;
+}
+
+.hc-ay-burcu-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-ay-burcu-symbol {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 56px;
+    border-radius: 8px;
+    background: #eef6f8;
+    color: #245766;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.hc-ay-burcu-degree {
+    color: #555;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.hc-ay-burcu-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-ay-burcu-details div {
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+}
+
+.hc-ay-burcu-details span,
+.hc-ay-burcu-details strong {
+    display: block;
+}
+
+.hc-ay-burcu-details span {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.hc-ay-burcu-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-ay-burcu-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-ay-burcu-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-ay-burcu-grid,
+    .hc-ay-burcu-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-ay-burcu-card {
+        align-items: flex-start;
+    }
+}
