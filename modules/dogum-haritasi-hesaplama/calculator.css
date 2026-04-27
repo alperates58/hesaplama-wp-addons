@@ -1,0 +1,118 @@
+.hc-dogum-haritasi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-dogum-haritasi-not {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hc-dogum-haritasi-result {
+    border-left-color: #775a2a;
+}
+
+.hc-dogum-haritasi-summary,
+.hc-dogum-haritasi-details {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.hc-dogum-haritasi-summary {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-dogum-haritasi-details {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 14px;
+}
+
+.hc-dogum-haritasi-summary div,
+.hc-dogum-haritasi-details div {
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+}
+
+.hc-dogum-haritasi-summary span,
+.hc-dogum-haritasi-summary strong,
+.hc-dogum-haritasi-details span,
+.hc-dogum-haritasi-details strong {
+    display: block;
+}
+
+.hc-dogum-haritasi-summary span,
+.hc-dogum-haritasi-details span {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.hc-dogum-haritasi-summary strong,
+.hc-dogum-haritasi-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-dogum-haritasi-table-wrap {
+    overflow-x: auto;
+}
+
+.hc-dogum-haritasi-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.hc-dogum-haritasi-table th,
+.hc-dogum-haritasi-table td {
+    padding: 9px 8px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+.hc-dogum-haritasi-table th {
+    color: #555;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hc-dogum-haritasi-table td:first-child {
+    font-weight: 600;
+    color: #222;
+}
+
+.hc-dogum-haritasi-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-dogum-haritasi-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-dogum-haritasi-grid,
+    .hc-dogum-haritasi-summary,
+    .hc-dogum-haritasi-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-dogum-haritasi-table {
+        min-width: 480px;
+    }
+}

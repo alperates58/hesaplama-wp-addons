@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Haritası Hesaplama",
+  "desc": "Doğum tarihi, saati ve konuma göre temel doğum haritası yerleşimlerini hesaplar.",
+  "shortcode": "[hc_dogum_haritasi_hesaplama]"
+}
