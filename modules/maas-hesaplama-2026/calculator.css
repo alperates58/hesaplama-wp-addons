@@ -1,44 +1,66 @@
+#hc-maas-hesaplama-2026 {
+    box-sizing: border-box;
+    max-width: 1080px;
+    width: 100%;
+}
+
 .hc-maas-hesaplama-2026-form {
     border-bottom: 1px solid #e5e7eb;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
 }
 
 .hc-maas-hesaplama-2026-grid-2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 40px;
+    gap: 10px 24px;
+}
+
+#hc-maas-hesaplama-2026 .hc-form-group {
+    margin-bottom: 10px;
+}
+
+#hc-maas-hesaplama-2026 .hc-form-group label {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+#hc-maas-hesaplama-2026 .hc-form-group input,
+#hc-maas-hesaplama-2026 .hc-form-group select {
+    font-size: 13px;
+    padding: 6px 9px;
 }
 
 .hc-maas-hesaplama-2026-checks {
     display: grid;
-    gap: 12px;
-    margin-top: 14px;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 .hc-maas-hesaplama-2026-checks label {
     align-items: flex-start;
     display: flex;
     gap: 8px;
-    line-height: 1.35;
+    font-size: 12px;
+    line-height: 1.3;
 }
 
 .hc-maas-hesaplama-2026-primary {
     display: block;
-    margin: 10px auto 8px;
+    margin: 8px auto 6px;
     max-width: 260px;
     width: 100%;
 }
 
 .hc-maas-hesaplama-2026-detail {
-    margin-top: 18px;
+    margin-top: 14px;
 }
 
 .hc-maas-hesaplama-2026-title {
     color: #6b7280;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 }
 
 .hc-maas-hesaplama-2026-table-wrap {
@@ -49,32 +71,32 @@
 
 .hc-maas-hesaplama-2026-table {
     border-collapse: collapse;
-    font-size: 12px;
-    min-width: 1160px;
+    font-size: 11px;
+    min-width: 1040px;
+    table-layout: fixed;
     width: 100%;
 }
 
 .hc-maas-hesaplama-2026-table th,
 .hc-maas-hesaplama-2026-table td {
     border: 1px solid #d9dde4;
-    line-height: 1.2;
-    padding: 4px 6px;
+    line-height: 1.15;
+    padding: 4px;
     text-align: right;
     vertical-align: middle;
-    white-space: normal;
+    word-break: normal;
 }
 
 .hc-maas-hesaplama-2026-table thead th {
     background: #fff;
     color: #000;
     font-weight: 700;
-    min-width: 64px;
     vertical-align: bottom;
 }
 
 .hc-maas-hesaplama-2026-table th:first-child,
 .hc-maas-hesaplama-2026-table td:first-child {
-    min-width: 68px;
+    width: 62px;
     text-align: left;
 }
 
@@ -87,10 +109,10 @@
     border: 1px solid #cfd4dc;
     border-radius: 3px;
     box-sizing: border-box;
-    font-size: 12px;
-    height: 22px;
-    max-width: 106px;
-    padding: 2px 5px;
+    font-size: 11px;
+    height: 24px;
+    max-width: 78px;
+    padding: 2px 4px;
     text-align: right;
     width: 100%;
 }
@@ -105,15 +127,21 @@
 }
 
 .hc-maas-hesaplama-2026-bottom {
-    margin-top: 18px;
+    margin-top: 14px;
 }
 
 .hc-maas-hesaplama-2026-notes {
     color: #1f2937;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.45;
-    margin: 18px 0 0;
+    margin: 14px 0 0;
     padding-left: 20px;
+}
+
+@media (max-width: 1180px) {
+    #hc-maas-hesaplama-2026 {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -122,12 +150,12 @@
     }
 
     .hc-maas-hesaplama-2026-title {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .hc-maas-hesaplama-2026-table {
-        font-size: 11px;
-        min-width: 1080px;
+        font-size: 10px;
+        min-width: 1000px;
     }
 
     .hc-maas-input {

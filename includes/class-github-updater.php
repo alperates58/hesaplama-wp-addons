@@ -100,8 +100,18 @@ class HC_Github_Updater {
             rename( $extracted_dir, $dest );
         }
 
+        $remote_sha = $this->get_remote_version();
+
         // Güncelleme zamanını kaydet
         update_option( 'hc_last_update', current_time( 'mysql' ) );
+        if ( $remote_sha ) {
+            update_option( 'hc_last_update_sha', $remote_sha );
+        }
+
+        if ( function_exists( 'wp_cache_flush' ) ) {
+            wp_cache_flush();
+        }
+
         return true;
     }
 }
