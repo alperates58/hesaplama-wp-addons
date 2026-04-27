@@ -15,7 +15,9 @@ var HC_MAAS_2026 = {
     ]
 };
 
-function hcRound2(n) { return Math.round(n * 100) / 100; }
+function hcRound2(n) {
+    return Math.round(n * 100) / 100;
+}
 
 function hcTL(n) {
     return hcRound2(n).toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -38,33 +40,35 @@ function hcGelirVergisi(kumulatifOnce, matrahAy) {
     return vergi;
 }
 
+function hcAsgariUcretIstisna(kumulatifOnce) {
+    var matrah = HC_MAAS_2026.asgariBrut * (1 - HC_MAAS_2026.sgkIsci - HC_MAAS_2026.issizlikIsci);
+
+    return {
+        gelirVergisi: hcGelirVergisi(kumulatifOnce, matrah),
+        damga: HC_MAAS_2026.asgariBrut * HC_MAAS_2026.damga
+    };
+}
+
 function hcBruttenNete(brut, kumulatif, istisna) {
     var sskIsci = brut * HC_MAAS_2026.sgkIsci;
     var issizlikIsci = brut * HC_MAAS_2026.issizlikIsci;
     var matrah = brut - sskIsci - issizlikIsci;
-
-    var gelirVergisi = hcGelirVergisi(kumulatif, matrah);
-    var damgaVergisi = brut * HC_MAAS_2026.damga;
-
-    var gvIstisna = 0;
-    var damgaIstisna = 0;
-
-    if (istisna) {
-        gvIstisna = (HC_MAAS_2026.asgariBrut * (1 - HC_MAAS_2026.sgkIsci - HC_MAAS_2026.issizlikIsci)) * 0.15;
-        damgaIstisna = HC_MAAS_2026.asgariBrut * HC_MAAS_2026.damga;
-    }
-
-    var odenecekGV = Math.max(0, gelirVergisi - gvIstisna);
-    var odenecekDamga = Math.max(0, damgaVergisi - damgaIstisna);
-    var net = brut - sskIsci - issizlikIsci - odenecekGV - odenecekDamga;
+    var gelirVergisiBrut = hcGelirVergisi(kumulatif, matrah);
+    var damgaVergisiBrut = brut * HC_MAAS_2026.damga;
+    var istisnaTutar = istisna ? hcAsgariUcretIstisna(kumulatif) : { gelirVergisi: 0, damga: 0 };
+    var gvIstisna = Math.min(gelirVergisiBrut, istisnaTutar.gelirVergisi);
+    var damgaIstisna = Math.min(damgaVergisiBrut, istisnaTutar.damga);
+    var gelirVergisi = Math.max(0, gelirVergisiBrut - gvIstisna);
+    var damgaVergisi = Math.max(0, damgaVergisiBrut - damgaIstisna);
+    var net = brut - sskIsci - issizlikIsci - gelirVergisi - damgaVergisi;
 
     return {
         brut: brut,
         net: net,
         sskIsci: sskIsci,
         issizlikIsci: issizlikIsci,
-        gelirVergisi: odenecekGV,
-        damgaVergisi: odenecekDamga,
+        gelirVergisi: gelirVergisi,
+        damgaVergisi: damgaVergisi,
         matrah: matrah,
         gvIstisna: gvIstisna,
         damgaIstisna: damgaIstisna,
@@ -105,34 +109,74 @@ function hcSgkIsverenOran(indirim5, indirim2) {
 }
 
 function hcMaasTableRowInput(i) {
-    return '<input type="number" class="hc-maas-input" id="hc-maas-ay-' + i + '" min="0" step="0.01" placeholder="0" />';
+    return '<input type="number" class="hc-maas-input" id="hc-maas-ay-' + i + '" min="0" step="0.01" />';
+}
+
+function hcBosDeger() {
+    return '<span class="hc-maas-empty">-</span>';
 }
 
 function hcOlusturTablo() {
     var tbody = document.getElementById('hc-maas-tbody');
+    var tfoot = document.getElementById('hc-maas-tfoot');
     var html = '';
 
     for (var i = 0; i < HC_MAAS_2026.aylar.length; i++) {
         html += '<tr>' +
-            '<td class="hc-maas-month">' + HC_MAAS_2026.aylar[i] + '</td>' +
+            '<th scope="row" class="hc-maas-month">' + HC_MAAS_2026.aylar[i] + '</th>' +
             '<td>' + hcMaasTableRowInput(i) + '</td>' +
-            '<td data-k="sskIsci"></td>' +
-            '<td data-k="issizlikIsci"></td>' +
-            '<td data-k="gelirVergisi"></td>' +
-            '<td data-k="damgaVergisi"></td>' +
-            '<td data-k="kumulatif"></td>' +
-            '<td data-k="net"></td>' +
-            '<td data-k="agi"></td>' +
-            '<td data-k="gvIstisna"></td>' +
-            '<td data-k="damgaIstisna"></td>' +
-            '<td data-k="toplamNet"></td>' +
-            '<td class="hc-maas-employer-col" data-k="sskIsveren"></td>' +
-            '<td class="hc-maas-employer-col" data-k="issizlikIsveren"></td>' +
-            '<td class="hc-maas-employer-col" data-k="toplamMaliyet"></td>' +
+            '<td data-k="sskIsci">' + hcBosDeger() + '</td>' +
+            '<td data-k="issizlikIsci">' + hcBosDeger() + '</td>' +
+            '<td data-k="gelirVergisi">' + hcBosDeger() + '</td>' +
+            '<td data-k="damgaVergisi">' + hcBosDeger() + '</td>' +
+            '<td data-k="kumulatif">' + hcBosDeger() + '</td>' +
+            '<td data-k="net">' + hcBosDeger() + '</td>' +
+            '<td data-k="agi">' + hcBosDeger() + '</td>' +
+            '<td data-k="gvIstisna">' + hcBosDeger() + '</td>' +
+            '<td data-k="damgaIstisna">' + hcBosDeger() + '</td>' +
+            '<td data-k="toplamNet">' + hcBosDeger() + '</td>' +
+            '<td class="hc-maas-employer-col" data-k="sskIsveren">' + hcBosDeger() + '</td>' +
+            '<td class="hc-maas-employer-col" data-k="issizlikIsveren">' + hcBosDeger() + '</td>' +
+            '<td class="hc-maas-employer-col" data-k="toplamMaliyet">' + hcBosDeger() + '</td>' +
         '</tr>';
     }
 
     tbody.innerHTML = html;
+    tfoot.innerHTML = hcToplamSatiri();
+}
+
+function hcToplamSatiri(toplam, kumulatif, maliyetGoster) {
+    toplam = toplam || {};
+    var cols = ['brut', 'sskIsci', 'issizlikIsci', 'gelirVergisi', 'damgaVergisi', 'kumulatif', 'net', 'agi', 'gvIstisna', 'damgaIstisna', 'toplamNet'];
+    var html = '<tr><th>TOPLAM</th>';
+
+    for (var i = 0; i < cols.length; i++) {
+        var key = cols[i];
+        var value = key === 'kumulatif' ? kumulatif : toplam[key];
+        html += '<th>' + (typeof value === 'number' ? hcTL(value) : '') + '</th>';
+    }
+
+    html += '<th class="hc-maas-employer-col">' + (maliyetGoster && typeof toplam.sskIsveren === 'number' ? hcTL(toplam.sskIsveren) : '') + '</th>';
+    html += '<th class="hc-maas-employer-col">' + (maliyetGoster && typeof toplam.issizlikIsveren === 'number' ? hcTL(toplam.issizlikIsveren) : '') + '</th>';
+    html += '<th class="hc-maas-employer-col">' + (maliyetGoster && typeof toplam.toplamMaliyet === 'number' ? hcTL(toplam.toplamMaliyet) : '') + '</th>';
+    html += '</tr>';
+
+    return html;
+}
+
+function hcMaasBaslikGuncelle() {
+    var tur = document.getElementById('hc-maas-ucret-tipi').value;
+    document.getElementById('hc-maas-input-col').textContent = tur === 'brutten' ? 'Brüt' : 'Net';
+    document.getElementById('hc-maas-baslik').textContent = tur === 'brutten' ? 'Brütten Nete Maaş Hesabı' : 'Netten Brüte Maaş Hesabı';
+}
+
+function hcMaasIsverenKolonlariGuncelle() {
+    var maliyetGoster = document.getElementById('hc-maas-maliyet').checked;
+    var employerCols = document.querySelectorAll('#hc-maas-hesaplama-2026 .hc-maas-employer-col');
+
+    for (var c = 0; c < employerCols.length; c++) {
+        employerCols[c].style.display = maliyetGoster ? '' : 'none';
+    }
 }
 
 function hcMaasTabloHesapla2026() {
@@ -157,10 +201,22 @@ function hcMaasTabloHesapla2026() {
     var tbody = document.getElementById('hc-maas-tbody');
     var rows = tbody.querySelectorAll('tr');
     var kumulatif = 0;
+    var enAzBirTutar = false;
 
     var toplam = {
-        brut: 0, sskIsci: 0, issizlikIsci: 0, gelirVergisi: 0, damgaVergisi: 0, net: 0,
-        agi: 0, gvIstisna: 0, damgaIstisna: 0, toplamNet: 0, sskIsveren: 0, issizlikIsveren: 0, toplamMaliyet: 0
+        brut: 0,
+        sskIsci: 0,
+        issizlikIsci: 0,
+        gelirVergisi: 0,
+        damgaVergisi: 0,
+        net: 0,
+        agi: 0,
+        gvIstisna: 0,
+        damgaIstisna: 0,
+        toplamNet: 0,
+        sskIsveren: 0,
+        issizlikIsveren: 0,
+        toplamMaliyet: 0
     };
 
     for (var i = 0; i < rows.length; i++) {
@@ -170,9 +226,17 @@ function hcMaasTabloHesapla2026() {
 
         if (isNaN(girilen) || girilen <= 0) {
             alert(HC_MAAS_2026.aylar[i] + ' için geçerli bir tutar girin.');
+            input.focus();
             return;
         }
 
+        if (tur === 'brutten' && girilen < HC_MAAS_2026.asgariBrut) {
+            alert(HC_MAAS_2026.aylar[i] + ' için brüt tutar asgari ücretin altında olamaz.');
+            input.focus();
+            return;
+        }
+
+        enAzBirTutar = true;
         var hesap = tur === 'brutten'
             ? hcBruttenNete(girilen, kumulatif, istisna)
             : hcNettenBrute(girilen, kumulatif, istisna);
@@ -194,11 +258,11 @@ function hcMaasTabloHesapla2026() {
         row.querySelector('[data-k="gvIstisna"]').textContent = hcTL(hesap.gvIstisna);
         row.querySelector('[data-k="damgaIstisna"]').textContent = hcTL(hesap.damgaIstisna);
         row.querySelector('[data-k="toplamNet"]').textContent = hcTL(toplamNet);
-        row.querySelector('[data-k="sskIsveren"]').textContent = maliyetGoster ? hcTL(sskIsveren) : '-';
-        row.querySelector('[data-k="issizlikIsveren"]').textContent = maliyetGoster ? hcTL(issizlikIsveren) : '-';
-        row.querySelector('[data-k="toplamMaliyet"]').textContent = maliyetGoster ? hcTL(toplamMaliyet) : '-';
+        row.querySelector('[data-k="sskIsveren"]').textContent = maliyetGoster ? hcTL(sskIsveren) : '';
+        row.querySelector('[data-k="issizlikIsveren"]').textContent = maliyetGoster ? hcTL(issizlikIsveren) : '';
+        row.querySelector('[data-k="toplamMaliyet"]').textContent = maliyetGoster ? hcTL(toplamMaliyet) : '';
 
-        input.value = hcRound2(tur === 'brutten' ? hesap.brut : hesap.net);
+        input.value = hcTL(tur === 'brutten' ? hesap.brut : hesap.net).replace(/\./g, '').replace(',', '.');
 
         toplam.brut += hesap.brut;
         toplam.sskIsci += hesap.sskIsci;
@@ -215,36 +279,21 @@ function hcMaasTabloHesapla2026() {
         toplam.toplamMaliyet += toplamMaliyet;
     }
 
-    document.getElementById('hc-maas-input-col').textContent = tur === 'brutten' ? 'Brüt' : 'Net';
-    document.getElementById('hc-maas-baslik').textContent = tur === 'brutten' ? 'Brütten Nete Maaş Hesabı' : 'Netten Brüte Maaş Hesabı';
-
-    var tfoot = document.getElementById('hc-maas-tfoot');
-    tfoot.innerHTML = '<tr>' +
-        '<th>TOPLAM</th>' +
-        '<th>' + hcTL(toplam.brut) + '</th>' +
-        '<th>' + hcTL(toplam.sskIsci) + '</th>' +
-        '<th>' + hcTL(toplam.issizlikIsci) + '</th>' +
-        '<th>' + hcTL(toplam.gelirVergisi) + '</th>' +
-        '<th>' + hcTL(toplam.damgaVergisi) + '</th>' +
-        '<th>' + hcTL(kumulatif) + '</th>' +
-        '<th>' + hcTL(toplam.net) + '</th>' +
-        '<th>' + hcTL(toplam.agi) + '</th>' +
-        '<th>' + hcTL(toplam.gvIstisna) + '</th>' +
-        '<th>' + hcTL(toplam.damgaIstisna) + '</th>' +
-        '<th>' + hcTL(toplam.toplamNet) + '</th>' +
-        '<th class="hc-maas-employer-col">' + (maliyetGoster ? hcTL(toplam.sskIsveren) : '-') + '</th>' +
-        '<th class="hc-maas-employer-col">' + (maliyetGoster ? hcTL(toplam.issizlikIsveren) : '-') + '</th>' +
-        '<th class="hc-maas-employer-col">' + (maliyetGoster ? hcTL(toplam.toplamMaliyet) : '-') + '</th>' +
-    '</tr>';
-
-    var employerCols = document.querySelectorAll('#hc-maas-hesaplama-2026 .hc-maas-employer-col');
-    for (var c = 0; c < employerCols.length; c++) {
-        employerCols[c].style.display = maliyetGoster ? '' : 'none';
+    if (!enAzBirTutar) {
+        alert('Lütfen en az bir ay için tutar girin.');
+        return;
     }
 
-    document.getElementById('hc-maas-result').classList.add('visible');
+    hcMaasBaslikGuncelle();
+    document.getElementById('hc-maas-tfoot').innerHTML = hcToplamSatiri(toplam, kumulatif, maliyetGoster);
+    hcMaasIsverenKolonlariGuncelle();
 }
 
 (function() {
     hcOlusturTablo();
+    hcMaasBaslikGuncelle();
+    hcMaasIsverenKolonlariGuncelle();
+
+    document.getElementById('hc-maas-ucret-tipi').addEventListener('change', hcMaasBaslikGuncelle);
+    document.getElementById('hc-maas-maliyet').addEventListener('change', hcMaasIsverenKolonlariGuncelle);
 })();
