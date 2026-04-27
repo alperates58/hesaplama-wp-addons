@@ -1,0 +1,5 @@
+{
+  "name": "İşsizlik Maaşı Hesaplama",
+  "desc": "SGK çıkış kodu, prim günü ve son 4 aylık brüt kazanca göre işsizlik ödeneğini hesaplar.",
+  "shortcode": "[hc_issizlik_maasi_hesaplama]"
+}
