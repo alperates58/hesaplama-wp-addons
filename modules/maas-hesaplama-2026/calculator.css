@@ -3,7 +3,7 @@
     border-color: #d8dee8;
     border-radius: 6px;
     box-sizing: border-box;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    box-shadow: none;
     max-width: 100%;
     width: 100%;
 }
@@ -110,8 +110,8 @@
 .hc-maas-hesaplama-2026-table {
     border-collapse: collapse;
     color: #0f2742;
-    font-size: 10px;
-    min-width: 1160px;
+    font-size: 9px;
+    min-width: 990px;
     table-layout: fixed;
     width: 100%;
 }
@@ -119,8 +119,8 @@
 .hc-maas-hesaplama-2026-table th,
 .hc-maas-hesaplama-2026-table td {
     border: 1px solid #d8e0eb;
-    line-height: 1.12;
-    padding: 4px 3px;
+    line-height: 1.08;
+    padding: 4px 2px;
     text-align: right;
     vertical-align: middle;
     word-break: normal;
@@ -130,32 +130,21 @@
     background: #f6f9fc;
     border-bottom-color: #b9c5d4;
     color: #0b1f35;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
-    height: 54px;
+    height: 50px;
     vertical-align: bottom;
 }
 
 .hc-maas-hesaplama-2026-table th:first-child,
 .hc-maas-hesaplama-2026-table td:first-child {
-    left: 0;
-    position: sticky;
-    width: 64px;
-    z-index: 2;
     text-align: left;
+    width: 62px;
 }
 
 .hc-maas-hesaplama-2026-table th:nth-child(2),
 .hc-maas-hesaplama-2026-table td:nth-child(2) {
-    left: 64px;
-    position: sticky;
     width: 88px;
-    z-index: 2;
-}
-
-.hc-maas-hesaplama-2026-table thead th:first-child,
-.hc-maas-hesaplama-2026-table thead th:nth-child(2) {
-    z-index: 4;
 }
 
 .hc-maas-hesaplama-2026-table tbody tr:nth-child(even) td,
@@ -180,12 +169,12 @@
     border-radius: 5px;
     box-sizing: border-box;
     color: #24364f;
-    font-size: 11px;
+    font-size: 12px;
     font-variant-numeric: tabular-nums;
-    height: 28px;
+    height: 30px;
     max-width: none;
-    min-width: 76px;
-    padding: 3px 6px;
+    min-width: 82px;
+    padding: 3px 5px;
     text-align: right;
     width: 100%;
 }
@@ -245,11 +234,11 @@
     }
 
     .hc-maas-hesaplama-2026-table {
-        font-size: 10px;
-        min-width: 1120px;
+        font-size: 9px;
+        min-width: 990px;
     }
 
     .hc-maas-input {
-        min-width: 74px;
+        min-width: 82px;
     }
 }
