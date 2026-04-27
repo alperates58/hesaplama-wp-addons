@@ -4,10 +4,8 @@
     border-radius: 6px;
     box-sizing: border-box;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-    margin-left: 50%;
-    max-width: none;
-    transform: translateX(-50%);
-    width: min(1280px, calc(100vw - 44px));
+    max-width: 100%;
+    width: 100%;
 }
 
 #hc-maas-hesaplama-2026 h3 {
@@ -112,8 +110,8 @@
 .hc-maas-hesaplama-2026-table {
     border-collapse: collapse;
     color: #0f2742;
-    font-size: 12px;
-    min-width: 1320px;
+    font-size: 10px;
+    min-width: 1160px;
     table-layout: fixed;
     width: 100%;
 }
@@ -121,8 +119,8 @@
 .hc-maas-hesaplama-2026-table th,
 .hc-maas-hesaplama-2026-table td {
     border: 1px solid #d8e0eb;
-    line-height: 1.2;
-    padding: 7px 6px;
+    line-height: 1.12;
+    padding: 4px 3px;
     text-align: right;
     vertical-align: middle;
     word-break: normal;
@@ -132,8 +130,9 @@
     background: #f6f9fc;
     border-bottom-color: #b9c5d4;
     color: #0b1f35;
+    font-size: 9px;
     font-weight: 700;
-    height: 68px;
+    height: 54px;
     vertical-align: bottom;
 }
 
@@ -141,16 +140,16 @@
 .hc-maas-hesaplama-2026-table td:first-child {
     left: 0;
     position: sticky;
-    width: 56px;
+    width: 64px;
     z-index: 2;
     text-align: left;
 }
 
 .hc-maas-hesaplama-2026-table th:nth-child(2),
 .hc-maas-hesaplama-2026-table td:nth-child(2) {
-    left: 56px;
+    left: 64px;
     position: sticky;
-    width: 112px;
+    width: 88px;
     z-index: 2;
 }
 
@@ -181,12 +180,12 @@
     border-radius: 5px;
     box-sizing: border-box;
     color: #24364f;
-    font-size: 14px;
+    font-size: 11px;
     font-variant-numeric: tabular-nums;
-    height: 34px;
+    height: 28px;
     max-width: none;
-    min-width: 96px;
-    padding: 4px 9px;
+    min-width: 76px;
+    padding: 3px 6px;
     text-align: right;
     width: 100%;
 }
@@ -227,7 +226,7 @@
 
 @media (max-width: 1180px) {
     #hc-maas-hesaplama-2026 {
-        width: calc(100vw - 24px);
+        width: 100%;
     }
 }
 
@@ -246,11 +245,11 @@
     }
 
     .hc-maas-hesaplama-2026-table {
-        font-size: 11px;
-        min-width: 1260px;
+        font-size: 10px;
+        min-width: 1120px;
     }
 
     .hc-maas-input {
-        min-width: 92px;
+        min-width: 74px;
     }
 }

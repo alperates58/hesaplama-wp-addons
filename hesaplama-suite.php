@@ -3,14 +3,14 @@
  * Plugin Name: Hesaplama Suite
  * Plugin URI:  https://github.com/YOUR_USERNAME/hesaplama-wp-addons
  * Description: Modüler hesap makineleri koleksiyonu. GitHub üzerinden güncellenir.
- * Version:     1.0.12
+ * Version:     1.0.13
  * Author:      hesaplamaa.com
  * Text Domain: hesaplama-suite
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'HC_VERSION',    '1.0.12-' . substr( (string) get_option( 'hc_last_update_sha', '' ), 0, 7 ) );
+define( 'HC_VERSION',    '1.0.13-' . substr( (string) get_option( 'hc_last_update_sha', '' ), 0, 7 ) );
 define( 'HC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'HC_PLUGIN_FILE', __FILE__ );
