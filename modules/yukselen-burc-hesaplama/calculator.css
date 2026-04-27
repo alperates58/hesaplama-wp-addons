@@ -1,0 +1,106 @@
+.hc-yukselen-burc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-yukselen-burc-manuel {
+    display: none;
+}
+
+.hc-yukselen-burc-not {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hc-yukselen-burc-result {
+    border-left-color: #6b4fd8;
+}
+
+.hc-yukselen-burc-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-yukselen-burc-symbol {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 56px;
+    border-radius: 8px;
+    background: #f0edff;
+    color: #4d36b8;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.hc-yukselen-burc-degree {
+    color: #555;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.hc-yukselen-burc-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-yukselen-burc-details div {
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+}
+
+.hc-yukselen-burc-details span,
+.hc-yukselen-burc-details strong {
+    display: block;
+}
+
+.hc-yukselen-burc-details span {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.hc-yukselen-burc-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-yukselen-burc-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-yukselen-burc-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-yukselen-burc-grid,
+    .hc-yukselen-burc-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-yukselen-burc-card {
+        align-items: flex-start;
+    }
+}

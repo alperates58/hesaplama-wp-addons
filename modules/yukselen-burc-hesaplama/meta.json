@@ -1,0 +1,5 @@
+{
+  "name": "Yükselen Burç Hesaplama",
+  "desc": "Doğum tarihi, saati ve konuma göre yükselen burcu ve derecesini hesaplar.",
+  "shortcode": "[hc_yukselen_burc_hesaplama]"
+}
