@@ -1,0 +1,101 @@
+.hc-tyt-puan-hesaplama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.hc-tyt-puan-hesaplama-test {
+    border: 1px solid #e8ecf3;
+    border-radius: 8px;
+    padding: 12px;
+    background: #ffffff;
+}
+
+.hc-tyt-puan-hesaplama-test h4 {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #263348;
+}
+
+.hc-tyt-puan-hesaplama-test h4 span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.hc-tyt-puan-hesaplama-fields,
+.hc-tyt-puan-hesaplama-obp {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hc-tyt-puan-hesaplama-obp {
+    margin-bottom: 16px;
+}
+
+.hc-tyt-puan-hesaplama-note,
+.hc-tyt-puan-hesaplama-warning {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #667085;
+}
+
+.hc-tyt-puan-hesaplama-warning {
+    margin: 12px 0 0;
+}
+
+.hc-tyt-puan-hesaplama-summary,
+.hc-tyt-puan-hesaplama-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hc-tyt-puan-hesaplama-summary {
+    margin-bottom: 12px;
+}
+
+.hc-tyt-puan-hesaplama-summary div,
+.hc-tyt-puan-hesaplama-card {
+    border: 1px solid #eceff5;
+    border-radius: 8px;
+    padding: 12px;
+    background: #ffffff;
+}
+
+.hc-tyt-puan-hesaplama-summary span,
+.hc-tyt-puan-hesaplama-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #5f6776;
+}
+
+.hc-tyt-puan-hesaplama-summary strong,
+.hc-tyt-puan-hesaplama-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #20304a;
+}
+
+.hc-tyt-puan-hesaplama-card small {
+    display: block;
+    margin-top: 6px;
+    color: #6b7280;
+}
+
+@media (max-width: 480px) {
+    .hc-tyt-puan-hesaplama-grid,
+    .hc-tyt-puan-hesaplama-fields,
+    .hc-tyt-puan-hesaplama-obp,
+    .hc-tyt-puan-hesaplama-summary,
+    .hc-tyt-puan-hesaplama-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

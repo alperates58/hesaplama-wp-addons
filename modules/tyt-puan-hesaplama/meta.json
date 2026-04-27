@@ -1,0 +1,5 @@
+{
+  "name": "TYT Puan Hesaplama",
+  "desc": "TYT doğru ve yanlış sayılarına göre net, ham puan ve isteğe bağlı OBP katkılı yerleştirme puanı hesaplar.",
+  "shortcode": "[hc_tyt_puan_hesaplama]"
+}
