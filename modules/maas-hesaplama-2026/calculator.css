@@ -169,12 +169,15 @@
     border-radius: 5px;
     box-sizing: border-box;
     color: #24364f;
-    font-size: 10px;
+    font-family: inherit;
+    font-size: 10px !important;
+    font-weight: 400;
     font-variant-numeric: tabular-nums;
-    height: 24px;
+    height: 22px;
     max-width: none;
     min-width: 72px;
-    padding: 2px 4px;
+    line-height: 1.08;
+    padding: 1px 3px;
     text-align: right;
     width: 100%;
 }
