@@ -1,4 +1,4 @@
-/* Hesaplama Suite — frontend stiller */
+/* Hesaplama Suite - frontend stiller */
 .hc-calculator {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     max-width: 560px;
@@ -49,7 +49,9 @@
     width: 100%;
 }
 
-.hc-btn:hover { background: #135e96; }
+.hc-btn:hover {
+    background: #135e96;
+}
 
 .hc-result {
     margin-top: 20px;
@@ -61,7 +63,9 @@
     display: none;
 }
 
-.hc-result.visible { display: block; }
+.hc-result.visible {
+    display: block;
+}
 
 .hc-result-value {
     font-size: 1.6em;
@@ -69,7 +73,52 @@
     color: #2271b1;
 }
 
-/* Kredi kartı asgari ödeme */
+.hc-share-panel {
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #d9dee8;
+    border-radius: 8px;
+}
+
+.hc-share-title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #24364b;
+}
+
+.hc-share-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hc-share-btn {
+    padding: 10px 14px;
+    border: 1px solid #ccd6e4;
+    border-radius: 999px;
+    background: #f7f9fc;
+    color: #1f2f46;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hc-share-btn:hover {
+    background: #eaf2fb;
+    border-color: #2271b1;
+    color: #135e96;
+}
+
+.hc-share-btn:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* Kredi karti asgari odeme */
 .hc-kkao-table {
     width: 100%;
     border-collapse: collapse;
@@ -94,4 +143,15 @@
     border-radius: 4px;
     font-size: 13px;
     color: #7a5200;
+}
+
+@media (max-width: 480px) {
+    .hc-share-actions {
+        flex-direction: column;
+    }
+
+    .hc-share-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
