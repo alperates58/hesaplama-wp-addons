@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/YOUR_USERNAME/hesaplama-wp-addons
  * Description: Modüler hesap makineleri koleksiyonu. GitHub üzerinden güncellenir.
  * Version:     1.0.17
- * Author:      hesaplamaa.com
+ * Author:      Alper ATEŞ
  * Text Domain: hesaplama-suite
  */
 
