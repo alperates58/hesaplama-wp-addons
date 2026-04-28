@@ -294,6 +294,54 @@
         return '#';
     }
 
+    async function shareWithNativeSheet(calculator, resultElement, options) {
+        var title = getCalculatorTitle(calculator);
+        var message = buildShareMessage(title);
+        var blob;
+        var file;
+
+        options = options || {};
+
+        if (!navigator.share) {
+            return false;
+        }
+
+        try {
+            blob = await renderResultToBlob(calculator, resultElement);
+            file = new File([blob], 'hesaplama-sonucu.png', { type: 'image/png' });
+        } catch (error) {
+            return false;
+        }
+
+        try {
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                    title: title,
+                    text: message,
+                    files: [file]
+                });
+                return true;
+            }
+
+            if (!options.allowLinkFallbackInSheet) {
+                return false;
+            }
+
+            await navigator.share({
+                title: title,
+                text: message,
+                url: window.location.href
+            });
+            return true;
+        } catch (error) {
+            if (error && error.name === 'AbortError') {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
     async function handleShare(calculator, resultElement) {
         var title = getCalculatorTitle(calculator);
         var message = buildShareMessage(title);
@@ -444,10 +492,11 @@
             }
         });
 
-        panel.addEventListener('click', function (event) {
+        panel.addEventListener('click', async function (event) {
             var link = event.target.closest('a[data-hc-social]');
             var platform;
             var shareUrl;
+            var usedNativeShare;
 
             if (!link) {
                 return;
@@ -455,6 +504,17 @@
 
             event.preventDefault();
             platform = link.getAttribute('data-hc-social');
+
+            if (platform === 'whatsapp') {
+                usedNativeShare = await shareWithNativeSheet(calculator, resultElement, {
+                    allowLinkFallbackInSheet: false
+                });
+
+                if (usedNativeShare) {
+                    return;
+                }
+            }
+
             shareUrl = buildShareUrl(platform, calculator);
             window.open(shareUrl, '_blank', 'noopener,noreferrer,width=640,height=720');
         });
