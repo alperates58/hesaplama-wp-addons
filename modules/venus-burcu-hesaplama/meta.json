@@ -1,0 +1,5 @@
+{
+  "name": "Venüs Burcu Hesaplama",
+  "desc": "Doğum tarihi, saati ve UTC farkına göre Venüs burcunu, derecesini ve ilişki temalarını hesaplar.",
+  "shortcode": "[hc_venus_burcu_hesaplama]"
+}

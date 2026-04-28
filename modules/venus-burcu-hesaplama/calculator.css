@@ -1,0 +1,120 @@
+.hc-venus-burcu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-venus-burcu-note {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.hc-venus-burcu-result {
+    border-left-color: #b45c7a;
+}
+
+.hc-venus-burcu-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-venus-burcu-symbol {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 56px;
+    border-radius: 10px;
+    background: #f9eef2;
+    color: #9b355c;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.hc-venus-burcu-degree {
+    color: #555;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.hc-venus-burcu-summary {
+    margin: 8px 0 0;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hc-venus-burcu-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0 16px;
+}
+
+.hc-venus-burcu-stats div,
+.hc-venus-burcu-panel {
+    padding: 12px;
+    border: 1px solid #ead9e0;
+    border-radius: 8px;
+    background: #fffafb;
+}
+
+.hc-venus-burcu-stats span,
+.hc-venus-burcu-stats strong {
+    display: block;
+}
+
+.hc-venus-burcu-stats span {
+    color: #7c6170;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.hc-venus-burcu-stats strong {
+    color: #2d1c23;
+    font-size: 14px;
+}
+
+.hc-venus-burcu-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.hc-venus-burcu-panel h4 {
+    margin: 0 0 8px;
+    color: #7b2f4d;
+    font-size: 14px;
+}
+
+.hc-venus-burcu-panel p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.hc-venus-burcu-warning {
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    background: #fff6ea;
+    border: 1px solid #f0d19a;
+    border-radius: 8px;
+    color: #77531d;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+    .hc-venus-burcu-grid,
+    .hc-venus-burcu-stats,
+    .hc-venus-burcu-panels {
+        grid-template-columns: 1fr;
+    }
+}
