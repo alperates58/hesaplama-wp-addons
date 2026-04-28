@@ -95,6 +95,10 @@
 }
 
 .hc-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 10px 14px;
     border: 1px solid #ccd6e4;
     border-radius: 999px;
@@ -105,12 +109,48 @@
     line-height: 1.2;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
 }
 
 .hc-share-btn:hover {
     background: #eaf2fb;
     border-color: #2271b1;
     color: #135e96;
+}
+
+.hc-share-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.hc-share-btn-icon svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+}
+
+.hc-share-btn--whatsapp {
+    color: #18794e;
+}
+
+.hc-share-btn--telegram {
+    color: #0b70b7;
+}
+
+.hc-share-btn--facebook {
+    color: #2456b8;
+}
+
+.hc-share-btn--x {
+    color: #111827;
+}
+
+.hc-share-btn--email {
+    color: #6b7280;
 }
 
 .hc-share-btn:focus {
