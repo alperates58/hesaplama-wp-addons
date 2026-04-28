@@ -10,7 +10,10 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'HC_VERSION',    '1.0.17-' . substr( (string) get_option( 'hc_last_update_sha', '' ), 0, 7 ) );
+$hc_last_update_sha     = substr( (string) get_option( 'hc_last_update_sha', '' ), 0, 7 );
+$hc_last_update_version = (string) get_option( 'hc_last_update_version', '0' );
+
+define( 'HC_VERSION',    '1.0.17-' . $hc_last_update_version . ( $hc_last_update_sha ? '-' . $hc_last_update_sha : '' ) );
 define( 'HC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'HC_PLUGIN_FILE', __FILE__ );

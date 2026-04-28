@@ -94,22 +94,34 @@ class HC_Github_Updater {
         $extracted_dir = $plugin_base . '/' . $repo_name . '-' . $s['branch'];
         $plugin_slug   = basename( $dest );
 
-        if ( is_dir( $extracted_dir ) ) {
-            // Mevcut klasörü sil ve yenisiyle değiştir
-            $wp_filesystem->delete( $dest, true );
-            rename( $extracted_dir, $dest );
+        if ( ! is_dir( $extracted_dir ) ) {
+            return 'İndirilen paket açılamadı veya beklenen klasör bulunamadı.';
+        }
+
+        // Mevcut klasörü sil ve yenisiyle değiştir
+        $wp_filesystem->delete( $dest, true );
+
+        if ( ! @rename( $extracted_dir, $dest ) ) {
+            return 'Yeni eklenti klasörü yerine taşınamadı.';
         }
 
         $remote_sha = $this->get_remote_version();
 
-        // Güncelleme zamanını kaydet
+        // Güncelleme zamanını ve asset cache sürümünü kaydet
         update_option( 'hc_last_update', current_time( 'mysql' ) );
+        update_option( 'hc_last_update_version', (string) time() );
         if ( $remote_sha ) {
             update_option( 'hc_last_update_sha', $remote_sha );
         }
 
+        if ( function_exists( 'wp_clean_plugins_cache' ) ) {
+            wp_clean_plugins_cache( true );
+        }
         if ( function_exists( 'wp_cache_flush' ) ) {
             wp_cache_flush();
+        }
+        if ( function_exists( 'opcache_reset' ) ) {
+            @opcache_reset();
         }
 
         return true;
