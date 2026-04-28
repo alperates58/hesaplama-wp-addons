@@ -38,6 +38,7 @@ class HC_AI_Writer {
         $odak_kw     = sanitize_text_field( wp_unslash( $_POST['odak_anahtar_kelime'] ?? '' ) );
         $meta_baslik = sanitize_text_field( wp_unslash( $_POST['meta_baslik']         ?? '' ) );
         $meta_acik   = sanitize_textarea_field( wp_unslash( $_POST['meta_aciklama']   ?? '' ) );
+        $url_slug    = sanitize_title( wp_unslash( $_POST['url_slug']                 ?? '' ) );
         $etiketler   = $this->normalize_article_tags( (array) ( $_POST['etiketler'] ?? [] ), $baslik, $odak_kw );
 
         $post_data = [
@@ -50,6 +51,10 @@ class HC_AI_Writer {
 
         if ( $icerik ) {
             $post_data['post_content'] = $icerik;
+        }
+
+        if ( $url_slug ) {
+            $post_data['post_name'] = $url_slug;
         }
 
         if ( count( $post_data ) > 1 ) {
@@ -222,6 +227,7 @@ class HC_AI_Writer {
         $odak_kw     = sanitize_text_field( $_POST['odak_anahtar_kelime'] ?? '' );
         $meta_baslik = sanitize_text_field( $_POST['meta_baslik']         ?? '' );
         $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama']   ?? '' );
+        $url_slug    = sanitize_title( $_POST['url_slug']                 ?? '' );
         $etiketler   = $this->normalize_article_tags( (array) ( $_POST['etiketler'] ?? [] ), $baslik, $odak_kw );
         $shortcode   = sanitize_text_field( $_POST['shortcode']           ?? '' );
 
@@ -232,6 +238,7 @@ class HC_AI_Writer {
 
         $post_id = wp_insert_post( [
             'post_title'   => $baslik,
+            'post_name'    => $url_slug,
             'post_content' => $icerik,
             'post_status'  => 'draft',
             'post_type'    => 'post',
@@ -435,6 +442,10 @@ class HC_AI_Writer {
                         <td><input type="text" id="hc-r-odak" class="large-text" /></td>
                     </tr>
                     <tr>
+                        <th><label>İkincil Anahtar Kelimeler</label></th>
+                        <td><input type="text" id="hc-r-ikincil" class="large-text" placeholder="virgülle ayrılmış" /></td>
+                    </tr>
+                    <tr>
                         <th><label>Meta Başlık <small style="font-weight:normal;color:#888;">(55-60 karakter)</small></label></th>
                         <td>
                             <input type="text" id="hc-r-meta-baslik" class="large-text" />
@@ -453,8 +464,32 @@ class HC_AI_Writer {
                         <td><input type="text" id="hc-r-etiketler" class="large-text" placeholder="virgülle ayrılmış" /></td>
                     </tr>
                     <tr>
+                        <th><label>URL Slug</label></th>
+                        <td><input type="text" id="hc-r-url-slug" class="large-text" placeholder="ornek-url-slug" /></td>
+                    </tr>
+                    <tr>
                         <th><label>Yazı Başlığı (H1)</label></th>
                         <td><input type="text" id="hc-r-baslik" class="large-text" /></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="hc-card">
+                <h2>Ek SEO Notları</h2>
+                <table class="form-table">
+                    <tr>
+                        <th><label>İç Link Önerileri</label></th>
+                        <td>
+                            <textarea id="hc-r-ic-linkler" class="large-text" rows="4" placeholder="Her satıra bir öneri"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label>Görsel ALT Text</label></th>
+                        <td><input type="text" id="hc-r-alt-text" class="large-text" /></td>
+                    </tr>
+                    <tr>
+                        <th><label>Yoast Kontrol</label></th>
+                        <td><textarea id="hc-r-yoast" class="large-text" rows="6" readonly></textarea></td>
                     </tr>
                 </table>
             </div>

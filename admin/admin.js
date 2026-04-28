@@ -151,11 +151,16 @@ jQuery(function ($) {
 
                 d = resp.data;
                 $('#hc-r-odak').val(d.odak_anahtar_kelime || '');
+                $('#hc-r-ikincil').val(Array.isArray(d.ikincil_anahtar_kelimeler) ? d.ikincil_anahtar_kelimeler.join(', ') : (d.ikincil_anahtar_kelimeler || ''));
                 $('#hc-r-meta-baslik').val(d.meta_baslik || '').trigger('input');
                 $('#hc-r-meta-acik').val(d.meta_aciklama || '').trigger('input');
                 $('#hc-r-etiketler').val(Array.isArray(d.etiketler) ? d.etiketler.join(', ') : (d.etiketler || ''));
+                $('#hc-r-url-slug').val(d.url_slug || '');
                 $('#hc-r-baslik').val(d.baslik || '');
                 $('#hc-r-icerik').val(d.icerik || '');
+                $('#hc-r-ic-linkler').val(Array.isArray(d.ic_link_onerileri) ? d.ic_link_onerileri.join('\n') : (d.ic_link_onerileri || ''));
+                $('#hc-r-alt-text').val(d.gorsel_alt_text || '');
+                $('#hc-r-yoast').val(formatYoastChecklist(d.yoast_kontrol || {}));
                 $('#hc-writer-result').show();
             })
             .fail(function (xhr) {
@@ -181,6 +186,7 @@ jQuery(function ($) {
             odak_anahtar_kelime: $('#hc-r-odak').val(),
             meta_baslik: $('#hc-r-meta-baslik').val(),
             meta_aciklama: $('#hc-r-meta-acik').val(),
+            url_slug: $('#hc-r-url-slug').val(),
             etiketler: etiketler,
             shortcode: $('#hc-writer-shortcode').val()
         }, function (resp) {
@@ -194,4 +200,24 @@ jQuery(function ($) {
             $('#hc-save-msg').text('Hata: ' + resp.data).css('color', '#d63638');
         });
     });
+
+    function formatYoastChecklist(data) {
+        var lines = [];
+        var map = {
+            anahtar_kelime_baslikta: 'Anahtar kelime başlıkta',
+            ilk_paragrafta: 'İlk paragrafta',
+            meta_aciklamada: 'Meta açıklamada',
+            alt_baslikta: 'Alt başlıkta',
+            okunabilirlik: 'Okunabilirlik',
+            seo_skoru: 'SEO skoru'
+        };
+
+        Object.keys(map).forEach(function (key) {
+            if (data[key] !== undefined && data[key] !== null && data[key] !== '') {
+                lines.push(map[key] + ': ' + data[key]);
+            }
+        });
+
+        return lines.join('\n');
+    }
 });
