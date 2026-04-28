@@ -1,0 +1,5 @@
+{
+  "name": "Ay Evresi Hesaplama",
+  "desc": "Seçilen tarihte Ay'ın evresini, ay yaşını ve yaklaşık aydınlanma oranını hesaplar.",
+  "shortcode": "[hc_ay_evresi_hesaplama]"
+}

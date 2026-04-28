@@ -1,0 +1,100 @@
+.hc-ay-evresi-not {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hc-ay-evresi-result {
+    border-left-color: #5468a8;
+}
+
+.hc-ay-evresi-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-ay-evresi-badge {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    border-radius: 999px;
+    background: #eef1fb;
+    border: 1px solid #d9dff2;
+    color: #44558f;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+}
+
+.hc-ay-evresi-subtitle {
+    margin-top: 4px;
+    color: #4e5565;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hc-ay-evresi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0 12px;
+}
+
+.hc-ay-evresi-grid div {
+    padding: 12px;
+    background: #f7f8fc;
+    border: 1px solid #e4e7f0;
+    border-radius: 8px;
+}
+
+.hc-ay-evresi-grid span,
+.hc-ay-evresi-grid strong {
+    display: block;
+}
+
+.hc-ay-evresi-grid span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-ay-evresi-grid strong {
+    color: #1d2433;
+    font-size: 14px;
+}
+
+.hc-ay-evresi-note {
+    margin: 0;
+    color: #3f4758;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hc-ay-evresi-warning {
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    background: #fff7e8;
+    border: 1px solid #f0d08b;
+    border-radius: 6px;
+    color: #6d4b00;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-ay-evresi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-ay-evresi-hero {
+        align-items: flex-start;
+    }
+}
