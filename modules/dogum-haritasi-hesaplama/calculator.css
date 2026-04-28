@@ -9,7 +9,7 @@
     margin-top: 6px;
     color: #666;
     font-size: 12px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .hc-dogum-haritasi-result {
@@ -17,51 +17,83 @@
 }
 
 .hc-dogum-haritasi-summary,
-.hc-dogum-haritasi-details {
+.hc-dogum-haritasi-cards,
+.hc-dogum-haritasi-details,
+.hc-dogum-haritasi-aspects {
     display: grid;
-    gap: 8px;
-    margin-bottom: 14px;
+    gap: 10px;
 }
 
 .hc-dogum-haritasi-summary {
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 14px;
+}
+
+.hc-dogum-haritasi-cards {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 16px;
 }
 
 .hc-dogum-haritasi-details {
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 14px;
+}
+
+.hc-dogum-haritasi-details-3 {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .hc-dogum-haritasi-summary div,
-.hc-dogum-haritasi-details div {
-    padding: 10px;
+.hc-dogum-haritasi-cards div,
+.hc-dogum-haritasi-details div,
+.hc-dogum-haritasi-aspect-card,
+.hc-dogum-haritasi-section {
+    padding: 12px;
     background: #f7f7f7;
     border: 1px solid #e4e4e4;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .hc-dogum-haritasi-summary span,
 .hc-dogum-haritasi-summary strong,
+.hc-dogum-haritasi-cards span,
+.hc-dogum-haritasi-cards strong,
 .hc-dogum-haritasi-details span,
-.hc-dogum-haritasi-details strong {
+.hc-dogum-haritasi-details strong,
+.hc-dogum-haritasi-aspect-card span,
+.hc-dogum-haritasi-aspect-card strong {
     display: block;
 }
 
 .hc-dogum-haritasi-summary span,
-.hc-dogum-haritasi-details span {
+.hc-dogum-haritasi-cards span,
+.hc-dogum-haritasi-details span,
+.hc-dogum-haritasi-aspect-card span {
     color: #666;
     font-size: 12px;
     margin-bottom: 4px;
 }
 
 .hc-dogum-haritasi-summary strong,
-.hc-dogum-haritasi-details strong {
+.hc-dogum-haritasi-cards strong,
+.hc-dogum-haritasi-details strong,
+.hc-dogum-haritasi-aspect-card strong {
     color: #222;
+    font-size: 14px;
+}
+
+.hc-dogum-haritasi-cards p,
+.hc-dogum-haritasi-aspect-card p,
+.hc-dogum-haritasi-section p,
+.hc-dogum-haritasi-empty {
+    margin: 8px 0 0;
+    color: #333;
+    line-height: 1.6;
     font-size: 14px;
 }
 
 .hc-dogum-haritasi-table-wrap {
     overflow-x: auto;
+    margin-bottom: 16px;
 }
 
 .hc-dogum-haritasi-table {
@@ -88,31 +120,48 @@
     color: #222;
 }
 
-.hc-dogum-haritasi-yorum {
-    margin: 12px 0 0;
-    color: #333;
-    line-height: 1.5;
+.hc-dogum-haritasi-balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-dogum-haritasi-balance h4,
+.hc-dogum-haritasi-section h4 {
+    margin: 0 0 10px;
+    color: #222;
+    font-size: 15px;
+}
+
+.hc-dogum-haritasi-sections {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .hc-dogum-haritasi-uyari {
-    margin: 12px 0 0;
+    margin: 14px 0 0;
     padding: 10px;
     background: #fff8e5;
     border: 1px solid #f0d37a;
     border-radius: 6px;
     color: #6d5200;
     font-size: 13px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 @media (max-width: 480px) {
     .hc-dogum-haritasi-grid,
     .hc-dogum-haritasi-summary,
-    .hc-dogum-haritasi-details {
+    .hc-dogum-haritasi-cards,
+    .hc-dogum-haritasi-details,
+    .hc-dogum-haritasi-details-3,
+    .hc-dogum-haritasi-balance {
         grid-template-columns: 1fr;
     }
 
     .hc-dogum-haritasi-table {
-        min-width: 480px;
+        min-width: 560px;
     }
 }
