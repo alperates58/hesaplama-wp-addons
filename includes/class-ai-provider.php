@@ -41,6 +41,7 @@ class HC_AI_Provider {
             'body' => wp_json_encode( [
                 'model'       => $s['model'],
                 'temperature' => 0.85,
+                'max_tokens'  => 7000,
                 'messages'    => [
                     [ 'role' => 'system', 'content' => $this->get_system_prompt() ],
                     [ 'role' => 'user', 'content' => $prompt ],
@@ -181,6 +182,7 @@ GENEL KURALLAR:
   SEO basliginda, ilk paragrafta, meta description icinde, URL slug onerisi icinde ve en az 1 H2 baslikta
 - Icerikte anahtar kelimeyi dogal yogunlukta kullan; gereksiz tekrar yapma
 - Icerik minimum 900 kelime olsun; konu genisse veya rekabet yuksek gorunuyorsa 1400+ kelimeye cik
+- 900 kelimenin altindaki icerik gecersiz sayilir; ideal hedef 1200-1800 kelime araligidir
 - Giris bolumu 50-80 kelime araliginda olsun ve ilk paragrafta odak anahtar kelime gecsin
 - Kisa ve net cumleler kur; uzun, mekanik ve birbirine benzeyen cumle dizileri kurma
 - Paragraflar kisa olsun; ideal olarak 2-4 satir araligini koru

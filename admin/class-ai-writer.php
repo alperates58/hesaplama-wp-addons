@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class HC_AI_Writer {
 
     public function __construct() {
-        add_action( 'admin_init',                   [ $this, 'handle_ai_settings_save' ] );
-        add_action( 'wp_ajax_hc_generate_article',  [ $this, 'ajax_generate' ] );
-        add_action( 'wp_ajax_hc_save_draft',        [ $this, 'ajax_save_draft' ] );
-        add_action( 'wp_ajax_hc_check_ai_usage',    [ $this, 'ajax_check_usage' ] );
-        add_action( 'wp_ajax_hc_create_module_post',  [ $this, 'ajax_create_module_post' ] );
-        add_action( 'wp_ajax_hc_update_post_meta',    [ $this, 'ajax_update_post_meta' ] );
+        add_action( 'admin_init', [ $this, 'handle_ai_settings_save' ] );
+        add_action( 'wp_ajax_hc_generate_article', [ $this, 'ajax_generate' ] );
+        add_action( 'wp_ajax_hc_save_draft', [ $this, 'ajax_save_draft' ] );
+        add_action( 'wp_ajax_hc_check_ai_usage', [ $this, 'ajax_check_usage' ] );
+        add_action( 'wp_ajax_hc_create_module_post', [ $this, 'ajax_create_module_post' ] );
+        add_action( 'wp_ajax_hc_update_post_meta', [ $this, 'ajax_update_post_meta' ] );
     }
 
     public function handle_ai_settings_save() {
@@ -17,7 +17,9 @@ class HC_AI_Writer {
             ! isset( $_POST['hc_save_ai'] ) ||
             ! check_admin_referer( 'hc_save_ai_settings' ) ||
             ! current_user_can( 'manage_options' )
-        ) return;
+        ) {
+            return;
+        }
 
         $provider = new HC_AI_Provider();
         $provider->save_settings( $_POST );
@@ -26,19 +28,19 @@ class HC_AI_Writer {
         exit;
     }
 
-    /* AJAX: Mevcut yazının Yoast + etiket meta'sını güncelle */
     public function ajax_update_post_meta() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        $post_id     = intval( $_POST['post_id']            ?? 0 );
+
+        $post_id = intval( $_POST['post_id'] ?? 0 );
         if ( ! $post_id || ! get_post( $post_id ) ) wp_send_json_error( 'Geçersiz yazı.' );
         if ( ! current_user_can( 'edit_post', $post_id ) ) wp_send_json_error( 'Yetkisiz.' );
 
-        $baslik      = sanitize_text_field( wp_unslash( $_POST['baslik']              ?? '' ) );
-        $icerik      = wp_kses_post( wp_unslash( $_POST['icerik']                     ?? '' ) );
+        $baslik      = sanitize_text_field( wp_unslash( $_POST['baslik'] ?? '' ) );
+        $icerik      = wp_kses_post( wp_unslash( $_POST['icerik'] ?? '' ) );
         $odak_kw     = sanitize_text_field( wp_unslash( $_POST['odak_anahtar_kelime'] ?? '' ) );
-        $meta_baslik = sanitize_text_field( wp_unslash( $_POST['meta_baslik']         ?? '' ) );
-        $meta_acik   = sanitize_textarea_field( wp_unslash( $_POST['meta_aciklama']   ?? '' ) );
-        $url_slug    = sanitize_title( wp_unslash( $_POST['url_slug']                 ?? '' ) );
+        $meta_baslik = sanitize_text_field( wp_unslash( $_POST['meta_baslik'] ?? '' ) );
+        $meta_acik   = sanitize_textarea_field( wp_unslash( $_POST['meta_aciklama'] ?? '' ) );
+        $url_slug    = sanitize_title( wp_unslash( $_POST['url_slug'] ?? '' ) );
         $etiketler   = $this->normalize_article_tags( (array) ( $_POST['etiketler'] ?? [] ), $baslik, $odak_kw );
 
         $post_data = [
@@ -64,8 +66,8 @@ class HC_AI_Writer {
             }
         }
 
-        update_post_meta( $post_id, '_yoast_wpseo_focuskw',  $odak_kw );
-        update_post_meta( $post_id, '_yoast_wpseo_title',    $meta_baslik );
+        update_post_meta( $post_id, '_yoast_wpseo_focuskw', $odak_kw );
+        update_post_meta( $post_id, '_yoast_wpseo_title', $meta_baslik );
         update_post_meta( $post_id, '_yoast_wpseo_metadesc', $meta_acik );
 
         if ( $etiketler ) {
@@ -78,11 +80,11 @@ class HC_AI_Writer {
     private function normalize_article_tags( $tags, $title = '', $focus_keyword = '' ) {
         $raw_tags = array_map( 'sanitize_text_field', array_map( 'wp_unslash', (array) $tags ) );
         $bad_tags = [ '2024', '2025', '2026', 'hesaplama aracı', 'hesaplama', 'ssk', 'bağ-kur', 'bag-kur' ];
-        $clean = [];
+        $clean    = [];
 
         foreach ( $raw_tags as $tag ) {
-            $tag = trim( preg_replace( '/\s+/', ' ', $tag ) );
-            $lower = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
+            $tag        = trim( preg_replace( '/\s+/', ' ', $tag ) );
+            $lower      = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
             $word_count = count( preg_split( '/\s+/', $tag, -1, PREG_SPLIT_NO_EMPTY ) );
 
             if ( strlen( $tag ) < 4 || in_array( $lower, $bad_tags, true ) || $word_count > 4 ) {
@@ -99,7 +101,7 @@ class HC_AI_Writer {
         ] );
 
         foreach ( $fallbacks as $tag ) {
-            $tag = sanitize_text_field( $tag );
+            $tag   = sanitize_text_field( $tag );
             $lower = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
             if ( $tag && ! isset( $clean[ $lower ] ) ) {
                 $clean[ $lower ] = $tag;
@@ -109,15 +111,13 @@ class HC_AI_Writer {
         return array_slice( array_values( $clean ), 0, 5 );
     }
 
-    /* AJAX: URL'den (veya başlıktan) makale üret */
     public function ajax_generate() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
         if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
 
-        $url   = esc_url_raw( $_POST['url']   ?? '' );
+        $url   = esc_url_raw( $_POST['url'] ?? '' );
         $title = sanitize_text_field( $_POST['title'] ?? '' );
 
-        // URL yoksa başlık zorunlu
         if ( ! $url && ! $title ) wp_send_json_error( 'URL veya başlık gerekli.' );
 
         $page_text = '';
@@ -132,48 +132,56 @@ class HC_AI_Writer {
         }
 
         $provider = new HC_AI_Provider();
-        // URL yoksa başlık tabanlı prompt kullan
-        $prompt = $url
+        $prompt   = $url
             ? $provider->build_prompt( $url, $page_text )
             : $provider->build_prompt_from_title( $title );
-        $result = $provider->generate( $prompt );
 
+        $result = $provider->generate( $prompt );
         if ( is_wp_error( $result ) ) {
             wp_send_json_error( $result->get_error_message() );
         }
 
-        // JSON temizle (Gemini bazen ```json ... ``` sarıyor)
-        $clean = preg_replace( '/^```(?:json)?\s*/i', '', trim( $result ) );
-        $clean = preg_replace( '/\s*```$/', '', $clean );
-        $data  = json_decode( $clean, true );
-
+        $data = $this->decode_ai_json_response( $result );
         if ( ! $data ) {
             wp_send_json_error( 'AI yanıtı JSON olarak çözümlenemedi. Ham yanıt: ' . esc_html( substr( $result, 0, 300 ) ) );
+        }
+
+        if ( $this->count_article_words( $data['icerik'] ?? '' ) < 900 ) {
+            $retry_prompt = $prompt . "\n\nEK ZORUNLU KURAL:\n- Onceki deneme cok kisaydi.\n- Bu kez en az 900 kelimelik, ideal olarak 1200-1800 kelimelik tam makale uret.\n- SSS dahil her bolumu dolu yaz.\n- Yanit yine sadece gecerli JSON olsun.\n";
+            $retry_result = $provider->generate( $retry_prompt );
+
+            if ( ! is_wp_error( $retry_result ) ) {
+                $retry_data = $this->decode_ai_json_response( $retry_result );
+                if ( $retry_data && $this->count_article_words( $retry_data['icerik'] ?? '' ) >= 900 ) {
+                    $data = $retry_data;
+                }
+            }
+        }
+
+        if ( $this->count_article_words( $data['icerik'] ?? '' ) < 900 ) {
+            wp_send_json_error( 'AI yeterince uzun makale üretemedi. En az 900 kelimelik içerik bekleniyordu.' );
         }
 
         wp_send_json_success( $data );
     }
 
-    /* AJAX: Modül için taslak yazı oluştur ve editöre yönlendir */
     public function ajax_create_module_post() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
         if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
 
-        $name      = sanitize_text_field( $_POST['name']      ?? '' );
+        $name      = sanitize_text_field( $_POST['name'] ?? '' );
         $shortcode = sanitize_text_field( $_POST['shortcode'] ?? '' );
 
         if ( ! $name ) wp_send_json_error( 'Modül adı eksik.' );
 
-        // Aynı başlıkta yazı var mı kontrol et
         $existing = get_page_by_title( $name, OBJECT, 'post' );
         if ( $existing ) {
             wp_send_json_success( [
-                'edit_url'  => admin_url( 'post.php?post=' . $existing->ID . '&action=edit' ),
-                'existing'  => true,
+                'edit_url' => admin_url( 'post.php?post=' . $existing->ID . '&action=edit' ),
+                'existing' => true,
             ] );
         }
 
-        // Türkçe karakterleri dönüştür, slug oluştur
         $slug = $this->turkish_slug( $name );
 
         $post_id = wp_insert_post( [
@@ -195,14 +203,13 @@ class HC_AI_Writer {
     }
 
     private function turkish_slug( $text ) {
-        $tr = [ 'ş','Ş','ı','İ','ğ','Ğ','ü','Ü','ö','Ö','ç','Ç' ];
-        $en = [ 's','s','i','i','g','g','u','u','o','o','c','c' ];
+        $tr   = [ 'ş', 'Ş', 'ı', 'İ', 'ğ', 'Ğ', 'ü', 'Ü', 'ö', 'Ö', 'ç', 'Ç' ];
+        $en   = [ 's', 's', 'i', 'i', 'g', 'g', 'u', 'u', 'o', 'o', 'c', 'c' ];
         $text = str_replace( $tr, $en, $text );
         $text = sanitize_title( $text );
         return $text;
     }
 
-    /* AJAX: OpenAI kullanım/kredi sorgula */
     public function ajax_check_usage() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
         if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
@@ -217,21 +224,19 @@ class HC_AI_Writer {
         wp_send_json_success( $result );
     }
 
-    /* AJAX: WP taslak olarak kaydet + Yoast alanları */
     public function ajax_save_draft() {
         check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
         if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
 
-        $baslik      = sanitize_text_field( $_POST['baslik']              ?? '' );
-        $icerik      = wp_kses_post( $_POST['icerik']                     ?? '' );
+        $baslik      = sanitize_text_field( $_POST['baslik'] ?? '' );
+        $icerik      = wp_kses_post( $_POST['icerik'] ?? '' );
         $odak_kw     = sanitize_text_field( $_POST['odak_anahtar_kelime'] ?? '' );
-        $meta_baslik = sanitize_text_field( $_POST['meta_baslik']         ?? '' );
-        $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama']   ?? '' );
-        $url_slug    = sanitize_title( $_POST['url_slug']                 ?? '' );
+        $meta_baslik = sanitize_text_field( $_POST['meta_baslik'] ?? '' );
+        $meta_acik   = sanitize_textarea_field( $_POST['meta_aciklama'] ?? '' );
+        $url_slug    = sanitize_title( $_POST['url_slug'] ?? '' );
         $etiketler   = $this->normalize_article_tags( (array) ( $_POST['etiketler'] ?? [] ), $baslik, $odak_kw );
-        $shortcode   = sanitize_text_field( $_POST['shortcode']           ?? '' );
+        $shortcode   = sanitize_text_field( $_POST['shortcode'] ?? '' );
 
-        // Shortcode içeriğin en üstüne ekle
         if ( $shortcode ) {
             $icerik = '<p>' . $shortcode . '</p>' . "\n\n" . $icerik;
         }
@@ -248,12 +253,10 @@ class HC_AI_Writer {
             wp_send_json_error( $post_id->get_error_message() );
         }
 
-        // Yoast SEO meta alanları
-        update_post_meta( $post_id, '_yoast_wpseo_focuskw',  $odak_kw );
-        update_post_meta( $post_id, '_yoast_wpseo_title',    $meta_baslik );
+        update_post_meta( $post_id, '_yoast_wpseo_focuskw', $odak_kw );
+        update_post_meta( $post_id, '_yoast_wpseo_title', $meta_baslik );
         update_post_meta( $post_id, '_yoast_wpseo_metadesc', $meta_acik );
 
-        // Etiketler
         if ( $etiketler ) {
             wp_set_post_tags( $post_id, $etiketler, false );
         }
@@ -262,16 +265,30 @@ class HC_AI_Writer {
         wp_send_json_success( [ 'post_id' => $post_id, 'edit_url' => $edit_url ] );
     }
 
-    /* HTML'den sade metin çıkart */
     private function extract_text( $html ) {
-        // script/style kaldır
         $html = preg_replace( '/<(script|style)[^>]*>.*?<\/\1>/si', '', $html );
         $text = wp_strip_all_tags( $html );
         $text = preg_replace( '/\s+/', ' ', $text );
-        return trim( substr( $text, 0, 4000 ) ); // token limitini aşmamak için
+        return trim( substr( $text, 0, 4000 ) );
     }
 
-    /* ---- Render yöntemleri ---- */
+    private function decode_ai_json_response( $result ) {
+        $clean = preg_replace( '/^```(?:json)?\s*/i', '', trim( $result ) );
+        $clean = preg_replace( '/\s*```$/', '', $clean );
+        return json_decode( $clean, true );
+    }
+
+    private function count_article_words( $html ) {
+        $text = wp_strip_all_tags( (string) $html );
+        $text = trim( preg_replace( '/\s+/u', ' ', $text ) );
+
+        if ( '' === $text ) {
+            return 0;
+        }
+
+        $words = preg_split( '/\s+/u', $text, -1, PREG_SPLIT_NO_EMPTY );
+        return is_array( $words ) ? count( $words ) : 0;
+    }
 
     public function render_ai_settings_tab() {
         $provider = new HC_AI_Provider();
@@ -279,10 +296,10 @@ class HC_AI_Writer {
         $saved    = isset( $_GET['saved'] );
 
         $openai_modeller = [
-            'gpt-4o-mini'  => 'GPT-4o Mini — Ucuz, Hızlı (Önerilen)',
-            'gpt-4o'       => 'GPT-4o — En Güçlü',
-            'gpt-4-turbo'  => 'GPT-4 Turbo',
-            'gpt-3.5-turbo'=> 'GPT-3.5 Turbo — En Ucuz',
+            'gpt-4o-mini'   => 'GPT-4o Mini — Ucuz, Hızlı (Önerilen)',
+            'gpt-4o'        => 'GPT-4o — En Güçlü',
+            'gpt-4-turbo'   => 'GPT-4 Turbo',
+            'gpt-3.5-turbo' => 'GPT-3.5 Turbo — En Ucuz',
         ];
         $gemini_modeller = [
             'gemini-2.0-flash-lite' => 'Gemini 2.0 Flash Lite',
@@ -333,8 +350,7 @@ class HC_AI_Writer {
                                 <optgroup label="OpenAI" id="hc-openai-models"
                                     <?php echo $s['provider'] === 'gemini' ? 'style="display:none"' : ''; ?>>
                                     <?php foreach ( $openai_modeller as $val => $label ): ?>
-                                        <option value="<?php echo esc_attr( $val ); ?>"
-                                            <?php selected( $s['model'], $val ); ?>>
+                                        <option value="<?php echo esc_attr( $val ); ?>" <?php selected( $s['model'], $val ); ?>>
                                             <?php echo esc_html( $label ); ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -342,8 +358,7 @@ class HC_AI_Writer {
                                 <optgroup label="Gemini" id="hc-gemini-models"
                                     <?php echo $s['provider'] === 'openai' ? 'style="display:none"' : ''; ?>>
                                     <?php foreach ( $gemini_modeller as $val => $label ): ?>
-                                        <option value="<?php echo esc_attr( $val ); ?>"
-                                            <?php selected( $s['model'], $val ); ?>>
+                                        <option value="<?php echo esc_attr( $val ); ?>" <?php selected( $s['model'], $val ); ?>>
                                             <?php echo esc_html( $label ); ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -383,9 +398,9 @@ class HC_AI_Writer {
     }
 
     public function render_writer_tab() {
-        // Aktif modüller
         $modules_dir = HC_PLUGIN_DIR . 'modules/';
         $modules     = [];
+
         if ( is_dir( $modules_dir ) ) {
             foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $path ) {
                 $slug      = basename( $path );
@@ -404,8 +419,7 @@ class HC_AI_Writer {
 
             <div class="hc-form-group">
                 <label for="hc-writer-url"><strong>Hesaplama Aracı URL'si</strong></label>
-                <input type="url" id="hc-writer-url" class="large-text"
-                       placeholder="https://hesaplamaa.com/..." />
+                <input type="url" id="hc-writer-url" class="large-text" placeholder="https://hesaplamaa.com/..." />
             </div>
 
             <?php if ( $modules ): ?>
@@ -433,7 +447,6 @@ class HC_AI_Writer {
         </div>
 
         <div id="hc-writer-result" style="display:none;">
-
             <div class="hc-card">
                 <h2>SEO Bilgileri</h2>
                 <table class="form-table">
