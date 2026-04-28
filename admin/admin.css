@@ -181,6 +181,11 @@
     overflow-x: auto;
 }
 
+.hc-modules-table {
+    table-layout: auto;
+    min-width: 1100px;
+}
+
 .hc-modules-table th {
     white-space: nowrap;
 }
@@ -189,17 +194,55 @@
     vertical-align: top;
 }
 
+.hc-col-module {
+    min-width: 220px;
+}
+
+.hc-col-category {
+    min-width: 170px;
+}
+
+.hc-col-shortcode {
+    min-width: 170px;
+}
+
+.hc-col-desc {
+    min-width: 290px;
+}
+
+.hc-col-posts {
+    width: 70px;
+}
+
+.hc-col-created {
+    min-width: 135px;
+}
+
+.hc-col-status {
+    width: 90px;
+}
+
+.hc-col-action {
+    min-width: 120px;
+}
+
 .hc-row-meta {
     margin-top: 6px;
     color: #646970;
     font-size: 12px;
+    line-height: 1.45;
+    word-break: break-word;
 }
 
 .hc-module-desc {
-    min-width: 240px;
     color: #3c434a;
     font-size: 12px;
     line-height: 1.55;
+}
+
+.hc-shortcode-code {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .hc-center-cell {
@@ -225,6 +268,10 @@
     display: block;
     margin-top: 8px;
     font-size: 11px;
+}
+
+.hc-yazi-ekle-btn {
+    white-space: nowrap;
 }
 
 .hc-update-box {

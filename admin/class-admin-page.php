@@ -545,28 +545,28 @@ class HC_Admin_Page {
                     <p>Filtreye uygun modül bulunamadı.</p>
                 <?php else : ?>
                     <div class="hc-table-wrap">
-                        <table class="wp-list-table widefat fixed striped hc-modules-table">
+                        <table class="wp-list-table widefat striped hc-modules-table">
                             <thead>
                                 <tr>
-                                    <th>Modül</th>
-                                    <th>Kategori</th>
-                                    <th>Shortcode</th>
-                                    <th>Açıklama</th>
-                                    <th>Yazı</th>
-                                    <th>Eklenme</th>
-                                    <th>Durum</th>
-                                    <th>İşlem</th>
+                                    <th class="hc-col-module">Modül</th>
+                                    <th class="hc-col-category">Kategori</th>
+                                    <th class="hc-col-shortcode">Shortcode</th>
+                                    <th class="hc-col-desc">Açıklama</th>
+                                    <th class="hc-col-posts">Yazı</th>
+                                    <th class="hc-col-created">Eklenme</th>
+                                    <th class="hc-col-status">Durum</th>
+                                    <th class="hc-col-action">İşlem</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ( $modules as $module ) : ?>
                                     <tr>
-                                        <td>
+                                        <td class="hc-col-module">
                                             <strong><?php echo esc_html( $module['name'] ); ?></strong>
                                             <div class="hc-row-meta">Slug: <code><?php echo esc_html( $module['slug'] ); ?></code></div>
                                             <div class="hc-row-meta">Yayıncı: <?php echo esc_html( $module['publisher'] ); ?></div>
                                         </td>
-                                        <td>
+                                        <td class="hc-col-category">
                                             <select name="hc_module_category[<?php echo esc_attr( $module['slug'] ); ?>]" class="hc-category-select">
                                                 <option value="">Kategori seçin</option>
                                                 <?php foreach ( $all_categories as $category ) : ?>
@@ -576,21 +576,21 @@ class HC_Admin_Page {
                                                 <?php endforeach; ?>
                                             </select>
                                         </td>
-                                        <td><code><?php echo esc_html( $module['shortcode'] ); ?></code></td>
-                                        <td class="hc-module-desc"><?php echo esc_html( $module['desc'] ); ?></td>
-                                        <td class="hc-center-cell">
+                                        <td class="hc-col-shortcode"><code class="hc-shortcode-code"><?php echo esc_html( $module['shortcode'] ); ?></code></td>
+                                        <td class="hc-module-desc hc-col-desc"><?php echo esc_html( $module['desc'] ); ?></td>
+                                        <td class="hc-center-cell hc-col-posts">
                                             <?php if ( $module['post_count'] > 0 ) : ?>
                                                 <a href="<?php echo esc_url( $module['posts_url'] ); ?>"><?php echo esc_html( $module['post_count'] ); ?></a>
                                             <?php else : ?>
                                                 <span class="hc-muted">0</span>
                                             <?php endif; ?>
                                         </td>
-                                        <td>
+                                        <td class="hc-col-created">
                                             <strong><?php echo esc_html( $module['created_date'] ); ?></strong>
                                             <div class="hc-row-meta">Saat: <?php echo esc_html( wp_date( 'H:i', $module['created'] ) ); ?></div>
                                         </td>
-                                        <td><span class="hc-status-pill"><?php echo esc_html( $module['status_label'] ); ?></span></td>
-                                        <td>
+                                        <td class="hc-col-status"><span class="hc-status-pill"><?php echo esc_html( $module['status_label'] ); ?></span></td>
+                                        <td class="hc-col-action">
                                             <button
                                                 type="button"
                                                 class="button button-small hc-yazi-ekle-btn"
