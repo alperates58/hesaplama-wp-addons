@@ -299,6 +299,7 @@
         var message = buildShareMessage(title);
         var blob;
         var file;
+        var sharedWithFile = false;
 
         try {
             blob = await renderResultToBlob(calculator, resultElement);
@@ -320,9 +321,9 @@
                     await navigator.share({
                         title: title,
                         text: message,
-                        url: window.location.href,
                         files: [file]
                     });
+                    sharedWithFile = true;
                     return;
                 }
 
@@ -331,7 +332,6 @@
                     text: message,
                     url: window.location.href
                 });
-                downloadBlob(blob, 'hesaplama-sonucu.png');
                 return;
             } catch (error) {
                 if (error && error.name === 'AbortError') {
@@ -347,7 +347,9 @@
         }
 
         downloadBlob(blob, 'hesaplama-sonucu.png');
-        alert('Gorsel indirildi ve paylasim mesaji kopyalandi.');
+        if (!sharedWithFile) {
+            alert('Bu platform gorseli dogrudan ekleyemedi. Gorsel indirildi ve paylasim mesaji kopyalandi.');
+        }
     }
 
     async function handleCopy(calculator) {
