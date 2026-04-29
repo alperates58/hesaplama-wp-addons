@@ -1,0 +1,91 @@
+.hc-vitamin-alimi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-vitamin-alimi-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 2px 0 14px;
+    color: #384152;
+    font-size: 14px;
+}
+
+.hc-vitamin-alimi-check input {
+    width: 16px;
+    height: 16px;
+}
+
+.hc-vitamin-alimi-result {
+    border-left-color: #4e7f6a;
+}
+
+.hc-vitamin-alimi-summary {
+    margin-bottom: 12px;
+}
+
+.hc-vitamin-alimi-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+}
+
+.hc-vitamin-alimi-table-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+.hc-vitamin-alimi-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 420px;
+}
+
+.hc-vitamin-alimi-table th,
+.hc-vitamin-alimi-table td {
+    padding: 10px 12px;
+    border: 1px solid #e1e6df;
+    text-align: left;
+    font-size: 14px;
+}
+
+.hc-vitamin-alimi-table th {
+    background: #f1f6f3;
+    color: #223428;
+    font-weight: 700;
+}
+
+.hc-vitamin-alimi-table td:last-child {
+    color: #17231b;
+    font-weight: 700;
+}
+
+.hc-vitamin-alimi-not {
+    margin: 12px 0 0;
+    color: #344337;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hc-vitamin-alimi-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-vitamin-alimi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-vitamin-alimi-table {
+        min-width: 360px;
+    }
+}
