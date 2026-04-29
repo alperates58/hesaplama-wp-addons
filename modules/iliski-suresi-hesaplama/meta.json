@@ -1,0 +1,5 @@
+{
+  "name": "İlişki Süresi Hesaplama",
+  "desc": "İlişkinin başlangıç tarihinden bugüne kadar geçen süreyi detaylı olarak hesaplar.",
+  "shortcode": "[hc_iliski_suresi_hesaplama]"
+}

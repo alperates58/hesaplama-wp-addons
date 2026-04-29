@@ -1,0 +1,100 @@
+.hc-iliski-suresi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-iliski-suresi-result {
+    border-left-color: #b6547a;
+}
+
+.hc-iliski-suresi-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-iliski-suresi-badge {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    border-radius: 8px;
+    background: #fff0f5;
+    border: 1px solid #edc8d6;
+    color: #963d60;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hc-iliski-suresi-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-iliski-suresi-details,
+.hc-iliski-suresi-anniversary {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-iliski-suresi-details {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-iliski-suresi-anniversary {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-iliski-suresi-details div,
+.hc-iliski-suresi-anniversary div {
+    padding: 10px;
+    background: #fff7fa;
+    border: 1px solid #edd8e0;
+    border-radius: 6px;
+}
+
+.hc-iliski-suresi-details span,
+.hc-iliski-suresi-details strong,
+.hc-iliski-suresi-anniversary span,
+.hc-iliski-suresi-anniversary strong {
+    display: block;
+}
+
+.hc-iliski-suresi-details span,
+.hc-iliski-suresi-anniversary span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-iliski-suresi-details strong,
+.hc-iliski-suresi-anniversary strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-iliski-suresi-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .hc-iliski-suresi-grid,
+    .hc-iliski-suresi-details,
+    .hc-iliski-suresi-anniversary {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-iliski-suresi-hero {
+        align-items: flex-start;
+    }
+}
