@@ -181,8 +181,8 @@ GENEL KURALLAR:
 - Odak anahtar kelime su alanlarda mutlaka dogal bicimde yer alsin:
   SEO basliginda, ilk paragrafta, meta description icinde, URL slug onerisi icinde ve en az 1 H2 baslikta
 - Icerikte anahtar kelimeyi dogal yogunlukta kullan; gereksiz tekrar yapma
-- Icerik minimum 300 kelime olsun; konu genisse veya rekabet yuksek gorunuyorsa daha kapsamli yaz
-- 300 kelimenin altindaki icerik gecersiz sayilir; ideal hedef 500-800 kelime araligidir
+- Icerik icin onerilen alt hedef 300 kelimedir; konu genisse veya rekabet yuksek gorunuyorsa daha kapsamli yaz
+- 300 kelimeye ulasamiyorsan iceriği gecersiz sayma; en iyi, tutarli ve eksiksiz halini dondur
 - Giris bolumu 50-80 kelime araliginda olsun ve ilk paragrafta odak anahtar kelime gecsin
 - Kisa ve net cumleler kur; uzun, mekanik ve birbirine benzeyen cumle dizileri kurma
 - Paragraflar kisa olsun; ideal olarak 2-4 satir araligini koru

@@ -150,10 +150,6 @@ class HC_AI_Writer {
 
         $data = $this->expand_article_until_long_enough( $provider, $data, $prompt );
 
-        if ( $this->count_article_words( $data['icerik'] ?? '' ) < self::MIN_ARTICLE_WORDS ) {
-            wp_send_json_error( 'AI yeterince uzun makale üretemedi. En az ' . self::MIN_ARTICLE_WORDS . ' kelimelik içerik bekleniyordu.' );
-        }
-
         wp_send_json_success( $data );
     }
 
@@ -162,7 +158,7 @@ class HC_AI_Writer {
         $best_count = $this->count_article_words( $best_data['icerik'] ?? '' );
 
         for ( $attempt = 1; $attempt <= self::MAX_EXPAND_ATTEMPTS && $best_count < self::MIN_ARTICLE_WORDS; $attempt++ ) {
-            $expand_prompt = $base_prompt . "\n\nMEVCUT JSON CIKTISI:\n" . wp_json_encode( $best_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "\n\nEK ZORUNLU KURAL:\n- Mevcut JSON yapisini koru.\n- Baslik, meta alanlari, etiketler ve kontrol alanlarini yine doldur.\n- Icerik alanini genislet; mevcut metni tekrarlama, anlamli yeni paragraflar, ornek hesaplama ve SSS ekle.\n- Icerik alani en az " . self::MIN_ARTICLE_WORDS . " kelime olsun.\n- Yanit sadece gecerli JSON olsun.\n";
+            $expand_prompt = $base_prompt . "\n\nMEVCUT JSON CIKTISI:\n" . wp_json_encode( $best_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "\n\nEK KURAL:\n- Mevcut JSON yapisini koru.\n- Baslik, meta alanlari, etiketler ve kontrol alanlarini yine doldur.\n- Icerik alanini genislet; mevcut metni tekrarlama, anlamli yeni paragraflar, ornek hesaplama ve SSS ekle.\n- Icerik alani icin onerilen uzunluk en az " . self::MIN_ARTICLE_WORDS . " kelimedir; ulasamazsan en iyi, tutarli ve eksiksiz halini dondur.\n- Yanit sadece gecerli JSON olsun.\n";
             $expand_result = $provider->generate( $expand_prompt );
 
             if ( is_wp_error( $expand_result ) ) {
