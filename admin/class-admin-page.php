@@ -37,7 +37,18 @@ class HC_Module_Inventory {
         $categories = array_filter( array_map( [ __CLASS__, 'sanitize_category' ], $categories ) );
         $categories = array_values( array_unique( $categories ) );
 
-        $saved_assignments = [];
+        $saved_assignments = isset( $settings['module_categories'] ) && is_array( $settings['module_categories'] )
+            ? $settings['module_categories']
+            : [];
+
+        foreach ( $saved_assignments as $slug => $category ) {
+            if ( ! in_array( $slug, $allowed_slugs, true ) ) {
+                unset( $saved_assignments[ $slug ] );
+                continue;
+            }
+
+            $saved_assignments[ $slug ] = self::sanitize_category( $category );
+        }
 
         foreach ( $module_categories as $slug => $category ) {
             $slug     = sanitize_key( $slug );
@@ -48,6 +59,7 @@ class HC_Module_Inventory {
             }
 
             if ( ! $category ) {
+                unset( $saved_assignments[ $slug ] );
                 continue;
             }
 
@@ -538,6 +550,10 @@ class HC_Admin_Page {
 
                 <div class="hc-toolbar">
                     <textarea id="hc-categories" name="hc_categories" rows="4" class="large-text" placeholder="Her satıra bir kategori yazın."><?php echo esc_textarea( HC_Module_Inventory::get_category_text() ); ?></textarea>
+                    <div class="hc-category-add-row">
+                        <input type="text" id="hc-new-category" class="regular-text" placeholder="Yeni kategori adı" />
+                        <button type="button" class="button" id="hc-add-category-btn">Kategori Ekle</button>
+                    </div>
                     <p class="description">Örnek: Finans, Astroloji, Eğitim, Zaman, Sağlık. Satır satır veya virgülle girebilirsiniz.</p>
                 </div>
 

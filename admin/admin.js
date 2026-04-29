@@ -1,4 +1,88 @@
 jQuery(function ($) {
+    function hcNormalizeCategory(value) {
+        return (value || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function hcGetCategories() {
+        var raw = $('#hc-categories').val() || '';
+        var seen = {};
+        var categories = [];
+
+        raw.split(/[\r\n,]+/).forEach(function (item) {
+            var category = hcNormalizeCategory(item);
+            var key = category.toLocaleLowerCase('tr-TR');
+
+            if (category && !seen[key]) {
+                seen[key] = true;
+                categories.push(category);
+            }
+        });
+
+        categories.sort(function (a, b) {
+            return a.localeCompare(b, 'tr-TR');
+        });
+
+        return categories;
+    }
+
+    function hcSetCategories(categories) {
+        $('#hc-categories').val(categories.join("\n"));
+    }
+
+    function hcRefreshCategorySelects() {
+        var categories = hcGetCategories();
+
+        $('.hc-category-select').each(function () {
+            var $select = $(this);
+            var selected = $select.val();
+
+            $select.find('option:not(:first)').remove();
+
+            categories.forEach(function (category) {
+                $('<option>').val(category).text(category).appendTo($select);
+            });
+
+            if (selected) {
+                if (!categories.some(function (category) { return category === selected; })) {
+                    $('<option>').val(selected).text(selected).appendTo($select);
+                }
+
+                $select.val(selected);
+            }
+        });
+    }
+
+    $(document).on('input', '#hc-categories', hcRefreshCategorySelects);
+
+    $(document).on('click', '#hc-add-category-btn', function () {
+        var $input = $('#hc-new-category');
+        var category = hcNormalizeCategory($input.val());
+        var categories = hcGetCategories();
+
+        if (!category) {
+            alert('Lütfen kategori adı girin.');
+            return;
+        }
+
+        if (!categories.some(function (item) { return item.toLocaleLowerCase('tr-TR') === category.toLocaleLowerCase('tr-TR'); })) {
+            categories.push(category);
+            categories.sort(function (a, b) {
+                return a.localeCompare(b, 'tr-TR');
+            });
+            hcSetCategories(categories);
+            hcRefreshCategorySelects();
+        }
+
+        $input.val('').focus();
+    });
+
+    $(document).on('keydown', '#hc-new-category', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            $('#hc-add-category-btn').trigger('click');
+        }
+    });
+
     $('#hc-check-version').on('click', function () {
         var $result = $('#hc-version-result');
         var repo = $('#repo').val();

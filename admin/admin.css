@@ -139,6 +139,14 @@
     margin-bottom: 16px;
 }
 
+.hc-category-add-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
 .hc-toolbar-form {
     display: flex;
     flex-wrap: wrap;
@@ -315,6 +323,11 @@
     .hc-toolbar-form input[type="search"],
     .hc-toolbar-form select,
     .hc-toolbar-form .button {
+        width: 100%;
+    }
+
+    .hc-category-add-row input,
+    .hc-category-add-row .button {
         width: 100%;
     }
 }
