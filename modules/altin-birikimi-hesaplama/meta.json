@@ -1,0 +1,5 @@
+{
+  "name": "Altın Birikimi Hesaplama",
+  "desc": "Eldeki gram altın, bilezik ve sikke adetlerine göre toplam altın birikiminin yaklaşık TL değerini hesaplar.",
+  "shortcode": "[hc_altin_birikimi_hesaplama]"
+}
