@@ -1,0 +1,107 @@
+.hc-yumurtlama-gunu-hesaplama-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.55;
+}
+
+.hc-yumurtlama-gunu-hesaplama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-yumurtlama-gunu-hesaplama-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-yumurtlama-gunu-hesaplama-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 78px;
+    height: 78px;
+    flex: 0 0 78px;
+    border: 1px solid #f7c8d8;
+    border-radius: 16px;
+    background: #fff1f5;
+    color: #a31950;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.hc-yumurtlama-gunu-hesaplama-subtitle {
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.hc-yumurtlama-gunu-hesaplama-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.hc-yumurtlama-gunu-hesaplama-cards div {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.hc-yumurtlama-gunu-hesaplama-cards span,
+.hc-yumurtlama-gunu-hesaplama-cards strong {
+    display: block;
+}
+
+.hc-yumurtlama-gunu-hesaplama-cards span {
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hc-yumurtlama-gunu-hesaplama-cards strong {
+    color: #101828;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.hc-yumurtlama-gunu-hesaplama-yorum {
+    margin: 14px 0 0;
+    color: #334155;
+    line-height: 1.55;
+}
+
+.hc-yumurtlama-gunu-hesaplama-not {
+    margin: 12px 0 0;
+    padding: 12px 14px;
+    border: 1px solid #f3cc74;
+    border-radius: 12px;
+    background: #fff8e7;
+    color: #8a5a03;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-yumurtlama-gunu-hesaplama-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-yumurtlama-gunu-hesaplama-grid,
+    .hc-yumurtlama-gunu-hesaplama-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-yumurtlama-gunu-hesaplama-hero {
+        align-items: flex-start;
+    }
+}

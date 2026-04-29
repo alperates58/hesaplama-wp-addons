@@ -1,0 +1,5 @@
+{
+  "name": "Yumurtlama Günü Hesaplama",
+  "desc": "Son adet tarihi ve döngü uzunluğuna göre tahmini yumurtlama gününü ve doğurgan aralığı hesaplar.",
+  "shortcode": "[hc_yumurtlama_gunu_hesaplama]"
+}
