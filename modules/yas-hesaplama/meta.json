@@ -1,0 +1,5 @@
+{
+  "name": "Yaş Hesaplama",
+  "desc": "Doğum tarihine göre yaşı, toplam yaşanan süreyi ve aynı gün doğan ünlüleri hesaplar.",
+  "shortcode": "[hc_yas_hesaplama]"
+}

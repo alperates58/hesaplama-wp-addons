@@ -1,0 +1,137 @@
+.hc-yas-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.hc-yas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-yas-result {
+    border-left-color: #4e73a8;
+}
+
+.hc-yas-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-yas-badge {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    border-radius: 8px;
+    background: #eef4fd;
+    border: 1px solid #ceddf2;
+    color: #365d94;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hc-yas-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-yas-details,
+.hc-yas-totals {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-yas-details {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.hc-yas-totals {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.hc-yas-details div,
+.hc-yas-totals div,
+.hc-yas-famous {
+    padding: 10px;
+    background: #f6f9fe;
+    border: 1px solid #dbe6f5;
+    border-radius: 6px;
+}
+
+.hc-yas-details span,
+.hc-yas-details strong,
+.hc-yas-totals span,
+.hc-yas-totals strong,
+.hc-yas-famous span {
+    display: block;
+}
+
+.hc-yas-details span,
+.hc-yas-totals span,
+.hc-yas-famous span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-yas-details strong,
+.hc-yas-totals strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-yas-famous {
+    margin: 12px 0;
+}
+
+.hc-yas-famous ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hc-yas-famous li {
+    padding: 6px 8px;
+    background: #fff;
+    border: 1px solid #dbe6f5;
+    border-radius: 6px;
+    color: #1d2433;
+    font-size: 13px;
+}
+
+.hc-yas-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-yas-details,
+    .hc-yas-totals {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-yas-grid,
+    .hc-yas-details,
+    .hc-yas-totals {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-yas-hero {
+        align-items: flex-start;
+    }
+}
