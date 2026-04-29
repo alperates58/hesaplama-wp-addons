@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class HC_AI_Writer {
+    private const MIN_ARTICLE_WORDS = 300;
 
     public function __construct() {
         add_action( 'admin_init', [ $this, 'handle_ai_settings_save' ] );
@@ -146,20 +147,20 @@ class HC_AI_Writer {
             wp_send_json_error( 'AI yanıtı JSON olarak çözümlenemedi. Ham yanıt: ' . esc_html( substr( $result, 0, 300 ) ) );
         }
 
-        if ( $this->count_article_words( $data['icerik'] ?? '' ) < 900 ) {
-            $retry_prompt = $prompt . "\n\nEK ZORUNLU KURAL:\n- Onceki deneme cok kisaydi.\n- Bu kez en az 900 kelimelik, ideal olarak 1200-1800 kelimelik tam makale uret.\n- SSS dahil her bolumu dolu yaz.\n- Yanit yine sadece gecerli JSON olsun.\n";
+        if ( $this->count_article_words( $data['icerik'] ?? '' ) < self::MIN_ARTICLE_WORDS ) {
+            $retry_prompt = $prompt . "\n\nEK ZORUNLU KURAL:\n- Onceki deneme cok kisaydi.\n- Bu kez en az " . self::MIN_ARTICLE_WORDS . " kelimelik tam makale uret.\n- SSS dahil her bolumu dolu yaz.\n- Yanit yine sadece gecerli JSON olsun.\n";
             $retry_result = $provider->generate( $retry_prompt );
 
             if ( ! is_wp_error( $retry_result ) ) {
                 $retry_data = $this->decode_ai_json_response( $retry_result );
-                if ( $retry_data && $this->count_article_words( $retry_data['icerik'] ?? '' ) >= 900 ) {
+                if ( $retry_data && $this->count_article_words( $retry_data['icerik'] ?? '' ) >= self::MIN_ARTICLE_WORDS ) {
                     $data = $retry_data;
                 }
             }
         }
 
-        if ( $this->count_article_words( $data['icerik'] ?? '' ) < 900 ) {
-            wp_send_json_error( 'AI yeterince uzun makale üretemedi. En az 900 kelimelik içerik bekleniyordu.' );
+        if ( $this->count_article_words( $data['icerik'] ?? '' ) < self::MIN_ARTICLE_WORDS ) {
+            wp_send_json_error( 'AI yeterince uzun makale üretemedi. En az ' . self::MIN_ARTICLE_WORDS . ' kelimelik içerik bekleniyordu.' );
         }
 
         wp_send_json_success( $data );
