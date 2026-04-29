@@ -1,0 +1,5 @@
+{
+  "name": "Kilo Koruma Kalori Hesaplama",
+  "desc": "Boy, kilo, yaş, cinsiyet ve aktivite düzeyine göre günlük kilo koruma kalorisini hesaplar.",
+  "shortcode": "[hc_kilo_koruma_kalori_hesaplama]"
+}

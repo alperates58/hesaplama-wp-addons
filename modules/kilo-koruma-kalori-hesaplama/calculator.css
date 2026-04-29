@@ -1,0 +1,110 @@
+.hc-kilo-koruma-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-kilo-koruma-result {
+    border-left-color: #2f7a68;
+}
+
+.hc-kilo-koruma-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-kilo-koruma-badge {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    border-radius: 8px;
+    background: #eef8f5;
+    border: 1px solid #cce8df;
+    color: #1f6655;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.hc-kilo-koruma-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-kilo-koruma-details,
+.hc-kilo-koruma-range {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-kilo-koruma-details {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-kilo-koruma-range {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.hc-kilo-koruma-details div,
+.hc-kilo-koruma-range div {
+    padding: 10px;
+    background: #f6faf8;
+    border: 1px solid #dcebe5;
+    border-radius: 6px;
+}
+
+.hc-kilo-koruma-details span,
+.hc-kilo-koruma-details strong,
+.hc-kilo-koruma-range span,
+.hc-kilo-koruma-range strong {
+    display: block;
+}
+
+.hc-kilo-koruma-details span,
+.hc-kilo-koruma-range span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-kilo-koruma-details strong,
+.hc-kilo-koruma-range strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-kilo-koruma-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-kilo-koruma-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-kilo-koruma-grid,
+    .hc-kilo-koruma-details,
+    .hc-kilo-koruma-range {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-kilo-koruma-hero {
+        align-items: flex-start;
+    }
+}
