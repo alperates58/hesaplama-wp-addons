@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Su İhtiyacı Hesaplama",
+  "desc": "Kilo, aktivite, hava koşulu ve özel duruma göre günlük su ihtiyacını hesaplar.",
+  "shortcode": "[hc_gunluk_su_ihtiyaci_hesaplama]"
+}
