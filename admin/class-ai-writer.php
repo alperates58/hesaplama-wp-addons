@@ -311,8 +311,8 @@ class HC_AI_Writer {
         $saved    = isset( $_GET['saved'] );
 
         $openai_modeller = [
-            'gpt-5-mini'   => 'GPT-5 Mini — Daha kaliteli, uygun maliyetli',
             'gpt-4o-mini'   => 'GPT-4o Mini — Ucuz, Hızlı (Önerilen)',
+            'gpt-5-mini'    => 'GPT-5 Mini — Erişim varsa daha kaliteli',
             'gpt-4o'        => 'GPT-4o — En Güçlü',
             'gpt-4-turbo'   => 'GPT-4 Turbo',
             'gpt-3.5-turbo' => 'GPT-3.5 Turbo — En Ucuz',

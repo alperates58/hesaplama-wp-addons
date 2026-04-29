@@ -65,6 +65,13 @@ class HC_AI_Provider {
 
         if ( $code !== 200 ) {
             $msg = $data['error']['message'] ?? 'OpenAI API hatasi.';
+
+            if ( $this->is_model_access_error( $msg ) && 'gpt-4o-mini' !== $s['model'] ) {
+                $fallback = $s;
+                $fallback['model'] = 'gpt-4o-mini';
+                return $this->generate_openai( $prompt, $fallback );
+            }
+
             return new WP_Error( 'api_error', $msg );
         }
 
@@ -73,6 +80,14 @@ class HC_AI_Provider {
 
     private function is_reasoning_model( $model ) {
         return 0 === strpos( $model, 'gpt-5' ) || 0 === strpos( $model, 'o' );
+    }
+
+    private function is_model_access_error( $message ) {
+        $message = strtolower( (string) $message );
+
+        return false !== strpos( $message, 'does not have access to model' )
+            || false !== strpos( $message, 'model_not_found' )
+            || false !== strpos( $message, 'model not found' );
     }
 
     /* ---- Gemini ---- */
