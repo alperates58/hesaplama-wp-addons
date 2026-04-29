@@ -80,37 +80,70 @@ class HC_AI_Writer {
     }
 
     private function normalize_article_tags( $tags, $title = '', $focus_keyword = '' ) {
+        return $this->normalize_article_tags_seo( $tags, $title, $focus_keyword );
+    }
+
+    private function normalize_article_tags_seo( $tags, $title = '', $focus_keyword = '' ) {
         $raw_tags = array_map( 'sanitize_text_field', array_map( 'wp_unslash', (array) $tags ) );
-        $bad_tags = [ '2024', '2025', '2026', 'hesaplama aracı', 'hesaplama', 'ssk', 'bağ-kur', 'bag-kur' ];
-        $clean    = [];
+        $bad_tags = [
+            '2024',
+            '2025',
+            '2026',
+            'hesaplama aracı',
+            'hesaplama aracÄ±',
+            'hesaplama',
+            'risk',
+            'sağlık',
+            'saglik',
+            'kan basıncı',
+            'kan basinci',
+            'tansiyon',
+            'protein',
+            'beslenme',
+            'ssk',
+            'bağ-kur',
+            'baÄŸ-kur',
+            'bag-kur',
+        ];
+        $clean = [];
 
         foreach ( $raw_tags as $tag ) {
-            $tag        = trim( preg_replace( '/\s+/', ' ', $tag ) );
-            $lower      = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
-            $word_count = count( preg_split( '/\s+/', $tag, -1, PREG_SPLIT_NO_EMPTY ) );
-
-            if ( strlen( $tag ) < 4 || in_array( $lower, $bad_tags, true ) || $word_count > 4 ) {
-                continue;
-            }
-
-            $clean[ $lower ] = $tag;
+            $this->add_clean_article_tag( $clean, $tag, $bad_tags );
         }
 
         $fallbacks = array_filter( [
             $focus_keyword,
             $title,
-            $focus_keyword ? $focus_keyword . ' 2026' : '',
+            $focus_keyword ? $focus_keyword . ' nasıl hesaplanır' : '',
+            $focus_keyword ? $focus_keyword . ' değerleri' : '',
+            $focus_keyword ? $focus_keyword . ' sonucu yorumu' : '',
         ] );
 
         foreach ( $fallbacks as $tag ) {
-            $tag   = sanitize_text_field( $tag );
-            $lower = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
-            if ( $tag && ! isset( $clean[ $lower ] ) ) {
-                $clean[ $lower ] = $tag;
-            }
+            $this->add_clean_article_tag( $clean, $tag, $bad_tags );
         }
 
         return array_slice( array_values( $clean ), 0, 5 );
+    }
+
+    private function add_clean_article_tag( &$clean, $tag, $bad_tags ) {
+        $tag        = $this->normalize_article_tag_text( sanitize_text_field( $tag ) );
+        $lower      = function_exists( 'mb_strtolower' ) ? mb_strtolower( $tag, 'UTF-8' ) : strtolower( $tag );
+        $word_count = count( preg_split( '/\s+/', $tag, -1, PREG_SPLIT_NO_EMPTY ) );
+        $length     = function_exists( 'mb_strlen' ) ? mb_strlen( $tag, 'UTF-8' ) : strlen( $tag );
+
+        if ( $length < 8 || $word_count < 2 || $word_count > 5 || in_array( $lower, $bad_tags, true ) || isset( $clean[ $lower ] ) ) {
+            return;
+        }
+
+        $clean[ $lower ] = $tag;
+    }
+
+    private function normalize_article_tag_text( $tag ) {
+        $tag = trim( preg_replace( '/\s+/', ' ', (string) $tag ) );
+        $tag = trim( $tag, " \t\n\r\0\x0B,.;:|#-" );
+
+        return $tag;
     }
 
     public function ajax_generate() {

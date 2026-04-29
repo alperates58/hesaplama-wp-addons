@@ -217,7 +217,9 @@ GENEL KURALLAR:
 - "Bu yazimizda", "sizler icin", "merak edilen tum detaylar" gibi klise kaliplari mumkunse kullanma
 - Formul, yontem veya tablo gerekiyorsa acik bicimde ver; LaTeX kullanma
 - Teknik konularda anlasilir ornek hesaplama ve gerekirse tablo ekle
-- Etiketler 3-5 adet olsun; arama niyeti tasiyan 2-4 kelimelik etiketler uret
+- Etiketler 4-5 adet olsun; arama niyeti tasiyan, konuya ozel, 2-4 kelimelik uzun kuyruk etiketler uret
+- Tek kelimelik veya jenerik etiket kullanma: "risk", "saglik", "hesaplama", "tansiyon", "kan basinci" gibi genis etiketler yasak
+- Etiketler odak anahtar kelimeyle yakin iliskili olsun; ornek: "tansiyon risk hesaplama", "yuksek tansiyon riski", "tansiyon degerleri yorumu"
 - Meta title en fazla 60 karakter olsun
 - Meta description 120-156 karakter araliginda olsun
 - URL slug kisa, temiz ve odak anahtar kelimeyi icersin
