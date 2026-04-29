@@ -1,0 +1,5 @@
+{
+  "name": "Bazal Enerji Harcaması Hesaplama (BEE)",
+  "desc": "Harris-Benedict denklemine göre bazal enerji harcamasını hesaplar.",
+  "shortcode": "[hc_bazal_enerji_harcamasi_hesaplama]"
+}
