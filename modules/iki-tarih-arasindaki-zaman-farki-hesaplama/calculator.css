@@ -1,0 +1,111 @@
+.hc-tarih-farki-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.hc-tarih-farki-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-tarih-farki-result {
+    border-left-color: #54758d;
+}
+
+.hc-tarih-farki-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-tarih-farki-badge {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    border-radius: 8px;
+    background: #eef6fb;
+    border: 1px solid #d1e2ee;
+    color: #3b607a;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hc-tarih-farki-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-tarih-farki-details,
+.hc-tarih-farki-extra {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-tarih-farki-details {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.hc-tarih-farki-extra {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-tarih-farki-details div,
+.hc-tarih-farki-extra div {
+    padding: 10px;
+    background: #f5f9fc;
+    border: 1px solid #dce8f0;
+    border-radius: 6px;
+}
+
+.hc-tarih-farki-details span,
+.hc-tarih-farki-details strong,
+.hc-tarih-farki-extra span,
+.hc-tarih-farki-extra strong {
+    display: block;
+}
+
+.hc-tarih-farki-details span,
+.hc-tarih-farki-extra span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-tarih-farki-details strong,
+.hc-tarih-farki-extra strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-tarih-farki-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-tarih-farki-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-tarih-farki-grid,
+    .hc-tarih-farki-details,
+    .hc-tarih-farki-extra {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-tarih-farki-hero {
+        align-items: flex-start;
+    }
+}
