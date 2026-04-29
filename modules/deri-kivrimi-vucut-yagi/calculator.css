@@ -1,0 +1,12 @@
+.hc-deri-yagi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.hc-deri-yagi-result{border-left-color:#8a5a75}
+.hc-deri-yagi-hero{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.hc-deri-yagi-badge{width:58px;height:58px;display:flex;align-items:center;justify-content:center;flex:0 0 58px;border-radius:8px;background:#fbf0f7;border:1px solid #ead1e1;color:#7a3d62;font-size:22px;font-weight:700}
+.hc-deri-yagi-subtitle{margin-top:3px;color:#56616f;font-size:14px}
+.hc-deri-yagi-details{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.hc-deri-yagi-details div{padding:10px;background:#fbf7fa;border:1px solid #eadde6;border-radius:6px}
+.hc-deri-yagi-details span,.hc-deri-yagi-details strong{display:block}
+.hc-deri-yagi-details span{margin-bottom:4px;color:#666;font-size:12px}
+.hc-deri-yagi-details strong{color:#222;font-size:14px}
+.hc-deri-yagi-yorum{margin:12px 0 0;color:#333;line-height:1.5}
+@media (max-width:480px){.hc-deri-yagi-grid,.hc-deri-yagi-details{grid-template-columns:1fr}.hc-deri-yagi-hero{align-items:flex-start}}
