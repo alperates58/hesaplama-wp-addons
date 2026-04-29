@@ -3,6 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class HC_AI_Writer {
     private const MIN_ARTICLE_WORDS = 300;
+    private const MAX_EXPAND_ATTEMPTS = 3;
 
     public function __construct() {
         add_action( 'admin_init', [ $this, 'handle_ai_settings_save' ] );
@@ -147,23 +148,40 @@ class HC_AI_Writer {
             wp_send_json_error( 'AI yanıtı JSON olarak çözümlenemedi. Ham yanıt: ' . esc_html( substr( $result, 0, 300 ) ) );
         }
 
-        if ( $this->count_article_words( $data['icerik'] ?? '' ) < self::MIN_ARTICLE_WORDS ) {
-            $retry_prompt = $prompt . "\n\nEK ZORUNLU KURAL:\n- Onceki deneme cok kisaydi.\n- Bu kez en az " . self::MIN_ARTICLE_WORDS . " kelimelik tam makale uret.\n- SSS dahil her bolumu dolu yaz.\n- Yanit yine sadece gecerli JSON olsun.\n";
-            $retry_result = $provider->generate( $retry_prompt );
-
-            if ( ! is_wp_error( $retry_result ) ) {
-                $retry_data = $this->decode_ai_json_response( $retry_result );
-                if ( $retry_data && $this->count_article_words( $retry_data['icerik'] ?? '' ) >= self::MIN_ARTICLE_WORDS ) {
-                    $data = $retry_data;
-                }
-            }
-        }
+        $data = $this->expand_article_until_long_enough( $provider, $data, $prompt );
 
         if ( $this->count_article_words( $data['icerik'] ?? '' ) < self::MIN_ARTICLE_WORDS ) {
             wp_send_json_error( 'AI yeterince uzun makale üretemedi. En az ' . self::MIN_ARTICLE_WORDS . ' kelimelik içerik bekleniyordu.' );
         }
 
         wp_send_json_success( $data );
+    }
+
+    private function expand_article_until_long_enough( $provider, $data, $base_prompt ) {
+        $best_data  = $data;
+        $best_count = $this->count_article_words( $best_data['icerik'] ?? '' );
+
+        for ( $attempt = 1; $attempt <= self::MAX_EXPAND_ATTEMPTS && $best_count < self::MIN_ARTICLE_WORDS; $attempt++ ) {
+            $expand_prompt = $base_prompt . "\n\nMEVCUT JSON CIKTISI:\n" . wp_json_encode( $best_data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "\n\nEK ZORUNLU KURAL:\n- Mevcut JSON yapisini koru.\n- Baslik, meta alanlari, etiketler ve kontrol alanlarini yine doldur.\n- Icerik alanini genislet; mevcut metni tekrarlama, anlamli yeni paragraflar, ornek hesaplama ve SSS ekle.\n- Icerik alani en az " . self::MIN_ARTICLE_WORDS . " kelime olsun.\n- Yanit sadece gecerli JSON olsun.\n";
+            $expand_result = $provider->generate( $expand_prompt );
+
+            if ( is_wp_error( $expand_result ) ) {
+                continue;
+            }
+
+            $expanded_data = $this->decode_ai_json_response( $expand_result );
+            if ( ! $expanded_data ) {
+                continue;
+            }
+
+            $expanded_count = $this->count_article_words( $expanded_data['icerik'] ?? '' );
+            if ( $expanded_count > $best_count ) {
+                $best_data  = $expanded_data;
+                $best_count = $expanded_count;
+            }
+        }
+
+        return $best_data;
     }
 
     public function ajax_create_module_post() {
