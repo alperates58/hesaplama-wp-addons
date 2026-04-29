@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Günü Hesaplayıcı",
+  "desc": "Doğum tarihine göre yaşı ve sonraki doğum gününe kalan süreyi detaylı hesaplar.",
+  "shortcode": "[hc_dogum_gunu_hesaplayici]"
+}
