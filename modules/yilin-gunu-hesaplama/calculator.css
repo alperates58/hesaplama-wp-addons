@@ -1,0 +1,69 @@
+.hc-yilin-gunu-section {
+    margin-bottom: 18px;
+}
+
+.hc-yilin-gunu-section h4 {
+    margin: 0 0 8px;
+    color: #1d2433;
+    font-size: 16px;
+}
+
+.hc-yilin-gunu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-yilin-gunu input[readonly] {
+    background: #f4f5f7;
+    color: #1d2433;
+}
+
+.hc-yilin-gunu-result {
+    border-left-color: #597a4e;
+}
+
+.hc-yilin-gunu-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.hc-yilin-gunu-badge {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    border-radius: 8px;
+    background: #f1f8ee;
+    border: 1px solid #d4e7cb;
+    color: #426b35;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hc-yilin-gunu-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-yilin-gunu-yorum {
+    margin: 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .hc-yilin-gunu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-yilin-gunu-hero {
+        align-items: flex-start;
+    }
+}
