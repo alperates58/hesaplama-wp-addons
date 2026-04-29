@@ -1,0 +1,104 @@
+.hc-ay-yasi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-ay-yasi-not {
+    margin: 0 0 14px;
+    color: #5d6470;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.hc-ay-yasi-result {
+    border-left-color: #7a5b99;
+}
+
+.hc-ay-yasi-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-ay-yasi-badge {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    border-radius: 8px;
+    background: #f1edf6;
+    border: 1px solid #dfd4ea;
+    color: #5b3c77;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.hc-ay-yasi-subtitle {
+    margin-top: 3px;
+    color: #555f6e;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-ay-yasi-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-ay-yasi-details div {
+    padding: 10px;
+    background: #f8f7fa;
+    border: 1px solid #e6e1eb;
+    border-radius: 6px;
+}
+
+.hc-ay-yasi-details span,
+.hc-ay-yasi-details strong {
+    display: block;
+}
+
+.hc-ay-yasi-details span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-ay-yasi-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-ay-yasi-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-ay-yasi-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-ay-yasi-grid,
+    .hc-ay-yasi-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-ay-yasi-card {
+        align-items: flex-start;
+    }
+}

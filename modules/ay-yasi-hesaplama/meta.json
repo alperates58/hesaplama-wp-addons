@@ -1,0 +1,5 @@
+{
+  "name": "Ay Yaşı Hesaplama",
+  "desc": "Doğum tarihi ve hesaplama tarihine göre Çin takvimindeki ay yaşını hesaplar.",
+  "shortcode": "[hc_ay_yasi_hesaplama]"
+}
