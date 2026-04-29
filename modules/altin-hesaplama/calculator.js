@@ -41,7 +41,7 @@ function hcAltinVeriGetir() {
         return Promise.resolve(hcAltinFiyatOnbellegi);
     }
 
-    var altinUrl = 'https://data-asg.goldprice.org/dbXRates/USD';
+    var altinUrl = 'https://giavang.now/api/prices?type=XAUUSD';
     var kurUrl = 'https://v6.exchangerate-api.com/v6/ddf43dc83228f324754d8335/pair/USD/TRY';
 
     return Promise.all([
@@ -50,7 +50,7 @@ function hcAltinVeriGetir() {
     ]).then(function(sonuclar) {
         var altinVerisi = sonuclar[0];
         var kurVerisi = sonuclar[1];
-        var xauUsd = altinVerisi && altinVerisi.items && altinVerisi.items[0] ? parseFloat(altinVerisi.items[0].xauPrice) : 0;
+        var xauUsd = altinVerisi && altinVerisi.success ? parseFloat(altinVerisi.buy || altinVerisi.sell) : 0;
         var usdTry = kurVerisi && kurVerisi.conversion_rate ? parseFloat(kurVerisi.conversion_rate) : 0;
 
         if (!xauUsd || !usdTry) {
@@ -59,7 +59,7 @@ function hcAltinVeriGetir() {
 
         hcAltinFiyatOnbellegi = {
             safGramTl: (xauUsd / 31.1034768) * usdTry,
-            guncelleme: kurVerisi && kurVerisi.time_last_update_utc ? new Date(kurVerisi.time_last_update_utc) : new Date(),
+            guncelleme: altinVerisi && altinVerisi.timestamp ? new Date(altinVerisi.timestamp * 1000) : new Date(),
             zaman: Date.now()
         };
 
