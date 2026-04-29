@@ -1,0 +1,136 @@
+.hc-tansiyon-risk-hesaplama-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.55;
+}
+
+.hc-tansiyon-risk-hesaplama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-tansiyon-risk-hesaplama-result {
+    border-left-color: #2f7d63;
+}
+
+.hc-tansiyon-risk-hesaplama-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-tansiyon-risk-hesaplama-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    height: 74px;
+    flex: 0 0 74px;
+    border: 1px solid #cfe8dc;
+    border-radius: 12px;
+    background: #eefaf4;
+    color: #176247;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.hc-tansiyon-risk-hesaplama-subtitle {
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.hc-tansiyon-risk-hesaplama-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.hc-tansiyon-risk-hesaplama-cards div {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.hc-tansiyon-risk-hesaplama-cards span,
+.hc-tansiyon-risk-hesaplama-cards strong {
+    display: block;
+}
+
+.hc-tansiyon-risk-hesaplama-cards span {
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hc-tansiyon-risk-hesaplama-cards strong {
+    color: #101828;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.hc-tansiyon-risk-hesaplama-yorum {
+    margin: 14px 0 0;
+    color: #334155;
+    line-height: 1.55;
+}
+
+.hc-tansiyon-risk-hesaplama-not {
+    margin: 12px 0 0;
+    padding: 12px 14px;
+    border: 1px solid #f3cc74;
+    border-radius: 8px;
+    background: #fff8e7;
+    color: #8a5a03;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.hc-tansiyon-risk-hesaplama-normal .hc-tansiyon-risk-hesaplama-badge {
+    border-color: #cfe8dc;
+    background: #eefaf4;
+    color: #176247;
+}
+
+.hc-tansiyon-risk-hesaplama-yukselmis .hc-tansiyon-risk-hesaplama-badge {
+    border-color: #f1d58a;
+    background: #fff9e8;
+    color: #8a5a03;
+}
+
+.hc-tansiyon-risk-hesaplama-evre-1 .hc-tansiyon-risk-hesaplama-badge {
+    border-color: #f6c58f;
+    background: #fff3e7;
+    color: #9a4d00;
+}
+
+.hc-tansiyon-risk-hesaplama-evre-2 .hc-tansiyon-risk-hesaplama-badge,
+.hc-tansiyon-risk-hesaplama-kriz .hc-tansiyon-risk-hesaplama-badge {
+    border-color: #f1a1a1;
+    background: #fff0f0;
+    color: #a61b1b;
+}
+
+@media (max-width: 640px) {
+    .hc-tansiyon-risk-hesaplama-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-tansiyon-risk-hesaplama-grid,
+    .hc-tansiyon-risk-hesaplama-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-tansiyon-risk-hesaplama-hero {
+        align-items: flex-start;
+    }
+}
