@@ -400,15 +400,17 @@
 }
 
 .hc-table-wrap {
-    overflow-x: auto;
+    width: 100%;
+    overflow-x: hidden;
     border: 1px solid var(--hc-admin-border);
     border-radius: var(--hc-admin-radius);
     background: #ffffff;
 }
 
 .hc-modules-table {
-    min-width: 1100px;
-    table-layout: auto;
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
     border: 0 !important;
     background: transparent !important;
     color: var(--hc-admin-text);
@@ -439,42 +441,42 @@
 }
 
 .hc-modules-table td {
-    padding: 13px 14px;
+    padding: 13px 12px;
     border-bottom: 1px solid var(--hc-admin-border);
     color: var(--hc-admin-text);
     vertical-align: top;
 }
 
 .hc-col-module {
-    min-width: 220px;
+    width: 16%;
 }
 
 .hc-col-category {
-    min-width: 170px;
+    width: 13%;
 }
 
 .hc-col-shortcode {
-    min-width: 170px;
+    width: 19%;
 }
 
 .hc-col-desc {
-    min-width: 290px;
+    width: 24%;
 }
 
 .hc-col-posts {
-    width: 70px;
+    width: 4%;
 }
 
 .hc-col-created {
-    min-width: 135px;
+    width: 10%;
 }
 
 .hc-col-status {
-    width: 90px;
+    width: 6%;
 }
 
 .hc-col-action {
-    min-width: 120px;
+    width: 8%;
 }
 
 .hc-row-meta {
@@ -491,7 +493,9 @@
 
 .hc-shortcode-code {
     display: inline-block;
-    white-space: nowrap;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 .hc-center-cell {
@@ -514,6 +518,12 @@
 
 .hc-yazi-ekle-btn,
 .hc-update-btn {
+    max-width: 100%;
+    min-height: 34px;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 
@@ -616,5 +626,14 @@
     .hc-category-add-row input,
     .hc-category-add-row .button {
         width: 100%;
+    }
+
+    .hc-table-wrap {
+        overflow-x: auto;
+    }
+
+    .hc-modules-table {
+        min-width: 980px;
+        table-layout: auto;
     }
 }
