@@ -1,0 +1,5 @@
+{
+  "name": "Kilo Kaybı Hesaplama",
+  "desc": "Günlük kalori açığına göre hedef kilo kaybı süresini ve haftalık tahmini kaybı hesaplar.",
+  "shortcode": "[hc_kilo_kaybi_hesaplama]"
+}
