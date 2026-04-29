@@ -1,0 +1,111 @@
+.hc-protein-ihtiyaci-hesaplama-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.55;
+}
+
+.hc-protein-ihtiyaci-hesaplama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-protein-ihtiyaci-hesaplama-result {
+    border-left-color: #4f6f52;
+}
+
+.hc-protein-ihtiyaci-hesaplama-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-protein-ihtiyaci-hesaplama-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    height: 74px;
+    flex: 0 0 74px;
+    border: 1px solid #cfe3c8;
+    border-radius: 12px;
+    background: #f2faef;
+    color: #385d2f;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.hc-protein-ihtiyaci-hesaplama-subtitle {
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.hc-protein-ihtiyaci-hesaplama-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.hc-protein-ihtiyaci-hesaplama-cards div {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.hc-protein-ihtiyaci-hesaplama-cards span,
+.hc-protein-ihtiyaci-hesaplama-cards strong {
+    display: block;
+}
+
+.hc-protein-ihtiyaci-hesaplama-cards span {
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hc-protein-ihtiyaci-hesaplama-cards strong {
+    color: #101828;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.hc-protein-ihtiyaci-hesaplama-yorum {
+    margin: 14px 0 0;
+    color: #334155;
+    line-height: 1.55;
+}
+
+.hc-protein-ihtiyaci-hesaplama-not {
+    margin: 12px 0 0;
+    padding: 12px 14px;
+    border: 1px solid #f3cc74;
+    border-radius: 8px;
+    background: #fff8e7;
+    color: #8a5a03;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-protein-ihtiyaci-hesaplama-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-protein-ihtiyaci-hesaplama-grid,
+    .hc-protein-ihtiyaci-hesaplama-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-protein-ihtiyaci-hesaplama-hero {
+        align-items: flex-start;
+    }
+}
