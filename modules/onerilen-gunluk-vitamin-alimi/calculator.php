@@ -33,7 +33,7 @@ function hc_render_onerilen_gunluk_vitamin_alimi( $atts ) {
                 </select>
             </div>
 
-            <div class="hc-form-group">
+            <div class="hc-form-group" id="hc-vta-cinsiyet-grup">
                 <label for="hc-vta-cinsiyet">Cinsiyet</label>
                 <select id="hc-vta-cinsiyet">
                     <option value="kadin">Kadın</option>
@@ -41,7 +41,7 @@ function hc_render_onerilen_gunluk_vitamin_alimi( $atts ) {
                 </select>
             </div>
 
-            <div class="hc-form-group">
+            <div class="hc-form-group" id="hc-vta-durum-grup">
                 <label for="hc-vta-durum">Özel Durum</label>
                 <select id="hc-vta-durum">
                     <option value="normal" selected>Yok</option>

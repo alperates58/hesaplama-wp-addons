@@ -78,6 +78,25 @@ function hcVtaSatirOlustur(vitamin, degerler) {
     return tr;
 }
 
+function hcVtaArayuzGuncelle() {
+    var yas = parseFloat(document.getElementById('hc-vta-yas').value);
+    var birim = document.getElementById('hc-vta-yas-birim').value;
+    var cinsiyet = document.getElementById('hc-vta-cinsiyet').value;
+    var durumSelect = document.getElementById('hc-vta-durum');
+    var cinsiyetGrup = document.getElementById('hc-vta-cinsiyet-grup');
+    var durumGrup = document.getElementById('hc-vta-durum-grup');
+    var yasYil = isNaN(yas) ? null : hcVtaYasYilOlarak(yas, birim);
+    var cinsiyetSor = yasYil === null || yasYil >= 9;
+    var durumSor = cinsiyetSor && cinsiyet === 'kadin';
+
+    cinsiyetGrup.classList.toggle('hc-vitamin-alimi-hidden', !cinsiyetSor);
+    durumGrup.classList.toggle('hc-vitamin-alimi-hidden', !durumSor);
+
+    if (!durumSor) {
+        durumSelect.value = 'normal';
+    }
+}
+
 function hcOnerilenGunlukVitaminAlimiHesapla() {
     var yas = parseFloat(document.getElementById('hc-vta-yas').value);
     var birim = document.getElementById('hc-vta-yas-birim').value;
@@ -96,6 +115,10 @@ function hcOnerilenGunlukVitaminAlimiHesapla() {
     }
 
     var yasYil = hcVtaYasYilOlarak(yas, birim);
+    if (yasYil < 9 || cinsiyet !== 'kadin') {
+        durum = 'normal';
+    }
+
     if (yasYil > 120) {
         alert('Lütfen 0 ile 120 yaş arasında bir değer girin.');
         return;
@@ -134,3 +157,18 @@ function hcOnerilenGunlukVitaminAlimiHesapla() {
     document.getElementById('hc-vta-not').textContent = notlar.length ? notlar.join(' ') : 'Değerler RDA veya yeterli alım referanslarına göre listelenir.';
     document.getElementById('hc-vta-result').classList.add('visible');
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var ids = ['hc-vta-yas', 'hc-vta-yas-birim', 'hc-vta-cinsiyet'];
+
+    ids.forEach(function(id) {
+        var alan = document.getElementById(id);
+
+        if (alan) {
+            alan.addEventListener('input', hcVtaArayuzGuncelle);
+            alan.addEventListener('change', hcVtaArayuzGuncelle);
+        }
+    });
+
+    hcVtaArayuzGuncelle();
+});

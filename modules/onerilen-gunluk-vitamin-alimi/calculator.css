@@ -18,6 +18,10 @@
     height: 16px;
 }
 
+.hc-vitamin-alimi-hidden {
+    display: none;
+}
+
 .hc-vitamin-alimi-result {
     border-left-color: #4e7f6a;
 }
