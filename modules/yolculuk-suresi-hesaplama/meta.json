@@ -1,0 +1,5 @@
+{
+  "name": "Yolculuk Süresi Hesaplama",
+  "desc": "Mesafe, hız, mola ve yakıt bilgilerine göre yolculuk süresini ve maliyetini hesaplar.",
+  "shortcode": "[hc_yolculuk_suresi_hesaplama]"
+}

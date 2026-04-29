@@ -1,0 +1,112 @@
+.hc-yolculuk-suresi-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.hc-yolculuk-suresi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-yolculuk-suresi-result {
+    border-left-color: #3f718c;
+}
+
+.hc-yolculuk-suresi-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-yolculuk-suresi-badge {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    border-radius: 8px;
+    background: #eef7fb;
+    border: 1px solid #cfe4ee;
+    color: #285f78;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hc-yolculuk-suresi-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-yolculuk-suresi-details,
+.hc-yolculuk-suresi-cost {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-yolculuk-suresi-details {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-yolculuk-suresi-cost {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.hc-yolculuk-suresi-details div,
+.hc-yolculuk-suresi-cost div {
+    padding: 10px;
+    background: #f5fafc;
+    border: 1px solid #d9e8ef;
+    border-radius: 6px;
+}
+
+.hc-yolculuk-suresi-details span,
+.hc-yolculuk-suresi-details strong,
+.hc-yolculuk-suresi-cost span,
+.hc-yolculuk-suresi-cost strong {
+    display: block;
+}
+
+.hc-yolculuk-suresi-details span,
+.hc-yolculuk-suresi-cost span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-yolculuk-suresi-details strong,
+.hc-yolculuk-suresi-cost strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-yolculuk-suresi-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-yolculuk-suresi-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-yolculuk-suresi-grid,
+    .hc-yolculuk-suresi-details,
+    .hc-yolculuk-suresi-cost {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-yolculuk-suresi-hero {
+        align-items: flex-start;
+    }
+}
