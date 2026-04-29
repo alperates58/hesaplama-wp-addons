@@ -32,21 +32,30 @@ class HC_AI_Provider {
 
     /* ---- OpenAI ---- */
     private function generate_openai( $prompt, $s ) {
+        $messages = [
+            [ 'role' => 'system', 'content' => $this->get_system_prompt() ],
+            [ 'role' => 'user', 'content' => $prompt ],
+        ];
+        $body     = [
+            'model'    => $s['model'],
+            'messages' => $messages,
+        ];
+
+        if ( $this->is_reasoning_model( $s['model'] ) ) {
+            $body['max_completion_tokens'] = 7000;
+            $body['reasoning_effort']      = 'low';
+        } else {
+            $body['temperature'] = 0.85;
+            $body['max_tokens']  = 7000;
+        }
+
         $resp = wp_remote_post( 'https://api.openai.com/v1/chat/completions', [
             'timeout' => 120,
             'headers' => [
                 'Content-Type'  => 'application/json',
                 'Authorization' => 'Bearer ' . $s['api_key'],
             ],
-            'body' => wp_json_encode( [
-                'model'       => $s['model'],
-                'temperature' => 0.85,
-                'max_tokens'  => 7000,
-                'messages'    => [
-                    [ 'role' => 'system', 'content' => $this->get_system_prompt() ],
-                    [ 'role' => 'user', 'content' => $prompt ],
-                ],
-            ] ),
+            'body' => wp_json_encode( $body ),
         ] );
 
         if ( is_wp_error( $resp ) ) return $resp;
@@ -60,6 +69,10 @@ class HC_AI_Provider {
         }
 
         return $data['choices'][0]['message']['content'] ?? '';
+    }
+
+    private function is_reasoning_model( $model ) {
+        return 0 === strpos( $model, 'gpt-5' ) || 0 === strpos( $model, 'o' );
     }
 
     /* ---- Gemini ---- */
