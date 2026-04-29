@@ -1,0 +1,5 @@
+{
+  "name": "Çalışma Günü Hesaplama",
+  "desc": "İki tarih arasındaki çalışma günü, hafta sonu ve hariç tutulan özel gün sayılarını hesaplar.",
+  "shortcode": "[hc_calisma_gunu_hesaplama]"
+}
