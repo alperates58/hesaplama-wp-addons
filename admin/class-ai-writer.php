@@ -152,6 +152,16 @@ class HC_AI_Writer {
 
         $url   = esc_url_raw( $_POST['url'] ?? '' );
         $title = sanitize_text_field( $_POST['title'] ?? '' );
+        $source = sanitize_key( $_POST['source'] ?? 'writer_tab' );
+
+        $provider = new HC_AI_Provider();
+        if ( 'post_metabox' === $source && ! $provider->is_feature_enabled( 'post_metabox' ) ) {
+            wp_send_json_error( 'Yazı içinden AI içerik oluşturma kapalı.' );
+        }
+
+        if ( 'post_metabox' !== $source && ! $provider->is_feature_enabled( 'writer_tab' ) ) {
+            wp_send_json_error( 'Eklenti içinden AI yazı oluşturma kapalı.' );
+        }
 
         if ( ! $url && ! $title ) wp_send_json_error( 'URL veya başlık gerekli.' );
 
@@ -166,7 +176,6 @@ class HC_AI_Writer {
             }
         }
 
-        $provider = new HC_AI_Provider();
         $prompt   = $url
             ? $provider->build_prompt( $url, $page_text )
             : $provider->build_prompt_from_title( $title );
@@ -368,6 +377,21 @@ class HC_AI_Writer {
                 <?php wp_nonce_field( 'hc_save_ai_settings' ); ?>
                 <table class="form-table">
                     <tr>
+                        <th>AI yazı oluşturma</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="enable_writer_tab" value="1" <?php checked( $s['enable_writer_tab'], '1' ); ?> />
+                                Eklenti içindeki Yazı Oluştur sekmesini aktif et
+                            </label>
+                            <br />
+                            <label>
+                                <input type="checkbox" name="enable_post_metabox" value="1" <?php checked( $s['enable_post_metabox'], '1' ); ?> />
+                                Yazı düzenleme ekranındaki AI kutusunu aktif et
+                            </label>
+                            <p class="description">Bu ayarlar kapatılan yerlerden gelen AI isteklerini engeller; yazı içi kutu kapalıyken görünmez.</p>
+                        </td>
+                    </tr>
+                    <tr>
                         <th><label for="provider">Sağlayıcı</label></th>
                         <td>
                             <select id="hc-ai-provider" name="provider" onchange="hcToggleProvider(this.value)">
@@ -447,6 +471,17 @@ class HC_AI_Writer {
     }
 
     public function render_writer_tab() {
+        $provider = new HC_AI_Provider();
+        if ( ! $provider->is_feature_enabled( 'writer_tab' ) ) {
+            ?>
+            <div class="hc-card">
+                <h2>Yazı Oluştur</h2>
+                <p>Eklenti içinden AI yazı oluşturma şu anda kapalı. AI Ayarları sekmesinden tekrar açabilirsiniz.</p>
+            </div>
+            <?php
+            return;
+        }
+
         $modules_dir = HC_PLUGIN_DIR . 'modules/';
         $modules     = [];
 

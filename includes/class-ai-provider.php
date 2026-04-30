@@ -7,18 +7,36 @@ class HC_AI_Provider {
 
     public function get_settings() {
         return wp_parse_args( get_option( $this->option_key, [] ), [
-            'provider' => 'openai',
-            'api_key'  => '',
-            'model'    => 'gpt-4o-mini',
+            'provider'             => 'openai',
+            'api_key'              => '',
+            'model'                => 'gpt-4o-mini',
+            'enable_writer_tab'    => '1',
+            'enable_post_metabox'  => '1',
         ] );
     }
 
     public function save_settings( $data ) {
         update_option( $this->option_key, [
-            'provider' => sanitize_text_field( $data['provider'] ?? 'openai' ),
-            'api_key'  => sanitize_text_field( $data['api_key']  ?? '' ),
-            'model'    => sanitize_text_field( $data['model']    ?? 'gpt-4o-mini' ),
+            'provider'            => sanitize_text_field( $data['provider'] ?? 'openai' ),
+            'api_key'             => sanitize_text_field( $data['api_key']  ?? '' ),
+            'model'               => sanitize_text_field( $data['model']    ?? 'gpt-4o-mini' ),
+            'enable_writer_tab'   => ! empty( $data['enable_writer_tab'] ) ? '1' : '0',
+            'enable_post_metabox' => ! empty( $data['enable_post_metabox'] ) ? '1' : '0',
         ] );
+    }
+
+    public function is_feature_enabled( $feature ) {
+        $s = $this->get_settings();
+
+        if ( 'post_metabox' === $feature ) {
+            return ! empty( $s['enable_post_metabox'] );
+        }
+
+        if ( 'writer_tab' === $feature ) {
+            return ! empty( $s['enable_writer_tab'] );
+        }
+
+        return true;
     }
 
     public function generate( $prompt ) {

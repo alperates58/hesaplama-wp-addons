@@ -32,7 +32,8 @@ jQuery(function ($) {
             action: 'hc_generate_article',
             nonce:  hcMetabox.nonce,
             url:    url,
-            title:  postTitle
+            title:  postTitle,
+            source: 'post_metabox'
         })
         .done(function (resp) {
             $('#hc-mb-loading').hide();

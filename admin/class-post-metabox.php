@@ -9,6 +9,11 @@ class HC_Post_Metabox {
     }
 
     public function register() {
+        $provider = new HC_AI_Provider();
+        if ( ! $provider->is_feature_enabled( 'post_metabox' ) ) {
+            return;
+        }
+
         add_meta_box(
             'hc-ai-writer',
             '✨ AI Yazı Oluştur',
@@ -21,6 +26,11 @@ class HC_Post_Metabox {
 
     public function enqueue( $hook ) {
         if ( ! in_array( $hook, [ 'post.php', 'post-new.php' ] ) ) return;
+
+        $provider = new HC_AI_Provider();
+        if ( ! $provider->is_feature_enabled( 'post_metabox' ) ) {
+            return;
+        }
 
         $script_file = HC_PLUGIN_DIR . 'admin/metabox.js';
         $style_file  = HC_PLUGIN_DIR . 'admin/metabox.css';

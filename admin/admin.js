@@ -211,7 +211,8 @@ jQuery(function ($) {
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_generate_article',
             nonce: hcAdmin.nonce,
-            url: url
+            url: url,
+            source: 'writer_tab'
         })
             .done(function (resp) {
                 var d;
