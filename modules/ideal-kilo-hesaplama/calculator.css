@@ -1,0 +1,124 @@
+.hc-ideal-kilo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-ideal-kilo-result {
+    border-color: #d7e6dc;
+    background:
+        linear-gradient(135deg, #f1fbf5 0%, #ffffff 72%),
+        #fff;
+}
+
+.hc-ideal-kilo-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-ideal-kilo-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #5b6675;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hc-ideal-kilo-bki {
+    min-width: 96px;
+    padding: 10px 12px;
+    border: 1px solid #cfdfd5;
+    border-radius: 8px;
+    background: #f7fbf8;
+    text-align: center;
+}
+
+.hc-ideal-kilo-bki span,
+.hc-ideal-kilo-bki strong {
+    display: block;
+}
+
+.hc-ideal-kilo-bki span {
+    margin-bottom: 4px;
+    color: #6a7280;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hc-ideal-kilo-bki strong {
+    color: #14633f;
+    font-size: 16px;
+}
+
+.hc-ideal-kilo-band {
+    margin: 14px 0;
+    padding: 13px;
+    border: 1px solid #dbe7ff;
+    border-radius: 8px;
+    background: #f7faff;
+}
+
+.hc-ideal-kilo-band span,
+.hc-ideal-kilo-band strong,
+.hc-ideal-kilo-band small {
+    display: block;
+}
+
+.hc-ideal-kilo-band span {
+    margin-bottom: 4px;
+    color: #5b6675;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hc-ideal-kilo-band strong {
+    color: #1f3558;
+    font-size: 18px;
+}
+
+.hc-ideal-kilo-band small {
+    margin-top: 4px;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.hc-ideal-kilo-summary {
+    margin-bottom: 14px;
+    padding: 12px 13px;
+    border-left: 4px solid #198754;
+    border-radius: 6px;
+    background: #f4fbf7;
+    color: #273444;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hc-ideal-kilo-table td:last-child {
+    color: #172033;
+    font-weight: 800;
+}
+
+.hc-ideal-kilo-note {
+    margin: 12px 0 0;
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+    .hc-ideal-kilo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-ideal-kilo-hero {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hc-ideal-kilo-bki {
+        width: 100%;
+    }
+}
