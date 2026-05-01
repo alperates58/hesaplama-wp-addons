@@ -487,11 +487,7 @@ PROMPT;
         $expected = 'hc_render_' . str_replace( '-', '_', $slug );
 
         if ( preg_match( '/function\s+' . preg_quote( $expected, '/' ) . '\s*\(/', $calculator_php ) ) {
-            $calculator_php = preg_replace(
-                '#modules/[a-z0-9-]+/calculator\.(js|css)#',
-                'modules/' . $slug . '/calculator.$1',
-                $calculator_php
-            );
+            $calculator_php = $this->normalize_calculator_asset_paths( $calculator_php, $slug );
 
             return $this->normalize_newlines( $calculator_php );
         }
@@ -512,13 +508,27 @@ PROMPT;
             );
         }
 
+        $calculator_php = $this->normalize_calculator_asset_paths( $calculator_php, $slug );
+
+        return $this->normalize_newlines( $calculator_php );
+    }
+
+    private function normalize_calculator_asset_paths( $calculator_php, $slug ) {
         $calculator_php = preg_replace(
             '#modules/[a-z0-9-]+/calculator\.(js|css)#',
             'modules/' . $slug . '/calculator.$1',
             $calculator_php
         );
 
-        return $this->normalize_newlines( $calculator_php );
+        $calculator_php = preg_replace_callback(
+            '/([\'"])([^\'"]*calculator\.(js|css))\1/i',
+            function ( $matches ) use ( $slug ) {
+                return $matches[1] . 'modules/' . $slug . '/calculator.' . strtolower( $matches[3] ) . $matches[1];
+            },
+            $calculator_php
+        );
+
+        return $calculator_php;
     }
 
     private function validate_module_payload( $data, $require_new_slug ) {
