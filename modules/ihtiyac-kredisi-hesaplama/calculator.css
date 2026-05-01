@@ -1,0 +1,117 @@
+.hc-ihtiyac-result {
+    border-left-color: #7c3aed;
+}
+
+.hc-ihtiyac-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-ihtiyac-details,
+.hc-ihtiyac-summary {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.hc-ihtiyac-details {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hc-ihtiyac-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hc-ihtiyac-details div,
+.hc-ihtiyac-summary div {
+    padding: 10px;
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    border-radius: 6px;
+}
+
+.hc-ihtiyac-summary div {
+    background: #f8fafc;
+    border-color: #dbe3ed;
+}
+
+.hc-ihtiyac-details span,
+.hc-ihtiyac-details strong,
+.hc-ihtiyac-summary span,
+.hc-ihtiyac-summary strong {
+    display: block;
+}
+
+.hc-ihtiyac-details span,
+.hc-ihtiyac-summary span {
+    margin-bottom: 4px;
+    color: #5b21b6;
+    font-size: 12px;
+}
+
+.hc-ihtiyac-summary span {
+    color: #475569;
+}
+
+.hc-ihtiyac-details strong,
+.hc-ihtiyac-summary strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-ihtiyac-table-wrap {
+    border: 1px solid #d8dee8;
+    border-radius: 6px;
+    margin-top: 14px;
+    overflow-x: auto;
+}
+
+.hc-ihtiyac-table {
+    border-collapse: collapse;
+    font-size: 12px;
+    min-width: 760px;
+    width: 100%;
+}
+
+.hc-ihtiyac-table th,
+.hc-ihtiyac-table td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 6px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.hc-ihtiyac-table th:first-child,
+.hc-ihtiyac-table td:first-child {
+    text-align: left;
+}
+
+.hc-ihtiyac-table thead th {
+    background: #f8fafc;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.hc-ihtiyac-table tbody tr:nth-child(even) td {
+    background: #fbfdff;
+}
+
+.hc-ihtiyac-not {
+    margin: 12px 0 0;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+    .hc-ihtiyac-grid,
+    .hc-ihtiyac-details,
+    .hc-ihtiyac-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-ihtiyac-table {
+        font-size: 11px;
+    }
+}

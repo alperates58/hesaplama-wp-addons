@@ -1,0 +1,5 @@
+{
+  "name": "İhtiyaç Kredisi Hesaplama",
+  "desc": "Kredi tutarı, aylık faiz oranı ve vadeye göre taksit, toplam geri ödeme ve ödeme planını hesaplar.",
+  "shortcode": "[hc_ihtiyac_kredisi_hesaplama]"
+}
