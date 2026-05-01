@@ -564,6 +564,33 @@
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace !important;
 }
 
+.hc-action-status {
+    display: inline-block;
+    margin-left: 12px;
+    line-height: 34px;
+}
+
+.hc-module-file-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.hc-module-file-grid label {
+    display: grid;
+    gap: 8px;
+    color: var(--hc-admin-text);
+    font-weight: 800;
+}
+
+.hc-module-file-grid textarea {
+    width: 100%;
+    min-height: 260px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace !important;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
 .hc-table-wrap::-webkit-scrollbar {
     height: 7px;
 }
@@ -635,5 +662,9 @@
     .hc-modules-table {
         min-width: 980px;
         table-layout: auto;
+    }
+
+    .hc-module-file-grid {
+        grid-template-columns: 1fr;
     }
 }

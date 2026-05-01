@@ -1,4 +1,6 @@
 jQuery(function ($) {
+    var hcModulePreviewPayload = null;
+
     function hcNormalizeCategory(value) {
         return (value || '').replace(/\s+/g, ' ').trim();
     }
@@ -285,6 +287,161 @@ jQuery(function ($) {
             $('#hc-save-msg').text('Hata: ' + resp.data).css('color', '#d63638');
         });
     });
+
+    $(document).on('click', '#hc-module-generate-btn', function () {
+        var $btn = $(this);
+        var $status = $('#hc-module-generate-status');
+        var topic = $('#hc-module-topic').val().trim();
+        var url = $('#hc-module-url').val().trim();
+        var notes = $('#hc-module-notes').val().trim();
+
+        if (!topic && !url) {
+            alert('Lütfen konu veya URL girin.');
+            return;
+        }
+
+        hcModulePreviewPayload = null;
+        $('#hc-module-preview').hide();
+        $('#hc-module-error').hide().text('');
+        $('#hc-module-publish-btn').prop('disabled', true);
+        $btn.prop('disabled', true).text('Taslak hazırlanıyor...');
+        $status.text('GPT-5 mini modül dosyalarını hazırlıyor. Bu işlem 30-90 saniye sürebilir.').css('color', '#646970');
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_generate_module_preview',
+            nonce: hcAdmin.nonce,
+            topic: topic,
+            url: url,
+            notes: notes
+        })
+            .done(function (resp) {
+                var d;
+
+                $btn.prop('disabled', false).text('Modül Taslağı Oluştur');
+
+                if (!resp || !resp.success) {
+                    $('#hc-module-error').text('Hata: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).show();
+                    $status.text('').css('color', '');
+                    return;
+                }
+
+                d = resp.data;
+                hcModulePreviewPayload = d;
+                hcFillModulePreview(d);
+                $('#hc-module-preview').show();
+                $status.text('Taslak hazır. Kaydetmeden önce dosyaları hızlıca gözden geçirin.').css('color', '#067647');
+            })
+            .fail(function (xhr) {
+                $btn.prop('disabled', false).text('Modül Taslağı Oluştur');
+                $('#hc-module-error').text('Sunucu hatası: HTTP ' + xhr.status + ' - ' + xhr.responseText.substring(0, 150)).show();
+                $status.text('').css('color', '');
+            });
+    });
+
+    $(document).on('input', '#hc-file-meta, #hc-file-php, #hc-file-js, #hc-file-css', function () {
+        if (!hcModulePreviewPayload) {
+            return;
+        }
+
+        hcModulePreviewPayload.files.meta_json = $('#hc-file-meta').val();
+        hcModulePreviewPayload.files.calculator_php = $('#hc-file-php').val();
+        hcModulePreviewPayload.files.calculator_js = $('#hc-file-js').val();
+        hcModulePreviewPayload.files.calculator_css = $('#hc-file-css').val();
+        $('#hc-module-publish-btn').prop('disabled', true);
+    });
+
+    $(document).on('click', '#hc-module-save-btn', function () {
+        var $btn = $(this);
+        var $status = $('#hc-module-save-status');
+
+        if (!hcModulePreviewPayload) {
+            alert('Önce modül taslağı oluşturun.');
+            return;
+        }
+
+        $btn.prop('disabled', true).text('Kaydediliyor...');
+        $status.text('Dosyalar kontrol ediliyor ve yeni modül klasörü oluşturuluyor...').css('color', '#646970');
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_save_module_files',
+            nonce: hcAdmin.nonce,
+            payload: JSON.stringify(hcModulePreviewPayload)
+        })
+            .done(function (resp) {
+                $btn.prop('disabled', false).text('Modülü Eklentiye Kaydet');
+
+                if (!resp || !resp.success) {
+                    $status.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
+                    return;
+                }
+
+                $status.html('Kaydedildi: <code>' + resp.data.path + '</code> Shortcode: <code>' + resp.data.shortcode + '</code>').css('color', '#067647');
+                $('#hc-module-publish-btn').prop('disabled', false);
+            })
+            .fail(function (xhr) {
+                $btn.prop('disabled', false).text('Modülü Eklentiye Kaydet');
+                $status.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
+            });
+    });
+
+    $(document).on('click', '#hc-module-publish-btn', function () {
+        var $btn = $(this);
+        var $status = $('#hc-module-save-status');
+
+        if (!hcModulePreviewPayload) {
+            alert('Önce modül taslağı oluşturun.');
+            return;
+        }
+
+        if (!window.confirm('Bu modülü GitHub ayarlarında seçili branch üzerine commit olarak göndermek istiyor musunuz?')) {
+            return;
+        }
+
+        $btn.prop('disabled', true).text('GitHub’a gönderiliyor...');
+        $status.text('GitHub API üzerinden dosyalar oluşturuluyor...').css('color', '#646970');
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_publish_module_github',
+            nonce: hcAdmin.nonce,
+            payload: JSON.stringify(hcModulePreviewPayload)
+        })
+            .done(function (resp) {
+                $btn.prop('disabled', false).text('GitHub\'a Gönder');
+
+                if (!resp || !resp.success) {
+                    $status.text('GitHub hatası: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
+                    return;
+                }
+
+                $status.text('GitHub’a gönderildi: ' + resp.data.repo + ' / ' + resp.data.branch).css('color', '#067647');
+            })
+            .fail(function (xhr) {
+                $btn.prop('disabled', false).text('GitHub\'a Gönder');
+                $status.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
+            });
+    });
+
+    function hcFillModulePreview(data) {
+        var module = data.module || {};
+        var files = data.files || {};
+
+        $('#hc-module-name-label').text(module.name || '-');
+        $('#hc-module-slug-label').text(module.slug || '-');
+        $('#hc-module-path-label').text(module.path || (module.slug ? 'modules/' + module.slug + '/' : '-'));
+        $('#hc-module-desc-label').text(module.desc || '-');
+        $('#hc-module-source-label').text(module.source_url || module.formula_source_url || 'Kaynak yok');
+        $('#hc-module-shortcode-badge').text(module.shortcode || '');
+        $('#hc-file-meta').val(files.meta_json || '');
+        $('#hc-file-php').val(files.calculator_php || '');
+        $('#hc-file-js').val(files.calculator_js || '');
+        $('#hc-file-css').val(files.calculator_css || '');
+
+        if (module.needs_review || module.review_note) {
+            $('#hc-module-review-note').text(module.review_note || 'Formül için insan kontrolü önerilir.').show();
+        } else {
+            $('#hc-module-review-note').hide().text('');
+        }
+    }
 
     function formatYoastChecklist(data) {
         var lines = [];

@@ -353,8 +353,8 @@ class HC_AI_Writer {
         $saved    = isset( $_GET['saved'] );
 
         $openai_modeller = [
-            'gpt-4o-mini'   => 'GPT-4o Mini — Ucuz, Hızlı (Önerilen)',
-            'gpt-5-mini'    => 'GPT-5 Mini — Erişim varsa daha kaliteli',
+            'gpt-5-mini'    => 'GPT-5 Mini - Modül üretimi için önerilen',
+            'gpt-4o-mini'   => 'GPT-4o Mini - Ucuz, hızlı',
             'gpt-4o'        => 'GPT-4o — En Güçlü',
             'gpt-4-turbo'   => 'GPT-4 Turbo',
             'gpt-3.5-turbo' => 'GPT-3.5 Turbo — En Ucuz',
@@ -387,6 +387,11 @@ class HC_AI_Writer {
                             <label>
                                 <input type="checkbox" name="enable_post_metabox" value="1" <?php checked( $s['enable_post_metabox'], '1' ); ?> />
                                 Yazı düzenleme ekranındaki AI kutusunu aktif et
+                            </label>
+                            <br />
+                            <label>
+                                <input type="checkbox" name="enable_module_generator" value="1" <?php checked( $s['enable_module_generator'], '1' ); ?> />
+                                GPT-5 mini ile Modül Oluştur sekmesini aktif et
                             </label>
                             <p class="description">Bu ayarlar kapatılan yerlerden gelen AI isteklerini engeller; yazı içi kutu kapalıyken görünmez.</p>
                         </td>

@@ -358,6 +358,9 @@ class HC_Admin_Page {
                 <a href="?page=hesaplama-suite&tab=writer" class="nav-tab <?php echo 'writer' === $tab ? 'nav-tab-active' : ''; ?>">
                     Yazı Oluştur
                 </a>
+                <a href="?page=hesaplama-suite&tab=module-generator" class="nav-tab <?php echo 'module-generator' === $tab ? 'nav-tab-active' : ''; ?>">
+                    Modül Oluştur
+                </a>
                 <a href="?page=hesaplama-suite&tab=ai-settings" class="nav-tab <?php echo 'ai-settings' === $tab ? 'nav-tab-active' : ''; ?>">
                     AI Ayarları
                 </a>
@@ -372,6 +375,8 @@ class HC_Admin_Page {
 
                 if ( 'github' === $tab ) {
                     $this->render_github_tab();
+                } elseif ( 'module-generator' === $tab ) {
+                    HC_AI_Module_Generator::render_generator_tab();
                 } elseif ( 'writer' === $tab ) {
                     $writer->render_writer_tab();
                 } elseif ( 'ai-settings' === $tab ) {

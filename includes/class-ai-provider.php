@@ -9,9 +9,10 @@ class HC_AI_Provider {
         return wp_parse_args( get_option( $this->option_key, [] ), [
             'provider'             => 'openai',
             'api_key'              => '',
-            'model'                => 'gpt-4o-mini',
+            'model'                => 'gpt-5-mini',
             'enable_writer_tab'    => '1',
             'enable_post_metabox'  => '1',
+            'enable_module_generator' => '1',
         ] );
     }
 
@@ -19,9 +20,10 @@ class HC_AI_Provider {
         update_option( $this->option_key, [
             'provider'            => sanitize_text_field( $data['provider'] ?? 'openai' ),
             'api_key'             => sanitize_text_field( $data['api_key']  ?? '' ),
-            'model'               => sanitize_text_field( $data['model']    ?? 'gpt-4o-mini' ),
+            'model'               => sanitize_text_field( $data['model']    ?? 'gpt-5-mini' ),
             'enable_writer_tab'   => ! empty( $data['enable_writer_tab'] ) ? '1' : '0',
             'enable_post_metabox' => ! empty( $data['enable_post_metabox'] ) ? '1' : '0',
+            'enable_module_generator' => ! empty( $data['enable_module_generator'] ) ? '1' : '0',
         ] );
     }
 
@@ -36,16 +38,29 @@ class HC_AI_Provider {
             return ! empty( $s['enable_writer_tab'] );
         }
 
+        if ( 'module_generator' === $feature ) {
+            return ! empty( $s['enable_module_generator'] );
+        }
+
         return true;
     }
 
-    public function generate( $prompt ) {
+    public function generate( $prompt, $override_model = '' ) {
         $s = $this->get_settings();
         if ( empty( $s['api_key'] ) ) return new WP_Error( 'no_key', 'API key girilmemis.' );
+
+        if ( $override_model ) {
+            $s['model'] = sanitize_text_field( $override_model );
+            $s['strict_model'] = true;
+        }
 
         return $s['provider'] === 'gemini'
             ? $this->generate_gemini( $prompt, $s )
             : $this->generate_openai( $prompt, $s );
+    }
+
+    public function generate_with_model( $prompt, $model ) {
+        return $this->generate( $prompt, $model );
     }
 
     /* ---- OpenAI ---- */
@@ -84,7 +99,7 @@ class HC_AI_Provider {
         if ( $code !== 200 ) {
             $msg = $data['error']['message'] ?? 'OpenAI API hatasi.';
 
-            if ( $this->is_model_access_error( $msg ) && 'gpt-4o-mini' !== $s['model'] ) {
+            if ( empty( $s['strict_model'] ) && $this->is_model_access_error( $msg ) && 'gpt-4o-mini' !== $s['model'] ) {
                 $fallback = $s;
                 $fallback['model'] = 'gpt-4o-mini';
                 return $this->generate_openai( $prompt, $fallback );
