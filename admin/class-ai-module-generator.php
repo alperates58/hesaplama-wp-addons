@@ -486,12 +486,31 @@ PROMPT;
         $slug     = $module['slug'];
         $expected = 'hc_render_' . str_replace( '-', '_', $slug );
 
+        if ( preg_match( '/function\s+' . preg_quote( $expected, '/' ) . '\s*\(/', $calculator_php ) ) {
+            $calculator_php = preg_replace(
+                '#modules/[a-z0-9-]+/calculator\.(js|css)#',
+                'modules/' . $slug . '/calculator.$1',
+                $calculator_php
+            );
+
+            return $this->normalize_newlines( $calculator_php );
+        }
+
         $calculator_php = preg_replace(
             '/function\s+hc_render_[a-zA-Z0-9_]+\s*\(/',
             'function ' . $expected . '(',
             $calculator_php,
             1
         );
+
+        if ( ! preg_match( '/function\s+' . preg_quote( $expected, '/' ) . '\s*\(/', $calculator_php ) ) {
+            $calculator_php = preg_replace(
+                '/function\s+[A-Za-z_\x80-\xff][A-Za-z0-9_\x80-\xff]*\s*\(/u',
+                'function ' . $expected . '(',
+                $calculator_php,
+                1
+            );
+        }
 
         $calculator_php = preg_replace(
             '#modules/[a-z0-9-]+/calculator\.(js|css)#',
@@ -525,7 +544,7 @@ PROMPT;
             return new WP_Error( 'bad_meta', 'meta.json geçersiz veya shortcode slug ile uyumsuz.' );
         }
 
-        if ( false === strpos( $data['files']['calculator_php'], 'function hc_render_' . $underscore ) ) {
+        if ( ! preg_match( '/function\s+hc_render_' . preg_quote( $underscore, '/' ) . '\s*\(/', $data['files']['calculator_php'] ) ) {
             return new WP_Error( 'bad_php', 'calculator.php render fonksiyonu beklenen isimde değil.' );
         }
 
