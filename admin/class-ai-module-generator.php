@@ -3,8 +3,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class HC_AI_Module_Generator {
 
-    private const MODEL = 'gpt-5-mini';
-
     public function __construct() {
         add_action( 'wp_ajax_hc_generate_module_preview', [ $this, 'ajax_generate_module_preview' ] );
         add_action( 'wp_ajax_hc_save_module_files', [ $this, 'ajax_save_module_files' ] );
@@ -13,6 +11,7 @@ class HC_AI_Module_Generator {
 
     public static function render_generator_tab() {
         $provider = new HC_AI_Provider();
+        $settings = $provider->get_settings();
 
         if ( ! $provider->is_feature_enabled( 'module_generator' ) ) {
             ?>
@@ -28,9 +27,9 @@ class HC_AI_Module_Generator {
             <div class="hc-card-head">
                 <div>
                     <h2>AI Modül Oluştur</h2>
-                    <p class="hc-card-copy">Konu veya URL girin; GPT-5 mini yeni hesap makinesi modülü için güvenli bir dosya taslağı hazırlasın.</p>
+                    <p class="hc-card-copy">Konu veya URL girin; AI Ayarları'nda seçili model yeni hesap makinesi modülü için güvenli bir dosya taslağı hazırlasın.</p>
                 </div>
-                <div class="hc-inline-badge">Model: <?php echo esc_html( self::MODEL ); ?></div>
+                <div class="hc-inline-badge">Model: <?php echo esc_html( $settings['model'] ); ?></div>
             </div>
 
             <div class="hc-field-grid">
@@ -123,7 +122,7 @@ class HC_AI_Module_Generator {
 
         $page_text = $url ? $this->fetch_source_text( $url ) : '';
         $prompt    = $this->build_module_prompt( $topic, $url, $notes, $page_text );
-        $result    = $provider->generate_with_model( $prompt, self::MODEL );
+        $result    = $provider->generate( $prompt );
 
         if ( is_wp_error( $result ) ) {
             wp_send_json_error( $result->get_error_message() );

@@ -9,7 +9,7 @@ class HC_AI_Provider {
         return wp_parse_args( get_option( $this->option_key, [] ), [
             'provider'             => 'openai',
             'api_key'              => '',
-            'model'                => 'gpt-5-mini',
+            'model'                => 'gpt-4o-mini',
             'enable_writer_tab'    => '1',
             'enable_post_metabox'  => '1',
             'enable_module_generator' => '1',
@@ -20,7 +20,7 @@ class HC_AI_Provider {
         update_option( $this->option_key, [
             'provider'            => sanitize_text_field( $data['provider'] ?? 'openai' ),
             'api_key'             => sanitize_text_field( $data['api_key']  ?? '' ),
-            'model'               => sanitize_text_field( $data['model']    ?? 'gpt-5-mini' ),
+            'model'               => sanitize_text_field( $data['model']    ?? 'gpt-4o-mini' ),
             'enable_writer_tab'   => ! empty( $data['enable_writer_tab'] ) ? '1' : '0',
             'enable_post_metabox' => ! empty( $data['enable_post_metabox'] ) ? '1' : '0',
             'enable_module_generator' => ! empty( $data['enable_module_generator'] ) ? '1' : '0',
