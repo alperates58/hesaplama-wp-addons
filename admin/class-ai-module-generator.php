@@ -452,15 +452,33 @@ PROMPT;
         $module['needs_review']       = ! empty( $module['needs_review'] );
         $module['review_note']        = sanitize_textarea_field( $module['review_note'] ?? '' );
 
+        $files = [
+            'meta_json'      => $this->normalize_newlines( $files['meta_json'] ?? '' ),
+            'calculator_php' => $this->normalize_newlines( $files['calculator_php'] ?? '' ),
+            'calculator_js'  => $this->normalize_newlines( $files['calculator_js'] ?? '' ),
+            'calculator_css' => $this->normalize_newlines( $files['calculator_css'] ?? '' ),
+        ];
+
+        $files['meta_json'] = $this->normalize_meta_json_file( $files['meta_json'], $module );
+
         return [
             'module' => $module,
-            'files'  => [
-                'meta_json'      => $this->normalize_newlines( $files['meta_json'] ?? '' ),
-                'calculator_php' => $this->normalize_newlines( $files['calculator_php'] ?? '' ),
-                'calculator_js'  => $this->normalize_newlines( $files['calculator_js'] ?? '' ),
-                'calculator_css' => $this->normalize_newlines( $files['calculator_css'] ?? '' ),
-            ],
+            'files'  => $files,
         ];
+    }
+
+    private function normalize_meta_json_file( $meta_json, $module ) {
+        $meta = json_decode( $meta_json, true );
+
+        if ( ! is_array( $meta ) ) {
+            $meta = [];
+        }
+
+        $meta['name']      = $meta['name'] ?? $module['name'];
+        $meta['desc']      = $meta['desc'] ?? $module['desc'];
+        $meta['shortcode'] = $module['shortcode'];
+
+        return wp_json_encode( $meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "\n";
     }
 
     private function validate_module_payload( $data, $require_new_slug ) {
