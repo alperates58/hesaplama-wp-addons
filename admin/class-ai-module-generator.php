@@ -460,6 +460,7 @@ PROMPT;
         ];
 
         $files['meta_json'] = $this->normalize_meta_json_file( $files['meta_json'], $module );
+        $files['calculator_php'] = $this->normalize_calculator_php_file( $files['calculator_php'], $module );
 
         return [
             'module' => $module,
@@ -479,6 +480,26 @@ PROMPT;
         $meta['shortcode'] = $module['shortcode'];
 
         return wp_json_encode( $meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "\n";
+    }
+
+    private function normalize_calculator_php_file( $calculator_php, $module ) {
+        $slug     = $module['slug'];
+        $expected = 'hc_render_' . str_replace( '-', '_', $slug );
+
+        $calculator_php = preg_replace(
+            '/function\s+hc_render_[a-zA-Z0-9_]+\s*\(/',
+            'function ' . $expected . '(',
+            $calculator_php,
+            1
+        );
+
+        $calculator_php = preg_replace(
+            '#modules/[a-z0-9-]+/calculator\.(js|css)#',
+            'modules/' . $slug . '/calculator.$1',
+            $calculator_php
+        );
+
+        return $this->normalize_newlines( $calculator_php );
     }
 
     private function validate_module_payload( $data, $require_new_slug ) {
