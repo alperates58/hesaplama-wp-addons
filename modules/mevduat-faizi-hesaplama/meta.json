@@ -1,0 +1,5 @@
+{
+  "name": "Mevduat Faizi Hesaplama",
+  "desc": "TL vadeli mevduat için brüt faiz, stopaj kesintisi, net getiri ve vade sonu bakiyeyi hesaplar.",
+  "shortcode": "[hc_mevduat_faizi_hesaplama]"
+}
