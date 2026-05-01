@@ -1,0 +1,5 @@
+{
+  "name": "Faiz Hesaplama",
+  "desc": "Anapara, yıllık faiz oranı ve vadeye göre brüt faiz, stopaj ve net getiriyi hesaplar.",
+  "shortcode": "[hc_faiz_hesaplama]"
+}
