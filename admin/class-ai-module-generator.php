@@ -98,8 +98,10 @@ class HC_AI_Module_Generator {
     }
 
     public function ajax_generate_module_preview() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Modül taslağı oluşturma yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $topic = sanitize_text_field( wp_unslash( $_POST['topic'] ?? '' ) );
         $url   = esc_url_raw( wp_unslash( $_POST['url'] ?? '' ) );
@@ -145,8 +147,10 @@ class HC_AI_Module_Generator {
     }
 
     public function ajax_save_module_files() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Modül dosyası kaydetme yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $data = $this->get_payload_from_request();
         $validation = $this->validate_module_payload( $data, true );
@@ -188,8 +192,10 @@ class HC_AI_Module_Generator {
     }
 
     public function ajax_publish_module_github() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'GitHub üzerinde modül yayınlama yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $data = $this->get_payload_from_request();
         $validation = $this->validate_module_payload( $data, false );

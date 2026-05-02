@@ -1,6 +1,16 @@
 jQuery(function ($) {
     var hcModulePreviewPayload = null;
 
+    $(document).ajaxError(function (event, xhr, settings) {
+        var $versionResult = $('#hc-version-result');
+
+        if (!settings || settings.url !== hcAdmin.ajaxurl || !$versionResult.length || $versionResult.text() !== hcAdmin.checking) {
+            return;
+        }
+
+        $versionResult.text((xhr.responseJSON && xhr.responseJSON.data) ? xhr.responseJSON.data : 'Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
+    });
+
     function hcNormalizeCategory(value) {
         return (value || '').replace(/\s+/g, ' ').trim();
     }

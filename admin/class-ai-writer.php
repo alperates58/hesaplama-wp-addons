@@ -15,27 +15,33 @@ class HC_AI_Writer {
     }
 
     public function handle_ai_settings_save() {
-        if (
-            ! isset( $_POST['hc_save_ai'] ) ||
-            ! check_admin_referer( 'hc_save_ai_settings' ) ||
-            ! current_user_can( 'manage_options' )
-        ) {
+        if ( ! isset( $_POST['hc_save_ai'] ) ) {
             return;
+        }
+
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_die( esc_html__( 'AI ayarlarını kaydetme yetkiniz yok.', 'hesaplama-suite' ), esc_html__( 'Yetkisiz işlem', 'hesaplama-suite' ), [ 'response' => 403 ] );
+        }
+
+        if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'hc_save_ai_settings' ) ) {
+            wp_die( esc_html__( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'Geçersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
         }
 
         $provider = new HC_AI_Provider();
         $provider->save_settings( $_POST );
 
-        wp_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=ai-settings&saved=1' ) );
+        wp_safe_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=ai-settings&saved=1' ) );
         exit;
     }
 
     public function ajax_update_post_meta() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $post_id = intval( $_POST['post_id'] ?? 0 );
         if ( ! $post_id || ! get_post( $post_id ) ) wp_send_json_error( 'Geçersiz yazı.' );
-        if ( ! current_user_can( 'edit_post', $post_id ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'edit_post', $post_id ) ) wp_send_json_error( 'Bu yazıyı düzenleme yetkiniz yok.', 403 );
 
         $baslik      = sanitize_text_field( wp_unslash( $_POST['baslik'] ?? '' ) );
         $icerik      = wp_kses_post( wp_unslash( $_POST['icerik'] ?? '' ) );
@@ -147,8 +153,10 @@ class HC_AI_Writer {
     }
 
     public function ajax_generate() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'AI içerik oluşturma yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $url   = esc_url_raw( $_POST['url'] ?? '' );
         $title = sanitize_text_field( $_POST['title'] ?? '' );
@@ -223,8 +231,10 @@ class HC_AI_Writer {
     }
 
     public function ajax_create_module_post() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yazı oluşturma yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $name      = sanitize_text_field( $_POST['name'] ?? '' );
         $shortcode = sanitize_text_field( $_POST['shortcode'] ?? '' );
@@ -268,8 +278,10 @@ class HC_AI_Writer {
     }
 
     public function ajax_check_usage() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'AI kullanımını kontrol etme yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $provider = new HC_AI_Provider();
         $result   = $provider->get_openai_usage();
@@ -282,8 +294,10 @@ class HC_AI_Writer {
     }
 
     public function ajax_save_draft() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
-        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yetkisiz.' );
+        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Taslak kaydetme yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
 
         $baslik      = sanitize_text_field( $_POST['baslik'] ?? '' );
         $icerik      = wp_kses_post( $_POST['icerik'] ?? '' );
@@ -373,8 +387,9 @@ class HC_AI_Writer {
         <div class="hc-card">
             <h2>Yapay Zeka Ayarları</h2>
 
-            <form method="post">
+            <form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite&tab=ai-settings' ) ); ?>">
                 <?php wp_nonce_field( 'hc_save_ai_settings' ); ?>
+                <input type="hidden" name="hc_save_ai" value="1" />
                 <table class="form-table">
                     <tr>
                         <th>AI yazı oluşturma</th>

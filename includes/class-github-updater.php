@@ -12,105 +12,154 @@ class HC_Github_Updater {
 
     public function get_settings() {
         return wp_parse_args( get_option( $this->option_key, [] ), [
-            'repo'   => '',   // örn: kullanici/hesaplama-wp-addons
+            'repo'   => '',
             'branch' => 'main',
-            'token'  => '',   // private repo için, boş bırakılabilir
+            'token'  => '',
         ] );
     }
 
     public function save_settings( $data ) {
         update_option( $this->option_key, [
-            'repo'   => sanitize_text_field( $data['repo'] ?? '' ),
+            'repo'   => $this->sanitize_repo( $data['repo'] ?? '' ),
             'branch' => sanitize_text_field( $data['branch'] ?? 'main' ),
             'token'  => sanitize_text_field( $data['token'] ?? '' ),
         ] );
     }
 
-    /* GitHub'daki son commit SHA'sını getirir */
     public function get_remote_version() {
         $s = $this->get_settings();
-        if ( empty( $s['repo'] ) ) return null;
+
+        if ( empty( $s['repo'] ) ) {
+            return new WP_Error( 'missing_repo', 'GitHub repo ayarı eksik.' );
+        }
+
+        if ( ! $this->is_valid_repo( $s['repo'] ) ) {
+            return new WP_Error( 'invalid_repo', 'GitHub repo formatı geçersiz. Örnek: kullanici/repo' );
+        }
 
         $url  = "https://api.github.com/repos/{$s['repo']}/commits/{$s['branch']}";
-        $args = [ 'headers' => [ 'User-Agent' => 'hesaplama-suite' ] ];
+        $args = [
+            'timeout' => 20,
+            'headers' => [
+                'Accept'     => 'application/vnd.github+json',
+                'User-Agent' => 'hesaplama-suite',
+            ],
+        ];
+
         if ( $s['token'] ) {
             $args['headers']['Authorization'] = 'token ' . $s['token'];
         }
 
         $resp = wp_remote_get( $url, $args );
-        if ( is_wp_error( $resp ) ) return null;
+        if ( is_wp_error( $resp ) ) {
+            return new WP_Error( 'github_request_failed', 'GitHub bağlantısı kurulamadı: ' . $resp->get_error_message() );
+        }
 
+        $code = wp_remote_retrieve_response_code( $resp );
         $body = json_decode( wp_remote_retrieve_body( $resp ), true );
-        return $body['sha'] ?? null;
+
+        if ( $code < 200 || $code >= 300 ) {
+            $message = is_array( $body ) && ! empty( $body['message'] ) ? $body['message'] : 'GitHub API yanıtı başarısız.';
+            return new WP_Error( 'github_api_error', 'GitHub sürüm bilgisi alınamadı: ' . $message );
+        }
+
+        if ( empty( $body['sha'] ) ) {
+            return new WP_Error( 'github_bad_response', 'GitHub sürüm yanıtı beklenen formatta değil.' );
+        }
+
+        return $body['sha'];
     }
 
-    /* Güncellemeyi indir ve plugin dizinine çıkart */
     public function handle_update() {
-        if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Yetkisiz.' );
-        check_admin_referer( 'hc_update_from_github' );
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_die( esc_html__( 'GitHub güncellemesi yapma yetkiniz yok.', 'hesaplama-suite' ), esc_html__( 'Yetkisiz işlem', 'hesaplama-suite' ), [ 'response' => 403 ] );
+        }
+
+        if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'hc_update_from_github' ) ) {
+            wp_die( esc_html__( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'Geçersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
+        }
 
         $s      = $this->get_settings();
         $result = $this->download_and_install( $s );
 
-        $status = $result === true ? 'success' : urlencode( $result );
-        wp_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=github&update=' . $status ) );
+        $status = true === $result ? 'success' : urlencode( $result );
+        wp_safe_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=github&update=' . $status ) );
         exit;
     }
 
     public function ajax_check_version() {
-        check_ajax_referer( 'hc_ajax_nonce', 'nonce' );
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'GitHub sürüm kontrolü yapma yetkiniz yok.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
+
         $sha = $this->get_remote_version();
-        wp_send_json_success( [ 'sha' => $sha ? substr( $sha, 0, 7 ) : null ] );
+
+        if ( is_wp_error( $sha ) ) {
+            wp_send_json_error( $sha->get_error_message(), 200 );
+        }
+
+        wp_send_json_success( [ 'sha' => substr( $sha, 0, 7 ) ] );
     }
 
     private function download_and_install( $s ) {
-        if ( empty( $s['repo'] ) ) return 'Repo ayarı eksik.';
+        if ( empty( $s['repo'] ) ) return 'GitHub repo ayarı eksik.';
+        if ( ! $this->is_valid_repo( $s['repo'] ) ) return 'GitHub repo formatı geçersiz. Örnek: kullanici/repo';
+
+        if ( ! function_exists( 'download_url' ) || ! function_exists( 'unzip_file' ) || ! function_exists( 'copy_dir' ) ) {
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+        }
 
         $zip_url = "https://github.com/{$s['repo']}/archive/refs/heads/{$s['branch']}.zip";
-        $args    = [ 'timeout' => 60, 'headers' => [ 'User-Agent' => 'hesaplama-suite' ] ];
+        $args    = [
+            'timeout' => 60,
+            'headers' => [
+                'Accept'     => 'application/vnd.github+json',
+                'User-Agent' => 'hesaplama-suite',
+            ],
+        ];
+
         if ( $s['token'] ) {
             $args['headers']['Authorization'] = 'token ' . $s['token'];
         }
 
-        // ZIP'i geçici dosyaya indir
-        $tmp = download_url( $zip_url );  // WP built-in
+        $tmp = $this->download_zip( $zip_url, $args );
         if ( is_wp_error( $tmp ) ) return $tmp->get_error_message();
 
-        // Plugin klasörünün bir üstü (wp-content/plugins/)
         $plugin_base = dirname( HC_PLUGIN_DIR );
         $dest        = HC_PLUGIN_DIR;
 
         global $wp_filesystem;
         WP_Filesystem();
 
-        // ZIP'i çıkart
         $unzip = unzip_file( $tmp, $plugin_base );
         @unlink( $tmp );
 
         if ( is_wp_error( $unzip ) ) return $unzip->get_error_message();
 
-        // GitHub ZIP'i repoadi-branch/ klasörüne çıkarır (kullanıcı adı olmadan)
-        $repo_name     = basename( $s['repo'] ); // 'alperates58/hesaplama-wp-addons' → 'hesaplama-wp-addons'
+        $repo_name     = basename( $s['repo'] );
         $extracted_dir = $plugin_base . '/' . $repo_name . '-' . $s['branch'];
-        $plugin_slug   = basename( $dest );
 
         if ( ! is_dir( $extracted_dir ) ) {
             return 'İndirilen paket açılamadı veya beklenen klasör bulunamadı.';
         }
 
-        // Mevcut klasörü sil ve yenisiyle değiştir
-        $wp_filesystem->delete( $dest, true );
+        $copied = copy_dir( $extracted_dir, $dest );
+        $wp_filesystem->delete( $extracted_dir, true );
 
-        if ( ! @rename( $extracted_dir, $dest ) ) {
-            return 'Yeni eklenti klasörü yerine taşınamadı.';
+        if ( is_wp_error( $copied ) ) {
+            return 'Yeni eklenti dosyaları kopyalanamadı: ' . $copied->get_error_message();
         }
 
         $remote_sha = $this->get_remote_version();
 
-        // Güncelleme zamanını ve asset cache sürümünü kaydet
         update_option( 'hc_last_update', current_time( 'mysql' ) );
         update_option( 'hc_last_update_version', (string) time() );
-        if ( $remote_sha ) {
+
+        if ( $remote_sha && ! is_wp_error( $remote_sha ) ) {
             update_option( 'hc_last_update_sha', $remote_sha );
         }
 
@@ -125,5 +174,43 @@ class HC_Github_Updater {
         }
 
         return true;
+    }
+
+    private function sanitize_repo( $repo ) {
+        $repo = sanitize_text_field( wp_unslash( $repo ) );
+        $repo = trim( $repo, " \t\n\r\0\x0B/" );
+
+        return $repo;
+    }
+
+    private function download_zip( $url, $args ) {
+        $tmp = wp_tempnam( $url );
+
+        if ( ! $tmp ) {
+            return new WP_Error( 'tmp_file_failed', 'Geçici indirme dosyası oluşturulamadı.' );
+        }
+
+        $args['stream']   = true;
+        $args['filename'] = $tmp;
+
+        $resp = wp_remote_get( $url, $args );
+
+        if ( is_wp_error( $resp ) ) {
+            @unlink( $tmp );
+            return $resp;
+        }
+
+        $code = wp_remote_retrieve_response_code( $resp );
+
+        if ( $code < 200 || $code >= 300 ) {
+            @unlink( $tmp );
+            return new WP_Error( 'github_zip_download_failed', 'GitHub ZIP indirilemedi. HTTP ' . $code . '. Repo, branch veya token ayarlarını kontrol edin.' );
+        }
+
+        return $tmp;
+    }
+
+    private function is_valid_repo( $repo ) {
+        return (bool) preg_match( '/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/', $repo );
     }
 }

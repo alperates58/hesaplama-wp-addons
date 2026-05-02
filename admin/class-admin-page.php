@@ -303,11 +303,15 @@ class HC_Admin_Page {
     }
 
     public function handle_settings_save() {
-        if (
-            isset( $_POST['hc_save_github'] ) &&
-            check_admin_referer( 'hc_save_github_settings' ) &&
-            current_user_can( 'manage_options' )
-        ) {
+        if ( isset( $_POST['hc_save_github'] ) ) {
+            if ( ! current_user_can( 'manage_options' ) ) {
+                wp_die( esc_html__( 'Bu ayarları kaydetme yetkiniz yok.', 'hesaplama-suite' ), esc_html__( 'Yetkisiz işlem', 'hesaplama-suite' ), [ 'response' => 403 ] );
+            }
+
+            if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'hc_save_github_settings' ) ) {
+                wp_die( esc_html__( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'Geçersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
+            }
+
             $updater = new HC_Github_Updater();
             $updater->save_settings( $_POST );
 
@@ -315,11 +319,15 @@ class HC_Admin_Page {
             exit;
         }
 
-        if (
-            isset( $_POST['hc_save_modules'] ) &&
-            check_admin_referer( 'hc_save_module_catalog' ) &&
-            current_user_can( 'manage_options' )
-        ) {
+        if ( isset( $_POST['hc_save_modules'] ) ) {
+            if ( ! current_user_can( 'manage_options' ) ) {
+                wp_die( esc_html__( 'Modül kataloğunu kaydetme yetkiniz yok.', 'hesaplama-suite' ), esc_html__( 'Yetkisiz işlem', 'hesaplama-suite' ), [ 'response' => 403 ] );
+            }
+
+            if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'hc_save_module_catalog' ) ) {
+                wp_die( esc_html__( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'Geçersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
+            }
+
             HC_Module_Inventory::save_catalog_settings( $_POST );
 
             wp_safe_redirect(
@@ -410,8 +418,9 @@ class HC_Admin_Page {
         <div class="hc-card">
             <h2>GitHub Bağlantısı</h2>
 
-            <form method="post">
+            <form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite&tab=github' ) ); ?>">
                 <?php wp_nonce_field( 'hc_save_github_settings' ); ?>
+                <input type="hidden" name="hc_save_github" value="1" />
 
                 <table class="form-table">
                     <tr>
@@ -542,8 +551,9 @@ class HC_Admin_Page {
             </div>
         </div>
 
-        <form method="post">
+        <form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite&tab=modules' ) ); ?>">
             <?php wp_nonce_field( 'hc_save_module_catalog' ); ?>
+            <input type="hidden" name="hc_save_modules" value="1" />
 
             <div class="hc-card">
                 <div class="hc-card-head">
