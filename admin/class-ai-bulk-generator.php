@@ -396,17 +396,23 @@ class HC_AI_Bulk_Generator {
         }
 
         // 2. Prompt Hazırlığı
-        $prompt = "Sen uzman bir yazılım ajanısın. Görev: '$title' konusunu analiz edip hesaplama modülü kodla. SADECE geçerli bir JSON dön. ÖNEMLİ KURAL: JSON string değerleri içine yazacağın kodlarda satır sonlarını (enter) gerçek yeni satır olarak değil, mutlaka \\n olarak (escaped) yaz! Markdown etiketlerini temiz tut. Kurallar: Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan.\n";
-        
+        $prompt = "Sen uzman bir WordPress eklenti geliştiricisisin. Görev: '$title' konusu için bir hesaplama modülü kodla. SADECE geçerli bir JSON dön. 
+ÖNEMLİ KURALLAR:
+1. JSON string değerleri içine yazacağın kodlarda satır sonlarını gerçek yeni satır olarak değil, mutlaka \\n olarak (escaped) yaz!
+2. calculator.php dosyası KESİNLİKLE '<?php' ile başlamalı ve SADECE 'function hc_render_{$slug_under}($atts)' fonksiyonunu içermelidir. Fonksiyon dışında ASLA 'echo' veya düz metin (JSON vb) KULLANMA!
+3. Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan.
+";
+
         if ($search_context) {
             $prompt .= "\n" . $search_context . "\n\n";
         }
 
-        $prompt .= "Format:\n{
+        $prompt .= "Format:
+{
   \"meta.json\": \"{\\\"name\\\":\\\"$title\\\",\\\"desc\\\":\\\"...\\\",\\\"shortcode\\\":\\\"[hc_$slug_under]\\\"}\",
-  \"calculator.php\": \"...\",
-  \"calculator.js\": \"...\",
-  \"calculator.css\": \"...\"
+  \"calculator.php\": \"<?php\\nif (!defined('ABSPATH')) exit;\\n\\nfunction hc_render_{$slug_under}( \\$atts ) {\\n    // HTML ve JS enqueue islemleri\\n}\\n\",
+  \"calculator.js\": \"function hcHesapla() { ... }\",
+  \"calculator.css\": \".hc-wrapper { ... }\"
 }";
 
         $raw_text = "";
