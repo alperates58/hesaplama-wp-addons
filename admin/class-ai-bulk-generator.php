@@ -362,8 +362,13 @@ Format:
         if (is_wp_error($response)) wp_send_json_error('Gemini Hatası: ' . $response->get_error_message());
         
         $body = json_decode(wp_remote_retrieve_body($response), true);
+        
+        if (isset($body['error'])) {
+            wp_send_json_error('Gemini API Hatası: ' . ($body['error']['message'] ?? wp_json_encode($body['error'])));
+        }
+
         if(empty($body['candidates'][0]['content']['parts'][0]['text'])) {
-            wp_send_json_error('API yanıtı boş. (İlgili konuda yeterince arama sonucu bulunamamış olabilir)');
+            wp_send_json_error('API yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
         }
 
         $files = json_decode($body['candidates'][0]['content']['parts'][0]['text'], true);
