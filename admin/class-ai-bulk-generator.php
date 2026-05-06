@@ -358,8 +358,7 @@ Format:
 
         $payload = [
             'contents' => [['parts' => [['text' => $prompt]]]],
-            'tools' => [['googleSearch' => new stdClass()]],
-            'generationConfig' => ['responseMimeType' => 'application/json']
+            'tools' => [['googleSearch' => new stdClass()]]
         ];
 
         $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$gemini_model}:generateContent?key={$api_key}", [
@@ -380,8 +379,16 @@ Format:
             wp_send_json_error('API yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
         }
 
-        $files = json_decode($body['candidates'][0]['content']['parts'][0]['text'], true);
-        if(!$files) wp_send_json_error('JSON dönüştürülemedi.');
+        $raw_text = $body['candidates'][0]['content']['parts'][0]['text'];
+        
+        // Markdown JSON etiketlerini temizle
+        $clean_text = preg_replace( '/^```(?:json)?\s*/i', '', trim( $raw_text ) );
+        $clean_text = preg_replace( '/\s*```$/', '', $clean_text );
+
+        $files = json_decode($clean_text, true);
+        if(!$files) {
+            wp_send_json_error('JSON dönüştürülemedi. Ham Yanıt: ' . substr($clean_text, 0, 500));
+        }
 
         $github_files = [
             "modules/{$slug}/meta.json"      => $files['meta.json'],
