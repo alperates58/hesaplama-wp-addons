@@ -10,9 +10,11 @@ class HC_AI_Bulk_Generator {
     }
 
     public static function render_bulk_generator_tab() {
+        $ai_provider = get_option('hc_ai_provider', 'deepseek');
         $api_key = get_option('hc_gemini_api_key', '');
-        $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
-        $use_search = get_option('hc_gemini_use_search', '0');
+        $gemini_model = get_option('hc_gemini_model', 'deepseek-chat');
+        $serper_key = get_option('hc_serper_api_key', '');
+        
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
         $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
@@ -24,20 +26,32 @@ class HC_AI_Bulk_Generator {
         <div class="hc-card">
             <div class="hc-card-head">
                 <div>
-                    <h2>Toplu Modül Üretici</h2>
-                    <p class="hc-card-copy">Gemini 1.5 Flash ile binlerce başlığı otomatik kodlar ve GitHub'a yollar.</p>
+                    <h2>Toplu Modül Üretici (Hibrit AI)</h2>
+                    <p class="hc-card-copy">DeepSeek/Gemini ve Serper API ile internet verisini çekerek binlerce başlığı hatasız kodlar.</p>
                 </div>
             </div>
 
             <div class="hc-field-grid">
                 <div class="hc-field-card">
-                    <label for="hc_api_key"><strong>Gemini API Anahtarı</strong></label>
-                    <input type="password" id="hc_api_key" value="<?php echo esc_attr($api_key); ?>" class="large-text">
+                    <label for="hc_ai_provider"><strong>Yapay Zeka Sağlayıcı</strong></label>
+                    <select id="hc_ai_provider" class="large-text">
+                        <option value="deepseek" <?php selected($ai_provider, 'deepseek'); ?>>DeepSeek API (Önerilen)</option>
+                        <option value="gemini" <?php selected($ai_provider, 'gemini'); ?>>Gemini API</option>
+                    </select>
                 </div>
                 <div class="hc-field-card">
-                    <label for="hc_gemini_model"><strong>Gemini Model Adı</strong></label>
+                    <label for="hc_api_key"><strong>AI API Anahtarı</strong></label>
+                    <input type="password" id="hc_api_key" value="<?php echo esc_attr($api_key); ?>" class="large-text" placeholder="sk-...">
+                </div>
+                <div class="hc-field-card">
+                    <label for="hc_gemini_model"><strong>AI Model Adı</strong></label>
                     <input type="text" id="hc_gemini_model" value="<?php echo esc_attr($gemini_model); ?>" class="large-text">
-                    <p class="description">Örn: gemini-2.5-flash veya gemini-2.0-flash</p>
+                    <p class="description">DeepSeek için: deepseek-chat | Gemini için: gemini-2.5-flash</p>
+                </div>
+                <div class="hc-field-card" style="background:#f0faeb; border:1px solid #c3e6cb;">
+                    <label for="hc_serper_key"><strong>Serper.dev API Anahtarı (İsteğe Bağlı)</strong></label>
+                    <input type="password" id="hc_serper_key" value="<?php echo esc_attr($serper_key); ?>" class="large-text">
+                    <p class="description">Girerseniz, yapay zekaya güncel internet sonuçlarını (formülleri) göndeririz.</p>
                 </div>
                 <div class="hc-field-card">
                     <label for="hc_gh_repo"><strong>GitHub Repo</strong></label>
@@ -48,17 +62,10 @@ class HC_AI_Bulk_Generator {
                     <input type="text" id="hc_gh_branch" value="<?php echo esc_attr($gh_branch); ?>" class="large-text" placeholder="main">
                 </div>
                 <div class="hc-field-card">
-                    <label for="hc_gh_token"><strong>GitHub Token</strong></label>
+                    <label for="hc_gh_token"><strong>GitHub Token (Opsiyonel)</strong></label>
                     <input type="password" id="hc_gh_token" value="<?php echo esc_attr($gh_token); ?>" class="large-text">
+                    <p class="description">Boş bırakılırsa GitHub'a değil, direkt locale kaydeder.</p>
                 </div>
-            </div>
-            
-            <div class="hc-form-group" style="margin-top:15px; background: #fff8e1; padding: 10px; border-left: 4px solid #ffc107;">
-                <label>
-                    <input type="checkbox" id="hc_use_search" value="1" <?php checked($use_search, '1'); ?>>
-                    <strong>Google Search Grounding Kullan (DİKKAT: Ücretsiz API'de günde sadece 20 limitlidir!)</strong>
-                </label>
-                <p class="description" style="margin-top:5px;">Eğer ücretsiz API kullanıyorsanız bu tiki <strong>kaldırın</strong>. Gemini çoğu formülü internete bağlanmadan da mükemmel bilir ve günde 1500 limitiniz olur.</p>
             </div>
 
             <div class="hc-form-group" style="margin-top:15px;">
@@ -127,7 +134,6 @@ class HC_AI_Bulk_Generator {
         let isRunning = false;
         let queue = <?php echo json_encode($queue); ?>;
         
-        // Tabloyu Güncelle
         function renderTable() {
             const tbody = document.getElementById('queue-tbody');
             tbody.innerHTML = '';
@@ -152,7 +158,6 @@ class HC_AI_Bulk_Generator {
             saveQueueToDb();
         }
 
-        // Dosyadan Oku
         document.getElementById('hc_file_upload').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if(!file) return;
@@ -169,7 +174,6 @@ class HC_AI_Bulk_Generator {
             const lines = text.split('\n').map(t => t.trim()).filter(t => t);
             let added = 0;
             lines.forEach(title => {
-                // Aynı başlık var mı?
                 if(!queue.find(q => q.title.toLowerCase() === title.toLowerCase())) {
                     queue.push({ title: title, status: 'pending', message: '' });
                     added++;
@@ -189,7 +193,7 @@ class HC_AI_Bulk_Generator {
         }
 
         function removeSelected() {
-            const indices = getSelectedIndices().sort((a,b) => b-a); // sondan başa sil
+            const indices = getSelectedIndices().sort((a,b) => b-a);
             if(indices.length === 0) return alert('Seçili öge yok.');
             indices.forEach(idx => queue.splice(idx, 1));
             document.getElementById('cb-select-all').checked = false;
@@ -216,9 +220,10 @@ class HC_AI_Bulk_Generator {
             jQuery.post(hcAdmin.ajaxurl, {
                 action: 'hc_save_bot_settings',
                 nonce: hcAdmin.nonce,
+                ai_provider: document.getElementById('hc_ai_provider').value,
                 api_key: document.getElementById('hc_api_key').value,
                 gemini_model: document.getElementById('hc_gemini_model').value,
-                use_search: document.getElementById('hc_use_search').checked ? '1' : '0',
+                serper_key: document.getElementById('hc_serper_key').value,
                 repo: document.getElementById('hc_gh_repo').value,
                 branch: document.getElementById('hc_gh_branch').value,
                 token: document.getElementById('hc_gh_token').value
@@ -252,7 +257,6 @@ class HC_AI_Bulk_Generator {
         function processNext() {
             if(!isRunning) return;
 
-            // Seçililer arasında pending var mı, yoksa ilk pending'i bul
             const selectedIndices = getSelectedIndices();
             let targetIndex = -1;
 
@@ -282,11 +286,9 @@ class HC_AI_Bulk_Generator {
                     if(res.success) {
                         queue[targetIndex].status = 'success';
                         logMsg('✅ Başarılı: ' + item.title);
-                        // İşlenen satırın seçimini kaldır
                         const cb = document.querySelector(`.cb-item[data-index="${targetIndex}"]`);
                         if(cb) cb.checked = false;
                     } else {
-                        // Eğer API yoğunluk veya kota hatası verdiyse otomatik tekrar dene
                         const errorText = (res.data || '').toLowerCase();
                         if (errorText.includes('high demand') || errorText.includes('quota') || errorText.includes('429')) {
                             logMsg('⚠️ API Yoğun/Kota: ' + res.data + ' | 15 sn sonra denenecek...');
@@ -317,7 +319,6 @@ class HC_AI_Bulk_Generator {
             });
         }
 
-        // Init
         document.addEventListener('DOMContentLoaded', renderTable);
         </script>
         <?php
@@ -327,9 +328,10 @@ class HC_AI_Bulk_Generator {
         if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error();
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) wp_send_json_error();
 
+        update_option('hc_ai_provider', sanitize_text_field($_POST['ai_provider']));
         update_option('hc_gemini_api_key', sanitize_text_field($_POST['api_key']));
         update_option('hc_gemini_model', sanitize_text_field($_POST['gemini_model']));
-        update_option('hc_gemini_use_search', sanitize_text_field($_POST['use_search']));
+        update_option('hc_serper_api_key', sanitize_text_field($_POST['serper_key']));
         update_option('hc_bot_gh_repo', sanitize_text_field($_POST['repo']));
         update_option('hc_bot_gh_branch', sanitize_text_field($_POST['branch']));
         update_option('hc_bot_gh_token', sanitize_text_field($_POST['token']));
@@ -353,9 +355,10 @@ class HC_AI_Bulk_Generator {
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) wp_send_json_error();
 
         $title = sanitize_text_field($_POST['title']);
+        $ai_provider = get_option('hc_ai_provider', 'deepseek');
         $api_key = get_option('hc_gemini_api_key');
-        $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
-        $use_search = get_option('hc_gemini_use_search', '0');
+        $ai_model = get_option('hc_gemini_model', 'deepseek-chat');
+        $serper_key = get_option('hc_serper_api_key', '');
         
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
@@ -369,47 +372,100 @@ class HC_AI_Bulk_Generator {
         $slug = sanitize_title($title);
         $slug_under = str_replace('-', '_', $slug);
 
-        $prompt = "Sen uzman bir yazılım ajanısın. Görev: '$title' konusunu Google'da araştırıp formülü ve SI birimlerini öğren. Sonra hesaplama modülü kodla. SADECE geçerli bir JSON dön, açıklama ekleme. Kurallar: Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan. 
-Format:
-{
+        // 1. Serper API Arama
+        $search_context = "";
+        if (!empty($serper_key)) {
+            $serper_res = wp_remote_post("https://google.serper.dev/search", [
+                'headers' => [
+                    'X-API-KEY' => $serper_key,
+                    'Content-Type' => 'application/json'
+                ],
+                'body' => wp_json_encode(['q' => $title . " hesaplama formülü", 'gl' => 'tr', 'hl' => 'tr']),
+                'timeout' => 15
+            ]);
+
+            if (!is_wp_error($serper_res) && wp_remote_retrieve_response_code($serper_res) == 200) {
+                $serper_data = json_decode(wp_remote_retrieve_body($serper_res), true);
+                if (!empty($serper_data['organic'])) {
+                    $search_context = "GÜNCEL İNTERNET ARAMA SONUÇLARI (Bu formülleri/bilgileri dikkate al):\n";
+                    foreach (array_slice($serper_data['organic'], 0, 3) as $result) {
+                        $search_context .= "- " . ($result['snippet'] ?? '') . "\n";
+                    }
+                }
+            }
+        }
+
+        // 2. Prompt Hazırlığı
+        $prompt = "Sen uzman bir yazılım ajanısın. Görev: '$title' konusunu analiz edip hesaplama modülü kodla. SADECE geçerli bir JSON dön, markdown etiketlerini temiz tut. Kurallar: Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan.\n";
+        
+        if ($search_context) {
+            $prompt .= "\n" . $search_context . "\n\n";
+        }
+
+        $prompt .= "Format:\n{
   \"meta.json\": \"{\\\"name\\\":\\\"$title\\\",\\\"desc\\\":\\\"...\\\",\\\"shortcode\\\":\\\"[hc_$slug_under]\\\"}\",
   \"calculator.php\": \"...\",
   \"calculator.js\": \"...\",
   \"calculator.css\": \"...\"
 }";
 
-        $payload = [
-            'contents' => [['parts' => [['text' => $prompt]]]]
-        ];
+        $raw_text = "";
 
-        if ( $use_search === '1' ) {
-            $payload['tools'] = [['googleSearch' => new stdClass()]];
+        // 3. AI Sağlayıcı İsteği
+        if ($ai_provider === 'deepseek') {
+            $payload = [
+                'model' => $ai_model,
+                'messages' => [['role' => 'user', 'content' => $prompt]],
+            ];
+
+            $response = wp_remote_post("https://api.deepseek.com/chat/completions", [
+                'timeout' => 90,
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $api_key,
+                    'Content-Type'  => 'application/json'
+                ],
+                'body' => wp_json_encode($payload)
+            ]);
+
+            if (is_wp_error($response)) wp_send_json_error('DeepSeek Bağlantı Hatası: ' . $response->get_error_message());
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+
+            if (isset($body['error'])) {
+                wp_send_json_error('DeepSeek API Hatası: ' . ($body['error']['message'] ?? wp_json_encode($body['error'])));
+            }
+
+            if(empty($body['choices'][0]['message']['content'])) {
+                wp_send_json_error('DeepSeek yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
+            }
+            $raw_text = $body['choices'][0]['message']['content'];
+
         } else {
-            // Search kullanılmıyorsa JSON zorlamasını güvenle açabiliriz
-            $payload['generationConfig'] = ['responseMimeType' => 'application/json'];
+            // Gemini
+            $payload = [
+                'contents' => [['parts' => [['text' => $prompt]]]],
+                'generationConfig' => ['responseMimeType' => 'application/json']
+            ];
+
+            $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$ai_model}:generateContent?key={$api_key}", [
+                'timeout' => 90,
+                'headers' => ['Content-Type' => 'application/json'],
+                'body'    => wp_json_encode($payload)
+            ]);
+
+            if (is_wp_error($response)) wp_send_json_error('Gemini Bağlantı Hatası: ' . $response->get_error_message());
+            $body = json_decode(wp_remote_retrieve_body($response), true);
+
+            if (isset($body['error'])) {
+                wp_send_json_error('Gemini API Hatası: ' . ($body['error']['message'] ?? wp_json_encode($body['error'])));
+            }
+
+            if(empty($body['candidates'][0]['content']['parts'][0]['text'])) {
+                wp_send_json_error('API yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
+            }
+            $raw_text = $body['candidates'][0]['content']['parts'][0]['text'];
         }
 
-        $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$gemini_model}:generateContent?key={$api_key}", [
-            'timeout' => 60,
-            'headers' => ['Content-Type' => 'application/json'],
-            'body'    => wp_json_encode($payload)
-        ]);
-
-        if (is_wp_error($response)) wp_send_json_error('Gemini Hatası: ' . $response->get_error_message());
-        
-        $body = json_decode(wp_remote_retrieve_body($response), true);
-        
-        if (isset($body['error'])) {
-            wp_send_json_error('Gemini API Hatası: ' . ($body['error']['message'] ?? wp_json_encode($body['error'])));
-        }
-
-        if(empty($body['candidates'][0]['content']['parts'][0]['text'])) {
-            wp_send_json_error('API yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
-        }
-
-        $raw_text = $body['candidates'][0]['content']['parts'][0]['text'];
-        
-        // Markdown JSON etiketlerini temizle
+        // 4. JSON Temizleme ve Kaydetme
         $clean_text = preg_replace( '/^```(?:json)?\s*/i', '', trim( $raw_text ) );
         $clean_text = preg_replace( '/\s*```$/', '', $clean_text );
 
@@ -428,28 +484,21 @@ Format:
         $message = "feat: {$title} modülü otomatik eklendi\n\nShortcode: [hc_{$slug_under}]";
         
         if ( !empty($gh_token) && !empty($gh_repo) ) {
-            // GitHub'a Pushla
             $gh_result = $this->github_commit($gh_repo, $gh_branch, $gh_token, $github_files, $message);
-
             if (is_wp_error($gh_result)) {
                 wp_send_json_error('GitHub Hatası: ' . $gh_result->get_error_message());
             }
-
             wp_send_json_success('GitHub a başarıyla yüklendi!');
         } else {
-            // Token yoksa lokale kaydet
             $module_dir = HC_PLUGIN_DIR . 'modules/' . $slug;
-            if ( !file_exists($module_dir) ) {
-                wp_mkdir_p($module_dir);
-            }
+            if ( !file_exists($module_dir) ) wp_mkdir_p($module_dir);
 
             foreach($files as $filename => $content) {
                 if(!empty($content)) {
                     file_put_contents($module_dir . '/' . sanitize_file_name($filename), $content);
                 }
             }
-
-            wp_send_json_success('Token olmadığı için dosyalar lokale (modules klasörüne) kaydedildi!');
+            wp_send_json_success('Lokal Klasöre Kaydedildi!');
         }
     }
 
@@ -463,25 +512,21 @@ Format:
             'User-Agent'    => 'hesaplama-bot'
         ];
 
-        // 1. Get Reference
         $ref_res = wp_remote_get("{$repo_api}/git/ref/heads/{$branch_enc}", ['headers' => $headers, 'timeout' => 15]);
         if (is_wp_error($ref_res)) return $ref_res;
         $ref_data = json_decode(wp_remote_retrieve_body($ref_res), true);
         $parent_sha = $ref_data['object']['sha'] ?? '';
         if (!$parent_sha) return new WP_Error('github_err', 'Branch ref bulunamadı.');
 
-        // 2. Get Commit
         $commit_res = wp_remote_get("{$repo_api}/git/commits/{$parent_sha}", ['headers' => $headers, 'timeout' => 15]);
         $commit_data = json_decode(wp_remote_retrieve_body($commit_res), true);
         $base_tree = $commit_data['tree']['sha'] ?? '';
         if (!$base_tree) return new WP_Error('github_err', 'Base tree bulunamadı.');
 
-        // 3. Create Blobs & Tree
         $tree = [];
         foreach ($files as $path => $content) {
             if(empty($content)) continue;
             
-            // Kontrol et: dosya zaten var mı?
             $exists_res = wp_remote_get("{$repo_api}/contents/" . str_replace('%2F', '/', rawurlencode($path)) . "?ref={$branch_enc}", ['headers' => $headers]);
             if (!is_wp_error($exists_res) && wp_remote_retrieve_response_code($exists_res) == 200) {
                 return new WP_Error('github_err', "Dosya zaten var: $path");
@@ -503,7 +548,6 @@ Format:
             ];
         }
 
-        // 4. Create New Tree
         $new_tree_res = wp_remote_post("{$repo_api}/git/trees", [
             'headers' => $headers,
             'body' => wp_json_encode(['base_tree' => $base_tree, 'tree' => $tree]),
@@ -513,7 +557,6 @@ Format:
         $new_tree_sha = $new_tree_data['sha'] ?? '';
         if (!$new_tree_sha) return new WP_Error('github_err', 'Tree oluşturulamadı.');
 
-        // 5. Create Commit
         $new_commit_res = wp_remote_post("{$repo_api}/git/commits", [
             'headers' => $headers,
             'body' => wp_json_encode([
@@ -527,7 +570,6 @@ Format:
         $new_commit_sha = $new_commit_data['sha'] ?? '';
         if (!$new_commit_sha) return new WP_Error('github_err', 'Commit oluşturulamadı.');
 
-        // 6. Update Ref
         $update_ref_res = wp_remote_request("{$repo_api}/git/refs/heads/{$branch_enc}", [
             'method' => 'PATCH',
             'headers' => $headers,
