@@ -11,6 +11,7 @@ class HC_AI_Bulk_Generator {
 
     public static function render_bulk_generator_tab() {
         $api_key = get_option('hc_gemini_api_key', '');
+        $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
         $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
@@ -31,6 +32,11 @@ class HC_AI_Bulk_Generator {
                 <div class="hc-field-card">
                     <label for="hc_api_key"><strong>Gemini API Anahtarı</strong></label>
                     <input type="password" id="hc_api_key" value="<?php echo esc_attr($api_key); ?>" class="large-text">
+                </div>
+                <div class="hc-field-card">
+                    <label for="hc_gemini_model"><strong>Gemini Model Adı</strong></label>
+                    <input type="text" id="hc_gemini_model" value="<?php echo esc_attr($gemini_model); ?>" class="large-text">
+                    <p class="description">Örn: gemini-2.5-flash veya gemini-2.0-flash</p>
                 </div>
                 <div class="hc-field-card">
                     <label for="hc_gh_repo"><strong>GitHub Repo</strong></label>
@@ -202,6 +208,7 @@ class HC_AI_Bulk_Generator {
                 action: 'hc_save_bot_settings',
                 nonce: hcAdmin.nonce,
                 api_key: document.getElementById('hc_api_key').value,
+                gemini_model: document.getElementById('hc_gemini_model').value,
                 repo: document.getElementById('hc_gh_repo').value,
                 branch: document.getElementById('hc_gh_branch').value,
                 token: document.getElementById('hc_gh_token').value
@@ -301,6 +308,7 @@ class HC_AI_Bulk_Generator {
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) wp_send_json_error();
 
         update_option('hc_gemini_api_key', sanitize_text_field($_POST['api_key']));
+        update_option('hc_gemini_model', sanitize_text_field($_POST['gemini_model']));
         update_option('hc_bot_gh_repo', sanitize_text_field($_POST['repo']));
         update_option('hc_bot_gh_branch', sanitize_text_field($_POST['branch']));
         update_option('hc_bot_gh_token', sanitize_text_field($_POST['token']));
@@ -325,6 +333,7 @@ class HC_AI_Bulk_Generator {
 
         $title = sanitize_text_field($_POST['title']);
         $api_key = get_option('hc_gemini_api_key');
+        $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
         
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
@@ -353,7 +362,7 @@ Format:
             'generationConfig' => ['responseMimeType' => 'application/json']
         ];
 
-        $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={$api_key}", [
+        $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$gemini_model}:generateContent?key={$api_key}", [
             'timeout' => 60,
             'headers' => ['Content-Type' => 'application/json'],
             'body'    => wp_json_encode($payload)
