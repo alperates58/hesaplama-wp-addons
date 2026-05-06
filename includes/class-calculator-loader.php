@@ -18,7 +18,7 @@ class HC_Calculator_Loader {
             $file = $module_path . '/calculator.php';
             if ( file_exists( $file ) ) {
                 // Güvenlik kontrolü: Dosya <?php içeriyor mu? (Yapay zeka hatalı ham metin yazarsa siteyi bozmasın)
-                $first_bytes = file_get_contents($file, false, null, 0, 10);
+                $first_bytes = file_get_contents($file, false, null, 0, 100);
                 if (strpos($first_bytes, '<?php') !== false) {
                     require_once $file;
                     add_shortcode( 'hc_' . str_replace( '-', '_', $slug ), [ $this, 'render_shortcode' ] );

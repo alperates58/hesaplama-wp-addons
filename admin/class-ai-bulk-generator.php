@@ -409,11 +409,12 @@ class HC_AI_Bulk_Generator {
 
         $prompt .= "Format:
 {
-  \"meta.json\": \"{\\\"name\\\":\\\"$title\\\",\\\"desc\\\":\\\"...\\\",\\\"shortcode\\\":\\\"[hc_$slug_under]\\\"}\",
-  \"calculator.php\": \"<?php\\nif (!defined('ABSPATH')) exit;\\n\\nfunction hc_render_{$slug_under}( \\$atts ) {\\n    // HTML ve JS enqueue islemleri\\n}\\n\",
-  \"calculator.js\": \"function hcHesapla() { ... }\",
-  \"calculator.css\": \".hc-wrapper { ... }\"
-}";
+  \"meta.json\": \"{\\\"name\\\":\\\"$title\\\",\\\"desc\\\":\\\"Aciklama buraya\\\",\\\"shortcode\\\":\\\"[hc_$slug_under]\\\"}\",
+  \"calculator.php\": \"<?php\\nif (!defined('ABSPATH')) exit;\\n\\nfunction hc_render_{$slug_under}( \\$atts ) {\\n    // GERCEK PHP ve HTML KODLARINI BURAYA YAZ\\n}\\n\",
+  \"calculator.js\": \"// GERCEK JS KODLARINI BURAYA YAZ (Örn: function hcHesapla() { ... })\",
+  \"calculator.css\": \"/* GERCEK CSS KODLARINI BURAYA YAZ */\"
+}
+ÖNEMLİ: Format örneğindeki yorum satırları ve '...' olan yerleri kendi yazacağın ÇALIŞAN, GERÇEK kodlarla doldur! Sadece örnekteki gibi bırakma!";
 
         $raw_text = "";
 
