@@ -12,6 +12,7 @@ class HC_AI_Bulk_Generator {
     public static function render_bulk_generator_tab() {
         $api_key = get_option('hc_gemini_api_key', '');
         $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
+        $use_search = get_option('hc_gemini_use_search', '0');
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
         $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
@@ -52,6 +53,14 @@ class HC_AI_Bulk_Generator {
                 </div>
             </div>
             
+            <div class="hc-form-group" style="margin-top:15px; background: #fff8e1; padding: 10px; border-left: 4px solid #ffc107;">
+                <label>
+                    <input type="checkbox" id="hc_use_search" value="1" <?php checked($use_search, '1'); ?>>
+                    <strong>Google Search Grounding Kullan (DİKKAT: Ücretsiz API'de günde sadece 20 limitlidir!)</strong>
+                </label>
+                <p class="description" style="margin-top:5px;">Eğer ücretsiz API kullanıyorsanız bu tiki <strong>kaldırın</strong>. Gemini çoğu formülü internete bağlanmadan da mükemmel bilir ve günde 1500 limitiniz olur.</p>
+            </div>
+
             <div class="hc-form-group" style="margin-top:15px;">
                 <label for="hc_wait_time"><strong>Modüller Arası Bekleme Süresi (Saniye)</strong></label>
                 <input type="number" id="hc_wait_time" value="5" min="2" max="60" style="width:100px;">
@@ -209,6 +218,7 @@ class HC_AI_Bulk_Generator {
                 nonce: hcAdmin.nonce,
                 api_key: document.getElementById('hc_api_key').value,
                 gemini_model: document.getElementById('hc_gemini_model').value,
+                use_search: document.getElementById('hc_use_search').checked ? '1' : '0',
                 repo: document.getElementById('hc_gh_repo').value,
                 branch: document.getElementById('hc_gh_branch').value,
                 token: document.getElementById('hc_gh_token').value
@@ -319,6 +329,7 @@ class HC_AI_Bulk_Generator {
 
         update_option('hc_gemini_api_key', sanitize_text_field($_POST['api_key']));
         update_option('hc_gemini_model', sanitize_text_field($_POST['gemini_model']));
+        update_option('hc_gemini_use_search', sanitize_text_field($_POST['use_search']));
         update_option('hc_bot_gh_repo', sanitize_text_field($_POST['repo']));
         update_option('hc_bot_gh_branch', sanitize_text_field($_POST['branch']));
         update_option('hc_bot_gh_token', sanitize_text_field($_POST['token']));
@@ -344,6 +355,7 @@ class HC_AI_Bulk_Generator {
         $title = sanitize_text_field($_POST['title']);
         $api_key = get_option('hc_gemini_api_key');
         $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
+        $use_search = get_option('hc_gemini_use_search', '0');
         
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
@@ -367,9 +379,15 @@ Format:
 }";
 
         $payload = [
-            'contents' => [['parts' => [['text' => $prompt]]]],
-            'tools' => [['googleSearch' => new stdClass()]]
+            'contents' => [['parts' => [['text' => $prompt]]]]
         ];
+
+        if ( $use_search === '1' ) {
+            $payload['tools'] = [['googleSearch' => new stdClass()]];
+        } else {
+            // Search kullanılmıyorsa JSON zorlamasını güvenle açabiliriz
+            $payload['generationConfig'] = ['responseMimeType' => 'application/json'];
+        }
 
         $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$gemini_model}:generateContent?key={$api_key}", [
             'timeout' => 60,
