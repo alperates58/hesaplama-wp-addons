@@ -11,7 +11,7 @@ class HC_AI_Bulk_Generator {
 
     public static function render_bulk_generator_tab() {
         $api_key = get_option('hc_gemini_api_key', '');
-        $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
+        $gemini_model = get_option('hc_gemini_model', 'gemini-3.1-flash');
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
         $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
@@ -36,7 +36,7 @@ class HC_AI_Bulk_Generator {
                 <div class="hc-field-card">
                     <label for="hc_gemini_model"><strong>Gemini Model Adı</strong></label>
                     <input type="text" id="hc_gemini_model" value="<?php echo esc_attr($gemini_model); ?>" class="large-text">
-                    <p class="description">Örn: gemini-2.5-flash veya gemini-2.0-flash</p>
+                    <p class="description">Örn: gemini-3.1-flash veya gemini-2.0-flash</p>
                 </div>
                 <div class="hc-field-card">
                     <label for="hc_gh_repo"><strong>GitHub Repo</strong></label>
@@ -343,7 +343,7 @@ class HC_AI_Bulk_Generator {
 
         $title = sanitize_text_field($_POST['title']);
         $api_key = get_option('hc_gemini_api_key');
-        $gemini_model = get_option('hc_gemini_model', 'gemini-2.5-flash');
+        $gemini_model = get_option('hc_gemini_model', 'gemini-3.1-flash');
         
         $gh_settings = get_option('hc_github_settings', []);
         $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
