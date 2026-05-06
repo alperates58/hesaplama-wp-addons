@@ -279,7 +279,7 @@ class HC_AI_Bulk_Generator {
                         // Eğer API yoğunluk veya kota hatası verdiyse otomatik tekrar dene
                         const errorText = (res.data || '').toLowerCase();
                         if (errorText.includes('high demand') || errorText.includes('quota') || errorText.includes('429')) {
-                            logMsg('⚠️ API Yoğun! ' + item.title + ' için 15 saniye sonra tekrar denenecek...');
+                            logMsg('⚠️ API Yoğun/Kota: ' + res.data + ' | 15 sn sonra denenecek...');
                             queue[targetIndex].status = 'pending'; 
                             renderTable();
                             setTimeout(processNext, 15000);
