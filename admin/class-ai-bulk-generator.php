@@ -331,8 +331,8 @@ class HC_AI_Bulk_Generator {
         $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
         $gh_token = isset($gh_settings['token']) ? $gh_settings['token'] : get_option('hc_bot_gh_token', '');
 
-        if(!$title || !$api_key || !$gh_repo || !$gh_token) {
-            wp_send_json_error('API Key veya GitHub Ayarları eksik.');
+        if(!$title || !$api_key) {
+            wp_send_json_error('API Key eksik. Başlık ve API Key zorunludur.');
         }
 
         $slug = sanitize_title($title);
@@ -378,13 +378,30 @@ Format:
 
         $message = "feat: {$title} modülü otomatik eklendi\n\nShortcode: [hc_{$slug_under}]";
         
-        $gh_result = $this->github_commit($gh_repo, $gh_branch, $gh_token, $github_files, $message);
+        if ( !empty($gh_token) && !empty($gh_repo) ) {
+            // GitHub'a Pushla
+            $gh_result = $this->github_commit($gh_repo, $gh_branch, $gh_token, $github_files, $message);
 
-        if (is_wp_error($gh_result)) {
-            wp_send_json_error('GitHub Hatası: ' . $gh_result->get_error_message());
+            if (is_wp_error($gh_result)) {
+                wp_send_json_error('GitHub Hatası: ' . $gh_result->get_error_message());
+            }
+
+            wp_send_json_success('GitHub a başarıyla yüklendi!');
+        } else {
+            // Token yoksa lokale kaydet
+            $module_dir = HC_PLUGIN_DIR . 'modules/' . $slug;
+            if ( !file_exists($module_dir) ) {
+                wp_mkdir_p($module_dir);
+            }
+
+            foreach($files as $filename => $content) {
+                if(!empty($content)) {
+                    file_put_contents($module_dir . '/' . sanitize_file_name($filename), $content);
+                }
+            }
+
+            wp_send_json_success('Token olmadığı için dosyalar lokale (modules klasörüne) kaydedildi!');
         }
-
-        wp_send_json_success('GitHub a başarıyla yüklendi!');
     }
 
     private function github_commit($repo, $branch, $token, $files, $message) {
