@@ -1,22 +1,17 @@
 jQuery(function ($) {
     var hcModulePreviewPayload = null;
 
-    // Tab switching
-    $('.hc-nav-tab').on('click', function(e) {
+    // Theme Toggle
+    var isLight = localStorage.getItem('hc_theme_light') === 'true';
+    if (isLight) {
+        $('.hc-wrap').addClass('hc-light-mode');
+    }
+
+    $('#hc-theme-toggle').on('click', function(e) {
         e.preventDefault();
-        var tabId = $(this).data('tab');
-        
-        // Update URL
-        var url = new URL(window.location.href);
-        url.searchParams.set('tab', tabId);
-        window.history.pushState({}, '', url);
-
-        // Update active classes
-        $('.hc-nav-tab').removeClass('hc-nav-tab-active');
-        $(this).addClass('hc-nav-tab-active');
-
-        $('.hc-tab-pane').removeClass('hc-tab-active');
-        $('#tab-' + tabId).addClass('hc-tab-active');
+        var $wrap = $('.hc-wrap');
+        $wrap.toggleClass('hc-light-mode');
+        localStorage.setItem('hc_theme_light', $wrap.hasClass('hc-light-mode'));
     });
 
     $(document).ajaxError(function (event, xhr, settings) {

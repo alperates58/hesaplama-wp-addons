@@ -397,3 +397,21 @@
 .hc-wrap .notice-success { border-left-color: #34d399; }
 .hc-wrap .notice-error { border-left-color: #f87171; }
 .hc-wrap .notice p { color: var(--hc-text); }
+
+/* Light Mode Overrides */
+.hc-wrap.hc-light-mode {
+    --hc-bg: #f8fafc;
+    --hc-surface: rgba(255, 255, 255, 0.9);
+    --hc-surface-hover: rgba(241, 245, 249, 0.9);
+    --hc-border: rgba(15, 23, 42, 0.1);
+    --hc-text: #0f172a;
+    --hc-text-muted: #475569;
+    --hc-primary: #0284c7;
+    background: radial-gradient(circle at top right, #e0f2fe, #f8fafc 40%, #f1f5f9);
+}
+
+.hc-wrap.hc-light-mode .hc-modules-table th { background: rgba(0,0,0,0.05); }
+.hc-wrap.hc-light-mode .hc-modules-table tbody tr:nth-child(odd) { background: rgba(0,0,0,0.02) !important; }
+.hc-wrap.hc-light-mode .hc-modules-table tbody tr:hover { background: rgba(0,0,0,0.05) !important; }
+.hc-wrap.hc-light-mode .hc-shortcode-code { background: rgba(0,0,0,0.05) !important; }
+.hc-wrap.hc-light-mode .hc-page-publisher { background: rgba(0,0,0,0.05); }
