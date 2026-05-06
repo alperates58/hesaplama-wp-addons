@@ -348,9 +348,9 @@ class HC_Admin_Page {
         $tab = sanitize_key( $_GET['tab'] ?? 'modules' );
         ?>
         <div class="wrap hc-wrap">
-            <div class="hc-page-head">
-                <div>
-                    <h1>Hesaplama Suite</h1>
+            <div class="hc-glass-header">
+                <div class="hc-header-content">
+                    <h1>Hesaplama Suite <span class="hc-badge-pro">PRO</span></h1>
                     <p class="hc-page-subtitle">Modül kataloğunu, içerik üretimini ve güncellemeleri tek panelden yönetin.</p>
                 </div>
                 <div class="hc-page-publisher">
@@ -359,40 +359,47 @@ class HC_Admin_Page {
                 </div>
             </div>
 
-            <nav class="nav-tab-wrapper">
-                <a href="?page=hesaplama-suite&tab=modules" class="nav-tab <?php echo 'modules' === $tab ? 'nav-tab-active' : ''; ?>">
-                    Modüller
+            <nav class="hc-nav-tab-wrapper">
+                <a href="#modules" class="hc-nav-tab <?php echo 'modules' === $tab ? 'hc-nav-tab-active' : ''; ?>" data-tab="modules">
+                    <span class="dashicons dashicons-grid-view"></span> Modüller
                 </a>
-                <a href="?page=hesaplama-suite&tab=writer" class="nav-tab <?php echo 'writer' === $tab ? 'nav-tab-active' : ''; ?>">
-                    Yazı Oluştur
+                <a href="#writer" class="hc-nav-tab <?php echo 'writer' === $tab ? 'hc-nav-tab-active' : ''; ?>" data-tab="writer">
+                    <span class="dashicons dashicons-edit"></span> Yazı Oluştur
                 </a>
-                <a href="?page=hesaplama-suite&tab=module-generator" class="nav-tab <?php echo 'module-generator' === $tab ? 'nav-tab-active' : ''; ?>">
-                    Modül Oluştur
+                <a href="#module-generator" class="hc-nav-tab <?php echo 'module-generator' === $tab ? 'hc-nav-tab-active' : ''; ?>" data-tab="module-generator">
+                    <span class="dashicons dashicons-plus-alt2"></span> Modül Oluştur
                 </a>
-                <a href="?page=hesaplama-suite&tab=ai-settings" class="nav-tab <?php echo 'ai-settings' === $tab ? 'nav-tab-active' : ''; ?>">
-                    AI Ayarları
+                <a href="#ai-settings" class="hc-nav-tab <?php echo 'ai-settings' === $tab ? 'hc-nav-tab-active' : ''; ?>" data-tab="ai-settings">
+                    <span class="dashicons dashicons-admin-generic"></span> AI Ayarları
                 </a>
-                <a href="?page=hesaplama-suite&tab=github" class="nav-tab <?php echo 'github' === $tab ? 'nav-tab-active' : ''; ?>">
-                    GitHub Ayarları
+                <a href="#github" class="hc-nav-tab <?php echo 'github' === $tab ? 'hc-nav-tab-active' : ''; ?>" data-tab="github">
+                    <span class="dashicons dashicons-github"></span> GitHub Ayarları
                 </a>
             </nav>
 
             <div class="hc-tab-content">
                 <?php
                 $writer = new HC_AI_Writer();
-
-                if ( 'github' === $tab ) {
-                    $this->render_github_tab();
-                } elseif ( 'module-generator' === $tab ) {
-                    HC_AI_Module_Generator::render_generator_tab();
-                } elseif ( 'writer' === $tab ) {
-                    $writer->render_writer_tab();
-                } elseif ( 'ai-settings' === $tab ) {
-                    $writer->render_ai_settings_tab();
-                } else {
-                    $this->render_modules_tab();
-                }
                 ?>
+                <div id="tab-modules" class="hc-tab-pane <?php echo 'modules' === $tab ? 'hc-tab-active' : ''; ?>">
+                    <?php $this->render_modules_tab(); ?>
+                </div>
+                <div id="tab-writer" class="hc-tab-pane <?php echo 'writer' === $tab ? 'hc-tab-active' : ''; ?>">
+                    <?php $writer->render_writer_tab(); ?>
+                </div>
+                <div id="tab-module-generator" class="hc-tab-pane <?php echo 'module-generator' === $tab ? 'hc-tab-active' : ''; ?>">
+                    <?php 
+                    if (class_exists('HC_AI_Module_Generator')) {
+                        HC_AI_Module_Generator::render_generator_tab();
+                    }
+                    ?>
+                </div>
+                <div id="tab-ai-settings" class="hc-tab-pane <?php echo 'ai-settings' === $tab ? 'hc-tab-active' : ''; ?>">
+                    <?php $writer->render_ai_settings_tab(); ?>
+                </div>
+                <div id="tab-github" class="hc-tab-pane <?php echo 'github' === $tab ? 'hc-tab-active' : ''; ?>">
+                    <?php $this->render_github_tab(); ?>
+                </div>
             </div>
         </div>
         <?php
