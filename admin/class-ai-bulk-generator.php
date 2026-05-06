@@ -276,6 +276,16 @@ class HC_AI_Bulk_Generator {
                         const cb = document.querySelector(`.cb-item[data-index="${targetIndex}"]`);
                         if(cb) cb.checked = false;
                     } else {
+                        // Eğer API yoğunluk veya kota hatası verdiyse otomatik tekrar dene
+                        const errorText = (res.data || '').toLowerCase();
+                        if (errorText.includes('high demand') || errorText.includes('quota') || errorText.includes('429')) {
+                            logMsg('⚠️ API Yoğun! ' + item.title + ' için 15 saniye sonra tekrar denenecek...');
+                            queue[targetIndex].status = 'pending'; 
+                            renderTable();
+                            setTimeout(processNext, 15000);
+                            return;
+                        }
+
                         queue[targetIndex].status = 'error';
                         queue[targetIndex].message = res.data;
                         logMsg('❌ Hata (' + item.title + '): ' + res.data);
