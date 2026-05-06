@@ -396,7 +396,7 @@ class HC_AI_Bulk_Generator {
         }
 
         // 2. Prompt Hazırlığı
-        $prompt = "Sen uzman bir yazılım ajanısın. Görev: '$title' konusunu analiz edip hesaplama modülü kodla. SADECE geçerli bir JSON dön, markdown etiketlerini temiz tut. Kurallar: Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan.\n";
+        $prompt = "Sen uzman bir yazılım ajanısın. Görev: '$title' konusunu analiz edip hesaplama modülü kodla. SADECE geçerli bir JSON dön. ÖNEMLİ KURAL: JSON string değerleri içine yazacağın kodlarda satır sonlarını (enter) gerçek yeni satır olarak değil, mutlaka \\n olarak (escaped) yaz! Markdown etiketlerini temiz tut. Kurallar: Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan.\n";
         
         if ($search_context) {
             $prompt .= "\n" . $search_context . "\n\n";
@@ -416,6 +416,7 @@ class HC_AI_Bulk_Generator {
             $payload = [
                 'model' => $ai_model,
                 'messages' => [['role' => 'user', 'content' => $prompt]],
+                'response_format' => ['type' => 'json_object']
             ];
 
             $response = wp_remote_post("https://api.deepseek.com/chat/completions", [
