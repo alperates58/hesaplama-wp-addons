@@ -1,0 +1,5 @@
+{
+  "name": "Tekne Hızı Hesaplayıcı",
+  "desc": "Su hattı boyuna göre teknenizin teorik gövde hızını hesaplar ve Knot, km/s, mph birimleri arasında dönüşüm yapar.",
+  "shortcode": "[hc_tekne_hizi_hesaplayici]"
+}
