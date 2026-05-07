@@ -951,6 +951,67 @@ body.hc-preview-open {
     color: #374151;
 }
 
+/* ── Planner ─────────────────────────────────────────── */
+.hc-planner-group {
+    margin-bottom: 14px;
+    padding: 18px;
+}
+
+.hc-planner-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hc-planner-group-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.hc-planner-group-meta {
+    font-size: 12px;
+    color: var(--hc-text-muted);
+}
+
+.hc-planner-subgroup {
+    margin-bottom: 12px;
+}
+
+.hc-planner-subgroup:last-child {
+    margin-bottom: 0;
+}
+
+.hc-planner-subgroup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--hc-border);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--hc-text-muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.hc-planner-subgroup .hc-table-wrap {
+    border-radius: 0 0 8px 8px;
+}
+
+.hc-planner-subgroup-count {
+    background: rgba(255,255,255,0.06);
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+}
+
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 960px) {
     .hc-module-grid {
