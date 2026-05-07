@@ -259,8 +259,41 @@
         return heading ? heading.textContent.trim() : 'Hesaplama Sonucu';
     }
 
+    function hasMeaningfulResult(resultElement) {
+        if (!resultElement) {
+            return false;
+        }
+
+        if (resultElement.classList.contains('visible')) {
+            return true;
+        }
+
+        return resultElement.textContent.trim().length > 0 || resultElement.children.length > 0;
+    }
+
     function updatePanelVisibility(resultElement, panelElement) {
-        panelElement.hidden = !resultElement.classList.contains('visible');
+        panelElement.hidden = !hasMeaningfulResult(resultElement);
+    }
+
+    function findCalculatorRoot(element) {
+        if (!element || element.nodeType !== 1) {
+            return null;
+        }
+
+        if (element.classList.contains('hc-calculator')) {
+            return element;
+        }
+
+        if (
+            element.id &&
+            element.id.indexOf('hc-') === 0 &&
+            element.querySelector('h3') &&
+            element.querySelector('.hc-result, [id$="-result"], [id*="sonuc"], #hc-result')
+        ) {
+            return element;
+        }
+
+        return null;
     }
 
     function buildShareUrl(platform, calculator) {
@@ -524,7 +557,7 @@
     }
 
     function setupCalculator(calculator) {
-        var resultElement = calculator.querySelector('.hc-result');
+        var resultElement = calculator.querySelector('.hc-result, [id$="-result"], [id*="sonuc"], #hc-result');
         var observer;
         var panel;
 
@@ -542,16 +575,23 @@
 
         observer.observe(resultElement, {
             attributes: true,
-            attributeFilter: ['class']
+            attributeFilter: ['class'],
+            childList: true,
+            subtree: true,
+            characterData: true
         });
     }
 
     function initSharePanels() {
-        var calculators = document.querySelectorAll('.hc-calculator');
+        var calculators = document.querySelectorAll('.hc-calculator, [id^="hc-"]');
         var i;
 
         for (i = 0; i < calculators.length; i++) {
-            setupCalculator(calculators[i]);
+            var root = findCalculatorRoot(calculators[i]);
+
+            if (root) {
+                setupCalculator(root);
+            }
         }
     }
 

@@ -743,6 +743,7 @@ class HC_AI_Bulk_Generator {
             . "Zorunlu: calculator.js gercek hesaplama yapmali, sonuc HTML icine yazilmali ve visible class'i eklenmeli. Bos iskelet, yorum veya TODO kullanma.\n"
             . "Zorunlu: calculator.js icinde sayi formatlama icin toLocaleString('tr-TR') kullan.\n"
             . "Zorunlu: calculator.php icinde modules/{$slug}/calculator.js ve modules/{$slug}/calculator.css enqueue edilmeli.\n"
+            . "Zorunlu: ana sarmalayici eleman class='hc-calculator' icermeli ve sonuc kutusu class='hc-result' icermeli.\n"
             . "Zorunlu: calculator.php fonksiyonu HTML'yi dogrudan ekrana basmali; ob_start()/return ob_get_clean() ve add_shortcode kullanma.\n"
             . "Zorunlu: calculator.css icinde .hc-{$slug}- prefixi ve @media (max-width: 480px) olmali.\n"
             . "Yalnizca SI birimleri ve Turkce kullan.\n"
@@ -916,6 +917,50 @@ class HC_AI_Bulk_Generator {
         $calculator_php = preg_replace( '/^\s*add_shortcode\s*\([^\n]+$/mi', '', $calculator_php );
         $calculator_php = preg_replace( '/^\s*ob_start\s*\(\s*\)\s*;\s*$/mi', '', $calculator_php );
         $calculator_php = preg_replace( '/^\s*return\s+ob_get_clean\s*\(\s*\)\s*;\s*$/mi', '', $calculator_php );
+        $calculator_php = preg_replace(
+            '/<div([^>]*)(class=)(["\'])([^"\']*)(["\'])([^>]*)>/i',
+            function ( $matches ) {
+                if ( false !== strpos( $matches[4], 'hc-calculator' ) ) {
+                    return $matches[0];
+                }
+
+                return '<div' . $matches[1] . 'class=' . $matches[3] . 'hc-calculator ' . trim( $matches[4] ) . $matches[5] . $matches[6] . '>';
+            },
+            $calculator_php,
+            1
+        );
+
+        if ( ! preg_match( '/<div[^>]*class=["\'][^"\']*hc-calculator/i', $calculator_php ) ) {
+            $calculator_php = preg_replace(
+                '/<div([^>]*)>/i',
+                '<div class="hc-calculator"$1>',
+                $calculator_php,
+                1
+            );
+        }
+
+        $calculator_php = preg_replace(
+            '/<div([^>]*id=["\'][^"\']*(?:result|sonuc)[^"\']*["\'][^>]*)>/i',
+            function ( $matches ) {
+                $tag = $matches[0];
+
+                if ( preg_match( '/class=["\'][^"\']*hc-result/i', $tag ) ) {
+                    return $tag;
+                }
+
+                if ( preg_match( '/class=(["\'])([^"\']*)(["\'])/i', $tag, $class_matches ) ) {
+                    return preg_replace(
+                        '/class=(["\'])([^"\']*)(["\'])/i',
+                        'class=' . $class_matches[1] . 'hc-result ' . trim( $class_matches[2] ) . $class_matches[3],
+                        $tag,
+                        1
+                    );
+                }
+
+                return preg_replace( '/>$/', ' class="hc-result">', $tag, 1 );
+            },
+            $calculator_php
+        );
 
         return $calculator_php;
     }
@@ -990,6 +1035,14 @@ class HC_AI_Bulk_Generator {
 
         if ( false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.js" ) || false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.css" ) ) {
             $errors[] = 'calculator.php kendi modul JS/CSS dosyalarini enqueue etmeli.';
+        }
+
+        if ( ! preg_match( '/<div[^>]*class=["\'][^"\']*hc-calculator/i', $files['calculator.php'] ) ) {
+            $errors[] = 'calculator.php ana sarmalayici elemanda hc-calculator classini icermeli.';
+        }
+
+        if ( ! preg_match( '/class=["\'][^"\']*hc-result/i', $files['calculator.php'] ) ) {
+            $errors[] = 'calculator.php sonuc kutusunda hc-result classini icermeli.';
         }
 
         if ( preg_match( '/return\s+ob_get_clean\s*\(/i', $files['calculator.php'] ) ) {
