@@ -7,10 +7,12 @@ class HC_Excel_Planner {
 
     const OPTION_KEY   = 'hc_planner_data';
     const MAX_FILE_SIZE = 10 * 1024 * 1024;
+    private static $post_lookup_cache = null;
 
     public function __construct() {
         add_action( 'wp_ajax_hc_planner_upload',       [ $this, 'ajax_upload' ] );
         add_action( 'wp_ajax_hc_planner_confirm',      [ $this, 'ajax_confirm' ] );
+        add_action( 'wp_ajax_hc_planner_download',     [ $this, 'ajax_download' ] );
         add_action( 'wp_ajax_hc_planner_create_draft', [ $this, 'ajax_create_draft' ] );
         add_action( 'wp_ajax_hc_planner_ai_analyze',   [ $this, 'ajax_ai_analyze' ] );
     }
@@ -42,6 +44,13 @@ class HC_Excel_Planner {
             $prev_slug      = $topics[ $index ]['module_slug'] ?? '';
             $prev_name      = $topics[ $index ]['module_name'] ?? '';
             $prev_shortcode = $topics[ $index ]['shortcode'] ?? '';
+            $prev_post_id   = (int) ( $topics[ $index ]['draft_post_id'] ?? 0 );
+            $linked_post_id = self::resolve_topic_post_id( $topic, $prev_post_id );
+
+            if ( $linked_post_id !== $prev_post_id ) {
+                $matched[ $index ]['draft_post_id'] = $linked_post_id;
+                $changed = true;
+            }
 
             if (
                 $prev_slug !== ( $topic['module_slug'] ?? '' ) ||
@@ -58,6 +67,98 @@ class HC_Excel_Planner {
         }
 
         return $changed ? $data : $data;
+    }
+
+    private static function get_post_lookup() {
+        global $wpdb;
+
+        if ( null !== self::$post_lookup_cache ) {
+            return self::$post_lookup_cache;
+        }
+
+        $rows = $wpdb->get_results(
+            "SELECT ID, post_title, post_name, post_content
+             FROM {$wpdb->posts}
+             WHERE post_type = 'post'
+               AND post_status NOT IN ('trash', 'auto-draft')",
+            ARRAY_A
+        );
+
+        $lookup = [
+            'by_slug'      => [],
+            'by_title'     => [],
+            'by_shortcode' => [],
+        ];
+
+        foreach ( $rows as $row ) {
+            $post_id    = (int) ( $row['ID'] ?? 0 );
+            $post_title = (string) ( $row['post_title'] ?? '' );
+            $post_slug  = (string) ( $row['post_name'] ?? '' );
+            $content    = (string) ( $row['post_content'] ?? '' );
+
+            if ( $post_id <= 0 ) {
+                continue;
+            }
+
+            if ( $post_slug ) {
+                $lookup['by_slug'][ $post_slug ][] = $post_id;
+            }
+
+            $title_key = self::normalize( $post_title );
+            if ( $title_key ) {
+                $lookup['by_title'][ $title_key ][] = $post_id;
+            }
+
+            preg_match_all( '/\[hc_[a-z0-9_]+\]/i', $content, $matches );
+            foreach ( array_values( array_unique( $matches[0] ?? [] ) ) as $shortcode ) {
+                $lookup['by_shortcode'][ $shortcode ][] = $post_id;
+            }
+        }
+
+        self::$post_lookup_cache = $lookup;
+
+        return self::$post_lookup_cache;
+    }
+
+    private static function resolve_topic_post_id( $topic, $current_post_id = 0 ) {
+        if ( self::post_exists_active( $current_post_id ) ) {
+            return (int) $current_post_id;
+        }
+
+        $lookup     = self::get_post_lookup();
+        $title      = (string) ( $topic['baslik'] ?? '' );
+        $slug       = sanitize_title( $title );
+        $title_key  = self::normalize( $title );
+        $shortcode  = (string) ( $topic['shortcode'] ?? '' );
+
+        $slug_match = self::pick_unique_post_id( $lookup['by_slug'][ $slug ] ?? [] );
+        if ( $slug_match ) {
+            return $slug_match;
+        }
+
+        $title_match = self::pick_unique_post_id( $lookup['by_title'][ $title_key ] ?? [] );
+        if ( $title_match ) {
+            return $title_match;
+        }
+
+        if ( $shortcode ) {
+            $shortcode_match = self::pick_unique_post_id( $lookup['by_shortcode'][ $shortcode ] ?? [] );
+            if ( $shortcode_match ) {
+                return $shortcode_match;
+            }
+        }
+
+        return 0;
+    }
+
+    private static function pick_unique_post_id( $post_ids ) {
+        $post_ids = array_values( array_unique( array_filter( array_map( 'intval', (array) $post_ids ) ) ) );
+
+        if ( 1 !== count( $post_ids ) ) {
+            return 0;
+        }
+
+        return self::post_exists_active( $post_ids[0] ) ? $post_ids[0] : 0;
     }
 
     // ── AJAX: Upload & Diff ───────────────────────────────────────────────────
@@ -172,6 +273,145 @@ class HC_Excel_Planner {
     }
 
     // ── AJAX: Create Draft ────────────────────────────────────────────────────
+
+    public function ajax_download() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_die( 'Yetersiz yetki.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_die( 'Guvenlik hatasi.', 400 );
+        }
+
+        if ( ! class_exists( 'ZipArchive' ) ) {
+            wp_die( 'Excel indirme icin ZipArchive gerekli.', 500 );
+        }
+
+        $data   = self::get_data();
+        $topics = is_array( $data['topics'] ?? null ) ? $data['topics'] : [];
+        $rows   = [
+            [ 'Ana Kategori', 'Alt Kategori', 'Baslik' ],
+        ];
+
+        foreach ( $topics as $topic ) {
+            $rows[] = [
+                (string) ( $topic['ana_kategori'] ?? '' ),
+                (string) ( $topic['alt_kategori'] ?? '' ),
+                (string) ( $topic['baslik'] ?? '' ),
+            ];
+        }
+
+        $tmp_file = wp_tempnam( 'hc-planner-export.xlsx' );
+        if ( ! $tmp_file ) {
+            wp_die( 'Gecici dosya olusturulamadi.', 500 );
+        }
+
+        self::build_xlsx_file( $tmp_file, $rows );
+
+        $filename = 'icerik-plani-' . wp_date( 'Y-m-d-His' ) . '.xlsx';
+
+        nocache_headers();
+        header( 'Content-Description: File Transfer' );
+        header( 'Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
+        header( 'Content-Disposition: attachment; filename="' . $filename . '"' );
+        header( 'Content-Length: ' . filesize( $tmp_file ) );
+
+        readfile( $tmp_file );
+        @unlink( $tmp_file );
+        exit;
+    }
+
+    private static function build_xlsx_file( $file_path, $rows ) {
+        $zip = new ZipArchive();
+        if ( true !== $zip->open( $file_path, ZipArchive::CREATE | ZipArchive::OVERWRITE ) ) {
+            throw new RuntimeException( 'Excel dosyasi olusturulamadi.' );
+        }
+
+        $sheet_data     = '';
+        $shared_strings = [];
+        $shared_index   = [];
+
+        foreach ( array_values( $rows ) as $row_index => $row ) {
+            $sheet_data .= '<row r="' . ( $row_index + 1 ) . '">';
+
+            foreach ( array_values( $row ) as $col_index => $value ) {
+                $value = (string) $value;
+                if ( ! array_key_exists( $value, $shared_index ) ) {
+                    $shared_index[ $value ] = count( $shared_strings );
+                    $shared_strings[] = $value;
+                }
+
+                $cell_ref = self::xlsx_column_label( $col_index ) . ( $row_index + 1 );
+                $sheet_data .= '<c r="' . $cell_ref . '" t="s"><v>' . $shared_index[ $value ] . '</v></c>';
+            }
+
+            $sheet_data .= '</row>';
+        }
+
+        $shared_xml_items = '';
+        foreach ( $shared_strings as $string ) {
+            $shared_xml_items .= '<si><t>' . self::xlsx_escape( $string ) . '</t></si>';
+        }
+
+        $worksheet_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            . '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+            . '<sheetData>' . $sheet_data . '</sheetData>'
+            . '</worksheet>';
+
+        $shared_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            . '<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="' . count( $shared_strings ) . '" uniqueCount="' . count( $shared_strings ) . '">'
+            . $shared_xml_items
+            . '</sst>';
+
+        $workbook_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            . '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
+            . '<sheets><sheet name="Icerik Plani" sheetId="1" r:id="rId1"/></sheets>'
+            . '</workbook>';
+
+        $workbook_rels_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            . '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+            . '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
+            . '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings" Target="sharedStrings.xml"/>'
+            . '</Relationships>';
+
+        $root_rels_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            . '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+            . '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>'
+            . '</Relationships>';
+
+        $content_types_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            . '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+            . '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+            . '<Default Extension="xml" ContentType="application/xml"/>'
+            . '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+            . '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>'
+            . '<Override PartName="/xl/sharedStrings.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml"/>'
+            . '</Types>';
+
+        $zip->addFromString( '[Content_Types].xml', $content_types_xml );
+        $zip->addFromString( '_rels/.rels', $root_rels_xml );
+        $zip->addFromString( 'xl/workbook.xml', $workbook_xml );
+        $zip->addFromString( 'xl/_rels/workbook.xml.rels', $workbook_rels_xml );
+        $zip->addFromString( 'xl/worksheets/sheet1.xml', $worksheet_xml );
+        $zip->addFromString( 'xl/sharedStrings.xml', $shared_xml );
+        $zip->close();
+    }
+
+    private static function xlsx_column_label( $index ) {
+        $label = '';
+        $index = (int) $index;
+
+        do {
+            $label = chr( 65 + ( $index % 26 ) ) . $label;
+            $index = (int) floor( $index / 26 ) - 1;
+        } while ( $index >= 0 );
+
+        return $label;
+    }
+
+    private static function xlsx_escape( $value ) {
+        return htmlspecialchars( (string) $value, ENT_XML1 | ENT_QUOTES, 'UTF-8' );
+    }
 
     public function ajax_create_draft() {
         if ( ! current_user_can( 'edit_posts' ) ) {
@@ -913,6 +1153,12 @@ class HC_Excel_Planner {
                         <span class="dashicons dashicons-upload" style="margin-top:3px;"></span>
                         <?php echo $total > 0 ? "Excel'i Güncelle" : 'Excel Yükle'; ?>
                     </label>
+                    <?php if ( $total > 0 ) : ?>
+                        <a class="button" href="<?php echo esc_url( add_query_arg( [ 'action' => 'hc_planner_download', 'nonce' => $nonce ], admin_url( 'admin-ajax.php' ) ) ); ?>" style="display:inline-flex; align-items:center; gap:6px;">
+                            <span class="dashicons dashicons-download" style="margin-top:3px;"></span>
+                            Excel'i Indir
+                        </a>
+                    <?php endif; ?>
                     <input type="file" id="hc-planner-file" accept=".xlsx" style="display:none;">
                 </div>
 
