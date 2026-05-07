@@ -214,6 +214,31 @@
     line-height: 1.5;
 }
 
+#hc-0-100-km-hesaplayici .hc-share-panel {
+    background: rgba(30, 41, 59, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    margin-top: 25px !important;
+    padding: 20px !important;
+}
+
+#hc-0-100-km-hesaplayici .hc-share-title {
+    color: #94a3b8 !important;
+    font-weight: 700 !important;
+}
+
+#hc-0-100-km-hesaplayici .hc-share-btn {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    color: #f8fafc !important;
+}
+
+#hc-0-100-km-hesaplayici .hc-share-btn:hover {
+    background: #ef4444 !important;
+    border-color: #ef4444 !important;
+    color: white !important;
+}
+
 @media (max-width: 480px) {
     #hc-0-100-km-hesaplayici .hc-form-grid,
     #hc-0-100-km-hesaplayici .hc-res-dashboard {

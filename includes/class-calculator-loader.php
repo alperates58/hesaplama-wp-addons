@@ -68,6 +68,6 @@ class HC_Calculator_Loader {
     }
 
     private function page_has_hc_shortcode( $content ) {
-        return preg_match( '/\[hc_[a-z_]+/', $content );
+        return preg_match( '/\[hc_[a-z0-9_]+/', $content );
     }
 }
