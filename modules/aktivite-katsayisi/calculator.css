@@ -1,0 +1,158 @@
+#hc-aktivite-katsayisi {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+#hc-aktivite-katsayisi .hc-header h3 {
+    margin: 0 0 5px;
+    color: #f97316;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+#hc-aktivite-katsayisi .hc-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+#hc-aktivite-katsayisi .hc-activity-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#hc-aktivite-katsayisi .hc-activity-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 2px solid #f1f5f9;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#hc-aktivite-katsayisi .hc-activity-card:hover {
+    border-color: #fdba74;
+    background: #fffaf5;
+}
+
+#hc-aktivite-katsayisi .hc-activity-card input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #f97316;
+}
+
+#hc-aktivite-katsayisi .hc-card-content strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+#hc-aktivite-katsayisi .hc-card-content span {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+#hc-aktivite-katsayisi .hc-activity-card input:checked + .hc-card-content strong {
+    color: #f97316;
+}
+
+#hc-aktivite-katsayisi .hc-activity-card input:checked {
+    outline: none;
+}
+
+#hc-aktivite-katsayisi .hc-activity-card:has(input:checked) {
+    border-color: #f97316;
+    background: #fff7ed;
+}
+
+#hc-aktivite-katsayisi input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f1f5f9;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+#hc-aktivite-katsayisi small {
+    display: block;
+    margin-top: 5px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+#hc-aktivite-katsayisi .hc-btn {
+    width: 100%;
+    background: #f97316;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#hc-aktivite-katsayisi .hc-btn:hover {
+    background: #ea580c;
+}
+
+#hc-aktivite-katsayisi .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #fff7ed;
+    border-radius: 20px;
+    border: 1px solid #ffedd5;
+    display: none;
+}
+
+#hc-aktivite-katsayisi .hc-result.visible {
+    display: block;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#hc-aktivite-katsayisi .hc-res-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+#hc-aktivite-katsayisi .hc-res-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #c2410c;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#hc-aktivite-katsayisi .hc-res-item strong {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #9a3412;
+    display: block;
+}
+
+#hc-aktivite-katsayisi .hc-res-item small {
+    color: #c2410c;
+    font-weight: 600;
+    font-size: 0.9rem;
+}

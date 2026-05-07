@@ -1,0 +1,5 @@
+{
+  "name": "Aktivite Katsayısı Hesaplama",
+  "desc": "Yaşam tarzınıza göre fiziksel aktivite katsayınızı (PAL) ve günlük kalori ihtiyacınızı hesaplar.",
+  "shortcode": "[hc_aktivite_katsayisi]"
+}
