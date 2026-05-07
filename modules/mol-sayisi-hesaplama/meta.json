@@ -1,0 +1,5 @@
+{
+  "name": "Mol Sayısı Hesaplama",
+  "desc": "Kütle ve mol kütlesi bilgilerini kullanarak mol sayısını (n) hesaplar.",
+  "shortcode": "[hc_mol_sayisi_hesaplama]"
+}

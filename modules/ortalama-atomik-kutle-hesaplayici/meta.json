@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Atomik Kütle Hesaplayıcı",
+  "desc": "İzotopların kütlelerini ve doğada bulunma yüzdelerini kullanarak ortalama atom kütlesini hesaplar.",
+  "shortcode": "[hc_ortalama_atomik_kutle_hesaplayici]"
+}

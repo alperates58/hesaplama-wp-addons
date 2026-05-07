@@ -1,0 +1,5 @@
+{
+  "name": "Avogadro Sabiti Hesaplama",
+  "desc": "Mol sayısı ile tanecik sayısı (atom, molekül) arasındaki dönüşümü yapar.",
+  "shortcode": "[hc_avogadro_sabiti_hesaplama]"
+}

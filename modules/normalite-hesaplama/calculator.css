@@ -1,0 +1,107 @@
+#hc-normalite-hesaplama {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-normalite-hesaplama .hc-header h3 {
+    margin: 0 0 10px;
+    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#hc-normalite-hesaplama .hc-header p {
+    margin-bottom: 25px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+#hc-normalite-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-normalite-hesaplama label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+#hc-normalite-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #f8fafc;
+}
+
+#hc-normalite-hesaplama .hc-btn {
+    width: 100%;
+    background: #0ea5e9;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-normalite-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 12px;
+    border: 1px solid #bae6fd;
+    text-align: center;
+    display: none;
+}
+
+#hc-normalite-hesaplama .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hc-normalite-hesaplama .hc-result-label {
+    font-size: 0.8rem;
+    color: #0369a1;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#hc-normalite-hesaplama #hc-res-normality {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0c4a6e;
+    display: block;
+}
+
+#hc-normalite-hesaplama .hc-result-main small {
+    font-size: 0.9rem;
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+#hc-normalite-hesaplama .hc-formula-box {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #bae6fd;
+    font-size: 0.75rem;
+    color: #0284c7;
+}

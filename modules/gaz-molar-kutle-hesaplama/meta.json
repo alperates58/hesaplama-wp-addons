@@ -1,0 +1,5 @@
+{
+  "name": "Gazın Molar Kütlesi Hesaplama",
+  "desc": "İdeal gaz denklemini kullanarak gazın molar kütlesini (MA) hesaplar.",
+  "shortcode": "[hc_gaz_molar_kutle_hesaplama]"
+}
