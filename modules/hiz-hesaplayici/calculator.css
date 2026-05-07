@@ -1,0 +1,114 @@
+#hc-hiz-hesaplayici {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+#hc-hiz-hesaplayici .hc-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#hc-hiz-hesaplayici .hc-header h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 5px;
+}
+
+#hc-hiz-hesaplayici .hc-header p {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+#hc-hiz-hesaplayici .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-hiz-hesaplayici .hc-form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+#hc-hiz-hesaplayici input, 
+#hc-hiz-hesaplayici select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #edf2f7;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f8fafc;
+}
+
+#hc-hiz-hesaplayici .hc-time-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#hc-hiz-hesaplayici .hc-btn {
+    width: 100%;
+    background: #2d3748;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-hiz-hesaplayici .hc-result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 16px;
+    text-align: center;
+    display: none;
+}
+
+#hc-hiz-hesaplayici .hc-result.visible {
+    display: block;
+}
+
+#hc-hiz-hesaplayici .hc-result-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a0aec0;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#hc-hiz-hesaplayici #hc-res-val {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #2d3748;
+}
+
+#hc-hiz-hesaplayici #hc-res-unit {
+    font-size: 1.1rem;
+    color: #718096;
+    margin-left: 5px;
+}
+
+#hc-hiz-hesaplayici .hc-extra-res {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #e2e8f0;
+}
+
+#hc-hiz-hesaplayici .hc-extra-res p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    font-weight: 500;
+}
