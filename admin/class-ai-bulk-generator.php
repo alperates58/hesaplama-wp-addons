@@ -11,6 +11,7 @@ class HC_AI_Bulk_Generator {
         add_action( 'wp_ajax_hc_save_bot_settings', [ $this, 'ajax_save_bot_settings' ] );
         add_action( 'wp_ajax_hc_generate_and_push', [ $this, 'ajax_generate_and_push' ] );
         add_action( 'wp_ajax_hc_bulk_save_queue', [ $this, 'ajax_save_queue' ] );
+        add_action( 'wp_ajax_hc_bulk_publish_module', [ $this, 'ajax_publish_local_module' ] );
     }
 
     public static function render_bulk_generator_tab() {
@@ -130,9 +131,11 @@ class HC_AI_Bulk_Generator {
 
             <div style="margin-top:20px; display:flex; gap:15px; align-items:center;">
                 <button id="start-btn" class="button button-primary button-hero" onclick="startQueue()">🚀 Seçilileri/Bekleyenleri Üret</button>
+                <button id="publish-btn" class="button button-secondary button-hero" onclick="publishSelectedModules()">GitHub'a Gönder</button>
                 <button id="stop-btn" class="button button-secondary button-hero" style="display:none;" onclick="stopQueue()">Durdur</button>
                 <span id="queue-status-text" style="font-weight:bold;"></span>
             </div>
+            <p class="description" style="margin-top:12px;">Üretim her zaman önce lokal klasöre kaydeder. Test ettikten sonra seçili başarılı modülleri GitHub'a gönderebilirsiniz.</p>
         </div>
 
         <div class="hc-card">
@@ -172,7 +175,7 @@ class HC_AI_Bulk_Generator {
                 checkbox.type = 'checkbox';
                 checkbox.className = 'cb-item';
                 checkbox.setAttribute('data-index', index);
-                checkbox.disabled = item.status === 'success';
+                checkbox.disabled = item.status === 'published';
 
                 titleStrong.textContent = item.title || '';
 
@@ -181,8 +184,10 @@ class HC_AI_Bulk_Generator {
 
                 if(item.status === 'pending') {
                     statusCell.appendChild(createBadge('Bekliyor', '#ff9800'));
+                } else if(item.status === 'published') {
+                    statusCell.appendChild(createBadge('GitHub\'a Gönderildi', '#2271b1'));
                 } else if(item.status === 'success') {
-                    statusCell.appendChild(createBadge('Tamamlandı', '#4CAF50'));
+                    statusCell.appendChild(createBadge('Lokal Hazır', '#4CAF50'));
                 } else {
                     statusCell.appendChild(createBadge('Hata: ' + (item.message || 'Bilinmeyen hata'), '#f44336'));
                 }
@@ -282,9 +287,7 @@ class HC_AI_Bulk_Generator {
             isRunning = true;
             document.getElementById('start-btn').style.display = 'none';
             document.getElementById('stop-btn').style.display = 'inline-block';
-            if (!bulkGithubConfigured) {
-                logMsg('⚠️ GitHub repo/token ayarı eksik. Üretilen modüller sadece lokal klasöre kaydedilecek.');
-            }
+            logMsg('ℹ️ Üretilen modüller önce lokal klasöre kaydedilecek.');
             logMsg('🚀 İşlem başlatıldı.');
             processNext();
         }
@@ -328,8 +331,9 @@ class HC_AI_Bulk_Generator {
                 success: function(res) {
                     if(res.success) {
                         queue[targetIndex].status = 'success';
-                        queue[targetIndex].message = String(res.data || '');
-                        logMsg('✅ Başarılı: ' + item.title + (res.data ? ' | ' + res.data : ''));
+                        queue[targetIndex].message = String((res.data && res.data.message) || '');
+                        queue[targetIndex].slug = res.data && res.data.slug ? res.data.slug : '';
+                        logMsg('✅ Başarılı: ' + item.title + (res.data && res.data.message ? ' | ' + res.data.message : ''));
                         const cb = document.querySelector(`.cb-item[data-index="${targetIndex}"]`);
                         if(cb) cb.checked = false;
                     } else {
@@ -359,6 +363,69 @@ class HC_AI_Bulk_Generator {
                     renderTable();
                     const waitTime = parseInt(document.getElementById('hc_wait_time').value) || 5;
                     setTimeout(processNext, waitTime * 1000); 
+                }
+            });
+        }
+
+        function publishSelectedModules() {
+            const indices = getSelectedIndices().filter(idx => queue[idx] && queue[idx].status === 'success');
+            if (indices.length === 0) {
+                alert('GitHub\'a göndermek için lokal hazır durumundaki modülleri seçin.');
+                return;
+            }
+            if (!bulkGithubConfigured) {
+                alert('GitHub repo ve token ayarları gerekli.');
+                return;
+            }
+
+            document.getElementById('queue-status-text').innerText = 'GitHub gönderimi başlatıldı.';
+            publishNext(indices, 0);
+        }
+
+        function publishNext(indices, cursor) {
+            if (cursor >= indices.length) {
+                renderTable();
+                document.getElementById('queue-status-text').innerText = 'Seçili modüller GitHub\'a gönderildi.';
+                logMsg('✅ Seçili modüllerin GitHub gönderimi tamamlandı.');
+                return;
+            }
+
+            const idx = indices[cursor];
+            const item = queue[idx];
+            if (!item || item.status !== 'success') {
+                publishNext(indices, cursor + 1);
+                return;
+            }
+
+            logMsg('📤 GitHub\'a gönderiliyor: ' + item.title);
+            jQuery.ajax({
+                url: hcAdmin.ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'hc_bulk_publish_module',
+                    nonce: hcAdmin.nonce,
+                    title: item.title,
+                    slug: item.slug || ''
+                },
+                success: function(res) {
+                    if (res.success) {
+                        queue[idx].status = 'published';
+                        queue[idx].message = String((res.data && res.data.message) || 'GitHub\'a gönderildi.');
+                        logMsg('✅ GitHub: ' + item.title + ' | ' + queue[idx].message);
+                    } else {
+                        queue[idx].status = 'error';
+                        queue[idx].message = String(res.data || 'GitHub gönderimi başarısız.');
+                        logMsg('❌ GitHub Hatası (' + item.title + '): ' + queue[idx].message);
+                    }
+                    renderTable();
+                    publishNext(indices, cursor + 1);
+                },
+                error: function() {
+                    queue[idx].status = 'error';
+                    queue[idx].message = 'GitHub gönderiminde sunucu hatası.';
+                    logMsg('❌ GitHub Sunucu Hatası: ' + item.title);
+                    renderTable();
+                    publishNext(indices, cursor + 1);
                 }
             });
         }
@@ -412,11 +479,6 @@ class HC_AI_Bulk_Generator {
         $ai_model = $this->sanitize_model_name( get_option('hc_gemini_model', 'deepseek-v4-flash') );
         $serper_key = get_option('hc_serper_api_key', '');
         
-        $gh_settings = get_option('hc_github_settings', []);
-        $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
-        $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
-        $gh_token = isset($gh_settings['token']) ? $gh_settings['token'] : get_option('hc_bot_gh_token', '');
-
         if(!$title || !$api_key) {
             wp_send_json_error('API Key eksik. Başlık ve API Key zorunludur.');
         }
@@ -502,40 +564,80 @@ class HC_AI_Bulk_Generator {
             }
         }
 
-        $github_files = [
-            "modules/{$slug}/meta.json"      => $normalized_files['meta.json'],
-            "modules/{$slug}/calculator.php" => $normalized_files['calculator.php'],
-            "modules/{$slug}/calculator.js"  => $normalized_files['calculator.js'],
-            "modules/{$slug}/calculator.css" => $normalized_files['calculator.css']
-        ];
+        $module_dir = HC_PLUGIN_DIR . 'modules/' . $slug;
+        if ( file_exists( $module_dir ) ) {
+            wp_send_json_error( 'Bu slug ile modul zaten var. Mevcut modullerin uzerine yazilamaz.' );
+        }
+        if ( ! wp_mkdir_p( $module_dir ) ) {
+            wp_send_json_error( 'Modul klasoru olusturulamadi.' );
+        }
 
-        $message = "feat: {$title} modülü otomatik eklendi\n\nShortcode: [hc_{$slug_under}]";
-        
-        if ( !empty($gh_token) && !empty($gh_repo) ) {
-            $gh_result = $this->github_commit($gh_repo, $gh_branch, $gh_token, $github_files, $message);
-            if (is_wp_error($gh_result)) {
-                wp_send_json_error('GitHub Hatası: ' . $gh_result->get_error_message());
-            }
-            wp_send_json_success('GitHub a başarıyla yüklendi!');
-        } else {
-            $module_dir = HC_PLUGIN_DIR . 'modules/' . $slug;
-            if ( file_exists( $module_dir ) ) {
-                wp_send_json_error( 'Bu slug ile modul zaten var. Mevcut modullerin uzerine yazilamaz.' );
-            }
-            if ( ! wp_mkdir_p( $module_dir ) ) {
-                wp_send_json_error( 'Modul klasoru olusturulamadi.' );
-            }
-
-            foreach($normalized_files as $filename => $content) {
-                if(!empty($content)) {
-                    $written = file_put_contents($module_dir . '/' . sanitize_file_name($filename), $content);
-                    if ( false === $written ) {
-                        wp_send_json_error( sanitize_file_name($filename) . ' yazilamadi.' );
-                    }
+        foreach($normalized_files as $filename => $content) {
+            if(!empty($content)) {
+                $written = file_put_contents($module_dir . '/' . sanitize_file_name($filename), $content);
+                if ( false === $written ) {
+                    wp_send_json_error( sanitize_file_name($filename) . ' yazilamadi.' );
                 }
             }
-            wp_send_json_success('Lokal Klasöre Kaydedildi!');
         }
+
+        wp_send_json_success([
+            'message' => 'Lokal klasore kaydedildi. Test edip sonra GitHub\'a gonderebilirsiniz.',
+            'slug' => $slug,
+            'shortcode' => '[hc_' . $slug_under . ']',
+        ]);
+    }
+
+    public function ajax_publish_local_module() {
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'GitHub yayini icin yetkiniz yok.', 403 );
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) wp_send_json_error( 'Gecersiz istek.', 400 );
+
+        $title = sanitize_text_field( wp_unslash( $_POST['title'] ?? '' ) );
+        $slug = $this->sanitize_module_slug( wp_unslash( $_POST['slug'] ?? '' ) );
+        if ( ! $slug ) {
+            $slug = $this->sanitize_module_slug( $title );
+        }
+        if ( ! $slug ) {
+            wp_send_json_error( 'Gecerli bir modul slug bulunamadi.' );
+        }
+
+        $gh_settings = get_option('hc_github_settings', []);
+        $gh_repo = isset($gh_settings['repo']) ? $gh_settings['repo'] : get_option('hc_bot_gh_repo', '');
+        $gh_branch = isset($gh_settings['branch']) ? $gh_settings['branch'] : get_option('hc_bot_gh_branch', 'main');
+        $gh_token = isset($gh_settings['token']) ? $gh_settings['token'] : get_option('hc_bot_gh_token', '');
+
+        if ( empty( $gh_repo ) || empty( $gh_token ) ) {
+            wp_send_json_error( 'GitHub repo veya token ayari eksik.' );
+        }
+
+        $files = $this->read_local_module_files( $slug );
+        if ( is_wp_error( $files ) ) {
+            wp_send_json_error( $files->get_error_message() );
+        }
+
+        $validation_errors = $this->get_generated_file_errors( $files, $slug );
+        if ( ! empty( $validation_errors ) ) {
+            wp_send_json_error( implode( ' | ', $validation_errors ) );
+        }
+
+        $slug_under = str_replace( '-', '_', $slug );
+        $message = "feat: {$title} modülü eklendi\n\nShortcode: [hc_{$slug_under}]";
+        $github_files = [
+            "modules/{$slug}/meta.json"      => $files['meta.json'],
+            "modules/{$slug}/calculator.php" => $files['calculator.php'],
+            "modules/{$slug}/calculator.js"  => $files['calculator.js'],
+            "modules/{$slug}/calculator.css" => $files['calculator.css'],
+        ];
+
+        $gh_result = $this->github_commit($gh_repo, $gh_branch, $gh_token, $github_files, $message);
+        if ( is_wp_error( $gh_result ) ) {
+            wp_send_json_error( 'GitHub Hatası: ' . $gh_result->get_error_message() );
+        }
+
+        wp_send_json_success([
+            'message' => 'GitHub a başarıyla yüklendi!',
+            'slug' => $slug,
+        ]);
     }
 
     private function sanitize_model_name( $model ) {
@@ -671,7 +773,7 @@ class HC_AI_Bulk_Generator {
                 continue;
             }
 
-            if ( ! in_array( $status, [ 'pending', 'success', 'error' ], true ) ) {
+            if ( ! in_array( $status, [ 'pending', 'success', 'published', 'error' ], true ) ) {
                 $status = 'pending';
             }
 
@@ -679,6 +781,7 @@ class HC_AI_Bulk_Generator {
                 'title' => $title,
                 'status' => $status,
                 'message' => $message,
+                'slug' => $this->sanitize_module_slug( $item['slug'] ?? '' ),
             ];
         }
 
@@ -691,6 +794,30 @@ class HC_AI_Bulk_Generator {
         $slug = trim( preg_replace( '/-+/', '-', $slug ), '-' );
 
         return $slug;
+    }
+
+    private function read_local_module_files( $slug ) {
+        $module_dir = HC_PLUGIN_DIR . 'modules/' . $slug;
+        if ( ! is_dir( $module_dir ) ) {
+            return new WP_Error( 'missing_module_dir', 'Lokal modul klasoru bulunamadi.' );
+        }
+
+        $files = [];
+        foreach ( [ 'meta.json', 'calculator.php', 'calculator.js', 'calculator.css' ] as $filename ) {
+            $path = $module_dir . '/' . $filename;
+            if ( ! file_exists( $path ) ) {
+                return new WP_Error( 'missing_module_file', $filename . ' bulunamadi.' );
+            }
+
+            $content = file_get_contents( $path );
+            if ( false === $content ) {
+                return new WP_Error( 'unreadable_module_file', $filename . ' okunamadi.' );
+            }
+
+            $files[ $filename ] = $this->normalize_newlines( $content );
+        }
+
+        return $files;
     }
 
     private function normalize_generated_files( $files, $title, $slug ) {
