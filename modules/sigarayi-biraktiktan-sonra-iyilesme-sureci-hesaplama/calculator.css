@@ -1,0 +1,41 @@
+.hc-quit-smoking-calculator {
+    display: grid;
+    gap: 12px;
+}
+.hc-quit-smoking-calculator h3 {
+    margin-top: 0;
+}
+#hc-quit-date {
+    width: 100%;
+}
+#hc-calculate-btn {
+    width: 100%;
+}
+#hc-result {
+    background: #fff;
+    padding: 15px;
+    border-left: 4px solid #0073aa;
+}
+#hc-result p {
+    margin: 5px 0;
+}
+
+.hc-sigarayi-biraktiktan-sonra-iyilesme-sureci-hesaplama-panel {
+    display: grid;
+    gap: 12px;
+}
+
+.hc-sigarayi-biraktiktan-sonra-iyilesme-sureci-hesaplama-summary {
+    font-weight: 600;
+}
+
+
+@media (max-width: 480px) {
+    .hc-sigarayi-biraktiktan-sonra-iyilesme-sureci-hesaplama-panel {
+        gap: 10px;
+    }
+
+    .hc-sigarayi-biraktiktan-sonra-iyilesme-sureci-hesaplama-summary {
+        font-size: 14px;
+    }
+}
