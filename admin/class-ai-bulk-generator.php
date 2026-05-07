@@ -329,7 +329,7 @@ class HC_AI_Bulk_Generator {
                         if(cb) cb.checked = false;
                     } else {
                         const errorText = (res.data || '').toLowerCase();
-                        if (errorText.includes('high demand') || errorText.includes('quota') || errorText.includes('429')) {
+                        if (errorText.includes('high demand') || errorText.includes('quota') || errorText.includes('429') || errorText.includes('timed out') || errorText.includes('cURL error 28'.toLowerCase())) {
                             logMsg('⚠️ API Yoğun/Kota: ' + res.data + ' | 15 sn sonra denenecek...');
                             queue[targetIndex].status = 'pending'; 
                             renderTable();
@@ -468,61 +468,9 @@ class HC_AI_Bulk_Generator {
 }
 ÖNEMLİ: Format örneğindeki yorum satırları ve '...' olan yerleri kendi yazacağın ÇALIŞAN, GERÇEK kodlarla doldur! Sadece örnekteki gibi bırakma!";
 
-        $raw_text = "";
-
-        // 3. AI Sağlayıcı İsteği
-        if ($ai_provider === 'deepseek') {
-            $payload = [
-                'model' => $ai_model,
-                'messages' => [['role' => 'user', 'content' => $prompt]],
-                'response_format' => ['type' => 'json_object']
-            ];
-
-            $response = wp_remote_post("https://api.deepseek.com/chat/completions", [
-                'timeout' => 90,
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $api_key,
-                    'Content-Type'  => 'application/json'
-                ],
-                'body' => wp_json_encode($payload)
-            ]);
-
-            if (is_wp_error($response)) wp_send_json_error('DeepSeek Bağlantı Hatası: ' . $response->get_error_message());
-            $body = json_decode(wp_remote_retrieve_body($response), true);
-
-            if (isset($body['error'])) {
-                wp_send_json_error('DeepSeek API Hatası: ' . ($body['error']['message'] ?? wp_json_encode($body['error'])));
-            }
-
-            if(empty($body['choices'][0]['message']['content'])) {
-                wp_send_json_error('DeepSeek yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
-            }
-            $raw_text = $body['choices'][0]['message']['content'];
-
-        } else {
-            // Gemini
-            $payload = [
-                'contents' => [['parts' => [['text' => $prompt]]]],
-                'generationConfig' => ['responseMimeType' => 'application/json']
-            ];
-
-            $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$ai_model}:generateContent?key={$api_key}", [
-                'timeout' => 90,
-                'headers' => ['Content-Type' => 'application/json'],
-                'body'    => wp_json_encode($payload)
-            ]);
-
-            if (is_wp_error($response)) wp_send_json_error('Gemini Bağlantı Hatası: ' . $response->get_error_message());
-            $body = json_decode(wp_remote_retrieve_body($response), true);
-
-            if (isset($body['error'])) {
-                wp_send_json_error('Gemini API Hatası: ' . ($body['error']['message'] ?? wp_json_encode($body['error'])));
-            }
-
-            if(empty($body['candidates'][0]['content']['parts'][0]['text'])) {
-                wp_send_json_error('API yanıtı boş. Ham Yanıt: ' . wp_json_encode($body));
-            }
-            $raw_text = $body['candidates'][0]['content']['parts'][0]['text'];
+        $raw_text = $this->request_ai_generation( $ai_provider, $ai_model, $api_key, $prompt );
+        if ( is_wp_error( $raw_text ) ) {
+            wp_send_json_error( $raw_text->get_error_message() );
         }
 
         // 4. JSON Temizleme ve Kaydetme
@@ -537,7 +485,16 @@ class HC_AI_Bulk_Generator {
         $normalized_files = $this->normalize_generated_files( $files, $title, $slug );
         $validation = $this->validate_generated_files( $normalized_files, $slug );
         if ( is_wp_error( $validation ) ) {
-            wp_send_json_error( $validation->get_error_message() );
+            $repair_files = $this->attempt_file_repair( $ai_provider, $ai_model, $api_key, $title, $slug, $normalized_files, $validation->get_error_message() );
+            if ( is_wp_error( $repair_files ) ) {
+                wp_send_json_error( $validation->get_error_message() );
+            }
+
+            $normalized_files = $repair_files;
+            $validation = $this->validate_generated_files( $normalized_files, $slug );
+            if ( is_wp_error( $validation ) ) {
+                wp_send_json_error( $validation->get_error_message() );
+            }
         }
 
         $github_files = [
@@ -579,6 +536,101 @@ class HC_AI_Bulk_Generator {
     private function sanitize_model_name( $model ) {
         $model = sanitize_text_field( (string) $model );
         return $model ? $model : 'deepseek-v4-flash';
+    }
+
+    private function request_ai_generation( $ai_provider, $ai_model, $api_key, $prompt ) {
+        if ( 'deepseek' === $ai_provider ) {
+            $payload = [
+                'model' => $ai_model,
+                'messages' => [['role' => 'user', 'content' => $prompt]],
+                'response_format' => ['type' => 'json_object']
+            ];
+
+            $response = wp_remote_post("https://api.deepseek.com/chat/completions", [
+                'timeout' => 150,
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $api_key,
+                    'Content-Type'  => 'application/json'
+                ],
+                'body' => wp_json_encode($payload)
+            ]);
+
+            if ( is_wp_error( $response ) ) {
+                return new WP_Error( 'deepseek_connection', 'DeepSeek Bağlantı Hatası: ' . $response->get_error_message() );
+            }
+
+            $body = json_decode( wp_remote_retrieve_body( $response ), true );
+            if ( isset( $body['error'] ) ) {
+                return new WP_Error( 'deepseek_api', 'DeepSeek API Hatası: ' . ( $body['error']['message'] ?? wp_json_encode( $body['error'] ) ) );
+            }
+
+            if ( empty( $body['choices'][0]['message']['content'] ) ) {
+                return new WP_Error( 'deepseek_empty', 'DeepSeek yanıtı boş. Ham Yanıt: ' . wp_json_encode( $body ) );
+            }
+
+            return $body['choices'][0]['message']['content'];
+        }
+
+        $payload = [
+            'contents' => [['parts' => [['text' => $prompt]]]],
+            'generationConfig' => ['responseMimeType' => 'application/json']
+        ];
+
+        $response = wp_remote_post("https://generativelanguage.googleapis.com/v1beta/models/{$ai_model}:generateContent?key={$api_key}", [
+            'timeout' => 120,
+            'headers' => ['Content-Type' => 'application/json'],
+            'body'    => wp_json_encode($payload)
+        ]);
+
+        if ( is_wp_error( $response ) ) {
+            return new WP_Error( 'gemini_connection', 'Gemini Bağlantı Hatası: ' . $response->get_error_message() );
+        }
+
+        $body = json_decode( wp_remote_retrieve_body( $response ), true );
+        if ( isset( $body['error'] ) ) {
+            return new WP_Error( 'gemini_api', 'Gemini API Hatası: ' . ( $body['error']['message'] ?? wp_json_encode( $body['error'] ) ) );
+        }
+
+        if ( empty( $body['candidates'][0]['content']['parts'][0]['text'] ) ) {
+            return new WP_Error( 'gemini_empty', 'API yanıtı boş. Ham Yanıt: ' . wp_json_encode( $body ) );
+        }
+
+        return $body['candidates'][0]['content']['parts'][0]['text'];
+    }
+
+    private function attempt_file_repair( $ai_provider, $ai_model, $api_key, $title, $slug, $files, $validation_error ) {
+        $repair_prompt = $this->build_repair_prompt( $title, $slug, $files, $validation_error );
+        $raw_text = $this->request_ai_generation( $ai_provider, $ai_model, $api_key, $repair_prompt );
+
+        if ( is_wp_error( $raw_text ) ) {
+            return $raw_text;
+        }
+
+        $clean_text = preg_replace( '/^```(?:json)?\s*/i', '', trim( $raw_text ) );
+        $clean_text = preg_replace( '/\s*```$/', '', $clean_text );
+        $repaired_files = json_decode( $clean_text, true );
+
+        if ( ! is_array( $repaired_files ) ) {
+            return new WP_Error( 'repair_json', 'Duzeltme yaniti gecersiz JSON dondu.' );
+        }
+
+        return $this->normalize_generated_files( $repaired_files, $title, $slug );
+    }
+
+    private function build_repair_prompt( $title, $slug, $files, $validation_error ) {
+        $slug_under = str_replace( '-', '_', $slug );
+        $files_json = wp_json_encode( $files, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+
+        return "Daha once uretilen WordPress hesaplama modulu gecersiz bulundu. Sadece gecerli JSON don ve tum dosyalari tam calisan hale getir.\n"
+            . "Konu: {$title}\n"
+            . "Slug: {$slug}\n"
+            . "Shortcode: [hc_{$slug_under}]\n"
+            . "Dogrulama hatasi: {$validation_error}\n"
+            . "Zorunlu: calculator.js gercek hesaplama yapmali, sonuc HTML icine yazilmali ve visible class'i eklenmeli. Bos iskelet, yorum veya TODO kullanma.\n"
+            . "Zorunlu: calculator.php icinde modules/{$slug}/calculator.js ve modules/{$slug}/calculator.css enqueue edilmeli.\n"
+            . "Yalnizca SI birimleri ve Turkce kullan.\n"
+            . "Mevcut gecersiz dosyalar JSON'u:\n{$files_json}\n"
+            . "Yaniti su anahtarlarla don: meta.json, calculator.php, calculator.js, calculator.css";
     }
 
     private function sanitize_queue_items( $queue ) {
