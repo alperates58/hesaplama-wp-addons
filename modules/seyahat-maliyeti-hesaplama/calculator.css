@@ -1,0 +1,147 @@
+#hc-seyahat-maliyeti-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #f0f0f0;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-header h3 {
+    color: #0f172a;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-header p {
+    color: #64748b;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-seyahat-maliyeti-hesaplama .full-width {
+    grid-column: span 2;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+#hc-seyahat-maliyeti-hesaplama input,
+#hc-seyahat-maliyeti-hesaplama select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f1f5f9;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#hc-seyahat-maliyeti-hesaplama input:focus {
+    border-color: #3b82f6;
+    background: #fff;
+    outline: none;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-btn:hover {
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 16px;
+    border: 1px solid #e0f2fe;
+    display: none;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-main-cost {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #bae6fd;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-main-cost small {
+    display: block;
+    color: #0369a1;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#hc-seyahat-maliyeti-hesaplama #hc-res-total {
+    font-size: 2.2rem;
+    color: #0c4a6e;
+    font-weight: 900;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-sub-costs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-cost-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-cost-item span {
+    color: #64748b;
+}
+
+#hc-seyahat-maliyeti-hesaplama .hc-cost-item strong {
+    color: #0f172a;
+}
+
+@media (max-width: 480px) {
+    #hc-seyahat-maliyeti-hesaplama .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
