@@ -275,7 +275,12 @@
 
 .hc-wrap select option {
     background: #1e1e26;
-    color: var(--hc-text);
+    color: #f4f4f5;
+}
+
+.hc-wrap.hc-light-mode select option {
+    background: #ffffff;
+    color: #111827;
 }
 
 .hc-wrap .button,
