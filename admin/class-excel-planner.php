@@ -19,11 +19,45 @@ class HC_Excel_Planner {
 
     public static function get_data() {
         $data = get_option( self::OPTION_KEY, [] );
-        return is_array( $data ) ? $data : [];
+        $data = is_array( $data ) ? $data : [];
+
+        return self::sync_topics_with_modules( $data );
     }
 
     private static function save_data( $data ) {
         update_option( self::OPTION_KEY, $data, false );
+    }
+
+    private static function sync_topics_with_modules( $data ) {
+        if ( empty( $data['topics'] ) || ! is_array( $data['topics'] ) ) {
+            return $data;
+        }
+
+        $topics   = $data['topics'];
+        $modules  = HC_Module_Inventory::get_modules();
+        $matched  = self::match_topics_to_modules( $topics, $modules );
+        $changed  = false;
+
+        foreach ( $matched as $index => $topic ) {
+            $prev_slug      = $topics[ $index ]['module_slug'] ?? '';
+            $prev_name      = $topics[ $index ]['module_name'] ?? '';
+            $prev_shortcode = $topics[ $index ]['shortcode'] ?? '';
+
+            if (
+                $prev_slug !== ( $topic['module_slug'] ?? '' ) ||
+                $prev_name !== ( $topic['module_name'] ?? '' ) ||
+                $prev_shortcode !== ( $topic['shortcode'] ?? '' )
+            ) {
+                $changed = true;
+            }
+        }
+
+        if ( $changed ) {
+            $data['topics'] = $matched;
+            update_option( self::OPTION_KEY, $data, false );
+        }
+
+        return $changed ? $data : $data;
     }
 
     // ── AJAX: Upload & Diff ───────────────────────────────────────────────────
