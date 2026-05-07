@@ -1,123 +1,105 @@
-var HC_ABH_BURCLAR = [
-    { ad: 'Koç', sembol: '♈', element: 'Ateş', nitelik: 'Öncü', yorum: 'Duygular hızlı, doğrudan ve cesur biçimde görünür olur.' },
-    { ad: 'Boğa', sembol: '♉', element: 'Toprak', nitelik: 'Sabit', yorum: 'Duygusal güven, huzur ve istikrar ihtiyacı belirgindir.' },
-    { ad: 'İkizler', sembol: '♊', element: 'Hava', nitelik: 'Değişken', yorum: 'Duygular zihinsel hareketlilik, konuşma ve merakla ifade edilir.' },
-    { ad: 'Yengeç', sembol: '♋', element: 'Su', nitelik: 'Öncü', yorum: 'Koruma, aidiyet ve duygusal yakınlık ihtiyacı güçlüdür.' },
-    { ad: 'Aslan', sembol: '♌', element: 'Ateş', nitelik: 'Sabit', yorum: 'İç dünyada sıcaklık, gurur ve görünür olma isteği öne çıkar.' },
-    { ad: 'Başak', sembol: '♍', element: 'Toprak', nitelik: 'Değişken', yorum: 'Duygular düzen, fayda ve ayrıntılara dikkat ederek işlenir.' },
-    { ad: 'Terazi', sembol: '♎', element: 'Hava', nitelik: 'Öncü', yorum: 'Duygusal denge, uyum ve ilişkilerde nezaket ihtiyacı baskındır.' },
-    { ad: 'Akrep', sembol: '♏', element: 'Su', nitelik: 'Sabit', yorum: 'Duygular yoğun, sezgisel ve derin bağ kurmaya dönüktür.' },
-    { ad: 'Yay', sembol: '♐', element: 'Ateş', nitelik: 'Değişken', yorum: 'İç dünyada özgürlük, anlam ve keşif duygusu canlıdır.' },
-    { ad: 'Oğlak', sembol: '♑', element: 'Toprak', nitelik: 'Öncü', yorum: 'Duygular sorumluluk, dayanıklılık ve kontrol ihtiyacıyla şekillenir.' },
-    { ad: 'Kova', sembol: '♒', element: 'Hava', nitelik: 'Sabit', yorum: 'Duygusal tepkiler bağımsız, gözlemci ve özgün bir çizgi taşır.' },
-    { ad: 'Balık', sembol: '♓', element: 'Su', nitelik: 'Değişken', yorum: 'Sezgi, empati ve hayal gücü iç dünyada güçlü çalışır.' }
-];
-
-function hcAbhNormalize(derece) {
-    var sonuc = derece % 360;
-    return sonuc < 0 ? sonuc + 360 : sonuc;
-}
-
-function hcAbhRad(derece) {
-    return derece * Math.PI / 180;
-}
-
-function hcAbhDeg(radyan) {
-    return radyan * 180 / Math.PI;
-}
-
-function hcAbhSin(derece) {
-    return Math.sin(hcAbhRad(derece));
-}
-
-function hcAbhFormat(sayi, hane) {
-    return sayi.toLocaleString('tr-TR', {
-        minimumFractionDigits: hane,
-        maximumFractionDigits: hane
-    });
-}
-
-function hcAbhJulianDay(yil, ay, gun, saat, dakika, utcFarki) {
-    var utcMs = Date.UTC(yil, ay - 1, gun, saat, dakika, 0) - utcFarki * 60 * 60 * 1000;
-    return utcMs / 86400000 + 2440587.5;
-}
-
-function hcAbhAyBoylami(jd) {
-    var d = jd - 2451543.5;
-    var n = hcAbhNormalize(125.1228 - 0.0529538083 * d);
-    var i = 5.1454;
-    var w = hcAbhNormalize(318.0634 + 0.1643573223 * d);
-    var a = 60.2666;
-    var e = 0.054900;
-    var m = hcAbhNormalize(115.3654 + 13.0649929509 * d);
-    var ms = hcAbhNormalize(356.0470 + 0.9856002585 * d);
-    var ws = hcAbhNormalize(282.9404 + 0.0000470935 * d);
-    var ls = hcAbhNormalize(ms + ws);
-    var lm = hcAbhNormalize(n + w + m);
-    var elongasyon = hcAbhNormalize(lm - ls);
-    var f = hcAbhNormalize(lm - n);
-    var eAnomali = m + hcAbhDeg(e * Math.sin(hcAbhRad(m)) * (1 + e * Math.cos(hcAbhRad(m))));
-    var x = a * (Math.cos(hcAbhRad(eAnomali)) - e);
-    var y = a * Math.sqrt(1 - e * e) * Math.sin(hcAbhRad(eAnomali));
-    var r = Math.sqrt(x * x + y * y);
-    var v = hcAbhDeg(Math.atan2(y, x));
-    var xeclip = r * (Math.cos(hcAbhRad(n)) * Math.cos(hcAbhRad(v + w)) - Math.sin(hcAbhRad(n)) * Math.sin(hcAbhRad(v + w)) * Math.cos(hcAbhRad(i)));
-    var yeclip = r * (Math.sin(hcAbhRad(n)) * Math.cos(hcAbhRad(v + w)) + Math.cos(hcAbhRad(n)) * Math.sin(hcAbhRad(v + w)) * Math.cos(hcAbhRad(i)));
-    var lon = hcAbhNormalize(hcAbhDeg(Math.atan2(yeclip, xeclip)));
-
-    lon += -1.274 * hcAbhSin(m - 2 * elongasyon);
-    lon += 0.658 * hcAbhSin(2 * elongasyon);
-    lon += -0.186 * hcAbhSin(ms);
-    lon += -0.059 * hcAbhSin(2 * m - 2 * elongasyon);
-    lon += -0.057 * hcAbhSin(m - 2 * elongasyon + ms);
-    lon += 0.053 * hcAbhSin(m + 2 * elongasyon);
-    lon += 0.046 * hcAbhSin(2 * elongasyon - ms);
-    lon += 0.041 * hcAbhSin(m - ms);
-    lon += -0.035 * hcAbhSin(elongasyon);
-    lon += -0.031 * hcAbhSin(m + ms);
-    lon += -0.015 * hcAbhSin(2 * f - 2 * elongasyon);
-    lon += 0.011 * hcAbhSin(m - 4 * elongasyon);
-
-    return hcAbhNormalize(lon);
-}
-
 function hcAyBurcuHesapla() {
-    var tarih = document.getElementById('hc-abh-tarih').value;
-    var saat = document.getElementById('hc-abh-saat').value;
-    var utcFarki = parseFloat(document.getElementById('hc-abh-utc').value);
+    const tarihStr = document.getElementById('hc-ayburc-tarih').value;
+    const saatStr = document.getElementById('hc-ayburc-saat').value;
 
-    if (!tarih || !saat || isNaN(utcFarki)) {
-        alert('Lütfen doğum tarihi, doğum saati ve UTC farkını girin.');
+    if (!tarihStr) {
+        alert('Lütfen doğum tarihinizi girin.');
         return;
     }
 
-    var tarihParca = tarih.split('-');
-    var saatParca = saat.split(':');
-    var yil = parseInt(tarihParca[0], 10);
-    var ay = parseInt(tarihParca[1], 10);
-    var gun = parseInt(tarihParca[2], 10);
-    var saatDegeri = parseInt(saatParca[0], 10);
-    var dakika = parseInt(saatParca[1], 10);
-    var jd = hcAbhJulianDay(yil, ay, gun, saatDegeri, dakika, utcFarki);
-    var ayBoylami = hcAbhAyBoylami(jd);
-    var burcIndex = Math.floor(ayBoylami / 30);
-    var burcIciDerece = ayBoylami - burcIndex * 30;
-    var burc = HC_ABH_BURCLAR[burcIndex];
-
-    document.getElementById('hc-abh-sembol').textContent = burc.sembol;
-    document.getElementById('hc-abh-burc').textContent = burc.ad;
-    document.getElementById('hc-abh-derece').textContent = hcAbhFormat(burcIciDerece, 2) + '° ' + burc.ad;
-    document.getElementById('hc-abh-element').textContent = burc.element;
-    document.getElementById('hc-abh-nitelik').textContent = burc.nitelik;
-    document.getElementById('hc-abh-boylam').textContent = hcAbhFormat(ayBoylami, 2) + '°';
-    document.getElementById('hc-abh-yorum').textContent = burc.yorum;
-
-    var uyari = '';
-    if (burcIciDerece < 1 || burcIciDerece > 29) {
-        uyari = 'Sonuç burç sınırına yakın. Doğum saati veya UTC farkı birkaç dakika değişirse Ay burcu değişebilir.';
+    const tarih = new Date(tarihStr + 'T' + saatStr);
+    
+    // Julian Day calculation
+    function getJD(date) {
+        return (date.getTime() / 86400000) + 2440587.5;
     }
 
-    document.getElementById('hc-abh-uyari').textContent = uyari;
-    document.getElementById('hc-abh-uyari').style.display = uyari ? 'block' : 'none';
-    document.getElementById('hc-abh-result').classList.add('visible');
+    const jd = getJD(tarih);
+    const d = jd - 2451543.5; // Days since J2000.0
+
+    // Moon's orbital elements (approximate)
+    let N = 125.1228 - 0.0529538083 * d;
+    let i = 5.1454;
+    let w = 318.0634 + 0.1643573223 * d;
+    let a = 60.2666;
+    let e = 0.054900;
+    let M = 115.3654 + 13.0649929509 * d;
+
+    // Normalize angles
+    function norm(x) {
+        x = x % 360;
+        if (x < 0) x += 360;
+        return x;
+    }
+
+    N = norm(N);
+    w = norm(w);
+    M = norm(M);
+
+    const rad = Math.PI / 180;
+    let E = M + (180 / Math.PI) * e * Math.sin(M * rad) * (1 + e * Math.cos(M * rad));
+    
+    // Iteration for E
+    for (let j = 0; j < 3; j++) {
+        E = E - (E - (180 / Math.PI) * e * Math.sin(E * rad) - M) / (1 - e * Math.cos(E * rad));
+    }
+
+    let xv = a * (Math.cos(E * rad) - e);
+    let yv = a * (Math.sqrt(1 - e * e) * Math.sin(E * rad));
+
+    let v = norm(Math.atan2(yv, xv) / rad);
+    let r = Math.sqrt(xv * xv + yv * yv);
+
+    // Position in 3D
+    let xeclip = r * (Math.cos(N * rad) * Math.cos((v + w) * rad) - Math.sin(N * rad) * Math.sin((v + w) * rad) * Math.cos(i * rad));
+    let yeclip = r * (Math.sin(N * rad) * Math.cos((v + w) * rad) + Math.cos(N * rad) * Math.sin((v + w) * rad) * Math.cos(i * rad));
+
+    let lon = norm(Math.atan2(yeclip, xeclip) / rad);
+
+    // Perturbations for better accuracy (simplified)
+    const Ls = norm(280.460 + 0.9856474 * d); // Sun Mean Long
+    const Ms = norm(357.528 + 0.9856003 * d); // Sun Mean Anom
+    const Lm = norm(N + w + M); // Moon Mean Long
+    const D = norm(Lm - Ls); // Moon Mean Elongation
+    const F = norm(Lm - N); // Moon Argument of Latitude
+
+    lon += -1.274 * Math.sin((M - 2 * D) * rad);
+    lon += 0.658 * Math.sin(2 * D * rad);
+    lon += -0.186 * Math.sin(Ms * rad);
+    lon += -0.059 * Math.sin((2 * M - 2 * D) * rad);
+    lon += -0.057 * Math.sin((M - 2 * D + Ms) * rad);
+    lon += 0.053 * Math.sin((M + 2 * D) * rad);
+    lon += 0.046 * Math.sin((2 * D - Ms) * rad);
+    lon += 0.041 * Math.sin((M - Ms) * rad);
+    lon += -0.035 * Math.sin(D * rad);
+    lon += -0.031 * Math.sin((M + Ms) * rad);
+
+    lon = norm(lon);
+
+    const burclar = [
+        "Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak",
+        "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"
+    ];
+
+    const burcIndex = Math.floor(lon / 30);
+    const burc = burclar[burcIndex];
+
+    const yorumlar = {
+        "Koç": "Ay'ı Koç burcunda olan bireyler, duygusal tepkilerinde oldukça hızlı, doğrudan ve enerjiktirler. İç dünyalarında bitmek bilmeyen bir macera arzusu ve yenilik tutkusu taşırlar. Sabırsızlık en belirgin özelliklerinden biridir; istedikleri şeyin hemen gerçekleşmesini beklerler ve duygusal bir engelle karşılaştıklarında tepkilerini gizlemeden, ateşli bir şekilde ortaya koyarlar. Bağımsızlıklarına düşkündürler ve duygusal olarak kısıtlanmak onları huzursuz eder. Cesaretleri ve öncü ruhları, başkalarının adım atmaya çekindiği durumlarda onların duygusal bir liderlik sergilemesini sağlar.",
+        "Boğa": "Ay'ı Boğa burcunda olan kişiler için duygusal güvenlik ve maddi konfor her şeyden önce gelir. Duygusal dünyaları oldukça sabit, huzurlu ve dayanıklıdır; kolay kolay sarsılmazlar ancak bir kez öfkelendiklerinde bu öfke kalıcı olabilir. Sadakat onlar için bir yaşam biçimidir ve sevdiklerine sıkı sıkıya bağlıdırlar. Doğayla vakit geçirmek, lezzetli yemekler yemek ve kaliteli eşyalarla çevrili olmak ruhlarını besler. Değişimden pek hoşlanmazlar, tanıdık ve güvenli olanı tercih ederler. Estetik duyarlılıkları çok gelişmiştir ve çevrelerini güzelleştirmekten büyük keyif alırlar.",
+        "İkizler": "Duygusal dünyaları zihinsel bir süreçle iç içe geçmiş olan Ay İkizler kişileri, hislerini anlamlandırmak ve kelimelere dökmek konusunda ustadırlar. İç dünyaları oldukça hareketli, meraklı ve değişkendir; aynı anda birçok farklı duygu ve düşünce arasında mekik dokuyabilirler. Duygusal bir yakınlık kurmanın yolu onlar için entelektüel paylaşımdan geçer. Yalnız kalmaktan hoşlanmazlar, sürekli bir iletişim ve bilgi akışı içinde olma ihtiyacı duyarlar. Ruh halleri hızla değişebilir, bu da dışarıdan yüzeysel veya kararsız görünmelerine neden olsa da aslında her durumu farklı açılardan değerlendirme yeteneklerinin bir sonucudur.",
+        "Yengeç": "Ay'ın kendi yöneticisi olduğu Yengeç burcunda bulunması, duyguların en saf ve en yoğun halini temsil eder. Bu kişiler son derece hassas, sezgisel ve empati yeteneği gelişmiş bireylerdir. Güvenlik ihtiyaçları çok yüksektir ve bu güvenliği genellikle ailelerinde ve evlerinde bulurlar. Geçmişe, anılara ve köklerine büyük bir bağlılık duyarlar. Korumacı bir yapıları vardır; sevdiklerini bir anne şefkatiyle sarmalarlar ancak incinmekten korktukları için duygusal bir kabuğun arkasına saklanabilirler. Ruh halleri ayın evreleri gibi dalgalıdır, bu da onları zaman zaman melankolik yapabilir.",
+        "Aslan": "Ay'ı Aslan burcunda olan bireyler, duygusal dünyalarında büyük bir sıcaklık, cömertlik ve neşe taşırlar. Takdir edilmek, ilgi görmek ve onaylanmak ruhsal bir ihtiyaçtır onlar için. Duygularını dramatik bir şekilde ve büyük bir özgüvenle ifade ederler; sanki iç dünyaları bir sahnedir. Sevdiklerine karşı son derece sadık ve korumacıdırlar, onlarla gurur duymak isterler. Yaratıcılıklarını sergileyebildikleri alanlarda kendilerini duygusal olarak tatmin olmuş hissederler. Zaman zaman fazla inatçı veya egolu görünseler de, aslında kalpleri çok yumuşaktır ve başkalarına ilham vermekten mutluluk duyarlar.",
+        "Başak": "Ay Başak kişileri için duygusal huzur, düzen ve faydalı olma duygusuyla gelir. İç dünyaları oldukça analizci ve titizdir; hislerini bile bir mantık çerçevesine oturtmaya çalışırlar. Başkalarına yardım etmek, bir işin ucundan tutmak ve hayatı kolaylaştırmak onları duygusal olarak en çok tatmin eden şeydir. Detaylara olan aşırı dikkatleri, zaman zaman kendilerine ve başkalarına karşı fazla eleştirel olmalarına neden olabilir. Mütevazı bir yapıları vardır ve gösterişten hoşlanmazlar. Sağlıklı yaşam, temizlik ve rutinler, ruhsal dengelerini korumaları için vazgeçilmez unsurlardır.",
+        "Terazi": "Duygusal dünyasında denge, uyum ve adalet arayan Ay Terazi kişileri için ilişkiler hayatın merkezindedir. Yalnız kalmak onlar için duygusal bir boşluk hissi yaratabilir; bu yüzden her zaman bir eşlikçiye ihtiyaç duyarlar. Nazik, zarif ve barışçıl bir yapıları vardır, çatışmalardan kaçınmak için büyük çaba sarf ederler. Karar verme aşamasında tüm tarafları dinlemek istedikleri için kararsızlık yaşayabilirler. Estetik ve güzellik ruhlarını besler; çevrelerindeki her şeyin uyumlu ve göze hoş gelmesini isterler. Diplomasi yetenekleri sayesinde duygusal krizleri sakinlikle yönetebilirler.",
+        "Akrep": "Duygularını en derin, en yoğun ve en gizemli şekilde yaşayanlar Ay Akrep bireyleridir. İç dünyaları adeta bir okyanus gibidir; yüzeyde sakin görünseler de derinlerde büyük fırtınalar kopabilir. Sezgileri inanılmaz güçlüdür, yalanı veya yapmacıklığı anında hissederler. Güven onlar için en zor kazanılan ancak en kutsal olan değerdir. Duygusal bir kriz anında küllerinden yeniden doğma yeteneğine sahiptirler. Tutkulu bir yapıları vardır, sevdiklerine derin bir bağlılık duyarlar ancak ihanete uğradıklarını hissettiklerinde bunu asla unutmazlar ve derin bir sessizliğe bürünebilirler.",
+        "Yay": "Ay'ı Yay burcunda olan bireylerin ruhu özgürlük ve macera için yaratılmıştır. Duygusal olarak kısıtlanmaya gelemezler; her zaman yeni ufuklar keşfetmek, yeni bilgiler öğrenmek ve seyahat etmek isterler. İyimserlikleri en büyük güçleridir, en zor durumlarda bile bir umut ışığı bulmayı başarırlar. Dürüstlük onlar için çok önemlidir, hislerini ve düşüncelerini filtrelemeden olduğu gibi söylerler. Felsefi bir bakış açısına sahiptirler, hayatın anlamını sorgulamak ruhlarını besler. Rutin hayat ve dar bakış açıları onları duygusal olarak boğar; her zaman genişlemek ve büyümek isterler.",
+        "Oğlak": "Duygusal dünyaları disiplinli, ciddi ve sorumluluk sahibi bir yapıya sahip olan Ay Oğlak kişileri, hislerini ifade etmekte temkinli davranırlar. Duygusal güvenliklerini genellikle başarıda, statüde ve maddi sağlamlıkta bulurlar. Küçük yaşlardan itibaren bir yetişkin olgunluğuyla hareket edebilirler. İç dünyalarında kendilerine karşı oldukça sert ve eleştirel olabilirler; hata yapmaktan korkarlar. Ancak bir kez güvendiklerinde, ömür boyu sürecek sarsılmaz bir sadakat ve destek sunarlar. Duygularını göstermek yerine, sevdikleri için somut bir şeyler yaparak sevgilerini kanıtlarlar.",
+        "Kova": "Ay'ı Kova burcunda olan bireyler, duygusal dünyalarında bağımsızlık ve özgünlük ararlar. Geleneksel duygusal kalıplara sığmakta zorlanabilirler; hislerini bile daha çok rasyonel ve entelektüel bir perspektiften değerlendirirler. Toplumsal olaylara, insan haklarına ve geleceğe dair vizyonlara karşı büyük bir duyarlılıkları vardır. Arkadaşlık onlar için aşktan bile daha önemli olabilir; herkesle bir mesafe koyarak ama herkesi severek yaşarlar. Sıradışı olanı severler ve kendilerini bir gruba ait hissetmekten ziyade, insanlığın bir parçası olarak görmeyi tercih ederler.",
+        "Balık": "Zodyak'ın en hassas, en merhametli ve en hayalperest ruhları Ay Balık kişileridir. Duygusal dünyaları sınır tanımaz, adeta çevrelerindeki tüm enerjiyi bir sünger gibi emerler. Bu yüzden sık sık yalnız kalıp ruhlarını arındırma ihtiyacı duyarlar. Empati yetenekleri o kadar gelişmiştir ki başkalarının acısını kendi acıları gibi hissederler. Sanatsal ve yaratıcı yönleri çok güçlüdür; hayal güçleri onları gerçek dünyanın sertliğinden koruyan bir sığınaktır. Sezgilerine güvenerek hareket ederler ve çoğu zaman mantığın ötesindeki gerçekleri görebilirler."
+    };
+
+    document.getElementById('hc-ayburc-value').innerText = burc;
+    document.getElementById('hc-ayburc-desc').innerText = yorumlar[burc];
+    document.getElementById('hc-ay-burcu-result').classList.add('visible');
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Burç Hesaplama",
+  "desc": "Doğum tarihinize göre güneş burcunuzu hesaplayın.",
+  "shortcode": "[hc_burc_hesaplama]"
+}

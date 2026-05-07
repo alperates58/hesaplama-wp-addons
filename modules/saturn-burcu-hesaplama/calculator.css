@@ -1,15 +1,15 @@
-.hc-venus-burcu-result {
+.hc-saturn-burcu-result {
     text-align: center;
 }
 
-.hc-venus-value {
+.hc-saturn-value {
     font-size: 2rem;
     font-weight: bold;
-    color: #f1948a;
+    color: #34495e;
     margin: 10px 0;
 }
 
-.hc-venus-desc {
+.hc-saturn-desc {
     font-style: italic;
     color: #666;
     line-height: 1.6;

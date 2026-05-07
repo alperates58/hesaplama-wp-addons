@@ -1,16 +1,15 @@
-.hc-venus-burcu-result {
+.hc-burc-elementi-result {
     text-align: center;
 }
 
-.hc-venus-value {
+.hc-element-value {
     font-size: 2rem;
     font-weight: bold;
-    color: #f1948a;
+    color: #e67e22; /* Ateş rengi varsayılan */
     margin: 10px 0;
 }
 
-.hc-venus-desc {
+.hc-element-desc {
     font-style: italic;
     color: #666;
-    line-height: 1.6;
 }

@@ -1,15 +1,15 @@
-.hc-venus-burcu-result {
+.hc-mars-burcu-result {
     text-align: center;
 }
 
-.hc-venus-value {
+.hc-mars-value {
     font-size: 2rem;
     font-weight: bold;
-    color: #f1948a;
+    color: #c0392b;
     margin: 10px 0;
 }
 
-.hc-venus-desc {
+.hc-mars-desc {
     font-style: italic;
     color: #666;
     line-height: 1.6;
