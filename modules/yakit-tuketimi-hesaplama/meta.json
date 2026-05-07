@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Tüketimi Hesaplama",
+  "desc": "Aracınızın 100 kilometrede ortalama kaç litre yakıt tükettiğini ve kilometre başına maliyetini hesaplar.",
+  "shortcode": "[hc_yakit_tuketimi_hesaplama]"
+}
