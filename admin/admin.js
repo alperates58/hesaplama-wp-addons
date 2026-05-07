@@ -1,5 +1,11 @@
 jQuery(function ($) {
     var hcModulePreviewPayload = null;
+    var hcPreviewState = {
+        name: '',
+        shortcode: '',
+        standaloneUrl: '',
+        trigger: null
+    };
 
     // Theme Toggle
     var isLight = localStorage.getItem('hc_theme_light') === 'true';
@@ -7,11 +13,256 @@ jQuery(function ($) {
         $('.hc-wrap').addClass('hc-light-mode');
     }
 
+    $('.hc-module-grid + .hc-table-wrap').find(':input').prop('disabled', true);
+
     $('#hc-theme-toggle').on('click', function(e) {
         e.preventDefault();
         var $wrap = $('.hc-wrap');
         $wrap.toggleClass('hc-light-mode');
         localStorage.setItem('hc_theme_light', $wrap.hasClass('hc-light-mode'));
+    });
+
+    function hcCopyText(text) {
+        if (!text) {
+            return Promise.reject();
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+            return navigator.clipboard.writeText(text);
+        }
+
+        return new Promise(function (resolve, reject) {
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.top = '-999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy') ? resolve() : reject();
+            } catch (e) {
+                reject(e);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        });
+    }
+
+    function hcSetPreviewStatus(message, type) {
+        var status = document.getElementById('hc-preview-status');
+
+        if (!status) {
+            return;
+        }
+
+        status.textContent = message || '';
+        status.dataset.type = type || '';
+    }
+
+    function hcActivatePreviewScripts(container) {
+        if (!container) {
+            return;
+        }
+
+        Array.prototype.slice.call(container.querySelectorAll('script')).forEach(function (script) {
+            var fresh = document.createElement('script');
+
+            Array.prototype.slice.call(script.attributes).forEach(function (attr) {
+                fresh.setAttribute(attr.name, attr.value);
+            });
+
+            fresh.text = script.text || script.textContent || '';
+            script.parentNode.replaceChild(fresh, script);
+        });
+    }
+
+    function hcOpenPreviewModal(button) {
+        var modal = document.getElementById('hc-preview-modal');
+        var content = document.getElementById('hc-preview-content');
+        var loading = document.getElementById('hc-preview-loading');
+        var title = document.getElementById('hc-preview-title');
+        var shortcodeText = document.getElementById('hc-preview-shortcode-text');
+        var shortcodeButton = modal ? modal.querySelector('.hc-preview-shortcode') : null;
+        var standalone = document.getElementById('hc-preview-standalone');
+
+        if (!modal || !button) {
+            return;
+        }
+
+        hcPreviewState = {
+            name: button.getAttribute('data-name') || '',
+            shortcode: button.getAttribute('data-shortcode') || '',
+            standaloneUrl: button.getAttribute('data-standalone-url') || '#',
+            trigger: button
+        };
+
+        title.textContent = hcPreviewState.name || 'Modül Önizleme';
+        shortcodeText.textContent = hcPreviewState.shortcode;
+        shortcodeButton.setAttribute('data-shortcode', hcPreviewState.shortcode);
+        standalone.href = hcPreviewState.standaloneUrl;
+        content.innerHTML = '';
+        loading.hidden = false;
+        hcSetPreviewStatus(hcAdmin.previewing || 'Önizleme hazırlanıyor...', 'loading');
+
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('hc-preview-open');
+        modal.querySelector('.hc-icon-button').focus();
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_preview_shortcode',
+            nonce: hcAdmin.nonce,
+            shortcode: hcPreviewState.shortcode
+        })
+            .done(function (resp) {
+                loading.hidden = true;
+
+                if (!resp || !resp.success) {
+                    content.innerHTML = '<div class="hc-preview-error">' + ((resp && resp.data) ? resp.data : (hcAdmin.previewError || 'Önizleme yüklenemedi.')) + '</div>';
+                    hcSetPreviewStatus(hcAdmin.previewError || 'Önizleme yüklenemedi.', 'error');
+                    return;
+                }
+
+                content.innerHTML = resp.data.html || '';
+                hcActivatePreviewScripts(content);
+                hcSetPreviewStatus('Önizleme hazır.', 'success');
+            })
+            .fail(function (xhr) {
+                loading.hidden = true;
+                content.innerHTML = '<div class="hc-preview-error">Sunucu hatası: HTTP ' + xhr.status + '</div>';
+                hcSetPreviewStatus(hcAdmin.previewError || 'Önizleme yüklenemedi.', 'error');
+            });
+    }
+
+    function hcClosePreviewModal() {
+        var modal = document.getElementById('hc-preview-modal');
+
+        if (!modal || modal.hidden) {
+            return;
+        }
+
+        modal.hidden = true;
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('hc-preview-open');
+        document.getElementById('hc-preview-content').innerHTML = '';
+        hcSetPreviewStatus('', '');
+
+        if (hcPreviewState.trigger) {
+            hcPreviewState.trigger.focus();
+        }
+    }
+
+    $(document).on('click', '[data-hc-preview]', function () {
+        hcOpenPreviewModal(this);
+    });
+
+    $(document).on('click', '[data-hc-preview-close]', function () {
+        hcClosePreviewModal();
+    });
+
+    $(document).on('keydown', function (event) {
+        if (event.key === 'Escape') {
+            hcClosePreviewModal();
+        }
+    });
+
+    $(document).on('click', '[data-hc-preview-size]', function () {
+        var size = this.getAttribute('data-hc-preview-size');
+        var frame = document.querySelector('.hc-preview-frame');
+
+        $('[data-hc-preview-size]').removeClass('is-active');
+        $(this).addClass('is-active');
+
+        if (frame) {
+            frame.setAttribute('data-preview-size', size);
+        }
+    });
+
+    $(document).on('click', '[data-hc-copy-shortcode], [data-hc-modal-copy]', function () {
+        var shortcode = this.getAttribute('data-shortcode') || hcPreviewState.shortcode;
+
+        hcCopyText(shortcode)
+            .then(function () {
+                hcSetPreviewStatus(hcAdmin.copied || 'Shortcode kopyalandı.', 'success');
+            })
+            .catch(function () {
+                hcSetPreviewStatus(hcAdmin.copyError || 'Shortcode kopyalanamadı.', 'error');
+                alert(hcAdmin.copyError || 'Shortcode kopyalanamadı.');
+            });
+    });
+
+    $(document).on('click', '#hc-preview-insert', function () {
+        if (!hcPreviewState.shortcode || !hcPreviewState.name) {
+            return;
+        }
+
+        var $btn = $(this);
+        $btn.prop('disabled', true).text('Hazırlanıyor...');
+        hcSetPreviewStatus('Yazı taslağı hazırlanıyor...', 'loading');
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_create_module_post',
+            nonce: hcAdmin.nonce,
+            name: hcPreviewState.name,
+            shortcode: hcPreviewState.shortcode
+        }, function (resp) {
+            $btn.prop('disabled', false).text('Yazıya Ekle');
+
+            if (!resp.success) {
+                hcSetPreviewStatus('Hata: ' + resp.data, 'error');
+                return;
+            }
+
+            window.location.href = resp.data.edit_url;
+        }).fail(function (xhr) {
+            $btn.prop('disabled', false).text('Yazıya Ekle');
+            hcSetPreviewStatus('Sunucu hatası: HTTP ' + xhr.status, 'error');
+        });
+    });
+
+    $(document).on('click', '[data-hc-delete-module]', function () {
+        var button = this;
+        var slug = button.getAttribute('data-slug') || '';
+        var name = button.getAttribute('data-name') || slug;
+        var $button = $(button);
+        var $card = $button.closest('[data-module-card]');
+
+        if (!slug || !window.confirm((hcAdmin.deleteConfirm || 'Bu modülü silmek istediğinize emin misiniz?') + '\n\n' + name)) {
+            return;
+        }
+
+        $button.prop('disabled', true).text('Siliniyor...');
+
+        $.post(hcAdmin.ajaxurl, {
+            action: 'hc_delete_module',
+            nonce: hcAdmin.nonce,
+            slug: slug
+        })
+            .done(function (resp) {
+                if (!resp || !resp.success) {
+                    $button.prop('disabled', false).text('Modülü Sil');
+                    alert(((resp && resp.data) ? resp.data : (hcAdmin.deleteError || 'Modül silinemedi.')));
+                    return;
+                }
+
+                $card.addClass('is-removing');
+                window.setTimeout(function () {
+                    $card.remove();
+                    if (!$('[data-module-card]').length) {
+                        $('.hc-module-grid').replaceWith('<div class="hc-empty-state"><span class="dashicons dashicons-screenoptions" aria-hidden="true"></span><h3>Modül kalmadı</h3><p>Katalogda gösterilecek aktif modül bulunmuyor.</p></div>');
+                    }
+                }, 240);
+            })
+            .fail(function (xhr) {
+                $button.prop('disabled', false).text('Modülü Sil');
+                alert((hcAdmin.deleteError || 'Modül silinemedi.') + ' HTTP ' + xhr.status);
+            });
+    });
+
+    $(document).on('click', '[data-hc-toggle-categories]', function () {
+        $('#hc-category-manager').stop(true, true).slideToggle(180);
     });
 
     $(document).ajaxError(function (event, xhr, settings) {

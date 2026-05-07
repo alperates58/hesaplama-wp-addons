@@ -87,7 +87,6 @@ class HC_Module_Inventory {
                 'search'   => '',
                 'category' => '',
                 'post_status' => '',
-                'post_status' => '', 'post_status' => '',
             ]
         );
 
@@ -173,6 +172,16 @@ class HC_Module_Inventory {
 
     public static function get_category_text() {
         return implode( "\n", self::get_all_categories() );
+    }
+
+    public static function delete_module_category_assignment( $slug ) {
+        $slug     = sanitize_key( $slug );
+        $settings = self::get_catalog_settings();
+
+        if ( isset( $settings['module_categories'][ $slug ] ) ) {
+            unset( $settings['module_categories'][ $slug ] );
+            update_option( self::OPTION_KEY, $settings, false );
+        }
     }
 
     public static function group_modules_by_category( $modules ) {
@@ -268,6 +277,8 @@ class HC_Admin_Page {
         add_action( 'admin_menu', [ $this, 'register_menu' ] );
         add_action( 'admin_init', [ $this, 'handle_settings_save' ] );
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
+        add_action( 'wp_ajax_hc_preview_shortcode', [ $this, 'ajax_preview_shortcode' ] );
+        add_action( 'wp_ajax_hc_delete_module', [ $this, 'ajax_delete_module' ] );
     }
 
     public function register_menu() {
@@ -307,6 +318,12 @@ class HC_Admin_Page {
             [
                 'nonce'      => wp_create_nonce( 'hc_ajax_nonce' ),
                 'ajaxurl'    => admin_url( 'admin-ajax.php' ),
+                'previewing' => 'Önizleme hazırlanıyor...',
+                'previewError' => 'Önizleme yüklenemedi.',
+                'copied' => 'Shortcode kopyalandı.',
+                'copyError' => 'Shortcode kopyalanamadı.',
+                'deleteConfirm' => 'Bu modülü yerel eklentiden kalıcı olarak silmek istediğinize emin misiniz?',
+                'deleteError' => 'Modül silinemedi.',
                 'checking'   => 'Kontrol ediliyor...',
                 'norepo'     => 'Önce repo adresini kaydedin.',
                 'saving'     => 'Kaydediliyor...',
@@ -475,6 +492,174 @@ class HC_Admin_Page {
         <?php
     }
 
+    public function ajax_preview_shortcode() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            $this->send_preview_response( 'Önizleme yetkiniz yok.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            $this->send_preview_response( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
+
+        $shortcode  = sanitize_text_field( wp_unslash( $_REQUEST['shortcode'] ?? '' ) );
+        $standalone = ! empty( $_REQUEST['standalone'] );
+        $module     = $this->get_module_by_shortcode( $shortcode );
+
+        if ( ! $module ) {
+            $this->send_preview_response( 'Geçersiz veya kayıtlı olmayan shortcode.', 400 );
+        }
+
+        wp_enqueue_style( 'hesaplama-suite', HC_PLUGIN_URL . 'assets/style.css', [], HC_VERSION );
+        wp_enqueue_script( 'hesaplama-suite', HC_PLUGIN_URL . 'assets/main.js', [], HC_VERSION, true );
+
+        ob_start();
+        echo do_shortcode( $module['shortcode'] );
+        $html = ob_get_clean();
+
+        if ( $standalone ) {
+            nocache_headers();
+            ?>
+            <!doctype html>
+            <html <?php language_attributes(); ?>>
+            <head>
+                <meta charset="<?php bloginfo( 'charset' ); ?>">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title><?php echo esc_html( $module['name'] ); ?> - Önizleme</title>
+                <?php wp_print_styles(); ?>
+                <style>
+                    body { margin: 0; padding: 32px; background: #f8fafc; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+                    .hc-standalone-preview { max-width: 920px; margin: 0 auto; }
+                </style>
+            </head>
+            <body>
+                <main class="hc-standalone-preview">
+                    <?php echo $html; ?>
+                </main>
+                <?php wp_print_footer_scripts(); ?>
+            </body>
+            </html>
+            <?php
+            exit;
+        }
+
+        ob_start();
+        wp_print_styles();
+        wp_print_footer_scripts();
+        $assets = ob_get_clean();
+
+        $preview = $assets . '<div class="hc-admin-preview-surface">' . $html . '</div>';
+
+        wp_send_json_success(
+            [
+                'html'      => $preview,
+                'name'      => $module['name'],
+                'shortcode' => $module['shortcode'],
+            ]
+        );
+    }
+
+    public function ajax_delete_module() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Modül silme yetkiniz yok.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
+        }
+
+        $slug   = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
+        $module = $this->get_module_by_slug( $slug );
+
+        if ( ! $module ) {
+            wp_send_json_error( 'Geçersiz veya kayıtlı olmayan modül.', 400 );
+        }
+
+        $modules_root = realpath( HC_PLUGIN_DIR . 'modules' );
+        $module_path  = realpath( HC_PLUGIN_DIR . 'modules/' . $slug );
+
+        if ( ! $modules_root || ! $module_path || ! is_dir( $module_path ) ) {
+            wp_send_json_error( 'Modül klasörü bulunamadı.', 404 );
+        }
+
+        $modules_root = rtrim( wp_normalize_path( $modules_root ), '/' ) . '/';
+        $module_path  = rtrim( wp_normalize_path( $module_path ), '/' ) . '/';
+
+        if ( 0 !== strpos( $module_path, $modules_root ) || $module_path === $modules_root ) {
+            wp_send_json_error( 'Güvenli olmayan modül yolu reddedildi.', 400 );
+        }
+
+        $deleted = $this->delete_directory( $module_path );
+
+        if ( ! $deleted ) {
+            wp_send_json_error( 'Modül klasörü silinemedi.', 500 );
+        }
+
+        HC_Module_Inventory::delete_module_category_assignment( $slug );
+
+        wp_send_json_success(
+            [
+                'slug'    => $slug,
+                'message' => 'Modül silindi.',
+            ]
+        );
+    }
+
+    private function get_module_by_shortcode( $shortcode ) {
+        foreach ( HC_Module_Inventory::get_modules() as $module ) {
+            if ( $module['shortcode'] === $shortcode ) {
+                return $module;
+            }
+        }
+
+        return null;
+    }
+
+    private function get_module_by_slug( $slug ) {
+        foreach ( HC_Module_Inventory::get_modules() as $module ) {
+            if ( $module['slug'] === $slug ) {
+                return $module;
+            }
+        }
+
+        return null;
+    }
+
+    private function delete_directory( $path ) {
+        if ( ! is_dir( $path ) ) {
+            return false;
+        }
+
+        $items = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator( $path, FilesystemIterator::SKIP_DOTS ),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+
+        foreach ( $items as $item ) {
+            $item_path = $item->getPathname();
+
+            if ( $item->isDir() ) {
+                if ( ! rmdir( $item_path ) ) {
+                    return false;
+                }
+                continue;
+            }
+
+            if ( ! unlink( $item_path ) ) {
+                return false;
+            }
+        }
+
+        return rmdir( $path );
+    }
+
+    private function send_preview_response( $message, $status ) {
+        if ( ! empty( $_REQUEST['standalone'] ) ) {
+            wp_die( esc_html( $message ), esc_html__( 'Önizleme hatası', 'hesaplama-suite' ), [ 'response' => $status ] );
+        }
+
+        wp_send_json_error( $message, $status );
+    }
+
     private function render_modules_tab() {
         $search            = sanitize_text_field( wp_unslash( $_GET['s'] ?? '' ) );
         $selected_category = sanitize_text_field( wp_unslash( $_GET['module_category'] ?? '' ) );
@@ -551,16 +736,83 @@ class HC_Admin_Page {
                 </div>
             </div>
 
-            <div class="hc-card">
+            <div class="hc-card hc-catalog-shell">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px; align-items:center;">
                     <h2 style="margin:0;">Aktif Modüller</h2>
-                    <button type="button" class="button" onclick="jQuery('#hc-category-manager').slideToggle();">Kategorileri Yönet</button>
+                    <button type="button" class="button hc-button-ghost" data-hc-toggle-categories>Kategorileri Yönet</button>
                 </div>
                 
                 <?php if ( empty( $modules ) ) : ?>
+                    <div class="hc-empty-state">
+                        <span class="dashicons dashicons-search" aria-hidden="true"></span>
+                        <h3>Filtreye uygun modül bulunamadı</h3>
+                        <p>Arama metnini veya kategori/kullanım filtresini değiştirerek tekrar deneyin.</p>
+                        <a class="button button-primary" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite' ) ); ?>">Filtreleri Temizle</a>
+                    </div>
                     <p>Filtreye uygun modül bulunamadı.</p>
                 <?php else : ?>
-                    <div class="hc-table-wrap">
+                    <div class="hc-module-grid">
+                        <?php foreach ( $modules as $module ) : ?>
+                            <?php
+                            $is_used        = $module['post_count'] > 0;
+                            $standalone_url = add_query_arg(
+                                [
+                                    'action'     => 'hc_preview_shortcode',
+                                    'nonce'      => $nonce,
+                                    'shortcode'  => $module['shortcode'],
+                                    'standalone' => '1',
+                                ],
+                                admin_url( 'admin-ajax.php' )
+                            );
+                            ?>
+                            <article class="hc-module-card" data-module-card data-slug="<?php echo esc_attr( $module['slug'] ); ?>">
+                                <div class="hc-module-card-top">
+                                    <span class="hc-category-badge"><?php echo esc_html( $module['category'] ?: 'Kategorisiz' ); ?></span>
+                                    <span class="hc-usage-badge <?php echo $is_used ? 'is-used' : 'is-unused'; ?>">
+                                        <?php echo $is_used ? esc_html( 'Yazıda (' . $module['post_count'] . ')' ) : 'Eklenmedi'; ?>
+                                    </span>
+                                </div>
+                                <div class="hc-module-card-main">
+                                    <h3><?php echo esc_html( $module['name'] ); ?></h3>
+                                    <p><?php echo esc_html( $module['desc'] ); ?></p>
+                                </div>
+                                <div class="hc-module-meta-grid">
+                                    <div><span>Slug</span><code><?php echo esc_html( $module['slug'] ); ?></code></div>
+                                    <div><span>Eklenme</span><strong><?php echo esc_html( $module['created_date'] ); ?></strong></div>
+                                    <div><span>Yayıncı</span><strong><?php echo esc_html( $module['publisher'] ); ?></strong></div>
+                                </div>
+                                <button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>">
+                                    <span class="dashicons dashicons-shortcode" aria-hidden="true"></span>
+                                    <code><?php echo esc_html( $module['shortcode'] ); ?></code>
+                                </button>
+                                <label class="hc-card-select-label">
+                                    <span>Kategori</span>
+                                    <select name="hc_module_category[<?php echo esc_attr( $module['slug'] ); ?>]" class="hc-category-select">
+                                        <option value="">Seçiniz</option>
+                                        <?php foreach ( $all_categories as $category ) : ?>
+                                            <option value="<?php echo esc_attr( $category ); ?>" <?php selected( $module['category'], $category ); ?>><?php echo esc_html( $category ); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </label>
+                                <div class="hc-card-actions">
+                                    <button type="button" class="button button-primary hc-preview-btn" data-hc-preview data-name="<?php echo esc_attr( $module['name'] ); ?>" data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>" data-standalone-url="<?php echo esc_url( $standalone_url ); ?>">
+                                        <span class="dashicons dashicons-visibility" aria-hidden="true"></span> Önizle
+                                    </button>
+                                    <button type="button" class="button hc-yazi-ekle-btn" data-name="<?php echo esc_attr( $module['name'] ); ?>" data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>" data-nonce="<?php echo esc_attr( $nonce ); ?>">
+                                        <span class="dashicons dashicons-edit-page" aria-hidden="true"></span> Yazıya Ekle
+                                    </button>
+                                    <a class="button hc-button-ghost" href="<?php echo esc_url( $module['posts_url'] ); ?>">
+                                        <span class="dashicons dashicons-admin-post" aria-hidden="true"></span> Kullanımlar
+                                    </a>
+                                    <button type="button" class="button hc-button-danger" data-hc-delete-module data-slug="<?php echo esc_attr( $module['slug'] ); ?>" data-name="<?php echo esc_attr( $module['name'] ); ?>">
+                                        <span class="dashicons dashicons-trash" aria-hidden="true"></span> Modülü Sil
+                                    </button>
+                                    <span class="hc-yazi-ekle-msg"></span>
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="hc-table-wrap" aria-hidden="true">
                         <table class="wp-list-table widefat striped hc-modules-table">
                             <thead>
                                 <tr>
@@ -611,6 +863,45 @@ class HC_Admin_Page {
                 </p>
             </div>
         </form>
+
+        <div class="hc-preview-modal" id="hc-preview-modal" hidden aria-hidden="true">
+            <div class="hc-preview-backdrop" data-hc-preview-close></div>
+            <div class="hc-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="hc-preview-title">
+                <div class="hc-preview-header">
+                    <div>
+                        <span class="hc-toolbar-kicker">Canlı shortcode</span>
+                        <h2 id="hc-preview-title">Modül Önizleme</h2>
+                        <button type="button" class="hc-shortcode-chip hc-preview-shortcode" data-hc-copy-shortcode data-shortcode="">
+                            <span class="dashicons dashicons-shortcode" aria-hidden="true"></span>
+                            <code id="hc-preview-shortcode-text"></code>
+                        </button>
+                    </div>
+                    <button type="button" class="button hc-icon-button" data-hc-preview-close aria-label="Önizlemeyi kapat">
+                        <span class="dashicons dashicons-no-alt" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="hc-preview-toolbar" aria-label="Önizleme araçları">
+                    <div class="hc-preview-device-toggle" role="group" aria-label="Önizleme genişliği">
+                        <button type="button" class="is-active" data-hc-preview-size="desktop">Masaüstü</button>
+                        <button type="button" data-hc-preview-size="mobile">Mobil</button>
+                    </div>
+                    <div class="hc-preview-actions">
+                        <button type="button" class="button" data-hc-modal-copy>Shortcode Kopyala</button>
+                        <a class="button" id="hc-preview-standalone" href="#" target="_blank" rel="noopener">Bağımsız Aç</a>
+                        <button type="button" class="button button-primary" id="hc-preview-insert">Yazıya Ekle</button>
+                    </div>
+                </div>
+                <div class="hc-preview-body">
+                    <div class="hc-preview-frame" data-preview-size="desktop">
+                        <div class="hc-preview-loading" id="hc-preview-loading" aria-live="polite">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="hc-preview-content" id="hc-preview-content"></div>
+                    </div>
+                </div>
+                <div class="hc-preview-status" id="hc-preview-status" role="status" aria-live="polite"></div>
+            </div>
+        </div>
         <?php
     }
 }
