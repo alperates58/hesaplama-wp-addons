@@ -469,7 +469,7 @@ class HC_AI_Writer {
             </form>
         </div>
 
-        <div id="hc-usage-card" class="hc-card" style="display:none; border-left:4px solid #2271b1;">
+        <div id="hc-usage-card" class="hc-card" style="display:none; border-left:3px solid #6366f1;">
             <h2>Kullanım Durumu</h2>
             <div id="hc-usage-content"></div>
             <p style="margin-top:12px;">
@@ -544,7 +544,7 @@ class HC_AI_Writer {
                 ✨ Makale Oluştur
             </button>
 
-            <div id="hc-writer-loading" style="display:none; padding:16px 0; color:#666;">
+            <div id="hc-writer-loading" style="display:none; padding:16px 0; color:#71717a;">
                 ⏳ Yapay zeka makaleyi yazıyor, lütfen bekleyin (20-60 saniye)...
             </div>
             <div id="hc-writer-error" class="notice notice-error" style="display:none; padding:8px 16px;"></div>
@@ -563,14 +563,14 @@ class HC_AI_Writer {
                         <td><input type="text" id="hc-r-ikincil" class="large-text" placeholder="virgülle ayrılmış" /></td>
                     </tr>
                     <tr>
-                        <th><label>Meta Başlık <small style="font-weight:normal;color:#888;">(55-60 karakter)</small></label></th>
+                        <th><label>Meta Başlık <small style="font-weight:normal;color:#71717a;">(55-60 karakter)</small></label></th>
                         <td>
                             <input type="text" id="hc-r-meta-baslik" class="large-text" />
                             <p class="description">Karakter: <span id="hc-mb-count">0</span></p>
                         </td>
                     </tr>
                     <tr>
-                        <th><label>Meta Açıklama <small style="font-weight:normal;color:#888;">(120-155 karakter)</small></label></th>
+                        <th><label>Meta Açıklama <small style="font-weight:normal;color:#71717a;">(120-155 karakter)</small></label></th>
                         <td>
                             <textarea id="hc-r-meta-acik" class="large-text" rows="3"></textarea>
                             <p class="description">Karakter: <span id="hc-ma-count">0</span></p>
@@ -614,10 +614,10 @@ class HC_AI_Writer {
             <div class="hc-card">
                 <h2>Makale İçeriği</h2>
                 <p class="description" style="margin-bottom:12px;">İçeriği düzenleyebilirsiniz.</p>
-                <textarea id="hc-r-icerik" style="width:100%; min-height:500px; font-family:monospace; font-size:13px;"></textarea>
+                <textarea id="hc-r-icerik" style="width:100%; min-height:500px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6;"></textarea>
             </div>
 
-            <div class="hc-card" style="border-left:4px solid #1d7917;">
+            <div class="hc-card" style="border-left:3px solid #22c55e;">
                 <h2>WordPress'e Kaydet</h2>
                 <p>Tüm alanlar (Yoast SEO dahil) otomatik doldurularak <strong>taslak</strong> olarak kaydedilir.</p>
                 <button id="hc-save-draft-btn" class="button button-primary" style="font-size:15px; padding:8px 20px; height:auto;">

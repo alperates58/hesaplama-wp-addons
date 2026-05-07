@@ -357,7 +357,7 @@ class HC_Admin_Page {
 
     private function render_header($title) {
         ?>
-        <div class="wrap hc-wrap hc-light-mode" id="hc-main-wrap">
+        <div class="wrap hc-wrap" id="hc-main-wrap">
             <div class="hc-glass-header">
                 <div class="hc-header-content">
                     <h1><?php echo esc_html($title); ?> <span class="hc-badge-pro">PRO</span></h1>
