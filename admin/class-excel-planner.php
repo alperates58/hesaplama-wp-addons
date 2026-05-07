@@ -12,6 +12,7 @@ class HC_Excel_Planner {
         add_action( 'wp_ajax_hc_planner_upload',       [ $this, 'ajax_upload' ] );
         add_action( 'wp_ajax_hc_planner_confirm',      [ $this, 'ajax_confirm' ] );
         add_action( 'wp_ajax_hc_planner_create_draft', [ $this, 'ajax_create_draft' ] );
+        add_action( 'wp_ajax_hc_planner_ai_analyze',   [ $this, 'ajax_ai_analyze' ] );
     }
 
     // ── Storage ───────────────────────────────────────────────────────────────
@@ -111,6 +112,11 @@ class HC_Excel_Planner {
                 if ( ! empty( $prev['draft_post_id'] ) ) {
                     $topic['draft_post_id'] = $prev['draft_post_id'];
                 }
+                foreach ( [ 'ai_ana_kategori', 'ai_alt_kategori', 'ai_gerekce', 'ai_guven', 'ai_analyzed_at' ] as $key ) {
+                    if ( ! empty( $prev[ $key ] ) ) {
+                        $topic[ $key ] = $prev[ $key ];
+                    }
+                }
             }
         }
         unset( $topic );
@@ -164,8 +170,8 @@ class HC_Excel_Planner {
 
         $topic = $topics[ $topic_idx ];
 
-        if ( empty( $topic['module_slug'] ) ) {
-            wp_send_json_error( 'Bu konuya ait eşleşen modül yok.' );
+        if ( empty( $topic['module_slug'] ) && ! self::topic_has_ai_category( $topic ) ) {
+            wp_send_json_error( 'Bu konu için önce AI ile kategori analizi yapın.' );
         }
 
         if ( self::post_exists_active( $topic['draft_post_id'] ?? 0 ) ) {
@@ -176,7 +182,17 @@ class HC_Excel_Planner {
             ] );
         }
 
-        $cat_ids   = self::resolve_categories( $topic['ana_kategori'], $topic['alt_kategori'] );
+        $has_module      = ! empty( $topic['module_slug'] );
+        $ai_ready        = self::topic_has_ai_category( $topic );
+        $category_source = $has_module ? 'planner' : 'ai';
+
+        if ( ! $has_module && ! $ai_ready ) {
+            wp_send_json_error( 'Bu konu için önce AI ile kategori analizi yapın.' );
+        }
+
+        $cat_ids = $has_module
+            ? self::resolve_categories( $topic['ana_kategori'], $topic['alt_kategori'] )
+            : self::resolve_categories( $topic['ai_ana_kategori'] ?? '', $topic['ai_alt_kategori'] ?? '' );
         $post_name = sanitize_title( $topic['baslik'] );
 
         // If a post with this slug already exists, link to it instead of creating a duplicate.
@@ -194,7 +210,7 @@ class HC_Excel_Planner {
         $post_id = wp_insert_post( [
             'post_title'    => $topic['baslik'],
             'post_name'     => $post_name,
-            'post_content'  => $topic['shortcode'] . "\n\n",
+            'post_content'  => ! empty( $topic['shortcode'] ) ? $topic['shortcode'] . "\n\n" : '',
             'post_status'   => 'draft',
             'post_type'     => 'post',
             'post_category' => $cat_ids,
@@ -206,6 +222,7 @@ class HC_Excel_Planner {
 
         $topics[ $topic_idx ]['draft_post_id'] = $post_id;
         self::save_data( $data );
+        update_post_meta( $post_id, '_hc_planner_category_source', $category_source );
 
         wp_send_json_success( [
             'post_id'  => $post_id,
@@ -215,6 +232,81 @@ class HC_Excel_Planner {
     }
 
     // ── XLSX Parser ───────────────────────────────────────────────────────────
+
+    public function ajax_ai_analyze() {
+        if ( ! current_user_can( 'edit_posts' ) ) {
+            wp_send_json_error( 'Yetersiz yetki.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik hatası.', 400 );
+        }
+
+        $topic_id = sanitize_key( wp_unslash( $_POST['topic_id'] ?? '' ) );
+        if ( ! $topic_id ) {
+            wp_send_json_error( 'Geçersiz konu ID.' );
+        }
+
+        $data      = self::get_data();
+        $topics    = &$data['topics'];
+        $topic_idx = null;
+
+        foreach ( $topics as $i => $topic_row ) {
+            if ( $topic_row['id'] === $topic_id ) {
+                $topic_idx = $i;
+                break;
+            }
+        }
+
+        if ( null === $topic_idx ) {
+            wp_send_json_error( 'Konu bulunamadı.' );
+        }
+
+        $provider = new HC_AI_Provider();
+        if ( ! $provider->is_feature_enabled( 'writer_tab' ) ) {
+            wp_send_json_error( 'AI içerik araçları kapalı.' );
+        }
+
+        $topic   = $topics[ $topic_idx ];
+        $catalog = self::get_site_category_catalog();
+
+        if ( empty( $catalog['tree'] ) ) {
+            wp_send_json_error( 'Sitede analiz edilecek kategori bulunamadı.' );
+        }
+
+        $result = $provider->generate( self::build_category_analysis_prompt( $topic, $catalog ) );
+        if ( is_wp_error( $result ) ) {
+            wp_send_json_error( $result->get_error_message() );
+        }
+
+        $parsed = self::parse_ai_category_response( $result );
+        if ( is_wp_error( $parsed ) ) {
+            wp_send_json_error( $parsed->get_error_message() );
+        }
+
+        $validated = self::validate_category_suggestion( $parsed['ana_kategori'] ?? '', $parsed['alt_kategori'] ?? '', $catalog );
+        if ( empty( $validated['ana_kategori'] ) ) {
+            wp_send_json_error( 'AI uygun bir kategori seçemedi.' );
+        }
+
+        $topics[ $topic_idx ]['ai_ana_kategori'] = $validated['ana_kategori'];
+        $topics[ $topic_idx ]['ai_alt_kategori'] = $validated['alt_kategori'];
+        $topics[ $topic_idx ]['ai_gerekce']      = sanitize_text_field( $parsed['gerekce'] ?? '' );
+        $topics[ $topic_idx ]['ai_guven']        = min( 100, max( 0, (int) ( $parsed['guven'] ?? 0 ) ) );
+        $topics[ $topic_idx ]['ai_analyzed_at']  = current_time( 'mysql' );
+
+        self::save_data( $data );
+
+        wp_send_json_success(
+            [
+                'ana_kategori' => $topics[ $topic_idx ]['ai_ana_kategori'],
+                'alt_kategori' => $topics[ $topic_idx ]['ai_alt_kategori'],
+                'gerekce'      => $topics[ $topic_idx ]['ai_gerekce'],
+                'guven'        => $topics[ $topic_idx ]['ai_guven'],
+                'label'        => self::format_topic_category_label( $topics[ $topic_idx ], true ),
+            ]
+        );
+    }
 
     private static function parse_xlsx( $file_path ) {
         if ( ! class_exists( 'ZipArchive' ) ) {
@@ -351,6 +443,11 @@ class HC_Excel_Planner {
                     'module_name'   => '',
                     'shortcode'     => '',
                     'draft_post_id' => 0,
+                    'ai_ana_kategori' => '',
+                    'ai_alt_kategori' => '',
+                    'ai_gerekce'      => '',
+                    'ai_guven'        => 0,
+                    'ai_analyzed_at'  => '',
                 ];
             }
         }
@@ -363,19 +460,38 @@ class HC_Excel_Planner {
     // ── Matching ──────────────────────────────────────────────────────────────
 
     private static function match_topics_to_modules( $topics, $modules ) {
-        $module_map = [];
+        $module_map         = [];
+        $module_compact_map = [];
+        $module_tokens      = [];
+
         foreach ( $modules as $m ) {
-            $key = self::normalize( $m['name'] );
-            $module_map[ $key ] = $m;
+            $key                         = self::normalize( $m['name'] );
+            $compact                     = self::normalize_compact( $m['name'] );
+            $module_map[ $key ]          = $m;
+            $module_compact_map[ $compact ] = $m;
+            $module_tokens[]             = [
+                'module'  => $m,
+                'tokens'  => self::tokenize_compact( $compact ),
+            ];
         }
 
         foreach ( $topics as &$topic ) {
-            $key = self::normalize( $topic['baslik'] );
+            $key     = self::normalize( $topic['baslik'] );
+            $compact = self::normalize_compact( $topic['baslik'] );
+            $match   = null;
+
             if ( isset( $module_map[ $key ] ) ) {
-                $m = $module_map[ $key ];
-                $topic['module_slug'] = $m['slug'];
-                $topic['module_name'] = $m['name'];
-                $topic['shortcode']   = $m['shortcode'];
+                $match = $module_map[ $key ];
+            } elseif ( $compact && isset( $module_compact_map[ $compact ] ) ) {
+                $match = $module_compact_map[ $compact ];
+            } else {
+                $match = self::find_best_module_match( $compact, $module_tokens );
+            }
+
+            if ( $match ) {
+                $topic['module_slug'] = $match['slug'];
+                $topic['module_name'] = $match['name'];
+                $topic['shortcode']   = $match['shortcode'];
             }
         }
         unset( $topic );
@@ -451,6 +567,165 @@ class HC_Excel_Planner {
         return str_replace( $from, $to, $str );
     }
 
+    private static function normalize_compact( $str ) {
+        $str = self::normalize( $str );
+        $str = preg_replace( '/\([^)]*\)/u', ' ', $str );
+        $str = preg_replace( '/\b(hesaplama|hesaplayici|hesap makinesi|testi|skoru|orani|hesabi)\b/u', ' ', $str );
+        $str = preg_replace( '/[^a-z0-9]+/u', ' ', $str );
+
+        return trim( preg_replace( '/\s+/', ' ', $str ) );
+    }
+
+    private static function tokenize_compact( $compact ) {
+        if ( ! $compact ) {
+            return [];
+        }
+
+        return array_values( array_filter( explode( ' ', $compact ) ) );
+    }
+
+    private static function find_best_module_match( $topic_compact, $module_tokens ) {
+        $topic_tokens = self::tokenize_compact( $topic_compact );
+        if ( empty( $topic_tokens ) ) {
+            return null;
+        }
+
+        $best       = null;
+        $best_score = 0;
+
+        foreach ( $module_tokens as $candidate ) {
+            if ( empty( $candidate['tokens'] ) ) {
+                continue;
+            }
+
+            $intersection = array_intersect( $topic_tokens, $candidate['tokens'] );
+            $union        = array_unique( array_merge( $topic_tokens, $candidate['tokens'] ) );
+            $jaccard      = empty( $union ) ? 0 : count( $intersection ) / count( $union );
+            $coverage     = count( $intersection ) / max( 1, min( count( $topic_tokens ), count( $candidate['tokens'] ) ) );
+            $score        = max( $jaccard, $coverage );
+
+            if ( $score > $best_score ) {
+                $best_score = $score;
+                $best       = $candidate['module'];
+            }
+        }
+
+        return $best_score >= 0.74 ? $best : null;
+    }
+
+    private static function topic_has_ai_category( $topic ) {
+        return ! empty( $topic['ai_ana_kategori'] );
+    }
+
+    private static function get_site_category_catalog() {
+        $choices = HC_Module_Inventory::get_wordpress_category_choices();
+        $tree    = [];
+
+        foreach ( $choices as $choice ) {
+            if ( 0 === (int) $choice['depth'] ) {
+                if ( ! isset( $tree[ $choice['name'] ] ) ) {
+                    $tree[ $choice['name'] ] = [];
+                }
+                continue;
+            }
+
+            $tree[ $choice['parent'] ][] = $choice['child'];
+        }
+
+        foreach ( $tree as $parent => $children ) {
+            $tree[ $parent ] = array_values( array_unique( array_filter( $children ) ) );
+        }
+
+        ksort( $tree, SORT_NATURAL | SORT_FLAG_CASE );
+
+        return [
+            'tree'    => $tree,
+            'choices' => $choices,
+        ];
+    }
+
+    private static function build_category_analysis_prompt( $topic, $catalog ) {
+        $lines = [];
+        foreach ( $catalog['tree'] as $parent => $children ) {
+            $lines[] = '- ' . $parent . ( $children ? ' => ' . implode( ', ', $children ) : '' );
+        }
+
+        return implode(
+            "\n",
+            [
+                'Asagidaki baslik icin sitedeki mevcut WordPress kategorilerinden en uygun ana kategori ve varsa alt kategori sec.',
+                'Sadece verilen kategori agacini kullan. Yeni kategori uydurma.',
+                'Alt kategori uygun degilse bos birak.',
+                'Yanit sadece JSON olsun.',
+                '{\"ana_kategori\":\"\",\"alt_kategori\":\"\",\"gerekce\":\"\",\"guven\":0}',
+                '',
+                'Baslik: ' . $topic['baslik'],
+                'Icerik plani ana kategori: ' . ( $topic['ana_kategori'] ?? '' ),
+                'Icerik plani alt kategori: ' . ( $topic['alt_kategori'] ?? '' ),
+                '',
+                'Kategori agaci:',
+                implode( "\n", $lines ),
+            ]
+        );
+    }
+
+    private static function parse_ai_category_response( $result ) {
+        $json = json_decode( trim( (string) $result ), true );
+
+        if ( ! is_array( $json ) && preg_match( '/\{.*\}/s', (string) $result, $matches ) ) {
+            $json = json_decode( $matches[0], true );
+        }
+
+        if ( ! is_array( $json ) ) {
+            return new WP_Error( 'bad_ai_response', 'AI yaniti cozumlenemedi.' );
+        }
+
+        return $json;
+    }
+
+    private static function validate_category_suggestion( $ana, $alt, $catalog ) {
+        $ana = self::normalize( sanitize_text_field( (string) $ana ) );
+        $alt = self::normalize( sanitize_text_field( (string) $alt ) );
+
+        $matched_parent = '';
+        foreach ( array_keys( $catalog['tree'] ) as $parent ) {
+            if ( self::normalize( $parent ) === $ana ) {
+                $matched_parent = $parent;
+                break;
+            }
+        }
+
+        if ( ! $matched_parent ) {
+            return [];
+        }
+
+        $matched_child = '';
+        if ( $alt ) {
+            foreach ( $catalog['tree'][ $matched_parent ] as $child ) {
+                if ( self::normalize( $child ) === $alt ) {
+                    $matched_child = $child;
+                    break;
+                }
+            }
+        }
+
+        return [
+            'ana_kategori' => $matched_parent,
+            'alt_kategori' => $matched_child,
+        ];
+    }
+
+    private static function format_topic_category_label( $topic, $prefer_ai = false ) {
+        $ana = $prefer_ai && ! empty( $topic['ai_ana_kategori'] ) ? $topic['ai_ana_kategori'] : ( $topic['ana_kategori'] ?? '' );
+        $alt = $prefer_ai && ! empty( $topic['ai_alt_kategori'] ) ? $topic['ai_alt_kategori'] : ( $topic['alt_kategori'] ?? '' );
+
+        if ( ! $ana ) {
+            return '';
+        }
+
+        return $alt ? $ana . ' › ' . $alt : $ana;
+    }
+
     private static function group_topics( $topics ) {
         $grouped = [];
         foreach ( $topics as $t ) {
@@ -487,7 +762,8 @@ class HC_Excel_Planner {
         $all_ana    = array_keys( $grouped );
         $filter_ana = sanitize_text_field( wp_unslash( $_GET['planner_ana'] ?? '' ) );
         $filter_alt = sanitize_text_field( wp_unslash( $_GET['planner_alt'] ?? '' ) );
-        $only_match = ! empty( $_GET['planner_match'] );
+        $only_match     = ! empty( $_GET['planner_match'] );
+        $only_unmatched = ! empty( $_GET['planner_unmatched'] );
 
         $imported_at = $data['imported_at'] ?? '';
         ?>
@@ -567,6 +843,10 @@ class HC_Excel_Planner {
                             <input type="checkbox" name="planner_match" value="1" <?php checked( $only_match ); ?> onchange="this.form.submit()">
                             Sadece Eşleşenler
                         </label>
+                        <label style="display:flex; align-items:center; gap:6px; color:var(--hc-text-muted); font-size:13px; cursor:pointer; user-select:none;">
+                            <input type="checkbox" name="planner_unmatched" value="1" <?php checked( $only_unmatched ); ?> onchange="this.form.submit()">
+                            Eslesmeyenler
+                        </label>
                         <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner' ) ); ?>">Temizle</a>
                     </form>
 
@@ -600,7 +880,9 @@ class HC_Excel_Planner {
                         continue;
                     }
                     foreach ( $t_list as $t ) {
-                        if ( ! $only_match || ! empty( $t['module_slug'] ) ) {
+                        $topic_visible = ( ! $only_match || ! empty( $t['module_slug'] ) )
+                            && ( ! $only_unmatched || empty( $t['module_slug'] ) );
+                        if ( $topic_visible ) {
                             $has_visible = true;
                             break 2;
                         }
@@ -632,9 +914,22 @@ class HC_Excel_Planner {
                         if ( $filter_alt && $filter_alt !== $alt_kat ) {
                             continue;
                         }
-                        $visible = $only_match
-                            ? array_values( array_filter( $t_list, static fn( $t ) => ! empty( $t['module_slug'] ) ) )
-                            : $t_list;
+                        $visible = array_values(
+                            array_filter(
+                                $t_list,
+                                static function ( $t ) use ( $only_match, $only_unmatched ) {
+                                    if ( $only_match && empty( $t['module_slug'] ) ) {
+                                        return false;
+                                    }
+
+                                    if ( $only_unmatched && ! empty( $t['module_slug'] ) ) {
+                                        return false;
+                                    }
+
+                                    return true;
+                                }
+                            )
+                        );
                         if ( empty( $visible ) ) {
                             continue;
                         }
@@ -661,7 +956,8 @@ class HC_Excel_Planner {
                                             $has_module = ! empty( $topic['module_slug'] );
                                             $has_draft  = self::post_exists_active( $topic['draft_post_id'] ?? 0 );
                                             $draft_url  = $has_draft ? get_edit_post_link( $topic['draft_post_id'] ) : '';
-                                            $eligible   = $has_module && ! $has_draft;
+                                            $ai_ready   = self::topic_has_ai_category( $topic );
+                                            $eligible   = ( $has_module || $ai_ready ) && ! $has_draft;
                                             ?>
                                             <tr data-topic-id="<?php echo esc_attr( $topic['id'] ); ?>">
                                                 <td style="text-align:center; padding:12px 8px;">
@@ -681,10 +977,16 @@ class HC_Excel_Planner {
                                                             <?php echo esc_html( $topic['module_name'] ); ?>
                                                         </div>
                                                     <?php else : ?>
-                                                        <span style="color:var(--hc-text-muted); font-size:12px;">— yok</span>
+                                                        <span class="hc-usage-badge is-unused">Modül Yok</span>
+                                                        <button class="button hc-planner-ai-btn"
+                                                                data-topic-id="<?php echo esc_attr( $topic['id'] ); ?>"
+                                                                style="display:block; margin-top:6px; font-size:12px; padding:5px 10px; min-height:28px;">
+                                                            AI ile Analiz Et
+                                                        </button>
+                                                        <span class="hc-planner-ai-msg" style="display:none; font-size:11px; margin-top:4px;"></span>
                                                     <?php endif; ?>
                                                 </td>
-                                                <td style="font-size:12px; color:var(--hc-text-muted);">
+                                                <td style="font-size:12px; color:var(--hc-text-muted);" class="hc-topic-category-cell">
                                                     <?php echo esc_html( $topic['ana_kategori'] ); ?>
                                                     <?php if ( $topic['alt_kategori'] ) : ?>
                                                         <span style="display:block; font-size:11px;">↳ <?php echo esc_html( $topic['alt_kategori'] ); ?></span>
@@ -697,7 +999,7 @@ class HC_Excel_Planner {
                                                            style="display:block; font-size:11px; margin-top:4px; color:var(--hc-secondary);">
                                                             Düzenle →
                                                         </a>
-                                                    <?php elseif ( $has_module ) : ?>
+                                                    <?php elseif ( $has_module || $ai_ready ) : ?>
                                                         <button class="button button-primary hc-planner-draft-btn"
                                                                 data-topic-id="<?php echo esc_attr( $topic['id'] ); ?>"
                                                                 style="font-size:12px; padding:5px 10px; min-height:28px;">
@@ -953,6 +1255,42 @@ class HC_Excel_Planner {
             });
 
             // ── Shared helpers ────────────────────────────────────────────────
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.hc-planner-ai-btn');
+                if (!btn) return;
+
+                const topicId = btn.dataset.topicId;
+                const msg = btn.parentElement.querySelector('.hc-planner-ai-msg');
+
+                btn.disabled = true;
+                btn.textContent = 'Analiz ediliyor...';
+                if (msg) {
+                    msg.style.display = 'none';
+                    msg.textContent = '';
+                }
+
+                analyzeTopic(topicId).then(res => {
+                    if (!res.success) {
+                        btn.disabled = false;
+                        btn.textContent = 'AI ile Analiz Et';
+                        if (msg) {
+                            msg.style.display = 'block';
+                            msg.style.color = '#f87171';
+                            msg.textContent = '× ' + res.data;
+                        }
+                        return;
+                    }
+
+                    if (msg) {
+                        msg.style.display = 'block';
+                        msg.style.color = '#4ade80';
+                        msg.textContent = '✓ ' + (res.data.label || 'Kategori bulundu');
+                    }
+
+                    setTimeout(() => window.location.reload(), 700);
+                });
+            });
+
             function createDraft(topicId) {
                 const fd = new FormData();
                 fd.append('action',   'hc_planner_create_draft');
@@ -961,6 +1299,16 @@ class HC_Excel_Planner {
                 return fetch(ajaxurl, { method: 'POST', body: fd })
                     .then(r => r.json())
                     .catch(() => ({ success: false, data: 'Bağlantı hatası.' }));
+            }
+
+            function analyzeTopic(topicId) {
+                const fd = new FormData();
+                fd.append('action', 'hc_planner_ai_analyze');
+                fd.append('nonce', nonce);
+                fd.append('topic_id', topicId);
+                return fetch(ajaxurl, { method: 'POST', body: fd })
+                    .then(r => r.json())
+                    .catch(() => ({ success: false, data: 'BaÄŸlantÄ± hatasÄ±.' }));
             }
 
             function markRowDrafted(topicId, editUrl) {

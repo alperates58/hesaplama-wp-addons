@@ -252,11 +252,12 @@ class HC_AI_Writer {
         $slug = $this->turkish_slug( $name );
 
         $post_id = wp_insert_post( [
-            'post_title'   => $name,
-            'post_name'    => $slug,
-            'post_content' => $shortcode ? $shortcode : '',
-            'post_status'  => 'draft',
-            'post_type'    => 'post',
+            'post_title'    => $name,
+            'post_name'     => $slug,
+            'post_content'  => $shortcode ? $shortcode : '',
+            'post_status'   => 'draft',
+            'post_type'     => 'post',
+            'post_category' => HC_Module_Inventory::get_post_category_ids_for_module( $shortcode, $name ),
         ] );
 
         if ( is_wp_error( $post_id ) ) {

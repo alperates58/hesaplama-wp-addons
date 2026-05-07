@@ -101,15 +101,8 @@ class HC_Module_Inventory {
                 $meta      = file_exists( $meta_file ) ? json_decode( file_get_contents( $meta_file ), true ) : [];
                 $shortcode = '[hc_' . str_replace( '-', '_', $slug ) . ']';
                 $created   = file_exists( $meta_file ) ? filemtime( $meta_file ) : filemtime( $path );
-                $category  = $settings['module_categories'][ $slug ] ?? '';
-
-                if ( ! $category && ! empty( $meta['category'] ) ) {
-                    $category = self::sanitize_category( $meta['category'] );
-                }
-
-                if ( ! $category ) {
-                    $category = self::infer_category( $slug, $meta['name'] ?? '' );
-                }
+                $category_data = self::resolve_module_category_data( $slug, $shortcode, $meta['name'] ?? '' );
+                $category      = $category_data['label'] ?? '';
 
                 $post_count = (int) $wpdb->get_var(
                     $wpdb->prepare(
@@ -131,6 +124,10 @@ class HC_Module_Inventory {
                     'created_datetime'  => wp_date( 'd M Y H:i', $created ),
                     'post_count'        => $post_count,
                     'category'          => $category,
+                    'category_parent'   => $category_data['parent'] ?? '',
+                    'category_child'    => $category_data['child'] ?? '',
+                    'category_source'   => $category_data['source'] ?? '',
+                    'category_term_ids' => $category_data['term_ids'] ?? [],
                     'publisher'         => self::get_publisher_name(),
                     'status_label'      => 'Aktif',
                     'posts_url'         => admin_url( 'edit.php?s=' . urlencode( $shortcode ) . '&post_type=post' ),
@@ -154,7 +151,7 @@ class HC_Module_Inventory {
 
     public static function get_all_categories() {
         $settings   = self::get_catalog_settings();
-        $categories = $settings['categories'];
+        $categories = array_merge( $settings['categories'], self::get_wordpress_category_paths() );
 
         foreach ( self::get_modules() as $module ) {
             if ( ! empty( $module['category'] ) ) {
@@ -172,6 +169,94 @@ class HC_Module_Inventory {
 
     public static function get_category_text() {
         return implode( "\n", self::get_all_categories() );
+    }
+
+    public static function get_wordpress_category_paths() {
+        return wp_list_pluck( self::get_wordpress_category_choices(), 'path' );
+    }
+
+    public static function get_wordpress_category_choices() {
+        $terms = get_terms(
+            [
+                'taxonomy'   => 'category',
+                'hide_empty' => false,
+            ]
+        );
+
+        if ( is_wp_error( $terms ) || empty( $terms ) ) {
+            return [];
+        }
+
+        $term_map = [];
+        foreach ( $terms as $term ) {
+            $term_map[ $term->term_id ] = $term;
+        }
+
+        $choices = [];
+        foreach ( $terms as $term ) {
+            $lineage = self::get_term_lineage( $term->term_id, $term_map );
+            $names   = wp_list_pluck( $lineage, 'name' );
+            $depth   = max( 0, count( $names ) - 1 );
+
+            $choices[] = [
+                'term_id'   => (int) $term->term_id,
+                'parent_id' => (int) $term->parent,
+                'name'      => $term->name,
+                'depth'     => $depth,
+                'path'      => implode( ' › ', $names ),
+                'parent'    => $names[0] ?? $term->name,
+                'child'     => $depth > 0 ? $term->name : '',
+            ];
+        }
+
+        usort(
+            $choices,
+            static function ( $a, $b ) {
+                return strnatcasecmp( $a['path'], $b['path'] );
+            }
+        );
+
+        return $choices;
+    }
+
+    public static function get_post_category_ids_for_module( $shortcode, $name = '' ) {
+        $snapshot = self::resolve_module_category_data( '', $shortcode, $name );
+
+        return $snapshot['term_ids'] ?? [];
+    }
+
+    public static function resolve_module_category_data( $slug, $shortcode, $name = '' ) {
+        $settings       = self::get_catalog_settings();
+        $saved_label    = $slug ? ( $settings['module_categories'][ $slug ] ?? '' ) : '';
+        $usage_snapshot = self::find_category_by_shortcode_usage( $shortcode );
+
+        if ( ! empty( $usage_snapshot['label'] ) ) {
+            return $usage_snapshot + [ 'source' => 'usage' ];
+        }
+
+        if ( $saved_label ) {
+            $resolved = self::resolve_term_ids_from_label( $saved_label );
+
+            return [
+                'label'    => $saved_label,
+                'parent'   => $resolved['parent'] ?? $saved_label,
+                'child'    => $resolved['child'] ?? '',
+                'term_ids' => $resolved['term_ids'] ?? [],
+                'display'  => $saved_label,
+                'source'   => 'manual',
+            ];
+        }
+
+        $inferred = self::infer_category( $slug, $name );
+
+        return [
+            'label'    => $inferred,
+            'parent'   => $inferred,
+            'child'    => '',
+            'term_ids' => [],
+            'display'  => $inferred,
+            'source'   => 'inferred',
+        ];
     }
 
     public static function delete_module_category_assignment( $slug ) {
@@ -207,6 +292,183 @@ class HC_Module_Inventory {
         $category = trim( preg_replace( '/\s+/', ' ', $category ) );
 
         return $category;
+    }
+
+    private static function get_term_lineage( $term_id, $term_map ) {
+        $lineage = [];
+        $guard   = 0;
+
+        while ( $term_id && isset( $term_map[ $term_id ] ) && $guard < 10 ) {
+            array_unshift( $lineage, $term_map[ $term_id ] );
+            $term_id = (int) $term_map[ $term_id ]->parent;
+            $guard++;
+        }
+
+        return $lineage;
+    }
+
+    private static function find_category_by_shortcode_usage( $shortcode ) {
+        global $wpdb;
+
+        if ( ! $shortcode ) {
+            return [];
+        }
+
+        $post_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT ID FROM {$wpdb->posts}
+                 WHERE post_content LIKE %s
+                   AND post_status NOT IN ('trash', 'auto-draft')
+                   AND post_type = 'post'
+                 ORDER BY post_date DESC
+                 LIMIT 50",
+                '%' . $wpdb->esc_like( $shortcode ) . '%'
+            )
+        );
+
+        if ( empty( $post_ids ) ) {
+            return [];
+        }
+
+        $choices = self::get_wordpress_category_choices();
+        if ( empty( $choices ) ) {
+            return [];
+        }
+
+        $choice_map = [];
+        foreach ( $choices as $choice ) {
+            $choice_map[ $choice['term_id'] ] = $choice;
+        }
+
+        $counts = [];
+
+        foreach ( $post_ids as $post_id ) {
+            $terms = wp_get_post_categories( (int) $post_id, [ 'fields' => 'all' ] );
+            if ( empty( $terms ) || is_wp_error( $terms ) ) {
+                continue;
+            }
+
+            $term_ids = wp_list_pluck( $terms, 'term_id' );
+
+            foreach ( $terms as $term ) {
+                $is_parent_of_selected = false;
+
+                foreach ( $term_ids as $other_id ) {
+                    if ( (int) $other_id === (int) $term->term_id ) {
+                        continue;
+                    }
+
+                    if ( term_is_ancestor_of( (int) $term->term_id, (int) $other_id, 'category' ) ) {
+                        $is_parent_of_selected = true;
+                        break;
+                    }
+                }
+
+                if ( $is_parent_of_selected || empty( $choice_map[ $term->term_id ] ) ) {
+                    continue;
+                }
+
+                $choice = $choice_map[ $term->term_id ];
+                if ( empty( $counts[ $choice['path'] ] ) ) {
+                    $counts[ $choice['path'] ] = $choice + [ 'count' => 0 ];
+                }
+
+                $counts[ $choice['path'] ]['count']++;
+            }
+        }
+
+        if ( empty( $counts ) ) {
+            return [];
+        }
+
+        uasort(
+            $counts,
+            static function ( $a, $b ) {
+                if ( $a['count'] === $b['count'] ) {
+                    return $b['depth'] <=> $a['depth'];
+                }
+
+                return $b['count'] <=> $a['count'];
+            }
+        );
+
+        $best = reset( $counts );
+
+        return [
+            'label'    => $best['path'],
+            'parent'   => $best['parent'],
+            'child'    => $best['child'],
+            'term_ids' => self::resolve_term_ids_from_label( $best['path'] )['term_ids'] ?? [],
+            'display'  => $best['path'],
+        ];
+    }
+
+    private static function resolve_term_ids_from_label( $label ) {
+        $label = self::sanitize_category( $label );
+        if ( ! $label ) {
+            return [];
+        }
+
+        $parts   = preg_split( '/\s*[›>\/]+\s*/u', $label );
+        $parts   = array_values( array_filter( array_map( [ __CLASS__, 'sanitize_category' ], $parts ) ) );
+        $choices = self::get_wordpress_category_choices();
+        $matched = null;
+
+        foreach ( $choices as $choice ) {
+            $path_parts = preg_split( '/\s*[›>\/]+\s*/u', $choice['path'] );
+            if ( count( $path_parts ) !== count( $parts ) ) {
+                continue;
+            }
+
+            $ok = true;
+            foreach ( $parts as $index => $part ) {
+                if ( self::normalize_category_key( $path_parts[ $index ] ) !== self::normalize_category_key( $part ) ) {
+                    $ok = false;
+                    break;
+                }
+            }
+
+            if ( $ok ) {
+                $matched = $choice;
+                break;
+            }
+        }
+
+        if ( ! $matched ) {
+            return [
+                'parent'   => $parts[0] ?? $label,
+                'child'    => count( $parts ) > 1 ? end( $parts ) : '',
+                'term_ids' => [],
+            ];
+        }
+
+        $ids = [];
+        if ( $matched['parent'] ) {
+            foreach ( $choices as $choice ) {
+                if ( 0 === $choice['depth'] && self::normalize_category_key( $choice['name'] ) === self::normalize_category_key( $matched['parent'] ) ) {
+                    $ids[] = (int) $choice['term_id'];
+                    break;
+                }
+            }
+        }
+
+        if ( $matched['child'] ) {
+            $ids[] = (int) $matched['term_id'];
+        }
+
+        return [
+            'parent'   => $matched['parent'],
+            'child'    => $matched['child'],
+            'term_ids' => array_values( array_unique( array_filter( array_map( 'intval', $ids ) ) ) ),
+        ];
+    }
+
+    private static function normalize_category_key( $value ) {
+        $value = remove_accents( wp_strip_all_tags( (string) $value ) );
+        $value = function_exists( 'mb_strtolower' ) ? mb_strtolower( $value, 'UTF-8' ) : strtolower( $value );
+        $value = preg_replace( '/[^\p{L}\p{N}]+/u', ' ', $value );
+
+        return trim( preg_replace( '/\s+/', ' ', $value ) );
     }
 
     private static function matches_filters( $module, $args ) {
