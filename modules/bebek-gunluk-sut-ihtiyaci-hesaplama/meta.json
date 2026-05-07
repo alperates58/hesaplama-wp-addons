@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Günlük Süt İhtiyacı Hesaplama",
+  "desc": "Bebeğinizin ağırlığına göre 24 saatlik toplam süt (anne sütü veya mama) ihtiyacını hesaplar.",
+  "shortcode": "[hc_bebek_gunluk_sut_ihtiyaci]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Tahmini Kilo Persentil Hesaplama",
+  "desc": "Bebeğinizin ağırlığını yaşına ve cinsiyetine göre analiz ederek tahmini persentil dilimini hesaplar.",
+  "shortcode": "[hc_bebek_tahmini_kilo_persentil]"
+}

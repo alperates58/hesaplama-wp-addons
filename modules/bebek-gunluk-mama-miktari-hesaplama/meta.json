@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Günlük Mama Miktarı Hesaplama",
+  "desc": "Bebeğinizin ağırlığına göre 24 saatlik toplam alması gereken mama miktarını hesaplar.",
+  "shortcode": "[hc_bebek_gunluk_mama_miktari_hesaplama]"
+}
