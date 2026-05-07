@@ -654,13 +654,65 @@ class HC_AI_Bulk_Generator {
             );
         }
 
-        $normalized['calculator.php'] = preg_replace(
-            '#modules/[a-z0-9-]+/calculator\.(js|css)#',
-            'modules/' . $slug . '/calculator.$1',
-            $normalized['calculator.php']
-        );
+        $normalized['calculator.php'] = $this->normalize_calculator_php_file( $normalized['calculator.php'], $slug );
 
         return $normalized;
+    }
+
+    private function normalize_calculator_php_file( $calculator_php, $slug ) {
+        $calculator_php = $this->normalize_calculator_asset_paths( $calculator_php, $slug );
+        $calculator_php = $this->ensure_calculator_enqueues( $calculator_php, $slug );
+
+        return $this->normalize_newlines( $calculator_php );
+    }
+
+    private function normalize_calculator_asset_paths( $calculator_php, $slug ) {
+        $calculator_php = preg_replace(
+            '#modules/[a-z0-9-]+/calculator\.(js|css)#',
+            'modules/' . $slug . '/calculator.$1',
+            $calculator_php
+        );
+
+        $calculator_php = preg_replace_callback(
+            '/([\'"])([^\'"]*calculator\.(js|css))\1/i',
+            function ( $matches ) use ( $slug ) {
+                return $matches[1] . 'modules/' . $slug . '/calculator.' . strtolower( $matches[3] ) . $matches[1];
+            },
+            $calculator_php
+        );
+
+        return $calculator_php;
+    }
+
+    private function ensure_calculator_enqueues( $calculator_php, $slug ) {
+        $script_block = "    wp_enqueue_script(\n        'hc-{$slug}',\n        HC_PLUGIN_URL . 'modules/{$slug}/calculator.js',\n        [], HC_VERSION, true\n    );\n";
+        $style_block = "    wp_enqueue_style(\n        'hc-{$slug}-css',\n        HC_PLUGIN_URL . 'modules/{$slug}/calculator.css',\n        [ 'hesaplama-suite' ], HC_VERSION\n    );\n";
+
+        if ( false === strpos( $calculator_php, "modules/{$slug}/calculator.js" ) ) {
+            $calculator_php = preg_replace(
+                '/(function\s+hc_render_[a-z0-9_]+\s*\([^)]*\)\s*\{\n?)/i',
+                "$1" . $script_block,
+                $calculator_php,
+                1
+            );
+        }
+
+        if ( false === strpos( $calculator_php, "modules/{$slug}/calculator.css" ) ) {
+            $insertion = $script_block . $style_block;
+
+            if ( false !== strpos( $calculator_php, $script_block ) ) {
+                $calculator_php = str_replace( $script_block, $insertion, $calculator_php );
+            } else {
+                $calculator_php = preg_replace(
+                    '/(function\s+hc_render_[a-z0-9_]+\s*\([^)]*\)\s*\{\n?)/i',
+                    "$1" . $style_block,
+                    $calculator_php,
+                    1
+                );
+            }
+        }
+
+        return $calculator_php;
     }
 
     private function validate_generated_files( $files, $slug ) {
