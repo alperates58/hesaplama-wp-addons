@@ -641,6 +641,7 @@ class HC_AI_Bulk_Generator {
             . "Zorunlu: calculator.js gercek hesaplama yapmali, sonuc HTML icine yazilmali ve visible class'i eklenmeli. Bos iskelet, yorum veya TODO kullanma.\n"
             . "Zorunlu: calculator.js icinde sayi formatlama icin toLocaleString('tr-TR') kullan.\n"
             . "Zorunlu: calculator.php icinde modules/{$slug}/calculator.js ve modules/{$slug}/calculator.css enqueue edilmeli.\n"
+            . "Zorunlu: calculator.php fonksiyonu HTML'yi dogrudan ekrana basmali; ob_start()/return ob_get_clean() ve add_shortcode kullanma.\n"
             . "Zorunlu: calculator.css icinde .hc-{$slug}- prefixi ve @media (max-width: 480px) olmali.\n"
             . "Yalnizca SI birimleri ve Turkce kullan.\n"
             . "Mevcut gecersiz dosyalar JSON'u:\n{$files_json}\n"
@@ -730,6 +731,7 @@ class HC_AI_Bulk_Generator {
     private function normalize_calculator_php_file( $calculator_php, $slug ) {
         $calculator_php = $this->normalize_calculator_asset_paths( $calculator_php, $slug );
         $calculator_php = $this->ensure_calculator_enqueues( $calculator_php, $slug );
+        $calculator_php = $this->normalize_calculator_php_output_flow( $calculator_php );
 
         return $this->normalize_newlines( $calculator_php );
     }
@@ -779,6 +781,14 @@ class HC_AI_Bulk_Generator {
                 );
             }
         }
+
+        return $calculator_php;
+    }
+
+    private function normalize_calculator_php_output_flow( $calculator_php ) {
+        $calculator_php = preg_replace( '/^\s*add_shortcode\s*\([^\n]+$/mi', '', $calculator_php );
+        $calculator_php = preg_replace( '/^\s*ob_start\s*\(\s*\)\s*;\s*$/mi', '', $calculator_php );
+        $calculator_php = preg_replace( '/^\s*return\s+ob_get_clean\s*\(\s*\)\s*;\s*$/mi', '', $calculator_php );
 
         return $calculator_php;
     }
@@ -853,6 +863,14 @@ class HC_AI_Bulk_Generator {
 
         if ( false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.js" ) || false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.css" ) ) {
             $errors[] = 'calculator.php kendi modul JS/CSS dosyalarini enqueue etmeli.';
+        }
+
+        if ( preg_match( '/return\s+ob_get_clean\s*\(/i', $files['calculator.php'] ) ) {
+            $errors[] = 'calculator.php HTML cikisini return ob_get_clean() ile degil dogrudan echo ederek vermeli.';
+        }
+
+        if ( preg_match( '/add_shortcode\s*\(/i', $files['calculator.php'] ) ) {
+            $errors[] = 'calculator.php icinde add_shortcode tanimi olmamali; shortcode kaydini loader yapiyor.';
         }
 
         $blocked_php = '/\b(eval|exec|shell_exec|system|passthru|proc_open|popen|curl_exec|wp_remote_post|wp_remote_get|file_put_contents|fopen|unlink|rename|copy|require|include|base64_decode)\b/i';

@@ -33,8 +33,14 @@ class HC_Calculator_Loader {
         $function = 'hc_render_' . str_replace( '-', '_', $slug );
         if ( function_exists( $function ) ) {
             ob_start();
-            $function( $atts );
-            return ob_get_clean();
+            $result = $function( $atts );
+            $output = ob_get_clean();
+
+            if ( is_string( $result ) && '' !== $result ) {
+                return $output . $result;
+            }
+
+            return $output;
         }
         return '<!-- Hesap makinesi bulunamadı: ' . esc_html( $slug ) . ' -->';
     }
