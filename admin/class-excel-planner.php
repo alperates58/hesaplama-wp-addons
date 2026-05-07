@@ -711,6 +711,18 @@ class HC_Excel_Planner {
         return ! empty( $topic['ana_kategori'] );
     }
 
+    private static function topic_has_linked_post( $topic ) {
+        return self::post_exists_active( $topic['draft_post_id'] ?? 0 );
+    }
+
+    private static function topic_is_ready_for_draft( $topic ) {
+        return ! self::topic_has_linked_post( $topic ) && ! empty( $topic['module_slug'] );
+    }
+
+    private static function topic_is_unmatched( $topic ) {
+        return empty( $topic['module_slug'] );
+    }
+
     private static function get_site_category_catalog() {
         $choices = HC_Module_Inventory::get_wordpress_category_choices();
         $tree    = [];
@@ -863,13 +875,19 @@ class HC_Excel_Planner {
         $total       = count( $topics );
         $match_count = self::count_unique_matched_modules( $topics );
         $matched_topic_count = count( array_filter( $topics, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
-        $draft_count = count( array_filter( $topics, static fn( $t ) => self::post_exists_active( $t['draft_post_id'] ?? 0 ) ) );
+        $draft_count = count( array_filter( $topics, static fn( $t ) => self::topic_has_linked_post( $t ) ) );
+        $ready_draft_count = count( array_filter( $topics, static fn( $t ) => self::topic_is_ready_for_draft( $t ) ) );
+        $unmatched_count = count( array_filter( $topics, static fn( $t ) => self::topic_is_unmatched( $t ) ) );
 
         $grouped = self::group_topics( $topics );
 
         $all_ana    = array_keys( $grouped );
         $filter_ana = sanitize_text_field( wp_unslash( $_GET['planner_ana'] ?? '' ) );
         $filter_alt = sanitize_text_field( wp_unslash( $_GET['planner_alt'] ?? '' ) );
+        $planner_view = sanitize_text_field( wp_unslash( $_GET['planner_view'] ?? 'queue' ) );
+        if ( ! in_array( $planner_view, [ 'queue', 'all' ], true ) ) {
+            $planner_view = 'queue';
+        }
         $only_match     = ! empty( $_GET['planner_match'] );
         $only_unmatched = ! empty( $_GET['planner_unmatched'] );
 
@@ -936,8 +954,28 @@ class HC_Excel_Planner {
 
             <div class="hc-card" style="margin-top:0; margin-bottom:20px;">
                 <p style="margin:0; color:var(--hc-text-muted);">
-                    Buradaki "Eslesen Modul" sayisi benzersiz modul sayisidir; ayni modul birden fazla konuya atanmaz. "Bagli Yazi" ise sadece taslaklari degil, copte olmayan tum bagli yazilari sayar.
+                    Buradaki "Eslesen Modul" sayisi benzersiz modul sayisidir; ayni modul birden fazla konuya atanmaz. "Bagli Yazi" sadece icerik planindaki konulara baglanmis, copte olmayan yazilari sayar; sitedeki tum yazilarin toplami degildir.
                 </p>
+            </div>
+
+            <div class="hc-card" style="margin-top:0; margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+                    <div>
+                        <h3 style="margin:0 0 4px;">Gorunum</h3>
+                        <p style="margin:0; color:var(--hc-text-muted);">
+                            Varsayilan ekran taslak olusturma kuyrugunu gosterir. Tum Excel listesini sadece istediginizde acabilirsiniz.
+                        </p>
+                    </div>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <?php if ( 'queue' === $planner_view ) : ?>
+                            <span class="button button-primary" style="pointer-events:none;">Taslak Kuyrugu (<?php echo esc_html( $ready_draft_count ); ?>)</span>
+                            <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner&planner_view=all' ) ); ?>">Tum Excel Listesi</a>
+                        <?php else : ?>
+                            <a class="button button-primary" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner' ) ); ?>">Taslak Kuyrugu (<?php echo esc_html( $ready_draft_count ); ?>)</a>
+                            <span class="button" style="pointer-events:none;">Tum Excel Listesi</span>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
 
             <!-- Filter + bulk action bar -->
@@ -945,6 +983,7 @@ class HC_Excel_Planner {
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
                     <form method="get" class="hc-toolbar-form" style="margin:0;">
                         <input type="hidden" name="page" value="hesaplama-suite-planner">
+                        <input type="hidden" name="planner_view" value="<?php echo esc_attr( $planner_view ); ?>">
                         <select name="planner_ana" onchange="this.form.submit()">
                             <option value="">Tüm Ana Kategoriler</option>
                             <?php foreach ( $all_ana as $cat ) : ?>
@@ -955,13 +994,13 @@ class HC_Excel_Planner {
                         </select>
                         <label style="display:flex; align-items:center; gap:6px; color:var(--hc-text-muted); font-size:13px; cursor:pointer; user-select:none;">
                             <input type="checkbox" name="planner_match" value="1" <?php checked( $only_match ); ?> onchange="this.form.submit()">
-                            Sadece Eşleşenler
+                            Modulu Eslesenler
                         </label>
                         <label style="display:flex; align-items:center; gap:6px; color:var(--hc-text-muted); font-size:13px; cursor:pointer; user-select:none;">
                             <input type="checkbox" name="planner_unmatched" value="1" <?php checked( $only_unmatched ); ?> onchange="this.form.submit()">
-                            Eslesmeyenler
+                            Modul Eslesmeyenler (<?php echo esc_html( $unmatched_count ); ?>)
                         </label>
-                        <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner' ) ); ?>">Temizle</a>
+                        <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner' . ( 'all' === $planner_view ? '&planner_view=all' : '' ) ) ); ?>">Temizle</a>
                     </form>
 
                     <!-- Bulk actions -->
@@ -994,8 +1033,22 @@ class HC_Excel_Planner {
                         continue;
                     }
                     foreach ( $t_list as $t ) {
-                        $topic_visible = ( ! $only_match || ! empty( $t['module_slug'] ) )
-                            && ( ! $only_unmatched || empty( $t['module_slug'] ) );
+                        $topic_visible = true;
+
+                        if ( 'queue' === $planner_view ) {
+                            $topic_visible = $only_unmatched
+                                ? ( ! self::topic_has_linked_post( $t ) && self::topic_is_unmatched( $t ) )
+                                : self::topic_is_ready_for_draft( $t );
+                        }
+
+                        if ( $topic_visible && $only_match && empty( $t['module_slug'] ) ) {
+                            $topic_visible = false;
+                        }
+
+                        if ( $topic_visible && $only_unmatched && ! empty( $t['module_slug'] ) ) {
+                            $topic_visible = false;
+                        }
+
                         if ( $topic_visible ) {
                             $has_visible = true;
                             break 2;
@@ -1031,7 +1084,17 @@ class HC_Excel_Planner {
                         $visible = array_values(
                             array_filter(
                                 $t_list,
-                                static function ( $t ) use ( $only_match, $only_unmatched ) {
+                                static function ( $t ) use ( $only_match, $only_unmatched, $planner_view ) {
+                                    if ( 'queue' === $planner_view ) {
+                                        if ( $only_unmatched ) {
+                                            return ! self::topic_has_linked_post( $t ) && self::topic_is_unmatched( $t );
+                                        }
+
+                                        if ( ! self::topic_is_ready_for_draft( $t ) ) {
+                                            return false;
+                                        }
+                                    }
+
                                     if ( $only_match && empty( $t['module_slug'] ) ) {
                                         return false;
                                     }
