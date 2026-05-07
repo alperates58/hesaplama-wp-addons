@@ -353,20 +353,20 @@
 
 .hc-module-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
 }
 
 .hc-module-card {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: 16px;
+    gap: 10px;
+    padding: 14px;
     border: 1px solid var(--hc-border);
     border-radius: var(--hc-radius);
     background: var(--hc-surface);
     transition: border-color .2s var(--hc-ease), box-shadow .2s var(--hc-ease), transform .2s var(--hc-ease);
-    min-height: 360px;
+    min-height: 0;
 }
 
 .hc-module-card:hover {
@@ -460,14 +460,14 @@
 
 .hc-module-card-main p {
     display: -webkit-box;
-    min-height: 56px;
+    min-height: 42px;
     margin: 0;
     overflow: hidden;
     color: var(--hc-text-muted);
     font-size: 13px;
     line-height: 1.6;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
 }
 
 .hc-module-meta-grid {
@@ -562,6 +562,61 @@
     gap: 5px;
     flex: 1 1 auto;
     min-width: 110px;
+}
+
+.hc-module-group {
+    margin-bottom: 18px;
+    padding: 14px;
+    border: 1px solid var(--hc-border);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.02);
+}
+
+.hc-module-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.hc-module-group-header h3 {
+    margin: 0 0 4px;
+    color: var(--hc-text);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.hc-module-group-header p {
+    margin: 0;
+    color: var(--hc-text-muted);
+    font-size: 12px;
+}
+
+.hc-module-card-compact .hc-module-meta-grid {
+    display: none;
+}
+
+.hc-module-meta-inline {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--hc-text-muted);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.hc-module-meta-inline span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hc-card-actions-compact .button {
+    min-width: 0;
+    flex: 1 1 calc(50% - 6px);
 }
 
 /* ── Table ───────────────────────────────────────────── */
