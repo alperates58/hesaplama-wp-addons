@@ -170,10 +170,6 @@ class HC_Excel_Planner {
 
         $topic = $topics[ $topic_idx ];
 
-        if ( empty( $topic['module_slug'] ) && ! self::topic_has_ai_category( $topic ) ) {
-            wp_send_json_error( 'Bu konu için önce AI ile kategori analizi yapın.' );
-        }
-
         if ( self::post_exists_active( $topic['draft_post_id'] ?? 0 ) ) {
             wp_send_json_success( [
                 'already_exists' => true,
@@ -183,14 +179,15 @@ class HC_Excel_Planner {
         }
 
         $has_module      = ! empty( $topic['module_slug'] );
+        $planner_ready   = self::topic_has_planner_category( $topic );
         $ai_ready        = self::topic_has_ai_category( $topic );
-        $category_source = $has_module ? 'planner' : 'ai';
+        $category_source = ( $has_module || $planner_ready ) ? 'planner' : 'ai';
 
-        if ( ! $has_module && ! $ai_ready ) {
+        if ( ! $has_module && ! $planner_ready && ! $ai_ready ) {
             wp_send_json_error( 'Bu konu için önce AI ile kategori analizi yapın.' );
         }
 
-        $cat_ids = $has_module
+        $cat_ids = ( $has_module || $planner_ready )
             ? self::resolve_categories( $topic['ana_kategori'], $topic['alt_kategori'] )
             : self::resolve_categories( $topic['ai_ana_kategori'] ?? '', $topic['ai_alt_kategori'] ?? '' );
         $post_name = sanitize_title( $topic['baslik'] );
@@ -676,6 +673,10 @@ class HC_Excel_Planner {
         return ! empty( $topic['ai_ana_kategori'] );
     }
 
+    private static function topic_has_planner_category( $topic ) {
+        return ! empty( $topic['ana_kategori'] );
+    }
+
     private static function get_site_category_catalog() {
         $choices = HC_Module_Inventory::get_wordpress_category_choices();
         $tree    = [];
@@ -1028,8 +1029,9 @@ class HC_Excel_Planner {
                                             $has_module = ! empty( $topic['module_slug'] );
                                             $has_draft  = self::post_exists_active( $topic['draft_post_id'] ?? 0 );
                                             $draft_url  = $has_draft ? get_edit_post_link( $topic['draft_post_id'] ) : '';
-                                            $ai_ready   = self::topic_has_ai_category( $topic );
-                                            $eligible   = ( $has_module || $ai_ready ) && ! $has_draft;
+                                            $planner_ready = self::topic_has_planner_category( $topic );
+                                            $ai_ready      = self::topic_has_ai_category( $topic );
+                                            $eligible      = ( $has_module || $planner_ready || $ai_ready ) && ! $has_draft;
                                             ?>
                                             <tr data-topic-id="<?php echo esc_attr( $topic['id'] ); ?>">
                                                 <td style="text-align:center; padding:12px 8px;">
@@ -1071,7 +1073,7 @@ class HC_Excel_Planner {
                                                            style="display:block; font-size:11px; margin-top:4px; color:var(--hc-secondary);">
                                                             Düzenle →
                                                         </a>
-                                                    <?php elseif ( $has_module || $ai_ready ) : ?>
+                                                    <?php elseif ( $has_module || $planner_ready || $ai_ready ) : ?>
                                                         <button class="button button-primary hc-planner-draft-btn"
                                                                 data-topic-id="<?php echo esc_attr( $topic['id'] ); ?>"
                                                                 style="font-size:12px; padding:5px 10px; min-height:28px;">
