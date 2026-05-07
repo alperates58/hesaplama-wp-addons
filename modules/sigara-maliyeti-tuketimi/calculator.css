@@ -1,0 +1,15 @@
+#hc-sigara-maliyeti-tuketimi .hc-result-summary {
+    background: rgba(21, 94, 239, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px dashed rgba(21, 94, 239, 0.2);
+}
+
+#hc-sigara-maliyeti-tuketimi table td:last-child {
+    font-weight: 700;
+    color: var(--hc-front-text);
+}
+
+#hc-sigara-maliyeti-tuketimi .hc-smt-highlight {
+    color: var(--hc-front-red);
+}

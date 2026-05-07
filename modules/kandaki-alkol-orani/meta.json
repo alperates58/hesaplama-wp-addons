@@ -1,0 +1,5 @@
+{
+  "name": "Kandaki Alkol Oranı (BAC) Hesaplama",
+  "desc": "Vücut ağırlığı, cinsiyet ve tüketilen alkol miktarına göre kandaki tahmini alkol oranını (promil) hesaplar.",
+  "shortcode": "[hc_kandaki_alkol_orani]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Sigara Maliyeti ve Tüketimi Hesaplama",
+  "desc": "Günlük sigara tüketiminize göre harcanan toplam tutarı, içilen sigara sayısını ve sağlığınız üzerindeki etkilerini hesaplar.",
+  "shortcode": "[hc_sigara_maliyeti_tuketimi]"
+}

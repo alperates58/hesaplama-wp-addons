@@ -1,0 +1,5 @@
+{
+  "name": "Standart İçki Miktarı Hesaplama",
+  "desc": "Tükettiğiniz alkolün kaç 'standart içki'ye karşılık geldiğini hesaplar.",
+  "shortcode": "[hc_standart_icki_miktari]"
+}

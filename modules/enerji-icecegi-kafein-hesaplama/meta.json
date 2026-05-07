@@ -1,0 +1,5 @@
+{
+  "name": "Enerji İçeceği Kafein Miktarı Hesaplama",
+  "desc": "Enerji içeceklerinin kutu boyutuna göre içerdiği kafein miktarını hesaplar ve uyarılar sunar.",
+  "shortcode": "[hc_enerji_icecegi_kafein_hesaplama]"
+}

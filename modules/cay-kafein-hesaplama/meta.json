@@ -1,0 +1,5 @@
+{
+  "name": "Çay Kafein Miktarı Hesaplama",
+  "desc": "Farklı çay türleri ve porsiyon boyutlarına göre aldığınız kafein miktarını hesaplar.",
+  "shortcode": "[hc_cay_kafein_hesaplama]"
+}
