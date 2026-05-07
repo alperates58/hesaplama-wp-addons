@@ -10,7 +10,7 @@ function hc_render_0_100_km_hesaplayici( $atts ) {
     wp_enqueue_style(
         'hc-0-100-km-hesaplayici-css',
         HC_PLUGIN_URL . 'modules/0-100-km-hesaplayici/calculator.css',
-        [ 'hesaplama-suite' ], HC_VERSION
+        [], HC_VERSION . '.1'
     );
     ?>
     <div class="hc-calculator" id="hc-0-100-km-hesaplayici">
