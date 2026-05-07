@@ -1,0 +1,5 @@
+{
+  "name": "PPM'den Molarite Hesaplama",
+  "desc": "Milyonda bir (PPM) değerini molariteye (mol/L) dönüştürür.",
+  "shortcode": "[hc_ppm_molarite_hesaplama]"
+}
