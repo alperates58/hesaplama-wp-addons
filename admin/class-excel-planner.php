@@ -530,24 +530,40 @@ class HC_Excel_Planner {
                 </div>
             </div>
 
-            <!-- Filter bar -->
-            <div class="hc-card" style="padding:14px 18px;">
-                <form method="get" class="hc-toolbar-form" style="margin:0;">
-                    <input type="hidden" name="page" value="hesaplama-suite-planner">
-                    <select name="planner_ana" onchange="this.form.submit()">
-                        <option value="">Tüm Ana Kategoriler</option>
-                        <?php foreach ( $all_ana as $cat ) : ?>
-                            <option value="<?php echo esc_attr( $cat ); ?>" <?php selected( $filter_ana, $cat ); ?>>
-                                <?php echo esc_html( $cat ); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <label style="display:flex; align-items:center; gap:6px; color:var(--hc-text-muted); font-size:13px; cursor:pointer; user-select:none;">
-                        <input type="checkbox" name="planner_match" value="1" <?php checked( $only_match ); ?> onchange="this.form.submit()">
-                        Sadece Eşleşenler
-                    </label>
-                    <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner' ) ); ?>">Temizle</a>
-                </form>
+            <!-- Filter + bulk action bar -->
+            <div class="hc-card" style="padding:14px 18px; position:sticky; top:32px; z-index:20;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <form method="get" class="hc-toolbar-form" style="margin:0;">
+                        <input type="hidden" name="page" value="hesaplama-suite-planner">
+                        <select name="planner_ana" onchange="this.form.submit()">
+                            <option value="">Tüm Ana Kategoriler</option>
+                            <?php foreach ( $all_ana as $cat ) : ?>
+                                <option value="<?php echo esc_attr( $cat ); ?>" <?php selected( $filter_ana, $cat ); ?>>
+                                    <?php echo esc_html( $cat ); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <label style="display:flex; align-items:center; gap:6px; color:var(--hc-text-muted); font-size:13px; cursor:pointer; user-select:none;">
+                            <input type="checkbox" name="planner_match" value="1" <?php checked( $only_match ); ?> onchange="this.form.submit()">
+                            Sadece Eşleşenler
+                        </label>
+                        <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-planner' ) ); ?>">Temizle</a>
+                    </form>
+
+                    <!-- Bulk actions -->
+                    <div id="hc-bulk-bar" style="display:flex; align-items:center; gap:10px;">
+                        <label style="display:flex; align-items:center; gap:6px; font-size:13px; color:var(--hc-text-muted); cursor:pointer; user-select:none;">
+                            <input type="checkbox" id="hc-select-all-eligible">
+                            <span id="hc-select-all-label">Tümünü Seç</span>
+                        </label>
+                        <button class="button button-primary" id="hc-bulk-draft-btn" disabled
+                                style="display:inline-flex; align-items:center; gap:6px;">
+                            <span class="dashicons dashicons-welcome-write-blog" style="margin-top:2px; font-size:16px; width:16px; height:16px;"></span>
+                            <span id="hc-bulk-btn-label">Toplu Taslak Oluştur</span>
+                        </button>
+                        <span id="hc-bulk-progress" style="display:none; font-size:12px; color:var(--hc-text-muted);"></span>
+                    </div>
+                </div>
             </div>
 
             <!-- Grouped table -->
@@ -612,10 +628,11 @@ class HC_Excel_Planner {
                                 <table class="hc-modules-table">
                                     <thead>
                                         <tr>
-                                            <th style="width:36%">Hesaplama Başlığı</th>
-                                            <th style="width:28%">Eşleşen Modül</th>
-                                            <th style="width:18%">WP Kategori</th>
-                                            <th style="width:18%">Durum / İşlem</th>
+                                            <th style="width:3%;"></th>
+                                            <th style="width:34%">Hesaplama Başlığı</th>
+                                            <th style="width:27%">Eşleşen Modül</th>
+                                            <th style="width:17%">WP Kategori</th>
+                                            <th style="width:19%">Durum / İşlem</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -624,8 +641,16 @@ class HC_Excel_Planner {
                                             $has_module = ! empty( $topic['module_slug'] );
                                             $has_draft  = ! empty( $topic['draft_post_id'] ) && get_post( $topic['draft_post_id'] );
                                             $draft_url  = $has_draft ? get_edit_post_link( $topic['draft_post_id'] ) : '';
+                                            $eligible   = $has_module && ! $has_draft;
                                             ?>
                                             <tr data-topic-id="<?php echo esc_attr( $topic['id'] ); ?>">
+                                                <td style="text-align:center; padding:12px 8px;">
+                                                    <?php if ( $eligible ) : ?>
+                                                        <input type="checkbox" class="hc-topic-cb"
+                                                               value="<?php echo esc_attr( $topic['id'] ); ?>"
+                                                               style="width:15px; height:15px; cursor:pointer; accent-color:var(--hc-primary);">
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td style="font-size:13px;">
                                                     <?php echo esc_html( $topic['baslik'] ); ?>
                                                 </td>
@@ -799,7 +824,87 @@ class HC_Excel_Planner {
                 document.getElementById('hc-planner-upload-status').style.display = 'none';
             });
 
-            // ── Create draft buttons ──────────────────────────────────────────
+            // ── Checkbox & bulk selection ─────────────────────────────────────
+            const selectAllCb  = document.getElementById('hc-select-all-eligible');
+            const selectLabel  = document.getElementById('hc-select-all-label');
+            const bulkBtn      = document.getElementById('hc-bulk-draft-btn');
+            const bulkBtnLabel = document.getElementById('hc-bulk-btn-label');
+            const bulkProgress = document.getElementById('hc-bulk-progress');
+
+            function getEligibleCbs() {
+                return Array.from(document.querySelectorAll('.hc-topic-cb'));
+            }
+
+            function getCheckedCbs() {
+                return getEligibleCbs().filter(cb => cb.checked);
+            }
+
+            function updateBulkBar() {
+                const checked   = getCheckedCbs().length;
+                const eligible  = getEligibleCbs().length;
+                bulkBtn.disabled = checked === 0;
+                bulkBtnLabel.textContent = checked > 0
+                    ? `Toplu Taslak Oluştur (${checked})`
+                    : 'Toplu Taslak Oluştur';
+                if (selectAllCb) {
+                    selectAllCb.checked       = eligible > 0 && checked === eligible;
+                    selectAllCb.indeterminate = checked > 0 && checked < eligible;
+                    selectLabel.textContent   = checked === eligible && eligible > 0
+                        ? 'Tümünü Kaldır'
+                        : 'Tümünü Seç';
+                }
+            }
+
+            if (selectAllCb) {
+                selectAllCb.addEventListener('change', function () {
+                    const state = this.checked;
+                    getEligibleCbs().forEach(cb => { cb.checked = state; });
+                    updateBulkBar();
+                });
+            }
+
+            document.addEventListener('change', function (e) {
+                if (e.target.classList.contains('hc-topic-cb')) {
+                    updateBulkBar();
+                }
+            });
+
+            updateBulkBar();
+
+            // ── Bulk create ───────────────────────────────────────────────────
+            if (bulkBtn) {
+                bulkBtn.addEventListener('click', async function () {
+                    const ids = getCheckedCbs().map(cb => cb.value);
+                    if (!ids.length) return;
+
+                    bulkBtn.disabled = true;
+                    let done = 0, failed = 0;
+                    bulkProgress.style.display = 'inline';
+                    bulkProgress.textContent   = `0 / ${ids.length} tamamlandı`;
+
+                    for (const topicId of ids) {
+                        const result = await createDraft(topicId);
+                        if (result.success) {
+                            done++;
+                            markRowDrafted(topicId, result.data.edit_url);
+                            // Uncheck the row's checkbox (it's removed, but update counter anyway)
+                        } else {
+                            failed++;
+                        }
+                        bulkProgress.textContent = `${done + failed} / ${ids.length} — ${done} taslak oluşturuldu${failed ? ', ' + failed + ' hata' : ''}`;
+                    }
+
+                    bulkProgress.style.color = failed > 0 ? '#f87171' : '#4ade80';
+                    bulkBtnLabel.textContent = 'Toplu Taslak Oluştur';
+                    updateBulkBar();
+
+                    // Update stat counter
+                    const statEl = document.querySelector('.hc-stats-grid .hc-stat-card:nth-child(3) .hc-stat-value');
+                    if (statEl) statEl.textContent = parseInt(statEl.textContent || 0) + done;
+                });
+            }
+
+            // ── Single create draft ───────────────────────────────────────────
             document.addEventListener('click', function (e) {
                 const btn = e.target.closest('.hc-planner-draft-btn');
                 if (!btn) return;
@@ -810,42 +915,53 @@ class HC_Excel_Planner {
                 btn.disabled    = true;
                 btn.textContent = '⏳ Oluşturuluyor...';
 
+                createDraft(topicId).then(res => {
+                    if (!res.success) {
+                        btn.disabled    = false;
+                        btn.textContent = '+ Taslak Oluştur';
+                        if (msg) {
+                            msg.style.display = 'block';
+                            msg.style.color   = '#f87171';
+                            msg.textContent   = '✗ ' + res.data;
+                        }
+                        return;
+                    }
+                    markRowDrafted(topicId, res.data.edit_url);
+                    const statEl = document.querySelector('.hc-stats-grid .hc-stat-card:nth-child(3) .hc-stat-value');
+                    if (statEl) statEl.textContent = parseInt(statEl.textContent || 0) + 1;
+                });
+            });
+
+            // ── Shared helpers ────────────────────────────────────────────────
+            function createDraft(topicId) {
                 const fd = new FormData();
                 fd.append('action',   'hc_planner_create_draft');
                 fd.append('nonce',    nonce);
                 fd.append('topic_id', topicId);
-
-                fetch(ajaxurl, { method: 'POST', body: fd })
+                return fetch(ajaxurl, { method: 'POST', body: fd })
                     .then(r => r.json())
-                    .then(res => {
-                        if (!res.success) {
-                            btn.disabled    = false;
-                            btn.textContent = '+ Taslak Oluştur';
-                            if (msg) {
-                                msg.style.display = 'block';
-                                msg.style.color   = '#f87171';
-                                msg.textContent   = '✗ ' + res.data;
-                            }
-                            return;
-                        }
+                    .catch(() => ({ success: false, data: 'Bağlantı hatası.' }));
+            }
 
-                        // Replace button with badge + edit link
-                        const cell = btn.parentElement;
-                        let inner  = '<span class="hc-usage-badge is-used">Taslak ✓</span>';
-                        if (res.data.edit_url) {
-                            inner += '<a href="' + escHtml(res.data.edit_url) + '" target="_blank" style="display:block; font-size:11px; margin-top:4px; color:var(--hc-secondary);">Düzenle →</a>';
-                        }
-                        cell.innerHTML = inner;
+            function markRowDrafted(topicId, editUrl) {
+                const row = document.querySelector(`tr[data-topic-id="${topicId}"]`);
+                if (!row) return;
 
-                        // Update draft stat counter
-                        const statEl = document.querySelector('.hc-stats-grid .hc-stat-card:nth-child(3) .hc-stat-value');
-                        if (statEl) statEl.textContent = parseInt(statEl.textContent || 0) + 1;
-                    })
-                    .catch(() => {
-                        btn.disabled    = false;
-                        btn.textContent = '+ Taslak Oluştur';
-                    });
-            });
+                // Clear checkbox cell
+                const cbCell = row.querySelector('td:first-child');
+                if (cbCell) cbCell.innerHTML = '';
+
+                // Update action cell
+                const actionCell = row.querySelector('td:last-child');
+                if (actionCell) {
+                    let html = '<span class="hc-usage-badge is-used">Taslak ✓</span>';
+                    if (editUrl) {
+                        html += '<a href="' + escHtml(editUrl) + '" target="_blank" style="display:block; font-size:11px; margin-top:4px; color:var(--hc-secondary);">Düzenle →</a>';
+                    }
+                    actionCell.innerHTML = html;
+                }
+                updateBulkBar();
+            }
 
             function escHtml(str) {
                 return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
