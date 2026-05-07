@@ -3,6 +3,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class HC_AI_Bulk_Generator {
 
+    const MAX_QUEUE_ITEMS = 1000;
+    const MAX_QUEUE_TITLE_LENGTH = 200;
+    const MAX_QUEUE_MESSAGE_LENGTH = 500;
+
     public function __construct() {
         add_action( 'wp_ajax_hc_save_bot_settings', [ $this, 'ajax_save_bot_settings' ] );
         add_action( 'wp_ajax_hc_generate_and_push', [ $this, 'ajax_generate_and_push' ] );
@@ -12,7 +16,7 @@ class HC_AI_Bulk_Generator {
     public static function render_bulk_generator_tab() {
         $ai_provider = get_option('hc_ai_provider', 'deepseek');
         $api_key = get_option('hc_gemini_api_key', '');
-        $gemini_model = get_option('hc_gemini_model', 'deepseek-chat');
+        $gemini_model = get_option('hc_gemini_model', 'deepseek-v4-flash');
         $serper_key = get_option('hc_serper_api_key', '');
         
         $gh_settings = get_option('hc_github_settings', []);
@@ -45,8 +49,14 @@ class HC_AI_Bulk_Generator {
                 </div>
                 <div class="hc-field-card">
                     <label for="hc_gemini_model"><strong>AI Model Adı</strong></label>
-                    <input type="text" id="hc_gemini_model" value="<?php echo esc_attr($gemini_model); ?>" class="large-text">
-                    <p class="description">DeepSeek için: deepseek-chat | Gemini için: gemini-2.5-flash</p>
+                    <input type="text" id="hc_gemini_model" value="<?php echo esc_attr($gemini_model); ?>" class="large-text" list="hc-ai-model-options">
+                    <datalist id="hc-ai-model-options">
+                        <option value="deepseek-v4-flash"></option>
+                        <option value="deepseek-v4-pro"></option>
+                        <option value="gemini-2.5-flash"></option>
+                        <option value="gemini-2.5-pro"></option>
+                    </datalist>
+                    <p class="description">DeepSeek için: deepseek-v4-flash veya deepseek-v4-pro | Gemini için: gemini-2.5-flash</p>
                 </div>
                 <div class="hc-field-card" style="background:#f0faeb; border:1px solid #c3e6cb;">
                     <label for="hc_serper_key"><strong>Serper.dev API Anahtarı (İsteğe Bağlı)</strong></label>
@@ -132,7 +142,16 @@ class HC_AI_Bulk_Generator {
 
         <script>
         let isRunning = false;
-        let queue = <?php echo json_encode($queue); ?>;
+        let queue = <?php echo wp_json_encode($queue, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
+
+        function createBadge(label, backgroundColor) {
+            const span = document.createElement('span');
+            span.className = 'hc-inline-badge';
+            span.style.background = backgroundColor;
+            span.style.color = '#fff';
+            span.textContent = label;
+            return span;
+        }
         
         function renderTable() {
             const tbody = document.getElementById('queue-tbody');
@@ -142,18 +161,35 @@ class HC_AI_Bulk_Generator {
                 return;
             }
             queue.forEach((item, index) => {
-                let statusHtml = '';
-                if(item.status === 'pending') statusHtml = '<span class="hc-inline-badge" style="background:#ff9800;color:#fff;">Bekliyor</span>';
-                else if(item.status === 'success') statusHtml = '<span class="hc-inline-badge" style="background:#4CAF50;color:#fff;">Tamamlandı</span>';
-                else statusHtml = '<span class="hc-inline-badge" style="background:#f44336;color:#fff;">Hata: ' + item.message + '</span>';
+                const row = document.createElement('tr');
+                const checkboxCell = document.createElement('td');
+                const titleCell = document.createElement('td');
+                const statusCell = document.createElement('td');
+                const checkbox = document.createElement('input');
+                const titleStrong = document.createElement('strong');
 
-                tbody.innerHTML += `
-                    <tr>
-                        <td><input type="checkbox" class="cb-item" data-index="${index}" ${item.status === 'success' ? 'disabled' : ''}></td>
-                        <td><strong>${item.title}</strong></td>
-                        <td>${statusHtml}</td>
-                    </tr>
-                `;
+                checkbox.type = 'checkbox';
+                checkbox.className = 'cb-item';
+                checkbox.setAttribute('data-index', index);
+                checkbox.disabled = item.status === 'success';
+
+                titleStrong.textContent = item.title || '';
+
+                checkboxCell.appendChild(checkbox);
+                titleCell.appendChild(titleStrong);
+
+                if(item.status === 'pending') {
+                    statusCell.appendChild(createBadge('Bekliyor', '#ff9800'));
+                } else if(item.status === 'success') {
+                    statusCell.appendChild(createBadge('Tamamlandı', '#4CAF50'));
+                } else {
+                    statusCell.appendChild(createBadge('Hata: ' + (item.message || 'Bilinmeyen hata'), '#f44336'));
+                }
+
+                row.appendChild(checkboxCell);
+                row.appendChild(titleCell);
+                row.appendChild(statusCell);
+                tbody.appendChild(row);
             });
             saveQueueToDb();
         }
@@ -235,7 +271,10 @@ class HC_AI_Bulk_Generator {
         }
 
         function logMsg(msg) {
-            jQuery('#log-container').prepend('<div>[' + new Date().toLocaleTimeString() + '] ' + msg + '</div>');
+            const line = document.createElement('div');
+            line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+            const container = document.getElementById('log-container');
+            container.prepend(line);
         }
 
         function startQueue() {
@@ -328,13 +367,18 @@ class HC_AI_Bulk_Generator {
         if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error();
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) wp_send_json_error();
 
-        update_option('hc_ai_provider', sanitize_text_field($_POST['ai_provider']));
-        update_option('hc_gemini_api_key', sanitize_text_field($_POST['api_key']));
-        update_option('hc_gemini_model', sanitize_text_field($_POST['gemini_model']));
-        update_option('hc_serper_api_key', sanitize_text_field($_POST['serper_key']));
-        update_option('hc_bot_gh_repo', sanitize_text_field($_POST['repo']));
-        update_option('hc_bot_gh_branch', sanitize_text_field($_POST['branch']));
-        update_option('hc_bot_gh_token', sanitize_text_field($_POST['token']));
+        $ai_provider = sanitize_text_field( wp_unslash( $_POST['ai_provider'] ?? 'deepseek' ) );
+        if ( ! in_array( $ai_provider, [ 'deepseek', 'gemini' ], true ) ) {
+            $ai_provider = 'deepseek';
+        }
+
+        update_option('hc_ai_provider', $ai_provider);
+        update_option('hc_gemini_api_key', sanitize_text_field( wp_unslash( $_POST['api_key'] ?? '' ) ));
+        update_option('hc_gemini_model', $this->sanitize_model_name( wp_unslash( $_POST['gemini_model'] ?? '' ) ));
+        update_option('hc_serper_api_key', sanitize_text_field( wp_unslash( $_POST['serper_key'] ?? '' ) ));
+        update_option('hc_bot_gh_repo', sanitize_text_field( wp_unslash( $_POST['repo'] ?? '' ) ));
+        update_option('hc_bot_gh_branch', sanitize_text_field( wp_unslash( $_POST['branch'] ?? 'main' ) ));
+        update_option('hc_bot_gh_token', sanitize_text_field( wp_unslash( $_POST['token'] ?? '' ) ));
         wp_send_json_success();
     }
 
@@ -344,9 +388,12 @@ class HC_AI_Bulk_Generator {
         
         $queue_raw = wp_unslash($_POST['queue'] ?? '[]');
         $queue = json_decode($queue_raw, true);
-        if(is_array($queue)) {
-            update_option('hc_bulk_queue', $queue, false);
+        if ( ! is_array( $queue ) ) {
+            wp_send_json_error( 'Kuyruk verisi gecersiz.' );
         }
+
+        $sanitized_queue = $this->sanitize_queue_items( $queue );
+        update_option('hc_bulk_queue', $sanitized_queue, false);
         wp_send_json_success();
     }
 
@@ -354,10 +401,10 @@ class HC_AI_Bulk_Generator {
         if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error();
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) wp_send_json_error();
 
-        $title = sanitize_text_field($_POST['title']);
+        $title = sanitize_text_field( wp_unslash( $_POST['title'] ?? '' ) );
         $ai_provider = get_option('hc_ai_provider', 'deepseek');
         $api_key = get_option('hc_gemini_api_key');
-        $ai_model = get_option('hc_gemini_model', 'deepseek-chat');
+        $ai_model = $this->sanitize_model_name( get_option('hc_gemini_model', 'deepseek-v4-flash') );
         $serper_key = get_option('hc_serper_api_key', '');
         
         $gh_settings = get_option('hc_github_settings', []);
@@ -369,7 +416,10 @@ class HC_AI_Bulk_Generator {
             wp_send_json_error('API Key eksik. Başlık ve API Key zorunludur.');
         }
 
-        $slug = sanitize_title($title);
+        $slug = $this->sanitize_module_slug( $title );
+        if ( ! $slug ) {
+            wp_send_json_error( 'Basliktan gecerli bir slug olusturulamadi.' );
+        }
         $slug_under = str_replace('-', '_', $slug);
 
         // 1. Serper API Arama
@@ -401,6 +451,8 @@ class HC_AI_Bulk_Generator {
 1. JSON string değerleri içine yazacağın kodlarda satır sonlarını gerçek yeni satır olarak değil, mutlaka \\n olarak (escaped) yaz!
 2. calculator.php dosyası KESİNLİKLE '<?php' ile başlamalı ve SADECE 'function hc_render_{$slug_under}($atts)' fonksiyonunu içermelidir. Fonksiyon dışında ASLA 'echo' veya düz metin (JSON vb) KULLANMA!
 3. Sadece SI birimleri kullan (kg, m, vb), tüm dil Türkçe, [hc_$slug_under] shortcode'unu kullan.
+4. Placeholder yorum, sahte kod, TODO, 'buraya yaz', 'örnek', '...' ve boş hesap makinesi üretme. Form alanları, hesaplama formülü, sonuç alanı ve çalışan JS zorunludur.
+5. calculator.js içinde ana fonksiyon gerçek bir hesap yapmalı; sadece iskelet veya yorum döndürme.
 ";
 
         if ($search_context) {
@@ -482,11 +534,17 @@ class HC_AI_Bulk_Generator {
             wp_send_json_error('JSON dönüştürülemedi. Ham Yanıt: ' . substr($clean_text, 0, 500));
         }
 
+        $normalized_files = $this->normalize_generated_files( $files, $title, $slug );
+        $validation = $this->validate_generated_files( $normalized_files, $slug );
+        if ( is_wp_error( $validation ) ) {
+            wp_send_json_error( $validation->get_error_message() );
+        }
+
         $github_files = [
-            "modules/{$slug}/meta.json"      => $files['meta.json'],
-            "modules/{$slug}/calculator.php" => $files['calculator.php'],
-            "modules/{$slug}/calculator.js"  => $files['calculator.js'],
-            "modules/{$slug}/calculator.css" => isset($files['calculator.css']) ? $files['calculator.css'] : ''
+            "modules/{$slug}/meta.json"      => $normalized_files['meta.json'],
+            "modules/{$slug}/calculator.php" => $normalized_files['calculator.php'],
+            "modules/{$slug}/calculator.js"  => $normalized_files['calculator.js'],
+            "modules/{$slug}/calculator.css" => $normalized_files['calculator.css']
         ];
 
         $message = "feat: {$title} modülü otomatik eklendi\n\nShortcode: [hc_{$slug_under}]";
@@ -499,15 +557,172 @@ class HC_AI_Bulk_Generator {
             wp_send_json_success('GitHub a başarıyla yüklendi!');
         } else {
             $module_dir = HC_PLUGIN_DIR . 'modules/' . $slug;
-            if ( !file_exists($module_dir) ) wp_mkdir_p($module_dir);
+            if ( file_exists( $module_dir ) ) {
+                wp_send_json_error( 'Bu slug ile modul zaten var. Mevcut modullerin uzerine yazilamaz.' );
+            }
+            if ( ! wp_mkdir_p( $module_dir ) ) {
+                wp_send_json_error( 'Modul klasoru olusturulamadi.' );
+            }
 
-            foreach($files as $filename => $content) {
+            foreach($normalized_files as $filename => $content) {
                 if(!empty($content)) {
-                    file_put_contents($module_dir . '/' . sanitize_file_name($filename), $content);
+                    $written = file_put_contents($module_dir . '/' . sanitize_file_name($filename), $content);
+                    if ( false === $written ) {
+                        wp_send_json_error( sanitize_file_name($filename) . ' yazilamadi.' );
+                    }
                 }
             }
             wp_send_json_success('Lokal Klasöre Kaydedildi!');
         }
+    }
+
+    private function sanitize_model_name( $model ) {
+        $model = sanitize_text_field( (string) $model );
+        return $model ? $model : 'deepseek-v4-flash';
+    }
+
+    private function sanitize_queue_items( $queue ) {
+        $sanitized = [];
+
+        foreach ( array_slice( $queue, 0, self::MAX_QUEUE_ITEMS ) as $item ) {
+            if ( ! is_array( $item ) ) {
+                continue;
+            }
+
+            $title = sanitize_text_field( $item['title'] ?? '' );
+            $status = sanitize_key( $item['status'] ?? 'pending' );
+            $message = sanitize_text_field( $item['message'] ?? '' );
+
+            $title = function_exists( 'mb_substr' )
+                ? mb_substr( $title, 0, self::MAX_QUEUE_TITLE_LENGTH, 'UTF-8' )
+                : substr( $title, 0, self::MAX_QUEUE_TITLE_LENGTH );
+            $message = function_exists( 'mb_substr' )
+                ? mb_substr( $message, 0, self::MAX_QUEUE_MESSAGE_LENGTH, 'UTF-8' )
+                : substr( $message, 0, self::MAX_QUEUE_MESSAGE_LENGTH );
+
+            if ( '' === $title ) {
+                continue;
+            }
+
+            if ( ! in_array( $status, [ 'pending', 'success', 'error' ], true ) ) {
+                $status = 'pending';
+            }
+
+            $sanitized[] = [
+                'title' => $title,
+                'status' => $status,
+                'message' => $message,
+            ];
+        }
+
+        return $sanitized;
+    }
+
+    private function sanitize_module_slug( $slug ) {
+        $slug = sanitize_title( $slug );
+        $slug = preg_replace( '/[^a-z0-9-]/', '', $slug );
+        $slug = trim( preg_replace( '/-+/', '-', $slug ), '-' );
+
+        return $slug;
+    }
+
+    private function normalize_generated_files( $files, $title, $slug ) {
+        $slug_under = str_replace( '-', '_', $slug );
+        $normalized = [
+            'meta.json' => $this->normalize_newlines( $files['meta.json'] ?? '' ),
+            'calculator.php' => $this->normalize_newlines( $files['calculator.php'] ?? '' ),
+            'calculator.js' => $this->normalize_newlines( $files['calculator.js'] ?? '' ),
+            'calculator.css' => $this->normalize_newlines( $files['calculator.css'] ?? '' ),
+        ];
+
+        $meta = json_decode( $normalized['meta.json'], true );
+        if ( ! is_array( $meta ) ) {
+            $meta = [];
+        }
+        $meta['name'] = sanitize_text_field( $meta['name'] ?? $title );
+        $meta['desc'] = sanitize_text_field( $meta['desc'] ?? ( $title . ' hesaplamasi yapar.' ) );
+        $meta['shortcode'] = '[hc_' . $slug_under . ']';
+        $normalized['meta.json'] = wp_json_encode( $meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "\n";
+
+        $expected_function = 'hc_render_' . $slug_under;
+        if ( ! preg_match( '/function\s+' . preg_quote( $expected_function, '/' ) . '\s*\(/', $normalized['calculator.php'] ) ) {
+            $normalized['calculator.php'] = preg_replace(
+                '/function\s+[A-Za-z_\x80-\xff][A-Za-z0-9_\x80-\xff]*\s*\(/u',
+                'function ' . $expected_function . '(',
+                $normalized['calculator.php'],
+                1
+            );
+        }
+
+        $normalized['calculator.php'] = preg_replace(
+            '#modules/[a-z0-9-]+/calculator\.(js|css)#',
+            'modules/' . $slug . '/calculator.$1',
+            $normalized['calculator.php']
+        );
+
+        return $normalized;
+    }
+
+    private function validate_generated_files( $files, $slug ) {
+        $required_keys = [ 'meta.json', 'calculator.php', 'calculator.js', 'calculator.css' ];
+        foreach ( $required_keys as $key ) {
+            if ( empty( $files[ $key ] ) ) {
+                return new WP_Error( 'missing_file', $key . ' icerigi eksik.' );
+            }
+        }
+
+        $meta = json_decode( $files['meta.json'], true );
+        if ( ! is_array( $meta ) || empty( $meta['name'] ) || empty( $meta['desc'] ) || empty( $meta['shortcode'] ) ) {
+            return new WP_Error( 'bad_meta', 'meta.json gecersiz.' );
+        }
+
+        $expected_shortcode = '[hc_' . str_replace( '-', '_', $slug ) . ']';
+        if ( $expected_shortcode !== $meta['shortcode'] ) {
+            return new WP_Error( 'bad_shortcode', 'meta.json shortcode slug ile uyumsuz.' );
+        }
+
+        $expected_function = 'hc_render_' . str_replace( '-', '_', $slug );
+        if ( ! preg_match( '/function\s+' . preg_quote( $expected_function, '/' ) . '\s*\(/', $files['calculator.php'] ) ) {
+            return new WP_Error( 'bad_php', 'calculator.php render fonksiyonu beklenen isimde degil.' );
+        }
+
+        if ( false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.js" ) || false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.css" ) ) {
+            return new WP_Error( 'bad_php_assets', 'calculator.php kendi modul JS/CSS dosyalarini enqueue etmeli.' );
+        }
+
+        $blocked_php = '/\b(eval|exec|shell_exec|system|passthru|proc_open|popen|curl_exec|wp_remote_post|wp_remote_get|file_put_contents|fopen|unlink|rename|copy|require|include|base64_decode)\b/i';
+        if ( preg_match( $blocked_php, $files['calculator.php'] ) ) {
+            return new WP_Error( 'unsafe_php', 'calculator.php icinde izin verilmeyen PHP islemi var.' );
+        }
+
+        $placeholder_pattern = '/(TODO|ornek|örnek|buraya yaz|placeholder|\.{3}|GERCEK|CALISAN|ÇALIŞAN)/iu';
+        if ( preg_match( $placeholder_pattern, $files['calculator.php'] ) || preg_match( $placeholder_pattern, $files['calculator.js'] ) || preg_match( $placeholder_pattern, $files['calculator.css'] ) ) {
+            return new WP_Error( 'placeholder_code', 'AI yaniti tamamlanmamis iskelet kod iceriyor.' );
+        }
+
+        $blocked_js = '/\b(fetch|XMLHttpRequest|eval|sendBeacon)\b|new\s+Function\b|\.ajax\s*\(/i';
+        if ( preg_match( $blocked_js, $files['calculator.js'] ) ) {
+            return new WP_Error( 'unsafe_js', 'calculator.js icinde sunucu istegi veya guvensiz JS kullanimi var.' );
+        }
+
+        if ( false === strpos( $files['calculator.js'], 'function hc' ) || false === strpos( $files['calculator.js'], '.hc-result' ) && false === strpos( $files['calculator.js'], 'visible' ) ) {
+            return new WP_Error( 'bad_js', 'calculator.js calisan hesaplama ve sonuc gosterme mantigi icermiyor.' );
+        }
+
+        if ( false === strpos( $files['calculator.js'], "toLocaleString('tr-TR'" ) && false === strpos( $files['calculator.js'], 'toLocaleString("tr-TR"' ) ) {
+            return new WP_Error( 'bad_js_format', 'calculator.js Turkce sayi formati icin toLocaleString(\'tr-TR\') kullanmali.' );
+        }
+
+        if ( preg_match( '/(@import|url\s*\()/i', $files['calculator.css'] ) || false === strpos( $files['calculator.css'], '.hc-' . $slug . '-' ) || false === strpos( $files['calculator.css'], '@media (max-width: 480px)' ) ) {
+            return new WP_Error( 'bad_css', 'calculator.css modul prefixi ve responsive kurali ile uyumlu degil.' );
+        }
+
+        return true;
+    }
+
+    private function normalize_newlines( $text ) {
+        $text = str_replace( [ "\r\n", "\r" ], "\n", (string) $text );
+        return trim( $text ) . "\n";
     }
 
     private function github_commit($repo, $branch, $token, $files, $message) {
