@@ -1120,7 +1120,10 @@ class HC_AI_Bulk_Generator {
 
             $blob_res = wp_remote_post("{$repo_api}/git/blobs", [
                 'headers' => $headers,
-                'body' => wp_json_encode(['content' => $content, 'encoding' => 'utf-8']),
+                'body' => wp_json_encode([
+                    'content' => base64_encode( $content ),
+                    'encoding' => 'base64'
+                ]),
                 'timeout' => 15
             ]);
             $blob_data = json_decode(wp_remote_retrieve_body($blob_res), true);
