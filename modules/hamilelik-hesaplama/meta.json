@@ -1,0 +1,5 @@
+{
+  "name": "Hamilelik Hesaplama",
+  "desc": "Son adet tarihinize göre tahmini doğum tarihinizi, hamilelik haftanızı ve trimester bilginizi hesaplar.",
+  "shortcode": "[hc_hamilelik_hesaplama]"
+}

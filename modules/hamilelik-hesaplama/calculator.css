@@ -1,0 +1,131 @@
+#hc-hamilelik-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    max-width: 480px;
+    margin: 20px auto;
+}
+
+#hc-hamilelik-hesaplama .hc-header h3 {
+    color: #db2777;
+    margin-bottom: 5px;
+}
+
+#hc-hamilelik-hesaplama label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#hc-hamilelik-hesaplama input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #fbcfe8;
+    border-radius: 10px;
+    background: #fff1f2;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+#hc-hamilelik-hesaplama small {
+    display: block;
+    margin-top: 5px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+#hc-hamilelik-hesaplama .hc-btn {
+    width: 100%;
+    background: #db2777;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-hamilelik-hesaplama .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-hamilelik-hesaplama .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hc-hamilelik-hesaplama .hc-preg-main-card {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #fbcfe8;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#hc-hamilelik-hesaplama .hc-preg-date span {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #be185d;
+    text-transform: uppercase;
+    display: block;
+}
+
+#hc-hamilelik-hesaplama .hc-preg-date strong {
+    font-size: 1.6rem;
+    color: #831843;
+    display: block;
+    margin: 5px 0 20px;
+}
+
+#hc-hamilelik-hesaplama .hc-preg-stats {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgba(219, 39, 119, 0.1);
+    padding-top: 15px;
+}
+
+#hc-hamilelik-hesaplama .hc-stat-item span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #db2777;
+}
+
+#hc-hamilelik-hesaplama .hc-stat-item small {
+    font-size: 0.75rem;
+    color: #9d174d;
+    font-weight: 600;
+}
+
+#hc-hamilelik-hesaplama .hc-preg-trimester {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+    text-align: center;
+}
+
+#hc-hamilelik-hesaplama .hc-res-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #94a3b8;
+    letter-spacing: 0.1em;
+}
+
+#hc-hamilelik-hesaplama .hc-res-info {
+    font-weight: 700;
+    color: #64748b;
+    font-size: 0.95rem;
+}

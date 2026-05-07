@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Kitle İndeksi (BMI) Hesaplama",
+  "desc": "Boy ve kilonuza göre vücut kütle indeksinizi hesaplar ve sağlık kategorinizi belirler.",
+  "shortcode": "[hc_bmi_hesaplama]"
+}
