@@ -1,0 +1,44 @@
+#hc-cocuk-persentil .hc-persentil-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#hc-cocuk-persentil .hc-persentil-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+#hc-cocuk-persentil .hc-p-label {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#hc-cocuk-persentil .hc-p-value {
+    font-size: 24px;
+    color: var(--hc-front-blue-dark);
+    font-weight: 800;
+}
+
+#hc-cocuk-persentil .hc-persentil-yorum {
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+    #hc-cocuk-persentil .hc-persentil-summary {
+        grid-template-columns: 1fr;
+    }
+}

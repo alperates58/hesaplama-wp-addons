@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Yaşı ve Düzeltilmiş Yaş Hesaplama",
+  "desc": "Bebeğinizin doğum tarihine göre kronolojik yaşını ve prematüre bebekler için düzeltilmiş yaşını hesaplar.",
+  "shortcode": "[hc_bebek_yasi_hesaplama]"
+}

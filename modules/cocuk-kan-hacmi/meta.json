@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk Kan Hacmi Hesaplama",
+  "desc": "Çocuğun yaşına ve ağırlığına göre tahmini toplam kan hacmini hesaplar.",
+  "shortcode": "[hc_cocuk_kan_hacmi]"
+}

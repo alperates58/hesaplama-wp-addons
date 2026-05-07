@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk Boy Tahmini (Hedef Boy) Hesaplama",
+  "desc": "Anne ve babanın boyuna göre çocuğun yetişkinlikteki tahmini boy uzunluğunu hesaplar.",
+  "shortcode": "[hc_cocuk_boy_tahmini]"
+}

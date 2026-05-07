@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk İdeal Kilo Hesaplama",
+  "desc": "Çocuğun yaşına ve cinsiyetine göre olması gereken ideal kilo aralığını hesaplar.",
+  "shortcode": "[hc_cocuk_ideal_kilo]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk Tansiyon Değerlendirme",
+  "desc": "Çocuğun yaşına, cinsiyetine ve boyuna göre tansiyon değerlerinin (sistolik/diyastolik) normal olup olmadığını değerlendirir.",
+  "shortcode": "[hc_cocuk_tansiyon_degerlendirme]"
+}

@@ -1,0 +1,21 @@
+#hc-bebek-yasi .hc-age-display {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--hc-front-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+#hc-bebek-yasi .hc-age-main strong,
+#hc-bebek-yasi .hc-age-sub strong {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+#hc-bebek-yasi .hc-label {
+    font-size: 14px;
+    color: var(--hc-front-muted);
+}

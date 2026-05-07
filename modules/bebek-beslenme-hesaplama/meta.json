@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Beslenme (Süt ve Mama) Hesaplama",
+  "desc": "Bebeğinizin ağırlığına ve yaşına göre günlük süt, mama ve sağma miktarı ihtiyacını hesaplar.",
+  "shortcode": "[hc_bebek_beslenme_hesaplama]"
+}
