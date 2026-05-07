@@ -1,0 +1,19 @@
+.hc-dolunay-hesaplama .hc-result {
+    text-align: center;
+}
+
+.hc-full-val {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f39c12;
+    margin: 15px 0;
+}
+
+.hc-full-desc {
+    line-height: 1.7;
+    color: #444;
+    background: #fdfaf5;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #f39c12;
+}

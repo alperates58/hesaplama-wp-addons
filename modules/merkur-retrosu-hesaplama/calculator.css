@@ -1,0 +1,28 @@
+.hc-retro-val {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hc-retro-status {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f1f2f6;
+    margin-bottom: 10px;
+}
+
+.hc-retro-status.active {
+    background: #ffeaa7;
+    color: #d35400;
+    border: 2px solid #e67e22;
+}
+
+.hc-retro-desc {
+    line-height: 1.7;
+    color: #555;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px dashed #ccc;
+}

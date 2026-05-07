@@ -1,0 +1,19 @@
+.hc-sansli-gun-hesaplama .hc-result {
+    text-align: center;
+}
+
+.hc-sg-val {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin: 15px 0;
+}
+
+.hc-sg-desc {
+    line-height: 1.7;
+    color: #444;
+    background: #fffbf0;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #e67e22;
+}
