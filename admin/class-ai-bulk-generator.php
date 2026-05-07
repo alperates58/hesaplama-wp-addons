@@ -717,6 +717,7 @@ class HC_AI_Bulk_Generator {
 
         $normalized['calculator.php'] = $this->normalize_calculator_php_file( $normalized['calculator.php'], $slug );
         $normalized['calculator.js'] = $this->normalize_calculator_js_file( $normalized['calculator.js'], $slug );
+        $normalized['calculator.css'] = $this->normalize_calculator_css_file( $normalized['calculator.css'], $slug );
 
         return $normalized;
     }
@@ -788,6 +789,22 @@ class HC_AI_Bulk_Generator {
         }
 
         return $this->normalize_newlines( $calculator_js );
+    }
+
+    private function normalize_calculator_css_file( $calculator_css, $slug ) {
+        $calculator_css = preg_replace( '/@import\s+[^;]+;?/i', '', $calculator_css );
+        $calculator_css = preg_replace( '/url\s*\([^)]*\)/i', 'none', $calculator_css );
+        $calculator_css = trim( $calculator_css );
+
+        if ( false === strpos( $calculator_css, '.hc-' . $slug . '-' ) ) {
+            $calculator_css .= "\n\n.hc-{$slug}-panel {\n    display: grid;\n    gap: 12px;\n}\n\n.hc-{$slug}-summary {\n    font-weight: 600;\n}\n";
+        }
+
+        if ( false === strpos( $calculator_css, '@media (max-width: 480px)' ) ) {
+            $calculator_css .= "\n\n@media (max-width: 480px) {\n    .hc-{$slug}-panel {\n        gap: 10px;\n    }\n\n    .hc-{$slug}-summary {\n        font-size: 14px;\n    }\n}\n";
+        }
+
+        return $this->normalize_newlines( $calculator_css );
     }
 
     private function validate_generated_files( $files, $slug ) {
