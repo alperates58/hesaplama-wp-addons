@@ -168,7 +168,7 @@ class HC_Excel_Planner {
             wp_send_json_error( 'Bu konuya ait eşleşen modül yok.' );
         }
 
-        if ( ! empty( $topic['draft_post_id'] ) && get_post( $topic['draft_post_id'] ) ) {
+        if ( self::post_exists_active( $topic['draft_post_id'] ?? 0 ) ) {
             wp_send_json_success( [
                 'already_exists' => true,
                 'edit_url'       => get_edit_post_link( $topic['draft_post_id'] ),
@@ -432,6 +432,12 @@ class HC_Excel_Planner {
 
     // ── Helpers ───────────────────────────────────────────────────────────────
 
+    private static function post_exists_active( $post_id ) {
+        if ( ! $post_id ) return false;
+        $post = get_post( (int) $post_id );
+        return $post && $post->post_status !== 'trash';
+    }
+
     private static function topic_id( $ana, $alt, $baslik ) {
         $raw = self::normalize( implode( '_', array_filter( [ $ana, $alt, $baslik ] ) ) );
         return preg_replace( '/[^a-z0-9_]+/', '_', $raw );
@@ -474,7 +480,7 @@ class HC_Excel_Planner {
 
         $total       = count( $topics );
         $match_count = count( array_filter( $topics, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
-        $draft_count = count( array_filter( $topics, static fn( $t ) => ! empty( $t['draft_post_id'] ) && get_post( $t['draft_post_id'] ) ) );
+        $draft_count = count( array_filter( $topics, static fn( $t ) => self::post_exists_active( $t['draft_post_id'] ?? 0 ) ) );
 
         $grouped = self::group_topics( $topics );
 
@@ -606,7 +612,7 @@ class HC_Excel_Planner {
 
                 $group_all     = array_merge( ...array_values( $alt_cats ) );
                 $group_matched = count( array_filter( $group_all, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
-                $group_drafted = count( array_filter( $group_all, static fn( $t ) => ! empty( $t['draft_post_id'] ) ) );
+                $group_drafted = count( array_filter( $group_all, static fn( $t ) => self::post_exists_active( $t['draft_post_id'] ?? 0 ) ) );
                 ?>
 
                 <div class="hc-card hc-planner-group">
@@ -653,7 +659,7 @@ class HC_Excel_Planner {
                                         <?php foreach ( $visible as $topic ) : ?>
                                             <?php
                                             $has_module = ! empty( $topic['module_slug'] );
-                                            $has_draft  = ! empty( $topic['draft_post_id'] ) && get_post( $topic['draft_post_id'] );
+                                            $has_draft  = self::post_exists_active( $topic['draft_post_id'] ?? 0 );
                                             $draft_url  = $has_draft ? get_edit_post_link( $topic['draft_post_id'] ) : '';
                                             $eligible   = $has_module && ! $has_draft;
                                             ?>
