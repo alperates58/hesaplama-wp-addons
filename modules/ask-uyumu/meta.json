@@ -1,5 +1,5 @@
 {
   "name": "Aşk Uyumu Hesaplama",
-  "desc": "Doğum tarihine göre burç ve numeroloji uyumu hesaplar, uyum yüzdesi ve yorum verir.",
+  "desc": "İsimleriniz ve burçlarınız arasındaki aşk frekansını ve romantik uyumu hesaplayın.",
   "shortcode": "[hc_ask_uyumu]"
 }

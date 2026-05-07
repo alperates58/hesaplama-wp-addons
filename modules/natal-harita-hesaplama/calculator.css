@@ -1,0 +1,20 @@
+.hc-natal-result {
+    text-align: center;
+}
+
+.hc-natal-val {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.hc-natal-desc {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #2c3e50;
+}

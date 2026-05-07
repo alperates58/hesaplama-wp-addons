@@ -1,7 +1,7 @@
-function hcDogumHaritasiHesapla() {
-    const dStr = document.getElementById('hc-chart-date').value;
-    const tStr = document.getElementById('hc-chart-time').value;
-    const loc = document.getElementById('hc-chart-city').value.split(',').map(Number);
+function hcPlanetEvlerHesapla() {
+    const dStr = document.getElementById('hc-pe-date').value;
+    const tStr = document.getElementById('hc-pe-time').value;
+    const loc = document.getElementById('hc-pe-city').value.split(',').map(Number);
 
     if (!dStr || !tStr) { alert('Lütfen tarih ve saat girin.'); return; }
 
@@ -13,16 +13,13 @@ function hcDogumHaritasiHesapla() {
     function norm(x) { x %= 360; return x < 0 ? x + 360 : x; }
 
     // Sidereal Time for Ascendant
-    const ut = date.getUTCHours() + date.getUTCMinutes()/60 + date.getUTCSeconds()/3600;
     const gmst = norm(280.46061837 + 360.98564736629 * d);
     const lst = norm(gmst + loc[1]);
     const obl = 23.439 - 0.0000004 * d;
     const asc = norm(Math.atan2(Math.cos(lst * rad), -Math.sin(lst * rad) * Math.cos(obl * rad) - Math.tan(loc[0] * rad) * Math.sin(obl * rad)) / rad + 90);
-
-    const burclar = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
     const ascBurcIdx = Math.floor(asc / 30);
 
-    // Planets Logic (Simplified)
+    // Planets
     function getHeliocentric(planet, d) {
         if (!planet.a) return { x: 0, y: 0, z: 0 };
         let { N, i, w, a, e, M0, M1 } = planet;
@@ -51,7 +48,7 @@ function hcDogumHaritasiHesapla() {
 
     const pE = getHeliocentric(planetsData.earth, d);
     const sunLon = norm(Math.atan2(-pE.y, -pE.x) / rad);
-    const planets = [{ name: "Yükselen", lon: asc }, { name: "Güneş", lon: sunLon }];
+    const planets = [{ name: "Güneş", lon: sunLon }];
 
     for (let p in planetsData) {
         if (p === 'earth') continue;
@@ -60,37 +57,23 @@ function hcDogumHaritasiHesapla() {
         planets.push({ name: p.charAt(0).toUpperCase() + p.slice(1).replace('mercury','Merkür').replace('venus','Venüs').replace('jupiter','Jüpiter').replace('saturn','Satürn'), lon: lonG });
     }
 
-    // Whole Sign Houses
-    const houses = [];
-    for(let i=0; i<12; i++) {
-        const idx = (ascBurcIdx + i) % 12;
-        houses.push({ num: i + 1, burc: burclar[idx] });
-    }
+    const evAnlamlari = [
+        "Kişilik ve Benlik", "Maddi Kaynaklar", "İletişim ve Yakın Çevre", "Yuva ve Aile",
+        "Yaratıcılık ve Aşk", "Günlük Rutin ve Sağlık", "İlişkiler ve Ortaklıklar", "Dönüşüm ve Paylaşımlar",
+        "Vizyon ve Eğitim", "Kariyer ve Statü", "Sosyal Çevre ve İdealler", "İçsel Dünya ve Maneviyat"
+    ];
 
-    let pList = "<ul>";
+    let html = "<div class='hc-pe-grid'>";
     planets.forEach(p => {
-        const b = burclar[Math.floor(p.lon / 30)];
         const houseNum = ((Math.floor(p.lon / 30) - ascBurcIdx + 12) % 12) + 1;
-        pList += `<li><strong>${p.name}:</strong> ${b} (${houseNum}. Ev)</li>`;
+        html += `<div class='hc-pe-item'>
+            <strong>${p.name}</strong> 
+            <span class='hc-pe-house'>${houseNum}. Ev</span>
+            <p class='hc-pe-desc'>${evAnlamlari[houseNum-1]} alanında etkili.</p>
+        </div>`;
     });
-    pList += "</ul>";
+    html += "</div>";
 
-    let hList = "<ul>";
-    houses.forEach(h => {
-        hList += `<li><strong>${h.num}. Ev:</strong> ${h.burc}</li>`;
-    });
-    hList += "</ul>";
-
-    document.getElementById('hc-planets-list').innerHTML = pList;
-    document.getElementById('hc-houses-list').innerHTML = hList;
-
-    const summary = `
-        <h4>Harita Özeti</h4>
-        <p>Yükselen burcunuz <strong>${burclar[ascBurcIdx]}</strong> olduğu için haritanızın birinci evi ${burclar[ascBurcIdx]} burcuyla başlar. 
-        Güneşiniz <strong>${burclar[Math.floor(sunLon / 30)]}</strong> burcunda ve <strong>${((Math.floor(sunLon / 30) - ascBurcIdx + 12) % 12) + 1}. evde</strong> konumlanmıştır. 
-        Bu harita, yaşam enerjinizin, karakterinizin ve kaderinizin gökyüzündeki izdüşümüdür.</p>
-    `;
-
-    document.getElementById('hc-chart-summary').innerHTML = summary;
-    document.getElementById('hc-chart-result').classList.add('visible');
+    document.getElementById('hc-pe-list').innerHTML = html;
+    document.getElementById('hc-pe-result').classList.add('visible');
 }

@@ -1,0 +1,40 @@
+.hc-num-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.hc-num-item {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.hc-num-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.hc-num-box {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.hc-full-desc {
+    line-height: 1.7;
+    color: #444;
+    text-align: left;
+    padding: 0 10px;
+}
+
+@media (max-width: 480px) {
+    .hc-num-grid {
+        grid-template-columns: 1fr;
+    }
+}

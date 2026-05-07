@@ -1,0 +1,5 @@
+{
+  "name": "Yaşam Yolu Sayısı Hesaplama",
+  "desc": "Doğum tarihinize göre yaşam yolu sayınızı ve hayat amacınızı hesaplayın.",
+  "shortcode": "[hc_yasam_yolu_sayisi_hesaplama]"
+}

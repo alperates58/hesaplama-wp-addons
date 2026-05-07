@@ -1,0 +1,20 @@
+.hc-astrolojik-sayi-result {
+    text-align: center;
+}
+
+.hc-ast-val {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #16a085;
+    margin: 10px 0;
+}
+
+.hc-ast-desc {
+    font-style: italic;
+    color: #555;
+    line-height: 1.7;
+    background: #f1f8f7;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #16a085;
+}

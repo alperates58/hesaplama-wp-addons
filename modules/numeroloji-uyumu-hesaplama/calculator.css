@@ -1,20 +1,20 @@
-.hc-burc-uyumu-result {
+.hc-numeroloji-uyumu-result {
     text-align: center;
 }
 
-.hc-uyum-skor {
+.hc-num-skor {
     font-size: 3rem;
     font-weight: bold;
-    color: #e74c3c;
+    color: #d35400;
     margin: 15px 0;
 }
 
-.hc-uyum-desc {
+.hc-num-desc {
     line-height: 1.7;
     color: #444;
     text-align: left;
-    background: #fffafa;
+    background: #fff9f5;
     padding: 20px;
     border-radius: 10px;
-    border-left: 5px solid #e74c3c;
+    border-left: 5px solid #d35400;
 }

@@ -1,0 +1,19 @@
+.hc-time-result {
+    text-align: center;
+}
+
+.hc-time-desc {
+    line-height: 1.7;
+    color: #444;
+    background: #f0f7fb;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #3498db;
+    margin-bottom: 15px;
+}
+
+.hc-note {
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+}

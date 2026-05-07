@@ -1,0 +1,5 @@
+{
+  "name": "Gezegen Konumları Hesaplama",
+  "desc": "Doğum anınızdaki tüm gezegenlerin (Güneş, Ay, Merkür, Venüs, Mars, Jüpiter, Satürn) burç ve derecelerini hesaplayın.",
+  "shortcode": "[hc_gezegen_konumlari_hesaplama]"
+}
