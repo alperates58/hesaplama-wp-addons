@@ -862,6 +862,7 @@ class HC_Excel_Planner {
 
         $total       = count( $topics );
         $match_count = self::count_unique_matched_modules( $topics );
+        $matched_topic_count = count( array_filter( $topics, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
         $draft_count = count( array_filter( $topics, static fn( $t ) => self::post_exists_active( $t['draft_post_id'] ?? 0 ) ) );
 
         $grouped = self::group_topics( $topics );
@@ -924,13 +925,19 @@ class HC_Excel_Planner {
                 <div class="hc-stat-card">
                     <span class="hc-stat-label">Eşleşen Modül</span>
                     <strong class="hc-stat-value" style="color:var(--hc-secondary);"><?php echo esc_html( $match_count ); ?></strong>
-                    <span class="hc-stat-foot">Shortcode hazır</span>
+                    <span class="hc-stat-foot"><?php echo esc_html( $matched_topic_count ); ?> konuda shortcode hazir</span>
                 </div>
                 <div class="hc-stat-card">
-                    <span class="hc-stat-label">Taslak Oluşturuldu</span>
+                    <span class="hc-stat-label">Bagli Yazi</span>
                     <strong class="hc-stat-value" style="color:#4ade80;"><?php echo esc_html( $draft_count ); ?></strong>
-                    <span class="hc-stat-foot">WordPress'e kaydedildi</span>
+                    <span class="hc-stat-foot">Taslak, yayinda veya bekleyen dahil</span>
                 </div>
+            </div>
+
+            <div class="hc-card" style="margin-top:0; margin-bottom:20px;">
+                <p style="margin:0; color:var(--hc-text-muted);">
+                    Buradaki "Eslesen Modul" sayisi benzersiz modul sayisidir; ayni modul birden fazla konuya atanmaz. "Bagli Yazi" ise sadece taslaklari degil, copte olmayan tum bagli yazilari sayar.
+                </p>
             </div>
 
             <!-- Filter + bulk action bar -->

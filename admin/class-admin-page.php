@@ -523,6 +523,7 @@ class HC_Module_Inventory {
 
         if ( $post_status === 'used' && $module['post_count'] == 0 ) return false;
         if ( $post_status === 'unused' && $module['post_count'] > 0 ) return false;
+        if ( $post_status === 'duplicates' && $module['post_count'] <= 1 ) return false;
 
         if ( $category && $module['category'] !== $category ) {
             return false;
@@ -990,6 +991,13 @@ class HC_Admin_Page {
         $total_posts       = array_sum( wp_list_pluck( $all_modules, 'post_count' ) );
         $latest_module     = ! empty( $all_modules ) ? $all_modules[0] : null;
         $grouped_modules   = HC_Module_Inventory::group_modules_by_category( $modules );
+        $duplicate_modules = array_values( array_filter( $all_modules, static fn( $module ) => (int) $module['post_count'] > 1 ) );
+        $duplicate_extra_usage = array_sum(
+            array_map(
+                static fn( $module ) => max( 0, (int) $module['post_count'] - 1 ),
+                $duplicate_modules
+            )
+        );
         ?>
         <?php if ( isset( $_GET['modules_saved'] ) ) : ?>
             <div class="notice notice-success is-dismissible"><p>Modül kataloğu güncellendi.</p></div>
@@ -1012,11 +1020,60 @@ class HC_Admin_Page {
                 <span class="hc-stat-foot">Shortcode yerleşimi</span>
             </div>
             <div class="hc-stat-card">
+                <span class="hc-stat-label">Mukerrer Kullanim</span>
+                <strong class="hc-stat-value" style="color:var(--hc-secondary);"><?php echo esc_html( count( $duplicate_modules ) ); ?></strong>
+                <span class="hc-stat-foot"><?php echo esc_html( $duplicate_extra_usage ); ?> ekstra yerlestim</span>
+            </div>
+            <div class="hc-stat-card">
                 <span class="hc-stat-label">Son Eklenen</span>
                 <strong class="hc-stat-value hc-stat-small"><?php echo esc_html( $latest_module ? $latest_module['created_datetime'] : '-' ); ?></strong>
                 <span class="hc-stat-foot"><?php echo esc_html( $latest_module ? $latest_module['name'] : 'Yok' ); ?></span>
             </div>
         </div>
+
+        <div class="hc-card" style="margin-bottom:20px;">
+            <p style="margin:0; color:var(--hc-text-muted);">
+                "Toplam Kullanim" tum yazi durumlarindaki shortcode sayisini gosterir. "Yazi Eklenmeyenler" hic kullanilmayan modulleri, "Mukerrer Kullanimlar" ise birden fazla yazida gecen modulleri listeler.
+            </p>
+        </div>
+
+        <?php if ( ! empty( $duplicate_modules ) ) : ?>
+            <div class="hc-card" style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <div>
+                        <h2 style="margin:0 0 4px;">Mukerrer Kullanimlar</h2>
+                        <p style="margin:0; color:var(--hc-text-muted);">
+                            Ayni modulun birden fazla yazida gectigi yerleri buradan topluca gorebilirsiniz.
+                        </p>
+                    </div>
+                    <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite&post_status=duplicates' ) ); ?>">Sadece mukerrerleri filtrele</a>
+                </div>
+                <div class="hc-module-grid" style="margin-top:16px;">
+                    <?php foreach ( array_slice( $duplicate_modules, 0, 12 ) as $module ) : ?>
+                        <article class="hc-module-card hc-module-card-compact">
+                            <div class="hc-module-card-top">
+                                <span class="hc-category-badge"><?php echo esc_html( $module['category_child'] ?: $module['category_parent'] ?: 'Kategorisiz' ); ?></span>
+                                <span class="hc-usage-badge is-used"><?php echo esc_html( $module['post_count'] . ' yazida' ); ?></span>
+                            </div>
+                            <div class="hc-module-card-main">
+                                <h3><?php echo esc_html( $module['name'] ); ?></h3>
+                                <p><?php echo esc_html( $module['shortcode'] ); ?></p>
+                            </div>
+                            <div class="hc-card-actions hc-card-actions-compact">
+                                <a class="button" href="<?php echo esc_url( $module['posts_url'] ); ?>">
+                                    <span class="dashicons dashicons-admin-post" aria-hidden="true"></span> Kullanimlari ac
+                                </a>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+                <?php if ( count( $duplicate_modules ) > 12 ) : ?>
+                    <p style="margin:16px 0 0; color:var(--hc-text-muted);">
+                        Ilk 12 modul gosteriliyor. Tum liste icin filtreyi kullanin.
+                    </p>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
 
         <div class="hc-card" style="margin-bottom:20px;">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
