@@ -1,0 +1,5 @@
+{
+  "name": "Beygir Gücü Hesaplayıcısı",
+  "desc": "Motorun tork ve devir bilgilerinden veya kW cinsinden gücünden beygir gücünü (HP/PS) hesaplar.",
+  "shortcode": "[hc_beygir_gucu_hesaplayicisi]"
+}
