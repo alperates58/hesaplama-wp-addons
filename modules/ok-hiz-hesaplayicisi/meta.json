@@ -1,0 +1,5 @@
+{
+  "name": "Ok Hız Hesaplayıcısı",
+  "desc": "Yay özelliklerine göre ok hızını (FPS) tahmin eder.",
+  "shortcode": "[hc_ok_hiz_hesaplayicisi]"
+}

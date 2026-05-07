@@ -1,0 +1,5 @@
+{
+  "name": "İvme Hesaplama",
+  "desc": "Hız değişimi ve geçen süreye göre ivmeyi (hızlanma/yavaşlama oranı) hesaplar.",
+  "shortcode": "[hc_ivme_hesaplama]"
+}
