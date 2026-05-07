@@ -1,0 +1,5 @@
+{
+  "name": "Lastik Ebat Hesaplayıcısı",
+  "desc": "Farklı lastik ebatlarını karşılaştırarak çap farkını ve hız göstergesindeki sapmayı hesaplar.",
+  "shortcode": "[hc_lastik_ebat_hesaplayicisi]"
+}
