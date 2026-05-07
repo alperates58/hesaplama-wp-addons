@@ -59,7 +59,7 @@ class HC_AI_Bulk_Generator {
                     </datalist>
                     <p class="description">DeepSeek için: deepseek-v4-flash veya deepseek-v4-pro | Gemini için: gemini-2.5-flash</p>
                 </div>
-                <div class="hc-field-card" style="background:#f0faeb; border:1px solid #c3e6cb;">
+                <div class="hc-field-card" style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2);">
                     <label for="hc_serper_key"><strong>Serper.dev API Anahtarı (İsteğe Bağlı)</strong></label>
                     <input type="password" id="hc_serper_key" value="<?php echo esc_attr($serper_key); ?>" class="large-text">
                     <p class="description">Girerseniz, yapay zekaya güncel internet sonuçlarını (formülleri) göndeririz.</p>
@@ -140,7 +140,7 @@ class HC_AI_Bulk_Generator {
 
         <div class="hc-card">
             <h2>İşlem Logu</h2>
-            <div id="log-container" style="background:#1e1e1e; color:#4CAF50; padding:15px; height:200px; overflow-y:auto; font-family:monospace; border-radius:4px;"></div>
+            <div id="log-container" style="background:rgba(0,0,0,0.4); color:#4ade80; padding:15px; height:200px; overflow-y:auto; font-family:'JetBrains Mono',monospace; font-size:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);"></div>
         </div>
 
         <script>
