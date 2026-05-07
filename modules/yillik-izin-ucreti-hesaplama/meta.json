@@ -1,0 +1,5 @@
+{
+  "name": "Yıllık İzin Ücreti Hesaplama (2026)",
+  "desc": "Kullanılmayan yıllık izinlerin brüt ve net ücretini 2026 vergi oranlarına göre hesaplar.",
+  "shortcode": "[hc_yillik_izin_ucreti_hesaplama]"
+}
