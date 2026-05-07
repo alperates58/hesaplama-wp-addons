@@ -21,11 +21,11 @@ class HC_AI_Writer {
         }
 
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'AI ayarlarÄ±nÄ± kaydetme yetkiniz yok.', 'hesaplama-suite' ), esc_html__( 'Yetkisiz iÅŸlem', 'hesaplama-suite' ), [ 'response' => 403 ] );
+            wp_die( esc_html__( 'AI ayarlarını kaydetme yetkiniz yok.', 'hesaplama-suite' ), esc_html__( 'Yetkisiz işlem', 'hesaplama-suite' ), [ 'response' => 403 ] );
         }
 
         if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'hc_save_ai_settings' ) ) {
-            wp_die( esc_html__( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'GeÃ§ersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
+            wp_die( esc_html__( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'Geçersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
         }
 
         $provider = new HC_AI_Provider();
@@ -37,12 +37,12 @@ class HC_AI_Writer {
 
     public function ajax_update_post_meta() {
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $post_id = intval( $_POST['post_id'] ?? 0 );
-        if ( ! $post_id || ! get_post( $post_id ) ) wp_send_json_error( 'GeÃ§ersiz yazÄ±.' );
-        if ( ! current_user_can( 'edit_post', $post_id ) ) wp_send_json_error( 'Bu yazÄ±yÄ± dÃ¼zenleme yetkiniz yok.', 403 );
+        if ( ! $post_id || ! get_post( $post_id ) ) wp_send_json_error( 'Geçersiz yazı.' );
+        if ( ! current_user_can( 'edit_post', $post_id ) ) wp_send_json_error( 'Bu yazıyı düzenleme yetkiniz yok.', 403 );
 
         $baslik      = sanitize_text_field( wp_unslash( $_POST['baslik'] ?? '' ) );
         $icerik      = wp_kses_post( wp_unslash( $_POST['icerik'] ?? '' ) );
@@ -96,18 +96,18 @@ class HC_AI_Writer {
             '2024',
             '2025',
             '2026',
-            'hesaplama aracÄ±',
+            'hesaplama aracı',
             'hesaplama',
             'risk',
-            'saÄŸlÄ±k',
+            'sağlık',
             'saglik',
-            'kan basÄ±ncÄ±',
+            'kan basıncı',
             'kan basinci',
             'tansiyon',
             'protein',
             'beslenme',
             'ssk',
-            'baÄŸ-kur',
+            'bağ-kur',
             'bag-kur',
         ];
         $clean = [];
@@ -119,8 +119,8 @@ class HC_AI_Writer {
         $fallbacks = array_filter( [
             $focus_keyword,
             $title,
-            $focus_keyword ? $focus_keyword . ' nasÄ±l hesaplanÄ±r' : '',
-            $focus_keyword ? $focus_keyword . ' deÄŸerleri' : '',
+            $focus_keyword ? $focus_keyword . ' nasıl hesaplanır' : '',
+            $focus_keyword ? $focus_keyword . ' değerleri' : '',
             $focus_keyword ? $focus_keyword . ' sonucu yorumu' : '',
         ] );
 
@@ -152,9 +152,9 @@ class HC_AI_Writer {
     }
 
     public function ajax_generate() {
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'AI iÃ§erik oluÅŸturma yetkiniz yok.', 403 );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'AI içerik oluşturma yetkiniz yok.', 403 );
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $url   = esc_url_raw( $_POST['url'] ?? '' );
@@ -163,14 +163,14 @@ class HC_AI_Writer {
 
         $provider = new HC_AI_Provider();
         if ( 'post_metabox' === $source && ! $provider->is_feature_enabled( 'post_metabox' ) ) {
-            wp_send_json_error( 'YazÄ± iÃ§inden AI iÃ§erik oluÅŸturma kapalÄ±.' );
+            wp_send_json_error( 'Yazı içinden AI içerik oluşturma kapalı.' );
         }
 
         if ( 'post_metabox' !== $source && ! $provider->is_feature_enabled( 'writer_tab' ) ) {
-            wp_send_json_error( 'Eklenti iÃ§inden AI yazÄ± oluÅŸturma kapalÄ±.' );
+            wp_send_json_error( 'Eklenti içinden AI yazı oluşturma kapalı.' );
         }
 
-        if ( ! $url && ! $title ) wp_send_json_error( 'URL veya baÅŸlÄ±k gerekli.' );
+        if ( ! $url && ! $title ) wp_send_json_error( 'URL veya başlık gerekli.' );
 
         $page_text = '';
         if ( $url ) {
@@ -194,7 +194,7 @@ class HC_AI_Writer {
 
         $data = $this->decode_ai_json_response( $result );
         if ( ! $data ) {
-            wp_send_json_error( 'AI yanÄ±tÄ± JSON olarak Ã§Ã¶zÃ¼mlenemedi. Ham yanÄ±t: ' . esc_html( substr( $result, 0, 300 ) ) );
+            wp_send_json_error( 'AI yanıtı JSON olarak çözümlenemedi. Ham yanıt: ' . esc_html( substr( $result, 0, 300 ) ) );
         }
 
         $data = $this->expand_article_until_long_enough( $provider, $data, $prompt );
@@ -230,15 +230,15 @@ class HC_AI_Writer {
     }
 
     public function ajax_create_module_post() {
-        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'YazÄ± oluÅŸturma yetkiniz yok.', 403 );
+        if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Yazı oluşturma yetkiniz yok.', 403 );
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $name      = sanitize_text_field( $_POST['name'] ?? '' );
         $shortcode = sanitize_text_field( $_POST['shortcode'] ?? '' );
 
-        if ( ! $name ) wp_send_json_error( 'ModÃ¼l adÄ± eksik.' );
+        if ( ! $name ) wp_send_json_error( 'Modül adı eksik.' );
 
         $existing = get_page_by_title( $name, OBJECT, 'post' );
         if ( $existing ) {
@@ -275,38 +275,38 @@ class HC_AI_Writer {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $name = sanitize_text_field( wp_unslash( $_POST['name'] ?? '' ) );
         $desc = sanitize_textarea_field( wp_unslash( $_POST['desc'] ?? '' ) );
 
         if ( ! $name ) {
-            wp_send_json_error( 'ModÃ¼l adÄ± eksik.' );
+            wp_send_json_error( 'Modül adı eksik.' );
         }
 
         $provider = new HC_AI_Provider();
         if ( ! $provider->is_feature_enabled( 'writer_tab' ) ) {
-            wp_send_json_error( 'AI araÃ§larÄ± kapalÄ±.' );
+            wp_send_json_error( 'AI araçları kapalı.' );
         }
 
         $choices = HC_Module_Inventory::get_wordpress_category_paths();
         if ( empty( $choices ) ) {
-            wp_send_json_error( 'Sitede analiz edilecek kategori bulunamadÄ±.' );
+            wp_send_json_error( 'Sitede analiz edilecek kategori bulunamadı.' );
         }
 
         $prompt = implode(
             "\n",
             [
-                'AÅŸaÄŸÄ±daki modÃ¼l iÃ§in yalnÄ±zca mevcut WordPress kategori yollarÄ±ndan en uygun olanÄ± seÃ§.',
+                'Aşağıdaki modül için yalnızca mevcut WordPress kategori yollarından en uygun olanı seç.',
                 'Yeni kategori uydurma.',
-                'Sadece JSON dÃ¶ndÃ¼r.',
+                'Sadece JSON döndür.',
                 '{"kategori_yolu":"","gerekce":""}',
                 '',
-                'ModÃ¼l adÄ±: ' . $name,
-                'AÃ§Ä±klama: ' . $desc,
+                'Modül adı: ' . $name,
+                'Açıklama: ' . $desc,
                 '',
-                'Kategori yollarÄ±:',
+                'Kategori yolları:',
                 '- ' . implode( "\n- ", $choices ),
             ]
         );
@@ -322,14 +322,14 @@ class HC_AI_Writer {
         }
 
         if ( ! is_array( $json ) ) {
-            wp_send_json_error( 'AI yanÄ±tÄ± Ã§Ã¶zÃ¼mlenemedi.' );
+            wp_send_json_error( 'AI yanıtı çözümlenemedi.' );
         }
 
         $category_path = sanitize_text_field( $json['kategori_yolu'] ?? '' );
         $reason        = sanitize_text_field( $json['gerekce'] ?? '' );
 
         if ( ! $category_path || ! in_array( $category_path, $choices, true ) ) {
-            wp_send_json_error( 'AI geÃ§erli bir kategori seÃ§emedi.' );
+            wp_send_json_error( 'AI geçerli bir kategori seçemedi.' );
         }
 
         wp_send_json_success(
@@ -341,7 +341,7 @@ class HC_AI_Writer {
     }
 
     private function turkish_slug( $text ) {
-        $tr   = [ 'ÅŸ', 'Å', 'Ä±', 'Ä°', 'ÄŸ', 'Ä', 'Ã¼', 'Ãœ', 'Ã¶', 'Ã–', 'Ã§', 'Ã‡' ];
+        $tr   = [ 'ş', 'Ş', 'ı', 'İ', 'ğ', 'Ğ', 'ü', 'Ü', 'ö', 'Ö', 'ç', 'Ç' ];
         $en   = [ 's', 's', 'i', 'i', 'g', 'g', 'u', 'u', 'o', 'o', 'c', 'c' ];
         $text = str_replace( $tr, $en, $text );
         $text = sanitize_title( $text );
@@ -349,9 +349,9 @@ class HC_AI_Writer {
     }
 
     public function ajax_check_usage() {
-        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'AI kullanÄ±mÄ±nÄ± kontrol etme yetkiniz yok.', 403 );
+        if ( ! current_user_can( 'manage_options' ) ) wp_send_json_error( 'AI kullanımını kontrol etme yetkiniz yok.', 403 );
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $provider = new HC_AI_Provider();
@@ -367,7 +367,7 @@ class HC_AI_Writer {
     public function ajax_save_draft() {
         if ( ! current_user_can( 'edit_posts' ) ) wp_send_json_error( 'Taslak kaydetme yetkiniz yok.', 403 );
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $baslik      = sanitize_text_field( $_POST['baslik'] ?? '' );
@@ -438,11 +438,11 @@ class HC_AI_Writer {
         $saved    = isset( $_GET['saved'] );
 
         $openai_modeller = [
-            'gpt-5-mini'    => 'GPT-5 Mini - ModÃ¼l Ã¼retimi iÃ§in Ã¶nerilen',
-            'gpt-4o-mini'   => 'GPT-4o Mini - Ucuz, hÄ±zlÄ±',
-            'gpt-4o'        => 'GPT-4o â€” En GÃ¼Ã§lÃ¼',
+            'gpt-5-mini'    => 'GPT-5 Mini - Modül üretimi için önerilen',
+            'gpt-4o-mini'   => 'GPT-4o Mini - Ucuz, hızlı',
+            'gpt-4o'        => 'GPT-4o — En Güçlü',
             'gpt-4-turbo'   => 'GPT-4 Turbo',
-            'gpt-3.5-turbo' => 'GPT-3.5 Turbo â€” En Ucuz',
+            'gpt-3.5-turbo' => 'GPT-3.5 Turbo — En Ucuz',
         ];
         $gemini_modeller = [
             'gemini-2.0-flash-lite' => 'Gemini 2.0 Flash Lite',
@@ -452,38 +452,38 @@ class HC_AI_Writer {
         ];
         ?>
         <?php if ( $saved ): ?>
-            <div class="notice notice-success is-dismissible"><p>AI ayarlarÄ± kaydedildi.</p></div>
+            <div class="notice notice-success is-dismissible"><p>AI ayarları kaydedildi.</p></div>
         <?php endif; ?>
 
         <div class="hc-card">
-            <h2>Yapay Zeka AyarlarÄ±</h2>
+            <h2>Yapay Zeka Ayarları</h2>
 
             <form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite&tab=ai-settings' ) ); ?>">
                 <?php wp_nonce_field( 'hc_save_ai_settings' ); ?>
                 <input type="hidden" name="hc_save_ai" value="1" />
                 <table class="form-table">
                     <tr>
-                        <th>AI yazÄ± oluÅŸturma</th>
+                        <th>AI yazı oluşturma</th>
                         <td>
                             <label>
                                 <input type="checkbox" name="enable_writer_tab" value="1" <?php checked( $s['enable_writer_tab'], '1' ); ?> />
-                                Eklenti iÃ§indeki YazÄ± OluÅŸtur sekmesini aktif et
+                                Eklenti içindeki Yazı Oluştur sekmesini aktif et
                             </label>
                             <br />
                             <label>
                                 <input type="checkbox" name="enable_post_metabox" value="1" <?php checked( $s['enable_post_metabox'], '1' ); ?> />
-                                YazÄ± dÃ¼zenleme ekranÄ±ndaki AI kutusunu aktif et
+                                Yazı düzenleme ekranındaki AI kutusunu aktif et
                             </label>
                             <br />
                             <label>
                                 <input type="checkbox" name="enable_module_generator" value="1" <?php checked( $s['enable_module_generator'], '1' ); ?> />
-                                GPT-5 mini ile ModÃ¼l OluÅŸtur sekmesini aktif et
+                                GPT-5 mini ile Modül Oluştur sekmesini aktif et
                             </label>
-                            <p class="description">Bu ayarlar kapatÄ±lan yerlerden gelen AI isteklerini engeller; yazÄ± iÃ§i kutu kapalÄ±yken gÃ¶rÃ¼nmez.</p>
+                            <p class="description">Bu ayarlar kapatılan yerlerden gelen AI isteklerini engeller; yazı içi kutu kapalıyken görünmez.</p>
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="provider">SaÄŸlayÄ±cÄ±</label></th>
+                        <th><label for="provider">Sağlayıcı</label></th>
                         <td>
                             <select id="hc-ai-provider" name="provider" onchange="hcToggleProvider(this.value)">
                                 <option value="openai" <?php selected( $s['provider'], 'openai' ); ?>>OpenAI (ChatGPT)</option>
@@ -500,7 +500,7 @@ class HC_AI_Writer {
                                    placeholder="<?php echo $s['provider'] === 'gemini' ? 'AIza...' : 'sk-...'; ?>" />
                             <p class="description" id="hc-key-hint">
                                 <?php if ( $s['provider'] === 'openai' ): ?>
-                                    <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com/api-keys</a> â†’ Create new secret key
+                                    <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com/api-keys</a> → Create new secret key
                                 <?php else: ?>
                                     <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a>
                                 <?php endif; ?>
@@ -534,18 +534,18 @@ class HC_AI_Writer {
                 <p class="submit">
                     <button type="submit" name="hc_save_ai" class="button button-primary">Kaydet</button>
                     <button type="button" id="hc-check-usage-btn" class="button" style="margin-left:8px;">
-                        KullanÄ±mÄ± Kontrol Et
+                        Kullanımı Kontrol Et
                     </button>
                 </p>
             </form>
         </div>
 
         <div id="hc-usage-card" class="hc-card" style="display:none; border-left:3px solid #6366f1;">
-            <h2>KullanÄ±m Durumu</h2>
+            <h2>Kullanım Durumu</h2>
             <div id="hc-usage-content"></div>
             <p style="margin-top:12px;">
                 <a href="https://platform.openai.com/usage" target="_blank">
-                    â†’ DetaylÄ± kullanÄ±m iÃ§in platform.openai.com/usage
+                    → Detaylı kullanım için platform.openai.com/usage
                 </a>
             </p>
         </div>
@@ -566,8 +566,8 @@ class HC_AI_Writer {
         if ( ! $provider->is_feature_enabled( 'writer_tab' ) ) {
             ?>
             <div class="hc-card">
-                <h2>YazÄ± OluÅŸtur</h2>
-                <p>Eklenti iÃ§inden AI yazÄ± oluÅŸturma ÅŸu anda kapalÄ±. AI AyarlarÄ± sekmesinden tekrar aÃ§abilirsiniz.</p>
+                <h2>Yazı Oluştur</h2>
+                <p>Eklenti içinden AI yazı oluşturma şu anda kapalı. AI Ayarları sekmesinden tekrar açabilirsiniz.</p>
             </div>
             <?php
             return;
@@ -589,22 +589,22 @@ class HC_AI_Writer {
         }
         ?>
         <div class="hc-card">
-            <h2>YazÄ± OluÅŸtur</h2>
-            <p>Hesaplama aracÄ±nÄ±n URL'ini girin, yapay zeka SEO uyumlu TÃ¼rkÃ§e makaleyi hazÄ±rlasÄ±n.</p>
+            <h2>Yazı Oluştur</h2>
+            <p>Hesaplama aracının URL'ini girin, yapay zeka SEO uyumlu Türkçe makaleyi hazırlasın.</p>
 
             <div class="hc-form-group">
-                <label for="hc-writer-url"><strong>Hesaplama AracÄ± URL'si</strong></label>
+                <label for="hc-writer-url"><strong>Hesaplama Aracı URL'si</strong></label>
                 <input type="url" id="hc-writer-url" class="large-text" placeholder="https://hesaplamaa.com/..." />
             </div>
 
             <?php if ( $modules ): ?>
             <div class="hc-form-group">
-                <label for="hc-writer-shortcode"><strong>Hesap Makinesi Shortcode</strong> <small>(yazÄ±nÄ±n en Ã¼stÃ¼ne eklenir)</small></label>
+                <label for="hc-writer-shortcode"><strong>Hesap Makinesi Shortcode</strong> <small>(yazının en üstüne eklenir)</small></label>
                 <select id="hc-writer-shortcode" class="regular-text">
-                    <option value="">â€” Ekleme â€”</option>
+                    <option value="">— Ekleme —</option>
                     <?php foreach ( $modules as $m ): ?>
                         <option value="<?php echo esc_attr( $m['shortcode'] ); ?>">
-                            <?php echo esc_html( $m['name'] ); ?> â€” <?php echo esc_html( $m['shortcode'] ); ?>
+                            <?php echo esc_html( $m['name'] ); ?> — <?php echo esc_html( $m['shortcode'] ); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -612,11 +612,11 @@ class HC_AI_Writer {
             <?php endif; ?>
 
             <button id="hc-writer-btn" class="button button-primary" style="margin-bottom:20px;">
-                âœ¨ Makale OluÅŸtur
+                ✨ Makale Oluştur
             </button>
 
             <div id="hc-writer-loading" style="display:none; padding:16px 0; color:#71717a;">
-                â³ Yapay zeka makaleyi yazÄ±yor, lÃ¼tfen bekleyin (20-60 saniye)...
+                ⏳ Yapay zeka makaleyi yazıyor, lütfen bekleyin (20-60 saniye)...
             </div>
             <div id="hc-writer-error" class="notice notice-error" style="display:none; padding:8px 16px;"></div>
         </div>
@@ -630,18 +630,18 @@ class HC_AI_Writer {
                         <td><input type="text" id="hc-r-odak" class="large-text" /></td>
                     </tr>
                     <tr>
-                        <th><label>Ä°kincil Anahtar Kelimeler</label></th>
-                        <td><input type="text" id="hc-r-ikincil" class="large-text" placeholder="virgÃ¼lle ayrÄ±lmÄ±ÅŸ" /></td>
+                        <th><label>İkincil Anahtar Kelimeler</label></th>
+                        <td><input type="text" id="hc-r-ikincil" class="large-text" placeholder="virgülle ayrılmış" /></td>
                     </tr>
                     <tr>
-                        <th><label>Meta BaÅŸlÄ±k <small style="font-weight:normal;color:#71717a;">(55-60 karakter)</small></label></th>
+                        <th><label>Meta Başlık <small style="font-weight:normal;color:#71717a;">(55-60 karakter)</small></label></th>
                         <td>
                             <input type="text" id="hc-r-meta-baslik" class="large-text" />
                             <p class="description">Karakter: <span id="hc-mb-count">0</span></p>
                         </td>
                     </tr>
                     <tr>
-                        <th><label>Meta AÃ§Ä±klama <small style="font-weight:normal;color:#71717a;">(120-155 karakter)</small></label></th>
+                        <th><label>Meta Açıklama <small style="font-weight:normal;color:#71717a;">(120-155 karakter)</small></label></th>
                         <td>
                             <textarea id="hc-r-meta-acik" class="large-text" rows="3"></textarea>
                             <p class="description">Karakter: <span id="hc-ma-count">0</span></p>
@@ -649,30 +649,30 @@ class HC_AI_Writer {
                     </tr>
                     <tr>
                         <th><label>Etiketler</label></th>
-                        <td><input type="text" id="hc-r-etiketler" class="large-text" placeholder="virgÃ¼lle ayrÄ±lmÄ±ÅŸ" /></td>
+                        <td><input type="text" id="hc-r-etiketler" class="large-text" placeholder="virgülle ayrılmış" /></td>
                     </tr>
                     <tr>
                         <th><label>URL Slug</label></th>
                         <td><input type="text" id="hc-r-url-slug" class="large-text" placeholder="ornek-url-slug" /></td>
                     </tr>
                     <tr>
-                        <th><label>YazÄ± BaÅŸlÄ±ÄŸÄ± (H1)</label></th>
+                        <th><label>Yazı Başlığı (H1)</label></th>
                         <td><input type="text" id="hc-r-baslik" class="large-text" /></td>
                     </tr>
                 </table>
             </div>
 
             <div class="hc-card">
-                <h2>Ek SEO NotlarÄ±</h2>
+                <h2>Ek SEO Notları</h2>
                 <table class="form-table">
                     <tr>
-                        <th><label>Ä°Ã§ Link Ã–nerileri</label></th>
+                        <th><label>İç Link Önerileri</label></th>
                         <td>
-                            <textarea id="hc-r-ic-linkler" class="large-text" rows="4" placeholder="Her satÄ±ra bir Ã¶neri"></textarea>
+                            <textarea id="hc-r-ic-linkler" class="large-text" rows="4" placeholder="Her satıra bir öneri"></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <th><label>GÃ¶rsel ALT Text</label></th>
+                        <th><label>Görsel ALT Text</label></th>
                         <td><input type="text" id="hc-r-alt-text" class="large-text" /></td>
                     </tr>
                     <tr>
@@ -683,14 +683,14 @@ class HC_AI_Writer {
             </div>
 
             <div class="hc-card">
-                <h2>Makale Ä°Ã§eriÄŸi</h2>
-                <p class="description" style="margin-bottom:12px;">Ä°Ã§eriÄŸi dÃ¼zenleyebilirsiniz.</p>
+                <h2>Makale İçeriği</h2>
+                <p class="description" style="margin-bottom:12px;">İçeriği düzenleyebilirsiniz.</p>
                 <textarea id="hc-r-icerik" style="width:100%; min-height:500px; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.6;"></textarea>
             </div>
 
             <div class="hc-card" style="border-left:3px solid #22c55e;">
                 <h2>WordPress'e Kaydet</h2>
-                <p>TÃ¼m alanlar (Yoast SEO dahil) otomatik doldurularak <strong>taslak</strong> olarak kaydedilir.</p>
+                <p>Tüm alanlar (Yoast SEO dahil) otomatik doldurularak <strong>taslak</strong> olarak kaydedilir.</p>
                 <button id="hc-save-draft-btn" class="button button-primary" style="font-size:15px; padding:8px 20px; height:auto;">
                     Taslak Olarak Kaydet
                 </button>

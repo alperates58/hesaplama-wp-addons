@@ -10,7 +10,7 @@ class HC_Module_Inventory {
     private static $module_usage_cache = null;
 
     public static function get_publisher_name() {
-        return 'Alper ATEÅ';
+        return 'Alper ATEŞ';
     }
 
     public static function get_catalog_settings() {
@@ -218,7 +218,7 @@ class HC_Module_Inventory {
                 'parent_id' => (int) $term->parent,
                 'name'      => $term->name,
                 'depth'     => $depth,
-                'path'      => implode( ' â€º ', $names ),
+                'path'      => implode( ' › ', $names ),
                 'parent'    => $names[0] ?? $term->name,
                 'child'     => $depth > 0 ? $term->name : '',
             ];
@@ -338,13 +338,13 @@ class HC_Module_Inventory {
             return [];
         }
 
-        $parts   = preg_split( '/\s*[â€º>\/]+\s*/u', $label );
+        $parts   = preg_split( '/\s*[›>\/]+\s*/u', $label );
         $parts   = array_values( array_filter( array_map( [ __CLASS__, 'sanitize_category' ], $parts ) ) );
         $choices = self::get_wordpress_category_choices();
         $matched = null;
 
         foreach ( $choices as $choice ) {
-            $path_parts = preg_split( '/\s*[â€º>\/]+\s*/u', $choice['path'] );
+            $path_parts = preg_split( '/\s*[›>\/]+\s*/u', $choice['path'] );
             if ( count( $path_parts ) !== count( $parts ) ) {
                 continue;
             }
@@ -556,10 +556,10 @@ class HC_Module_Inventory {
             : strtolower( $slug . ' ' . $name );
 
         $map = [
-            'Finans'     => [ 'kredi', 'maas', 'maaÅŸ', 'issizlik', 'iÅŸsizlik', 'emekli', 'kart' ],
-            'Astroloji'  => [ 'burc', 'burÃ§', 'yukselen', 'yÃ¼kselen', 'dogum', 'doÄŸum', 'ask', 'aÅŸk' ],
-            'EÄŸitim'     => [ 'tyt', 'ayt', 'okul' ],
-            'Zaman'      => [ 'geri', 'sayim', 'sayÄ±m' ],
+            'Finans'     => [ 'kredi', 'maas', 'maaş', 'issizlik', 'işsizlik', 'emekli', 'kart' ],
+            'Astroloji'  => [ 'burc', 'burç', 'yukselen', 'yükselen', 'dogum', 'doğum', 'ask', 'aşk' ],
+            'Eğitim'     => [ 'tyt', 'ayt', 'okul' ],
+            'Zaman'      => [ 'geri', 'sayim', 'sayım' ],
         ];
 
         foreach ( $map as $category => $keywords ) {
@@ -600,12 +600,12 @@ class HC_Admin_Page {
         );
 
         add_submenu_page( 'hesaplama-suite', 'Dashboard', 'Dashboard', 'manage_options', 'hesaplama-suite', [ $this, 'render_modules_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'YazÄ± OluÅŸtur', 'YazÄ± OluÅŸtur', 'manage_options', 'hesaplama-suite-writer', [ $this, 'render_writer_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'ModÃ¼l OluÅŸtur', 'ModÃ¼l OluÅŸtur', 'manage_options', 'hesaplama-suite-generator', [ $this, 'render_generator_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'Toplu Ãœretici (DeepSeek/Gemini)', 'Toplu Ãœretici', 'manage_options', 'hesaplama-suite-bulk', [ $this, 'render_bulk_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'AI AyarlarÄ±', 'AI AyarlarÄ±', 'manage_options', 'hesaplama-suite-ai', [ $this, 'render_ai_settings_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'GitHub AyarlarÄ±', 'GitHub AyarlarÄ±', 'manage_options', 'hesaplama-suite-github', [ $this, 'render_github_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'Ä°Ã§erik PlanÄ±', 'Ä°Ã§erik PlanÄ±', 'manage_options', 'hesaplama-suite-planner', [ $this, 'render_planner_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'Yazı Oluştur', 'Yazı Oluştur', 'manage_options', 'hesaplama-suite-writer', [ $this, 'render_writer_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'Modül Oluştur', 'Modül Oluştur', 'manage_options', 'hesaplama-suite-generator', [ $this, 'render_generator_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'Toplu Üretici (DeepSeek/Gemini)', 'Toplu Üretici', 'manage_options', 'hesaplama-suite-bulk', [ $this, 'render_bulk_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'AI Ayarları', 'AI Ayarları', 'manage_options', 'hesaplama-suite-ai', [ $this, 'render_ai_settings_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'GitHub Ayarları', 'GitHub Ayarları', 'manage_options', 'hesaplama-suite-github', [ $this, 'render_github_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'İçerik Planı', 'İçerik Planı', 'manage_options', 'hesaplama-suite-planner', [ $this, 'render_planner_page' ] );
     }
 
     public function enqueue_admin_assets( $hook ) {
@@ -626,21 +626,21 @@ class HC_Admin_Page {
             [
                 'nonce'      => wp_create_nonce( 'hc_ajax_nonce' ),
                 'ajaxurl'    => admin_url( 'admin-ajax.php' ),
-                'previewing' => 'Ã–nizleme hazÄ±rlanÄ±yor...',
-                'previewError' => 'Ã–nizleme yÃ¼klenemedi.',
-                'copied' => 'Shortcode kopyalandÄ±.',
-                'copyError' => 'Shortcode kopyalanamadÄ±.',
-                'deleteConfirm' => 'Bu modÃ¼lÃ¼ yerel eklentiden kalÄ±cÄ± olarak silmek istediÄŸinize emin misiniz?',
-                'deleteError' => 'ModÃ¼l silinemedi.',
+                'previewing' => 'Önizleme hazırlanıyor...',
+                'previewError' => 'Önizleme yüklenemedi.',
+                'copied' => 'Shortcode kopyalandı.',
+                'copyError' => 'Shortcode kopyalanamadı.',
+                'deleteConfirm' => 'Bu modülü yerel eklentiden kalıcı olarak silmek istediğinize emin misiniz?',
+                'deleteError' => 'Modül silinemedi.',
                 'checking'   => 'Kontrol ediliyor...',
-                'norepo'     => 'Ã–nce repo adresini kaydedin.',
+                'norepo'     => 'Önce repo adresini kaydedin.',
                 'saving'     => 'Kaydediliyor...',
-                'generating' => 'Yapay zeka makaleyi hazÄ±rlÄ±yor (20-60 sn)...',
-                'creatingDraft' => 'Taslak oluÅŸturuluyor...',
-                'createDraft' => 'Taslak oluÅŸtur',
-                'analyzingCategory' => 'AI kategori analizi yapÄ±lÄ±yor...',
+                'generating' => 'Yapay zeka makaleyi hazırlıyor (20-60 sn)...',
+                'creatingDraft' => 'Taslak oluşturuluyor...',
+                'createDraft' => 'Taslak oluştur',
+                'analyzingCategory' => 'AI kategori analizi yapılıyor...',
                 'analyzeCategory' => 'AI ile kategori analizi',
-                'categoryAnalyzed' => 'Kategori Ã¶nerisi seÃ§ildi. Kaydetmeyi unutmayÄ±n.',
+                'categoryAnalyzed' => 'Kategori önerisi seçildi. Kaydetmeyi unutmayın.',
             ]
         );
     }
@@ -674,14 +674,14 @@ class HC_Admin_Page {
             <div class="hc-glass-header">
                 <div class="hc-header-content">
                     <h1><?php echo esc_html($title); ?> <span class="hc-badge-pro">PRO</span></h1>
-                    <p class="hc-page-subtitle">Hesaplama Suite YÃ¶netim Paneli</p>
+                    <p class="hc-page-subtitle">Hesaplama Suite Yönetim Paneli</p>
                 </div>
                 <div class="hc-header-actions" style="display:flex; align-items:center; gap:15px;">
-                    <button type="button" class="button hc-theme-toggle" id="hc-theme-toggle" title="KaranlÄ±k/AydÄ±nlÄ±k Mod DeÄŸiÅŸtir" style="border-radius:50%; width:40px; height:40px; padding:0; display:flex; align-items:center; justify-content:center;">
+                    <button type="button" class="button hc-theme-toggle" id="hc-theme-toggle" title="Karanlık/Aydınlık Mod Değiştir" style="border-radius:50%; width:40px; height:40px; padding:0; display:flex; align-items:center; justify-content:center;">
                         <span class="dashicons dashicons-visibility"></span>
                     </button>
                     <div class="hc-page-publisher">
-                        <span class="hc-page-publisher-label">YayÄ±ncÄ±</span>
+                        <span class="hc-page-publisher-label">Yayıncı</span>
                         <strong><?php echo esc_html( HC_Module_Inventory::get_publisher_name() ); ?></strong>
                     </div>
                 </div>
@@ -698,53 +698,53 @@ class HC_Admin_Page {
     }
 
     public function render_modules_page() {
-        $this->render_header('Dashboard & ModÃ¼ller');
+        $this->render_header('Dashboard & Modüller');
         $this->render_modules_tab();
         $this->render_footer();
     }
 
     public function render_writer_page() {
-        $this->render_header('YazÄ± OluÅŸtur');
+        $this->render_header('Yazı Oluştur');
         $writer = new HC_AI_Writer();
         $writer->render_writer_tab();
         $this->render_footer();
     }
 
     public function render_generator_page() {
-        $this->render_header('Yapay Zeka ile ModÃ¼l OluÅŸtur');
+        $this->render_header('Yapay Zeka ile Modül Oluştur');
         if (class_exists('HC_AI_Module_Generator')) {
             HC_AI_Module_Generator::render_generator_tab();
         } else {
-            echo "<p>Generator sÄ±nÄ±fÄ± bulunamadÄ±.</p>";
+            echo "<p>Generator sınıfı bulunamadı.</p>";
         }
         $this->render_footer();
     }
 
     public function render_bulk_page() {
-        $this->render_header('Toplu AI Ãœretici (Gemini)');
+        $this->render_header('Toplu AI Üretici (Gemini)');
         if (class_exists('HC_AI_Bulk_Generator')) {
             HC_AI_Bulk_Generator::render_bulk_generator_tab();
         } else {
-            echo "<p>Bulk Generator sÄ±nÄ±fÄ± bulunamadÄ±.</p>";
+            echo "<p>Bulk Generator sınıfı bulunamadı.</p>";
         }
         $this->render_footer();
     }
 
     public function render_ai_settings_page() {
-        $this->render_header('AI AyarlarÄ±');
+        $this->render_header('AI Ayarları');
         $writer = new HC_AI_Writer();
         $writer->render_ai_settings_tab();
         $this->render_footer();
     }
 
     public function render_github_page() {
-        $this->render_header('GitHub AyarlarÄ±');
+        $this->render_header('GitHub Ayarları');
         $this->render_github_tab();
         $this->render_footer();
     }
 
     public function render_planner_page() {
-        $this->render_header('Ä°Ã§erik PlanÄ±');
+        $this->render_header('İçerik Planı');
         HC_Excel_Planner::render_planner_tab();
         $this->render_footer();
     }
@@ -761,13 +761,13 @@ class HC_Admin_Page {
         <?php endif; ?>
 
         <?php if ( 'success' === $update ) : ?>
-            <div class="notice notice-success is-dismissible"><p>Eklenti GitHub Ã¼zerinden baÅŸarÄ±yla gÃ¼ncellendi.</p></div>
+            <div class="notice notice-success is-dismissible"><p>Eklenti GitHub üzerinden başarıyla güncellendi.</p></div>
         <?php elseif ( $update ) : ?>
-            <div class="notice notice-error is-dismissible"><p>GÃ¼ncelleme hatasÄ±: <?php echo esc_html( urldecode( $update ) ); ?></p></div>
+            <div class="notice notice-error is-dismissible"><p>Güncelleme hatası: <?php echo esc_html( urldecode( $update ) ); ?></p></div>
         <?php endif; ?>
 
         <div class="hc-card">
-            <h2>GitHub BaÄŸlantÄ±sÄ±</h2>
+            <h2>GitHub Bağlantısı</h2>
             <form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-github' ) ); ?>">
                 <?php wp_nonce_field( 'hc_save_github_settings' ); ?>
                 <input type="hidden" name="hc_save_github" value="1" />
@@ -788,7 +788,7 @@ class HC_Admin_Page {
                         <th><label for="token">Token</label></th>
                         <td>
                             <input type="password" id="token" name="token" value="<?php echo esc_attr( $settings['token'] ); ?>" placeholder="ghp_xxxx" class="regular-text" />
-                            <p class="description">Public repo iÃ§in boÅŸ bÄ±rakabilirsiniz.</p>
+                            <p class="description">Public repo için boş bırakabilirsiniz.</p>
                         </td>
                     </tr>
                 </table>
@@ -800,12 +800,12 @@ class HC_Admin_Page {
             </form>
         </div>
         <div class="hc-card hc-update-box">
-            <h2>GÃ¼ncelleme</h2>
-            <p>Son gÃ¼ncelleme: <strong><?php echo esc_html( $last ); ?></strong></p>
+            <h2>Güncelleme</h2>
+            <p>Son güncelleme: <strong><?php echo esc_html( $last ); ?></strong></p>
             <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                 <?php wp_nonce_field( 'hc_update_from_github' ); ?>
                 <input type="hidden" name="action" value="hc_update_from_github" />
-                <button type="submit" class="button button-primary hc-update-btn" onclick="return confirm('GÃ¼ncellemek istediÄŸinize emin misiniz?')">GitHub'dan GÃ¼ncelle</button>
+                <button type="submit" class="button button-primary hc-update-btn" onclick="return confirm('Güncellemek istediğinize emin misiniz?')">GitHub'dan Güncelle</button>
             </form>
         </div>
         <?php
@@ -813,11 +813,11 @@ class HC_Admin_Page {
 
     public function ajax_preview_shortcode() {
         if ( ! current_user_can( 'manage_options' ) ) {
-            $this->send_preview_response( 'Ã–nizleme yetkiniz yok.', 403 );
+            $this->send_preview_response( 'Önizleme yetkiniz yok.', 403 );
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            $this->send_preview_response( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            $this->send_preview_response( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $shortcode  = sanitize_text_field( wp_unslash( $_REQUEST['shortcode'] ?? '' ) );
@@ -825,7 +825,7 @@ class HC_Admin_Page {
         $module     = $this->get_module_by_shortcode( $shortcode );
 
         if ( ! $module ) {
-            $this->send_preview_response( 'GeÃ§ersiz veya kayÄ±tlÄ± olmayan shortcode.', 400 );
+            $this->send_preview_response( 'Geçersiz veya kayıtlı olmayan shortcode.', 400 );
         }
 
         wp_enqueue_style( 'hesaplama-suite', HC_PLUGIN_URL . 'assets/style.css', [], HC_VERSION );
@@ -843,7 +843,7 @@ class HC_Admin_Page {
             <head>
                 <meta charset="<?php bloginfo( 'charset' ); ?>">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title><?php echo esc_html( $module['name'] ); ?> - Ã–nizleme</title>
+                <title><?php echo esc_html( $module['name'] ); ?> - Önizleme</title>
                 <?php wp_print_styles(); ?>
                 <style>
                     body { margin: 0; padding: 32px; background: #f8fafc; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -879,38 +879,38 @@ class HC_Admin_Page {
 
     public function ajax_delete_module() {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_send_json_error( 'ModÃ¼l silme yetkiniz yok.', 403 );
+            wp_send_json_error( 'Modül silme yetkiniz yok.', 403 );
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu. LÃ¼tfen sayfayÄ± yenileyip tekrar deneyin.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 400 );
         }
 
         $slug   = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
         $module = $this->get_module_by_slug( $slug );
 
         if ( ! $module ) {
-            wp_send_json_error( 'GeÃ§ersiz veya kayÄ±tlÄ± olmayan modÃ¼l.', 400 );
+            wp_send_json_error( 'Geçersiz veya kayıtlı olmayan modül.', 400 );
         }
 
         $modules_root = realpath( HC_PLUGIN_DIR . 'modules' );
         $module_path  = realpath( HC_PLUGIN_DIR . 'modules/' . $slug );
 
         if ( ! $modules_root || ! $module_path || ! is_dir( $module_path ) ) {
-            wp_send_json_error( 'ModÃ¼l klasÃ¶rÃ¼ bulunamadÄ±.', 404 );
+            wp_send_json_error( 'Modül klasörü bulunamadı.', 404 );
         }
 
         $modules_root = rtrim( wp_normalize_path( $modules_root ), '/' ) . '/';
         $module_path  = rtrim( wp_normalize_path( $module_path ), '/' ) . '/';
 
         if ( 0 !== strpos( $module_path, $modules_root ) || $module_path === $modules_root ) {
-            wp_send_json_error( 'GÃ¼venli olmayan modÃ¼l yolu reddedildi.', 400 );
+            wp_send_json_error( 'Güvenli olmayan modül yolu reddedildi.', 400 );
         }
 
         $deleted = $this->delete_directory( $module_path );
 
         if ( ! $deleted ) {
-            wp_send_json_error( 'ModÃ¼l klasÃ¶rÃ¼ silinemedi.', 500 );
+            wp_send_json_error( 'Modül klasörü silinemedi.', 500 );
         }
 
         HC_Module_Inventory::delete_module_category_assignment( $slug );
@@ -918,7 +918,7 @@ class HC_Admin_Page {
         wp_send_json_success(
             [
                 'slug'    => $slug,
-                'message' => 'ModÃ¼l silindi.',
+                'message' => 'Modül silindi.',
             ]
         );
     }
@@ -973,7 +973,7 @@ class HC_Admin_Page {
 
     private function send_preview_response( $message, $status ) {
         if ( ! empty( $_REQUEST['standalone'] ) ) {
-            wp_die( esc_html( $message ), esc_html__( 'Ã–nizleme hatasÄ±', 'hesaplama-suite' ), [ 'response' => $status ] );
+            wp_die( esc_html( $message ), esc_html__( 'Önizleme hatası', 'hesaplama-suite' ), [ 'response' => $status ] );
         }
 
         wp_send_json_error( $message, $status );
@@ -992,24 +992,24 @@ class HC_Admin_Page {
         $grouped_modules   = HC_Module_Inventory::group_modules_by_category( $modules );
         ?>
         <?php if ( isset( $_GET['modules_saved'] ) ) : ?>
-            <div class="notice notice-success is-dismissible"><p>ModÃ¼l kataloÄŸu gÃ¼ncellendi.</p></div>
+            <div class="notice notice-success is-dismissible"><p>Modül kataloğu güncellendi.</p></div>
         <?php endif; ?>
 
         <div class="hc-stats-grid">
             <div class="hc-stat-card">
-                <span class="hc-stat-label">Toplam ModÃ¼l</span>
+                <span class="hc-stat-label">Toplam Modül</span>
                 <strong class="hc-stat-value"><?php echo esc_html( count( $all_modules ) ); ?></strong>
-                <span class="hc-stat-foot">CanlÄ± katalog</span>
+                <span class="hc-stat-foot">Canlı katalog</span>
             </div>
             <div class="hc-stat-card">
                 <span class="hc-stat-label">Kategori</span>
                 <strong class="hc-stat-value"><?php echo esc_html( count( $all_categories ) ); ?></strong>
-                <span class="hc-stat-foot">Filtrelenebilir yapÄ±</span>
+                <span class="hc-stat-foot">Filtrelenebilir yapı</span>
             </div>
             <div class="hc-stat-card">
-                <span class="hc-stat-label">Toplam KullanÄ±m</span>
+                <span class="hc-stat-label">Toplam Kullanım</span>
                 <strong class="hc-stat-value"><?php echo esc_html( $total_posts ); ?></strong>
-                <span class="hc-stat-foot">Shortcode yerleÅŸimi</span>
+                <span class="hc-stat-foot">Shortcode yerleşimi</span>
             </div>
             <div class="hc-stat-card">
                 <span class="hc-stat-label">Son Eklenen</span>
@@ -1020,20 +1020,20 @@ class HC_Admin_Page {
 
         <div class="hc-card" style="margin-bottom:20px;">
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
-                <h2 style="margin:0;">ModÃ¼l KataloÄŸu</h2>
+                <h2 style="margin:0;">Modül Kataloğu</h2>
                 <form method="get" class="hc-toolbar-form" style="margin:0;">
                     <input type="hidden" name="page" value="hesaplama-suite" />
-                    <input type="search" name="s" value="<?php echo esc_attr( $search ); ?>" placeholder="ModÃ¼l ara..." style="width:200px;" />
+                    <input type="search" name="s" value="<?php echo esc_attr( $search ); ?>" placeholder="Modül ara..." style="width:200px;" />
                     <select name="module_category">
-                        <option value="">TÃ¼m kategoriler</option>
+                        <option value="">Tüm kategoriler</option>
                         <?php foreach ( $all_categories as $category ) : ?>
                             <option value="<?php echo esc_attr( $category ); ?>" <?php selected( $selected_category, $category ); ?>><?php echo esc_html( $category ); ?></option>
                         <?php endforeach; ?>
                     </select>
                     <select name="post_status">
-                        <option value="">KullanÄ±m Durumu</option>
-                        <option value="used" <?php selected( $post_status, 'used' ); ?>>YazÄ± Eklenenler</option>
-                        <option value="unused" <?php selected( $post_status, 'unused' ); ?>>YazÄ± Eklenmeyenler</option>
+                        <option value="">Kullanım Durumu</option>
+                        <option value="used" <?php selected( $post_status, 'used' ); ?>>Yazı Eklenenler</option>
+                        <option value="unused" <?php selected( $post_status, 'unused' ); ?>>Yazı Eklenmeyenler</option>
                     </select>
                     <button type="submit" class="button button-primary">Filtrele</button>
                     <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite' ) ); ?>">Temizle</a>
@@ -1046,37 +1046,37 @@ class HC_Admin_Page {
             <input type="hidden" name="hc_save_modules" value="1" />
 
             <div class="hc-card" style="display:none;" id="hc-category-manager">
-                <h3>Kategori YÃ¶netimi</h3>
+                <h3>Kategori Yönetimi</h3>
                 <div class="hc-toolbar">
-                    <textarea id="hc-categories" name="hc_categories" rows="3" class="large-text" placeholder="Her satÄ±ra bir kategori yazÄ±n."><?php echo esc_textarea( HC_Module_Inventory::get_category_text() ); ?></textarea>
+                    <textarea id="hc-categories" name="hc_categories" rows="3" class="large-text" placeholder="Her satıra bir kategori yazın."><?php echo esc_textarea( HC_Module_Inventory::get_category_text() ); ?></textarea>
                     <div class="hc-category-add-row" style="margin-top:10px;">
-                        <input type="text" id="hc-new-category" class="regular-text" placeholder="Yeni kategori adÄ±" />
-                        <button type="button" class="button" id="hc-add-category-btn">HÄ±zlÄ± Ekle</button>
+                        <input type="text" id="hc-new-category" class="regular-text" placeholder="Yeni kategori adı" />
+                        <button type="button" class="button" id="hc-add-category-btn">Hızlı Ekle</button>
                     </div>
                 </div>
             </div>
 
             <div class="hc-card hc-catalog-shell">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px; align-items:center;">
-                    <h2 style="margin:0;">Aktif ModÃ¼ller</h2>
-                    <button type="button" class="button hc-button-ghost" data-hc-toggle-categories>Kategorileri YÃ¶net</button>
+                    <h2 style="margin:0;">Aktif Modüller</h2>
+                    <button type="button" class="button hc-button-ghost" data-hc-toggle-categories>Kategorileri Yönet</button>
                 </div>
                 
                 <?php if ( empty( $modules ) ) : ?>
                     <div class="hc-empty-state">
                         <span class="dashicons dashicons-search" aria-hidden="true"></span>
-                        <h3>Filtreye uygun modÃ¼l bulunamadÄ±</h3>
-                        <p>Arama metnini veya kategori/kullanÄ±m filtresini deÄŸiÅŸtirerek tekrar deneyin.</p>
+                        <h3>Filtreye uygun modül bulunamadı</h3>
+                        <p>Arama metnini veya kategori/kullanım filtresini değiştirerek tekrar deneyin.</p>
                         <a class="button button-primary" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite' ) ); ?>">Filtreleri Temizle</a>
                     </div>
-                    <p>Filtreye uygun modÃ¼l bulunamadÄ±.</p>
+                    <p>Filtreye uygun modül bulunamadı.</p>
                 <?php else : ?>
                     <?php foreach ( $grouped_modules as $group_label => $group_modules ) : ?>
                     <section class="hc-module-group">
                         <div class="hc-module-group-header">
                             <div>
                                 <h3><?php echo esc_html( $group_label ); ?></h3>
-                                <p><?php echo esc_html( count( $group_modules ) ); ?> modÃ¼l</p>
+                                <p><?php echo esc_html( count( $group_modules ) ); ?> modül</p>
                             </div>
                         </div>
                     <div class="hc-module-grid">
@@ -1097,7 +1097,7 @@ class HC_Admin_Page {
                                 <div class="hc-module-card-top">
                                     <span class="hc-category-badge"><?php echo esc_html( $module['category_child'] ?: $group_label ); ?></span>
                                     <span class="hc-usage-badge <?php echo $is_used ? 'is-used' : 'is-unused'; ?>">
-                                        <?php echo $is_used ? esc_html( 'YazÄ±da (' . $module['post_count'] . ')' ) : 'Eklenmedi'; ?>
+                                        <?php echo $is_used ? esc_html( 'Yazıda (' . $module['post_count'] . ')' ) : 'Eklenmedi'; ?>
                                     </span>
                                 </div>
                                 <div class="hc-module-card-main">
@@ -1107,7 +1107,7 @@ class HC_Admin_Page {
                                 <div class="hc-module-meta-grid">
                                     <div><span>Slug</span><code><?php echo esc_html( $module['slug'] ); ?></code></div>
                                     <div><span>Eklenme</span><strong><?php echo esc_html( $module['created_date'] ); ?></strong></div>
-                                    <div><span>YayÄ±ncÄ±</span><strong><?php echo esc_html( $module['publisher'] ); ?></strong></div>
+                                    <div><span>Yayıncı</span><strong><?php echo esc_html( $module['publisher'] ); ?></strong></div>
                                 </div>
                                 <button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>">
                                     <span class="dashicons dashicons-shortcode" aria-hidden="true"></span>
@@ -1116,7 +1116,7 @@ class HC_Admin_Page {
                                 <label class="hc-card-select-label">
                                     <span>Kategori</span>
                                     <select name="hc_module_category[<?php echo esc_attr( $module['slug'] ); ?>]" class="hc-category-select">
-                                        <option value="">SeÃ§iniz</option>
+                                        <option value="">Seçiniz</option>
                                         <?php foreach ( $all_categories as $category ) : ?>
                                             <option value="<?php echo esc_attr( $category ); ?>" <?php selected( $module['category'], $category ); ?>><?php echo esc_html( $category ); ?></option>
                                         <?php endforeach; ?>
@@ -1124,19 +1124,19 @@ class HC_Admin_Page {
                                 </label>
                                 <div class="hc-card-actions hc-card-actions-compact">
                                     <button type="button" class="button button-primary hc-preview-btn" data-hc-preview data-name="<?php echo esc_attr( $module['name'] ); ?>" data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>" data-standalone-url="<?php echo esc_url( $standalone_url ); ?>">
-                                        <span class="dashicons dashicons-visibility" aria-hidden="true"></span> Ã–nizle
+                                        <span class="dashicons dashicons-visibility" aria-hidden="true"></span> Önizle
                                     </button>
                                     <button type="button" class="button hc-ai-category-btn" data-name="<?php echo esc_attr( $module['name'] ); ?>" data-desc="<?php echo esc_attr( $module['desc'] ); ?>" data-nonce="<?php echo esc_attr( $nonce ); ?>">
                                         <span class="dashicons dashicons-category" aria-hidden="true"></span> AI ile kategori analizi
                                     </button>
                                     <button type="button" class="button hc-yazi-ekle-btn" data-name="<?php echo esc_attr( $module['name'] ); ?>" data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>" data-nonce="<?php echo esc_attr( $nonce ); ?>">
-                                        <span class="dashicons dashicons-edit-page" aria-hidden="true"></span> Taslak oluÅŸtur
+                                        <span class="dashicons dashicons-edit-page" aria-hidden="true"></span> Taslak oluştur
                                     </button>
                                     <a class="button hc-button-ghost" href="<?php echo esc_url( $module['posts_url'] ); ?>">
-                                        <span class="dashicons dashicons-admin-post" aria-hidden="true"></span> KullanÄ±mlar
+                                        <span class="dashicons dashicons-admin-post" aria-hidden="true"></span> Kullanımlar
                                     </a>
                                     <button type="button" class="button hc-button-danger" data-hc-delete-module data-slug="<?php echo esc_attr( $module['slug'] ); ?>" data-name="<?php echo esc_attr( $module['name'] ); ?>">
-                                        <span class="dashicons dashicons-trash" aria-hidden="true"></span> ModÃ¼lÃ¼ sil
+                                        <span class="dashicons dashicons-trash" aria-hidden="true"></span> Modülü sil
                                     </button>
                                     <span class="hc-yazi-ekle-msg"></span>
                                 </div>
@@ -1150,12 +1150,12 @@ class HC_Admin_Page {
                         <table class="wp-list-table widefat striped hc-modules-table">
                             <thead>
                                 <tr>
-                                    <th style="width:20%">ModÃ¼l AdÄ±</th>
+                                    <th style="width:20%">Modül Adı</th>
                                     <th style="width:15%">Kategori</th>
                                     <th style="width:15%">Shortcode</th>
                                     <th style="width:15%">Durum</th>
-                                    <th style="width:20%">AÃ§Ä±klama</th>
-                                    <th style="width:15%">Ä°ÅŸlem</th>
+                                    <th style="width:20%">Açıklama</th>
+                                    <th style="width:15%">İşlem</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1167,23 +1167,23 @@ class HC_Admin_Page {
                                         </td>
                                         <td>
                                             <select name="hc_module_category[<?php echo esc_attr( $module['slug'] ); ?>]" class="hc-category-select" style="width:100%;">
-                                                <option value="">SeÃ§iniz</option>
+                                                <option value="">Seçiniz</option>
                                                 <?php foreach ( $all_categories as $category ) : ?>
                                                     <option value="<?php echo esc_attr( $category ); ?>" <?php selected( $module['category'], $category ); ?>><?php echo esc_html( $category ); ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </td>
-                                        <td><code class="hc-shortcode-code" style="cursor:pointer;" onclick="navigator.clipboard.writeText('<?php echo esc_attr( $module['shortcode'] ); ?>'); alert('KopyalandÄ±!');" title="Kopyalamak iÃ§in tÄ±kla"><?php echo esc_html( $module['shortcode'] ); ?></code></td>
+                                        <td><code class="hc-shortcode-code" style="cursor:pointer;" onclick="navigator.clipboard.writeText('<?php echo esc_attr( $module['shortcode'] ); ?>'); alert('Kopyalandı!');" title="Kopyalamak için tıkla"><?php echo esc_html( $module['shortcode'] ); ?></code></td>
                                         <td>
                                             <?php if ( $module['post_count'] > 0 ) : ?>
-                                                <span class="hc-inline-badge" style="background:#4CAF50; color:#fff; font-size:11px;">YazÄ± Eklendi (<?php echo $module['post_count']; ?>)</span>
+                                                <span class="hc-inline-badge" style="background:#4CAF50; color:#fff; font-size:11px;">Yazı Eklendi (<?php echo $module['post_count']; ?>)</span>
                                             <?php else : ?>
                                                 <span class="hc-inline-badge" style="background:#f44336; color:#fff; font-size:11px;">Eklenmedi</span>
                                             <?php endif; ?>
                                         </td>
                                         <td><div class="hc-module-desc"><?php echo esc_html( $module['desc'] ); ?></div></td>
                                         <td>
-                                            <button type="button" class="button button-small hc-yazi-ekle-btn" data-name="<?php echo esc_attr( $module['name'] ); ?>" data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>" data-nonce="<?php echo esc_attr( $nonce ); ?>">Taslak oluÅŸtur</button>
+                                            <button type="button" class="button button-small hc-yazi-ekle-btn" data-name="<?php echo esc_attr( $module['name'] ); ?>" data-shortcode="<?php echo esc_attr( $module['shortcode'] ); ?>" data-nonce="<?php echo esc_attr( $nonce ); ?>">Taslak oluştur</button>
                                             <span class="hc-yazi-ekle-msg" style="display:block;"></span>
                                         </td>
                                     </tr>
@@ -1194,7 +1194,7 @@ class HC_Admin_Page {
                     <?php endif; ?>
                 <?php endif; ?>
                 <p class="submit">
-                    <button type="submit" name="hc_save_modules" class="button button-primary">DeÄŸiÅŸiklikleri Kaydet</button>
+                    <button type="submit" name="hc_save_modules" class="button button-primary">Değişiklikleri Kaydet</button>
                 </p>
             </div>
         </form>
@@ -1204,26 +1204,26 @@ class HC_Admin_Page {
             <div class="hc-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="hc-preview-title">
                 <div class="hc-preview-header">
                     <div>
-                        <span class="hc-toolbar-kicker">CanlÄ± shortcode</span>
-                        <h2 id="hc-preview-title">ModÃ¼l Ã–nizleme</h2>
+                        <span class="hc-toolbar-kicker">Canlı shortcode</span>
+                        <h2 id="hc-preview-title">Modül Önizleme</h2>
                         <button type="button" class="hc-shortcode-chip hc-preview-shortcode" data-hc-copy-shortcode data-shortcode="">
                             <span class="dashicons dashicons-shortcode" aria-hidden="true"></span>
                             <code id="hc-preview-shortcode-text"></code>
                         </button>
                     </div>
-                    <button type="button" class="button hc-icon-button" data-hc-preview-close aria-label="Ã–nizlemeyi kapat">
+                    <button type="button" class="button hc-icon-button" data-hc-preview-close aria-label="Önizlemeyi kapat">
                         <span class="dashicons dashicons-no-alt" aria-hidden="true"></span>
                     </button>
                 </div>
-                <div class="hc-preview-toolbar" aria-label="Ã–nizleme araÃ§larÄ±">
-                    <div class="hc-preview-device-toggle" role="group" aria-label="Ã–nizleme geniÅŸliÄŸi">
-                        <button type="button" class="is-active" data-hc-preview-size="desktop">MasaÃ¼stÃ¼</button>
+                <div class="hc-preview-toolbar" aria-label="Önizleme araçları">
+                    <div class="hc-preview-device-toggle" role="group" aria-label="Önizleme genişliği">
+                        <button type="button" class="is-active" data-hc-preview-size="desktop">Masaüstü</button>
                         <button type="button" data-hc-preview-size="mobile">Mobil</button>
                     </div>
                     <div class="hc-preview-actions">
                         <button type="button" class="button" data-hc-modal-copy>Shortcode Kopyala</button>
-                        <a class="button" id="hc-preview-standalone" href="#" target="_blank" rel="noopener">BaÄŸÄ±msÄ±z AÃ§</a>
-                        <button type="button" class="button button-primary" id="hc-preview-insert">Taslak oluÅŸtur</button>
+                        <a class="button" id="hc-preview-standalone" href="#" target="_blank" rel="noopener">Bağımsız Aç</a>
+                        <button type="button" class="button button-primary" id="hc-preview-insert">Taslak oluştur</button>
                     </div>
                 </div>
                 <div class="hc-preview-body">

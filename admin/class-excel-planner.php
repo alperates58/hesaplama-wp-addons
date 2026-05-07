@@ -1380,7 +1380,7 @@ class HC_Excel_Planner {
                 fd.append('topic_id', topicId);
                 return fetch(ajaxurl, { method: 'POST', body: fd })
                     .then(r => r.json())
-                    .catch(() => ({ success: false, data: 'BaÄŸlantÄ± hatasÄ±.' }));
+                    .catch(() => ({ success: false, data: 'Bağlantı hatası.' }));
             }
 
             function markRowDrafted(topicId, editUrl) {

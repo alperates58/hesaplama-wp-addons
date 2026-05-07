@@ -98,13 +98,13 @@ jQuery(function ($) {
             trigger: button
         };
 
-        title.textContent = hcPreviewState.name || 'ModÃ¼l Ã–nizleme';
+        title.textContent = hcPreviewState.name || 'Modül Önizleme';
         shortcodeText.textContent = hcPreviewState.shortcode;
         shortcodeButton.setAttribute('data-shortcode', hcPreviewState.shortcode);
         standalone.href = hcPreviewState.standaloneUrl;
         content.innerHTML = '';
         loading.hidden = false;
-        hcSetPreviewStatus(hcAdmin.previewing || 'Ã–nizleme hazÄ±rlanÄ±yor...', 'loading');
+        hcSetPreviewStatus(hcAdmin.previewing || 'Önizleme hazırlanıyor...', 'loading');
 
         modal.hidden = false;
         modal.setAttribute('aria-hidden', 'false');
@@ -120,19 +120,19 @@ jQuery(function ($) {
                 loading.hidden = true;
 
                 if (!resp || !resp.success) {
-                    content.innerHTML = '<div class="hc-preview-error">' + ((resp && resp.data) ? resp.data : (hcAdmin.previewError || 'Ã–nizleme yÃ¼klenemedi.')) + '</div>';
-                    hcSetPreviewStatus(hcAdmin.previewError || 'Ã–nizleme yÃ¼klenemedi.', 'error');
+                    content.innerHTML = '<div class="hc-preview-error">' + ((resp && resp.data) ? resp.data : (hcAdmin.previewError || 'Önizleme yüklenemedi.')) + '</div>';
+                    hcSetPreviewStatus(hcAdmin.previewError || 'Önizleme yüklenemedi.', 'error');
                     return;
                 }
 
                 content.innerHTML = resp.data.html || '';
                 hcActivatePreviewScripts(content);
-                hcSetPreviewStatus('Ã–nizleme hazÄ±r.', 'success');
+                hcSetPreviewStatus('Önizleme hazır.', 'success');
             })
             .fail(function (xhr) {
                 loading.hidden = true;
-                content.innerHTML = '<div class="hc-preview-error">Sunucu hatasÄ±: HTTP ' + xhr.status + '</div>';
-                hcSetPreviewStatus(hcAdmin.previewError || 'Ã–nizleme yÃ¼klenemedi.', 'error');
+                content.innerHTML = '<div class="hc-preview-error">Sunucu hatası: HTTP ' + xhr.status + '</div>';
+                hcSetPreviewStatus(hcAdmin.previewError || 'Önizleme yüklenemedi.', 'error');
             });
     }
 
@@ -185,11 +185,11 @@ jQuery(function ($) {
 
         hcCopyText(shortcode)
             .then(function () {
-                hcSetPreviewStatus(hcAdmin.copied || 'Shortcode kopyalandÄ±.', 'success');
+                hcSetPreviewStatus(hcAdmin.copied || 'Shortcode kopyalandı.', 'success');
             })
             .catch(function () {
-                hcSetPreviewStatus(hcAdmin.copyError || 'Shortcode kopyalanamadÄ±.', 'error');
-                alert(hcAdmin.copyError || 'Shortcode kopyalanamadÄ±.');
+                hcSetPreviewStatus(hcAdmin.copyError || 'Shortcode kopyalanamadı.', 'error');
+                alert(hcAdmin.copyError || 'Shortcode kopyalanamadı.');
             });
     });
 
@@ -199,8 +199,8 @@ jQuery(function ($) {
         }
 
         var $btn = $(this);
-        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluÅŸturuluyor...');
-        hcSetPreviewStatus('YazÄ± taslaÄŸÄ± hazÄ±rlanÄ±yor...', 'loading');
+        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluşturuluyor...');
+        hcSetPreviewStatus('Yazı taslağı hazırlanıyor...', 'loading');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_create_module_post',
@@ -208,7 +208,7 @@ jQuery(function ($) {
             name: hcPreviewState.name,
             shortcode: hcPreviewState.shortcode
         }, function (resp) {
-            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluÅŸtur');
+            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
 
             if (!resp.success) {
                 hcSetPreviewStatus('Hata: ' + resp.data, 'error');
@@ -217,8 +217,8 @@ jQuery(function ($) {
 
             window.location.href = resp.data.edit_url;
         }).fail(function (xhr) {
-            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluÅŸtur');
-            hcSetPreviewStatus('Sunucu hatasÄ±: HTTP ' + xhr.status, 'error');
+            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
+            hcSetPreviewStatus('Sunucu hatası: HTTP ' + xhr.status, 'error');
         });
     });
 
@@ -229,7 +229,7 @@ jQuery(function ($) {
         var $button = $(button);
         var $card = $button.closest('[data-module-card]');
 
-        if (!slug || !window.confirm((hcAdmin.deleteConfirm || 'Bu modÃ¼lÃ¼ silmek istediÄŸinize emin misiniz?') + '\n\n' + name)) {
+        if (!slug || !window.confirm((hcAdmin.deleteConfirm || 'Bu modülü silmek istediğinize emin misiniz?') + '\n\n' + name)) {
             return;
         }
 
@@ -242,8 +242,8 @@ jQuery(function ($) {
         })
             .done(function (resp) {
                 if (!resp || !resp.success) {
-                    $button.prop('disabled', false).text('ModÃ¼lÃ¼ Sil');
-                    alert(((resp && resp.data) ? resp.data : (hcAdmin.deleteError || 'ModÃ¼l silinemedi.')));
+                    $button.prop('disabled', false).text('Modülü Sil');
+                    alert(((resp && resp.data) ? resp.data : (hcAdmin.deleteError || 'Modül silinemedi.')));
                     return;
                 }
 
@@ -251,13 +251,13 @@ jQuery(function ($) {
                 window.setTimeout(function () {
                     $card.remove();
                     if (!$('[data-module-card]').length) {
-                        $('.hc-module-grid').replaceWith('<div class="hc-empty-state"><span class="dashicons dashicons-screenoptions" aria-hidden="true"></span><h3>ModÃ¼l kalmadÄ±</h3><p>Katalogda gÃ¶sterilecek aktif modÃ¼l bulunmuyor.</p></div>');
+                        $('.hc-module-grid').replaceWith('<div class="hc-empty-state"><span class="dashicons dashicons-screenoptions" aria-hidden="true"></span><h3>Modül kalmadı</h3><p>Katalogda gösterilecek aktif modül bulunmuyor.</p></div>');
                     }
                 }, 240);
             })
             .fail(function (xhr) {
-                $button.prop('disabled', false).text('ModÃ¼lÃ¼ Sil');
-                alert((hcAdmin.deleteError || 'ModÃ¼l silinemedi.') + ' HTTP ' + xhr.status);
+                $button.prop('disabled', false).text('Modülü Sil');
+                alert((hcAdmin.deleteError || 'Modül silinemedi.') + ' HTTP ' + xhr.status);
             });
     });
 
@@ -272,7 +272,7 @@ jQuery(function ($) {
             return;
         }
 
-        $versionResult.text((xhr.responseJSON && xhr.responseJSON.data) ? xhr.responseJSON.data : 'Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638');
+        $versionResult.text((xhr.responseJSON && xhr.responseJSON.data) ? xhr.responseJSON.data : 'Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
     });
 
     function hcNormalizeCategory(value) {
@@ -336,7 +336,7 @@ jQuery(function ($) {
         var categories = hcGetCategories();
 
         if (!category) {
-            alert('LÃ¼tfen kategori adÄ± girin.');
+            alert('Lütfen kategori adı girin.');
             return;
         }
 
@@ -379,7 +379,7 @@ jQuery(function ($) {
                 return;
             }
 
-            $result.text('BaÄŸlantÄ± kurulamadÄ±. Repo bilgisini ve token alanÄ±nÄ± kontrol edin.').css('color', '#d63638');
+            $result.text('Bağlantı kurulamadı. Repo bilgisini ve token alanını kontrol edin.').css('color', '#d63638');
         });
     });
 
@@ -395,7 +395,7 @@ jQuery(function ($) {
         var $btn = $(this);
         var $msg = $btn.siblings('.hc-yazi-ekle-msg');
 
-        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluÅŸturuluyor...');
+        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluşturuluyor...');
         $msg.hide().text('');
 
         $.post(hcAdmin.ajaxurl, {
@@ -404,7 +404,7 @@ jQuery(function ($) {
             name: $btn.data('name'),
             shortcode: $btn.data('shortcode')
         }, function (resp) {
-            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluÅŸtur');
+            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
 
             if (!resp.success) {
                 $msg.text('Hata: ' + resp.data).css('color', '#d63638').show();
@@ -412,7 +412,7 @@ jQuery(function ($) {
             }
 
             if (resp.data.existing) {
-                $msg.html('Taslak zaten var. <a href="' + resp.data.edit_url + '">DÃ¼zenle</a>').css('color', '#b45309').show();
+                $msg.html('Taslak zaten var. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#b45309').show();
                 return;
             }
 
@@ -426,7 +426,7 @@ jQuery(function ($) {
         var $select = $card.find('.hc-category-select');
         var $msg = $card.find('.hc-yazi-ekle-msg');
 
-        $btn.prop('disabled', true).text(hcAdmin.analyzingCategory || 'AI kategori analizi yapÄ±lÄ±yor...');
+        $btn.prop('disabled', true).text(hcAdmin.analyzingCategory || 'AI kategori analizi yapılıyor...');
         $msg.hide().text('');
 
         $.post(hcAdmin.ajaxurl, {
@@ -438,7 +438,7 @@ jQuery(function ($) {
             $btn.prop('disabled', false).text(hcAdmin.analyzeCategory || 'AI ile kategori analizi');
 
             if (!resp || !resp.success) {
-                $msg.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Kategori analizi yapÄ±lamadÄ±.')).css('color', '#d63638').show();
+                $msg.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Kategori analizi yapılamadı.')).css('color', '#d63638').show();
                 return;
             }
 
@@ -449,10 +449,10 @@ jQuery(function ($) {
                 $select.val(resp.data.category).trigger('change');
             }
 
-            $msg.text((resp.data && resp.data.reason) ? resp.data.reason : (hcAdmin.categoryAnalyzed || 'Kategori Ã¶nerisi seÃ§ildi. Kaydetmeyi unutmayÄ±n.')).css('color', '#067647').show();
+            $msg.text((resp.data && resp.data.reason) ? resp.data.reason : (hcAdmin.categoryAnalyzed || 'Kategori önerisi seçildi. Kaydetmeyi unutmayın.')).css('color', '#067647').show();
         }).fail(function (xhr) {
             $btn.prop('disabled', false).text(hcAdmin.analyzeCategory || 'AI ile kategori analizi');
-            $msg.text('Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638').show();
+            $msg.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638').show();
         });
     });
 
@@ -472,7 +472,7 @@ jQuery(function ($) {
                 var d;
                 var html = '<table style="width:100%;border-collapse:collapse;">';
 
-                $btn.prop('disabled', false).text('KullanÄ±mÄ± Kontrol Et');
+                $btn.prop('disabled', false).text('Kullanımı Kontrol Et');
 
                 if (!resp.success) {
                     $content.html('<p style="color:#d63638;">Hata: ' + resp.data + '</p>');
@@ -501,8 +501,8 @@ jQuery(function ($) {
                 $card.show();
             })
             .fail(function () {
-                $btn.prop('disabled', false).text('KullanÄ±mÄ± Kontrol Et');
-                $content.html('<p style="color:#d63638;">Sunucu hatasÄ±.</p>');
+                $btn.prop('disabled', false).text('Kullanımı Kontrol Et');
+                $content.html('<p style="color:#d63638;">Sunucu hatası.</p>');
                 $card.show();
             });
     });
@@ -511,14 +511,14 @@ jQuery(function ($) {
         var url = $('#hc-writer-url').val().trim();
 
         if (!url) {
-            alert('LÃ¼tfen bir URL girin.');
+            alert('Lütfen bir URL girin.');
             return;
         }
 
         $('#hc-writer-result').hide();
         $('#hc-writer-error').hide();
         $('#hc-writer-loading').show();
-        $('#hc-writer-btn').prop('disabled', true).text('HazÄ±rlanÄ±yor...');
+        $('#hc-writer-btn').prop('disabled', true).text('Hazırlanıyor...');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_generate_article',
@@ -530,13 +530,13 @@ jQuery(function ($) {
                 var d;
 
                 $('#hc-writer-loading').hide();
-                $('#hc-writer-btn').prop('disabled', false).text('Makale OluÅŸtur');
+                $('#hc-writer-btn').prop('disabled', false).text('Makale Oluştur');
 
                 if (typeof resp === 'string') {
                     try {
                         resp = JSON.parse(resp);
                     } catch (e) {
-                        $('#hc-writer-error').text('JSON parse hatasÄ±. Ham yanÄ±t: ' + resp.substring(0, 200)).show();
+                        $('#hc-writer-error').text('JSON parse hatası. Ham yanıt: ' + resp.substring(0, 200)).show();
                         return;
                     }
                 }
@@ -562,8 +562,8 @@ jQuery(function ($) {
             })
             .fail(function (xhr) {
                 $('#hc-writer-loading').hide();
-                $('#hc-writer-btn').prop('disabled', false).text('Makale OluÅŸtur');
-                $('#hc-writer-error').text('Sunucu hatasÄ±: HTTP ' + xhr.status + ' â€” ' + xhr.responseText.substring(0, 150)).show();
+                $('#hc-writer-btn').prop('disabled', false).text('Makale Oluştur');
+                $('#hc-writer-error').text('Sunucu hatası: HTTP ' + xhr.status + ' — ' + xhr.responseText.substring(0, 150)).show();
             });
     });
 
@@ -590,7 +590,7 @@ jQuery(function ($) {
             $('#hc-save-draft-btn').prop('disabled', false);
 
             if (resp.success) {
-                $('#hc-save-msg').html('Kaydedildi. <a href="' + resp.data.edit_url + '" target="_blank">TaslaÄŸÄ± aÃ§</a>').css('color', '#067647');
+                $('#hc-save-msg').html('Kaydedildi. <a href="' + resp.data.edit_url + '" target="_blank">Taslağı aç</a>').css('color', '#067647');
                 return;
             }
 
@@ -606,7 +606,7 @@ jQuery(function ($) {
         var notes = $('#hc-module-notes').val().trim();
 
         if (!topic && !url) {
-            alert('LÃ¼tfen konu veya URL girin.');
+            alert('Lütfen konu veya URL girin.');
             return;
         }
 
@@ -614,8 +614,8 @@ jQuery(function ($) {
         $('#hc-module-preview').hide();
         $('#hc-module-error').hide().text('');
         $('#hc-module-publish-btn').prop('disabled', true);
-        $btn.prop('disabled', true).text('Taslak hazÄ±rlanÄ±yor...');
-        $status.text('GPT-5 mini modÃ¼l dosyalarÄ±nÄ± hazÄ±rlÄ±yor. Bu iÅŸlem 30-90 saniye sÃ¼rebilir.').css('color', '#646970');
+        $btn.prop('disabled', true).text('Taslak hazırlanıyor...');
+        $status.text('GPT-5 mini modül dosyalarını hazırlıyor. Bu işlem 30-90 saniye sürebilir.').css('color', '#646970');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_generate_module_preview',
@@ -627,7 +627,7 @@ jQuery(function ($) {
             .done(function (resp) {
                 var d;
 
-                $btn.prop('disabled', false).text('ModÃ¼l TaslaÄŸÄ± OluÅŸtur');
+                $btn.prop('disabled', false).text('Modül Taslağı Oluştur');
 
                 if (!resp || !resp.success) {
                     $('#hc-module-error').text('Hata: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).show();
@@ -639,11 +639,11 @@ jQuery(function ($) {
                 hcModulePreviewPayload = d;
                 hcFillModulePreview(d);
                 $('#hc-module-preview').show();
-                $status.text('Taslak hazÄ±r. Kaydetmeden Ã¶nce dosyalarÄ± hÄ±zlÄ±ca gÃ¶zden geÃ§irin.').css('color', '#067647');
+                $status.text('Taslak hazır. Kaydetmeden önce dosyaları hızlıca gözden geçirin.').css('color', '#067647');
             })
             .fail(function (xhr) {
-                $btn.prop('disabled', false).text('ModÃ¼l TaslaÄŸÄ± OluÅŸtur');
-                $('#hc-module-error').text('Sunucu hatasÄ±: HTTP ' + xhr.status + ' - ' + xhr.responseText.substring(0, 150)).show();
+                $btn.prop('disabled', false).text('Modül Taslağı Oluştur');
+                $('#hc-module-error').text('Sunucu hatası: HTTP ' + xhr.status + ' - ' + xhr.responseText.substring(0, 150)).show();
                 $status.text('').css('color', '');
             });
     });
@@ -665,12 +665,12 @@ jQuery(function ($) {
         var $status = $('#hc-module-save-status');
 
         if (!hcModulePreviewPayload) {
-            alert('Ã–nce modÃ¼l taslaÄŸÄ± oluÅŸturun.');
+            alert('Önce modül taslağı oluşturun.');
             return;
         }
 
         $btn.prop('disabled', true).text('Kaydediliyor...');
-        $status.text('Dosyalar kontrol ediliyor ve yeni modÃ¼l klasÃ¶rÃ¼ oluÅŸturuluyor...').css('color', '#646970');
+        $status.text('Dosyalar kontrol ediliyor ve yeni modül klasörü oluşturuluyor...').css('color', '#646970');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_save_module_files',
@@ -678,7 +678,7 @@ jQuery(function ($) {
             payload: JSON.stringify(hcModulePreviewPayload)
         })
             .done(function (resp) {
-                $btn.prop('disabled', false).text('ModÃ¼lÃ¼ Eklentiye Kaydet');
+                $btn.prop('disabled', false).text('Modülü Eklentiye Kaydet');
 
                 if (!resp || !resp.success) {
                     $status.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
@@ -689,8 +689,8 @@ jQuery(function ($) {
                 $('#hc-module-publish-btn').prop('disabled', false);
             })
             .fail(function (xhr) {
-                $btn.prop('disabled', false).text('ModÃ¼lÃ¼ Eklentiye Kaydet');
-                $status.text('Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638');
+                $btn.prop('disabled', false).text('Modülü Eklentiye Kaydet');
+                $status.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
             });
     });
 
@@ -699,16 +699,16 @@ jQuery(function ($) {
         var $status = $('#hc-module-save-status');
 
         if (!hcModulePreviewPayload) {
-            alert('Ã–nce modÃ¼l taslaÄŸÄ± oluÅŸturun.');
+            alert('Önce modül taslağı oluşturun.');
             return;
         }
 
-        if (!window.confirm('Bu modÃ¼lÃ¼ GitHub ayarlarÄ±nda seÃ§ili branch Ã¼zerine commit olarak gÃ¶ndermek istiyor musunuz?')) {
+        if (!window.confirm('Bu modülü GitHub ayarlarında seçili branch üzerine commit olarak göndermek istiyor musunuz?')) {
             return;
         }
 
-        $btn.prop('disabled', true).text('GitHubâ€™a gÃ¶nderiliyor...');
-        $status.text('GitHub API Ã¼zerinden dosyalar oluÅŸturuluyor...').css('color', '#646970');
+        $btn.prop('disabled', true).text('GitHub’a gönderiliyor...');
+        $status.text('GitHub API üzerinden dosyalar oluşturuluyor...').css('color', '#646970');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_publish_module_github',
@@ -716,18 +716,18 @@ jQuery(function ($) {
             payload: JSON.stringify(hcModulePreviewPayload)
         })
             .done(function (resp) {
-                $btn.prop('disabled', false).text('GitHub\'a GÃ¶nder');
+                $btn.prop('disabled', false).text('GitHub\'a Gönder');
 
                 if (!resp || !resp.success) {
-                    $status.text('GitHub hatasÄ±: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
+                    $status.text('GitHub hatası: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
                     return;
                 }
 
-                $status.text('GitHubâ€™a gÃ¶nderildi: ' + resp.data.repo + ' / ' + resp.data.branch).css('color', '#067647');
+                $status.text('GitHub’a gönderildi: ' + resp.data.repo + ' / ' + resp.data.branch).css('color', '#067647');
             })
             .fail(function (xhr) {
-                $btn.prop('disabled', false).text('GitHub\'a GÃ¶nder');
-                $status.text('Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638');
+                $btn.prop('disabled', false).text('GitHub\'a Gönder');
+                $status.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
             });
     });
 
@@ -747,7 +747,7 @@ jQuery(function ($) {
         $('#hc-file-css').val(files.calculator_css || '');
 
         if (module.needs_review || module.review_note) {
-            $('#hc-module-review-note').text(module.review_note || 'FormÃ¼l iÃ§in insan kontrolÃ¼ Ã¶nerilir.').show();
+            $('#hc-module-review-note').text(module.review_note || 'Formül için insan kontrolü önerilir.').show();
         } else {
             $('#hc-module-review-note').hide().text('');
         }
@@ -756,10 +756,10 @@ jQuery(function ($) {
     function formatYoastChecklist(data) {
         var lines = [];
         var map = {
-            anahtar_kelime_baslikta: 'Anahtar kelime baÅŸlÄ±kta',
-            ilk_paragrafta: 'Ä°lk paragrafta',
-            meta_aciklamada: 'Meta aÃ§Ä±klamada',
-            alt_baslikta: 'Alt baÅŸlÄ±kta',
+            anahtar_kelime_baslikta: 'Anahtar kelime başlıkta',
+            ilk_paragrafta: 'İlk paragrafta',
+            meta_aciklamada: 'Meta açıklamada',
+            alt_baslikta: 'Alt başlıkta',
             okunabilirlik: 'Okunabilirlik',
             seo_skoru: 'SEO skoru'
         };
