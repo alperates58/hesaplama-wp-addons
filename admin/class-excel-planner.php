@@ -463,35 +463,52 @@ class HC_Excel_Planner {
         $module_map         = [];
         $module_compact_map = [];
         $module_tokens      = [];
+        $used_modules       = [];
 
         foreach ( $modules as $m ) {
-            $key                         = self::normalize( $m['name'] );
-            $compact                     = self::normalize_compact( $m['name'] );
-            $module_map[ $key ]          = $m;
-            $module_compact_map[ $compact ] = $m;
-            $module_tokens[]             = [
+            $key                            = self::normalize( $m['name'] );
+            $compact                        = self::normalize_compact( $m['name'] );
+            $module_map[ $key ][]           = $m;
+            $module_compact_map[ $compact ][] = $m;
+            $module_tokens[]                = [
                 'module'  => $m,
                 'tokens'  => self::tokenize_compact( $compact ),
+                'compact' => $compact,
             ];
         }
 
         foreach ( $topics as &$topic ) {
+            $topic['module_slug'] = '';
+            $topic['module_name'] = '';
+            $topic['shortcode']   = '';
+        }
+        unset( $topic );
+
+        foreach ( $topics as &$topic ) {
             $key     = self::normalize( $topic['baslik'] );
             $compact = self::normalize_compact( $topic['baslik'] );
-            $match   = null;
+            $match   = self::pick_unused_module( $module_map[ $key ] ?? [], $used_modules );
 
-            if ( isset( $module_map[ $key ] ) ) {
-                $match = $module_map[ $key ];
-            } elseif ( $compact && isset( $module_compact_map[ $compact ] ) ) {
-                $match = $module_compact_map[ $compact ];
-            } else {
-                $match = self::find_best_module_match( $compact, $module_tokens );
+            if ( ! $match && $compact ) {
+                $match = self::pick_unused_module( $module_compact_map[ $compact ] ?? [], $used_modules );
             }
 
             if ( $match ) {
-                $topic['module_slug'] = $match['slug'];
-                $topic['module_name'] = $match['name'];
-                $topic['shortcode']   = $match['shortcode'];
+                self::apply_module_match( $topic, $match, $used_modules );
+            }
+        }
+        unset( $topic );
+
+        foreach ( $topics as &$topic ) {
+            if ( ! empty( $topic['module_slug'] ) ) {
+                continue;
+            }
+
+            $compact = self::normalize_compact( $topic['baslik'] );
+            $match   = self::find_best_module_match( $compact, $module_tokens, $used_modules );
+
+            if ( $match ) {
+                self::apply_module_match( $topic, $match, $used_modules );
             }
         }
         unset( $topic );
@@ -584,33 +601,75 @@ class HC_Excel_Planner {
         return array_values( array_filter( explode( ' ', $compact ) ) );
     }
 
-    private static function find_best_module_match( $topic_compact, $module_tokens ) {
+    private static function find_best_module_match( $topic_compact, $module_tokens, $used_modules = [] ) {
         $topic_tokens = self::tokenize_compact( $topic_compact );
         if ( empty( $topic_tokens ) ) {
             return null;
         }
 
-        $best       = null;
-        $best_score = 0;
+        $best         = null;
+        $best_score   = 0;
+        $second_score = 0;
 
         foreach ( $module_tokens as $candidate ) {
+            if ( ! empty( $used_modules[ $candidate['module']['slug'] ] ) ) {
+                continue;
+            }
+
             if ( empty( $candidate['tokens'] ) ) {
                 continue;
             }
 
             $intersection = array_intersect( $topic_tokens, $candidate['tokens'] );
+            $shared_count  = count( $intersection );
             $union        = array_unique( array_merge( $topic_tokens, $candidate['tokens'] ) );
             $jaccard      = empty( $union ) ? 0 : count( $intersection ) / count( $union );
             $coverage     = count( $intersection ) / max( 1, min( count( $topic_tokens ), count( $candidate['tokens'] ) ) );
             $score        = max( $jaccard, $coverage );
 
+            if ( $shared_count < 2 ) {
+                continue;
+            }
+
             if ( $score > $best_score ) {
+                $second_score = $best_score;
                 $best_score = $score;
                 $best       = $candidate['module'];
+            } elseif ( $score > $second_score ) {
+                $second_score = $score;
             }
         }
 
-        return $best_score >= 0.74 ? $best : null;
+        if ( ! $best ) {
+            return null;
+        }
+
+        if ( $best_score < 0.9 ) {
+            return null;
+        }
+
+        if ( ( $best_score - $second_score ) < 0.08 ) {
+            return null;
+        }
+
+        return $best;
+    }
+
+    private static function pick_unused_module( $candidates, $used_modules ) {
+        foreach ( (array) $candidates as $candidate ) {
+            if ( empty( $used_modules[ $candidate['slug'] ] ) ) {
+                return $candidate;
+            }
+        }
+
+        return null;
+    }
+
+    private static function apply_module_match( &$topic, $module, &$used_modules ) {
+        $topic['module_slug'] = $module['slug'];
+        $topic['module_name'] = $module['name'];
+        $topic['shortcode']   = $module['shortcode'];
+        $used_modules[ $module['slug'] ] = true;
     }
 
     private static function topic_has_ai_category( $topic ) {
@@ -726,6 +785,19 @@ class HC_Excel_Planner {
         return $alt ? $ana . ' › ' . $alt : $ana;
     }
 
+    private static function count_unique_matched_modules( $topics ) {
+        $matched = array_filter(
+            array_map(
+                static function ( $topic ) {
+                    return $topic['module_slug'] ?? '';
+                },
+                $topics
+            )
+        );
+
+        return count( array_unique( $matched ) );
+    }
+
     private static function group_topics( $topics ) {
         $grouped = [];
         foreach ( $topics as $t ) {
@@ -754,7 +826,7 @@ class HC_Excel_Planner {
         }
 
         $total       = count( $topics );
-        $match_count = count( array_filter( $topics, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
+        $match_count = self::count_unique_matched_modules( $topics );
         $draft_count = count( array_filter( $topics, static fn( $t ) => self::post_exists_active( $t['draft_post_id'] ?? 0 ) ) );
 
         $grouped = self::group_topics( $topics );
@@ -893,7 +965,7 @@ class HC_Excel_Planner {
                 }
 
                 $group_all     = array_merge( ...array_values( $alt_cats ) );
-                $group_matched = count( array_filter( $group_all, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
+                $group_matched = self::count_unique_matched_modules( $group_all );
                 $group_drafted = count( array_filter( $group_all, static fn( $t ) => self::post_exists_active( $t['draft_post_id'] ?? 0 ) ) );
                 ?>
 
