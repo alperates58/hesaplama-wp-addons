@@ -143,6 +143,7 @@ class HC_AI_Bulk_Generator {
         <script>
         let isRunning = false;
         let queue = <?php echo wp_json_encode($queue, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
+        const bulkGithubConfigured = <?php echo ( ! empty( $gh_repo ) && ! empty( $gh_token ) ) ? 'true' : 'false'; ?>;
 
         function createBadge(label, backgroundColor) {
             const span = document.createElement('span');
@@ -281,6 +282,9 @@ class HC_AI_Bulk_Generator {
             isRunning = true;
             document.getElementById('start-btn').style.display = 'none';
             document.getElementById('stop-btn').style.display = 'inline-block';
+            if (!bulkGithubConfigured) {
+                logMsg('⚠️ GitHub repo/token ayarı eksik. Üretilen modüller sadece lokal klasöre kaydedilecek.');
+            }
             logMsg('🚀 İşlem başlatıldı.');
             processNext();
         }
@@ -324,7 +328,8 @@ class HC_AI_Bulk_Generator {
                 success: function(res) {
                     if(res.success) {
                         queue[targetIndex].status = 'success';
-                        logMsg('✅ Başarılı: ' + item.title);
+                        queue[targetIndex].message = String(res.data || '');
+                        logMsg('✅ Başarılı: ' + item.title + (res.data ? ' | ' + res.data : ''));
                         const cb = document.querySelector(`.cb-item[data-index="${targetIndex}"]`);
                         if(cb) cb.checked = false;
                     } else {
