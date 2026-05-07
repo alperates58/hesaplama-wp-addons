@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Hesaplama",
+  "desc": "Temel yüzde hesaplamalarını (yüzdesi kaçtır, yüzde kaçıdır vb.) hızlıca yapar.",
+  "shortcode": "[hc_yuzde_hesaplama]"
+}

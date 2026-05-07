@@ -1,0 +1,5 @@
+{
+  "name": "Alan Hesaplama",
+  "desc": "Kare, daire, üçgen ve yamuk gibi farklı geometrik şekillerin alanını hesaplar.",
+  "shortcode": "[hc_alan_hesaplama]"
+}

@@ -1,0 +1,85 @@
+#hc-yuzde-hata-hesaplayici {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 2px solid #f1f5f9;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-yuzde-hata-hesaplayici label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#hc-yuzde-hata-hesaplayici input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-btn {
+    width: 100%;
+    background: #ef4444;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-res-box {
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-res-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #b91c1c;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-res-main {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #991b1b;
+    margin-bottom: 15px;
+}
+
+#hc-yuzde-hata-hesaplayici .hc-formula-box {
+    font-size: 0.8rem;
+    color: #dc2626;
+    font-style: italic;
+    border-top: 1px solid #fecaca;
+    padding-top: 10px;
+}

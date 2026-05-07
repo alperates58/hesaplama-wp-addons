@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Hata Hesaplayıcısı",
+  "desc": "Teorik değer ile deneysel değer arasındaki yüzde hata oranını hesaplar.",
+  "shortcode": "[hc_yuzde_hata_hesaplayici]"
+}

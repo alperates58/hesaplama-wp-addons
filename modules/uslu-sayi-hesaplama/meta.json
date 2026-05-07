@@ -1,0 +1,5 @@
+{
+  "name": "Üslü Sayı Hesaplama",
+  "desc": "Taban ve üs değerlerini girerek üslü sayı sonucunu hesaplar.",
+  "shortcode": "[hc_uslu_sayi_hesaplama]"
+}

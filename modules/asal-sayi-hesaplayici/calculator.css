@@ -1,0 +1,109 @@
+#hc-asal-sayi-hesaplayici {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-asal-sayi-hesaplayici .hc-tabs {
+    display: flex;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+#hc-asal-sayi-hesaplayici .hc-tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+    color: #64748b;
+}
+
+#hc-asal-sayi-hesaplayici .hc-tab-btn.active {
+    background: white;
+    color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#hc-asal-sayi-hesaplayici .hc-form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+#hc-asal-sayi-hesaplayici input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+#hc-asal-sayi-hesaplayici .hc-btn {
+    width: 100%;
+    background: #1e293b;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#hc-asal-sayi-hesaplayici .hc-result {
+    margin-top: 25px;
+    display: none;
+}
+
+#hc-asal-sayi-hesaplayici .hc-result.visible {
+    display: block;
+}
+
+#hc-asal-sayi-hesaplayici .hc-res-card {
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#hc-asal-sayi-hesaplayici .hc-res-card.success { background: #dcfce7; color: #166534; }
+#hc-asal-sayi-hesaplayici .hc-res-card.error { background: #fee2e2; color: #991b1b; }
+#hc-asal-sayi-hesaplayici .hc-res-card.info { background: #eff6ff; color: #1e40af; }
+
+#hc-asal-sayi-hesaplayici .hc-res-status {
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+#hc-asal-sayi-hesaplayici .hc-res-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-asal-sayi-hesaplayici .hc-res-scroll span {
+    background: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    font-weight: 600;
+}

@@ -1,0 +1,62 @@
+#hc-ortalama-yuzde-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-ortalama-yuzde-hesaplama textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#hc-ortalama-yuzde-hesaplama .hc-btn {
+    width: 100%;
+    background: #3b82f6;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-ortalama-yuzde-hesaplama .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-ortalama-yuzde-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-ortalama-yuzde-hesaplama .hc-res-box {
+    background: #eff6ff;
+    border: 2px solid #dbeafe;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#hc-ortalama-yuzde-hesaplama .hc-res-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #1d4ed8;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#hc-ortalama-yuzde-hesaplama .hc-res-main {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1e3a8a;
+}

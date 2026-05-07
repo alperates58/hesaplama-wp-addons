@@ -1,0 +1,5 @@
+{
+  "name": "Asal Sayı Hesaplayıcı",
+  "desc": "Bir sayının asal olup olmadığını kontrol eder veya belirli bir aralıktaki asal sayıları listeler.",
+  "shortcode": "[hc_asal_sayi_hesaplayici]"
+}

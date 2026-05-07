@@ -1,0 +1,117 @@
+#hc-ekok-hesaplayici {
+    background: #ffffff;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 25px 25px;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    font-family: 'Outfit', sans-serif;
+    max-width: 550px;
+    margin: 20px auto;
+    border: 2px solid #f8fafc;
+}
+
+#hc-ekok-hesaplayici .hc-header h3 {
+    margin: 0 0 10px;
+    color: #0f172a;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+#hc-ekok-hesaplayici .hc-header p {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+#hc-ekok-hesaplayici .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-ekok-hesaplayici label {
+    display: block;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+}
+
+#hc-ekok-hesaplayici input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: white;
+}
+
+#hc-ekok-hesaplayici .hc-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#hc-ekok-hesaplayici .hc-btn:hover {
+    background: #1d4ed8;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+#hc-ekok-hesaplayici .hc-result {
+    margin-top: 35px;
+    background: #1e293b;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    display: none;
+    color: white;
+}
+
+#hc-ekok-hesaplayici .hc-result.visible {
+    display: block;
+    animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#hc-ekok-hesaplayici .hc-res-badge {
+    display: inline-block;
+    background: #3b82f6;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+#hc-ekok-hesaplayici .hc-res-value {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+#hc-ekok-hesaplayici .hc-res-formula {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    font-family: monospace;
+}
+
+@media (max-width: 480px) {
+    #hc-ekok-hesaplayici .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,84 @@
+#hc-standart-sapma-hesaplayici {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-standart-sapma-hesaplayici .hc-header h3 {
+    margin: 0 0 10px;
+    color: #1e293b;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+#hc-standart-sapma-hesaplayici .hc-form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+#hc-standart-sapma-hesaplayici textarea,
+#hc-standart-sapma-hesaplayici select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#hc-standart-sapma-hesaplayici .hc-btn {
+    width: 100%;
+    background: #4f46e5;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-standart-sapma-hesaplayici .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-standart-sapma-hesaplayici .hc-result.visible {
+    display: block;
+}
+
+#hc-standart-sapma-hesaplayici .hc-sd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#hc-standart-sapma-hesaplayici .hc-sd-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+#hc-standart-sapma-hesaplayici .hc-sd-item label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #6366f1;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#hc-standart-sapma-hesaplayici .hc-sd-item div {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1e1b4b;
+}

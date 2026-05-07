@@ -1,0 +1,81 @@
+#hc-uslu-sayi-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#hc-uslu-sayi-hesaplama .hc-expo-ui {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+#hc-uslu-sayi-hesaplama #hc-expo-base {
+    width: 120px;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+#hc-uslu-sayi-hesaplama #hc-expo-pow {
+    width: 60px;
+    padding: 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: center;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    margin-top: -10px;
+}
+
+#hc-uslu-sayi-hesaplama .hc-btn {
+    width: 100%;
+    background: #1e293b;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-uslu-sayi-hesaplama .hc-result {
+    margin-top: 25px;
+    display: none;
+}
+
+#hc-uslu-sayi-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-uslu-sayi-hesaplama .hc-res-box {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-uslu-sayi-hesaplama .hc-res-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#hc-uslu-sayi-hesaplama .hc-res-main {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #0f172a;
+    word-break: break-all;
+}

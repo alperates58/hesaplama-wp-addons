@@ -1,0 +1,5 @@
+{
+  "name": "Kesirden Yüzdeye Hesaplayıcı",
+  "desc": "Kesirli sayıları (Örn: 3/4) yüzde biçimine (Örn: %75) dönüştürür.",
+  "shortcode": "[hc_kesir_yuzde_hesaplayici]"
+}

@@ -1,0 +1,90 @@
+#hc-hacim-hesaplama {
+    background: #ffffff;
+    background-image: linear-gradient(#f1f5f9 1px, transparent 1px), linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-hacim-hesaplama .hc-header h3 {
+    margin: 0 0 10px;
+    color: #1e293b;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+#hc-hacim-hesaplama .hc-form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+#hc-hacim-hesaplama select,
+#hc-hacim-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#hc-hacim-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#hc-hacim-hesaplama .hc-btn {
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-hacim-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #eff6ff;
+    border-radius: 15px;
+    border: 1px solid #dbeafe;
+    text-align: center;
+    display: none;
+}
+
+#hc-hacim-hesaplama .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+#hc-hacim-hesaplama .hc-res-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #3b82f6;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+
+#hc-hacim-hesaplama .hc-res-main {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #1e3a8a;
+}
+
+#hc-hacim-hesaplama .hc-res-main small {
+    font-size: 1rem;
+    color: #60a5fa;
+}

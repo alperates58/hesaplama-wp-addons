@@ -1,0 +1,75 @@
+#hc-ondalik-yuzde-donusturme {
+    background: #ffffff;
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+#hc-ondalik-yuzde-donusturme input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-btn {
+    width: 100%;
+    background: #6366f1;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-result {
+    margin-top: 25px;
+    display: none;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-result.visible {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-res-box {
+    background: #f1f5f9;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-res-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #475569;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+#hc-ondalik-yuzde-donusturme .hc-res-main {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
