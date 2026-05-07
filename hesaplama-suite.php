@@ -26,6 +26,7 @@ require_once HC_PLUGIN_DIR . 'admin/class-ai-writer.php';
 require_once HC_PLUGIN_DIR . 'admin/class-ai-module-generator.php';
 require_once HC_PLUGIN_DIR . 'admin/class-ai-bulk-generator.php';
 require_once HC_PLUGIN_DIR . 'admin/class-post-metabox.php';
+require_once HC_PLUGIN_DIR . 'admin/class-excel-planner.php';
 
 new HC_Github_Updater();
 new HC_Calculator_Loader();
@@ -34,3 +35,4 @@ new HC_AI_Writer();
 new HC_AI_Module_Generator();
 new HC_AI_Bulk_Generator();
 new HC_Post_Metabox();
+new HC_Excel_Planner();

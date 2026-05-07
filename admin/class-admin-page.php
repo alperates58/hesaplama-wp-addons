@@ -298,6 +298,7 @@ class HC_Admin_Page {
         add_submenu_page( 'hesaplama-suite', 'Toplu Üretici (DeepSeek/Gemini)', 'Toplu Üretici', 'manage_options', 'hesaplama-suite-bulk', [ $this, 'render_bulk_page' ] );
         add_submenu_page( 'hesaplama-suite', 'AI Ayarları', 'AI Ayarları', 'manage_options', 'hesaplama-suite-ai', [ $this, 'render_ai_settings_page' ] );
         add_submenu_page( 'hesaplama-suite', 'GitHub Ayarları', 'GitHub Ayarları', 'manage_options', 'hesaplama-suite-github', [ $this, 'render_github_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'İçerik Planı', 'İçerik Planı', 'manage_options', 'hesaplama-suite-planner', [ $this, 'render_planner_page' ] );
     }
 
     public function enqueue_admin_assets( $hook ) {
@@ -427,6 +428,12 @@ class HC_Admin_Page {
     public function render_github_page() {
         $this->render_header('GitHub Ayarları');
         $this->render_github_tab();
+        $this->render_footer();
+    }
+
+    public function render_planner_page() {
+        $this->render_header('İçerik Planı');
+        HC_Excel_Planner::render_planner_tab();
         $this->render_footer();
     }
 
