@@ -483,17 +483,17 @@ class HC_AI_Bulk_Generator {
         }
 
         $normalized_files = $this->normalize_generated_files( $files, $title, $slug );
-        $validation = $this->validate_generated_files( $normalized_files, $slug );
-        if ( is_wp_error( $validation ) ) {
-            $repair_files = $this->attempt_file_repair( $ai_provider, $ai_model, $api_key, $title, $slug, $normalized_files, $validation->get_error_message() );
+        $validation_errors = $this->get_generated_file_errors( $normalized_files, $slug );
+        if ( ! empty( $validation_errors ) ) {
+            $repair_files = $this->attempt_file_repair( $ai_provider, $ai_model, $api_key, $title, $slug, $normalized_files, $validation_errors );
             if ( is_wp_error( $repair_files ) ) {
-                wp_send_json_error( $validation->get_error_message() );
+                wp_send_json_error( implode( ' | ', $validation_errors ) );
             }
 
             $normalized_files = $repair_files;
-            $validation = $this->validate_generated_files( $normalized_files, $slug );
-            if ( is_wp_error( $validation ) ) {
-                wp_send_json_error( $validation->get_error_message() );
+            $validation_errors = $this->get_generated_file_errors( $normalized_files, $slug );
+            if ( ! empty( $validation_errors ) ) {
+                wp_send_json_error( implode( ' | ', $validation_errors ) );
             }
         }
 
@@ -598,8 +598,8 @@ class HC_AI_Bulk_Generator {
         return $body['candidates'][0]['content']['parts'][0]['text'];
     }
 
-    private function attempt_file_repair( $ai_provider, $ai_model, $api_key, $title, $slug, $files, $validation_error ) {
-        $repair_prompt = $this->build_repair_prompt( $title, $slug, $files, $validation_error );
+    private function attempt_file_repair( $ai_provider, $ai_model, $api_key, $title, $slug, $files, $validation_errors ) {
+        $repair_prompt = $this->build_repair_prompt( $title, $slug, $files, $validation_errors );
         $raw_text = $this->request_ai_generation( $ai_provider, $ai_model, $api_key, $repair_prompt );
 
         if ( is_wp_error( $raw_text ) ) {
@@ -617,17 +617,26 @@ class HC_AI_Bulk_Generator {
         return $this->normalize_generated_files( $repaired_files, $title, $slug );
     }
 
-    private function build_repair_prompt( $title, $slug, $files, $validation_error ) {
+    private function build_repair_prompt( $title, $slug, $files, $validation_errors ) {
         $slug_under = str_replace( '-', '_', $slug );
         $files_json = wp_json_encode( $files, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+        $error_lines = [];
+
+        foreach ( (array) $validation_errors as $validation_error ) {
+            $error_lines[] = '- ' . $validation_error;
+        }
+
+        $error_text = implode( "\n", $error_lines );
 
         return "Daha once uretilen WordPress hesaplama modulu gecersiz bulundu. Sadece gecerli JSON don ve tum dosyalari tam calisan hale getir.\n"
             . "Konu: {$title}\n"
             . "Slug: {$slug}\n"
             . "Shortcode: [hc_{$slug_under}]\n"
-            . "Dogrulama hatasi: {$validation_error}\n"
+            . "Dogrulama hatalari:\n{$error_text}\n"
             . "Zorunlu: calculator.js gercek hesaplama yapmali, sonuc HTML icine yazilmali ve visible class'i eklenmeli. Bos iskelet, yorum veya TODO kullanma.\n"
+            . "Zorunlu: calculator.js icinde sayi formatlama icin toLocaleString('tr-TR') kullan.\n"
             . "Zorunlu: calculator.php icinde modules/{$slug}/calculator.js ve modules/{$slug}/calculator.css enqueue edilmeli.\n"
+            . "Zorunlu: calculator.css icinde .hc-{$slug}- prefixi ve @media (max-width: 480px) olmali.\n"
             . "Yalnizca SI birimleri ve Turkce kullan.\n"
             . "Mevcut gecersiz dosyalar JSON'u:\n{$files_json}\n"
             . "Yaniti su anahtarlarla don: meta.json, calculator.php, calculator.js, calculator.css";
@@ -707,6 +716,7 @@ class HC_AI_Bulk_Generator {
         }
 
         $normalized['calculator.php'] = $this->normalize_calculator_php_file( $normalized['calculator.php'], $slug );
+        $normalized['calculator.js'] = $this->normalize_calculator_js_file( $normalized['calculator.js'], $slug );
 
         return $normalized;
     }
@@ -767,61 +777,90 @@ class HC_AI_Bulk_Generator {
         return $calculator_php;
     }
 
+    private function normalize_calculator_js_file( $calculator_js, $slug ) {
+        if ( false === strpos( $calculator_js, "toLocaleString('tr-TR'" ) && false === strpos( $calculator_js, 'toLocaleString("tr-TR"' ) ) {
+            $helper = "function hcFormatTrNumber(value) {\n    return Number(value).toLocaleString('tr-TR');\n}\n\n";
+            $calculator_js = $helper . ltrim( $calculator_js );
+        }
+
+        if ( false === strpos( $calculator_js, 'visible' ) && preg_match( '/document\.getElementById\([\'"][^\'"]+-result[\'"]\)/', $calculator_js ) ) {
+            $calculator_js .= "\nfunction hcEnsureResultVisible(resultElement) {\n    if (resultElement) {\n        resultElement.classList.add('visible');\n    }\n}\n";
+        }
+
+        return $this->normalize_newlines( $calculator_js );
+    }
+
     private function validate_generated_files( $files, $slug ) {
+        $errors = $this->get_generated_file_errors( $files, $slug );
+
+        if ( ! empty( $errors ) ) {
+            return new WP_Error( 'generated_files_invalid', $errors[0] );
+        }
+
+        return true;
+    }
+
+    private function get_generated_file_errors( $files, $slug ) {
+        $errors = [];
         $required_keys = [ 'meta.json', 'calculator.php', 'calculator.js', 'calculator.css' ];
+
         foreach ( $required_keys as $key ) {
             if ( empty( $files[ $key ] ) ) {
-                return new WP_Error( 'missing_file', $key . ' icerigi eksik.' );
+                $errors[] = $key . ' icerigi eksik.';
             }
+        }
+
+        if ( ! empty( $errors ) ) {
+            return $errors;
         }
 
         $meta = json_decode( $files['meta.json'], true );
         if ( ! is_array( $meta ) || empty( $meta['name'] ) || empty( $meta['desc'] ) || empty( $meta['shortcode'] ) ) {
-            return new WP_Error( 'bad_meta', 'meta.json gecersiz.' );
+            $errors[] = 'meta.json gecersiz.';
         }
 
         $expected_shortcode = '[hc_' . str_replace( '-', '_', $slug ) . ']';
-        if ( $expected_shortcode !== $meta['shortcode'] ) {
-            return new WP_Error( 'bad_shortcode', 'meta.json shortcode slug ile uyumsuz.' );
+        if ( is_array( $meta ) && $expected_shortcode !== ( $meta['shortcode'] ?? '' ) ) {
+            $errors[] = 'meta.json shortcode slug ile uyumsuz.';
         }
 
         $expected_function = 'hc_render_' . str_replace( '-', '_', $slug );
         if ( ! preg_match( '/function\s+' . preg_quote( $expected_function, '/' ) . '\s*\(/', $files['calculator.php'] ) ) {
-            return new WP_Error( 'bad_php', 'calculator.php render fonksiyonu beklenen isimde degil.' );
+            $errors[] = 'calculator.php render fonksiyonu beklenen isimde degil.';
         }
 
         if ( false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.js" ) || false === strpos( $files['calculator.php'], "modules/{$slug}/calculator.css" ) ) {
-            return new WP_Error( 'bad_php_assets', 'calculator.php kendi modul JS/CSS dosyalarini enqueue etmeli.' );
+            $errors[] = 'calculator.php kendi modul JS/CSS dosyalarini enqueue etmeli.';
         }
 
         $blocked_php = '/\b(eval|exec|shell_exec|system|passthru|proc_open|popen|curl_exec|wp_remote_post|wp_remote_get|file_put_contents|fopen|unlink|rename|copy|require|include|base64_decode)\b/i';
         if ( preg_match( $blocked_php, $files['calculator.php'] ) ) {
-            return new WP_Error( 'unsafe_php', 'calculator.php icinde izin verilmeyen PHP islemi var.' );
+            $errors[] = 'calculator.php icinde izin verilmeyen PHP islemi var.';
         }
 
         $placeholder_pattern = '/(TODO|ornek|örnek|buraya yaz|placeholder|\.{3}|GERCEK|CALISAN|ÇALIŞAN)/iu';
         if ( preg_match( $placeholder_pattern, $files['calculator.php'] ) || preg_match( $placeholder_pattern, $files['calculator.js'] ) || preg_match( $placeholder_pattern, $files['calculator.css'] ) ) {
-            return new WP_Error( 'placeholder_code', 'AI yaniti tamamlanmamis iskelet kod iceriyor.' );
+            $errors[] = 'AI yaniti tamamlanmamis iskelet kod iceriyor.';
         }
 
         $blocked_js = '/\b(fetch|XMLHttpRequest|eval|sendBeacon)\b|new\s+Function\b|\.ajax\s*\(/i';
         if ( preg_match( $blocked_js, $files['calculator.js'] ) ) {
-            return new WP_Error( 'unsafe_js', 'calculator.js icinde sunucu istegi veya guvensiz JS kullanimi var.' );
+            $errors[] = 'calculator.js icinde sunucu istegi veya guvensiz JS kullanimi var.';
         }
 
-        if ( false === strpos( $files['calculator.js'], 'function hc' ) || false === strpos( $files['calculator.js'], '.hc-result' ) && false === strpos( $files['calculator.js'], 'visible' ) ) {
-            return new WP_Error( 'bad_js', 'calculator.js calisan hesaplama ve sonuc gosterme mantigi icermiyor.' );
+        if ( false === strpos( $files['calculator.js'], 'function hc' ) || ( false === strpos( $files['calculator.js'], '.hc-result' ) && false === strpos( $files['calculator.js'], 'visible' ) ) ) {
+            $errors[] = 'calculator.js calisan hesaplama ve sonuc gosterme mantigi icermiyor.';
         }
 
         if ( false === strpos( $files['calculator.js'], "toLocaleString('tr-TR'" ) && false === strpos( $files['calculator.js'], 'toLocaleString("tr-TR"' ) ) {
-            return new WP_Error( 'bad_js_format', 'calculator.js Turkce sayi formati icin toLocaleString(\'tr-TR\') kullanmali.' );
+            $errors[] = 'calculator.js Turkce sayi formati icin toLocaleString(\'tr-TR\') kullanmali.';
         }
 
         if ( preg_match( '/(@import|url\s*\()/i', $files['calculator.css'] ) || false === strpos( $files['calculator.css'], '.hc-' . $slug . '-' ) || false === strpos( $files['calculator.css'], '@media (max-width: 480px)' ) ) {
-            return new WP_Error( 'bad_css', 'calculator.css modul prefixi ve responsive kurali ile uyumlu degil.' );
+            $errors[] = 'calculator.css modul prefixi ve responsive kurali ile uyumlu degil.';
         }
 
-        return true;
+        return $errors;
     }
 
     private function normalize_newlines( $text ) {
