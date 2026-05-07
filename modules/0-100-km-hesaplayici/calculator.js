@@ -8,33 +8,53 @@ function hc0100Hesapla() {
         return;
     }
 
-    // Güç-Ağırlık Oranı (kg/hp)
-    const ratio = weight / hp;
+    // Güç-Ağırlık Oranı (hp / ton)
+    const pwrRatio = (hp / (weight / 1000));
+    document.getElementById('hc-res-pwr-ratio').innerText = pwrRatio.toFixed(1);
 
-    // Tahmini Süre Formülü (Empirik bir model)
-    // T = (Weight/HP) * DriveFactor * 0.8 (Katsayı ayarı)
-    let time = ratio * driveFactor * 0.75;
-    
-    // Alt sınır kontrolü (Süper otomobiller için bile fiziksel sınırlar var)
-    if (time < 2.0) time = 2.0 + (ratio * 0.1);
+    // Tahmini Süre Formülü
+    let targetTime = (weight / hp) * driveFactor * 0.75;
+    if (targetTime < 2.0) targetTime = 2.0 + ((weight / hp) * 0.1);
 
-    document.getElementById('hc-res-time').innerText = time.toFixed(1);
+    // Animasyonlu Sayaç
+    const timeDisplay = document.getElementById('hc-res-time');
+    let currentTime = 0;
+    const duration = 1500; // ms
+    const startTime = performance.now();
 
-    const rank = document.getElementById('hc-res-rank');
-    if (time < 4.5) {
-        rank.innerText = "🚀 Süper Spor Performansı";
-        rank.style.color = "#ef4444";
-    } else if (time < 7) {
-        rank.innerText = "🔥 Yüksek Performans";
-        rank.style.color = "#f97316";
-    } else if (time < 10) {
-        rank.innerText = "⚡ Standart Performans";
-        rank.style.color = "#3b82f6";
+    function updateCounter(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (outQuart)
+        const easeProgress = 1 - Math.pow(1 - progress, 4);
+        const displayVal = (targetTime * easeProgress).toFixed(1);
+        
+        timeDisplay.innerText = displayVal;
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        }
+    }
+    requestAnimationFrame(updateCounter);
+
+    // Rank Belirleme
+    const rankEl = document.getElementById('hc-res-rank');
+    if (targetTime < 4.0) {
+        rankEl.innerText = "HYPERCAR";
+        rankEl.style.color = "#ff3e3e";
+    } else if (targetTime < 5.5) {
+        rankEl.innerText = "SUPERSPORT";
+        rankEl.style.color = "#ff8a3e";
+    } else if (targetTime < 8.5) {
+        rankEl.innerText = "SPORT";
+        rankEl.style.color = "#3e8aff";
     } else {
-        rank.innerText = "🐢 Ekonomik Performans";
-        rank.style.color = "#64748b";
+        rankEl.innerText = "DAILY";
+        rankEl.style.color = "#94a3b8";
     }
 
-    document.getElementById('hc-0-100-result').classList.add('visible');
-    document.getElementById('hc-0-100-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const resultDiv = document.getElementById('hc-0-100-result');
+    resultDiv.classList.add('visible');
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

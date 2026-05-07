@@ -15,23 +15,30 @@ function hc_render_0_100_km_hesaplayici( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-0-100-km-hesaplayici">
         <div class="hc-header">
-            <h3>0-100 Km/s Hızlanma Hesaplayıcı</h3>
-            <p>Aracınızın teknik özelliklerine göre tahmini hızlanma performansını ölçün.</p>
+            <div class="hc-badge">Performance Lab</div>
+            <h3>0-100 km/s Tahmini</h3>
+            <p>Aracınızın teknik verilerine göre hızlanma potansiyelini analiz edin.</p>
         </div>
         
         <div class="hc-form-grid">
             <div class="hc-form-group">
                 <label for="hc-weight">Araç Ağırlığı (kg)</label>
-                <input type="number" id="hc-weight" placeholder="Örn: 1450" value="1450">
+                <div class="hc-input-wrapper">
+                    <input type="number" id="hc-weight" placeholder="Örn: 1450" value="1450">
+                    <span class="hc-unit">KG</span>
+                </div>
             </div>
 
             <div class="hc-form-group">
                 <label for="hc-hp-val">Beygir Gücü (HP)</label>
-                <input type="number" id="hc-hp-val" placeholder="Örn: 150" value="150">
+                <div class="hc-input-wrapper">
+                    <input type="number" id="hc-hp-val" placeholder="Örn: 150" value="150">
+                    <span class="hc-unit">HP</span>
+                </div>
             </div>
 
             <div class="hc-form-group full-width">
-                <label for="hc-drivetrain">Çekiş Tipi</label>
+                <label for="hc-drivetrain">Çekiş Sistemi</label>
                 <select id="hc-drivetrain">
                     <option value="1.05">Önden Çekiş (FWD)</option>
                     <option value="0.95">Arkadan İtiş (RWD)</option>
@@ -40,21 +47,34 @@ function hc_render_0_100_km_hesaplayici( $atts ) {
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hc0100Hesapla()">Hızlanmayı Hesapla</button>
+        <button class="hc-btn" onclick="hc0100Hesapla()">
+            <span>SİMÜLASYONU BAŞLAT</span>
+            <div class="hc-btn-glow"></div>
+        </button>
 
         <div class="hc-result" id="hc-0-100-result">
-            <div class="hc-result-header">Tahmini Hızlanma Süresi</div>
-            <div class="hc-main-res">
-                <strong id="hc-res-time">-</strong>
-                <span>Saniye</span>
+            <div class="hc-res-dashboard">
+                <div class="hc-gauge-container">
+                    <div class="hc-gauge-bg"></div>
+                    <div class="hc-gauge-val" id="hc-res-time">0.0</div>
+                    <div class="hc-gauge-label">SANİYE</div>
+                </div>
+                
+                <div class="hc-stats-panel">
+                    <div class="hc-stat-card">
+                        <span>Güç / Ağırlık</span>
+                        <strong id="hc-res-pwr-ratio">-</strong>
+                        <small>hp / ton</small>
+                    </div>
+                    <div class="hc-stat-card">
+                        <span>Performans Sınıfı</span>
+                        <strong id="hc-res-rank">-</strong>
+                    </div>
+                </div>
             </div>
             
-            <div class="hc-performance-rank">
-                <span id="hc-res-rank">-</span>
-            </div>
-            
-            <div class="hc-info-note">
-                * Bu değer matematiksel bir tahmindir; şanzıman tipi, lastik durumu ve hava koşullarına göre değişkenlik gösterebilir.
+            <div class="hc-info-disclaimer">
+                * Matematiksel modelleme kullanılmıştır. Şanzıman verimliliği, lastik tutunması ve hava sıcaklığı sonuçları ±0.5sn etkileyebilir.
             </div>
         </div>
     </div>
