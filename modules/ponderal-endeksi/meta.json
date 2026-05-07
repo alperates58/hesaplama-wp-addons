@@ -1,0 +1,5 @@
+{
+  "name": "Ponderal Endeksi Hesaplayıcısı",
+  "desc": "Boy ve kilo oranını hacimsel (kübik) olarak hesaplar, boyu uzun veya kısa olanlar için idealdir.",
+  "shortcode": "[hc_ponderal_endeksi]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Şekli Hesaplayıcı",
+  "desc": "Göğüs, bel ve kalça ölçülerinize göre vücut tipinizi (Kum Saati, Armut, Dikdörtgen vb.) belirler.",
+  "shortcode": "[hc_vucut_sekli_hesaplayici]"
+}

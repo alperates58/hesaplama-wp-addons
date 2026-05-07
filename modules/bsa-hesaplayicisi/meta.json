@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yüzey Alanı (BSA) Hesaplayıcısı",
+  "desc": "Boy ve kilonuza göre vücut yüzey alanınızı (m²) Mosteller formülü ile hesaplar.",
+  "shortcode": "[hc_bsa_hesaplayicisi]"
+}

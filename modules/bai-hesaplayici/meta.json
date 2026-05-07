@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yağlanma İndeksi (BAI) Hesaplayıcı",
+  "desc": "Boy ve kalça ölçülerinize göre vücut yağlanma oranını tahmin eder.",
+  "shortcode": "[hc_bai_hesaplayici]"
+}

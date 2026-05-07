@@ -1,0 +1,5 @@
+{
+  "name": "Yağsız Vücut Kütlesi (LBM) Hesaplayıcısı",
+  "desc": "Toplam vücut kütlenizden yağ miktarını çıkararak kas, kemik ve organ ağırlığınızı (LBM) hesaplar.",
+  "shortcode": "[hc_lbm_hesaplayici]"
+}

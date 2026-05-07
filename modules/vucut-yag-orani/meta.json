@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yağ Oranı Hesaplama",
+  "desc": "Donanma (Navy) yöntemi ile boyun, bel ve kalça ölçülerinize göre vücut yağ yüzdenizi hesaplar.",
+  "shortcode": "[hc_vucut_yag_orani]"
+}
