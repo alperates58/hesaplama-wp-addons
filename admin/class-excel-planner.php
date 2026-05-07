@@ -176,10 +176,24 @@ class HC_Excel_Planner {
             ] );
         }
 
-        $cat_ids = self::resolve_categories( $topic['ana_kategori'], $topic['alt_kategori'] );
+        $cat_ids   = self::resolve_categories( $topic['ana_kategori'], $topic['alt_kategori'] );
+        $post_name = sanitize_title( $topic['baslik'] );
+
+        // If a post with this slug already exists, link to it instead of creating a duplicate.
+        $existing_post = get_page_by_path( $post_name, OBJECT, 'post' );
+        if ( $existing_post ) {
+            $topics[ $topic_idx ]['draft_post_id'] = $existing_post->ID;
+            self::save_data( $data );
+            wp_send_json_success( [
+                'post_id'  => $existing_post->ID,
+                'edit_url' => get_edit_post_link( $existing_post->ID ),
+                'message'  => '"' . $topic['baslik'] . '" mevcut yazıya bağlandı.',
+            ] );
+        }
 
         $post_id = wp_insert_post( [
             'post_title'    => $topic['baslik'],
+            'post_name'     => $post_name,
             'post_content'  => $topic['shortcode'] . "\n\n",
             'post_status'   => 'draft',
             'post_type'     => 'post',
