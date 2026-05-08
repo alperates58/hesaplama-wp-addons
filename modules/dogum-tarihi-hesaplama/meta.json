@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Tarihi Hesaplama",
+  "desc": "Son adet tarihinize göre tahmini doğum tarihinizi ve gebelik sürecinizi hesaplayın.",
+  "shortcode": "[hc_dogum_tarihi_hesaplama]"
+}

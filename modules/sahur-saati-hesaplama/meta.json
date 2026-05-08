@@ -1,0 +1,5 @@
+{
+  "name": "Sahur Saati Hesaplama",
+  "desc": "Bulunduğunuz konuma göre sahur vaktinin (imsak) ne zaman biteceğini hesaplayın.",
+  "shortcode": "[hc_sahur_saati_hesaplama]"
+}

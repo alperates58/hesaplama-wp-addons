@@ -1,0 +1,5 @@
+{
+  "name": "Şafak Hesaplama",
+  "desc": "Bulunduğunuz konuma ve tarihe göre şafak vaktini (sivil alacakaranlık başlangıcı) hesaplayın.",
+  "shortcode": "[hc_safak_hesaplama]"
+}

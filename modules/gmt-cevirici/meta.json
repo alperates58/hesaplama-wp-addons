@@ -1,0 +1,5 @@
+{
+  "name": "GMT Çevirici",
+  "desc": "Yerel saatinizi GMT (Greenwich Ortalama Zamanı) formatına veya tersine çevirin.",
+  "shortcode": "[hc_gmt_cevirici]"
+}

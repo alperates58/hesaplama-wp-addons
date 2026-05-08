@@ -1,0 +1,5 @@
+{
+  "name": "İmsak Hesaplama",
+  "desc": "Bulunduğunuz konuma ve tarihe göre imsak vaktini (oruç başlangıcı) hesaplayın.",
+  "shortcode": "[hc_imsak_hesaplama]"
+}

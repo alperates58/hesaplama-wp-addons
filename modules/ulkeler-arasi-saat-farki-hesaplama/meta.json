@@ -1,0 +1,5 @@
+{
+  "name": "Ülkeler Arası Saat Farkı Hesaplama",
+  "desc": "İki farklı şehir veya ülke arasındaki saat farkını anlık olarak hesaplayın.",
+  "shortcode": "[hc_ulkeler_arasi_saat_farki_hesaplama]"
+}

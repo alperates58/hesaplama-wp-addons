@@ -1,0 +1,5 @@
+{
+  "name": "Saat Dilimi Hesaplama",
+  "desc": "Bulunduğunuz konumun veya seçtiğiniz bir şehrin saat dilimini ve UTC farkını öğrenin.",
+  "shortcode": "[hc_saat_dilimi_hesaplama]"
+}
