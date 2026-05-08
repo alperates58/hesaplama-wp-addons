@@ -1,0 +1,24 @@
+#hc-influencer-vergi-hesaplama .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-influencer-vergi-hesaplama .hc-result-item:last-child {
+    border-bottom: none;
+}
+
+#hc-influencer-vergi-hesaplama .hc-result-value {
+    font-size: 2rem;
+    color: #27ae60;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#hc-influencer-vergi-hesaplama small {
+    display: block;
+    margin-top: 5px;
+    color: #7f8c8d;
+}
