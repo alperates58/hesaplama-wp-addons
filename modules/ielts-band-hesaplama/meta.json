@@ -1,0 +1,5 @@
+{
+  "name": "IELTS Band Hesaplama",
+  "desc": "Listening, Reading, Writing ve Speaking bölümlerinden aldığınız puanların ortalaması ile genel IELTS band skorunuzu hesaplayın.",
+  "shortcode": "[hc_ielts_band_hesaplama]"
+}

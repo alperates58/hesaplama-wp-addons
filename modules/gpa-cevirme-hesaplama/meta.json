@@ -1,0 +1,5 @@
+{
+  "name": "GPA Çevirme Hesaplama",
+  "desc": "4'lük sistemdeki not ortalamanızı 100'lük sisteme veya tam tersine YÖK tablosuna göre çevirin.",
+  "shortcode": "[hc_gpa_cevirme_hesaplama]"
+}

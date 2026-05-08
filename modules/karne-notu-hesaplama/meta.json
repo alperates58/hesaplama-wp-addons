@@ -1,0 +1,5 @@
+{
+  "name": "Karne Notu Hesaplama",
+  "desc": "Tüm derslerinizin dönem sonu puanlarını ve haftalık ders saatlerini girerek karne ortalamanızı hesaplayın.",
+  "shortcode": "[hc_karne_notu_hesaplama]"
+}

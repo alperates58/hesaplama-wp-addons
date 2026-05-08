@@ -1,0 +1,5 @@
+{
+  "name": "Devamsızlık Hesaplama",
+  "desc": "Özürlü ve özürsüz devamsızlık günlerinizi takip ederek sınırları aşıp aşmadığınızı kontrol edin.",
+  "shortcode": "[hc_devamsizlik_hesaplama]"
+}

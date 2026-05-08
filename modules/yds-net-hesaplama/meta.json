@@ -1,0 +1,5 @@
+{
+  "name": "YDS Net Hesaplama",
+  "desc": "Yabancı Dil Bilgisi Seviye Tespit Sınavı (YDS) doğru ve yanlış sayılarınıza göre puanınızı hesaplayın.",
+  "shortcode": "[hc_yds_net_hesaplama]"
+}

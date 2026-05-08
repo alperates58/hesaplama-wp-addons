@@ -1,0 +1,5 @@
+{
+  "name": "Vize Final Ortalama Hesaplama",
+  "desc": "Vize ve final sınavlarınızın ağırlıklarına göre ders ortalamanızı ve finalden kaç almanız gerektiğini hesaplayın.",
+  "shortcode": "[hc_vize_final_ortalama_hesaplama]"
+}

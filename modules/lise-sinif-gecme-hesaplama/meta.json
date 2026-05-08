@@ -1,0 +1,5 @@
+{
+  "name": "Lise Sınıf Geçme Hesaplama",
+  "desc": "Zayıf ders sayısı ve ortalamanıza göre lise sınıf geçme veya kalma durumunuzu güncel MEB yönetmeliğine göre hesaplayın.",
+  "shortcode": "[hc_lise_sinif_gecme_hesaplama]"
+}

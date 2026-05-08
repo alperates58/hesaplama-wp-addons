@@ -1,0 +1,5 @@
+{
+  "name": "TOEFL Net Hesaplama",
+  "desc": "Reading, Listening, Speaking ve Writing bölümlerinden aldığınız puanlarla toplam TOEFL iBT skorunuzu hesaplayın.",
+  "shortcode": "[hc_toefl_net_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "GANO Hesaplama",
+  "desc": "Genel Akademik Not Ortalaması (GANO) hesaplayarak tüm üniversite eğitiminizdeki başarı durumunuzu görün.",
+  "shortcode": "[hc_gano_hesaplama]"
+}
