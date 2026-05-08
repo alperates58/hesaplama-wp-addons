@@ -1,0 +1,5 @@
+{
+  "name": "Mikro Besin İhtiyacı Hesaplama",
+  "desc": "Yaş ve cinsiyetinize göre günlük almanız gereken vitamin ve mineral miktarlarını (mikro besinler) listeler.",
+  "shortcode": "[hc_mikro_besin_ihtiyaci_hesaplama]"
+}

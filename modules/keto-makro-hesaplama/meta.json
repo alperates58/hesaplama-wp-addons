@@ -1,0 +1,5 @@
+{
+  "name": "Keto Makro Hesaplama",
+  "desc": "Ketojenik diyet için günlük kalori hedefinizi ideal keto oranlarına (yüksek yağ, düşük karbonhidrat) göre hesaplar.",
+  "shortcode": "[hc_keto_makro_hesaplama]"
+}

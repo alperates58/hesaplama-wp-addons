@@ -1,0 +1,5 @@
+{
+  "name": "Katch-McArdle Bazal Metabolizma Hesaplama",
+  "desc": "Vücut yağ oranınızı kullanarak daha hassas bir bazal metabolizma hızı (BMH) hesabı yapar. Özellikle sporcular için uygundur.",
+  "shortcode": "[hc_katch_mcardle_hesaplama]"
+}

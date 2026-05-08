@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Toplam Enerji Harcaması Hesaplama",
+  "desc": "Bazal metabolizma hızınız ve fiziksel aktivite düzeyinize göre bir günde yaktığınız toplam kaloriyi (TDEE) hesaplar.",
+  "shortcode": "[hc_gunluk_toplam_enerji_harcamasi]"
+}

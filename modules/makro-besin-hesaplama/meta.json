@@ -1,0 +1,5 @@
+{
+  "name": "Makro Besin Hesaplama",
+  "desc": "Günlük kalori hedefinizi protein, karbonhidrat ve yağ olarak ideal oranlarda paylaştırır.",
+  "shortcode": "[hc_makro_besin_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Yağ İhtiyacı Hesaplama",
+  "desc": "Günlük kalori alımınıza göre vücudunuzun ihtiyaç duyduğu sağlıklı yağ miktarını hesaplar.",
+  "shortcode": "[hc_gunluk_yag_ihtiyaci]"
+}
