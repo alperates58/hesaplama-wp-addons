@@ -1,0 +1,5 @@
+{
+  "name": "Net Varlık Hesaplama",
+  "desc": "Tüm varlıklarınızdan borçlarınızı düşerek kişisel net servetinizi (Net Worth) hesaplar.",
+  "shortcode": "[hc_net_varlik_hesaplama]"
+}

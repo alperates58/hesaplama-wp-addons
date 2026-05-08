@@ -1,0 +1,5 @@
+{
+  "name": "Karlılık Oranları Hesaplama",
+  "desc": "Brüt kar marjı, faaliyet kar marjı ve net kar marjı gibi temel karlılık göstergelerini hesaplar.",
+  "shortcode": "[hc_karlilik_oranlari_hesaplama]"
+}

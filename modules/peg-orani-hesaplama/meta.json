@@ -1,0 +1,5 @@
+{
+  "name": "PEG Oranı Hesaplama",
+  "desc": "Fiyat kazanç oranını (F/K) beklenen kar büyüme oranına bölerek hissenin değerlemesini daha hassas analiz eder.",
+  "shortcode": "[hc_peg_orani_hesaplama]"
+}

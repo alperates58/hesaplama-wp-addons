@@ -1,0 +1,5 @@
+{
+  "name": "Döviz Getirisi Hesaplama",
+  "desc": "Döviz alış ve satış kurları arasındaki farka göre toplam getiri oranınızı ve tutarınızı hesaplar.",
+  "shortcode": "[hc_doviz_getirisi_hesaplama]"
+}

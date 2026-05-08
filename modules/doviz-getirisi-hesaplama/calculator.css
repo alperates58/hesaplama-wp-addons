@@ -1,0 +1,13 @@
+#hc-curr-yield .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-curr-yield .hc-result-value {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}

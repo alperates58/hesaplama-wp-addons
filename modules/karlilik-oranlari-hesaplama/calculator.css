@@ -1,0 +1,11 @@
+#hc-prof-ratios .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-prof-ratios strong {
+    font-size: 1.2rem;
+    color: #27ae60;
+}

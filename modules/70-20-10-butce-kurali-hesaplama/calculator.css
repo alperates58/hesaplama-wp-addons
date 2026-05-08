@@ -1,0 +1,13 @@
+#hc-702010 .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+#hc-702010 .label-life { color: #2980b9; font-weight: bold; }
+#hc-702010 .label-savings { color: #27ae60; font-weight: bold; }
+#hc-702010 .label-extra { color: #8e44ad; font-weight: bold; }
+
+#hc-702010 strong { font-size: 1.2rem; }
