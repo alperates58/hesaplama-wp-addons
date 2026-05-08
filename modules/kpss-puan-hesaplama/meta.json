@@ -1,0 +1,5 @@
+{
+  "name": "KPSS Puan Hesaplama",
+  "desc": "2026 KPSS Genel Yetenek, Genel Kültür ve Eğitim Bilimleri netlerinize göre P1, P2 ve P3 puanlarınızı hesaplayın.",
+  "shortcode": "[hc_kpss_puan_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Üniversite Mezuniyet Notu Hesaplama",
+  "desc": "Tüm dönemlerden aldığınız kümülatif not ortalaması (GANO) ile üniversite mezuniyet notunuzu hesaplayın.",
+  "shortcode": "[hc_universite_mezuniyet_notu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ön Lisans Ortalama Hesaplama",
+  "desc": "Ön lisans eğitimi süresince aldığınız derslerin kredi ve harf notlarına göre genel ortalamanızı hesaplayın.",
+  "shortcode": "[hc_on_lisans_ortalama_hesaplama]"
+}

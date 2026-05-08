@@ -1,0 +1,5 @@
+{
+  "name": "YDS Puan Hesaplama",
+  "desc": "Yabancı Dil Bilgisi Seviye Tespit Sınavı (YDS) doğru sayılarınıza göre puanınızı ve dil seviyenizi (A, B, C...) hesaplayın.",
+  "shortcode": "[hc_yds_puan_hesaplama]"
+}
