@@ -1,0 +1,5 @@
+{
+  "name": "Prim Hesaplama",
+  "desc": "Brüt maaş veya satış tutarı üzerinden belirlenen oranlarla prim tutarını hesaplar.",
+  "shortcode": "[hc_prim_hesaplama]"
+}

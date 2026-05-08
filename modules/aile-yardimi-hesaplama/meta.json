@@ -1,0 +1,5 @@
+{
+  "name": "Aile Yardımı Hesaplama",
+  "desc": "2026 yılı memur maaş katsayıları ve güncel eş yardımı tutarları üzerinden aile yardımını hesaplar.",
+  "shortcode": "[hc_aile_yardimi_hesaplama]"
+}

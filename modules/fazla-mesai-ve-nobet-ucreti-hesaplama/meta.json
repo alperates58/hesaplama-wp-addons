@@ -1,0 +1,5 @@
+{
+  "name": "Fazla Mesai ve Nöbet Ücreti Hesaplama",
+  "desc": "Fazla mesai saatlerine ek olarak nöbet (vardiya) ücretlerini de dahil ederek toplam ek gelirini hesaplar.",
+  "shortcode": "[hc_fazla_mesai_ve_nobet_ucreti_hesaplama]"
+}

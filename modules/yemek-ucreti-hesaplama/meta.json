@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Ücreti Hesaplama",
+  "desc": "2026 yılı günlük yemek bedeli istisnaları (Gelir Vergisi ve SGK) üzerinden net yemek yardımını hesaplar.",
+  "shortcode": "[hc_yemek_ucreti_hesaplama]"
+}

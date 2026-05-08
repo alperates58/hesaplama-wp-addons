@@ -1,0 +1,5 @@
+{
+  "name": "Fazla Mesai Hesaplama",
+  "desc": "Haftalık 45 saati aşan çalışma süreleri için ödenecek fazla mesai ücretini hesaplar.",
+  "shortcode": "[hc_fazla_mesai_hesaplama]"
+}

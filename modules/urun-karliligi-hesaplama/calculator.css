@@ -1,0 +1,14 @@
+#hc-urun-karliligi-hesaplama .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-urun-karliligi-hesaplama .hc-result-value {
+    font-size: 2rem;
+    color: #27ae60;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}

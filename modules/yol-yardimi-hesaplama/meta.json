@@ -1,0 +1,5 @@
+{
+  "name": "Yol Yardımı Hesaplama",
+  "desc": "2026 yılı günlük ulaşım bedeli istisnası üzerinden gelir vergisinden muaf yol yardımını hesaplar.",
+  "shortcode": "[hc_yol_yardimi_hesaplama]"
+}
