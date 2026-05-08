@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Kalori Yakımı Hesaplama",
+  "desc": "Bisiklet sürme hızınıza, kilonuza ve sürenize göre yaktığınız kaloriyi hesaplar.",
+  "shortcode": "[hc_bisiklet_kalori_yakimi_hesaplama]"
+}

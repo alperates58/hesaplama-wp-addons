@@ -1,0 +1,5 @@
+{
+  "name": "Boks Kalori Yakımı Hesaplama",
+  "desc": "Boks antrenmanı süresi, yoğunluğu ve kilonuza göre yaktığınız kaloriyi hesaplar.",
+  "shortcode": "[hc_boks_kalori_yakimi_hesaplama]"
+}

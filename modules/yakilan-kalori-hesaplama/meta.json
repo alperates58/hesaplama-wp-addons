@@ -1,0 +1,5 @@
+{
+  "name": "Yakılan Kalori Hesaplama",
+  "desc": "Seçilen aktiviteye, kilonuza ve sürenize göre yaktığınız tahmini kaloriyi hesaplar.",
+  "shortcode": "[hc_yakilan_kalori_hesaplama]"
+}
