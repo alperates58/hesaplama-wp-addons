@@ -1,0 +1,5 @@
+{
+  "name": "Tarih Ekleme Çıkarma Hesaplama",
+  "desc": "Belirli bir tarihe gün, hafta, ay veya yıl ekleyip çıkararak yeni tarihi hesaplayın.",
+  "shortcode": "[hc_tarih_ekleme_cikarma_hesaplama]"
+}

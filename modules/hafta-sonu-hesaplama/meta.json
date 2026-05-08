@@ -1,0 +1,5 @@
+{
+  "name": "Hafta Sonu Hesaplama",
+  "desc": "İki tarih arasındaki toplam Cumartesi ve Pazar günlerinin sayısını hesaplayın.",
+  "shortcode": "[hc_hafta_sonu_hesaplama]"
+}

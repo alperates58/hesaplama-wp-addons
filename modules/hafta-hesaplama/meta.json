@@ -1,0 +1,5 @@
+{
+  "name": "Hafta Hesaplama",
+  "desc": "Tarihler arasındaki hafta sayısını veya belirli bir sürenin kaç hafta ettiğini hesaplayın.",
+  "shortcode": "[hc_hafta_hesaplama]"
+}

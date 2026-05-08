@@ -1,0 +1,5 @@
+{
+  "name": "Gün Hesaplama",
+  "desc": "Hafta, ay veya yıl bazındaki sürelerin toplam kaç gün ettiğini hesaplayın.",
+  "shortcode": "[hc_gun_hesaplama]"
+}

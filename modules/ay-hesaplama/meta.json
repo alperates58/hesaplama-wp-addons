@@ -1,0 +1,5 @@
+{
+  "name": "Ay Hesaplama",
+  "desc": "Belirli bir gün veya yıl süresinin kaç ay ettiğini hesaplayın.",
+  "shortcode": "[hc_ay_hesaplama]"
+}

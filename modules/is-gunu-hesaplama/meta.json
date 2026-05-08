@@ -1,0 +1,5 @@
+{
+  "name": "İş Günü Hesaplama",
+  "desc": "İki tarih arasındaki iş günü sayısını (hafta sonları hariç) hesaplayın.",
+  "shortcode": "[hc_is_gunu_hesaplama]"
+}

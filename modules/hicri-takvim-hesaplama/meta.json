@@ -1,0 +1,5 @@
+{
+  "name": "Hicri Takvim Hesaplama",
+  "desc": "Bugünün veya seçtiğiniz bir tarihin Hicri takvim karşılığını öğrenin.",
+  "shortcode": "[hc_hicri_takvim_hesaplama]"
+}
