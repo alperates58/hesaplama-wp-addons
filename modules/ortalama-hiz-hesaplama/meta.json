@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Hız Hesaplama",
+  "desc": "Gidilen mesafe ve geçen süreye göre yolculuğunuzun ortalama hızını hesaplayın.",
+  "shortcode": "[hc_ortalama_hiz_hesaplama]"
+}

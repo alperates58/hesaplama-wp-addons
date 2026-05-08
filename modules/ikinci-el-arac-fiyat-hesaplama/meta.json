@@ -1,0 +1,5 @@
+{
+  "name": "İkinci El Araç Fiyat Hesaplama",
+  "desc": "Aracınızın markası, modeli, yaşı ve kilometresi gibi özelliklerine göre tahmini ikinci el piyasa değerini hesaplayın.",
+  "shortcode": "[hc_ikinci_el_arac_fiyat_hesaplama]"
+}

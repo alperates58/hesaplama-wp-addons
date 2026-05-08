@@ -1,0 +1,5 @@
+{
+  "name": "Karbon Emisyonu (CO2) Vergisi Hesaplama",
+  "desc": "Aracınızın emisyon değerine göre (varsa) tahmini yıllık karbon vergisi yükümlülüğünü hesaplayın.",
+  "shortcode": "[hc_karbon_emisyonu_co2_vergisi_hesaplama]"
+}

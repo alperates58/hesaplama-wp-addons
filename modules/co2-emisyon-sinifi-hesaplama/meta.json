@@ -1,0 +1,5 @@
+{
+  "name": "CO2 Emisyon Sınıfı Hesaplama",
+  "desc": "Aracınızın km başına saldığı CO2 miktarını (g/km) girerek emisyon sınıfını (A-G) ve çevre etkisini belirleyin.",
+  "shortcode": "[hc_co2_emisyon_sinifi_hesaplama]"
+}

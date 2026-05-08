@@ -1,0 +1,5 @@
+{
+  "name": "Taşıt Kredisi Yenileme Hesaplama",
+  "desc": "Mevcut taşıt kredinizi daha düşük faizli bir kredi ile yenilemenin (yapılandırmanın) avantajlı olup olmadığını hesaplayın.",
+  "shortcode": "[hc_tasit_kredisi_yenileme_hesaplama]"
+}

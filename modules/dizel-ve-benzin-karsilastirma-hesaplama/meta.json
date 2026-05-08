@@ -1,0 +1,5 @@
+{
+  "name": "Dizel ve Benzin Karşılaştırma Hesaplama",
+  "desc": "Benzinli ve dizel araç arasındaki fiyat farkını, yakıt tasarrufu ile ne kadar sürede amorti edeceğinizi hesaplayın.",
+  "shortcode": "[hc_dizel_ve_benzin_karsilastirma_hesaplama]"
+}

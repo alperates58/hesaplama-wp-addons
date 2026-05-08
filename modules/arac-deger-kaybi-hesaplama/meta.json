@@ -1,0 +1,5 @@
+{
+  "name": "Araç Değer Kaybı Hesaplama",
+  "desc": "Kaza sonrası onarılan aracınızın piyasa değerindeki düşüşü (değer kaybı) tahmini olarak hesaplayın.",
+  "shortcode": "[hc_arac_deger_kaybi_hesaplama]"
+}

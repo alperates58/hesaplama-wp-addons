@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç ve Benzinli Araç Karşılaştırma Hesaplama",
+  "desc": "Elektrikli araç ile benzinli aracın yakıt ve enerji maliyetlerini karşılaştırarak yıllık tasarruf miktarınızı hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_ve_benzinli_arac_karsilastirma_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Taşıt Kredisi Hesaplama",
+  "desc": "Araç alımı için banka taşıt kredisi aylık taksit, toplam ödeme ve faiz oranlarını hesaplayın.",
+  "shortcode": "[hc_tasit_kredisi_hesaplama]"
+}

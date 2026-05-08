@@ -1,0 +1,5 @@
+{
+  "name": "Araç Karbon Ayak İzi Hesaplama",
+  "desc": "Aracınızın yakıt tüketimi ve yıllık kilometresine göre atmosfere saldığı yıllık karbon miktarını hesaplayın.",
+  "shortcode": "[hc_arac_karbon_ayak_izi_hesaplama]"
+}

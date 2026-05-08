@@ -1,0 +1,5 @@
+{
+  "name": "Euro Norm Emisyon Değerlendirme",
+  "desc": "Aracınızın üretim yılına göre hangi Euro emisyon normuna (Euro 1-7) sahip olduğunu ve emisyon limitlerini öğrenin.",
+  "shortcode": "[hc_euro_norm_emisyon_degerlendirme]"
+}

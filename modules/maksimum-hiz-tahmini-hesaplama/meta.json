@@ -1,0 +1,5 @@
+{
+  "name": "Maksimum Hız Tahmini Hesaplama",
+  "desc": "Aracınızın motor gücü (HP), aerodinamik sürtünme katsayısı ve ön alan bilgisini kullanarak tahmini maksimum hızını hesaplayın.",
+  "shortcode": "[hc_maksimum_hiz_tahmini_hesaplama]"
+}

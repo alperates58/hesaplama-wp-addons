@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Amortisman Hesaplama",
+  "desc": "Elektrikli aracın alış fiyat farkını, yakıt tasarrufu ile ne kadar sürede (km/yıl) amorti edeceğinizi hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_amortisman_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yağ Değişim Aralığı Hesaplama",
+  "desc": "Aracınızın motor tipi, yakıt türü ve kullanım koşullarına göre ideal motor yağı değişim kilometresini hesaplayın.",
+  "shortcode": "[hc_yag_degisim_araligi_hesaplama]"
+}

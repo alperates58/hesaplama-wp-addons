@@ -1,0 +1,5 @@
+{
+  "name": "Şanzıman Oranları ve Hız Hesaplama",
+  "desc": "Şanzıman dişli oranları, diferansiyel oranı ve devir (RPM) bilgisini kullanarak her viteste yapabileceğiniz hızı hesaplayın.",
+  "shortcode": "[hc_sanziman_oranlari_ve_hiz_hesaplama]"
+}

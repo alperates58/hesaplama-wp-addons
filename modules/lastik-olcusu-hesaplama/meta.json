@@ -1,0 +1,5 @@
+{
+  "name": "Lastik Ölçüsü Hesaplama",
+  "desc": "Lastik yanağındaki sayılara (Taban, Yanak, Jant) göre lastiğinizin toplam çapını, çevresini ve yanak yüksekliğini hesaplayın.",
+  "shortcode": "[hc_lastik_olcusu_hesaplama]"
+}

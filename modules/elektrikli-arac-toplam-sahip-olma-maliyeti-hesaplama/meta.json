@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Toplam Sahip Olma Maliyeti Hesaplama",
+  "desc": "Elektrikli aracınızın satın alma, şarj, kasko, MTV ve bakım masraflarını içeren toplam kullanım maliyetini hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_toplam_sahip_olma_maliyeti_hesaplama]"
+}

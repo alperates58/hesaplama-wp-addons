@@ -1,0 +1,5 @@
+{
+  "name": "Motosiklet Kredisi Hesaplama",
+  "desc": "Motosiklet alımı için banka kredisi taksitlerini ve toplam geri ödeme tutarlarını hesaplayın.",
+  "shortcode": "[hc_motosiklet_kredisi_hesaplama]"
+}

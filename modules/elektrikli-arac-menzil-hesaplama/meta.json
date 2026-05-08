@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Menzil Hesaplama",
+  "desc": "Batarya kapasitesi, şarj durumu ve ortalama tüketiminize göre aracınızın gidebileceği tahmini mesafeyi (menzil) hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_menzil_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Verimliliği Dönüştürme Hesaplama",
+  "desc": "Elektrikli araç verimlilik birimleri (kWh/100km, Wh/km, MPGe, km/kWh) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_elektrikli_arac_verimliligi_donusturme_hesaplama]"
+}

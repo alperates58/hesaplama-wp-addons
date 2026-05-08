@@ -1,0 +1,5 @@
+{
+  "name": "Tork Dönüştürme Hesaplama",
+  "desc": "Tork birimleri (Nm, lb-ft, kg-m) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_tork_donusturme_hesaplama]"
+}

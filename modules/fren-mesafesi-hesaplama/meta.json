@@ -1,0 +1,5 @@
+{
+  "name": "Fren Mesafesi Hesaplama",
+  "desc": "Aracınızın hızı ve yol koşullarına (Kuru, Islak, Kar) göre tahmini duruş mesafesini hesaplayın.",
+  "shortcode": "[hc_fren_mesafesi_hesaplama]"
+}

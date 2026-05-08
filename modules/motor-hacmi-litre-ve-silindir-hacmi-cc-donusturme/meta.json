@@ -1,0 +1,5 @@
+{
+  "name": "Motor Hacmi (Litre) ve Silindir Hacmi (cc) Dönüştürme",
+  "desc": "Motor hacmi birimleri (cc, Litre, Cubic Inch) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_motor_hacmi_litre_ve_silindir_hacmi_cc_donusturme]"
+}

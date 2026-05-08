@@ -1,0 +1,5 @@
+{
+  "name": "Yolculuk Maliyeti Hesaplama",
+  "desc": "Gideceğiniz mesafe, aracınızın yakıt tüketimi ve yakıt fiyatına göre yolculuğunuzun toplam maliyetini hesaplayın.",
+  "shortcode": "[hc_yolculuk_maliyeti_hesaplama]"
+}
