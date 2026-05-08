@@ -1,0 +1,5 @@
+{
+  "name": "Döviz Çevirici Hesaplama",
+  "desc": "Belirlediğiniz kur üzerinden döviz ve Türk Lirası arasında hızlı çevrim yapar.",
+  "shortcode": "[hc_doviz_cevirici_hesaplama]"
+}

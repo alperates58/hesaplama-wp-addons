@@ -1,0 +1,5 @@
+{
+  "name": "FAVÖK Marjı Hesaplama",
+  "desc": "FAVÖK tutarının toplam satışlara oranıyla operasyonel karlılık marjını hesaplar.",
+  "shortcode": "[hc_favok_marji_hesaplama]"
+}

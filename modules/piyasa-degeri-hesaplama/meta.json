@@ -1,0 +1,5 @@
+{
+  "name": "Piyasa Değeri Hesaplama",
+  "desc": "Hisse fiyatı ve toplam hisse adedi üzerinden şirketin güncel piyasa değerini (Market Cap) hesaplar.",
+  "shortcode": "[hc_piyasa_degeri_hesaplama]"
+}

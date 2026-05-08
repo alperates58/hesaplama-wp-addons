@@ -1,0 +1,5 @@
+{
+  "name": "FAVÖK Çarpanı Hesaplama",
+  "desc": "Firma değerinin FAVÖK'e oranıyla şirketin değerleme çarpanını (EV/EBITDA) hesaplar.",
+  "shortcode": "[hc_favok_carpani_hesaplama]"
+}

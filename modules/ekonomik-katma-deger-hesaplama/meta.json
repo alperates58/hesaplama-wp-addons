@@ -1,0 +1,5 @@
+{
+  "name": "Ekonomik Katma Değer Hesaplama",
+  "desc": "Şirketin net faaliyet karından sermaye maliyetinin düşülmesiyle elde edilen ekonomik katma değeri (EVA) hesaplar.",
+  "shortcode": "[hc_ekonomik_katma_deger_hesaplama]"
+}

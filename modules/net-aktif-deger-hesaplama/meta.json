@@ -1,0 +1,5 @@
+{
+  "name": "Net Aktif Değer Hesaplama",
+  "desc": "Şirketin varlıklarından borçlarının düşülmesiyle elde edilen net aktif değerini (NAV) hesaplar.",
+  "shortcode": "[hc_net_aktif_deger_hesaplama]"
+}

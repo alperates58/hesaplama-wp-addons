@@ -1,0 +1,5 @@
+{
+  "name": "Özsermaye Karlılığı Hesaplama",
+  "desc": "Net karın özsermayeye oranıyla şirketin özkaynak verimliliğini (ROE) hesaplar.",
+  "shortcode": "[hc_ozsermaye_karliligi_hesaplama]"
+}

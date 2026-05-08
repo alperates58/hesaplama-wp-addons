@@ -1,0 +1,5 @@
+{
+  "name": "Firma Değeri Hesaplama",
+  "desc": "Şirketin piyasa değeri, borçları ve nakit varlıklarını dikkate alarak toplam firma değerini (Enterprise Value) hesaplar.",
+  "shortcode": "[hc_firma_degeri_hesaplama]"
+}

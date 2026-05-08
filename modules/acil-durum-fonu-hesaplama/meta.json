@@ -1,0 +1,5 @@
+{
+  "name": "Acil Durum Fonu Hesaplama",
+  "desc": "Olası risklere karşı kenara ayırmanız gereken acil durum fonu miktarını ihtiyacınıza göre hesaplar.",
+  "shortcode": "[hc_acil_durum_fonu_hesaplama]"
+}
