@@ -1,0 +1,5 @@
+{
+  "name": "Yürüyüş Süresi Hesaplama",
+  "desc": "Belirli bir mesafeyi yürüme hızınıza göre ne kadar sürede tamamlayacağınızı hesaplar.",
+  "shortcode": "[hc_yuruyus_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "HbA1c Dönüşüm Hesaplama",
+  "desc": "HbA1c değerinizi farklı birimlere (% ve mmol/mol) ve tahmini ortalama kan şekerine dönüştürür.",
+  "shortcode": "[hc_hba1c_donusum_hesaplama]"
+}

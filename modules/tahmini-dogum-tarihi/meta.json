@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Doğum Tarihi Hesaplama (EDD)",
+  "desc": "Son adet tarihinize ve ortalama döngü sürenize göre tahmini doğum tarihinizi en doğru şekilde hesaplar.",
+  "shortcode": "[hc_tahmini_dogum_tarihi]"
+}

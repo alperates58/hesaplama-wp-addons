@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Bebek Boyu Hesaplama",
+  "desc": "Ultrason ölçümündeki FL (uyluk kemiği boyu) değerini kullanarak bebeğinizin tahmini toplam boyunu hesaplar.",
+  "shortcode": "[hc_tahmini_bebek_boyu]"
+}

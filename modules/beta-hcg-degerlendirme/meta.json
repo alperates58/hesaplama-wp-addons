@@ -1,0 +1,5 @@
+{
+  "name": "Beta hCG Değerlendirme",
+  "desc": "Kanda ölçülen Beta hCG değerlerinizin hamilelik haftanıza göre hangi aralıkta olduğunu analiz eder ve artış hızını değerlendirir.",
+  "shortcode": "[hc_beta_hcg_degerlendirme]"
+}

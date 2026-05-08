@@ -1,0 +1,5 @@
+{
+  "name": "Adet Döngüsü Hesaplama",
+  "desc": "Adet döngünüzün uzunluğunu, düzenini ve bir sonraki muhtemel adet tarihinizi hesaplamanıza yardımcı olur.",
+  "shortcode": "[hc_adet_dongusu_hesaplama]"
+}

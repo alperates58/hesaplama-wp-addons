@@ -1,0 +1,5 @@
+{
+  "name": "Kreatinin eGFR Hesaplama",
+  "desc": "Kan kreatinin seviyesi, yaş ve cinsiyetinize göre böbrek süzme hızınızı (eGFR) CKD-EPI 2021 formülüyle hesaplar.",
+  "shortcode": "[hc_kreatinin_egfr_hesaplama]"
+}

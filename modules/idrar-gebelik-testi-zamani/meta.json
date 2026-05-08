@@ -1,0 +1,5 @@
+{
+  "name": "İdrar Gebelik Testi Zamanı Hesaplama",
+  "desc": "Yalancı negatif sonuç riskini en aza indirmek için idrarda hamilelik testini ne zaman yapmanız gerektiğini hesaplar.",
+  "shortcode": "[hc_idrar_gebelik_testi_zamani]"
+}

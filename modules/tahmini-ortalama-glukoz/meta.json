@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Ortalama Glukoz Hesaplama",
+  "desc": "Kan şekeri ölçümlerinizin ortalamasından tahmini HbA1c değerinizi veya tersini hesaplar.",
+  "shortcode": "[hc_tahmini_ortalama_glukoz]"
+}

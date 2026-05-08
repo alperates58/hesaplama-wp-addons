@@ -1,0 +1,5 @@
+{
+  "name": "Luteal Faz Süresi Hesaplama",
+  "desc": "Adet döngünüzün ikinci yarısı olan ve hamileliğin oluşması için kritik öneme sahip luteal faz sürenizi hesaplar.",
+  "shortcode": "[hc_luteal_faz_suresi]"
+}

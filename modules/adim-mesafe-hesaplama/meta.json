@@ -1,0 +1,5 @@
+{
+  "name": "Adım Mesafe Hesaplama",
+  "desc": "Attığınız adım sayısını boyunuza ve cinsiyetinize göre katettiğiniz tahmini mesafeye (metre ve kilometre) çevirir.",
+  "shortcode": "[hc_adim_mesafe_hesaplama]"
+}

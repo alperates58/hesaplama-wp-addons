@@ -1,0 +1,5 @@
+{
+  "name": "Gebe Kalma Tarihi Hesaplama",
+  "desc": "Son adet tarihinize veya tahmini doğum tarihinize göre gebe kaldığınız muhtemel günü hesaplar.",
+  "shortcode": "[hc_gebe_kalma_tarihi]"
+}

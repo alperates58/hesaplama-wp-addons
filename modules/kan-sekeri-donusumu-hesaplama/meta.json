@@ -1,0 +1,5 @@
+{
+  "name": "Kan Şekeri Dönüşümü Hesaplama",
+  "desc": "Kan şekeri değerlerinizi mg/dL ve mmol/L birimleri arasında hızlıca dönüştürür.",
+  "shortcode": "[hc_kan_sekeri_donusumu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Hareket Sayısı Hesaplama",
+  "desc": "Bebeğinizin hareketlerini (tekme sayımı) takip etmenize ve gelişimini gözlemlemenize yardımcı olur.",
+  "shortcode": "[hc_bebek_hareket_sayisi]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Glisemik İndeks Listesi",
+  "desc": "Sık tüketilen gıdaların glisemik indeks (GI) değerlerini gösteren ve arama yapmanıza olanak tanıyan referans tablosudur.",
+  "shortcode": "[hc_glisemik_indeks_hesaplama]"
+}

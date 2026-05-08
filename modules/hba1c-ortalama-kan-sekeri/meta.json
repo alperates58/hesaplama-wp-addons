@@ -1,0 +1,5 @@
+{
+  "name": "HbA1c Ortalama Kan Şekeri Hesaplama",
+  "desc": "HbA1c yüzdenizi, son 3 aydaki tahmini ortalama kan şekeri (eAG) değerine dönüştürür.",
+  "shortcode": "[hc_hba1c_ortalama_kan_sekeri]"
+}

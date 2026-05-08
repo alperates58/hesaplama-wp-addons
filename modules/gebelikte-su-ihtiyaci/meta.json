@@ -1,0 +1,5 @@
+{
+  "name": "Gebelikte Su İhtiyacı Hesaplama",
+  "desc": "Hamilelik döneminde artan kan hacmi ve amniyotik sıvı üretimi için günlük tüketmeniz gereken su miktarını hesaplar.",
+  "shortcode": "[hc_gebelikte_su_ihtiyaci]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Emzirme Dönemi Su İhtiyacı Hesaplama",
+  "desc": "Anne sütünün miktarını ve kalitesini korumak için emzirme sürecinde günlük tüketmeniz gereken su miktarını hesaplar.",
+  "shortcode": "[hc_emzirme_donemi_su_ihtiyaci]"
+}

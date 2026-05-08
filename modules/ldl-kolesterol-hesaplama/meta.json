@@ -1,0 +1,5 @@
+{
+  "name": "LDL Kolesterol Hesaplama",
+  "desc": "Friedewald formülünü kullanarak toplam kolesterol, HDL ve trigliserid değerlerinizden LDL (kötü kolesterol) seviyenizi hesaplar.",
+  "shortcode": "[hc_ldl_kolesterol_hesaplama]"
+}

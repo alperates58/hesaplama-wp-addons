@@ -1,0 +1,5 @@
+{
+  "name": "HOMA-IR İnsülin Direnci Hesaplama",
+  "desc": "Açlık kan şekeri ve açlık insülini değerlerinizi kullanarak vücudunuzdaki insülin direnci seviyesini hesaplar.",
+  "shortcode": "[hc_homa_ir_hesaplama]"
+}

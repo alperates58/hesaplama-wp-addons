@@ -1,0 +1,5 @@
+{
+  "name": "İkiz Gebelikte Kilo Alımı Hesaplama",
+  "desc": "Çoğul (ikiz) gebeliklerde, başlangıç kilonuza göre sağlıklı bir hamilelik süreci için almanız gereken toplam kiloyu hesaplar.",
+  "shortcode": "[hc_ikiz_gebelikte_kilo_alimi]"
+}
