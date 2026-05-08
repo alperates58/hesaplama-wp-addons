@@ -1,0 +1,5 @@
+{
+  "name": "Lastik Ölçüsü Dönüştürme Hesaplama",
+  "desc": "Metrik lastik ölçülerini (225/45R17) inç bazlı ölçülere (33x12.5R15) veya tam tersine dönüştürün.",
+  "shortcode": "[hc_lastik_olcusu_donusturme_hesaplama]"
+}

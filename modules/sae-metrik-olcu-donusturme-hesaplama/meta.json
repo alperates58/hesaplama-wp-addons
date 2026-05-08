@@ -1,0 +1,5 @@
+{
+  "name": "SAE Metrik Ölçü Dönüştürme Hesaplama",
+  "desc": "Amerikan (SAE - İnç) ve Metrik anahtar/cıvata ölçüleri arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_sae_metrik_olcu_donusturme_hesaplama]"
+}

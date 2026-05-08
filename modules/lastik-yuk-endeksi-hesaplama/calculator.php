@@ -9,7 +9,7 @@ function hc_render_lastik_yuk_endeksi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-lye-box">
-        <h3>Lastik Yük Endeksi Sorgulama</h3>
+        <h3>Lastik Hava Basıncı Taşıma Kapasitesi Hesaplama</h3>
         <div class="hc-form-group">
             <label>Yük Endeksi Kodu (örn: 91)</label>
             <input type="number" id="hc-lye-input" placeholder="91">

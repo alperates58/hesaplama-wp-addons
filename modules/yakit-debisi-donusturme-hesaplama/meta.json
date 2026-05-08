@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Debisi Dönüştürme Hesaplama",
+  "desc": "Enjektör yakıt debisi birimleri (cc/min, lbs/hr, g/s) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_yakit_debisi_donusturme_hesaplama]"
+}

@@ -9,7 +9,7 @@ function hc_render_lpg_tasarrufu_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-lts-box">
-        <h3>LPG Tasarruf ve Amortisman</h3>
+        <h3>LPG Benzin Karşılaştırma Hesaplama</h3>
         <div class="hc-form-group">
             <label>Aylık Ortalama KM</label>
             <input type="number" id="hc-lts-km" value="1500">

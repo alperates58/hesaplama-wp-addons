@@ -1,5 +1,5 @@
 {
-  "name": "Beygir Gücü ve Tork Hesaplama",
+  "name": "Motor Beygir Gücü Hesaplama",
   "desc": "Motor torku ve devir (RPM) bilgisini kullanarak beygir gücünü veya beygir gücü ve devir bilgisini kullanarak torku hesaplayın.",
   "shortcode": "[hc_beygir_gucu_ve_tork_hesaplama]"
 }

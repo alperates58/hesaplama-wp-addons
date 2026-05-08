@@ -1,0 +1,5 @@
+{
+  "name": "Soğutma Suyu Karışım Oranı Hesaplama",
+  "desc": "Aracınızın soğutma sistemi için gereken antifriz ve su karışım oranını, hedef donma noktasına göre hesaplayın.",
+  "shortcode": "[hc_sogutma_suyu_karisim_orani_hesaplama]"
+}

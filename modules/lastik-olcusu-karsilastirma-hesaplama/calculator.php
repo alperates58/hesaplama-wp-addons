@@ -9,7 +9,7 @@ function hc_render_lastik_olcusu_karsilastirma_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-tcc-box">
-        <h3>Lastik Ölçüsü Karşılaştırma</h3>
+        <h3>Lastik Ölçüsüne Göre Hız Göstergesi Hatası Hesaplama</h3>
         <div class="hc-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <div class="hc-form-section">
                 <h4>Orijinal Lastik</h4>

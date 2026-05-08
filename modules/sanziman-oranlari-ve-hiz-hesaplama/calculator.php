@@ -9,7 +9,7 @@ function hc_render_sanziman_oranlari_ve_hiz_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-gs-box">
-        <h3>Şanzıman ve Hız Hesaplama</h3>
+        <h3>Vites Oranı Hesaplama</h3>
         <div class="hc-form-group">
             <label>Devir (RPM)</label>
             <input type="number" id="hc-gs-rpm" value="3000">

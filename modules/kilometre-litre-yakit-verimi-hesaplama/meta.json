@@ -1,0 +1,5 @@
+{
+  "name": "Kilometre/Litre Yakıt Verimi Hesaplama",
+  "desc": "Aracınızın 1 litre yakıtla kaç kilometre gidebileceğini (km/L) hesaplayın ve diğer birimlere dönüştürün.",
+  "shortcode": "[hc_kilometre_litre_yakit_verimi_hesaplama]"
+}

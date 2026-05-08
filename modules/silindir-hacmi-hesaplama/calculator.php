@@ -9,7 +9,7 @@ function hc_render_silindir_hacmi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-cc-box">
-        <h3>Silindir Hacmi Hesaplama</h3>
+        <h3>Motor Hacmi Hesaplama</h3>
         <div class="hc-form-group">
             <label>Silindir Çapı (mm)</label>
             <input type="number" step="0.1" id="hc-cc-bore" placeholder="Örn: 80">

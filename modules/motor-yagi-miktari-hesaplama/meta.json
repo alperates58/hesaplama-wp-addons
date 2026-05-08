@@ -1,0 +1,5 @@
+{
+  "name": "Motor Yağı Miktarı Hesaplama",
+  "desc": "Aracınızın silindir hacmi ve motor tipine göre tahmini motor yağı kapasitesini hesaplayın.",
+  "shortcode": "[hc_motor_yagi_miktari_hesaplama]"
+}

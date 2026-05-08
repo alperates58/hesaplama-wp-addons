@@ -9,7 +9,7 @@ function hc_render_yakit_tuketimi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-fcc-box">
-        <h3>Yakıt Tüketimi Hesaplama</h3>
+        <h3>Litre/100 km Yakıt Tüketimi Hesaplama</h3>
         <div class="hc-form-group">
             <label>Kat Edilen Mesafe (km)</label>
             <input type="number" id="hc-fcc-dist" placeholder="Örn: 650">

@@ -9,7 +9,7 @@ function hc_render_yolculuk_maliyeti_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-ymh-box">
-        <h3>Yolculuk Maliyeti Hesaplama</h3>
+        <h3>Yakıt Maliyeti Hesaplama</h3>
         <div class="hc-form-group">
             <label>Gidilecek Mesafe (km)</label>
             <input type="number" id="hc-ymh-dist" placeholder="Örn: 450">

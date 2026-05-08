@@ -9,7 +9,7 @@ function hc_render_ofset_et_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-et-box">
-        <h3>Jant Ofset (ET) Hesaplama</h3>
+        <h3>Jant Ofset Hesaplama</h3>
         <div class="hc-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <div class="hc-form-section">
                 <h4>Orijinal Jant</h4>

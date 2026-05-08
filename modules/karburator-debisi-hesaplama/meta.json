@@ -1,0 +1,5 @@
+{
+  "name": "Karbüratör Debisi Hesaplama",
+  "desc": "Motorun hacmi ve maksimum devrine göre ideal karbüratör CFM (Cubic Feet per Minute) değerini hesaplayın.",
+  "shortcode": "[hc_karburator_debisi_hesaplama]"
+}

@@ -9,7 +9,7 @@ function hc_render_ltr_100km_ve_mpg_donusturme_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-fuc-box">
-        <h3>Yakıt Birim Dönüştürücü</h3>
+        <h3>Yakıt Ekonomisi Dönüştürme Hesaplama</h3>
         <div class="hc-form-group">
             <label>Tüketim (L / 100km)</label>
             <input type="number" step="0.1" id="hc-fuc-input-l100" value="8.0" oninput="hcFucConvert()">

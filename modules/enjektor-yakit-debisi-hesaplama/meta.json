@@ -1,0 +1,5 @@
+{
+  "name": "Enjektör Yakıt Debisi Hesaplama",
+  "desc": "Motorun hedef beygir gücü ve silindir sayısına göre gereken enjektör yakıt debisini (cc/min veya lbs/hr) hesaplayın.",
+  "shortcode": "[hc_enjektor_yakit_debisi_hesaplama]"
+}

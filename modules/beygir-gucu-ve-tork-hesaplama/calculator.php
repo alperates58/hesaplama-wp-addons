@@ -9,7 +9,7 @@ function hc_render_beygir_gucu_ve_tork_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-ht-box">
-        <h3>Beygir Gücü ve Tork İlişkisi</h3>
+        <h3>Motor Beygir Gücü Hesaplama</h3>
         <div class="hc-form-group">
             <label>Tork (Nm)</label>
             <input type="number" id="hc-ht-torque" placeholder="250">

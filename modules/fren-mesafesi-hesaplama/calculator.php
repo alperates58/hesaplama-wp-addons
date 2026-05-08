@@ -9,7 +9,7 @@ function hc_render_fren_mesafesi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-brk-box">
-        <h3>Fren Mesafesi Hesaplama</h3>
+        <h3>Frenleme Mesafesi Hesaplama</h3>
         <div class="hc-form-group">
             <label>Hız (km/h)</label>
             <input type="number" id="hc-brk-speed" value="90">

@@ -1,0 +1,5 @@
+{
+  "name": "Doğalgaz CNG Araç Tasarrufu Hesaplama",
+  "desc": "Aracınızı CNG (Sıkıştırılmış Doğalgaz) sistemine dönüştürdüğünüzde elde edeceğiniz yakıt tasarrufu ve amortisman süresini hesaplayın.",
+  "shortcode": "[hc_dogalgaz_cng_arac_tasarrufu_hesaplama]"
+}

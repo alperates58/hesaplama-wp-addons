@@ -1,5 +1,5 @@
 {
-  "name": "Ofset (ET) Hesaplama",
+  "name": "Jant Ofset Hesaplama",
   "desc": "Jantınızın ofset (ET) değerine göre jantın çamurluğa veya amortisöre ne kadar yaklaşacağını hesaplayın.",
   "shortcode": "[hc_ofset_et_hesaplama]"
 }

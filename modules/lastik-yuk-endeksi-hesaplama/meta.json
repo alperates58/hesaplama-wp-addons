@@ -1,5 +1,5 @@
 {
-  "name": "Lastik Yük Endeksi Hesaplama",
+  "name": "Lastik Hava Basıncı Taşıma Kapasitesi Hesaplama",
   "desc": "Lastik yanağındaki yük endeksi kodunun (örn: 91) kaç kg taşıma kapasitesine denk geldiğini bulun.",
   "shortcode": "[hc_lastik_yuk_endeksi_hesaplama]"
 }

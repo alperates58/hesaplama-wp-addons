@@ -1,0 +1,5 @@
+{
+  "name": "Lastik Ömrü Hesaplama",
+  "desc": "Lastik üretim tarihi (DOT kodu) ve kullanım süresine göre lastiklerinizin kalan güvenli ömrünü hesaplayın.",
+  "shortcode": "[hc_lastik_omru_hesaplama]"
+}
