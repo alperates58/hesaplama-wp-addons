@@ -177,6 +177,7 @@ hesaplama-wp-addons/
 - `assets/style.css` global stilleri değiştirme, modüle özel CSS'i kendi dosyasına yaz
 - Her modül tamamen bağımsız çalışmalı, diğer modüllere bağımlılık olmamalı
 - Formülleri ve hesaplama mantığını yorumsuz, temiz kod olarak yaz
+- **Modül İsimleri:** Kullanıcı tarafından belirtilen modül isimleri (konu başlıkları) kesinlikle değiştirilmemeli, verilen metin ile birebir aynı kalmalıdır (örn. "Hesaplama" takısı varsa korunmalı, yoksa eklenmemelidir).
 - Kaynak sayfayı okuyamazsan formülü web aramasıyla bul; tahminle veya eski bilgiyle hesaplama yazma
 
 ---
