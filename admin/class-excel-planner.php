@@ -289,15 +289,34 @@ class HC_Excel_Planner {
 
         $data   = self::get_data();
         $topics = is_array( $data['topics'] ?? null ) ? $data['topics'] : [];
-        $rows   = [
-            [ 'Ana Kategori', 'Alt Kategori', 'Baslik' ],
-        ];
+        $sheets = [];
 
         foreach ( $topics as $topic ) {
-            $rows[] = [
+            $ana_kategori = (string) ( $topic['ana_kategori'] ?? 'Diger' );
+            if ( empty( $ana_kategori ) ) {
+                $ana_kategori = 'Diger';
+            }
+            
+            // Temiz sayfa adı (Excel maks 31 karakter, bazı karakterler yasak)
+            $sheet_name = str_replace( [ '[', ']', '*', '?', ':', '/', '\\' ], '', $ana_kategori );
+            $sheet_name = mb_substr( $sheet_name, 0, 31 );
+
+            if ( ! isset( $sheets[ $sheet_name ] ) ) {
+                $sheets[ $sheet_name ] = [
+                    [ 'Ana Kategori', 'Alt Kategori', 'Baslik' ],
+                ];
+            }
+
+            $sheets[ $sheet_name ][] = [
                 (string) ( $topic['ana_kategori'] ?? '' ),
                 (string) ( $topic['alt_kategori'] ?? '' ),
                 (string) ( $topic['baslik'] ?? '' ),
+            ];
+        }
+
+        if ( empty( $sheets ) ) {
+            $sheets['Icerik Plani'] = [
+                [ 'Ana Kategori', 'Alt Kategori', 'Baslik' ],
             ];
         }
 
@@ -306,7 +325,7 @@ class HC_Excel_Planner {
             wp_die( 'Gecici dosya olusturulamadi.', 500 );
         }
 
-        self::build_xlsx_file( $tmp_file, $rows );
+        self::build_xlsx_file( $tmp_file, $sheets );
 
         $filename = 'icerik-plani-' . wp_date( 'Y-m-d-His' ) . '.xlsx';
 
@@ -321,31 +340,53 @@ class HC_Excel_Planner {
         exit;
     }
 
-    private static function build_xlsx_file( $file_path, $rows ) {
+    private static function build_xlsx_file( $file_path, $sheets ) {
         $zip = new ZipArchive();
         if ( true !== $zip->open( $file_path, ZipArchive::CREATE | ZipArchive::OVERWRITE ) ) {
             throw new RuntimeException( 'Excel dosyasi olusturulamadi.' );
         }
 
-        $sheet_data     = '';
         $shared_strings = [];
         $shared_index   = [];
 
-        foreach ( array_values( $rows ) as $row_index => $row ) {
-            $sheet_data .= '<row r="' . ( $row_index + 1 ) . '">';
+        $sheet_contents = [];
+        $sheet_names    = [];
+        $sheet_id       = 1;
 
-            foreach ( array_values( $row ) as $col_index => $value ) {
-                $value = (string) $value;
-                if ( ! array_key_exists( $value, $shared_index ) ) {
-                    $shared_index[ $value ] = count( $shared_strings );
-                    $shared_strings[] = $value;
+        // Geriye dönük uyumluluk: eğer $sheets düz satır dizisiyse
+        if ( isset( $sheets[0] ) && is_array( $sheets[0] ) && ! isset( $sheets[0]['Ana Kategori'] ) ) {
+            $first_val = reset( $sheets );
+            if ( isset( $first_val[0] ) && ! is_array( $first_val[0] ) ) {
+                $sheets = [ 'Icerik Plani' => $sheets ];
+            }
+        }
+
+        foreach ( $sheets as $sheet_name => $rows ) {
+            $sheet_data = '';
+            foreach ( array_values( $rows ) as $row_index => $row ) {
+                $sheet_data .= '<row r="' . ( $row_index + 1 ) . '">';
+
+                foreach ( array_values( $row ) as $col_index => $value ) {
+                    $value = (string) $value;
+                    if ( ! array_key_exists( $value, $shared_index ) ) {
+                        $shared_index[ $value ] = count( $shared_strings );
+                        $shared_strings[] = $value;
+                    }
+
+                    $cell_ref = self::xlsx_column_label( $col_index ) . ( $row_index + 1 );
+                    $sheet_data .= '<c r="' . $cell_ref . '" t="s"><v>' . $shared_index[ $value ] . '</v></c>';
                 }
 
-                $cell_ref = self::xlsx_column_label( $col_index ) . ( $row_index + 1 );
-                $sheet_data .= '<c r="' . $cell_ref . '" t="s"><v>' . $shared_index[ $value ] . '</v></c>';
+                $sheet_data .= '</row>';
             }
 
-            $sheet_data .= '</row>';
+            $sheet_contents[ $sheet_id ] = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+                . '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                . '<sheetData>' . $sheet_data . '</sheetData>'
+                . '</worksheet>';
+
+            $sheet_names[ $sheet_id ] = $sheet_name;
+            $sheet_id++;
         }
 
         $shared_xml_items = '';
@@ -353,26 +394,29 @@ class HC_Excel_Planner {
             $shared_xml_items .= '<si><t>' . self::xlsx_escape( $string ) . '</t></si>';
         }
 
-        $worksheet_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
-            . '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
-            . '<sheetData>' . $sheet_data . '</sheetData>'
-            . '</worksheet>';
-
         $shared_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
             . '<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="' . count( $shared_strings ) . '" uniqueCount="' . count( $shared_strings ) . '">'
             . $shared_xml_items
             . '</sst>';
 
+        $sheets_xml = '';
+        foreach ( $sheet_names as $id => $name ) {
+            $sheets_xml .= '<sheet name="' . self::xlsx_escape( $name ) . '" sheetId="' . $id . '" r:id="rId' . $id . '"/>';
+        }
+
         $workbook_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
             . '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
-            . '<sheets><sheet name="Icerik Plani" sheetId="1" r:id="rId1"/></sheets>'
+            . '<sheets>' . $sheets_xml . '</sheets>'
             . '</workbook>';
 
         $workbook_rels_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
-            . '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
-            . '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
-            . '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings" Target="sharedStrings.xml"/>'
-            . '</Relationships>';
+            . '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">';
+        foreach ( $sheet_names as $id => $name ) {
+            $workbook_rels_xml .= '<Relationship Id="rId' . $id . '" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet' . $id . '.xml"/>';
+        }
+        $shared_string_rid = count( $sheet_names ) + 1;
+        $workbook_rels_xml .= '<Relationship Id="rId' . $shared_string_rid . '" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings" Target="sharedStrings.xml"/>';
+        $workbook_rels_xml .= '</Relationships>';
 
         $root_rels_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
             . '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
@@ -383,16 +427,20 @@ class HC_Excel_Planner {
             . '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
             . '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
             . '<Default Extension="xml" ContentType="application/xml"/>'
-            . '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
-            . '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>'
-            . '<Override PartName="/xl/sharedStrings.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml"/>'
+            . '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>';
+        foreach ( $sheet_names as $id => $name ) {
+            $content_types_xml .= '<Override PartName="/xl/worksheets/sheet' . $id . '.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>';
+        }
+        $content_types_xml .= '<Override PartName="/xl/sharedStrings.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml"/>'
             . '</Types>';
 
         $zip->addFromString( '[Content_Types].xml', $content_types_xml );
         $zip->addFromString( '_rels/.rels', $root_rels_xml );
         $zip->addFromString( 'xl/workbook.xml', $workbook_xml );
         $zip->addFromString( 'xl/_rels/workbook.xml.rels', $workbook_rels_xml );
-        $zip->addFromString( 'xl/worksheets/sheet1.xml', $worksheet_xml );
+        foreach ( $sheet_contents as $id => $content ) {
+            $zip->addFromString( 'xl/worksheets/sheet' . $id . '.xml', $content );
+        }
         $zip->addFromString( 'xl/sharedStrings.xml', $shared_xml );
         $zip->close();
     }
