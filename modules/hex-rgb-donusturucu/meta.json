@@ -1,0 +1,5 @@
+{
+  "name": "HEX RGB Dönüştürücü",
+  "desc": "Web renk kodlarını HEX formatından RGB formatına dönüştürün.",
+  "shortcode": "[hc_hex_rgb_donusturucu]"
+}

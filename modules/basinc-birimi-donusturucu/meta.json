@@ -1,0 +1,5 @@
+{
+  "name": "Basınç Birimi Dönüştürücü",
+  "desc": "Bar, PSI, Pascal, Atmosfer ve mmHg gibi basınç birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_basinc_birimi_donusturucu]"
+}

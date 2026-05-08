@@ -1,0 +1,7 @@
+.hc-basinc-birimi-donusturucu-result table {
+    margin-top: 10px;
+}
+
+.hc-basinc-birimi-donusturucu-result td strong {
+    color: var(--hc-front-blue-dark);
+}

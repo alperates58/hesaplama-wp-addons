@@ -1,0 +1,5 @@
+{
+  "name": "mmHg kPa Dönüştürücü",
+  "desc": "mmHg (Milimetre Cıva) ve kPa (Kilopascal) arasında hızlıca dönüşüm yapın.",
+  "shortcode": "[hc_mmhg_kpa_donusturucu]"
+}

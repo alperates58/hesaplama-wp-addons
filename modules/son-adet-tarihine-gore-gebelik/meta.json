@@ -1,0 +1,5 @@
+{
+  "name": "Son Adet Tarihine Göre Gebelik Hesaplama",
+  "desc": "Son adet tarihinizi (SAT) kullanarak gebelik haftanızı ve önemli dönüm noktalarını hesaplar.",
+  "shortcode": "[hc_son_adet_tarihine_gore_gebelik]"
+}

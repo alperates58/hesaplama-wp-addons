@@ -1,0 +1,5 @@
+{
+  "name": "Sperm Analizi Değerlendirme Hesaplama",
+  "desc": "Spermogram sonuçlarını WHO 6. Baskı kriterlerine göre analiz eder ve yorumlar.",
+  "shortcode": "[hc_sperm_analizi_degerlendirme]"
+}

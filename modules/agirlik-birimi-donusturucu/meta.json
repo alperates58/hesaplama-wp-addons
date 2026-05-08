@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlık Birimi Dönüştürücü",
+  "desc": "Farklı ağırlık birimleri (kg, g, ton, pound, ons, stone) arasında hızlı dönüşüm yapın.",
+  "shortcode": "[hc_agirlik_birimi_donusturucu]"
+}

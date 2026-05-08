@@ -1,0 +1,5 @@
+{
+  "name": "DPI Piksel Dönüştürücü",
+  "desc": "DPI (çözünürlük) ve fiziksel boyut (inç) kullanarak piksel miktarını hesaplayın.",
+  "shortcode": "[hc_dpi_piksel_donusturucu]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Kilosu Persentil Hesaplama",
+  "desc": "Yenidoğan bebeğin doğum ağırlığının gebelik haftasına göre persentil değerini ve kategorisini belirler.",
+  "shortcode": "[hc_dogum_kilosu_persentil]"
+}

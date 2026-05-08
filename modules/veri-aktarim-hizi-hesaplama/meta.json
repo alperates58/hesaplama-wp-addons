@@ -1,0 +1,5 @@
+{
+  "name": "Veri Aktarım Hızı Dönüştürme",
+  "desc": "Saniyedeki veri aktarım hızlarını (bps, Kbps, Mbps, Gbps, MB/s) birbirine dönüştürün.",
+  "shortcode": "[hc_veri_aktarim_hizi_hesaplama]"
+}
