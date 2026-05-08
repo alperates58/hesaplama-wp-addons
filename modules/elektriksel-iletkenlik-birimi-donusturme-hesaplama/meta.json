@@ -1,0 +1,5 @@
+{
+  "name": "Elektriksel İletkenlik Birimi Dönüştürme Hesaplama",
+  "desc": "Siemens, milisiemens ve mikro-siemens gibi elektriksel iletkenlik birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_elektriksel_iletkenlik_birimi_donusturme_hesaplama]"
+}

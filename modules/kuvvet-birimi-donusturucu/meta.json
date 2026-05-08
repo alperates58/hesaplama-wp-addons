@@ -1,0 +1,5 @@
+{
+  "name": "Kuvvet Birimi Dönüştürücü",
+  "desc": "Newton (N), kilonewton (kN) ve kilogram-kuvvet (kgf) gibi kuvvet birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_kuvvet_birimi_donusturucu]"
+}

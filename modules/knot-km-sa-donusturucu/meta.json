@@ -1,0 +1,5 @@
+{
+  "name": "Knot km/sa Dönüştürücü",
+  "desc": "Knot (deniz mili/saat) ve Kilometre/saat (km/sa) birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_knot_km_sa_donusturucu]"
+}

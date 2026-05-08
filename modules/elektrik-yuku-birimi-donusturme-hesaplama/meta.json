@@ -1,0 +1,5 @@
+{
+  "name": "Elektrik Yükü Birimi Dönüştürme Hesaplama",
+  "desc": "Coulomb, Ah ve mAh gibi elektrik yükü birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_elektrik_yuku_birimi_donusturme_hesaplama]"
+}

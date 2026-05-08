@@ -1,0 +1,5 @@
+{
+  "name": "İkili Sayı Dönüştürücü",
+  "desc": "Onluk (Decimal) ve İkilik (Binary) sayı sistemleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_ikili_sayi_donusturucu]"
+}

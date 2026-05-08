@@ -1,0 +1,5 @@
+{
+  "name": "Unix Zamanı Dönüştürücü",
+  "desc": "Unix Zaman Damgası (Epoch) ve okunabilir tarih/saat arasında dönüşüm yapın.",
+  "shortcode": "[hc_unix_zamani_donusturucu]"
+}

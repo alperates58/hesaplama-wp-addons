@@ -1,0 +1,5 @@
+{
+  "name": "Ölçek Dönüştürücü",
+  "desc": "Harita ölçeği kullanarak gerçek mesafe ve harita mesafesi arasında hesaplama yapın.",
+  "shortcode": "[hc_olcek_donusturucu]"
+}

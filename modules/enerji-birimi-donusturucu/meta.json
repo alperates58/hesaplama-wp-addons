@@ -1,0 +1,5 @@
+{
+  "name": "Enerji Birimi Dönüştürücü",
+  "desc": "Joule, kalori ve kilowatt-saat gibi enerji birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_enerji_birimi_donusturucu]"
+}

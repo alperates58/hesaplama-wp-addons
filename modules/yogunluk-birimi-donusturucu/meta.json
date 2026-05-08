@@ -1,0 +1,5 @@
+{
+  "name": "Yoğunluk Birimi Dönüştürücü",
+  "desc": "kg/m³, g/cm³ ve lb/ft³ gibi yoğunluk birimleri arasında kapsamlı dönüşüm yapın.",
+  "shortcode": "[hc_yogunluk_birimi_donusturucu]"
+}

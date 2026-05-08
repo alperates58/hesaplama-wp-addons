@@ -1,0 +1,5 @@
+{
+  "name": "Sayı Birimi Dönüştürücü",
+  "desc": "Onluk, ikilik ve onaltılık gibi farklı sayı tabanları arasında dönüşüm yapın.",
+  "shortcode": "[hc_sayi_birimi_donusturucu]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Pint Litre Dönüştürücü",
+  "desc": "Pint (US/UK) ve Litre (L) birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_pint_litre_donusturucu]"
+}
