@@ -1,0 +1,5 @@
+{
+  "name": "SGK Gün Hesaplama",
+  "desc": "İki tarih arasındaki süreyi SGK standartlarına (her ay 30 gün) göre hesaplar.",
+  "shortcode": "[hc_sgk_gun_hesaplama]"
+}

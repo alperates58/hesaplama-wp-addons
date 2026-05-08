@@ -1,0 +1,5 @@
+{
+  "name": "Kısa Çalışma Ödeneği Hesaplama",
+  "desc": "Kısa çalışma uygulaması durumunda personelin SGK'dan alacağı aylık ödenek tutarını hesaplar.",
+  "shortcode": "[hc_kisa_calisma_odenegi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Rapor Parası Hesaplama",
+  "desc": "Hastalık nedeniyle alınan raporlarda SGK'dan alınacak ödemeyi kolayca hesaplar.",
+  "shortcode": "[hc_rapor_parasi_hesaplama]"
+}

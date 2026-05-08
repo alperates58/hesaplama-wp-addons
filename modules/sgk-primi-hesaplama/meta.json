@@ -1,0 +1,5 @@
+{
+  "name": "SGK Primi Hesaplama",
+  "desc": "Brüt maaş üzerinden çalışan ve işveren SGK prim kesintilerini, işsizlik sigortası paylarını ve toplam maliyeti hesaplar.",
+  "shortcode": "[hc_sgk_primi_hesaplama]"
+}
