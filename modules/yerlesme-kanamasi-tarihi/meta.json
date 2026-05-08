@@ -1,5 +1,5 @@
 {
   "name": "Yerleşme Kanaması Tarihi Hesaplama",
-  "desc": "Gebe kaldıysanız, döllenmiş yumurtanın rahme yerleşmesi sırasında oluşabilecek hafif kanamanın (üstüne görme) muhtemel tarihini hesaplar.",
+  "desc": "Olası yerleşme kanaması (üstüne görme) tarihini hesaplar.",
   "shortcode": "[hc_yerlesme_kanamasi_tarihi]"
 }

@@ -1,5 +1,5 @@
 {
   "name": "Dinlenme Metabolizma Hızı Hesaplama",
-  "desc": "Vücudunuzun istirahat halindeyken yaktığı enerji miktarını (RMR) Mifflin-St Jeor formülüyle hesaplar.",
+  "desc": "Dinlenme halindeyken (RMR) vücudunuzun yaktığı günlük kalori miktarını hesaplar.",
   "shortcode": "[hc_dinlenme_metabolizma_hizi]"
 }

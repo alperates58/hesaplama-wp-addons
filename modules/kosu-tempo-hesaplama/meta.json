@@ -1,5 +1,5 @@
 {
   "name": "Koşu Tempo Hesaplama",
-  "desc": "Belirli bir mesafeyi koştuğunuz süreye göre kilometredeki ortalama hızınızı (tempo) hesaplar.",
+  "desc": "Koşu hızınızı tempo (dakika/km) cinsinden hesaplar.",
   "shortcode": "[hc_kosu_tempo_hesaplama]"
 }

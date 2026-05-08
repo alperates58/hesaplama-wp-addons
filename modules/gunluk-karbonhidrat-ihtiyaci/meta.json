@@ -1,5 +1,5 @@
 {
   "name": "Günlük Karbonhidrat İhtiyacı Hesaplama",
-  "desc": "Günlük kalori alımınıza ve hedeflerinize göre ne kadar karbonhidrat tüketmeniz gerektiğini hesaplar.",
+  "desc": "Günlük kalori ihtiyacınıza göre sağlıklı bir diyet için almanız gereken karbonhidrat miktarını hesaplar.",
   "shortcode": "[hc_gunluk_karbonhidrat_ihtiyaci]"
 }

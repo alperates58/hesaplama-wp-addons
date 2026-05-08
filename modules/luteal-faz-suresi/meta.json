@@ -1,5 +1,5 @@
 {
   "name": "Luteal Faz Süresi Hesaplama",
-  "desc": "Adet döngünüzün ikinci yarısı olan ve hamileliğin oluşması için kritik öneme sahip luteal faz sürenizi hesaplar.",
+  "desc": "Yumurtlama ile bir sonraki adet dönemi arasındaki süreyi hesaplar.",
   "shortcode": "[hc_luteal_faz_suresi]"
 }

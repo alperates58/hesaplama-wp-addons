@@ -1,5 +1,5 @@
 {
-  "name": "CRL Ölçüsüne Göre Gebelik Haftası",
-  "desc": "Ultrason ölçümünde kullanılan CRL (baş-popo mesafesi) değerine göre bebeğinizin kaç haftalık olduğunu hesaplar.",
+  "name": "CRL Ölçüsüne Göre Gebelik Haftası Hesaplama",
+  "desc": "Bebek baş-popo mesafesi (CRL) ölçümüne göre gebelik haftasını hesaplar.",
   "shortcode": "[hc_crl_gebelik_haftasi]"
 }

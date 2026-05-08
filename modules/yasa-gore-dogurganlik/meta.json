@@ -1,5 +1,5 @@
 {
   "name": "Yaşa Göre Doğurganlık Hesaplama",
-  "desc": "Kadın yaşının hamile kalma şansı (fertilite) üzerindeki istatistiksel etkilerini ve başarı oranlarını analiz eder.",
+  "desc": "Anne yaşına bağlı olarak doğal yollarla gebe kalma ihtimalini istatistiksel olarak hesaplar.",
   "shortcode": "[hc_yasa_gore_dogurganlik]"
 }

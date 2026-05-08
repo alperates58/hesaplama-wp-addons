@@ -1,5 +1,5 @@
 {
   "name": "Kan Şekeri Ortalama Hesaplama",
-  "desc": "Gün içindeki farklı saatlerde yaptığınız ölçümlerin ortalamasını alarak genel gidişatı takip etmenizi sağlar.",
+  "desc": "Belirli bir dönemdeki kan şekeri ölçümlerinizin ortalamasını hesaplar.",
   "shortcode": "[hc_kan_sekeri_ortalama_hesaplama]"
 }

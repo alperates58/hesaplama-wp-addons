@@ -1,5 +1,5 @@
 {
-  "name": "Gebelik Testi Hata Payı Hesaplama",
-  "desc": "Test yaptığınız tarihin son adet tarihinize olan uzaklığına göre 'yalancı negatif' (aslında hamile olup testin negatif çıkması) riskini hesaplar.",
+  "name": "Yanlış Negatif Gebelik Testi Riski Hesaplama",
+  "desc": "Test yaptığınız tarihin son adet tarihinize olan uzaklığına göre 'yalancı negatif' riskini hesaplar.",
   "shortcode": "[hc_gebelik_testi_hata_payi]"
 }

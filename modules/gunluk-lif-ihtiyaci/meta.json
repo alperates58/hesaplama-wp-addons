@@ -1,5 +1,5 @@
 {
   "name": "Günlük Lif İhtiyacı Hesaplama",
-  "desc": "Günlük kalori alımınıza göre sindirim sisteminiz için tüketmeniz gereken ideal lif (fiber) miktarını hesaplar.",
+  "desc": "Yaş ve cinsiyetinize göre sindirim sağlığı için günlük almanız gereken lif (fiber) miktarını hesaplar.",
   "shortcode": "[hc_gunluk_lif_ihtiyaci]"
 }

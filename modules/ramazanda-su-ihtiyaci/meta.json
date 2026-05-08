@@ -1,5 +1,5 @@
 {
   "name": "Ramazanda Su İhtiyacı Hesaplama",
-  "desc": "Ramazan ayında oruç tutarken dehidrasyonu önlemek için günlük su ihtiyacınızı iftar ve sahur arasındaki sürede nasıl dağıtmanız gerektiğini planlar.",
+  "desc": "Oruç tutarken vücudun ihtiyaç duyduğu günlük su miktarını iftar ve sahur arasına yayarak hesaplar.",
   "shortcode": "[hc_ramazanda_su_ihtiyaci]"
 }

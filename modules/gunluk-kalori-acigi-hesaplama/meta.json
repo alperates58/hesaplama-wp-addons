@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Kalori Açığı Hesaplama",
+  "desc": "Günlük alınan ve yakılan kalorileri karşılaştırarak oluşan enerji açığını hesaplar.",
+  "shortcode": "[hc_gunluk_kalori_acigi_hesaplama]"
+}

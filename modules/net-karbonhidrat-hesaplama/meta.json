@@ -1,5 +1,5 @@
 {
   "name": "Net Karbonhidrat Hesaplama",
-  "desc": "Toplam karbonhidrat miktarından lif ve şeker alkollerini çıkararak vücudun gerçekten emdiği net karbonhidrat miktarını hesaplar.",
+  "desc": "Besindeki toplam karbonhidrattan lif ve şeker alkollerini çıkararak net karbonhidratı hesaplar.",
   "shortcode": "[hc_net_karbonhidrat_hesaplama]"
 }

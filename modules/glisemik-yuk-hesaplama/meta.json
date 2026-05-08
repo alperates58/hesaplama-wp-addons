@@ -1,5 +1,5 @@
 {
   "name": "Glisemik Yük Hesaplama",
-  "desc": "Tükettiğiniz gıdanın glisemik indeksi ve porsiyon miktarındaki karbonhidrat oranına göre glisemik yükünü hesaplar.",
+  "desc": "Besindeki karbonhidrat miktarı ve glisemik indeksi kullanarak toplam glisemik yükü hesaplar.",
   "shortcode": "[hc_glisemik_yuk_hesaplama]"
 }

@@ -1,5 +1,5 @@
 {
   "name": "Günlük Adım Hedefi Hesaplama",
-  "desc": "Kilo verme, kilo koruma veya sağlıklı yaşam hedeflerinize göre günlük atmanız gereken minimum adım sayısını belirler.",
+  "desc": "Kilo verme veya sağlık hedeflerinize ulaşmak için atmanız gereken günlük adım sayısını hesaplar.",
   "shortcode": "[hc_gunluk_adim_hedefi]"
 }

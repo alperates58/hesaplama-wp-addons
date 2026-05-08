@@ -1,5 +1,5 @@
 {
   "name": "Günlük Şeker Tüketimi Hesaplama",
-  "desc": "Günlük tükettiğiniz şeker miktarını enerji değerine çevirir ve sağlık limitleriyle karşılaştırır.",
+  "desc": "Tükettiğiniz besinlerdeki şeker miktarına göre günlük toplam şeker alımınızı hesaplar.",
   "shortcode": "[hc_gunluk_seker_tuketimi_hesaplama]"
 }

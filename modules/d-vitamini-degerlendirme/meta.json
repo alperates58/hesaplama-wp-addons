@@ -1,5 +1,5 @@
 {
-  "name": "D Vitamini Değerlendirme",
+  "name": "D Vitamini Değerlendirme Hesaplama",
   "desc": "Kan tahlili sonuçlarınıza (ng/mL veya nmol/L) göre D vitamini seviyenizi tıbbi standartlara göre değerlendirir.",
   "shortcode": "[hc_d_vitamini_degerlendirme]"
 }

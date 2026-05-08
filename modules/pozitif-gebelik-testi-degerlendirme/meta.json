@@ -1,5 +1,5 @@
 {
-  "name": "Pozitif Gebelik Testi Değerlendirme",
-  "desc": "Hamilelik testiniz pozitif çıktıysa, Beta hCG değerlerinizin ne anlama geldiğini ve bir sonraki adımlarınızı (doktor randevusu, ultrason vb.) planlar.",
+  "name": "Pozitif Gebelik Testi Tarihi Hesaplama",
+  "desc": "Pozitif çıkan gebelik testinizin tarihine göre hamilelik haftanızı ve doğum tarihinizi hesaplar.",
   "shortcode": "[hc_pozitif_gebelik_testi_degerlendirme]"
 }

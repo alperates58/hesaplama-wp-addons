@@ -1,5 +1,5 @@
 {
   "name": "Fundus Yüksekliği Hesaplama",
-  "desc": "Pubik kemik ile rahmin üst kısmı arasındaki mesafeyi (fundus yüksekliği) kullanarak gebelik haftasını ve bebek gelişimini değerlendirir.",
+  "desc": "Rahim tepesinin (fundus) yüksekliğine göre gebelik haftasını ve bebek gelişimini değerlendirir.",
   "shortcode": "[hc_fundus_yuksekligi_hesaplama]"
 }
