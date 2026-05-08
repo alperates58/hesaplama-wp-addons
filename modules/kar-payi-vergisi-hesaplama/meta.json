@@ -1,0 +1,5 @@
+{
+  "name": "Kar Payı Vergisi Hesaplama",
+  "desc": "Şirketlerden dağıtılan kâr payları (temettü) üzerindeki stopaj ve yıllık beyan sınırlarını hesaplar.",
+  "shortcode": "[hc_kar_payi_vergisi_hesaplama]"
+}

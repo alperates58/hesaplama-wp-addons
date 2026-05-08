@@ -1,0 +1,14 @@
+#hc-damga-vergisi-hesaplama .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-damga-vergisi-hesaplama .hc-result-value {
+    font-size: 2rem;
+    color: #c0392b;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}

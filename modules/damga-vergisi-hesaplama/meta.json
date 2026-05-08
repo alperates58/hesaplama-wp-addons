@@ -1,0 +1,5 @@
+{
+  "name": "Damga Vergisi Hesaplama",
+  "desc": "Sözleşmeler, beyannameler ve ücret ödemeleri için geçerli damga vergisi oranlarını ve tutarlarını hesaplar.",
+  "shortcode": "[hc_damga_vergisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Faiz Vergisi Hesaplama",
+  "desc": "Mevduat hesaplarından elde edilen faiz gelirleri üzerindeki stopaj kesintisini hesaplar.",
+  "shortcode": "[hc_faiz_vergisi_hesaplama]"
+}

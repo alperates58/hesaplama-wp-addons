@@ -1,0 +1,5 @@
+{
+  "name": "Kurumlar Vergisi Hesaplama",
+  "desc": "Sermaye şirketleri için dönem karı üzerinden ödenecek kurumlar vergisini hesaplar.",
+  "shortcode": "[hc_kurumlar_vergisi_hesaplama]"
+}
