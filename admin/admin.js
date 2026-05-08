@@ -215,7 +215,15 @@ jQuery(function ($) {
                 return;
             }
 
-            window.location.href = resp.data.edit_url;
+            var message = resp.data.existing
+                ? 'Taslak zaten vardı; kategori ve shortcode güncellendi.'
+                : 'Taslak oluşturuldu ve kaydedildi.';
+
+            if (resp.data.reason) {
+                message += ' ' + resp.data.reason;
+            }
+
+            hcSetPreviewStatus(message + ' <a href=\"' + resp.data.edit_url + '\">Düzenle</a>', 'success');
         }).fail(function (xhr) {
             $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
             hcSetPreviewStatus('Sunucu hatası: HTTP ' + xhr.status, 'error');
@@ -393,6 +401,8 @@ jQuery(function ($) {
 
     $(document).on('click', '.hc-yazi-ekle-btn', function () {
         var $btn = $(this);
+        var $card = $btn.closest('[data-module-card]');
+        var $select = $card.find('.hc-category-select');
         var $msg = $btn.siblings('.hc-yazi-ekle-msg');
 
         $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluşturuluyor...');
@@ -402,7 +412,10 @@ jQuery(function ($) {
             action: 'hc_create_module_post',
             nonce: $btn.data('nonce'),
             name: $btn.data('name'),
-            shortcode: $btn.data('shortcode')
+            shortcode: $btn.data('shortcode'),
+            slug: $card.data('slug'),
+            desc: $.trim($card.find('.hc-module-card-main p').first().text()),
+            category: $select.val() || ''
         }, function (resp) {
             $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
 
@@ -411,12 +424,19 @@ jQuery(function ($) {
                 return;
             }
 
+            if ($select.length && resp.data.category) {
+                if (!$select.find('option[value="' + resp.data.category + '"]').length) {
+                    $('<option>').val(resp.data.category).text(resp.data.category).appendTo($select);
+                }
+                $select.val(resp.data.category).trigger('change');
+            }
+
             if (resp.data.existing) {
-                $msg.html('Taslak zaten var. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#b45309').show();
+                $msg.html('Taslak zaten vardı; kategori ve shortcode güncellendi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#b45309').show();
                 return;
             }
 
-            window.location.href = resp.data.edit_url;
+            $msg.html('Taslak oluşturuldu ve kaydedildi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#067647').show();
         });
     });
 

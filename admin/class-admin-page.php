@@ -284,6 +284,40 @@ class HC_Module_Inventory {
         }
     }
 
+    public static function save_module_category_assignment( $slug, $category ) {
+        $slug     = sanitize_key( $slug );
+        $category = self::sanitize_category( $category );
+
+        if ( ! $slug ) {
+            return;
+        }
+
+        $settings = self::get_catalog_settings();
+
+        if ( ! isset( $settings['module_categories'] ) || ! is_array( $settings['module_categories'] ) ) {
+            $settings['module_categories'] = [];
+        }
+
+        if ( ! isset( $settings['categories'] ) || ! is_array( $settings['categories'] ) ) {
+            $settings['categories'] = [];
+        }
+
+        if ( ! $category ) {
+            unset( $settings['module_categories'][ $slug ] );
+            update_option( self::OPTION_KEY, $settings, false );
+            return;
+        }
+
+        if ( ! in_array( $category, $settings['categories'], true ) ) {
+            $settings['categories'][] = $category;
+            sort( $settings['categories'], SORT_NATURAL | SORT_FLAG_CASE );
+        }
+
+        $settings['module_categories'][ $slug ] = $category;
+
+        update_option( self::OPTION_KEY, $settings, false );
+    }
+
     public static function group_modules_by_category( $modules ) {
         $grouped = [];
 
@@ -390,6 +424,10 @@ class HC_Module_Inventory {
             'child'    => $matched['child'],
             'term_ids' => array_values( array_unique( array_filter( array_map( 'intval', $ids ) ) ) ),
         ];
+    }
+
+    public static function resolve_category_term_ids( $label ) {
+        return self::resolve_term_ids_from_label( $label );
     }
 
     private static function normalize_category_key( $value ) {

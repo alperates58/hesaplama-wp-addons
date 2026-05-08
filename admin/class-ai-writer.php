@@ -237,26 +237,53 @@ class HC_AI_Writer {
 
         $name      = sanitize_text_field( $_POST['name'] ?? '' );
         $shortcode = sanitize_text_field( $_POST['shortcode'] ?? '' );
+        $slug      = sanitize_key( $_POST['slug'] ?? '' );
+        $desc      = sanitize_textarea_field( wp_unslash( $_POST['desc'] ?? '' ) );
+        $category  = sanitize_text_field( wp_unslash( $_POST['category'] ?? '' ) );
 
         if ( ! $name ) wp_send_json_error( 'Modül adı eksik.' );
 
+        $category_result = $this->resolve_module_category_for_draft( $name, $shortcode, $slug, $desc, $category );
+        $post_category   = $category_result['term_ids'] ?? [];
+
+        if ( $slug && ! empty( $category_result['label'] ) ) {
+            HC_Module_Inventory::save_module_category_assignment( $slug, $category_result['label'] );
+        }
+
         $existing = get_page_by_title( $name, OBJECT, 'post' );
         if ( $existing ) {
+            if ( ! empty( $post_category ) ) {
+                wp_set_post_categories( $existing->ID, $post_category, false );
+            }
+
+            $content = (string) $existing->post_content;
+            if ( $shortcode && false === strpos( $content, $shortcode ) ) {
+                wp_update_post(
+                    [
+                        'ID'           => $existing->ID,
+                        'post_content' => trim( $shortcode . "\n\n" . $content ),
+                    ]
+                );
+            }
+
             wp_send_json_success( [
+                'post_id'  => $existing->ID,
                 'edit_url' => admin_url( 'post.php?post=' . $existing->ID . '&action=edit' ),
                 'existing' => true,
+                'category' => $category_result['label'] ?? '',
+                'reason'   => $category_result['reason'] ?? '',
             ] );
         }
 
-        $slug = $this->turkish_slug( $name );
+        $post_slug = $this->turkish_slug( $name );
 
         $post_id = wp_insert_post( [
             'post_title'    => $name,
-            'post_name'     => $slug,
+            'post_name'     => $post_slug,
             'post_content'  => $shortcode ? $shortcode : '',
             'post_status'   => 'draft',
             'post_type'     => 'post',
-            'post_category' => HC_Module_Inventory::get_post_category_ids_for_module( $shortcode, $name ),
+            'post_category' => $post_category,
         ] );
 
         if ( is_wp_error( $post_id ) ) {
@@ -264,8 +291,11 @@ class HC_AI_Writer {
         }
 
         wp_send_json_success( [
+            'post_id'  => $post_id,
             'edit_url' => admin_url( 'post.php?post=' . $post_id . '&action=edit' ),
             'existing' => false,
+            'category' => $category_result['label'] ?? '',
+            'reason'   => $category_result['reason'] ?? '',
         ] );
     }
 
@@ -285,14 +315,60 @@ class HC_AI_Writer {
             wp_send_json_error( 'Modül adı eksik.' );
         }
 
+        $analysis = $this->get_ai_category_analysis( $name, $desc );
+        if ( is_wp_error( $analysis ) ) {
+            wp_send_json_error( $analysis->get_error_message(), 400 );
+        }
+
+        wp_send_json_success(
+            [
+                'category' => $analysis['category'],
+                'reason'   => $analysis['reason'],
+            ]
+        );
+    }
+
+    private function resolve_module_category_for_draft( $name, $shortcode, $slug = '', $desc = '', $category = '' ) {
+        $label  = sanitize_text_field( $category );
+        $reason = '';
+
+        if ( ! $label && $desc ) {
+            $analysis = $this->get_ai_category_analysis( $name, $desc );
+
+            if ( ! is_wp_error( $analysis ) ) {
+                $label  = $analysis['category'];
+                $reason = $analysis['reason'];
+            }
+        }
+
+        if ( $label ) {
+            $resolved = HC_Module_Inventory::resolve_category_term_ids( $label );
+
+            return [
+                'label'    => $label,
+                'reason'   => $reason,
+                'term_ids' => $resolved['term_ids'] ?? [],
+            ];
+        }
+
+        $resolved = HC_Module_Inventory::resolve_module_category_data( $slug, $shortcode, $name );
+
+        return [
+            'label'    => $resolved['label'] ?? '',
+            'reason'   => $reason,
+            'term_ids' => $resolved['term_ids'] ?? [],
+        ];
+    }
+
+    private function get_ai_category_analysis( $name, $desc ) {
         $provider = new HC_AI_Provider();
         if ( ! $provider->is_feature_enabled( 'writer_tab' ) ) {
-            wp_send_json_error( 'AI araçları kapalı.' );
+            return new WP_Error( 'hc_ai_disabled', 'AI araçları kapalı.' );
         }
 
         $choices = HC_Module_Inventory::get_wordpress_category_paths();
         if ( empty( $choices ) ) {
-            wp_send_json_error( 'Sitede analiz edilecek kategori bulunamadı.' );
+            return new WP_Error( 'hc_no_categories', 'Sitede analiz edilecek kategori bulunamadı.' );
         }
 
         $prompt = implode(
@@ -313,7 +389,7 @@ class HC_AI_Writer {
 
         $result = $provider->generate( $prompt );
         if ( is_wp_error( $result ) ) {
-            wp_send_json_error( $result->get_error_message() );
+            return $result;
         }
 
         $json = json_decode( trim( (string) $result ), true );
@@ -322,22 +398,20 @@ class HC_AI_Writer {
         }
 
         if ( ! is_array( $json ) ) {
-            wp_send_json_error( 'AI yanıtı çözümlenemedi.' );
+            return new WP_Error( 'hc_ai_invalid', 'AI yanıtı çözümlenemedi.' );
         }
 
         $category_path = sanitize_text_field( $json['kategori_yolu'] ?? '' );
         $reason        = sanitize_text_field( $json['gerekce'] ?? '' );
 
         if ( ! $category_path || ! in_array( $category_path, $choices, true ) ) {
-            wp_send_json_error( 'AI geçerli bir kategori seçemedi.' );
+            return new WP_Error( 'hc_ai_no_match', 'AI geçerli bir kategori seçemedi.' );
         }
 
-        wp_send_json_success(
-            [
-                'category' => $category_path,
-                'reason'   => $reason,
-            ]
-        );
+        return [
+            'category' => $category_path,
+            'reason'   => $reason,
+        ];
     }
 
     private function turkish_slug( $text ) {
