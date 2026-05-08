@@ -1,0 +1,5 @@
+{
+  "name": "Hisse Başına Kar Hesaplama",
+  "desc": "Şirketin yıllık net karının toplam hisse adedine oranıyla hisse başına düşen karı (EPS) hesaplar.",
+  "shortcode": "[hc_hisse_basina_kar_hesaplama]"
+}

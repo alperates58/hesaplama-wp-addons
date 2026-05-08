@@ -1,0 +1,5 @@
+{
+  "name": "Piyasa Değeri Defter Değeri Oranı Hesaplama",
+  "desc": "Şirketin piyasa değerinin özsermayesine oranıyla değerleme çarpanını (PD/DD) hesaplar.",
+  "shortcode": "[hc_piyasa_degeri_defter_degeri_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Özsermaye Maliyeti Hesaplama",
+  "desc": "CAPM modelini kullanarak şirketin özsermaye maliyetini (Cost of Equity) hesaplar.",
+  "shortcode": "[hc_ozsermaye_maliyeti_hesaplama]"
+}
