@@ -1,0 +1,5 @@
+{
+  "name": "Emzirme Dönemi Kalori İhtiyacı Hesaplama",
+  "desc": "Emziren annelerin sağlıklı süt üretimi ve kendi enerjilerini korumaları için günlük almaları gereken ek kalori miktarını hesaplar.",
+  "shortcode": "[hc_emzirme_donemi_kalori_ihtiyaci]"
+}

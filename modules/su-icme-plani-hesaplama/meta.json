@@ -1,0 +1,5 @@
+{
+  "name": "Su İçme Planı Hesaplama",
+  "desc": "Günlük su içme hedefinizi uyandığınız andan yatana kadar olan süreye yayarak size özel bir içme takvimi oluşturur.",
+  "shortcode": "[hc_su_icme_plani_hesaplama]"
+}

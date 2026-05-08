@@ -1,0 +1,5 @@
+{
+  "name": "Koşu Kalori Yakımı Hesaplama",
+  "desc": "Koşu hızınıza, kilonuza ve sürenize bağlı olarak yaktığınız kalori miktarını hesaplar.",
+  "shortcode": "[hc_kosu_kalori_yakimi]"
+}

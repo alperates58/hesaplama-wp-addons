@@ -1,0 +1,5 @@
+{
+  "name": "Beslenme Risk Skoru Hesaplama (NRS-2002)",
+  "desc": "Hastanede yatan veya ayaktan takip edilen hastalar için beslenme yetersizliği riskini (NRS-2002 protokolü) değerlendirir.",
+  "shortcode": "[hc_beslenme_risk_skoru_hesaplama]"
+}

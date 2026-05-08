@@ -1,0 +1,5 @@
+{
+  "name": "A Vitamini İhtiyacı Hesaplama",
+  "desc": "Yaş ve cinsiyetinize göre günlük almanız gereken ideal A vitamini miktarını hesaplar.",
+  "shortcode": "[hc_a_vitamini_ihtiyaci_hesaplama]"
+}

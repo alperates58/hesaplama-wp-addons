@@ -1,0 +1,5 @@
+{
+  "name": "Spor Kalori Yakımı Hesaplama",
+  "desc": "Farklı spor dallarına göre yaktığınız kalori miktarını kilonuza ve sürenize göre hesaplar.",
+  "shortcode": "[hc_spor_kalori_yakimi]"
+}

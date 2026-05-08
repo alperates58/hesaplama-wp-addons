@@ -1,0 +1,5 @@
+{
+  "name": "Egzersiz Kalori Yakımı Hesaplama",
+  "desc": "Yaptığınız egzersizin türüne, süresine ve kilonuza göre yaktığınız tahmini kalori miktarını MET değerleri üzerinden hesaplar.",
+  "shortcode": "[hc_egzersiz_kalori_yakimi]"
+}

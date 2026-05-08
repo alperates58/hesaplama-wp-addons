@@ -1,0 +1,5 @@
+{
+  "name": "Tuzdaki Sodyum Miktarı Hesaplama",
+  "desc": "Tükettiğiniz sofra tuzu (NaCl) miktarını vücudunuzun aldığı sodyum (Na) miktarına çevirir.",
+  "shortcode": "[hc_tuz_sodyum_miktari_hesaplama]"
+}

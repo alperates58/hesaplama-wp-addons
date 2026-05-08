@@ -1,0 +1,5 @@
+{
+  "name": "Yürüyüş Kalori Yakımı Hesaplama",
+  "desc": "Yürüyüş hızınıza, kilonuza ve sürenize bağlı olarak yaktığınız kalori miktarını hesaplar.",
+  "shortcode": "[hc_yuruyus_kalori_yakimi]"
+}

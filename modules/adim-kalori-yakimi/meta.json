@@ -1,0 +1,5 @@
+{
+  "name": "Adım Kalori Yakımı Hesaplama",
+  "desc": "Günlük attığınız adım sayısına ve kilonuza göre yaktığınız tahmini kalori miktarını hesaplar.",
+  "shortcode": "[hc_adim_kalori_yakimi]"
+}

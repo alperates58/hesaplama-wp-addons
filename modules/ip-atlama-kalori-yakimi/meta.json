@@ -1,0 +1,5 @@
+{
+  "name": "İp Atlama Kalori Yakımı Hesaplama",
+  "desc": "İp atlama temponuza, sürenize ve kilonuza göre yaktığınız tahmini kalori miktarını hesaplar.",
+  "shortcode": "[hc_ip_atlama_kalori_yakimi]"
+}

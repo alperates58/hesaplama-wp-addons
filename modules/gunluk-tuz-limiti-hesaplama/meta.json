@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Tuz Limiti Hesaplama",
+  "desc": "Tükettiğiniz tuz miktarının Dünya Sağlık Örgütü (WHO) tarafından önerilen günlük limitlerle uyumlu olup olmadığını kontrol eder.",
+  "shortcode": "[hc_gunluk_tuz_limiti_hesaplama]"
+}
