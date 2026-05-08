@@ -1,0 +1,5 @@
+{
+  "name": "Trendyol Komisyon Hesaplama",
+  "desc": "Trendyol satışlarınız için komisyon, hizmet bedeli ve kargo maliyetlerini hesaplayarak net kazancınızı bulur.",
+  "shortcode": "[hc_trendyol_komisyon_hesaplama]"
+}

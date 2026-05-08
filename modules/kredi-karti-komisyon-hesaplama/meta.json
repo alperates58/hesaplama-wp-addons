@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Kartı Komisyon Hesaplama",
+  "desc": "Kredi kartı taksitli işlemlerinde uygulanan vade farkı ve komisyon oranlarını hesaplar.",
+  "shortcode": "[hc_kredi_karti_komisyon_hesaplama]"
+}

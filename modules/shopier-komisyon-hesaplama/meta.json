@@ -1,0 +1,5 @@
+{
+  "name": "Shopier Komisyon Hesaplama",
+  "desc": "Shopier üzerinden yaptığınız satışlar için komisyon oranları ve sabit ücretleri hesaplar.",
+  "shortcode": "[hc_shopier_komisyon_hesaplama]"
+}
