@@ -1,0 +1,5 @@
+{
+  "name": "Birikim Hedefi Hesaplama",
+  "desc": "Belirlediğiniz bir hedefe (Örn: Ev peşinatı) ulaşmak için her ay ne kadar biriktirmeniz gerektiğini hesaplar.",
+  "shortcode": "[hc_birikim_hedefi_hesaplama]"
+}

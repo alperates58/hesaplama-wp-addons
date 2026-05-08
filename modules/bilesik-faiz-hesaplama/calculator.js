@@ -1,14 +1,15 @@
-function hcBilesikFaizHesapla() {
-    const p = parseFloat(document.getElementById('hc-bf-p').value) || 0;
-    const r = parseFloat(document.getElementById('hc-bf-r').value) / 100;
-    const t = parseFloat(document.getElementById('hc-bf-t').value) || 0;
+function hcCompoundIntHesapla() {
+    const p = parseFloat(document.getElementById('hc-ci-principal').value) || 0;
+    const r = (parseFloat(document.getElementById('hc-ci-rate').value) || 0) / 100;
+    const t = parseFloat(document.getElementById('hc-ci-years').value) || 0;
+    const n = parseInt(document.getElementById('hc-ci-freq').value) || 1;
 
-    // Formula: A = P(1 + r)^t (annual compounding)
-    const total = p * Math.pow((1 + r), t);
-    const interest = total - p;
+    // A = P(1 + r/n)^(nt)
+    const amount = p * Math.pow(1 + (r / n), n * t);
+    const interest = amount - p;
 
-    document.getElementById('hc-bf-res-int').innerText = interest.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-bf-res-total').innerText = total.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-ci-res-interest').innerText = interest.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-ci-res-total').innerText = amount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
 
-    document.getElementById('hc-bilesik-faiz-result').classList.add('visible');
+    document.getElementById('hc-compound-int-result').classList.add('visible');
 }

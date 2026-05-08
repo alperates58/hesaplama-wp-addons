@@ -1,0 +1,17 @@
+#hc-savings-plan .hc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+#hc-savings-plan .hc-table th, 
+#hc-savings-plan .hc-table td {
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: right;
+}
+
+#hc-savings-plan .hc-table th {
+    background: #f8f9fa;
+    text-align: center;
+}

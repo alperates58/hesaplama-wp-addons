@@ -1,14 +1,17 @@
-#hc-compound-int .hc-result-item {
+#hc-budget .hc-result-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
-#hc-compound-int .hc-result-value {
+#hc-budget .hc-result-value {
     font-size: 2.5rem;
-    color: #2c3e50;
     text-align: center;
     margin-top: 20px;
     font-weight: bold;
+}
+
+#hc-budget input {
+    margin-bottom: 8px;
 }

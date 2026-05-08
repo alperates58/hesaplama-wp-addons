@@ -1,0 +1,5 @@
+{
+  "name": "Bütçe Hesaplama",
+  "desc": "Aylık gelir ve giderlerinizi kalem kalem girerek bütçe dengenizi ve tasarruf miktarınızı hesaplar.",
+  "shortcode": "[hc_butce_hesaplama]"
+}

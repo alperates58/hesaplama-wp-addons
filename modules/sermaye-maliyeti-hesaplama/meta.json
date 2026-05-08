@@ -1,0 +1,5 @@
+{
+  "name": "Sermaye Maliyeti Hesaplama",
+  "desc": "Şirketin özsermaye ve borç karmasına göre toplam sermaye maliyetini (WACC) hesaplar.",
+  "shortcode": "[hc_sermaye_maliyeti_hesaplama]"
+}

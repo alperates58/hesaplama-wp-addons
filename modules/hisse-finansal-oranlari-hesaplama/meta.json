@@ -1,0 +1,5 @@
+{
+  "name": "Hisse Finansal Oranları Hesaplama",
+  "desc": "F/K, PD/DD, FD/FAVÖK ve EPS gibi tüm temel hisse senedi rasyolarını tek panelde hesaplar.",
+  "shortcode": "[hc_hisse_finansal_oranlari_hesaplama]"
+}

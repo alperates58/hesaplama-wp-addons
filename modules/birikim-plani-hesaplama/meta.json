@@ -1,0 +1,5 @@
+{
+  "name": "Birikim Planı Hesaplama",
+  "desc": "Aylık tasarruflarınızın zaman içindeki büyümesini detaylı bir tablo (itfa planı benzeri) halinde sunar.",
+  "shortcode": "[hc_birikim_plani_hesaplama]"
+}
