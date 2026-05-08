@@ -1,0 +1,5 @@
+{
+  "name": "Bileşik Faiz Hesaplama",
+  "desc": "Anapara üzerine eklenen faizin de faiz getirisini hesaplayarak uzun vadeli birikim sonuçlarını gösterir.",
+  "shortcode": "[hc_bilesik_faiz_hesaplama]"
+}
