@@ -1,0 +1,5 @@
+{
+  "name": "Askerlik Borçlanması Hesaplama",
+  "desc": "Askerlikte geçen süreleri borçlanarak emeklilik primine eklemek için ödenecek tutarı hesaplar.",
+  "shortcode": "[hc_askerlik_borclanmasi_hesaplama]"
+}

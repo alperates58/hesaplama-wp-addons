@@ -1,0 +1,5 @@
+{
+  "name": "Emekli İkramiyesi Hesaplama",
+  "desc": "Çalışma yılı ve maaş bilgilerine göre emeklilikte alınacak toplam ikramiye veya tazminatı hesaplar.",
+  "shortcode": "[hc_emekli_ikramiyesi_hesaplama]"
+}

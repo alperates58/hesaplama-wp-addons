@@ -1,0 +1,5 @@
+{
+  "name": "Emeklilik Borçlanması Hesaplama",
+  "desc": "Eksik prim günlerini tamamlamak için ödenmesi gereken borçlanma tutarlarını hesaplar.",
+  "shortcode": "[hc_emeklilik_borclanmasi_hesaplama]"
+}

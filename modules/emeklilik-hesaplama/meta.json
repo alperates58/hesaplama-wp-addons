@@ -1,0 +1,5 @@
+{
+  "name": "Emeklilik Hesaplama",
+  "desc": "Sigorta başlangıcı ve prim gün sayısına göre ne zaman emekli olabileceğinizi hesaplar.",
+  "shortcode": "[hc_emeklilik_hesaplama]"
+}
