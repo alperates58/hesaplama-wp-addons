@@ -1,0 +1,5 @@
+{
+  "name": "Tazminat Faizi Hesaplama",
+  "desc": "Yasal veya ticari temerrüt faizi oranları üzerinden tazminatlara işleyecek gecikme faizini hesaplar.",
+  "shortcode": "[hc_tazminat_faizi_hesaplama]"
+}

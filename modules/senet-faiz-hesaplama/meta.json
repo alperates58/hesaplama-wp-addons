@@ -1,0 +1,5 @@
+{
+  "name": "Senet Faizi Hesaplama",
+  "desc": "Ticari senetlerin (bono) vadesine göre reeskont veya akdi faiz tutarlarını hesaplar.",
+  "shortcode": "[hc_senet_faiz_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "MTV Hesaplama",
-  "desc": "2026 yılı Motorlu Taşıtlar Vergisi (MTV) tutarınızı aracınızın yaşı, motor hacmi ve ilk tescil tarihine göre hesaplayın.",
+  "desc": "2026 yılı motorlu taşıtlar vergisi (MTV) tutarlarını araç yaşı, motor hacmi ve tescil tarihine göre hesaplar.",
   "shortcode": "[hc_mtv_hesaplama]"
 }

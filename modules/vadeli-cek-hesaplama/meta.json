@@ -1,0 +1,5 @@
+{
+  "name": "Vadeli Çek Hesaplama",
+  "desc": "İleri tarihli çeklerin vadesine kadar olan faiz yükünü ve vadedeki değerini hesaplar.",
+  "shortcode": "[hc_vadeli_cek_hesaplama]"
+}

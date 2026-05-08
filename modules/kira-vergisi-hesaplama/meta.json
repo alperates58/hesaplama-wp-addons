@@ -1,0 +1,5 @@
+{
+  "name": "Kira Vergisi Hesaplama",
+  "desc": "Konut ve iş yeri kira gelirleri için 2026 yılı istisna ve gider yöntemlerine göre ödenecek vergiyi hesaplar.",
+  "shortcode": "[hc_kira_vergisi_hesaplama]"
+}
