@@ -1,0 +1,5 @@
+{
+  "name": "Baklava Şerbeti Hesaplama",
+  "desc": "Tepsi boyutuna ve baklava türüne göre ideal şeker-su oranını ve toplam şerbet miktarını hesaplar.",
+  "shortcode": "[hc_baklava_serbeti_hesaplama]"
+}

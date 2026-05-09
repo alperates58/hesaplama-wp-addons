@@ -1,0 +1,5 @@
+{
+  "name": "Gramdan Bardağa Çevirme Hesaplama",
+  "desc": "Malzemelerin ağırlığını (gram) mutfaktaki standart su bardağı ölçüsüne çevirir.",
+  "shortcode": "[hc_gramdan_bardaga_cevirme_hesaplama]"
+}

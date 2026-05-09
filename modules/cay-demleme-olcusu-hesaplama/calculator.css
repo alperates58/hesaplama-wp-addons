@@ -1,0 +1,9 @@
+#hc-tea-measure .hc-result-item span:last-child {
+    font-weight: bold;
+    color: #b03a2e;
+}
+#hc-tea-measure .hc-tm-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+}

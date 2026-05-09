@@ -1,0 +1,5 @@
+{
+  "name": "Çikolata Miktarı Hesaplama",
+  "desc": "Kalıp sayısına veya kaplama yapılacak ürün adedine göre gereken çikolata miktarını hesaplar.",
+  "shortcode": "[hc_cikolata_miktari_hesaplama]"
+}

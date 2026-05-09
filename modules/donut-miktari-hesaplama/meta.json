@@ -1,0 +1,5 @@
+{
+  "name": "Donut Miktarı Hesaplama",
+  "desc": "Kişi sayısına ve tüketim tercihine göre gereken donut adedini ve kutu sayısını hesaplar.",
+  "shortcode": "[hc_donut_miktari_hesaplama]"
+}

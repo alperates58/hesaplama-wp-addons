@@ -1,0 +1,5 @@
+{
+  "name": "Fermantasyon Şekeri Miktarı Hesaplama",
+  "desc": "Şişeleme aşamasında (bira, gazoz vb.) istenen gazlılık seviyesine göre eklenmesi gereken şeker miktarını hesaplar.",
+  "shortcode": "[hc_fermantasyon_sekeri_miktari_hesaplama]"
+}

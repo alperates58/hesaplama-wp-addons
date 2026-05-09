@@ -1,0 +1,5 @@
+{
+  "name": "Filtre Kahve Ölçüsü Hesaplama",
+  "desc": "Kişi sayısına ve istenen sertliğe göre ideal filtre kahve ve su miktarını hesaplar.",
+  "shortcode": "[hc_filtre_kahve_olcusu_hesaplama]"
+}

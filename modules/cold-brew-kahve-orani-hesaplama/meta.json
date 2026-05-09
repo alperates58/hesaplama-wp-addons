@@ -1,0 +1,5 @@
+{
+  "name": "Cold Brew Kahve Oranı Hesaplama",
+  "desc": "Soğuk demleme (Cold Brew) kahve için ideal kahve-su oranını ve demleme süresini hesaplar.",
+  "shortcode": "[hc_cold_brew_kahve_orani_hesaplama]"
+}

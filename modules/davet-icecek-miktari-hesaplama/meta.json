@@ -1,0 +1,5 @@
+{
+  "name": "Davet İçecek Miktarı Hesaplama",
+  "desc": "Ev davetleri veya küçük organizasyonlar için kişi sayısına göre içecek ihtiyaçlarını hesaplar.",
+  "shortcode": "[hc_davet_icecek_miktari_hesaplama]"
+}

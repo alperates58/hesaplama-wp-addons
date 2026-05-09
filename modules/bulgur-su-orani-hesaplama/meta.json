@@ -1,0 +1,5 @@
+{
+  "name": "Bulgur Su Oranı Hesaplama",
+  "desc": "Bulgur türüne göre (pilavlık, köftelik) gereken su miktarını ve pişme süresini hesaplar.",
+  "shortcode": "[hc_bulgur_su_orani_hesaplama]"
+}

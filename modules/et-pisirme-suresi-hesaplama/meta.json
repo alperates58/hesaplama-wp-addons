@@ -1,0 +1,5 @@
+{
+  "name": "Et Pişirme Süresi Hesaplama",
+  "desc": "Et kalınlığına ve istenen pişme derecesine göre tavada mühürleme ve pişirme sürelerini hesaplar.",
+  "shortcode": "[hc_et_pisirme_suresi_hesaplama]"
+}

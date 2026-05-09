@@ -1,0 +1,5 @@
+{
+  "name": "Ekşi Maya Besleme Oranı Hesaplama",
+  "desc": "Mevcut mayanıza göre eklemeniz gereken un ve su miktarını (besleme oranını) hesaplar.",
+  "shortcode": "[hc_eksi_maya_besleme_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Börek Porsiyon Hesaplama",
+  "desc": "Tepsi boyutuna ve börek türüne göre ideal porsiyon ve dilim sayısını hesaplar.",
+  "shortcode": "[hc_borek_porsiyon_hesaplama]"
+}

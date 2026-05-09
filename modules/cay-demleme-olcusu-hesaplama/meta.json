@@ -1,0 +1,5 @@
+{
+  "name": "Çay Demleme Ölçüsü Hesaplama",
+  "desc": "Kişi sayısına göre ideal Türk çayı demleme ölçülerini (çay ve su) hesaplar.",
+  "shortcode": "[hc_cay_demleme_olcusu_hesaplama]"
+}

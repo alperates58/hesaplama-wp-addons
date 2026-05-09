@@ -1,0 +1,5 @@
+{
+  "name": "Dondurma Miktarı Hesaplama",
+  "desc": "Kişi sayısına ve porsiyon tercihine göre gereken dondurma miktarını hesaplar.",
+  "shortcode": "[hc_dondurma_miktari_hesaplama]"
+}

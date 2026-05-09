@@ -1,0 +1,5 @@
+{
+  "name": "Fırın Sıcaklığı Dönüşümü Hesaplama",
+  "desc": "Celsius, Fahrenheit ve Gaz İşareti (Gas Mark) değerleri arasında mutfak dönüşümü yapar.",
+  "shortcode": "[hc_firin_sicakligi_donusumu_hesaplama]"
+}

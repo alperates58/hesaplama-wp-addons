@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlığa Göre Pişirme Süresi Hesaplama",
+  "desc": "Et türü ve ağırlığına göre fırında ideal pişirme süresini hesaplar.",
+  "shortcode": "[hc_agirliga_gore_pisirme_suresi_hesaplama]"
+}

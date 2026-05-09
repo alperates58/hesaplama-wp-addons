@@ -1,0 +1,11 @@
+#hc-cook-time .hc-result-value {
+    color: #c0392b;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-cook-time .hc-ct-info {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    text-align: center;
+}

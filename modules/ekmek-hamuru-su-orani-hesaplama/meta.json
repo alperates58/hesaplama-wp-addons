@@ -1,0 +1,5 @@
+{
+  "name": "Ekmek Hamuru Su Oranı Hesaplama",
+  "desc": "Un miktarına ve istenen hidrasyon oranına göre gereken su miktarını hesaplar.",
+  "shortcode": "[hc_ekmek_hamuru_su_orani_hesaplama]"
+}

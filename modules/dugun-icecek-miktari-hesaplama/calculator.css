@@ -1,0 +1,22 @@
+#hc-wedding-drink .hc-wd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+#hc-wedding-drink .hc-wd-item {
+    background: #fdf2f8;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #fbcfe8;
+}
+#hc-wedding-drink .hc-wd-item span {
+    display: block;
+    font-size: 12px;
+    color: #9d174d;
+}
+#hc-wedding-drink .hc-wd-item b {
+    font-size: 18px;
+    color: #be185d;
+}

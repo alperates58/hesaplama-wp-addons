@@ -1,0 +1,5 @@
+{
+  "name": "Gıda Fire Oranı Hesaplama",
+  "desc": "Gıdanın brüt ağırlığı ile işlendikten (ayıklama, temizleme) sonraki net ağırlığı arasındaki fire oranını hesaplar.",
+  "shortcode": "[hc_gida_fire_orani_hesaplama]"
+}

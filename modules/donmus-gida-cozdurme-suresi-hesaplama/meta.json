@@ -1,0 +1,5 @@
+{
+  "name": "Donmuş Gıda Çözdürme Süresi Hesaplama",
+  "desc": "Gıda türüne ve çözdürme yöntemine (buzdolabı, su) göre gereken süreyi hesaplar.",
+  "shortcode": "[hc_donmus_gida_cozdurme_suresi_hesaplama]"
+}

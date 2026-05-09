@@ -1,0 +1,5 @@
+{
+  "name": "Espresso Oranı Hesaplama",
+  "desc": "Kahve çekirdeği ağırlığına göre ideal Espresso, Ristretto veya Lungo çıkış miktarını hesaplar.",
+  "shortcode": "[hc_espresso_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Düğün İçecek Miktarı Hesaplama",
+  "desc": "Düğün organizasyonları için kişi sayısı ve alkol tercihine göre içecek miktarını hesaplar.",
+  "shortcode": "[hc_dugun_icecek_miktari_hesaplama]"
+}

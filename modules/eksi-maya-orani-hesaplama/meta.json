@@ -1,0 +1,5 @@
+{
+  "name": "Ekşi Maya Oranı Hesaplama",
+  "desc": "Tarifinizdeki toplam un miktarına göre kullanmanız gereken ekşi maya miktarını hesaplar.",
+  "shortcode": "[hc_eksi_maya_orani_hesaplama]"
+}

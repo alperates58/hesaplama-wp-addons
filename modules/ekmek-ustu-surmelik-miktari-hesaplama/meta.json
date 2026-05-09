@@ -1,0 +1,5 @@
+{
+  "name": "Ekmek Üstü Sürmelik Miktarı Hesaplama",
+  "desc": "Kişi sayısına ve ekmek dilimi başına düşen ortalama miktara göre sürmelik (peynir, reçel vb.) ihtiyacını hesaplar.",
+  "shortcode": "[hc_ekmek_ustu_surmelik_miktari_hesaplama]"
+}

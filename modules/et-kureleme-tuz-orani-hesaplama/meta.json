@@ -1,0 +1,5 @@
+{
+  "name": "Et Kürleme Tuz Oranı Hesaplama",
+  "desc": "Etin ağırlığına göre denge kürlemesi (equilibrium curing) için gereken tuz ve nitrit miktarlarını hesaplar.",
+  "shortcode": "[hc_et_kureleme_tuz_orani_hesaplama]"
+}

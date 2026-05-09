@@ -1,0 +1,22 @@
+#hc-oven-temp .hc-ot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+#hc-oven-temp .hc-ot-item {
+    background: #fff5f0;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ffccbc;
+}
+#hc-oven-temp .hc-ot-item span {
+    display: block;
+    font-size: 11px;
+    color: #e64a19;
+}
+#hc-oven-temp .hc-ot-item b {
+    font-size: 16px;
+    color: #bf360c;
+}

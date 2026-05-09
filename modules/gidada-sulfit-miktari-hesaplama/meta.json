@@ -1,0 +1,5 @@
+{
+  "name": "Gıdada Sülfit Miktarı Hesaplama",
+  "desc": "Şarap veya kurutulmuş gıdalardaki serbest sülfit (SO2) miktarını yasal limitlere göre kontrol eder.",
+  "shortcode": "[hc_gidada_sulfit_miktari_hesaplama]"
+}

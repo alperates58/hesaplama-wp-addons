@@ -1,0 +1,5 @@
+{
+  "name": "Fırıncı Yüzdesi Hesaplama",
+  "desc": "Un miktarını %100 kabul ederek, diğer bileşenlerin (su, tuz, maya) profesyonel mutfak oranlarını hesaplar.",
+  "shortcode": "[hc_firinci_yuzdesi_hesaplama]"
+}

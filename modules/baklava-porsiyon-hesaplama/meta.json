@@ -1,0 +1,5 @@
+{
+  "name": "Baklava Porsiyon Hesaplama",
+  "desc": "Tepsi boyutuna göre tahmini baklava dilim sayısını ve porsiyon adedini hesaplar.",
+  "shortcode": "[hc_baklava_porsiyon_hesaplama]"
+}
