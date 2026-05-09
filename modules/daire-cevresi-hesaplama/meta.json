@@ -1,0 +1,5 @@
+{
+  "name": "Daire Çevresi Hesaplama",
+  "desc": "Yarıçap veya çaptan dairenin çevresini (C = 2πr) hesaplar.",
+  "shortcode": "[hc_daire_cevresi_hesaplama]"
+}

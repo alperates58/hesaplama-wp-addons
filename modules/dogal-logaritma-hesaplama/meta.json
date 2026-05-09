@@ -1,0 +1,5 @@
+{
+  "name": "Doğal Logaritma Hesaplama",
+  "desc": "Bir sayının e tabanındaki doğal logaritmasını (ln x) hesaplar.",
+  "shortcode": "[hc_dogal_logaritma_hesaplama]"
+}

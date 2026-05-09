@@ -1,0 +1,5 @@
+{
+  "name": "Diskriminant Hesaplama",
+  "desc": "İkinci dereceden denklemin diskriminantını (Δ = b² − 4ac) hesaplar ve kök sayısını belirler.",
+  "shortcode": "[hc_diskriminant_hesaplama]"
+}

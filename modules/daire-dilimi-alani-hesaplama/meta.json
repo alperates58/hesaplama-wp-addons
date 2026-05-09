@@ -1,0 +1,5 @@
+{
+  "name": "Daire Dilimi Alanı Hesaplama",
+  "desc": "Yarıçap ve merkez açısı verilen daire diliminin alanını ve yay uzunluğunu hesaplar.",
+  "shortcode": "[hc_daire_dilimi_alani_hesaplama]"
+}

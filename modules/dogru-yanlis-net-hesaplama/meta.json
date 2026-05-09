@@ -1,0 +1,5 @@
+{
+  "name": "Doğru Yanlış Net Hesaplama",
+  "desc": "Sınav türüne göre doğru ve yanlış sayısından net puanı hesaplar.",
+  "shortcode": "[hc_dogru_yanlis_net_hesaplama]"
+}

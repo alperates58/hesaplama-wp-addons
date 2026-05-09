@@ -1,0 +1,5 @@
+{
+  "name": "Dizi Hesaplama",
+  "desc": "Aritmetik ve geometrik dizilerde n. terimi, toplamı ve ortak fark/oranı hesaplar.",
+  "shortcode": "[hc_dizi_hesaplama]"
+}

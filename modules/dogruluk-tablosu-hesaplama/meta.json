@@ -1,0 +1,5 @@
+{
+  "name": "Doğruluk Tablosu Hesaplama",
+  "desc": "AND, OR, XOR, NOT, NAND, NOR mantık işlemleri için doğruluk tablosu oluşturur.",
+  "shortcode": "[hc_dogruluk_tablosu_hesaplama]"
+}

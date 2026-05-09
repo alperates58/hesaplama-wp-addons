@@ -1,0 +1,5 @@
+{
+  "name": "Daire Çapı Hesaplama",
+  "desc": "Yarıçap, çevre veya alandan dairenin çapını hesaplar.",
+  "shortcode": "[hc_daire_capi_hesaplama]"
+}

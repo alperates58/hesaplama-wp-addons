@@ -1,0 +1,5 @@
+{
+  "name": "Birim Oran Hesaplama",
+  "desc": "İki büyüklük arasındaki oranı birim başına değere indirger ve karşılaştırma yapar.",
+  "shortcode": "[hc_birim_oran_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Determinant Hesaplama",
+  "desc": "2×2 ve 3×3 matrislerin determinantını hesaplar.",
+  "shortcode": "[hc_determinant_hesaplama]"
+}

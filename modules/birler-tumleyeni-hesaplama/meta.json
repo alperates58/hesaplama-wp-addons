@@ -1,0 +1,5 @@
+{
+  "name": "Birler Tümleyeni Hesaplama",
+  "desc": "Bir ikili sayının birler tümleyenini (tüm bitlerin tersini) hesaplar.",
+  "shortcode": "[hc_birler_tumleyeni_hesaplama]"
+}

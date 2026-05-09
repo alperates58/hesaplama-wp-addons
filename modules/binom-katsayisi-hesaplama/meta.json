@@ -1,0 +1,5 @@
+{
+  "name": "Binom Katsayısı Hesaplama",
+  "desc": "n elemanlı kümeden k eleman seçmenin kaç farklı yolu olduğunu hesaplar (C(n,k) = n! / k!(n-k)!).",
+  "shortcode": "[hc_binom_katsayisi_hesaplama]"
+}

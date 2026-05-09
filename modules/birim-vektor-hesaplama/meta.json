@@ -1,0 +1,5 @@
+{
+  "name": "Birim Vektör Hesaplama",
+  "desc": "Verilen vektörün birim vektörünü (büyüklüğü 1 olan yön vektörünü) hesaplar.",
+  "shortcode": "[hc_birim_vektor_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bölenleri Bulma Hesaplama",
+  "desc": "Girilen sayının tüm bölenlerini (tam bölücülerini) bulur ve listeler.",
+  "shortcode": "[hc_bolenleri_bulma_hesaplama]"
+}

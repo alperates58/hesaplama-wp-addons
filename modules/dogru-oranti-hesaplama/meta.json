@@ -1,0 +1,5 @@
+{
+  "name": "Doğru Orantı Hesaplama",
+  "desc": "Doğru orantı ilişkisinde bilinmeyen terimi hesaplar (a/b = c/x).",
+  "shortcode": "[hc_dogru_oranti_hesaplama]"
+}

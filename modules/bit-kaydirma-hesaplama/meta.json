@@ -1,0 +1,5 @@
+{
+  "name": "Bit Kaydırma Hesaplama",
+  "desc": "Bir tam sayının bitlerini sola veya sağa kaydırır ve sonucu onluk/ikili sistemde gösterir.",
+  "shortcode": "[hc_bit_kaydirma_hesaplama]"
+}

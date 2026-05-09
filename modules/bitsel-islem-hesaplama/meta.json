@@ -1,0 +1,5 @@
+{
+  "name": "Bitsel İşlem Hesaplama",
+  "desc": "İki sayı üzerinde AND, OR, XOR, NOT bitsel işlemlerini uygular ve sonucu ikili/onluk gösterir.",
+  "shortcode": "[hc_bitsel_islem_hesaplama]"
+}

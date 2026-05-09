@@ -1,0 +1,5 @@
+{
+  "name": "Daire Alanı Hesaplama",
+  "desc": "Yarıçap veya çap girilerek dairenin alanını (A = π × r²) hesaplar.",
+  "shortcode": "[hc_daire_alani_hesaplama]"
+}

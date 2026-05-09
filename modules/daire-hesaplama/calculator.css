@@ -1,0 +1,2 @@
+.hc-daire-hesaplama- input { max-width:200px; }
+@media (max-width:480px) { .hc-daire-hesaplama- input { max-width:100%; } }

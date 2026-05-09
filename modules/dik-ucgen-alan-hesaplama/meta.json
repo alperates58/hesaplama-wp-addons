@@ -1,0 +1,5 @@
+{
+  "name": "Dik Üçgen Alan Hesaplama",
+  "desc": "Dik üçgenin iki dik kenarından alan ve hipotenüsü hesaplar (Pisagor teoremi dahil).",
+  "shortcode": "[hc_dik_ucgen_alan_hesaplama]"
+}

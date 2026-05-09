@@ -1,0 +1,5 @@
+{
+  "name": "Bilimsel Gösterim Hesaplama",
+  "desc": "Sayıları bilimsel gösterim (a × 10^n) formatına çevirir ve tersine dönüştürür.",
+  "shortcode": "[hc_bilimsel_gosterim_hesaplama]"
+}

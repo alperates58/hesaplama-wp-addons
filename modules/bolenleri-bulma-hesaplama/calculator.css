@@ -1,0 +1,2 @@
+.hc-bolenleri-bulma-hesaplama- p { word-break: break-word; }
+@media (max-width: 480px) { .hc-bolenleri-bulma-hesaplama- input { width: 100%; } }

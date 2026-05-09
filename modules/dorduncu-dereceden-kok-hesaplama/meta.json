@@ -1,0 +1,5 @@
+{
+  "name": "Dördüncü Dereceden Kök Hesaplama",
+  "desc": "Bir sayının dördüncü dereceden kökünü (⁴√x = x^0.25) hesaplar.",
+  "shortcode": "[hc_dorduncu_dereceden_kok_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çarpma Hesaplama",
+  "desc": "İki veya daha fazla sayıyı çarpar; büyük sayılar için de doğru sonuç gösterir.",
+  "shortcode": "[hc_carpma_hesaplama]"
+}

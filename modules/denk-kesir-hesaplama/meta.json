@@ -1,0 +1,5 @@
+{
+  "name": "Denk Kesir Hesaplama",
+  "desc": "Verilen kesre denk kesirler üretir ve sadeleştirilmiş biçimini gösterir.",
+  "shortcode": "[hc_denk_kesir_hesaplama]"
+}

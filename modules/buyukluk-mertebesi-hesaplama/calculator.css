@@ -1,0 +1,2 @@
+.hc-buyukluk-mertebesi-hesaplama- input { max-width:250px; }
+@media (max-width:480px) { .hc-buyukluk-mertebesi-hesaplama- input { max-width:100%; } }

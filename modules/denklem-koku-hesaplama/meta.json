@@ -1,0 +1,5 @@
+{
+  "name": "Denklem Kökü Hesaplama",
+  "desc": "İkinci dereceden ax² + bx + c = 0 denkleminin köklerini diskriminant yöntemiyle hesaplar.",
+  "shortcode": "[hc_denklem_koku_hesaplama]"
+}

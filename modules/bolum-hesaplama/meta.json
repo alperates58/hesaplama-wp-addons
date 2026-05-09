@@ -1,0 +1,5 @@
+{
+  "name": "Bölüm Hesaplama",
+  "desc": "Bölme işleminin tam bölümünü ve kalanını (Öklid bölümü) hesaplar.",
+  "shortcode": "[hc_bolum_hesaplama]"
+}

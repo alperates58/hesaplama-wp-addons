@@ -1,0 +1,5 @@
+{
+  "name": "Çevre Uzunluğu Hesaplama",
+  "desc": "Kare, dikdörtgen, üçgen, çember ve düzgün çokgen için çevre uzunluğunu hesaplar.",
+  "shortcode": "[hc_cevre_uzunlugu_hesaplama]"
+}

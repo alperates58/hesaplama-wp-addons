@@ -1,0 +1,5 @@
+{
+  "name": "Devamsızlık Yüzdesi Hesaplama",
+  "desc": "Toplam ders saati ve devamsız olunan ders saatinden devamsızlık yüzdesini hesaplar.",
+  "shortcode": "[hc_devamsizlik_yuzdesi_hesaplama]"
+}

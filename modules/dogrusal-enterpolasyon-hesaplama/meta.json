@@ -1,0 +1,5 @@
+{
+  "name": "Doğrusal Enterpolasyon Hesaplama",
+  "desc": "İki bilinen nokta arasında doğrusal enterpolasyon ile bilinmeyen değeri hesaplar.",
+  "shortcode": "[hc_dogrusal_enterpolasyon_hesaplama]"
+}

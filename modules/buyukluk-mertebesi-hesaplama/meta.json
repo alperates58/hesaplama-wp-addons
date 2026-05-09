@@ -1,0 +1,5 @@
+{
+  "name": "Büyüklük Mertebesi Hesaplama",
+  "desc": "Bir sayının büyüklük mertebesini (order of magnitude) hesaplar ve 10'un kuvvetleri ile ifade eder.",
+  "shortcode": "[hc_buyukluk_mertebesi_hesaplama]"
+}

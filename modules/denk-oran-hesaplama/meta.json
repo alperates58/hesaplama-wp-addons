@@ -1,0 +1,5 @@
+{
+  "name": "Denk Oran Hesaplama",
+  "desc": "İki oran arasındaki denkliği kontrol eder ve orantının eksik terimini bulur.",
+  "shortcode": "[hc_denk_oran_hesaplama]"
+}

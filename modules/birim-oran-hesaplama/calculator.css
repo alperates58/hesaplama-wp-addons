@@ -1,0 +1,2 @@
+.hc-birim-oran-hesaplama- input[type="text"] { max-width: 150px; }
+@media (max-width: 480px) { .hc-birim-oran-hesaplama- input { width: 100%; max-width: 100%; } }

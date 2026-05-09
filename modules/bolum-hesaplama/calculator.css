@@ -1,0 +1,2 @@
+.hc-bolum-hesaplama- input { max-width: 200px; }
+@media (max-width: 480px) { .hc-bolum-hesaplama- input { max-width: 100%; } }

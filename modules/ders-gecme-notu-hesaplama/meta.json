@@ -1,0 +1,5 @@
+{
+  "name": "Ders Geçme Notu Hesaplama",
+  "desc": "Vize ve final notundan hareketle ders geçme durumunu hem lise hem üniversite kurallarına göre hesaplar.",
+  "shortcode": "[hc_ders_gecme_notu_hesaplama]"
+}

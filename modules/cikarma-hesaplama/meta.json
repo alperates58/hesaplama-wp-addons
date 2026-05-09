@@ -1,0 +1,5 @@
+{
+  "name": "Çıkarma Hesaplama",
+  "desc": "İki sayı arasındaki farkı hesaplar ve sonucu detaylı olarak gösterir.",
+  "shortcode": "[hc_cikarma_hesaplama]"
+}

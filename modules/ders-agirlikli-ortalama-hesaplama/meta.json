@@ -1,0 +1,5 @@
+{
+  "name": "Ders Ağırlıklı Ortalama Hesaplama",
+  "desc": "Her dersin notu ve kredi/ağırlığı girilerek ağırlıklı not ortalamasını (GPA) hesaplar.",
+  "shortcode": "[hc_ders_agirlikli_ortalama_hesaplama]"
+}

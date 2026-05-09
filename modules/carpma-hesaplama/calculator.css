@@ -1,0 +1,2 @@
+.hc-carpma-hesaplama- input { max-width:200px; }
+@media (max-width:480px) { .hc-carpma-hesaplama- input { max-width:100%; } }

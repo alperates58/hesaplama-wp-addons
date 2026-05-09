@@ -1,0 +1,5 @@
+{
+  "name": "Dikdörtgen Çevre Hesaplama",
+  "desc": "Dikdörtgenin en ve boyundan çevresini (C = 2 × (en + boy)) hesaplar.",
+  "shortcode": "[hc_dikdortgen_cevre_hesaplama]"
+}

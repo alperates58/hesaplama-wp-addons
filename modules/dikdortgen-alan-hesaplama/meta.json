@@ -1,0 +1,5 @@
+{
+  "name": "Dikdörtgen Alan Hesaplama",
+  "desc": "Dikdörtgenin en ve boyundan alanını (A = en × boy) hesaplar.",
+  "shortcode": "[hc_dikdortgen_alan_hesaplama]"
+}

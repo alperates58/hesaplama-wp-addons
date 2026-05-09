@@ -1,0 +1,6 @@
+.hc-bkr-tablo { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.hc-bkr-tablo th, .hc-bkr-tablo td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.hc-bkr-tablo th { background: #f0f0f0; }
+.hc-bkr-evet td { background: #e8f5e9; }
+.hc-bkr-hayir td { background: #ffeaea; }
+@media (max-width: 480px) { .hc-bkr-tablo { font-size: 12px; } }

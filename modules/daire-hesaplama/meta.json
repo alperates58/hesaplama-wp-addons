@@ -1,0 +1,5 @@
+{
+  "name": "Daire Hesaplama",
+  "desc": "Dairenin yarıçap, çap, çevre ve alanını; birini girerek diğerlerini otomatik hesaplar.",
+  "shortcode": "[hc_daire_hesaplama]"
+}

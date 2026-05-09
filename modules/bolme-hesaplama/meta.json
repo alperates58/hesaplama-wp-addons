@@ -1,0 +1,5 @@
+{
+  "name": "Bölme Hesaplama",
+  "desc": "İki sayıyı böler; tam bölüm, kalan ve ondalıklı sonucu gösterir.",
+  "shortcode": "[hc_bolme_hesaplama]"
+}

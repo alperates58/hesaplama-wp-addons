@@ -1,0 +1,5 @@
+{
+  "name": "Çarpanları Bulma Hesaplama",
+  "desc": "Bir sayının tüm çarpanlarını (asal çarpan ayrıştırmasını) bulur ve listeler.",
+  "shortcode": "[hc_carpanlari_bulma_hesaplama]"
+}
