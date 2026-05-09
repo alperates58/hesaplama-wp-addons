@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlıklı Ortalama Hesaplama",
+  "desc": "Belirli değerlerin kendi ağırlıklarıyla çarpılıp toplam ağırlığa bölünmesiyle elde edilen ortalamayı hesaplar.",
+  "shortcode": "[hc_agirlikli_ortalama_hesaplama]"
+}

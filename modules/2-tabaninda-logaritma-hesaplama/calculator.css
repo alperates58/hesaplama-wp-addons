@@ -1,0 +1,15 @@
+#hc-log2 .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-log2 .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-log2 .hc-result-value.highlight {
+    color: #8e44ad;
+    font-size: 1.2em;
+}

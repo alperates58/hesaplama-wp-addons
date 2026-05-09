@@ -1,0 +1,5 @@
+{
+  "name": "Anket Yüzdesi Hesaplama",
+  "desc": "Anket sonuçlarındaki katılımcı sayılarına göre yüzdelik dağılımı ve güven aralığını hesaplar.",
+  "shortcode": "[hc_anket_yuzdesi_hesaplama]"
+}

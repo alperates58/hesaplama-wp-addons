@@ -1,0 +1,49 @@
+#hc-w-avg .hc-wa-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+#hc-w-avg .hc-wa-row input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#hc-w-avg .hc-wa-remove {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#hc-w-avg .hc-btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#hc-w-avg .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-w-avg .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-w-avg .hc-result-value.highlight {
+    color: #3498db;
+    font-size: 1.3em;
+}

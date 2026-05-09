@@ -1,0 +1,5 @@
+{
+  "name": "Alt Küme Sayısı Hesaplama",
+  "desc": "Bir kümenin eleman sayısına göre toplam alt küme ve öz alt küme sayılarını hesaplar.",
+  "shortcode": "[hc_alt_kume_sayisi_hesaplama]"
+}

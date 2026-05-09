@@ -1,0 +1,5 @@
+{
+  "name": "Anlamlı Rakam Hesaplama",
+  "desc": "Bir sayıdaki anlamlı rakamların sayısını ve hangi rakamların anlamlı olduğunu belirler.",
+  "shortcode": "[hc_anlamli_rakam_hesaplama]"
+}

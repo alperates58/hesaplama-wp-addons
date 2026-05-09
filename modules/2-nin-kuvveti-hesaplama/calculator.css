@@ -1,0 +1,15 @@
+#hc-pow-2 .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-pow-2 .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-pow-2 .hc-result-value.highlight {
+    color: #27ae60;
+    font-size: 1.2em;
+}

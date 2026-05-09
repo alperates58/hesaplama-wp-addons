@@ -1,66 +1,81 @@
-function hcUpdateAreaFields() {
+function hcAlanSecimDegisti() {
     const shape = document.getElementById('hc-area-shape').value;
-    const container = document.getElementById('hc-area-fields');
-    let html = '';
+    const groupA = document.getElementById('group-a');
+    const groupB = document.getElementById('group-b');
+    const groupH = document.getElementById('group-h');
+    const labelA = document.getElementById('label-a');
+    const labelB = document.getElementById('label-b');
+    const labelH = document.getElementById('label-h');
+    const formula = document.getElementById('hc-area-formula');
 
-    if (shape === 'kare') {
-        html = `
-            <div class="hc-form-grid">
-                <div class="hc-form-group"><label>Kenar 1</label><input type="number" id="hc-a-k1"></div>
-                <div class="hc-form-group"><label>Kenar 2</label><input type="number" id="hc-a-k2"></div>
-            </div>`;
-    } else if (shape === 'daire') {
-        html = `<div class="hc-form-group"><label>Yarıçap (r)</label><input type="number" id="hc-a-r"></div>`;
-    } else if (shape === 'ucgen') {
-        html = `
-            <div class="hc-form-grid">
-                <div class="hc-form-group"><label>Taban</label><input type="number" id="hc-a-b"></div>
-                <div class="hc-form-group"><label>Yükseklik</label><input type="number" id="hc-a-h"></div>
-            </div>`;
-    } else if (shape === 'yamuk') {
-        html = `
-            <div class="hc-form-grid">
-                <div class="hc-form-group"><label>Üst Taban (a)</label><input type="number" id="hc-a-base1"></div>
-                <div class="hc-form-group"><label>Alt Taban (b)</label><input type="number" id="hc-a-base2"></div>
-                <div class="hc-form-group" style="grid-column: span 2;"><label>Yükseklik (h)</label><input type="number" id="hc-a-h-yamuk"></div>
-            </div>`;
+    // Reset visibility
+    groupA.classList.remove('hc-hidden');
+    groupB.classList.add('hc-hidden');
+    groupH.classList.add('hc-hidden');
+
+    switch (shape) {
+        case 'kare':
+            labelA.innerText = 'Kenar (a)';
+            formula.innerText = '* Formül: a²';
+            break;
+        case 'dikdortgen':
+            labelA.innerText = 'Uzun Kenar (a)';
+            labelB.innerText = 'Kısa Kenar (b)';
+            groupB.classList.remove('hc-hidden');
+            formula.innerText = '* Formül: a * b';
+            break;
+        case 'daire':
+            labelA.innerText = 'Yarıçap (r)';
+            formula.innerText = '* Formül: π * r²';
+            break;
+        case 'ucgen':
+            labelA.innerText = 'Taban (b)';
+            labelH.innerText = 'Yükseklik (h)';
+            groupH.classList.remove('hc-hidden');
+            formula.innerText = '* Formül: (b * h) / 2';
+            break;
+        case 'yamuk':
+            labelA.innerText = 'Alt Taban (a)';
+            labelB.innerText = 'Üst Taban (b)';
+            labelH.innerText = 'Yükseklik (h)';
+            groupB.classList.remove('hc-hidden');
+            groupH.classList.remove('hc-hidden');
+            formula.innerText = '* Formül: ((a + b) / 2) * h';
+            break;
     }
-
-    container.innerHTML = html;
-    document.getElementById('hc-area-result').classList.remove('visible');
 }
 
 function hcAlanHesapla() {
     const shape = document.getElementById('hc-area-shape').value;
+    const a = parseFloat(document.getElementById('hc-area-a').value);
+    const b = parseFloat(document.getElementById('hc-area-b').value);
+    const h = parseFloat(document.getElementById('hc-area-h').value);
+
     let area = 0;
 
-    try {
-        if (shape === 'kare') {
-            const k1 = parseFloat(document.getElementById('hc-a-k1').value);
-            const k2 = parseFloat(document.getElementById('hc-a-k2').value);
-            area = k1 * k2;
-        } else if (shape === 'daire') {
-            const r = parseFloat(document.getElementById('hc-a-r').value);
-            area = Math.PI * r * r;
-        } else if (shape === 'ucgen') {
-            const b = parseFloat(document.getElementById('hc-a-b').value);
-            const h = parseFloat(document.getElementById('hc-a-h').value);
-            area = (b * h) / 2;
-        } else if (shape === 'yamuk') {
-            const a = parseFloat(document.getElementById('hc-a-base1').value);
-            const b = parseFloat(document.getElementById('hc-a-base2').value);
-            const h = parseFloat(document.getElementById('hc-a-h-yamuk').value);
-            area = ((a + b) * h) / 2;
-        }
-
-        if (isNaN(area)) throw "Hata";
-
-        document.getElementById('hc-res-area-val').innerText = area.toLocaleString('tr-TR', { maximumFractionDigits: 4 });
-        document.getElementById('hc-area-result').classList.add('visible');
-    } catch (e) {
-        alert('Lütfen tüm alanları doğru doldurun.');
+    switch (shape) {
+        case 'kare':
+            if (isNaN(a)) { alert('Lütfen kenar uzunluğunu girin.'); return; }
+            area = a * a;
+            break;
+        case 'dikdortgen':
+            if (isNaN(a) || isNaN(b)) { alert('Lütfen her iki kenarı da girin.'); return; }
+            area = a * b;
+            break;
+        case 'daire':
+            if (isNaN(a)) { alert('Lütfen yarıçapı girin.'); return; }
+            area = Math.PI * a * a;
+            break;
+        case 'ucgen':
+            if (isNaN(a) || isNaN(h)) { alert('Lütfen taban ve yüksekliği girin.'); return; }
+            area = (a * h) / 2;
+            break;
+        case 'yamuk':
+            if (isNaN(a) || isNaN(b) || isNaN(h)) { alert('Lütfen tüm değerleri girin.'); return; }
+            area = ((a + b) / 2) * h;
+            break;
     }
-}
 
-document.addEventListener('DOMContentLoaded', hcUpdateAreaFields);
-if (document.readyState !== 'loading') hcUpdateAreaFields();
+    document.getElementById('hc-res-area-val').innerText = area.toLocaleString('tr-TR', { maximumFractionDigits: 4 }) + ' birim²';
+    document.getElementById('hc-area-result').classList.add('visible');
+}

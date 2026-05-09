@@ -1,37 +1,42 @@
-function hcAoAddRow() {
-    const container = document.getElementById('hc-ao-items');
+function hcGpaSatirEkle() {
+    const container = document.getElementById('hc-gpa-rows');
     const row = document.createElement('div');
-    row.className = 'hc-form-group hc-ao-row';
-    row.style.display = 'flex';
-    row.style.gap = '10px';
-    row.style.marginBottom = '10px';
+    row.className = 'hc-gpa-row';
     row.innerHTML = `
-        <input type="number" step="0.01" class="hc-ao-value" placeholder="Puan/Not" style="flex: 1;">
-        <input type="number" step="0.01" class="hc-ao-weight" placeholder="Ağırlık (Kredi/Saat)" style="flex: 1;">
+        <input type="text" placeholder="Ders Adı" class="hc-gpa-name">
+        <input type="number" placeholder="Not" class="hc-gpa-grade" step="0.01">
+        <input type="number" placeholder="Kredi" class="hc-gpa-credit" step="0.1">
+        <button onclick="this.parentElement.remove()" class="hc-gpa-remove">×</button>
     `;
     container.appendChild(row);
 }
 
-function hcAoHesapla() {
-    const rows = document.querySelectorAll('.hc-ao-row');
-    let totalPoints = 0;
-    let totalWeight = 0;
+function hcGpaHesapla() {
+    const grades = document.querySelectorAll('.hc-gpa-grade');
+    const credits = document.querySelectorAll('.hc-gpa-credit');
 
-    rows.forEach(row => {
-        const val = parseFloat(row.querySelector('.hc-ao-value').value);
-        const weight = parseFloat(row.querySelector('.hc-ao-weight').value);
-        if (!isNaN(val) && !isNaN(weight)) {
-            totalPoints += val * weight;
-            totalWeight += weight;
+    let totalWeightedGrade = 0;
+    let totalCredits = 0;
+
+    for (let i = 0; i < grades.length; i++) {
+        const g = parseFloat(grades[i].value);
+        const c = parseFloat(credits[i].value);
+
+        if (!isNaN(g) && !isNaN(c)) {
+            totalWeightedGrade += g * c;
+            totalCredits += c;
         }
-    });
+    }
 
-    if (totalWeight === 0) {
-        alert('Lütfen geçerli değerler girin.');
+    if (totalCredits === 0) {
+        alert('Lütfen en az bir dersin notunu ve kredisini girin.');
         return;
     }
 
-    const result = (totalPoints / totalWeight).toFixed(2);
-    document.getElementById('hc-ao-val').innerText = result;
-    document.getElementById('hc-ao-result').classList.add('visible');
+    const gpa = totalWeightedGrade / totalCredits;
+
+    document.getElementById('hc-res-gpa-val').innerText = gpa.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('hc-res-gpa-credits').innerText = totalCredits.toLocaleString('tr-TR');
+
+    document.getElementById('hc-gpa-result').classList.add('visible');
 }

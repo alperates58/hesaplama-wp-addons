@@ -1,0 +1,5 @@
+{
+  "name": "AND Mantık İşlemi Hesaplama",
+  "desc": "İki sayı veya mantıksal değer üzerinde AND (VE) işlemini gerçekleştirir.",
+  "shortcode": "[hc_and_mantik_islemi_hesaplama]"
+}

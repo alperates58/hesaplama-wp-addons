@@ -1,0 +1,18 @@
+#hc-pow-10 .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    word-break: break-all;
+}
+
+#hc-pow-10 .hc-result-value {
+    font-weight: bold;
+    text-align: right;
+    margin-left: 10px;
+}
+
+#hc-pow-10 .hc-result-value.highlight {
+    color: #2980b9;
+    font-size: 1.2em;
+}

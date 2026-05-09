@@ -1,5 +1,5 @@
 {
   "name": "Ağırlıklı Not Ortalaması Hesaplama",
-  "desc": "Derslerin kredi veya saat ağırlıklarını hesaba katarak genel başarı puanınızı hesaplayın.",
+  "desc": "Ders notları ve kredilerine göre dönem sonu ağırlıklı not ortalamasını (GNO/ANO) hesaplar.",
   "shortcode": "[hc_agirlikli_not_ortalamasi_hesaplama]"
 }

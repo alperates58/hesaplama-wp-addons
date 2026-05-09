@@ -1,24 +1,20 @@
-#hc-area .hc-hidden {
-    display: none;
-}
-
-#hc-area .hc-result-item {
+#hc-survey .hc-result-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-#hc-area .hc-result-value {
+#hc-survey .hc-result-value {
     font-weight: bold;
 }
 
-#hc-area .hc-result-value.highlight {
-    color: #e67e22;
+#hc-survey .hc-result-value.highlight {
+    color: #2980b9;
     font-size: 1.3em;
 }
 
-#hc-area .hc-result-note {
+#hc-survey .hc-result-note {
     font-size: 0.85em;
     color: #7f8c8d;
     font-style: italic;

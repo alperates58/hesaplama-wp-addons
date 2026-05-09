@@ -1,0 +1,18 @@
+#hc-and-logic .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    word-break: break-all;
+}
+
+#hc-and-logic .hc-result-value {
+    font-weight: bold;
+    text-align: right;
+    margin-left: 10px;
+}
+
+#hc-and-logic .hc-result-value.highlight {
+    color: #16a085;
+    font-size: 1.2em;
+}
