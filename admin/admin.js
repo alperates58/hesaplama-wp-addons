@@ -258,6 +258,7 @@ jQuery(function ($) {
                 $card.addClass('is-removing');
                 window.setTimeout(function () {
                     $card.remove();
+                    $(document).trigger('hc:module-deleted', [slug]);
                     if (!$('[data-module-card]').length) {
                         $('.hc-module-grid').replaceWith('<div class="hc-empty-state"><span class="dashicons dashicons-screenoptions" aria-hidden="true"></span><h3>Modül kalmadı</h3><p>Katalogda gösterilecek aktif modül bulunmuyor.</p></div>');
                     }
@@ -403,7 +404,8 @@ jQuery(function ($) {
         var $btn = $(this);
         var $card = $btn.closest('[data-module-card]');
         var $select = $card.find('.hc-category-select');
-        var $msg = $btn.siblings('.hc-yazi-ekle-msg');
+        var $msg = $card.find('.hc-yazi-ekle-msg').first();
+        var desc = $btn.data('desc') || $.trim($card.find('.hc-module-card-main p').first().text()) || $.trim($card.find('[data-module-desc]').first().text());
 
         $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluşturuluyor...');
         $msg.hide().text('');
@@ -414,7 +416,7 @@ jQuery(function ($) {
             name: $btn.data('name'),
             shortcode: $btn.data('shortcode'),
             slug: $card.data('slug'),
-            desc: $.trim($card.find('.hc-module-card-main p').first().text()),
+            desc: desc,
             category: $select.val() || ''
         }, function (resp) {
             $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
@@ -444,7 +446,7 @@ jQuery(function ($) {
         var $btn = $(this);
         var $card = $btn.closest('[data-module-card]');
         var $select = $card.find('.hc-category-select');
-        var $msg = $card.find('.hc-yazi-ekle-msg');
+        var $msg = $card.find('.hc-yazi-ekle-msg').first();
 
         $btn.prop('disabled', true).text(hcAdmin.analyzingCategory || 'AI kategori analizi yapılıyor...');
         $msg.hide().text('');
@@ -772,6 +774,485 @@ jQuery(function ($) {
             $('#hc-module-review-note').hide().text('');
         }
     }
+
+    function hcDebounce(fn, wait) {
+        var timer;
+
+        return function () {
+            var args = arguments;
+            var context = this;
+            clearTimeout(timer);
+            timer = window.setTimeout(function () {
+                fn.apply(context, args);
+            }, wait || 250);
+        };
+    }
+
+    function hcBuildStandaloneUrl(shortcode) {
+        return hcAdmin.ajaxurl + '?action=hc_preview_shortcode&nonce=' + encodeURIComponent(hcAdmin.nonce) + '&shortcode=' + encodeURIComponent(shortcode) + '&standalone=1';
+    }
+
+    function hcEscapeHtml(value) {
+        return $('<div>').text(value || '').html();
+    }
+
+    function hcInitExplorer() {
+        var $root = $('#hc-explorer');
+        var state;
+        var categoryOptions = [];
+        var pendingAssignments = {};
+        var selectedMap = {};
+
+        if (!$root.length || hcAdmin.currentPage !== 'hesaplama-suite') {
+            return;
+        }
+
+        state = {
+            search: $root.data('search') || '',
+            category: $root.data('category') || '',
+            post_status: $root.data('post-status') || '',
+            collection: $root.data('collection') || '',
+            sort_by: $root.data('sort-by') || 'updated',
+            sort_dir: $root.data('sort-dir') || 'desc',
+            page: parseInt($root.data('page'), 10) || 1,
+            per_page: parseInt($root.data('per-page'), 10) || 50,
+            view: $root.data('view') || 'table',
+            favorites: [],
+            recent: []
+        };
+
+        function getPayload() {
+            return {
+                nonce: hcAdmin.nonce,
+                search: state.search,
+                category: state.category,
+                post_status: state.post_status,
+                collection: state.collection,
+                sort_by: state.sort_by,
+                sort_dir: state.sort_dir,
+                page: state.page,
+                per_page: state.per_page,
+                view: state.view
+            };
+        }
+
+        function setStatus(message, type) {
+            var $status = $('#hc-explorer-status');
+            $status.text(message || '').attr('data-type', type || '');
+        }
+
+        function syncCategoryTextarea(categories) {
+            categoryOptions = categories.slice();
+            $('#hc-categories').val(categories.join('\n'));
+            var $bulk = $('#hc-explorer-bulk-category');
+            $bulk.find('option:not(:first)').remove();
+            categories.forEach(function (category) {
+                $('<option>').val(category).text(category).appendTo($bulk);
+            });
+        }
+
+        function getCategoriesFromSidebar(sidebarCategories) {
+            var seen = {};
+            var categories = [];
+
+            (sidebarCategories || []).forEach(function (node) {
+                if (node.label && !seen[node.label]) {
+                    seen[node.label] = true;
+                    categories.push(node.label);
+                }
+                (node.children || []).forEach(function (child) {
+                    if (child.path && !seen[child.path]) {
+                        seen[child.path] = true;
+                        categories.push(child.path);
+                    }
+                });
+            });
+
+            categories.sort(function (a, b) {
+                return a.localeCompare(b, 'tr-TR');
+            });
+
+            return categories;
+        }
+
+        function renderStats(stats) {
+            var latest = stats.latest_module || {};
+            var cards = [
+                { label: 'Toplam Modül', value: stats.total_modules || 0, foot: 'Canlı katalog' },
+                { label: 'Kategori', value: stats.total_categories || 0, foot: 'Gezgin ağacı' },
+                { label: 'Toplam Kullanım', value: stats.total_usage || 0, foot: 'Shortcode yerleşimi' },
+                { label: 'Mükerrer Kullanım', value: stats.duplicate_modules || 0, foot: (stats.duplicate_usage || 0) + ' ekstra kullanım' },
+                { label: 'Son Eklenen', value: latest.updated || latest.created || '-', foot: latest.name || 'Yok', small: true }
+            ];
+            var html = '';
+
+            cards.forEach(function (card) {
+                html += '<div class="hc-stat-card">';
+                html += '<span class="hc-stat-label">' + hcEscapeHtml(card.label) + '</span>';
+                html += '<strong class="hc-stat-value' + (card.small ? ' hc-stat-small' : '') + '">' + hcEscapeHtml(String(card.value)) + '</strong>';
+                html += '<span class="hc-stat-foot">' + hcEscapeHtml(card.foot) + '</span>';
+                html += '</div>';
+            });
+
+            $('#hc-explorer-stats').removeClass('hc-stats-grid-skeleton').html(html);
+        }
+
+        function renderCollections(collections) {
+            var html = '';
+
+            (collections || []).forEach(function (item) {
+                var active = state.collection === item.key ? ' is-active' : '';
+                html += '<button type="button" class="hc-explorer-nav-item' + active + '" data-collection="' + hcEscapeHtml(item.key) + '">';
+                html += '<span>' + hcEscapeHtml(item.label) + '</span>';
+                html += '<strong>' + hcEscapeHtml(String(item.count)) + '</strong>';
+                html += '</button>';
+            });
+
+            $('#hc-explorer-collections').removeClass('hc-skeleton-block').html(html);
+        }
+
+        function renderCategoryTree(categories) {
+            var html = '<button type="button" class="hc-explorer-tree-item' + (!state.category ? ' is-active' : '') + '" data-category="">Tüm kategoriler <strong></strong></button>';
+
+            (categories || []).forEach(function (node) {
+                var parentActive = state.category === node.label ? ' is-active' : '';
+                html += '<div class="hc-explorer-tree-node">';
+                html += '<button type="button" class="hc-explorer-tree-item' + parentActive + '" data-category="' + hcEscapeHtml(node.label) + '"><span>' + hcEscapeHtml(node.label) + '</span><strong>' + hcEscapeHtml(String(node.count)) + '</strong></button>';
+
+                if (node.children && node.children.length) {
+                    html += '<div class="hc-explorer-tree-children">';
+                    node.children.forEach(function (child) {
+                        var childActive = state.category === child.path ? ' is-active' : '';
+                        html += '<button type="button" class="hc-explorer-tree-item is-child' + childActive + '" data-category="' + hcEscapeHtml(child.path) + '"><span>' + hcEscapeHtml(child.label) + '</span><strong>' + hcEscapeHtml(String(child.count)) + '</strong></button>';
+                    });
+                    html += '</div>';
+                }
+
+                html += '</div>';
+            });
+
+            $('#hc-explorer-categories').removeClass('hc-skeleton-block').html(html);
+            syncCategoryTextarea(getCategoriesFromSidebar(categories));
+        }
+
+        function renderPagination(list) {
+            $('#hc-explorer-page-label').text('Sayfa ' + list.page + ' / ' + list.pages + ' • ' + list.total + ' modül');
+            $('#hc-explorer-prev').prop('disabled', list.page <= 1);
+            $('#hc-explorer-next').prop('disabled', !list.has_more);
+            $('#hc-explorer-list-meta').text(list.total + ' sonuç bulundu');
+        }
+
+        function buildCategorySelect(value) {
+            var html = '<select class="hc-category-select"><option value="">Seçiniz</option>';
+            categoryOptions.forEach(function (category) {
+                html += '<option value="' + hcEscapeHtml(category) + '"' + (category === value ? ' selected' : '') + '>' + hcEscapeHtml(category) + '</option>';
+            });
+            if (value && categoryOptions.indexOf(value) === -1) {
+                html += '<option value="' + hcEscapeHtml(value) + '" selected>' + hcEscapeHtml(value) + '</option>';
+            }
+            html += '</select>';
+            return html;
+        }
+
+        function buildRowActions(item) {
+            return [
+                '<button type="button" class="button button-small button-primary hc-preview-btn" data-hc-preview data-name="' + hcEscapeHtml(item.name) + '" data-shortcode="' + hcEscapeHtml(item.shortcode) + '" data-standalone-url="' + hcEscapeHtml(hcBuildStandaloneUrl(item.shortcode)) + '">Önizle</button>',
+                '<button type="button" class="button button-small hc-ai-category-btn" data-name="' + hcEscapeHtml(item.name) + '" data-desc="' + hcEscapeHtml(item.desc || '') + '" data-nonce="' + hcEscapeHtml(hcAdmin.nonce) + '">AI kategori</button>',
+                '<button type="button" class="button button-small hc-yazi-ekle-btn" data-name="' + hcEscapeHtml(item.name) + '" data-shortcode="' + hcEscapeHtml(item.shortcode) + '" data-desc="' + hcEscapeHtml(item.desc || '') + '" data-nonce="' + hcEscapeHtml(hcAdmin.nonce) + '">Taslak</button>',
+                '<a class="button button-small hc-button-ghost" href="' + hcEscapeHtml(item.posts_url) + '">Kullanımlar</a>',
+                '<button type="button" class="button button-small hc-button-danger" data-hc-delete-module data-slug="' + hcEscapeHtml(item.slug) + '" data-name="' + hcEscapeHtml(item.name) + '">Sil</button>'
+            ].join('');
+        }
+
+        function renderTable(list) {
+            var html = '';
+
+            if (!list.items.length) {
+                html = '<tr><td colspan="9"><div class="hc-empty-state"><span class="dashicons dashicons-search"></span><h3>Sonuç bulunamadı</h3><p>Arama veya filtreleri değiştirerek tekrar deneyin.</p></div></td></tr>';
+                $('#hc-explorer-table-body').html(html);
+                return;
+            }
+
+            list.items.forEach(function (item) {
+                var checked = selectedMap[item.slug] ? ' checked' : '';
+                var favorite = state.favorites.indexOf(item.slug) > -1 ? ' is-active' : '';
+                html += '<tr data-module-card data-slug="' + hcEscapeHtml(item.slug) + '" data-module-desc="' + hcEscapeHtml(item.desc || '') + '">';
+                html += '<td class="hc-cell-check"><input type="checkbox" class="hc-explorer-row-check" data-slug="' + hcEscapeHtml(item.slug) + '"' + checked + '></td>';
+                html += '<td><button type="button" class="hc-explorer-row-link" data-module-open="' + hcEscapeHtml(item.slug) + '"><strong>' + hcEscapeHtml(item.name) + '</strong><span>' + hcEscapeHtml(item.slug) + '</span></button></td>';
+                html += '<td>' + buildCategorySelect(item.category || '') + '</td>';
+                html += '<td><span class="hc-inline-badge">' + hcEscapeHtml(item.status) + '</span></td>';
+                html += '<td><button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="' + hcEscapeHtml(item.shortcode) + '"><code>' + hcEscapeHtml(item.shortcode) + '</code></button></td>';
+                html += '<td><span class="hc-ai-pill' + (item.ai_enabled ? ' is-active' : '') + '">' + (item.ai_enabled ? 'Aktif' : 'Pasif') + '</span></td>';
+                html += '<td><span class="hc-usage-badge ' + (item.post_count > 0 ? 'is-used' : 'is-unused') + '">' + hcEscapeHtml(String(item.post_count)) + ' kullanım</span></td>';
+                html += '<td>' + hcEscapeHtml(item.updated) + '</td>';
+                html += '<td><div class="hc-row-actions">' + buildRowActions(item) + '<button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(item.slug) + '" aria-label="Favori değiştir">★</button><span class="hc-yazi-ekle-msg"></span></div></td>';
+                html += '</tr>';
+            });
+
+            $('#hc-explorer-table-body').html(html);
+        }
+
+        function renderGallery(list) {
+            var html = '';
+
+            list.items.forEach(function (item) {
+                var favorite = state.favorites.indexOf(item.slug) > -1 ? ' is-active' : '';
+                html += '<article class="hc-module-card hc-module-card-compact" data-module-card data-slug="' + hcEscapeHtml(item.slug) + '" data-module-desc="' + hcEscapeHtml(item.desc || '') + '">';
+                html += '<div class="hc-module-card-top"><span class="hc-category-badge">' + hcEscapeHtml(item.category || 'Kategorisiz') + '</span><span class="hc-usage-badge ' + (item.post_count > 0 ? 'is-used' : 'is-unused') + '">' + hcEscapeHtml(String(item.post_count)) + ' kullanım</span></div>';
+                html += '<div class="hc-module-card-main"><h3>' + hcEscapeHtml(item.name) + '</h3><p>' + hcEscapeHtml(item.desc || '') + '</p></div>';
+                html += '<div class="hc-module-meta-inline"><span>' + hcEscapeHtml(item.updated) + '</span><span>' + hcEscapeHtml(item.shortcode) + '</span></div>';
+                html += buildCategorySelect(item.category || '');
+                html += '<div class="hc-card-actions hc-card-actions-compact">' + buildRowActions(item) + '<button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(item.slug) + '" aria-label="Favori değiştir">★</button><span class="hc-yazi-ekle-msg"></span></div>';
+                html += '</article>';
+            });
+
+            $('#hc-explorer-gallery').html(html);
+        }
+
+        function renderDrawer(module) {
+            var favorite = state.favorites.indexOf(module.slug) > -1 ? ' is-active' : '';
+            var html = '<div class="hc-explorer-drawer-body" data-module-card data-slug="' + hcEscapeHtml(module.slug) + '">';
+            html += '<div class="hc-explorer-drawer-head"><div><span class="hc-toolbar-kicker">Module Detail</span><h3>' + hcEscapeHtml(module.name) + '</h3><p data-module-desc>' + hcEscapeHtml(module.desc || '') + '</p></div><button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(module.slug) + '">★</button></div>';
+            html += '<div class="hc-module-meta-grid">';
+            html += '<div><span>Kategori</span><strong>' + hcEscapeHtml(module.category || 'Kategorisiz') + '</strong></div>';
+            html += '<div><span>Shortcode</span><code>' + hcEscapeHtml(module.shortcode) + '</code></div>';
+            html += '<div><span>Kullanım</span><strong>' + hcEscapeHtml(String(module.post_count)) + '</strong></div>';
+            html += '<div><span>Draft</span><strong>' + hcEscapeHtml(String(module.draft_count)) + '</strong></div>';
+            html += '<div><span>Güncelleme</span><strong>' + hcEscapeHtml(module.updated) + '</strong></div>';
+            html += '<div><span>Yayıncı</span><strong>' + hcEscapeHtml(module.publisher || '-') + '</strong></div>';
+            html += '</div>';
+            html += '<label class="hc-card-select-label"><span>Kategori</span>' + buildCategorySelect(module.category || '') + '</label>';
+            html += '<button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="' + hcEscapeHtml(module.shortcode) + '"><code>' + hcEscapeHtml(module.shortcode) + '</code></button>';
+            html += '<div class="hc-card-actions">' + buildRowActions(module) + '</div>';
+            html += '<span class="hc-yazi-ekle-msg"></span>';
+            html += '</div>';
+
+            $('#hc-explorer-drawer').html(html);
+        }
+
+        function refreshSelectionBar() {
+            var selected = Object.keys(selectedMap);
+            $('#hc-explorer-selection-count').text(selected.length + ' modül seçildi');
+            $('#hc-explorer-bulkbar').prop('hidden', !selected.length);
+        }
+
+        function fetchModules() {
+            setStatus(hcAdmin.explorerLoading || 'Modüller yükleniyor...', 'loading');
+
+            $.post(hcAdmin.ajaxurl, $.extend({ action: 'hc_explorer_modules' }, getPayload()))
+                .done(function (resp) {
+                    if (!resp || !resp.success) {
+                        setStatus(hcAdmin.explorerError || 'Modül verisi yüklenemedi.', 'error');
+                        return;
+                    }
+
+                    renderPagination(resp.data.list);
+                    renderTable(resp.data.list);
+                    renderGallery(resp.data.list);
+                    $('#hc-explorer-table-wrap').prop('hidden', state.view !== 'table');
+                    $('#hc-explorer-gallery').prop('hidden', state.view !== 'gallery');
+                    setStatus('', '');
+                })
+                .fail(function (xhr) {
+                    setStatus((hcAdmin.explorerError || 'Modül verisi yüklenemedi.') + ' HTTP ' + xhr.status, 'error');
+                });
+        }
+
+        function fetchBootstrap() {
+            $.post(hcAdmin.ajaxurl, $.extend({ action: 'hc_explorer_bootstrap' }, getPayload()))
+                .done(function (resp) {
+                    if (!resp || !resp.success) {
+                        setStatus(hcAdmin.explorerError || 'Modül verisi yüklenemedi.', 'error');
+                        return;
+                    }
+
+                    state.favorites = resp.data.preferences.favorites || [];
+                    state.recent = resp.data.preferences.recent || [];
+                    renderStats(resp.data.stats || {});
+                    renderCollections(resp.data.sidebar.collections || []);
+                    renderCategoryTree(resp.data.sidebar.categories || []);
+                    renderPagination(resp.data.list);
+                    renderTable(resp.data.list);
+                    renderGallery(resp.data.list);
+                    $('#hc-explorer-table-wrap').prop('hidden', state.view !== 'table');
+                    $('#hc-explorer-gallery').prop('hidden', state.view !== 'gallery');
+                    setStatus('', '');
+                })
+                .fail(function (xhr) {
+                    setStatus((hcAdmin.explorerError || 'Modül verisi yüklenemedi.') + ' HTTP ' + xhr.status, 'error');
+                });
+        }
+
+        function openModule(slug) {
+            $.post(hcAdmin.ajaxurl, {
+                action: 'hc_explorer_module_detail',
+                nonce: hcAdmin.nonce,
+                slug: slug
+            }).done(function (resp) {
+                if (!resp || !resp.success) {
+                    return;
+                }
+
+                state.favorites = resp.data.favorites || state.favorites;
+                state.recent = resp.data.recent || state.recent;
+                renderDrawer(resp.data.module);
+            });
+        }
+
+        $(document).on('input', '#hc-explorer-search-input', hcDebounce(function () {
+            state.search = $(this).val().trim();
+            state.page = 1;
+            fetchModules();
+        }, 280));
+
+        $(document).on('change', '#hc-explorer-status-filter, #hc-explorer-sort-by', function () {
+            state.post_status = $('#hc-explorer-status-filter').val();
+            state.sort_by = $('#hc-explorer-sort-by').val();
+            state.page = 1;
+            fetchModules();
+        });
+
+        $(document).on('click', '#hc-explorer-sort-dir', function () {
+            state.sort_dir = state.sort_dir === 'asc' ? 'desc' : 'asc';
+            $(this).attr('data-direction', state.sort_dir).text(state.sort_dir === 'asc' ? 'A-Z / Eski-Yeni' : 'Z-A / Yeni-Eski');
+            fetchModules();
+        });
+
+        $(document).on('click', '.hc-view-switch [data-view]', function () {
+            state.view = $(this).data('view');
+            $('.hc-view-switch [data-view]').removeClass('is-active');
+            $(this).addClass('is-active');
+            $('#hc-explorer-table-wrap').prop('hidden', state.view !== 'table');
+            $('#hc-explorer-gallery').prop('hidden', state.view !== 'gallery');
+        });
+
+        $(document).on('click', '.hc-explorer-tree-item', function () {
+            state.category = $(this).data('category') || '';
+            state.page = 1;
+            fetchModules();
+            $('.hc-explorer-tree-item').removeClass('is-active');
+            $(this).addClass('is-active');
+        });
+
+        $(document).on('click', '.hc-explorer-nav-item', function () {
+            state.collection = $(this).data('collection') || '';
+            state.page = 1;
+            fetchModules();
+            $('.hc-explorer-nav-item').removeClass('is-active');
+            $(this).addClass('is-active');
+        });
+
+        $(document).on('click', '#hc-explorer-prev, #hc-explorer-next', function () {
+            if (this.id === 'hc-explorer-prev' && state.page > 1) {
+                state.page -= 1;
+            }
+
+            if (this.id === 'hc-explorer-next') {
+                state.page += 1;
+            }
+
+            fetchModules();
+        });
+
+        $(document).on('click', '[data-module-open]', function () {
+            openModule($(this).data('module-open'));
+        });
+
+        $(document).on('change', '.hc-explorer-row-check', function () {
+            var slug = $(this).data('slug');
+            if (this.checked) {
+                selectedMap[slug] = true;
+            } else {
+                delete selectedMap[slug];
+            }
+            refreshSelectionBar();
+        });
+
+        $(document).on('change', '#hc-explorer-select-all', function () {
+            var checked = this.checked;
+            $('.hc-explorer-row-check').each(function () {
+                $(this).prop('checked', checked).trigger('change');
+            });
+        });
+
+        $(document).on('change', '#hc-explorer tbody .hc-category-select, #hc-explorer-gallery .hc-category-select, #hc-explorer-drawer .hc-category-select', function () {
+            var slug = $(this).closest('[data-module-card]').data('slug');
+            pendingAssignments[slug] = $(this).val() || '';
+        });
+
+        $(document).on('click', '#hc-explorer-bulk-apply', function () {
+            var category = $('#hc-explorer-bulk-category').val();
+            Object.keys(selectedMap).forEach(function (slug) {
+                pendingAssignments[slug] = category;
+                $('[data-module-card][data-slug="' + slug + '"]').find('.hc-category-select').val(category);
+            });
+            setStatus('Toplu kategori seçimi hazır. Kaydet ile kalıcı hale getirin.', 'success');
+        });
+
+        $(document).on('click', '#hc-explorer-bulk-draft', function () {
+            Object.keys(selectedMap).forEach(function (slug) {
+                $('[data-module-card][data-slug="' + slug + '"]').find('.hc-yazi-ekle-btn').first().trigger('click');
+            });
+        });
+
+        $(document).on('click', '#hc-explorer-save-categories', function () {
+            var $btn = $(this);
+            var assignments = $.extend({}, pendingAssignments);
+
+            $('#hc-explorer .hc-category-select').each(function () {
+                assignments[$(this).closest('[data-module-card]').data('slug')] = $(this).val() || '';
+            });
+
+            $btn.prop('disabled', true).text(hcAdmin.savingCategories || 'Kategoriler kaydediliyor...');
+
+            $.post(hcAdmin.ajaxurl, {
+                action: 'hc_save_module_catalog_state',
+                nonce: hcAdmin.nonce,
+                hc_categories: $('#hc-categories').val(),
+                assignments: assignments,
+                hc_module_category: assignments
+            }).done(function (resp) {
+                $btn.prop('disabled', false).text('Kategori Değişikliklerini Kaydet');
+                $('#hc-explorer-category-status').text((resp && resp.success && resp.data && resp.data.message) ? resp.data.message : (hcAdmin.savedCategories || 'Kategori değişiklikleri kaydedildi.'));
+                pendingAssignments = {};
+                fetchBootstrap();
+            }).fail(function (xhr) {
+                $btn.prop('disabled', false).text('Kategori Değişikliklerini Kaydet');
+                $('#hc-explorer-category-status').text('Sunucu hatası: HTTP ' + xhr.status);
+            });
+        });
+
+        $(document).on('click', '[data-favorite-toggle]', function () {
+            var slug = $(this).data('favorite-toggle');
+            var $btn = $(this);
+
+            $.post(hcAdmin.ajaxurl, {
+                action: 'hc_toggle_module_favorite',
+                nonce: hcAdmin.nonce,
+                slug: slug
+            }).done(function (resp) {
+                if (!resp || !resp.success) {
+                    return;
+                }
+
+                state.favorites = resp.data.favorites || [];
+                $btn.toggleClass('is-active', !!resp.data.active);
+                fetchBootstrap();
+            });
+        });
+
+        $(document).on('click', '#hc-explorer-density-toggle', function () {
+            $root.toggleClass('is-compact');
+        });
+
+        $(document).on('hc:module-deleted', function () {
+            fetchBootstrap();
+        });
+
+        fetchBootstrap();
+    }
+
+    hcInitExplorer();
 
     function formatYoastChecklist(data) {
         var lines = [];

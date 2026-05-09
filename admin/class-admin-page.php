@@ -6,11 +6,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 class HC_Module_Inventory {
 
     const OPTION_KEY = 'hc_module_catalog';
+    const CACHE_GROUP = 'hc_module_inventory';
+    const INDEX_TRANSIENT = 'hc_module_inventory_index_v2';
+    const CATEGORY_TRANSIENT = 'hc_module_inventory_categories_v2';
+    const USAGE_TRANSIENT = 'hc_module_inventory_usage_v2';
     private static $module_index_cache = null;
     private static $module_usage_cache = null;
+    private static $category_choices_cache = null;
 
     public static function get_publisher_name() {
         return 'Alper ATEŞ';
+    }
+
+    public static function invalidate_caches() {
+        self::$module_index_cache     = null;
+        self::$module_usage_cache     = null;
+        self::$category_choices_cache = null;
+
+        wp_cache_delete( self::INDEX_TRANSIENT, self::CACHE_GROUP );
+        wp_cache_delete( self::CATEGORY_TRANSIENT, self::CACHE_GROUP );
+        wp_cache_delete( self::USAGE_TRANSIENT, self::CACHE_GROUP );
+
+        delete_transient( self::INDEX_TRANSIENT );
+        delete_transient( self::CATEGORY_TRANSIENT );
+        delete_transient( self::USAGE_TRANSIENT );
+    }
+
+    private static function get_cached_value( $cache_key ) {
+        $cached = wp_cache_get( $cache_key, self::CACHE_GROUP );
+
+        if ( false !== $cached ) {
+            return $cached;
+        }
+
+        $cached = get_transient( $cache_key );
+
+        if ( false !== $cached ) {
+            wp_cache_set( $cache_key, $cached, self::CACHE_GROUP, MINUTE_IN_SECONDS * 10 );
+            return $cached;
+        }
+
+        return null;
+    }
+
+    private static function set_cached_value( $cache_key, $value, $ttl = null ) {
+        $ttl = null === $ttl ? MINUTE_IN_SECONDS * 10 : (int) $ttl;
+
+        wp_cache_set( $cache_key, $value, self::CACHE_GROUP, $ttl );
+        set_transient( $cache_key, $value, $ttl );
     }
 
     public static function get_catalog_settings() {
@@ -78,6 +121,7 @@ class HC_Module_Inventory {
         $settings['module_categories'] = $saved_assignments;
 
         update_option( self::OPTION_KEY, $settings, false );
+        self::invalidate_caches();
     }
 
     public static function get_modules( $args = [] ) {
@@ -135,6 +179,13 @@ class HC_Module_Inventory {
             return self::$module_index_cache;
         }
 
+        $cached = self::get_cached_value( self::INDEX_TRANSIENT );
+
+        if ( is_array( $cached ) ) {
+            self::$module_index_cache = $cached;
+            return self::$module_index_cache;
+        }
+
         $modules     = [];
         $modules_dir = HC_PLUGIN_DIR . 'modules/';
         $usage_cache = self::get_shortcode_usage_cache();
@@ -159,9 +210,14 @@ class HC_Module_Inventory {
                     'shortcode'         => $shortcode,
                     'desc'              => $meta['desc'] ?? '',
                     'created'           => $created,
+                    'updated'           => $created,
                     'created_date'      => wp_date( 'd M Y', $created ),
                     'created_datetime'  => wp_date( 'd M Y H:i', $created ),
+                    'updated_date'      => wp_date( 'd M Y', $created ),
+                    'updated_datetime'  => wp_date( 'd M Y H:i', $created ),
                     'post_count'        => (int) ( $usage_cache[ $shortcode ]['count'] ?? 0 ),
+                    'draft_count'       => (int) ( $usage_cache[ $shortcode ]['draft_count'] ?? 0 ),
+                    'published_count'   => (int) ( $usage_cache[ $shortcode ]['published_count'] ?? 0 ),
                     'category'          => $category_data['label'] ?? '',
                     'category_parent'   => $category_data['parent'] ?? '',
                     'category_child'    => $category_data['child'] ?? '',
@@ -169,6 +225,7 @@ class HC_Module_Inventory {
                     'category_term_ids' => $category_data['term_ids'] ?? [],
                     'publisher'         => self::get_publisher_name(),
                     'status_label'      => 'Aktif',
+                    'ai_enabled'        => true,
                     'posts_url'         => admin_url( 'edit.php?s=' . urlencode( $shortcode ) . '&post_type=post' ),
                 ];
             }
@@ -182,6 +239,7 @@ class HC_Module_Inventory {
         );
 
         self::$module_index_cache = $modules;
+        self::set_cached_value( self::INDEX_TRANSIENT, self::$module_index_cache );
 
         return self::$module_index_cache;
     }
@@ -191,6 +249,17 @@ class HC_Module_Inventory {
     }
 
     public static function get_wordpress_category_choices() {
+        if ( null !== self::$category_choices_cache ) {
+            return self::$category_choices_cache;
+        }
+
+        $cached = self::get_cached_value( self::CATEGORY_TRANSIENT );
+
+        if ( is_array( $cached ) ) {
+            self::$category_choices_cache = $cached;
+            return self::$category_choices_cache;
+        }
+
         $terms = get_terms(
             [
                 'taxonomy'   => 'category',
@@ -231,7 +300,10 @@ class HC_Module_Inventory {
             }
         );
 
-        return $choices;
+        self::$category_choices_cache = $choices;
+        self::set_cached_value( self::CATEGORY_TRANSIENT, self::$category_choices_cache );
+
+        return self::$category_choices_cache;
     }
 
     public static function get_post_category_ids_for_module( $shortcode, $name = '' ) {
@@ -281,6 +353,7 @@ class HC_Module_Inventory {
         if ( isset( $settings['module_categories'][ $slug ] ) ) {
             unset( $settings['module_categories'][ $slug ] );
             update_option( self::OPTION_KEY, $settings, false );
+            self::invalidate_caches();
         }
     }
 
@@ -305,6 +378,7 @@ class HC_Module_Inventory {
         if ( ! $category ) {
             unset( $settings['module_categories'][ $slug ] );
             update_option( self::OPTION_KEY, $settings, false );
+            self::invalidate_caches();
             return;
         }
 
@@ -316,6 +390,7 @@ class HC_Module_Inventory {
         $settings['module_categories'][ $slug ] = $category;
 
         update_option( self::OPTION_KEY, $settings, false );
+        self::invalidate_caches();
     }
 
     public static function group_modules_by_category( $modules ) {
@@ -334,6 +409,189 @@ class HC_Module_Inventory {
         ksort( $grouped, SORT_NATURAL | SORT_FLAG_CASE );
 
         return $grouped;
+    }
+
+    public static function get_dashboard_stats() {
+        $modules           = self::get_modules();
+        $total_posts       = array_sum( wp_list_pluck( $modules, 'post_count' ) );
+        $duplicate_modules = array_values( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] > 1 ) );
+        $latest_module     = ! empty( $modules ) ? $modules[0] : null;
+
+        return [
+            'total_modules'     => count( $modules ),
+            'total_categories'  => count( self::get_all_categories() ),
+            'total_usage'       => (int) $total_posts,
+            'duplicate_modules' => count( $duplicate_modules ),
+            'duplicate_usage'   => (int) array_sum(
+                array_map(
+                    static fn( $module ) => max( 0, (int) $module['post_count'] - 1 ),
+                    $duplicate_modules
+                )
+            ),
+            'latest_module'     => $latest_module,
+        ];
+    }
+
+    public static function get_category_tree_data( $modules = null ) {
+        $modules = is_array( $modules ) ? $modules : self::get_modules();
+        $tree    = [];
+
+        foreach ( $modules as $module ) {
+            $parent = $module['category_parent'] ?: ( $module['category'] ?: 'Kategorisiz' );
+            $child  = $module['category_child'] ?: '';
+
+            if ( empty( $tree[ $parent ] ) ) {
+                $tree[ $parent ] = [
+                    'label'    => $parent,
+                    'count'    => 0,
+                    'children' => [],
+                ];
+            }
+
+            $tree[ $parent ]['count']++;
+
+            if ( $child ) {
+                if ( empty( $tree[ $parent ]['children'][ $child ] ) ) {
+                    $tree[ $parent ]['children'][ $child ] = [
+                        'label' => $child,
+                        'path'  => $module['category'],
+                        'count' => 0,
+                    ];
+                }
+
+                $tree[ $parent ]['children'][ $child ]['count']++;
+            }
+        }
+
+        ksort( $tree, SORT_NATURAL | SORT_FLAG_CASE );
+
+        foreach ( $tree as &$node ) {
+            if ( ! empty( $node['children'] ) ) {
+                uasort(
+                    $node['children'],
+                    static function ( $a, $b ) {
+                        return strnatcasecmp( $a['label'], $b['label'] );
+                    }
+                );
+                $node['children'] = array_values( $node['children'] );
+            }
+        }
+        unset( $node );
+
+        return array_values( $tree );
+    }
+
+    public static function query_modules( $args = [] ) {
+        $args = wp_parse_args(
+            $args,
+            [
+                'search'      => '',
+                'category'    => '',
+                'post_status' => '',
+                'sort_by'     => 'updated',
+                'sort_dir'    => 'desc',
+                'page'        => 1,
+                'per_page'    => 50,
+            ]
+        );
+
+        $modules = self::get_modules(
+            [
+                'search'      => $args['search'],
+                'category'    => $args['category'],
+                'post_status' => $args['post_status'],
+            ]
+        );
+
+        usort(
+            $modules,
+            static function ( $a, $b ) use ( $args ) {
+                $sort_by  = $args['sort_by'];
+                $sort_dir = 'asc' === strtolower( (string) $args['sort_dir'] ) ? 1 : -1;
+
+                switch ( $sort_by ) {
+                    case 'name':
+                        $value = strnatcasecmp( $a['name'], $b['name'] );
+                        break;
+                    case 'category':
+                        $value = strnatcasecmp( $a['category'], $b['category'] );
+                        break;
+                    case 'usage':
+                        $value = (int) $a['post_count'] <=> (int) $b['post_count'];
+                        break;
+                    case 'shortcode':
+                        $value = strnatcasecmp( $a['shortcode'], $b['shortcode'] );
+                        break;
+                    case 'updated':
+                    default:
+                        $value = (int) $a['updated'] <=> (int) $b['updated'];
+                        break;
+                }
+
+                if ( 0 === $value ) {
+                    $value = strnatcasecmp( $a['name'], $b['name'] );
+                }
+
+                return $value * $sort_dir;
+            }
+        );
+
+        $total    = count( $modules );
+        $per_page = max( 1, min( 100, (int) $args['per_page'] ) );
+        $page     = max( 1, (int) $args['page'] );
+        $pages    = max( 1, (int) ceil( $total / $per_page ) );
+        $page     = min( $page, $pages );
+        $offset   = ( $page - 1 ) * $per_page;
+
+        return [
+            'items'      => array_map( [ __CLASS__, 'map_module_list_item' ], array_slice( $modules, $offset, $per_page ) ),
+            'total'      => $total,
+            'page'       => $page,
+            'per_page'   => $per_page,
+            'pages'      => $pages,
+            'has_more'   => $page < $pages,
+        ];
+    }
+
+    public static function get_module_detail( $slug ) {
+        $slug = sanitize_key( $slug );
+
+        foreach ( self::get_modules() as $module ) {
+            if ( $module['slug'] === $slug ) {
+                return self::map_module_detail_item( $module );
+            }
+        }
+
+        return null;
+    }
+
+    public static function map_module_list_item( $module ) {
+        return [
+            'slug'            => $module['slug'],
+            'name'            => $module['name'],
+            'desc'            => $module['desc'],
+            'shortcode'       => $module['shortcode'],
+            'category'        => $module['category'],
+            'category_parent' => $module['category_parent'],
+            'category_child'  => $module['category_child'],
+            'status'          => $module['status_label'],
+            'ai_enabled'      => ! empty( $module['ai_enabled'] ),
+            'post_count'      => (int) $module['post_count'],
+            'draft_count'     => (int) $module['draft_count'],
+            'published_count' => (int) $module['published_count'],
+            'updated'         => $module['updated_datetime'],
+            'updated_date'    => $module['updated_date'],
+            'posts_url'       => $module['posts_url'],
+        ];
+    }
+
+    public static function map_module_detail_item( $module ) {
+        return self::map_module_list_item( $module ) + [
+            'created'    => $module['created_datetime'],
+            'publisher'  => $module['publisher'],
+            'term_ids'   => $module['category_term_ids'],
+            'slug_label' => $module['slug'],
+        ];
     }
 
     private static function sanitize_category( $category ) {
@@ -445,8 +703,15 @@ class HC_Module_Inventory {
             return self::$module_usage_cache;
         }
 
+        $cached = self::get_cached_value( self::USAGE_TRANSIENT );
+
+        if ( is_array( $cached ) ) {
+            self::$module_usage_cache = $cached;
+            return self::$module_usage_cache;
+        }
+
         $rows = $wpdb->get_results(
-            "SELECT ID, post_content
+            "SELECT ID, post_status, post_content
              FROM {$wpdb->posts}
              WHERE post_status NOT IN ('trash', 'auto-draft')
                AND post_type = 'post'
@@ -460,6 +725,36 @@ class HC_Module_Inventory {
             $choice_map[ $choice['term_id'] ] = $choice;
         }
 
+        $post_term_map = [];
+        $post_ids      = array_values( array_filter( array_map( 'intval', wp_list_pluck( $rows, 'ID' ) ) ) );
+
+        if ( ! empty( $post_ids ) ) {
+            $relationships = $wpdb->get_results(
+                "SELECT tr.object_id, tt.term_id
+                 FROM {$wpdb->term_relationships} tr
+                 INNER JOIN {$wpdb->term_taxonomy} tt
+                    ON tt.term_taxonomy_id = tr.term_taxonomy_id
+                 WHERE tt.taxonomy = 'category'
+                   AND tr.object_id IN (" . implode( ',', $post_ids ) . ')',
+                ARRAY_A
+            );
+
+            foreach ( $relationships as $relationship ) {
+                $object_id = (int) $relationship['object_id'];
+                $term_id   = (int) $relationship['term_id'];
+
+                if ( empty( $choice_map[ $term_id ] ) ) {
+                    continue;
+                }
+
+                if ( empty( $post_term_map[ $object_id ] ) ) {
+                    $post_term_map[ $object_id ] = [];
+                }
+
+                $post_term_map[ $object_id ][ $term_id ] = $term_id;
+            }
+        }
+
         $usage = [];
 
         foreach ( $rows as $row ) {
@@ -470,18 +765,26 @@ class HC_Module_Inventory {
                 continue;
             }
 
-            $categories = wp_get_post_categories( (int) $row['ID'], [ 'fields' => 'all' ] );
-            $paths      = self::extract_deep_category_paths( $categories, $choice_map );
+            $post_id = (int) $row['ID'];
+            $paths   = self::extract_deep_category_paths( $post_term_map[ $post_id ] ?? [], $choice_map );
 
             foreach ( $shortcodes as $shortcode ) {
                 if ( empty( $usage[ $shortcode ] ) ) {
                     $usage[ $shortcode ] = [
-                        'count'      => 0,
-                        'path_counts'=> [],
+                        'count'           => 0,
+                        'draft_count'     => 0,
+                        'published_count' => 0,
+                        'path_counts'     => [],
                     ];
                 }
 
                 $usage[ $shortcode ]['count']++;
+
+                if ( 'publish' === $row['post_status'] ) {
+                    $usage[ $shortcode ]['published_count']++;
+                } else {
+                    $usage[ $shortcode ]['draft_count']++;
+                }
 
                 foreach ( $paths as $path ) {
                     if ( empty( $usage[ $shortcode ]['path_counts'][ $path['path'] ] ) ) {
@@ -518,40 +821,61 @@ class HC_Module_Inventory {
         }
 
         self::$module_usage_cache = $usage;
+        self::set_cached_value( self::USAGE_TRANSIENT, self::$module_usage_cache, MINUTE_IN_SECONDS * 15 );
 
         return self::$module_usage_cache;
     }
 
-    private static function extract_deep_category_paths( $categories, $choice_map ) {
-        if ( empty( $categories ) || is_wp_error( $categories ) ) {
+    private static function extract_deep_category_paths( $term_ids, $choice_map ) {
+        if ( empty( $term_ids ) ) {
             return [];
         }
 
-        $term_ids = wp_list_pluck( $categories, 'term_id' );
+        $term_ids = array_values( array_unique( array_map( 'intval', (array) $term_ids ) ) );
         $paths    = [];
 
-        foreach ( $categories as $term ) {
+        foreach ( $term_ids as $term_id ) {
+            if ( empty( $choice_map[ $term_id ] ) ) {
+                continue;
+            }
+
             $is_parent = false;
 
             foreach ( $term_ids as $other_id ) {
-                if ( (int) $other_id === (int) $term->term_id ) {
+                if ( (int) $other_id === $term_id ) {
                     continue;
                 }
 
-                if ( term_is_ancestor_of( (int) $term->term_id, (int) $other_id, 'category' ) ) {
+                if ( self::is_ancestor_term_id( $term_id, (int) $other_id, $choice_map ) ) {
                     $is_parent = true;
                     break;
                 }
             }
 
-            if ( $is_parent || empty( $choice_map[ $term->term_id ] ) ) {
+            if ( $is_parent ) {
                 continue;
             }
 
-            $paths[ $choice_map[ $term->term_id ]['path'] ] = $choice_map[ $term->term_id ];
+            $paths[ $choice_map[ $term_id ]['path'] ] = $choice_map[ $term_id ];
         }
 
         return array_values( $paths );
+    }
+
+    private static function is_ancestor_term_id( $ancestor_id, $descendant_id, $choice_map ) {
+        $guard = 0;
+
+        while ( ! empty( $choice_map[ $descendant_id ]['parent_id'] ) && $guard < 15 ) {
+            $descendant_id = (int) $choice_map[ $descendant_id ]['parent_id'];
+
+            if ( $ancestor_id === $descendant_id ) {
+                return true;
+            }
+
+            $guard++;
+        }
+
+        return false;
     }
 
     private static function matches_filters( $module, $args ) {
@@ -625,6 +949,13 @@ class HC_Admin_Page {
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
         add_action( 'wp_ajax_hc_preview_shortcode', [ $this, 'ajax_preview_shortcode' ] );
         add_action( 'wp_ajax_hc_delete_module', [ $this, 'ajax_delete_module' ] );
+        add_action( 'wp_ajax_hc_explorer_bootstrap', [ $this, 'ajax_explorer_bootstrap' ] );
+        add_action( 'wp_ajax_hc_explorer_modules', [ $this, 'ajax_explorer_modules' ] );
+        add_action( 'wp_ajax_hc_explorer_module_detail', [ $this, 'ajax_explorer_module_detail' ] );
+        add_action( 'wp_ajax_hc_save_module_categories', [ $this, 'ajax_save_module_categories' ] );
+        add_action( 'wp_ajax_hc_save_module_catalog_state', [ $this, 'ajax_save_module_catalog_state' ] );
+        add_action( 'wp_ajax_hc_toggle_module_favorite', [ $this, 'ajax_toggle_module_favorite' ] );
+        add_action( 'wp_ajax_hc_track_recent_module', [ $this, 'ajax_track_recent_module' ] );
     }
 
     public function register_menu() {
@@ -680,6 +1011,11 @@ class HC_Admin_Page {
                 'analyzingCategory' => 'AI kategori analizi yapılıyor...',
                 'analyzeCategory' => 'AI ile kategori analizi',
                 'categoryAnalyzed' => 'Kategori önerisi seçildi. Kaydetmeyi unutmayın.',
+                'savingCategories' => 'Kategoriler kaydediliyor...',
+                'savedCategories' => 'Kategori değişiklikleri kaydedildi.',
+                'explorerLoading' => 'Modüller yükleniyor...',
+                'explorerError' => 'Modül verisi yüklenemedi.',
+                'currentPage' => sanitize_text_field( wp_unslash( $_GET['page'] ?? '' ) ),
             ]
         );
     }
@@ -709,7 +1045,7 @@ class HC_Admin_Page {
 
     private function render_header($title) {
         ?>
-        <div class="wrap hc-wrap" id="hc-main-wrap">
+        <div class="wrap hc-wrap hesaplamasuite-admin" id="hc-main-wrap">
             <div class="hc-glass-header">
                 <div class="hc-header-content">
                     <h1><?php echo esc_html($title); ?> <span class="hc-badge-pro">PRO</span></h1>
@@ -1018,7 +1354,516 @@ class HC_Admin_Page {
         wp_send_json_error( $message, $status );
     }
 
+    private function get_favorite_slugs() {
+        $slugs = (array) get_user_meta( get_current_user_id(), 'hc_module_favorites', true );
+
+        return array_values( array_unique( array_filter( array_map( 'sanitize_key', $slugs ) ) ) );
+    }
+
+    private function save_favorite_slugs( $slugs ) {
+        update_user_meta(
+            get_current_user_id(),
+            'hc_module_favorites',
+            array_values( array_unique( array_filter( array_map( 'sanitize_key', (array) $slugs ) ) ) )
+        );
+    }
+
+    private function get_recent_slugs() {
+        $slugs = (array) get_user_meta( get_current_user_id(), 'hc_module_recent', true );
+
+        return array_values( array_unique( array_filter( array_map( 'sanitize_key', $slugs ) ) ) );
+    }
+
+    private function track_recent_slug( $slug ) {
+        $slug   = sanitize_key( $slug );
+        $recent = $this->get_recent_slugs();
+
+        if ( ! $slug ) {
+            return $recent;
+        }
+
+        $recent = array_values( array_diff( $recent, [ $slug ] ) );
+        array_unshift( $recent, $slug );
+        $recent = array_slice( $recent, 0, 12 );
+
+        update_user_meta( get_current_user_id(), 'hc_module_recent', $recent );
+
+        return $recent;
+    }
+
+    private function get_explorer_args( $request = [] ) {
+        return [
+            'search'      => sanitize_text_field( wp_unslash( $request['search'] ?? $request['s'] ?? '' ) ),
+            'category'    => sanitize_text_field( wp_unslash( $request['category'] ?? $request['module_category'] ?? '' ) ),
+            'post_status' => sanitize_text_field( wp_unslash( $request['post_status'] ?? '' ) ),
+            'collection'  => sanitize_key( wp_unslash( $request['collection'] ?? '' ) ),
+            'sort_by'     => sanitize_key( wp_unslash( $request['sort_by'] ?? 'updated' ) ),
+            'sort_dir'    => 'asc' === strtolower( (string) ( $request['sort_dir'] ?? 'desc' ) ) ? 'asc' : 'desc',
+            'page'        => max( 1, (int) ( $request['page'] ?? 1 ) ),
+            'per_page'    => max( 1, min( 100, (int) ( $request['per_page'] ?? 50 ) ) ),
+            'view'        => 'gallery' === ( $request['view'] ?? '' ) ? 'gallery' : 'table',
+        ];
+    }
+
+    private function apply_collection_filter( $modules, $collection, $favorites, $recent ) {
+        if ( ! $collection ) {
+            return $modules;
+        }
+
+        $favorite_map = array_fill_keys( $favorites, true );
+        $recent_map   = array_fill_keys( $recent, true );
+
+        return array_values(
+            array_filter(
+                $modules,
+                static function ( $module ) use ( $collection, $favorite_map, $recent_map ) {
+                    switch ( $collection ) {
+                        case 'favorites':
+                            return ! empty( $favorite_map[ $module['slug'] ] );
+                        case 'recent':
+                            return ! empty( $recent_map[ $module['slug'] ] );
+                        case 'ai-generated':
+                            return ! empty( $module['ai_enabled'] );
+                        case 'drafts':
+                            return (int) $module['draft_count'] > 0;
+                        case 'unused':
+                            return (int) $module['post_count'] === 0;
+                        case 'archived':
+                            return false;
+                        case 'no-category':
+                            return empty( $module['category'] ) || 'Genel' === $module['category'];
+                        default:
+                            return true;
+                    }
+                }
+            )
+        );
+    }
+
+    private function paginate_explorer_modules( $modules, $args ) {
+        usort(
+            $modules,
+            static function ( $a, $b ) use ( $args ) {
+                $sort_by  = $args['sort_by'];
+                $sort_dir = 'asc' === $args['sort_dir'] ? 1 : -1;
+
+                switch ( $sort_by ) {
+                    case 'name':
+                        $value = strnatcasecmp( $a['name'], $b['name'] );
+                        break;
+                    case 'category':
+                        $value = strnatcasecmp( $a['category'], $b['category'] );
+                        break;
+                    case 'usage':
+                        $value = (int) $a['post_count'] <=> (int) $b['post_count'];
+                        break;
+                    case 'shortcode':
+                        $value = strnatcasecmp( $a['shortcode'], $b['shortcode'] );
+                        break;
+                    case 'updated':
+                    default:
+                        $value = (int) $a['updated'] <=> (int) $b['updated'];
+                        break;
+                }
+
+                if ( 0 === $value ) {
+                    $value = strnatcasecmp( $a['name'], $b['name'] );
+                }
+
+                return $value * $sort_dir;
+            }
+        );
+
+        $total  = count( $modules );
+        $pages  = max( 1, (int) ceil( $total / $args['per_page'] ) );
+        $page   = min( max( 1, $args['page'] ), $pages );
+        $offset = ( $page - 1 ) * $args['per_page'];
+
+        return [
+            'items'    => array_map( [ 'HC_Module_Inventory', 'map_module_list_item' ], array_slice( $modules, $offset, $args['per_page'] ) ),
+            'total'    => $total,
+            'page'     => $page,
+            'per_page' => $args['per_page'],
+            'pages'    => $pages,
+            'has_more' => $page < $pages,
+        ];
+    }
+
+    private function build_collection_items( $modules, $favorites, $recent ) {
+        $favorite_map = array_fill_keys( $favorites, true );
+        $recent_map   = array_fill_keys( $recent, true );
+
+        return [
+            [ 'key' => 'favorites', 'label' => 'Favoriler', 'count' => count( array_intersect( array_keys( $favorite_map ), wp_list_pluck( $modules, 'slug' ) ) ) ],
+            [ 'key' => 'recent', 'label' => 'Son AÃ§Ä±lanlar', 'count' => count( array_intersect( array_keys( $recent_map ), wp_list_pluck( $modules, 'slug' ) ) ) ],
+            [ 'key' => 'ai-generated', 'label' => 'AI Generated', 'count' => count( array_filter( $modules, static fn( $module ) => ! empty( $module['ai_enabled'] ) ) ) ],
+            [ 'key' => 'drafts', 'label' => 'Taslaklar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['draft_count'] > 0 ) ) ],
+            [ 'key' => 'unused', 'label' => 'KullanÄ±lmayanlar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] === 0 ) ) ],
+            [ 'key' => 'no-category', 'label' => 'Kategorisiz', 'count' => count( array_filter( $modules, static fn( $module ) => empty( $module['category'] ) || 'Genel' === $module['category'] ) ) ],
+            [ 'key' => 'archived', 'label' => 'ArÅŸiv', 'count' => 0 ],
+        ];
+    }
+
+    private function build_explorer_payload( $request = [], $include_bootstrap = false ) {
+        $args      = $this->get_explorer_args( $request );
+        $favorites = $this->get_favorite_slugs();
+        $recent    = $this->get_recent_slugs();
+        $modules   = HC_Module_Inventory::get_modules(
+            [
+                'search'      => $args['search'],
+                'category'    => $args['category'],
+                'post_status' => $args['post_status'],
+            ]
+        );
+
+        $modules = $this->apply_collection_filter( $modules, $args['collection'], $favorites, $recent );
+        $payload = [
+            'query' => $args,
+            'list'  => $this->paginate_explorer_modules( $modules, $args ),
+        ];
+
+        if ( $include_bootstrap ) {
+            $all_modules = HC_Module_Inventory::get_modules();
+            $payload['stats'] = HC_Module_Inventory::get_dashboard_stats();
+            $payload['sidebar'] = [
+                'categories'  => HC_Module_Inventory::get_category_tree_data( $all_modules ),
+                'collections' => $this->build_collection_items( $all_modules, $favorites, $recent ),
+            ];
+            $payload['preferences'] = [
+                'favorites' => $favorites,
+                'recent'    => $recent,
+            ];
+        }
+
+        return $payload;
+    }
+
+    public function ajax_explorer_bootstrap() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        wp_send_json_success( $this->build_explorer_payload( $_REQUEST, true ) );
+    }
+
+    public function ajax_explorer_modules() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        wp_send_json_success( $this->build_explorer_payload( $_REQUEST, false ) );
+    }
+
+    public function ajax_explorer_module_detail() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        $slug   = sanitize_key( wp_unslash( $_REQUEST['slug'] ?? '' ) );
+        $module = HC_Module_Inventory::get_module_detail( $slug );
+
+        if ( ! $module ) {
+            wp_send_json_error( 'ModÃ¼l bulunamadÄ±.', 404 );
+        }
+
+        wp_send_json_success(
+            [
+                'module'    => $module,
+                'favorites' => $this->get_favorite_slugs(),
+                'recent'    => $this->track_recent_slug( $slug ),
+            ]
+        );
+    }
+
+    public function ajax_save_module_categories() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        $assignments = (array) wp_unslash( $_POST['assignments'] ?? [] );
+
+        foreach ( $assignments as $slug => $category ) {
+            HC_Module_Inventory::save_module_category_assignment( $slug, $category );
+        }
+
+        wp_send_json_success( [ 'message' => 'Kategori deÄŸiÅŸiklikleri kaydedildi.' ] );
+    }
+
+    public function ajax_save_module_catalog_state() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        HC_Module_Inventory::save_catalog_settings( $_POST );
+
+        wp_send_json_success( [ 'message' => 'ModÃ¼l kataloÄŸu gÃ¼ncellendi.' ] );
+    }
+
+    public function ajax_toggle_module_favorite() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        $slug      = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
+        $favorites = $this->get_favorite_slugs();
+
+        if ( in_array( $slug, $favorites, true ) ) {
+            $favorites = array_values( array_diff( $favorites, [ $slug ] ) );
+            $active    = false;
+        } else {
+            $favorites[] = $slug;
+            $favorites   = array_values( array_unique( $favorites ) );
+            $active      = true;
+        }
+
+        $this->save_favorite_slugs( $favorites );
+
+        wp_send_json_success( [ 'slug' => $slug, 'active' => $active, 'favorites' => $favorites ] );
+    }
+
+    public function ajax_track_recent_module() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+        }
+
+        $slug = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
+
+        wp_send_json_success( [ 'recent' => $this->track_recent_slug( $slug ) ] );
+    }
+
     private function render_modules_tab() {
+        $args  = $this->get_explorer_args( $_GET );
+        $nonce = wp_create_nonce( 'hc_ajax_nonce' );
+        ?>
+        <?php if ( isset( $_GET['modules_saved'] ) ) : ?>
+            <div class="notice notice-success is-dismissible"><p>Modül kataloğu güncellendi.</p></div>
+        <?php endif; ?>
+
+        <div class="hc-card hc-catalog-intro">
+            <div class="hc-card-head">
+                <div>
+                    <span class="hc-toolbar-kicker">Explorer UI</span>
+                    <h2>Modül yönetimi artık arama ve sayfalama odaklı çalışıyor</h2>
+                    <p class="hc-card-copy">İlk yüklemede sadece özet veriler ve ilk sayfa getirilir. Detaylar, kategori ağacı ve görünüm geçişleri AJAX ile artımlı yüklenir.</p>
+                </div>
+                <button type="button" class="button hc-button-ghost" data-hc-toggle-categories>Kategorileri Yönet</button>
+            </div>
+        </div>
+
+        <div class="hc-card hc-category-manager-card" style="display:none;" id="hc-category-manager">
+            <div class="hc-card-head">
+                <div>
+                    <h2>Kategori Yönetimi</h2>
+                    <p class="hc-card-copy">Listeyi bozmadan kategori sözlüğünü burada düzenleyebilirsiniz.</p>
+                </div>
+                <button type="button" class="button button-primary" id="hc-explorer-save-categories">Kategori Değişikliklerini Kaydet</button>
+            </div>
+            <div class="hc-toolbar">
+                <textarea id="hc-categories" rows="4" class="large-text" placeholder="Her satıra bir kategori yazın."></textarea>
+                <div class="hc-category-add-row">
+                    <input type="text" id="hc-new-category" class="regular-text" placeholder="Yeni kategori adı" />
+                    <button type="button" class="button" id="hc-add-category-btn">Hızlı Ekle</button>
+                </div>
+            </div>
+            <div class="hc-inline-status" id="hc-explorer-category-status" aria-live="polite"></div>
+        </div>
+
+        <div
+            class="hc-explorer-shell"
+            id="hc-explorer"
+            data-hc-explorer
+            data-nonce="<?php echo esc_attr( $nonce ); ?>"
+            data-search="<?php echo esc_attr( $args['search'] ); ?>"
+            data-category="<?php echo esc_attr( $args['category'] ); ?>"
+            data-post-status="<?php echo esc_attr( $args['post_status'] ); ?>"
+            data-collection="<?php echo esc_attr( $args['collection'] ); ?>"
+            data-sort-by="<?php echo esc_attr( $args['sort_by'] ); ?>"
+            data-sort-dir="<?php echo esc_attr( $args['sort_dir'] ); ?>"
+            data-page="<?php echo esc_attr( $args['page'] ); ?>"
+            data-per-page="<?php echo esc_attr( $args['per_page'] ); ?>"
+            data-view="<?php echo esc_attr( $args['view'] ); ?>"
+        >
+            <div class="hc-stats-grid hc-stats-grid-skeleton" id="hc-explorer-stats">
+                <?php for ( $i = 0; $i < 5; $i++ ) : ?>
+                    <div class="hc-stat-card hc-skeleton-card">
+                        <span class="hc-skeleton-line is-short"></span>
+                        <span class="hc-skeleton-line is-large"></span>
+                        <span class="hc-skeleton-line is-medium"></span>
+                    </div>
+                <?php endfor; ?>
+            </div>
+
+            <div class="hc-explorer-layout">
+                <aside class="hc-explorer-sidebar" aria-label="Modül gezgini kenar çubuğu">
+                    <div class="hc-explorer-panel">
+                        <div class="hc-explorer-panel-head"><h3>Akıllı Koleksiyonlar</h3></div>
+                        <div id="hc-explorer-collections" class="hc-explorer-list hc-skeleton-block"></div>
+                    </div>
+                    <div class="hc-explorer-panel">
+                        <div class="hc-explorer-panel-head"><h3>Kategori Ağacı</h3></div>
+                        <div id="hc-explorer-categories" class="hc-explorer-tree hc-skeleton-block"></div>
+                    </div>
+                </aside>
+
+                <section class="hc-explorer-main">
+                    <div class="hc-explorer-toolbar">
+                        <div class="hc-explorer-search">
+                            <label class="screen-reader-text" for="hc-explorer-search-input">Modül ara</label>
+                            <input type="search" id="hc-explorer-search-input" placeholder="Modül adı, shortcode, açıklama veya slug ara..." value="<?php echo esc_attr( $args['search'] ); ?>" />
+                        </div>
+                        <div class="hc-explorer-filters">
+                            <select id="hc-explorer-status-filter">
+                                <option value="">Tüm durumlar</option>
+                                <option value="used" <?php selected( $args['post_status'], 'used' ); ?>>Kullanılanlar</option>
+                                <option value="unused" <?php selected( $args['post_status'], 'unused' ); ?>>Kullanılmayanlar</option>
+                                <option value="duplicates" <?php selected( $args['post_status'], 'duplicates' ); ?>>Mükerrerler</option>
+                            </select>
+                            <select id="hc-explorer-sort-by">
+                                <option value="updated" <?php selected( $args['sort_by'], 'updated' ); ?>>Güncellenme</option>
+                                <option value="name" <?php selected( $args['sort_by'], 'name' ); ?>>Ad</option>
+                                <option value="category" <?php selected( $args['sort_by'], 'category' ); ?>>Kategori</option>
+                                <option value="usage" <?php selected( $args['sort_by'], 'usage' ); ?>>Kullanım</option>
+                                <option value="shortcode" <?php selected( $args['sort_by'], 'shortcode' ); ?>>Shortcode</option>
+                            </select>
+                            <button type="button" class="button hc-button-ghost" id="hc-explorer-sort-dir" data-direction="<?php echo esc_attr( $args['sort_dir'] ); ?>">
+                                <?php echo 'asc' === $args['sort_dir'] ? 'A-Z / Eski-Yeni' : 'Z-A / Yeni-Eski'; ?>
+                            </button>
+                            <button type="button" class="button hc-button-ghost" id="hc-explorer-density-toggle">Kompakt görünüm</button>
+                            <div class="hc-view-switch" role="tablist" aria-label="Görünüm seçici">
+                                <button type="button" class="is-active" data-view="table">Tablo</button>
+                                <button type="button" data-view="gallery">Galeri</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hc-explorer-bulkbar" id="hc-explorer-bulkbar" hidden>
+                        <span id="hc-explorer-selection-count">0 modül seçildi</span>
+                        <select id="hc-explorer-bulk-category">
+                            <option value="">Toplu kategori ata</option>
+                        </select>
+                        <button type="button" class="button button-primary" id="hc-explorer-bulk-apply">Seçilenlere uygula</button>
+                        <button type="button" class="button" id="hc-explorer-bulk-draft">Taslak oluştur</button>
+                    </div>
+
+                    <div class="hc-explorer-surface">
+                        <div class="hc-explorer-surface-head">
+                            <div>
+                                <h3 id="hc-explorer-list-title">Aktif Modüller</h3>
+                                <p id="hc-explorer-list-meta">İlk sayfa yükleniyor...</p>
+                            </div>
+                            <div class="hc-inline-status" id="hc-explorer-status" aria-live="polite"></div>
+                        </div>
+
+                        <div class="hc-explorer-table-wrap" id="hc-explorer-table-wrap">
+                            <table class="wp-list-table widefat striped hc-modules-table hc-explorer-table">
+                                <thead>
+                                    <tr>
+                                        <th class="hc-cell-check"><input type="checkbox" id="hc-explorer-select-all" /></th>
+                                        <th>Module Name</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Shortcode</th>
+                                        <th>AI Enabled</th>
+                                        <th>Usage Stats</th>
+                                        <th>Updated Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="hc-explorer-table-body">
+                                    <tr class="hc-skeleton-row"><td colspan="9"><div class="hc-skeleton-table"></div></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="hc-explorer-gallery" id="hc-explorer-gallery" hidden></div>
+
+                        <div class="hc-explorer-pagination" id="hc-explorer-pagination">
+                            <button type="button" class="button" id="hc-explorer-prev">Önceki</button>
+                            <span id="hc-explorer-page-label">Sayfa 1 / 1</span>
+                            <button type="button" class="button" id="hc-explorer-next">Sonraki</button>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="hc-explorer-drawer" id="hc-explorer-drawer" aria-label="Modül detay paneli">
+                    <div class="hc-explorer-drawer-empty">
+                        <span class="dashicons dashicons-index-card"></span>
+                        <h3>Detay paneli</h3>
+                        <p>Bir modül seçtiğinizde açıklama, kullanım, shortcode ve hızlı aksiyonlar burada açılır.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <div class="hc-preview-modal" id="hc-preview-modal" hidden aria-hidden="true">
+            <div class="hc-preview-backdrop" data-hc-preview-close></div>
+            <div class="hc-preview-dialog" role="dialog" aria-modal="true" aria-labelledby="hc-preview-title">
+                <div class="hc-preview-header">
+                    <div>
+                        <span class="hc-toolbar-kicker">Canlı shortcode</span>
+                        <h2 id="hc-preview-title">Modül Önizleme</h2>
+                        <button type="button" class="hc-shortcode-chip hc-preview-shortcode" data-hc-copy-shortcode data-shortcode="">
+                            <span class="dashicons dashicons-shortcode" aria-hidden="true"></span>
+                            <code id="hc-preview-shortcode-text"></code>
+                        </button>
+                    </div>
+                    <button type="button" class="button hc-icon-button" data-hc-preview-close aria-label="Önizlemeyi kapat">
+                        <span class="dashicons dashicons-no-alt" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="hc-preview-toolbar" aria-label="Önizleme araçları">
+                    <div class="hc-preview-device-toggle" role="group" aria-label="Önizleme genişliği">
+                        <button type="button" class="is-active" data-hc-preview-size="desktop">Masaüstü</button>
+                        <button type="button" data-hc-preview-size="mobile">Mobil</button>
+                    </div>
+                    <div class="hc-preview-actions">
+                        <button type="button" class="button" data-hc-modal-copy>Shortcode Kopyala</button>
+                        <a class="button" id="hc-preview-standalone" href="#" target="_blank" rel="noopener">Bağımsız Aç</a>
+                        <button type="button" class="button button-primary" id="hc-preview-insert">Taslak oluştur</button>
+                    </div>
+                </div>
+                <div class="hc-preview-body">
+                    <div class="hc-preview-frame" data-preview-size="desktop">
+                        <div class="hc-preview-loading" id="hc-preview-loading" aria-live="polite">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="hc-preview-content" id="hc-preview-content"></div>
+                    </div>
+                </div>
+                <div class="hc-preview-status" id="hc-preview-status" role="status" aria-live="polite"></div>
+            </div>
+        </div>
+        <?php
+        return;
+
         $search            = sanitize_text_field( wp_unslash( $_GET['s'] ?? '' ) );
         $selected_category = sanitize_text_field( wp_unslash( $_GET['module_category'] ?? '' ) );
         $post_status       = sanitize_text_field( wp_unslash( $_GET['post_status'] ?? '' ) );
