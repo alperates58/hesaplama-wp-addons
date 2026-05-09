@@ -1,0 +1,5 @@
+{
+  "name": "Atom Kütlesi Hesaplama",
+  "desc": "İzotop kütleleri ve doğada bulunma bolluklarına göre ortalama atom kütlesini hesaplar.",
+  "shortcode": "[hc_atom_kutlesi_hesaplama]"
+}

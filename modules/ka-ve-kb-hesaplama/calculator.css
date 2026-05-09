@@ -1,0 +1,36 @@
+.hc-kk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.hc-kk-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#hc-ka-kb select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-kk-grid {
+        grid-template-columns: 1fr;
+    }
+}

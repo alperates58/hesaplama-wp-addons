@@ -1,5 +1,5 @@
 {
   "name": "Alkol Seyreltme Hesaplama",
-  "desc": "Alkol derecesini düşürmek için eklenmesi gereken su miktarını hesaplar.",
+  "desc": "Mevcut alkol derecesini hedef dereceye düşürmek için gereken su miktarını hesaplar.",
   "shortcode": "[hc_alkol_seyreltme_hesaplama]"
 }

@@ -1,5 +1,5 @@
 {
   "name": "Çözelti Hazırlama Hesaplama",
-  "desc": "Belirli bir molarite ve hacim için gereken madde miktarını (gram) hesaplar.",
+  "desc": "İstenen molarite ve hacimde çözelti hazırlamak için gereken katı madde miktarını hesaplar.",
   "shortcode": "[hc_cozelti_hazirlama_hesaplama]"
 }

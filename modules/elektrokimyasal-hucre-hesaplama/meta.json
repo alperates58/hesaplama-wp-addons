@@ -1,0 +1,5 @@
+{
+  "name": "Elektrokimyasal Hücre Hesaplama",
+  "desc": "Katot ve anot yarı hücre potansiyellerine göre toplam hücre potansiyelini (E_cell) hesaplar.",
+  "shortcode": "[hc_elektrokimyasal_hucre_hesaplama]"
+}

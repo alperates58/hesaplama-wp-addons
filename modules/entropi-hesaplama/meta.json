@@ -1,0 +1,5 @@
+{
+  "name": "Entropi Hesaplama",
+  "desc": "Isı değişimi ve sıcaklığa göre sistemdeki entropi değişimini (ΔS) hesaplar.",
+  "shortcode": "[hc_entropi_hesaplama]"
+}

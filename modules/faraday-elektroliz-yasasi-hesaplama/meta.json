@@ -1,0 +1,5 @@
+{
+  "name": "Faraday Elektroliz Yasası Hesaplama",
+  "desc": "Akım, süre ve tesir değerliğine göre elektrolizde açığa çıkan madde miktarını hesaplar.",
+  "shortcode": "[hc_faraday_elektroliz_yasasi_hesaplama]"
+}

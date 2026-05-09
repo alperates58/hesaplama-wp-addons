@@ -1,0 +1,30 @@
+.hc-cs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.hc-cs-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-cs-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}

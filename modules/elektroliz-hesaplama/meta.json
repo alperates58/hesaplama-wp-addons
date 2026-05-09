@@ -1,0 +1,5 @@
+{
+  "name": "Elektroliz Hesaplama",
+  "desc": "Elektroliz süresi ve akım şiddetine göre elektrotta toplanan madde miktarını hesaplar.",
+  "shortcode": "[hc_elektroliz_hesaplama]"
+}

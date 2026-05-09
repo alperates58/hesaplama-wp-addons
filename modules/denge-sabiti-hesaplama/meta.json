@@ -1,0 +1,5 @@
+{
+  "name": "Denge Sabiti Hesaplama",
+  "desc": "Denge derişimlerine göre kimyasal tepkimenin denge sabitini (Kc) hesaplar.",
+  "shortcode": "[hc_denge_sabiti_hesaplama]"
+}

@@ -1,11 +1,10 @@
-#hc-cozelti-hazirlama-hesaplama .hc-result-note {
-    margin-top: 10px;
-    font-size: 0.9em;
-    opacity: 0.8;
+#hc-cozelti-hazirlama .hc-result {
+    text-align: center;
 }
 
-@media (max-width: 480px) {
-    #hc-cozelti-hazirlama-hesaplama {
-        padding: 15px;
-    }
+.hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 10px;
 }

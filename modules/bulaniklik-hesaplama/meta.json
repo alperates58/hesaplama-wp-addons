@@ -1,0 +1,5 @@
+{
+  "name": "Bulanıklık Hesaplama",
+  "desc": "Su örneklerinde bulanıklık (turbidity) ölçümlerini standartlara göre normalize eder.",
+  "shortcode": "[hc_bulaniklik_hesaplama]"
+}

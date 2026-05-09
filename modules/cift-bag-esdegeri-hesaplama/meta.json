@@ -1,0 +1,5 @@
+{
+  "name": "Çift Bağ Eşdeğeri Hesaplama",
+  "desc": "Molekül formülüne göre doymamışlık derecesini (halkalar ve pi bağları toplamı) hesaplar.",
+  "shortcode": "[hc_cift_bag_esdegeri_hesaplama]"
+}

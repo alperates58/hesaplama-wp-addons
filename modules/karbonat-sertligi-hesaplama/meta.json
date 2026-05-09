@@ -1,0 +1,5 @@
+{
+  "name": "Karbonat Sertliği Hesaplama",
+  "desc": "Sudaki bikarbonat ve karbonat iyonlarına bağlı olarak karbonat sertliğini hesaplar.",
+  "shortcode": "[hc_karbonat_sertligi_hesaplama]"
+}

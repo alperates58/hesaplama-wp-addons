@@ -1,0 +1,5 @@
+{
+  "name": "Beer-Lambert Yasası Hesaplama",
+  "desc": "Absorbans, molar absorpsiyon katsayısı ve yol uzunluğuna göre derişim hesaplar.",
+  "shortcode": "[hc_beer_lambert_yasasi_hesaplama]"
+}

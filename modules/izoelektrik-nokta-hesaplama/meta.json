@@ -1,0 +1,5 @@
+{
+  "name": "İzoelektrik Nokta Hesaplama",
+  "desc": "Amino asitlerin veya amfoterik maddelerin izoelektrik noktasını (pI) hesaplar.",
+  "shortcode": "[hc_izoelektrik_nokta_hesaplama]"
+}

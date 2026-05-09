@@ -1,0 +1,5 @@
+{
+  "name": "Çözünmüş Oksijen Hesaplama",
+  "desc": "Winkler yöntemi ile titrasyon verilerine göre sudaki çözünmüş oksijen miktarını hesaplar.",
+  "shortcode": "[hc_cozunmus_oksijen_hesaplama]"
+}

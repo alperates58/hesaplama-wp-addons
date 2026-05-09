@@ -1,0 +1,5 @@
+{
+  "name": "Hücre Potansiyeli Hesaplama",
+  "desc": "Standart olmayan koşullarda Nernst denklemini kullanarak hücre potansiyelini hesaplar.",
+  "shortcode": "[hc_hucre_potansiyeli_hesaplama]"
+}

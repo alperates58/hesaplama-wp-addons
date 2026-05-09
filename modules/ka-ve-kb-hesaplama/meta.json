@@ -1,0 +1,5 @@
+{
+  "name": "Ka ve Kb Hesaplama",
+  "desc": "Asitlik ve bazlık sabitleri (Ka, Kb) ile pKa, pKb değerleri arasında dönüşüm yapar.",
+  "shortcode": "[hc_ka_ve_kb_hesaplama]"
+}

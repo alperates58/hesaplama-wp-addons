@@ -1,0 +1,5 @@
+{
+  "name": "Asit Baz Titrasyonu Hesaplama",
+  "desc": "Titrasyon verilerine göre bilinmeyen asit veya baz derişimini hesaplar.",
+  "shortcode": "[hc_asit_baz_titrasyonu_hesaplama]"
+}

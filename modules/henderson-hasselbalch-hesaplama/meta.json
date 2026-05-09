@@ -1,0 +1,5 @@
+{
+  "name": "Henderson-Hasselbalch Hesaplama",
+  "desc": "Tampon çözeltilerin pH değerini asit/tuz derişimlerine göre hesaplar.",
+  "shortcode": "[hc_henderson_hasselbalch_hesaplama]"
+}

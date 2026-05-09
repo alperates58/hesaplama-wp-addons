@@ -1,0 +1,5 @@
+{
+  "name": "Aktif Madde İçeriği Hesaplama",
+  "desc": "Bir karışım veya ürün içerisindeki aktif madde miktarını yüzde oranına göre hesaplar.",
+  "shortcode": "[hc_aktif_madde_icerigi_hesaplama]"
+}

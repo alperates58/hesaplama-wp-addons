@@ -1,0 +1,28 @@
+.hc-f-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.hc-f-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-f-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+}

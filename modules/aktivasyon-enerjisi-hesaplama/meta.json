@@ -1,0 +1,5 @@
+{
+  "name": "Aktivasyon Enerjisi Hesaplama",
+  "desc": "Farklı sıcaklıklardaki hız sabitlerine göre bir tepkimenin aktivasyon enerjisini (Ea) hesaplar.",
+  "shortcode": "[hc_aktivasyon_enerjisi_hesaplama]"
+}

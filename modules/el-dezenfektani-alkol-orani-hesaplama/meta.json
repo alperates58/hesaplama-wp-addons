@@ -1,0 +1,5 @@
+{
+  "name": "El Dezenfektanı Alkol Oranı Hesaplama",
+  "desc": "Belirli bir hacim ve konsantrasyonda el dezenfektanı hazırlamak için gereken alkol ve su miktarını hesaplar.",
+  "shortcode": "[hc_el_dezenfektani_alkol_orani_hesaplama]"
+}

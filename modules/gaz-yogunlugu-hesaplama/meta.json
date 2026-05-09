@@ -1,0 +1,5 @@
+{
+  "name": "Gaz Yoğunluğu Hesaplama",
+  "desc": "Basınç, sıcaklık ve molekül ağırlığına göre gaz yoğunluğunu (d) hesaplar.",
+  "shortcode": "[hc_gaz_yogunlugu_hesaplama]"
+}

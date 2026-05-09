@@ -1,0 +1,5 @@
+{
+  "name": "Kalsiyum Sertliği Hesaplama",
+  "desc": "Sudaki kalsiyum iyonu derişimine göre kalsiyum sertliğini CaCO3 eşdeğeri olarak hesaplar.",
+  "shortcode": "[hc_kalsiyum_sertligi_hesaplama]"
+}

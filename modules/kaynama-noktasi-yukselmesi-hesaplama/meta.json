@@ -1,0 +1,5 @@
+{
+  "name": "Kaynama Noktası Yükselmesi Hesaplama",
+  "desc": "Çözeltideki molalite ve van't Hoff faktörüne bağlı olarak kaynama noktası artışını hesaplar.",
+  "shortcode": "[hc_kaynama_noktasi_yukselmesi_hesaplama]"
+}

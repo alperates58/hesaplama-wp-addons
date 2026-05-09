@@ -1,0 +1,5 @@
+{
+  "name": "Emülgatör Oranı Hesaplama",
+  "desc": "İstenen HLB değerine ulaşmak için iki farklı emülgatörün karışım oranlarını hesaplar.",
+  "shortcode": "[hc_emulgator_orani_hesaplama]"
+}

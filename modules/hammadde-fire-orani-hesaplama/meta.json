@@ -1,0 +1,5 @@
+{
+  "name": "Hammadde Fire Oranı Hesaplama",
+  "desc": "Üretim sürecindeki hammadde kaybını (fire) ve verimliliği hesaplar.",
+  "shortcode": "[hc_hammadde_fire_orani_hesaplama]"
+}

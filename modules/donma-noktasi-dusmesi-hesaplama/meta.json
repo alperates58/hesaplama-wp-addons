@@ -1,0 +1,5 @@
+{
+  "name": "Donma Noktası Düşmesi Hesaplama",
+  "desc": "Çözeltideki molalite ve van't Hoff faktörüne bağlı olarak donma noktası düşüşünü hesaplar.",
+  "shortcode": "[hc_donma_noktasi_dusmesi_hesaplama]"
+}

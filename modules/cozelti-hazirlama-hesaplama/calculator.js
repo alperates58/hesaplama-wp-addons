@@ -1,17 +1,16 @@
-function hcCozeltiHazirlamaHesapla() {
-    const mw = parseFloat(document.getElementById('hc-sol-mw').value);
-    const molarity = parseFloat(document.getElementById('hc-sol-molarity').value);
-    const volMl = parseFloat(document.getElementById('hc-sol-vol').value);
+function hcCozeltiHazirlaHesapla() {
+    const molarity = parseFloat(document.getElementById('hc-ch-molarity').value);
+    const volumeMl = parseFloat(document.getElementById('hc-ch-volume').value);
+    const mw = parseFloat(document.getElementById('hc-ch-mw').value);
 
-    if (isNaN(mw) || isNaN(molarity) || isNaN(volMl) || mw <= 0 || molarity <= 0 || volMl <= 0) {
-        alert('Lütfen geçerli pozitif değerler giriniz.');
+    if (isNaN(molarity) || isNaN(volumeMl) || isNaN(mw)) {
+        alert('Lütfen tüm alanları doldurun.');
         return;
     }
 
-    const volL = volMl / 1000;
-    const mass = molarity * volL * mw;
+    const volumeL = volumeMl / 1000;
+    const mass = molarity * volumeL * mw;
 
-    document.getElementById('hc-sol-val').innerText = mass.toLocaleString('tr-TR', { maximumFractionDigits: 3 }) + ' g';
-    document.getElementById('hc-sol-note').innerText = `${volMl} mL ${molarity} M çözelti için ${mass.toLocaleString('tr-TR')} gram madde tartılmalıdır.`;
-    document.getElementById('hc-sol-result').classList.add('visible');
+    document.getElementById('hc-ch-val').innerText = mass.toLocaleString('tr-TR', { maximumFractionDigits: 4 }) + ' g';
+    document.getElementById('hc-ch-result').classList.add('visible');
 }

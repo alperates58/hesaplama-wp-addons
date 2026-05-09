@@ -1,0 +1,5 @@
+{
+  "name": "Arrhenius Denklemi Hesaplama",
+  "desc": "Sıcaklık ve aktivasyon enerjisine bağlı olarak tepkime hız sabitini (k) hesaplar.",
+  "shortcode": "[hc_arrhenius_denklemi_hesaplama]"
+}

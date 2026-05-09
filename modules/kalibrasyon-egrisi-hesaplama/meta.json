@@ -1,0 +1,5 @@
+{
+  "name": "Kalibrasyon Eğrisi Hesaplama",
+  "desc": "Standart çözelti verilerine göre kalibrasyon eğrisi oluşturur ve numune derişimini hesaplar.",
+  "shortcode": "[hc_kalibrasyon_egrisi_hesaplama]"
+}

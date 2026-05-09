@@ -1,0 +1,5 @@
+{
+  "name": "Çökelme Tepkimesi Hesaplama",
+  "desc": "İyon derişimlerine göre çözeltide çökelme olup olmayacağını (Qsp vs Ksp) hesaplar.",
+  "shortcode": "[hc_cokelme_tepkimesi_hesaplama]"
+}

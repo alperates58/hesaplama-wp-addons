@@ -1,0 +1,22 @@
+.hc-ad-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.hc-ad-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .hc-ad-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}

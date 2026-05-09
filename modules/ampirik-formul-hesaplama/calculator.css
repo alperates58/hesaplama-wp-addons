@@ -1,0 +1,25 @@
+.hc-af-row input {
+    width: 100%;
+}
+
+.hc-btn-alt {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#hc-ampirik .hc-result {
+    text-align: center;
+}
+
+#hc-af-val sub {
+    font-size: 0.6em;
+    vertical-align: sub;
+}

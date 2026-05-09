@@ -1,0 +1,5 @@
+{
+  "name": "Hammadde Miktarı Hesaplama",
+  "desc": "Saflık oranına göre ticari hammaddeden alınması gereken net miktarı hesaplar.",
+  "shortcode": "[hc_hammadde_miktari_hesaplama]"
+}

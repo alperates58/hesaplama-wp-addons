@@ -1,0 +1,5 @@
+{
+  "name": "Ampirik Formül Hesaplama",
+  "desc": "Bileşik yüzdeleri veya kütlelerine göre en basit (ampirik) formülü hesaplar.",
+  "shortcode": "[hc_ampirik_formul_hesaplama]"
+}

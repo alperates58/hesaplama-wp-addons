@@ -1,0 +1,5 @@
+{
+  "name": "Aerosol Dolum Gramajı Hesaplama",
+  "desc": "Kutu hacmi, konsantre yoğunluğu ve dolum oranlarına göre aerosol dolum miktarlarını hesaplar.",
+  "shortcode": "[hc_aerosol_dolum_gramaji_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çözelti Seyreltme Hesaplama",
+  "desc": "Stok çözeltiden istenen derişimde yeni bir çözelti hazırlamak için gereken hacimleri hesaplar.",
+  "shortcode": "[hc_cozelti_seyreltme_hesaplama]"
+}

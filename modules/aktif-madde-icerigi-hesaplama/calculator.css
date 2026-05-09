@@ -1,0 +1,9 @@
+#hc-aktif-madde .hc-result {
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    #hc-aktif-madde {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,15 @@
+#hc-cokelme .hc-result {
+    text-align: center;
+}
+
+.hc-cp-interpretation {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 10px;
+}

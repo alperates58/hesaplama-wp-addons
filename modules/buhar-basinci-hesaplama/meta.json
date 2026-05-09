@@ -1,0 +1,5 @@
+{
+  "name": "Buhar Basıncı Hesaplama",
+  "desc": "Antoine denklemi kullanarak belirli bir sıcaklıktaki saf maddelerin buhar basıncını hesaplar.",
+  "shortcode": "[hc_buhar_basinci_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Entalpi Hesaplama",
+  "desc": "Sıcaklık değişimi, kütle ve özgül ısıya göre entalpi değişimini (ΔH) hesaplar.",
+  "shortcode": "[hc_entalpi_hesaplama]"
+}

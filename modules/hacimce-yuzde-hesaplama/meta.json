@@ -1,0 +1,5 @@
+{
+  "name": "Hacimce Yüzde Hesaplama",
+  "desc": "Çözünen ve çözelti hacmine göre hacimce yüzde derişimi hesaplar.",
+  "shortcode": "[hc_hacimce_yuzde_hesaplama]"
+}

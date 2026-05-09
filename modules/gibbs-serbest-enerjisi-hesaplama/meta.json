@@ -1,0 +1,5 @@
+{
+  "name": "Gibbs Serbest Enerjisi Hesaplama",
+  "desc": "Entalpi, entropi ve sıcaklık değerlerine göre tepkimenin kendiliğindenliğini (ΔG) hesaplar.",
+  "shortcode": "[hc_gibbs_serbest_enerjisi_hesaplama]"
+}

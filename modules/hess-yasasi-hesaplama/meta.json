@@ -1,0 +1,5 @@
+{
+  "name": "Hess Yasası Hesaplama",
+  "desc": "Farklı tepkime adımlarının entalpilerini toplayarak toplam tepkime entalpisini hesaplar.",
+  "shortcode": "[hc_hess_yasasi_hesaplama]"
+}

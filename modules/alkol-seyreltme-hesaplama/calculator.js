@@ -1,19 +1,24 @@
-function hcAlcoholDiluteHesapla() {
-    const c1 = parseFloat(document.getElementById('hc-ad-current-deg').value) || 0;
-    const v1 = parseFloat(document.getElementById('hc-ad-current-vol').value) || 0;
-    const c2 = parseFloat(document.getElementById('hc-ad-target-deg').value) || 0;
+function hcAlkolHesapla() {
+    const v1 = parseFloat(document.getElementById('hc-as-v1').value);
+    const c1 = parseFloat(document.getElementById('hc-as-c1').value);
+    const c2 = parseFloat(document.getElementById('hc-as-c2').value);
 
-    if (c2 >= c1 || c2 <= 0) {
-        alert('Hedef derece mevcut dereceden küçük ve 0\'dan büyük olmalıdır.');
+    if (isNaN(v1) || isNaN(c1) || isNaN(c2)) {
+        alert('Lütfen tüm alanları doldurun.');
         return;
     }
 
-    // V2 = (C1 * V1) / C2
-    const v2 = (c1 * v1) / c2;
+    if (c2 >= c1) {
+        alert('Hedef derece mevcut dereceden küçük olmalıdır.');
+        return;
+    }
+
+    // V2 = (V1 * C1) / C2
+    const v2 = (v1 * c1) / c2;
     const water = v2 - v1;
 
-    document.getElementById('hc-res-ad-water').innerText = water.toFixed(3) + ' Litre';
-    document.getElementById('hc-res-ad-total').innerText = v2.toFixed(3) + ' Litre';
+    document.getElementById('hc-as-water').innerText = water.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' ml';
+    document.getElementById('hc-as-total').innerText = v2.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' ml';
     
-    document.getElementById('hc-alcohol-dilute-result').classList.add('visible');
+    document.getElementById('hc-as-result').classList.add('visible');
 }
