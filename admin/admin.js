@@ -798,6 +798,8 @@ jQuery(function ($) {
 
     function hcInitExplorer() {
         var $root = $('#hc-explorer');
+        var $layout = $('.hc-explorer-layout');
+        var $drawer = $('#hc-explorer-drawer');
         var state;
         var categoryOptions = [];
         var pendingAssignments = {};
@@ -820,6 +822,11 @@ jQuery(function ($) {
             favorites: [],
             recent: []
         };
+
+        function setDrawerEmpty(isEmpty) {
+            $layout.toggleClass('is-drawer-empty', !!isEmpty);
+            $drawer.toggleClass('is-empty', !!isEmpty);
+        }
 
         function getPayload() {
             return {
@@ -1028,6 +1035,7 @@ jQuery(function ($) {
             html += '</div>';
 
             $('#hc-explorer-drawer').html(html);
+            setDrawerEmpty(false);
         }
 
         function refreshSelectionBar() {
@@ -1249,6 +1257,7 @@ jQuery(function ($) {
             fetchBootstrap();
         });
 
+        setDrawerEmpty(true);
         fetchBootstrap();
     }
 
