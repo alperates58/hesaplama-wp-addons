@@ -1,0 +1,5 @@
+{
+  "name": "Çelik Ağırlığı Hesaplama",
+  "desc": "Çelik lama, kare, yuvarlak veya altıköşe profillerin boyutlarına göre toplam ağırlığını hesaplar.",
+  "shortcode": "[hc_celik_agirligi_hesaplama]"
+}

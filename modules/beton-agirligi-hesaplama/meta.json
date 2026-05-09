@@ -1,0 +1,5 @@
+{
+  "name": "Beton Ağırlığı Hesaplama",
+  "desc": "Betonun hacmine veya boyutlarına göre toplam ağırlığını (kg/ton) hesaplar.",
+  "shortcode": "[hc_beton_agirligi_hesaplama]"
+}

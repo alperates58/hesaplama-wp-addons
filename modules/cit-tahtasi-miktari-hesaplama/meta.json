@@ -1,0 +1,5 @@
+{
+  "name": "Çit Tahtası Miktarı Hesaplama",
+  "desc": "Çit uzunluğu, tahta genişliği ve aradaki boşluğa göre gereken toplam tahta sayısını hesaplar.",
+  "shortcode": "[hc_cit_tahtasi_miktari_hesaplama]"
+}

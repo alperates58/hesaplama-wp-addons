@@ -1,0 +1,5 @@
+{
+  "name": "Çit Malzemesi Miktarı Hesaplama",
+  "desc": "Çit uzunluğu ve direk aralığına göre gereken direk, ray ve tel/panel sayısını hesaplar.",
+  "shortcode": "[hc_cit_malzemesi_miktari_hesaplama]"
+}

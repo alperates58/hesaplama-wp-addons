@@ -1,0 +1,5 @@
+{
+  "name": "Çakıllı Yol Miktarı Hesaplama",
+  "desc": "Yol veya zemin alanına göre gereken çakıl veya mıcır miktarını (ton/m³) hesaplar.",
+  "shortcode": "[hc_cakilli_yol_miktari_hesaplama]"
+}

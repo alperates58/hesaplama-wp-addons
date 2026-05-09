@@ -1,0 +1,25 @@
+.hc-cmm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.hc-cmm-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#hc-cit-malzemesi-miktari-hesaplama .hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-cmm-grid {
+        grid-template-columns: 1fr;
+    }
+}

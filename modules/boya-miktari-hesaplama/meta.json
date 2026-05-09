@@ -1,0 +1,5 @@
+{
+  "name": "Boya Miktarı Hesaplama",
+  "desc": "Duvar veya tavan alanı ile boya türüne göre gereken toplam boya miktarını (Litre) hesaplar.",
+  "shortcode": "[hc_boya_miktari_hesaplama]"
+}

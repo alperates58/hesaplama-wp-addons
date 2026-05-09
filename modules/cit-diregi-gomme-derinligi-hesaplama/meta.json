@@ -1,0 +1,5 @@
+{
+  "name": "Çit Direği Gömme Derinliği Hesaplama",
+  "desc": "Çit yüksekliğine ve toprak tipine göre direklerin güvenli gömme derinliğini ve toplam direk boyunu hesaplar.",
+  "shortcode": "[hc_cit_diregi_gomme_derinligi_hesaplama]"
+}

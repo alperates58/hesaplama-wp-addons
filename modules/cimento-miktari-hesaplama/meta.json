@@ -1,0 +1,5 @@
+{
+  "name": "Çimento Miktarı Hesaplama",
+  "desc": "Beton veya harç hacmine göre gereken çimento torbası (50 kg) sayısını ve kum/su oranlarını hesaplar.",
+  "shortcode": "[hc_cimento_miktari_hesaplama]"
+}

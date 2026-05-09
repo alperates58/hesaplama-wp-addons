@@ -1,0 +1,5 @@
+{
+  "name": "Çit Malzemesi Tahmini Hesaplama",
+  "desc": "Belirli bir alan veya çevre için gereken çit direği, panel ve beton miktarını toplu olarak tahmin eder.",
+  "shortcode": "[hc_cit_malzemesi_tahmini_hesaplama]"
+}

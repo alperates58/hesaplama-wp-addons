@@ -1,0 +1,5 @@
+{
+  "name": "Dakikada Litre Debi Hesaplama",
+  "desc": "Belirli bir hacmin dolma süresine göre su akış hızını (Litre/Dakika) hesaplar.",
+  "shortcode": "[hc_dakikada_litre_debi_hesaplama]"
+}

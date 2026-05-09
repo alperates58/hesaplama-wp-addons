@@ -1,0 +1,5 @@
+{
+  "name": "Alçıpan Miktarı Hesaplama",
+  "desc": "Duvar veya tavan alanı ile plaka boyutlarına göre gereken alçıpan plaka sayısını ve profil metrajını hesaplar.",
+  "shortcode": "[hc_alcipan_miktari_hesaplama]"
+}

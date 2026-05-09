@@ -1,0 +1,5 @@
+{
+  "name": "Alüminyum Ağırlığı Hesaplama",
+  "desc": "Alüminyum levha, çubuk veya profil boyutlarına göre toplam ağırlığı (kg) hesaplar.",
+  "shortcode": "[hc_aluminyum_agirligi_hesaplama]"
+}

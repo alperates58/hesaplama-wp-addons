@@ -1,0 +1,5 @@
+{
+  "name": "Açılı Kesim Hesaplama",
+  "desc": "Köşe birleşimleri için gereken gönye kesim (miter) ve eğim (bevel) açılarını hesaplar.",
+  "shortcode": "[hc_acili_kesim_hesaplama]"
+}

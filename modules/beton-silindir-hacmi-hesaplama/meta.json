@@ -1,0 +1,5 @@
+{
+  "name": "Beton Silindir Hacmi Hesaplama",
+  "desc": "Dairesel temeller, kazıklar veya silindirik yapılar için gereken beton hacmini hesaplar.",
+  "shortcode": "[hc_beton_silindir_hacmi_hesaplama]"
+}

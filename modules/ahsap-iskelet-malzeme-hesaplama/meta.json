@@ -1,0 +1,5 @@
+{
+  "name": "Ahşap İskelet Malzeme Hesaplama",
+  "desc": "Duvar uzunluğu ve dikme aralığına göre gereken dikme (stud) sayısını ve alt/üst plaka uzunluğunu hesaplar.",
+  "shortcode": "[hc_ahsap_iskelet_malzeme_hesaplama]"
+}

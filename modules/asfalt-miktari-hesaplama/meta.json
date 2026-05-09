@@ -1,0 +1,5 @@
+{
+  "name": "Asfalt Miktarı Hesaplama",
+  "desc": "Yol veya alan boyutlarına göre gereken sıcak karışım asfalt (ton) miktarını hesaplar.",
+  "shortcode": "[hc_asfalt_miktari_hesaplama]"
+}

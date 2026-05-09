@@ -1,0 +1,5 @@
+{
+  "name": "Ahşap Kaplama Tahta Aralığı Hesaplama",
+  "desc": "Belirli bir alana eşit boşluklarla dizilecek tahtaların arasındaki net mesafeyi hesaplar.",
+  "shortcode": "[hc_ahsap_kaplama_tahta_araligi_hesaplama]"
+}

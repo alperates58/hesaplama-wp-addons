@@ -1,0 +1,5 @@
+{
+  "name": "Çatı Kaplama Malzemesi Miktarı Hesaplama",
+  "desc": "Çatı alanına ve seçilen malzeme türüne (kiremit, şıngıl, panel vb.) göre gereken miktar ve paket sayısını hesaplar.",
+  "shortcode": "[hc_cati_kaplama_malzemesi_miktari_hesaplama]"
+}

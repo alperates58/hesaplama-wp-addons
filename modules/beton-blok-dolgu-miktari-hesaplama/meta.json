@@ -1,0 +1,5 @@
+{
+  "name": "Beton Blok Dolgu Miktarı Hesaplama",
+  "desc": "Beton blok (bims/briket) duvarlardaki boşlukları doldurmak için gereken harç veya beton hacmini hesaplar.",
+  "shortcode": "[hc_beton_blok_dolgu_miktari_hesaplama]"
+}

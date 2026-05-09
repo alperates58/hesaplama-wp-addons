@@ -1,0 +1,5 @@
+{
+  "name": "Beton Döşeme Metreküp Hesaplama",
+  "desc": "En, boy ve yükseklik (kalınlık) değerlerine göre beton döşeme veya temel için gereken beton hacmini hesaplar.",
+  "shortcode": "[hc_beton_doseme_metrekup_hesaplama]"
+}

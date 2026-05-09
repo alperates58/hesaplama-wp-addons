@@ -1,0 +1,5 @@
+{
+  "name": "Beton Merdiven Metreküp Hesaplama",
+  "desc": "Basamak sayısı, genişlik, rıht ve basamak ölçülerine göre beton merdiven için gereken toplam hacmi hesaplar.",
+  "shortcode": "[hc_beton_merdiven_metrekup_hesaplama]"
+}

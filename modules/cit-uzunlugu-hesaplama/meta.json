@@ -1,0 +1,5 @@
+{
+  "name": "Çit Uzunluğu Hesaplama",
+  "desc": "Elindeki toplam direk ve malzeme miktarına göre ne kadar uzunlukta çit yapılabileceğini hesaplar.",
+  "shortcode": "[hc_cit_uzunlugu_hesaplama]"
+}

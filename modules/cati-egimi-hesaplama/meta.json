@@ -1,0 +1,5 @@
+{
+  "name": "Çatı Eğimi Hesaplama",
+  "desc": "Çatı yüksekliği ve yatay mesafe değerlerine göre eğim yüzdesini, açısını ve oranını hesaplar.",
+  "shortcode": "[hc_cati_egimi_hesaplama]"
+}

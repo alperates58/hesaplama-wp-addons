@@ -1,0 +1,12 @@
+#hc-cati-kaplama-metrekare-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #hc-cati-kaplama-metrekare-hesaplama {
+        padding: 15px;
+    }
+}

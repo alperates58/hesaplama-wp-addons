@@ -1,0 +1,5 @@
+{
+  "name": "Beton Blok Miktarı Hesaplama",
+  "desc": "Duvar alanına ve blok boyutlarına göre gereken beton blok (bims/briket) sayısını hesaplar.",
+  "shortcode": "[hc_beton_blok_miktari_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Civata Torku Hesaplama",
+  "desc": "Civata çapı, sınıfı ve sürtünme katsayısına göre güvenli sıkma torkunu (Nm) hesaplar.",
+  "shortcode": "[hc_civata_torku_hesaplama]"
+}

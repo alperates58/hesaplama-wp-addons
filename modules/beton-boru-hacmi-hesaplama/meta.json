@@ -1,0 +1,5 @@
+{
+  "name": "Beton Boru Hacmi Hesaplama",
+  "desc": "Beton boruların iç hacmini (su kapasitesi) ve boru et kalınlığına göre gereken beton miktarını hesaplar.",
+  "shortcode": "[hc_beton_boru_hacmi_hesaplama]"
+}

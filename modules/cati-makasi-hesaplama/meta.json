@@ -1,0 +1,5 @@
+{
+  "name": "Çatı Makası Hesaplama",
+  "desc": "Çatı açıklığı ve yüksekliğine göre makas elemanlarının (mertek, kuşak vb.) uzunluklarını ve kesim açılarını hesaplar.",
+  "shortcode": "[hc_cati_makasi_hesaplama]"
+}

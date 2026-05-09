@@ -1,0 +1,12 @@
+#hc-beton-doseme-metrekup-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #hc-beton-doseme-metrekup-hesaplama {
+        padding: 15px;
+    }
+}

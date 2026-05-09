@@ -1,0 +1,5 @@
+{
+  "name": "Boru Kaydırma Mesafesi Hesaplama",
+  "desc": "Boru tesisatında engelleri aşmak için kullanılan ofset (kaydırma) ve seyahat (travel) mesafelerini hesaplar.",
+  "shortcode": "[hc_boru_kaydirma_mesafesi_hesaplama]"
+}

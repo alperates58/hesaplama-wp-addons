@@ -1,0 +1,5 @@
+{
+  "name": "Boru Ağırlığı Hesaplama",
+  "desc": "Malzeme türü (çelik, PVC, bakır vb.), çap ve et kalınlığına göre boru ağırlığını hesaplar.",
+  "shortcode": "[hc_boru_agirligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ahşap Kiriş Açıklığı Hesaplama",
+  "desc": "Kiriş boyutu, yükleme ve ahşap türüne göre güvenli kiriş açıklığını (sapma sınırı dahil) hesaplar.",
+  "shortcode": "[hc_ahsap_kiris_acikligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Boru Hacmi Hesaplama",
+  "desc": "Boruların iç hacmini ve taşıyabileceği sıvı miktarını (Litre/m³) hesaplar.",
+  "shortcode": "[hc_boru_hacmi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çit Çevre Uzunluğu Hesaplama",
+  "desc": "Arsa veya alanın kenar uzunluklarına göre toplam çit metrajını hesaplar.",
+  "shortcode": "[hc_cit_cevre_uzunlugu_hesaplama]"
+}

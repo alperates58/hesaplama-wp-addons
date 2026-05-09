@@ -1,0 +1,28 @@
+.hc-btn-secondary {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.hc-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#hc-cit-cevre-uzunlugu-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #hc-cit-cevre-uzunlugu-hesaplama {
+        padding: 15px;
+    }
+}

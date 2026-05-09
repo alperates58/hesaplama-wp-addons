@@ -1,0 +1,5 @@
+{
+  "name": "Çelik Sac Ağırlığı Hesaplama",
+  "desc": "Çelik levha (sac) boyutlarına ve kalınlığına göre toplam ağırlığı hesaplar.",
+  "shortcode": "[hc_celik_sac_agirligi_hesaplama]"
+}

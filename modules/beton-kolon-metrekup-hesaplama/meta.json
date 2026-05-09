@@ -1,0 +1,5 @@
+{
+  "name": "Beton Kolon Metreküp Hesaplama",
+  "desc": "Kesit ölçüleri ve yükseklik değerlerine göre kare, dikdörtgen veya dairesel kolonlar için gereken beton hacmini hesaplar.",
+  "shortcode": "[hc_beton_kolon_metrekup_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ahşap Duvar Kaplama Miktarı Hesaplama",
+  "desc": "Duvar alanı ve kullanılacak tahta boyutlarına göre gereken malzeme miktarını hesaplar.",
+  "shortcode": "[hc_ahsap_duvar_kaplama_miktari_hesaplama]"
+}

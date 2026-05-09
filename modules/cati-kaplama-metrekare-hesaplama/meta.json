@@ -1,0 +1,5 @@
+{
+  "name": "Çatı Kaplama Metrekare Hesaplama",
+  "desc": "Binanın taban alanı ve çatı eğimine göre gerçek çatı yüzey alanını (m²) hesaplar.",
+  "shortcode": "[hc_cati_kaplama_metrekare_hesaplama]"
+}
