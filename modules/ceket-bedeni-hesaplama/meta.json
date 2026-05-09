@@ -1,0 +1,5 @@
+{
+  "name": "Ceket Bedeni Hesaplama",
+  "desc": "Göğüs, bel ve boy ölçülerinize göre ideal ceket bedeninizi ve drop kalıbınızı hesaplar.",
+  "shortcode": "[hc_ceket_bedeni_hesaplama]"
+}

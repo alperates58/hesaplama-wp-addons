@@ -1,0 +1,5 @@
+{
+  "name": "Gerilim Birimi Dönüştürme Hesaplama",
+  "desc": "Volt, milivolt ve kilovolt gibi elektriksel gerilim (voltaj) birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_gerilim_birimi_donusturme_hesaplama]"
+}

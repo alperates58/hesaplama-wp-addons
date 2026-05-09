@@ -1,0 +1,5 @@
+{
+  "name": "Motor Torku Hesaplama",
+  "desc": "Motorun beygir gücü ve devir (RPM) bilgisini kullanarak tork değerini (Nm) hesaplayın.",
+  "shortcode": "[hc_motor_torku_hesaplama]"
+}

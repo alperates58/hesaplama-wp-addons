@@ -1,0 +1,5 @@
+{
+  "name": "Koşu Tempo Hesaplama",
+  "desc": "Koşu hızınızı tempo (dakika/km) cinsinden hesaplar.",
+  "shortcode": "[hc_kosu_tempo_hesaplama]"
+}

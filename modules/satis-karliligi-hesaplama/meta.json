@@ -1,0 +1,5 @@
+{
+  "name": "Satış Karlılığı Hesaplama",
+  "desc": "Net karın toplam satışlara oranıyla şirketin satış verimliliğini (ROS) hesaplar.",
+  "shortcode": "[hc_satis_karliligi_hesaplama]"
+}

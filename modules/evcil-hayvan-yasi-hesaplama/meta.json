@@ -1,0 +1,5 @@
+{
+  "name": "Evcil Hayvan Yaşı Hesaplama",
+  "desc": "Kedi ve köpek yaşını insan yaşı karşılığına ve yaşam evresine göre hesaplar.",
+  "shortcode": "[hc_evcil_hayvan_yasi_hesaplama]"
+}

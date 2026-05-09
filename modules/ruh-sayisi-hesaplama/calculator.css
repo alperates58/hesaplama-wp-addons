@@ -1,0 +1,20 @@
+.hc-ruh-result {
+    text-align: center;
+}
+
+.hc-ruh-val {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin: 15px 0;
+}
+
+.hc-ruh-desc {
+    font-style: italic;
+    color: #444;
+    line-height: 1.7;
+    background: #fff5e6;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #e67e22;
+}

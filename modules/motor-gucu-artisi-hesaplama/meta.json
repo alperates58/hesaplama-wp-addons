@@ -1,0 +1,5 @@
+{
+  "name": "Motor Gücü Artışı Hesaplama",
+  "desc": "Yazılım (Chiptuning) veya mekanik modifikasyon sonrası aracınızın beygir gücü ve tork artışını yüzde olarak hesaplar.",
+  "shortcode": "[hc_motor_gucu_artisi_hesaplama]"
+}

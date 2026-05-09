@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Bezi Tüketimi ve Maliyet Hesaplama",
+  "desc": "Bebeğinizin yaşına göre günlük, aylık ve yıllık tahmini bebek bezi tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_bebek_bezi_tuketimi]"
+}

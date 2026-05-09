@@ -1,0 +1,5 @@
+{
+  "name": "Pozitif Gebelik Testi Tarihi Hesaplama",
+  "desc": "Pozitif çıkan gebelik testinizin tarihine göre hamilelik haftanızı ve doğum tarihinizi hesaplar.",
+  "shortcode": "[hc_pozitif_gebelik_testi_degerlendirme]"
+}

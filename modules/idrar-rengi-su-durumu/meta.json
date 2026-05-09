@@ -1,0 +1,5 @@
+{
+  "name": "İdrar Rengine Göre Su Durumu Hesaplama",
+  "desc": "İdrar renginizi standart bir renk skalasıyla karşılaştırarak vücudunuzun hidrasyon (su) durumunu hızlıca analiz eder.",
+  "shortcode": "[hc_idrar_rengi_su_durumu]"
+}

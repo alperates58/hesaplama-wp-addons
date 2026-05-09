@@ -1,0 +1,5 @@
+{
+  "name": "Maliyet Hesaplama",
+  "desc": "Malzeme, işçilik ve genel giderleri toplayarak toplam üretim maliyetini hesaplar.",
+  "shortcode": "[hc_maliyet_hesaplama]"
+}

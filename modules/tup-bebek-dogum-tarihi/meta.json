@@ -1,0 +1,5 @@
+{
+  "name": "Tüp Bebek Doğum Tarihi Hesaplama",
+  "desc": "Embriyo transfer tarihinize ve embriyo gününüze (3. gün veya 5. gün) göre tahmini doğum tarihinizi hesaplar.",
+  "shortcode": "[hc_tup_bebek_dogum_tarihi]"
+}

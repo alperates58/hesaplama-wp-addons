@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Mama Miktarı Hesaplama",
+  "desc": "Bebeğinizin ağırlığına göre her öğünde alması gereken tahmini mama miktarını hesaplar.",
+  "shortcode": "[hc_bebek_mama_miktari_hesaplama]"
+}

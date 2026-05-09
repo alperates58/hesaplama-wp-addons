@@ -1,0 +1,5 @@
+{
+  "name": "Viskozite Dönüştürücü",
+  "desc": "Dinamik viskozite birimleri (cP, mPa·s, Pa·s) arasında dönüşüm yapın.",
+  "shortcode": "[hc_viskozite_donusturucu]"
+}

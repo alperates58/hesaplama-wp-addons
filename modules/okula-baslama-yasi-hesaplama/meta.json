@@ -1,0 +1,5 @@
+{
+  "name": "Okula Başlama Yaşı Hesaplama",
+  "desc": "Doğum tarihine göre ilkokula başlama uygunluğunu ay hesabıyla belirler.",
+  "shortcode": "[hc_okula_baslama_yasi_hesaplama]"
+}

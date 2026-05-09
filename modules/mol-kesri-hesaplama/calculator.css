@@ -1,0 +1,113 @@
+#hc-mol-kesri-hesaplama {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-mol-kesri-hesaplama .hc-header h3 {
+    margin: 0 0 10px;
+    color: #1e293b;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#hc-mol-kesri-hesaplama .hc-header p {
+    margin-bottom: 25px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+#hc-mol-kesri-hesaplama .hc-form-grid {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-mol-kesri-hesaplama label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+#hc-mol-kesri-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f8fafc;
+}
+
+#hc-mol-kesri-hesaplama .hc-btn {
+    width: 100%;
+    background: #3b82f6;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-mol-kesri-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: none;
+}
+
+#hc-mol-kesri-hesaplama .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hc-mol-kesri-hesaplama .hc-res-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+#hc-mol-kesri-hesaplama .hc-res-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+#hc-mol-kesri-hesaplama .hc-res-row:last-child {
+    border-bottom: none;
+}
+
+#hc-mol-kesri-hesaplama .hc-res-row span {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+#hc-mol-kesri-hesaplama .hc-res-row strong {
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-family: monospace;
+}
+
+#hc-mol-kesri-hesaplama .hc-info-note {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-align: center;
+}

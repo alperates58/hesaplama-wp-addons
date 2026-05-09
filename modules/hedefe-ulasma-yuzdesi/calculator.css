@@ -1,0 +1,84 @@
+#hc-hedefe-ulasma-yuzdesi {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-hedefe-ulasma-yuzdesi label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#hc-hedefe-ulasma-yuzdesi input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-result.visible {
+    display: block;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-res-main {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-progress-container {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#hc-hedefe-ulasma-yuzdesi .hc-res-status {
+    font-weight: 600;
+    color: #64748b;
+    font-size: 0.95rem;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bağkur Primi Hesaplama",
+  "desc": "4B (Bağ-Kur) sigortalıları için aylık prim ödemelerini ve 5 puanlık indirimli tutarları hesaplar.",
+  "shortcode": "[hc_bagkur_primi_hesaplama]"
+}

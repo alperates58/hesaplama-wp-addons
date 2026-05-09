@@ -1,0 +1,5 @@
+{
+  "name": "Kur Değer Artışı Azalışı Hesaplama",
+  "desc": "Belirli bir dönem içindeki döviz kuru değişimini yüzde olarak hesaplar.",
+  "shortcode": "[hc_kur_deger_artisi_azalisi_hesaplama]"
+}

@@ -1,0 +1,13 @@
+.hc-gki-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.hc-gki-result{border-left-color:#2f7a68}
+.hc-gki-hero{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.hc-gki-badge{width:58px;height:58px;display:flex;align-items:center;justify-content:center;flex:0 0 58px;border-radius:8px;background:#eef8f5;border:1px solid #cce8df;color:#1f6655;font-size:14px;font-weight:700}
+.hc-gki-subtitle{margin-top:3px;color:#56616f;font-size:14px;line-height:1.4}
+.hc-gki-details{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.hc-gki-details div{padding:10px;background:#f6faf8;border:1px solid #dcebe5;border-radius:6px}
+.hc-gki-details span,.hc-gki-details strong{display:block}
+.hc-gki-details span{margin-bottom:4px;color:#666;font-size:12px}
+.hc-gki-details strong{color:#222;font-size:14px}
+.hc-gki-yorum{margin:12px 0 0;color:#333;line-height:1.5}
+.hc-gki-uyari{margin:12px 0 0;padding:10px;background:#fff8e5;border:1px solid #f0d37a;border-radius:6px;color:#6d5200;font-size:13px;line-height:1.4}
+@media (max-width:480px){.hc-gki-grid,.hc-gki-details{grid-template-columns:1fr}.hc-gki-hero{align-items:flex-start}}

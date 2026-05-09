@@ -1,0 +1,105 @@
+#hc-ffmi-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-ffmi-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#hc-ffmi-hesaplama .full-width {
+    grid-column: span 2;
+}
+
+#hc-ffmi-hesaplama label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#hc-ffmi-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+#hc-ffmi-hesaplama .hc-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-ffmi-hesaplama .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-ffmi-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-ffmi-hesaplama .hc-res-box.highlight {
+    background: #eff6ff;
+    border: 2px solid #bfdbfe;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#hc-ffmi-hesaplama .hc-res-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #2563eb;
+    letter-spacing: 0.1em;
+}
+
+#hc-ffmi-hesaplama .hc-res-main {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #1e3a8a;
+}
+
+#hc-ffmi-hesaplama .hc-res-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+#hc-ffmi-hesaplama .hc-res-sub {
+    flex: 1;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+#hc-ffmi-hesaplama .hc-res-sub span {
+    display: block;
+    font-size: 0.7rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+#hc-ffmi-hesaplama .hc-res-sub strong {
+    font-size: 1.1rem;
+    color: #1e293b;
+}

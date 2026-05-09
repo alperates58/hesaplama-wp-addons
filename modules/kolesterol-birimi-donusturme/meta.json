@@ -1,0 +1,5 @@
+{
+  "name": "Kolesterol Birimi Dönüştürme Hesaplama",
+  "desc": "Kolesterol değerlerini mg/dL ve mmol/L birimleri arasında dönüştürür.",
+  "shortcode": "[hc_kolesterol_birimi_donusturme]"
+}

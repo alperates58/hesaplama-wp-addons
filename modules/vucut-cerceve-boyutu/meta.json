@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Çerçeve Boyutu Hesaplaması",
+  "desc": "Bilek çevreniz ve boyunuza göre iskelet yapınızın (Küçük, Orta, İri) hangi kategoride olduğunu belirler.",
+  "shortcode": "[hc_vucut_cerceve_boyutu]"
+}

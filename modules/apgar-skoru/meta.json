@@ -1,0 +1,5 @@
+{
+  "name": "APGAR Skoru Hesaplama",
+  "desc": "Yeni doğan bebeklerin doğumdan hemen sonraki fiziksel durumunu değerlendiren APGAR puanını hesaplar.",
+  "shortcode": "[hc_apgar_skoru]"
+}

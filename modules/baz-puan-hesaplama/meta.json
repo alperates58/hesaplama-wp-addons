@@ -1,0 +1,5 @@
+{
+  "name": "Baz Puan Hesaplama",
+  "desc": "Faiz oranlarındaki değişimleri ifade eden baz puan (bps) ve yüzde (%) arasındaki dönüşümü yapar.",
+  "shortcode": "[hc_baz_puan_hesaplama]"
+}

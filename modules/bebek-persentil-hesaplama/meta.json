@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Persentil Hesaplama (0-3 Yaş)",
+  "desc": "Bebeğinizin boy, kilo ve baş çevresi gelişimini WHO standartlarına göre hesaplar ve persentil değerini gösterir.",
+  "shortcode": "[hc_bebek_persentil_hesaplama]"
+}

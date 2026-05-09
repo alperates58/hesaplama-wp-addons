@@ -1,0 +1,5 @@
+{
+  "name": "Geri Sayım Hesaplama",
+  "desc": "Türkiye'deki önemli günler, resmi tatiller ve 2026 ÖSYM sınavları için kalan süreyi hesaplar.",
+  "shortcode": "[hc_geri_sayim]"
+}

@@ -1,0 +1,19 @@
+.hc-gezegen-etkileri-hesaplama .hc-result {
+    text-align: center;
+}
+
+.hc-p-val {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2980b9;
+    margin-bottom: 15px;
+}
+
+.hc-p-desc {
+    line-height: 1.7;
+    color: #444;
+    background: #f0f7fb;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #2980b9;
+}

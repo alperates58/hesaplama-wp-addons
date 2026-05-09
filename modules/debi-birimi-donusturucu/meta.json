@@ -1,0 +1,5 @@
+{
+  "name": "Debi Birimi Dönüştürücü",
+  "desc": "Litre/saniye, metreküp/saat ve galon/dakika gibi debi (akış hızı) birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_debi_birimi_donusturucu]"
+}

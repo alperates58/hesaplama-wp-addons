@@ -1,0 +1,7 @@
+.hc-alan-birimi-donusturucu-result table {
+    margin-top: 10px;
+}
+
+.hc-alan-birimi-donusturucu-result td strong {
+    color: var(--hc-front-blue-dark);
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Namaz Vakitleri Hesaplama",
+  "desc": "Bulunduğunuz konuma göre günlük namaz vakitlerini (İmsak, Güneş, Öğle, İkindi, Akşam, Yatsı) hesaplayın.",
+  "shortcode": "[hc_namaz_vakitleri_hesaplama]"
+}

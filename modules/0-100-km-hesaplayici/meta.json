@@ -1,0 +1,5 @@
+{
+  "name": "0-100 Km Hesaplayıcı",
+  "desc": "Aracınızın ağırlığı, beygir gücü ve çekiş tipine göre tahmini 0-100 km/s hızlanma süresini hesaplar.",
+  "shortcode": "[hc_0_100_km_hesaplayici]"
+}

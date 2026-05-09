@@ -1,0 +1,63 @@
+#hc-alan-hesaplama {
+    background: #ffffff;
+    background-image: linear-gradient(#f1f5f9 1px, transparent 1px), linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-alan-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#hc-alan-hesaplama label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+#hc-alan-hesaplama select,
+#hc-alan-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+#hc-alan-hesaplama .hc-btn {
+    width: 100%;
+    background: #1e293b;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-alan-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 15px;
+    text-align: center;
+    display: none;
+}
+
+#hc-alan-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-alan-hesaplama .hc-res-main {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #1e40af;
+}

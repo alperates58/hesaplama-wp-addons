@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Verimliliği Hesaplama",
+  "desc": "Elektrikli aracınızın kat ettiği mesafe ve harcadığı enerjiye göre gerçek verimliliğini (Wh/km veya kWh/100km) hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_verimliligi_hesaplama]"
+}

@@ -1,0 +1,7 @@
+.hc-veri-aktarim-hizi-hesaplama-result table {
+    margin-top: 10px;
+}
+
+.hc-veri-aktarim-hizi-hesaplama-result td strong {
+    color: var(--hc-front-blue-dark);
+}

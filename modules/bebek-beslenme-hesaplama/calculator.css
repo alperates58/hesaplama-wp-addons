@@ -1,0 +1,42 @@
+#hc-bebek-beslenme .hc-feeding-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-bebek-beslenme .hc-feeding-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--hc-front-border);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+#hc-bebek-beslenme .hc-feeding-card.primary {
+    border-color: #dbe7ff;
+    background: linear-gradient(135deg, #f1f6ff 0%, #ffffff 100%);
+}
+
+#hc-bebek-beslenme .hc-f-label {
+    font-size: 13px;
+    color: var(--hc-front-muted);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+#hc-bebek-beslenme .hc-f-value {
+    font-size: 26px;
+    color: var(--hc-front-blue-dark);
+    font-weight: 800;
+}
+
+@media (max-width: 480px) {
+    #hc-bebek-beslenme .hc-feeding-summary {
+        grid-template-columns: 1fr;
+    }
+}

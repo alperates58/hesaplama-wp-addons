@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Deposu Hacmi ve Menzil Hesaplama",
+  "desc": "Aracınızın yakıt deposu kapasitesi ve ortalama tüketimine göre bir depo ile ne kadar yol gidebileceğinizi hesaplayın.",
+  "shortcode": "[hc_yakit_deposu_hacmi_ve_menzil_hesaplama]"
+}

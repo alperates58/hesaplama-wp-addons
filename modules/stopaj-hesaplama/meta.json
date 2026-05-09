@@ -1,0 +1,5 @@
+{
+  "name": "Stopaj Hesaplama",
+  "desc": "Kira, serbest meslek ödemeleri ve diğer gider pusulaları için gelir vergisi stopaj tutarlarını hesaplar.",
+  "shortcode": "[hc_stopaj_hesaplama]"
+}

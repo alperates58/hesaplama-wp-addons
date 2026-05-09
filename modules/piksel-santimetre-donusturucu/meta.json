@@ -1,0 +1,5 @@
+{
+  "name": "Piksel Santimetre Dönüştürücü",
+  "desc": "Piksel değerlerini santimetreye veya santimetreyi piksele dönüştürün (DPI bazlı).",
+  "shortcode": "[hc_piksel_santimetre_donusturucu]"
+}

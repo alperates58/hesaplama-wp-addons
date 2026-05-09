@@ -1,0 +1,117 @@
+jQuery(function ($) {
+
+    function hcSetFieldValue($field, value) {
+        if (!$field.length || !value) return;
+        $field.val(value).trigger('input').trigger('change');
+    }
+
+    function hcFillYoastFields(data) {
+        hcSetFieldValue($('#yoast_wpseo_focuskw, input[name="_yoast_wpseo_focuskw"]'), data.odak_anahtar_kelime || '');
+        hcSetFieldValue($('#yoast_wpseo_title, input[name="_yoast_wpseo_title"]'), data.meta_baslik || '');
+        hcSetFieldValue($('#yoast_wpseo_metadesc, textarea[name="_yoast_wpseo_metadesc"]'), data.meta_aciklama || '');
+    }
+
+    $('#hc-mb-btn').on('click', function () {
+        var url       = $('#hc-mb-url').val().trim();
+        var shortcode = $('#hc-mb-shortcode').val();
+        var postTitle = $('#title').val().trim();
+        var postId    = $('#post_ID').val();
+
+        // URL yoksa başlıktan üret
+        if (!url && !postTitle) {
+            alert('URL girin veya yazı başlığını doldurun.');
+            return;
+        }
+
+        $('#hc-mb-error').hide();
+        $('#hc-mb-success').hide();
+        $('#hc-mb-loading').show();
+        $('#hc-mb-btn').prop('disabled', true).text('⏳ Yazılıyor...');
+
+        $.post(hcMetabox.ajaxurl, {
+            action: 'hc_generate_article',
+            nonce:  hcMetabox.nonce,
+            url:    url,
+            title:  postTitle,
+            source: 'post_metabox'
+        })
+        .done(function (resp) {
+            $('#hc-mb-loading').hide();
+            $('#hc-mb-btn').prop('disabled', false).text('✨ Oluştur');
+
+            if (typeof resp === 'string') {
+                try { resp = JSON.parse(resp); } catch(e) {
+                    $('#hc-mb-error').text('Yanıt parse hatası.').show(); return;
+                }
+            }
+            if (!resp || !resp.success) {
+                $('#hc-mb-error').text('Hata: ' + (resp && resp.data ? resp.data : 'Bilinmeyen')).show();
+                return;
+            }
+
+            var d      = resp.data;
+            var icerik = d.icerik || '';
+            hcFillYoastFields(d);
+
+            // Shortcode en üste ekle
+            if (shortcode) {
+                icerik = '<p>' + shortcode + '</p>\n\n' + icerik;
+            }
+
+            // Başlığı doldur (sadece boşsa)
+            if (d.baslik && !$('#title').val().trim()) {
+                $('#title').val(d.baslik).trigger('input');
+                $('#title-prompt-text').hide();
+            }
+
+            // TinyMCE veya textarea
+            if (typeof tinyMCE !== 'undefined' && tinyMCE.get('content')) {
+                tinyMCE.get('content').setContent(icerik);
+            } else {
+                $('#content').val(icerik);
+            }
+
+            // Etiketleri WP tag box'a ekle
+            var etiketler = Array.isArray(d.etiketler) ? d.etiketler : [];
+            etiketler.forEach(function (tag) {
+                if (typeof tagBox !== 'undefined') {
+                    tagBox.flushTags($('#post_tag.tagsdiv'), $('<span>' + tag + '</span>'), 1);
+                }
+            });
+
+            // Yoast + etiketleri sunucu tarafında kaydet, sonra sayfayı otomatik yenile
+            if (postId) {
+                $.post(hcMetabox.ajaxurl, {
+                    action:               'hc_update_post_meta',
+                    nonce:                hcMetabox.nonce,
+                    post_id:              postId,
+                    baslik:               $('#title').val(),
+                    icerik:               icerik,
+                    odak_anahtar_kelime:  d.odak_anahtar_kelime || '',
+                    meta_baslik:          d.meta_baslik          || '',
+                    meta_aciklama:        d.meta_aciklama         || '',
+                    etiketler:            etiketler
+                }, function(metaResp) {
+                    if (metaResp && metaResp.success) {
+                        $('#hc-mb-success').html('✓ Kaydedildi, sayfa yenileniyor...').show();
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 800);
+                    } else {
+                        $('#hc-mb-error').text('SEO alanları kaydedilemedi: ' + (metaResp && metaResp.data ? metaResp.data : 'Bilinmeyen hata')).show();
+                    }
+                }).fail(function (xhr) {
+                    $('#hc-mb-error').text('SEO kayıt hatası: HTTP ' + xhr.status).show();
+                });
+            } else {
+                $('#hc-mb-success').text('✓ İçerik editöre eklendi.').show();
+            }
+        })
+        .fail(function (xhr) {
+            $('#hc-mb-loading').hide();
+            $('#hc-mb-btn').prop('disabled', false).text('✨ Oluştur');
+            $('#hc-mb-error').text('Sunucu hatası: ' + xhr.status).show();
+        });
+    });
+
+});

@@ -1,0 +1,5 @@
+{
+  "name": "AGNO Hesaplama",
+  "desc": "Ağırlıklı Genel Not Ortalaması (AGNO) hesaplayarak akademik başarınızı takip edin.",
+  "shortcode": "[hc_agno_hesaplama]"
+}

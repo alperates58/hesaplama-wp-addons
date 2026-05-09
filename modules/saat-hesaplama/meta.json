@@ -1,0 +1,5 @@
+{
+  "name": "Saat Hesaplama",
+  "desc": "Bir saate belirli bir süre ekleyin veya çıkarın.",
+  "shortcode": "[hc_saat_hesaplama]"
+}

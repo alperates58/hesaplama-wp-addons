@@ -1,0 +1,5 @@
+{
+  "name": "Lisans Ortalama Hesaplama",
+  "desc": "Lisans eğitimi süresince aldığınız ders notlarını girerek 4'lük sistemde genel not ortalamanızı hesaplayın.",
+  "shortcode": "[hc_lisans_ortalama_hesaplama]"
+}

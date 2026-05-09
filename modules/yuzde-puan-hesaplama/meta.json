@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Puan Hesaplama",
+  "desc": "Alınan puanın toplam puan içerisindeki yüzde değerini hesaplar.",
+  "shortcode": "[hc_yuzde_puan_hesaplama]"
+}

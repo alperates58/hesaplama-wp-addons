@@ -1,0 +1,5 @@
+{
+  "name": "Diyabet Riski Hesaplama",
+  "desc": "FINDRISC ölçeği kullanarak önümüzdeki 10 yıl için tip 2 diyabet riskinizi hesaplar.",
+  "shortcode": "[hc_diyabet_riski_hesaplama]"
+}

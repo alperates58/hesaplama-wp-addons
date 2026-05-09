@@ -1,0 +1,5 @@
+{
+  "name": "Lastik Basıncı Dönüştürme Hesaplama",
+  "desc": "Lastik basınç birimleri (PSI, Bar, kPa, kg/cm²) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_lastik_basinci_donusturme_hesaplama]"
+}

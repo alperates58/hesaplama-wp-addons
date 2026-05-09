@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Borçlanması Hesaplama",
+  "desc": "Kadın sigortalıların doğum nedeniyle çalışamadıkları süreleri borçlanma maliyetini hesaplar.",
+  "shortcode": "[hc_dogum_borclanmasi_hesaplama]"
+}

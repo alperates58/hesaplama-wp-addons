@@ -1,0 +1,5 @@
+{
+  "name": "Gebelik Doğum Tarihi Hesaplama",
+  "desc": "Gebelik haftanıza ve son adet tarihinize göre doğum yapacağınız muhtemel tarihi hesaplar.",
+  "shortcode": "[hc_gebelik_dogum_tarihi]"
+}

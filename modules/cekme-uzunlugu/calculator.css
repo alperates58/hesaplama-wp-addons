@@ -1,0 +1,11 @@
+.hc-cekme-uzunlugu-result{border-left-color:#6f7d35}
+.hc-cekme-uzunlugu-hero{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.hc-cekme-uzunlugu-badge{width:58px;height:58px;display:flex;align-items:center;justify-content:center;flex:0 0 58px;border-radius:8px;background:#f6f8ea;border:1px solid #dfe6b9;color:#596722;font-size:18px;font-weight:700}
+.hc-cekme-uzunlugu-subtitle{margin-top:3px;color:#56616f;font-size:14px}
+.hc-cekme-uzunlugu-details{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.hc-cekme-uzunlugu-details div{padding:10px;background:#fafbf2;border:1px solid #e4e8ca;border-radius:6px}
+.hc-cekme-uzunlugu-details span,.hc-cekme-uzunlugu-details strong{display:block}
+.hc-cekme-uzunlugu-details span{margin-bottom:4px;color:#666;font-size:12px}
+.hc-cekme-uzunlugu-details strong{color:#222;font-size:14px}
+.hc-cekme-uzunlugu-yorum{margin:12px 0 0;color:#333;line-height:1.5}
+@media (max-width:480px){.hc-cekme-uzunlugu-details{grid-template-columns:1fr}.hc-cekme-uzunlugu-hero{align-items:flex-start}}

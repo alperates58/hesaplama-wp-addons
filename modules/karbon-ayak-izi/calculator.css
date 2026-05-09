@@ -1,0 +1,162 @@
+#hc-karbon-ayak-izi {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #f0fdf4;
+}
+
+#hc-karbon-ayak-izi .hc-header h3 {
+    margin: 0 0 5px;
+    color: #166534;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+#hc-karbon-ayak-izi .hc-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+#hc-karbon-ayak-izi .hc-eco-tabs {
+    display: flex;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+#hc-karbon-ayak-izi .hc-eco-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #64748b;
+    transition: all 0.2s;
+}
+
+#hc-karbon-ayak-izi .hc-eco-tab.active {
+    background: #22c55e;
+    color: white;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+#hc-karbon-ayak-izi .hc-eco-panel {
+    display: none;
+}
+
+#hc-karbon-ayak-izi .hc-eco-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hc-karbon-ayak-izi .hc-form-group label {
+    display: block;
+    font-weight: 700;
+    color: #334155;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+#hc-karbon-ayak-izi input,
+#hc-karbon-ayak-izi select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f1f5f9;
+    border-radius: 10px;
+    background: #f8fafc;
+    font-size: 1rem;
+}
+
+#hc-karbon-ayak-izi .hc-btn {
+    width: 100%;
+    background: #15803d;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#hc-karbon-ayak-izi .hc-btn:hover {
+    background: #166534;
+}
+
+#hc-karbon-ayak-izi .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f0fdf4;
+    border-radius: 20px;
+    border: 1px solid #bbf7d0;
+    display: none;
+}
+
+#hc-karbon-ayak-izi .hc-result.visible {
+    display: block;
+}
+
+#hc-karbon-ayak-izi .hc-res-circle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#hc-karbon-ayak-izi .hc-res-label {
+    font-size: 0.7rem;
+    font-weight: 900;
+    color: #15803d;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#hc-karbon-ayak-izi .hc-res-main {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #166534;
+}
+
+#hc-karbon-ayak-izi .hc-res-main small {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+#hc-karbon-ayak-izi .hc-tree-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #dcfce7;
+}
+
+#hc-karbon-ayak-izi .hc-tree-icon {
+    font-size: 2rem;
+}
+
+#hc-karbon-ayak-izi .hc-tree-box p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+#hc-karbon-ayak-izi .hc-tree-box strong {
+    font-size: 1.5rem;
+    color: #15803d;
+    display: block;
+}

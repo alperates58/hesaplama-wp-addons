@@ -1,0 +1,38 @@
+.hc-uyku-dongusu-hesaplama-panel {
+    display: grid;
+    gap: 12px;
+}
+
+.hc-uyku-dongusu-hesaplama-title {
+    color: #333;
+}
+
+.hc-uyku-dongusu-hesaplama-select,
+.hc-uyku-dongusu-hesaplama-input {
+    width: 100%;
+}
+
+.hc-uyku-dongusu-hesaplama-button {
+    width: 100%;
+}
+
+.hc-uyku-dongusu-hesaplama-results {
+    padding: 10px;
+    background: #e7f3ff;
+    border-radius: 4px;
+}
+
+.hc-uyku-dongusu-hesaplama-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hc-uyku-dongusu-hesaplama-results li {
+    padding: 5px 0;
+}
+
+@media (max-width: 480px) {
+    .hc-uyku-dongusu-hesaplama-panel {
+        gap: 10px;
+    }
+}

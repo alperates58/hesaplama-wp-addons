@@ -1,0 +1,5 @@
+{
+  "name": "Adım Mesafe Hesaplama",
+  "desc": "Attığınız adım sayısını yürünen toplam mesafeye (km/metre) dönüştürür.",
+  "shortcode": "[hc_adim_mesafe_hesaplama]"
+}

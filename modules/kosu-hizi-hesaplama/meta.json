@@ -1,0 +1,5 @@
+{
+  "name": "Koşu Hızı Hesaplama",
+  "desc": "Koşu mesafesini ve süresini kullanarak ortalama koşu hızınızı (km/sa) hesaplar.",
+  "shortcode": "[hc_kosu_hizi_hesaplama]"
+}

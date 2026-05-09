@@ -1,0 +1,5 @@
+{
+  "name": "Güç-Ağırlık Oranı Hesaplama",
+  "desc": "Aracınızın ton başına düşen beygir gücünü (HP/Ton) hesaplayarak performans kapasitesini analiz edin.",
+  "shortcode": "[hc_guc_agirlik_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Harf Notu Hesaplama",
+  "desc": "100'lük sistemdeki puanınızın üniversite standartlarına göre harf notu (AA, BA, BB...) karşılığını hesaplayın.",
+  "shortcode": "[hc_harf_notu_hesaplama]"
+}

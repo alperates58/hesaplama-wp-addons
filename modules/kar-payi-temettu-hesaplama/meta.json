@@ -1,0 +1,5 @@
+{
+  "name": "Kar Payı (Temettü) Hesaplama",
+  "desc": "Şirket kârı ve hisse adedi üzerinden alacağınız brüt ve net temettü tutarlarını hesaplar.",
+  "shortcode": "[hc_kar_payi_temettu_hesaplama]"
+}

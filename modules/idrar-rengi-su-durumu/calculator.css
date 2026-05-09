@@ -1,0 +1,28 @@
+.hc-urine-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hc-urine-item {
+    height: 60px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hc-urine-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hc-urine-item.selected {
+    border: 3px solid #333 !important;
+}
+
+@media (max-width: 480px) {
+    .hc-urine-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

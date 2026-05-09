@@ -1,0 +1,5 @@
+{
+  "name": "Altın Hesaplama",
+  "desc": "Anlık piyasa verisiyle gram altın, bilezik ve altın türlerinin yaklaşık TL değerini hesaplar.",
+  "shortcode": "[hc_altin_hesaplama]"
+}

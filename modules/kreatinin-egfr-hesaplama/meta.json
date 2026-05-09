@@ -1,0 +1,5 @@
+{
+  "name": "Kreatinin eGFR Hesaplama",
+  "desc": "CKD-EPI 2021 formülü kullanarak böbrek süzme hızını (eGFR) hesaplar.",
+  "shortcode": "[hc_kreatinin_egfr_hesaplama]"
+}

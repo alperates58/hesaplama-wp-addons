@@ -1,0 +1,5 @@
+{
+  "name": "Şarj İstasyonu Maliyeti Hesaplama",
+  "desc": "Evinize veya iş yerinize kuracağınız elektrikli araç şarj istasyonunun cihaz ve kurulum maliyetlerini hesaplayın.",
+  "shortcode": "[hc_sarj_istasyonu_maliyeti_hesaplama]"
+}

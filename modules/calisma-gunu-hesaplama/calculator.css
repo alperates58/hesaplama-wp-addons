@@ -1,0 +1,137 @@
+.hc-calisma-gunu-intro {
+    margin: 0 0 16px;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.hc-calisma-gunu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-calisma-gunu-days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+}
+
+.hc-calisma-gunu-days label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #1d2433;
+    font-size: 14px;
+}
+
+.hc-calisma-gunu-days input {
+    width: 16px;
+    height: 16px;
+}
+
+.hc-calisma-gunu-help {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-calisma-gunu-result {
+    border-left-color: #587d65;
+}
+
+.hc-calisma-gunu-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-calisma-gunu-badge {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    border-radius: 8px;
+    background: #f0f8f3;
+    border: 1px solid #cfe7d6;
+    color: #3f6b4d;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hc-calisma-gunu-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-calisma-gunu-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-calisma-gunu-details div,
+.hc-calisma-gunu-list {
+    padding: 10px;
+    background: #f7fbf8;
+    border: 1px solid #dbeade;
+    border-radius: 6px;
+}
+
+.hc-calisma-gunu-details span,
+.hc-calisma-gunu-details strong,
+.hc-calisma-gunu-list span {
+    display: block;
+}
+
+.hc-calisma-gunu-details span,
+.hc-calisma-gunu-list span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-calisma-gunu-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-calisma-gunu-list {
+    margin: 12px 0;
+}
+
+.hc-calisma-gunu-list ul {
+    margin: 8px 0 0 18px;
+    padding: 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-calisma-gunu-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-calisma-gunu-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-calisma-gunu-grid,
+    .hc-calisma-gunu-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-calisma-gunu-hero {
+        align-items: flex-start;
+    }
+}

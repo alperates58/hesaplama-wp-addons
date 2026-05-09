@@ -1,0 +1,5 @@
+{
+  "name": "Açlık Tokluk Kan Şekeri Değerlendirme Hesaplama",
+  "desc": "Açlık ve tokluk (yemeğin 2. saati) kan şekeri ölçümlerinizi tıbbi referans aralıklarına göre değerlendirir.",
+  "shortcode": "[hc_kan_sekeri_degerlendirme]"
+}

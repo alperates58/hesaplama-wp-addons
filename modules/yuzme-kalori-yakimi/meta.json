@@ -1,0 +1,5 @@
+{
+  "name": "Yüzme Kalori Yakımı Hesaplama",
+  "desc": "Yüzme stilinize, kilonuza ve sürenize bağlı olarak yaktığınız tahmini kalori miktarını hesaplar.",
+  "shortcode": "[hc_yuzme_kalori_yakimi]"
+}

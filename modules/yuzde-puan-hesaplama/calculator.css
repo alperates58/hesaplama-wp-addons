@@ -1,0 +1,92 @@
+#hc-yuzde-puan-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-yuzde-puan-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-yuzde-puan-hesaplama label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#hc-yuzde-puan-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+#hc-yuzde-puan-hesaplama .hc-btn {
+    width: 100%;
+    background: #10b981;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-yuzde-puan-hesaplama .hc-result {
+    margin-top: 30px;
+    text-align: center;
+    display: none;
+}
+
+#hc-yuzde-puan-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-yuzde-puan-hesaplama .hc-res-circle {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+#hc-yuzde-puan-hesaplama .hc-circular-chart {
+    display: block;
+    max-width: 100%;
+    max-height: 250px;
+}
+
+#hc-yuzde-puan-hesaplama .hc-circle-bg {
+    fill: none;
+    stroke: #f1f5f9;
+    stroke-width: 3.8;
+}
+
+#hc-yuzde-puan-hesaplama .hc-circle {
+    fill: none;
+    stroke: #10b981;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.6s ease;
+}
+
+#hc-yuzde-puan-hesaplama .hc-percentage {
+    fill: #1e293b;
+    font-family: sans-serif;
+    font-size: 0.5rem;
+    font-weight: 800;
+    text-anchor: middle;
+}
+
+#hc-yuzde-puan-hesaplama .hc-res-info {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #475569;
+}

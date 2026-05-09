@@ -1,0 +1,5 @@
+{
+  "name": "Oruçta Kalori İhtiyacı Hesaplama",
+  "desc": "Ramazan ayında veya aralıklı oruç (IF) dönemlerinde günlük kalori ihtiyacınızı öğünlere (İftar, Sahur vb.) göre nasıl dağıtmanız gerektiğini hesaplar.",
+  "shortcode": "[hc_oructa_kalori_ihtiyaci]"
+}

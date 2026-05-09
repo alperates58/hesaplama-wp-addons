@@ -1,0 +1,5 @@
+{
+  "name": "Luteal Faz Süresi Hesaplama",
+  "desc": "Yumurtlama ile bir sonraki adet dönemi arasındaki süreyi hesaplar.",
+  "shortcode": "[hc_luteal_faz_suresi]"
+}

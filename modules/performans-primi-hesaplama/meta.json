@@ -1,0 +1,5 @@
+{
+  "name": "Performans Primi Hesaplama",
+  "desc": "Hedef gerçekleştirme oranı ve puanlama üzerinden performans primini hesaplar.",
+  "shortcode": "[hc_performans_primi_hesaplama]"
+}

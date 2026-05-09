@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlıklı Ortalama Sermaye Maliyeti Hesaplama",
+  "desc": "Şirketin özsermaye ve borç maliyetlerinin ağırlıklı ortalamasını (WACC) hesaplar.",
+  "shortcode": "[hc_agirlikli_ortalama_sermaye_maliyeti_hesaplama]"
+}

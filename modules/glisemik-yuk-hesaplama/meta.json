@@ -1,0 +1,5 @@
+{
+  "name": "Glisemik Yük Hesaplama",
+  "desc": "Besindeki karbonhidrat miktarı ve glisemik indeksi kullanarak toplam glisemik yükü hesaplar.",
+  "shortcode": "[hc_glisemik_yuk_hesaplama]"
+}

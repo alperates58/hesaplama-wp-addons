@@ -1,0 +1,100 @@
+.hc-kilo-kaybi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-kilo-kaybi-result {
+    border-left-color: #8a6f2f;
+}
+
+.hc-kilo-kaybi-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-kilo-kaybi-badge {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    border-radius: 8px;
+    background: #fbf6e8;
+    border: 1px solid #eadcae;
+    color: #755c17;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hc-kilo-kaybi-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-kilo-kaybi-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-kilo-kaybi-secondary {
+    margin-top: 8px;
+}
+
+.hc-kilo-kaybi-details div {
+    padding: 10px;
+    background: #fbfaf5;
+    border: 1px solid #e9e1c9;
+    border-radius: 6px;
+}
+
+.hc-kilo-kaybi-details span,
+.hc-kilo-kaybi-details strong {
+    display: block;
+}
+
+.hc-kilo-kaybi-details span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-kilo-kaybi-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-kilo-kaybi-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-kilo-kaybi-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-kilo-kaybi-grid,
+    .hc-kilo-kaybi-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-kilo-kaybi-hero {
+        align-items: flex-start;
+    }
+}

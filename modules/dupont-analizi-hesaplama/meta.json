@@ -1,0 +1,5 @@
+{
+  "name": "DuPont Analizi Hesaplama",
+  "desc": "Özsermaye karlılığını (ROE) üç ana bileşene ayırarak şirketin performansını detaylı analiz eder.",
+  "shortcode": "[hc_dupont_analizi_hesaplama]"
+}

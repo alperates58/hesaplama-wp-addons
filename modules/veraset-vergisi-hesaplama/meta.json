@@ -1,0 +1,5 @@
+{
+  "name": "Veraset Vergisi Hesaplama",
+  "desc": "Miras yoluyla intikal eden varlıklar için 2026 yılı güncel veraset ve intikal vergisi tarifesini hesaplar.",
+  "shortcode": "[hc_veraset_vergisi_hesaplama]"
+}

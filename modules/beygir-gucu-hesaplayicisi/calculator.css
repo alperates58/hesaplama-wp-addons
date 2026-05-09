@@ -1,0 +1,144 @@
+#hc-beygir-gucu-hesaplayicisi {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    font-family: 'Inter', sans-serif;
+    max-width: 550px;
+    margin: 20px auto;
+    border: 1px solid #f1f5f9;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-header h3 {
+    color: #0f172a;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-tabs {
+    display: flex;
+    background: #f1f5f9;
+    padding: 6px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-tab-btn.active {
+    background: white;
+    color: #0f172a;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-tab-content {
+    display: none;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-beygir-gucu-hesaplayicisi label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+#hc-beygir-gucu-hesaplayicisi input,
+#hc-beygir-gucu-hesaplayicisi select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-btn {
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-btn:hover {
+    background: #334155;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    display: none;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-result.visible {
+    display: block;
+}
+
+#hc-beygir-gucu-hesaplayicisi .hc-result-header {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+#hc-beygir-gucu-hesaplayicisi #hc-res-primary {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+#hc-beygir-gucu-hesaplayicisi #hc-res-secondary {
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 600;
+}

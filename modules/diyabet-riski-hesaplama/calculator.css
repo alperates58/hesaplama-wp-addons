@@ -1,0 +1,123 @@
+.hc-diyabet-riski-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-diyabet-riski-result {
+    border-left-color: #c65a3d;
+}
+
+.hc-diyabet-riski-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-diyabet-riski-score {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 58px;
+    border-radius: 8px;
+    background: #fff1ec;
+    border: 1px solid #f2c9bd;
+    color: #9a3d27;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.hc-diyabet-riski-subtitle {
+    margin-top: 3px;
+    color: #555f6e;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-diyabet-riski-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-diyabet-riski-details div {
+    padding: 10px;
+    background: #faf7f5;
+    border: 1px solid #ebddd7;
+    border-radius: 6px;
+}
+
+.hc-diyabet-riski-details span,
+.hc-diyabet-riski-details strong {
+    display: block;
+}
+
+.hc-diyabet-riski-details span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-diyabet-riski-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-diyabet-riski-breakdown {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hc-diyabet-riski-breakdown li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 10px;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 6px;
+    color: #3c434a;
+    font-size: 13px;
+}
+
+.hc-diyabet-riski-breakdown strong {
+    white-space: nowrap;
+}
+
+.hc-diyabet-riski-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.hc-diyabet-riski-uyari {
+    margin: 12px 0 0;
+    padding: 10px;
+    background: #fff8e5;
+    border: 1px solid #f0d37a;
+    border-radius: 6px;
+    color: #6d5200;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 480px) {
+    .hc-diyabet-riski-grid,
+    .hc-diyabet-riski-details,
+    .hc-diyabet-riski-breakdown {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-diyabet-riski-hero {
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çapraz Kur Hesaplama",
+  "desc": "İki farklı döviz kurunun birbirine oranını (Örn: EUR/USD) hesaplar.",
+  "shortcode": "[hc_capraz_kur_hesaplama]"
+}

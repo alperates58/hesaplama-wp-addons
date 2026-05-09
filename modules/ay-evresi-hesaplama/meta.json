@@ -1,0 +1,5 @@
+{
+  "name": "Ay Evresi Hesaplama",
+  "desc": "Seçtiğiniz tarihteki Ay'ın evresini (Yeni Ay, Dolunay, İlk Dördün vb.) ve gökyüzü görünümünü hesaplayın.",
+  "shortcode": "[hc_ay_evresi_hesaplama]"
+}

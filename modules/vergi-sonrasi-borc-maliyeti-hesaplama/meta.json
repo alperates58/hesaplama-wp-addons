@@ -1,0 +1,5 @@
+{
+  "name": "Vergi Sonrası Borç Maliyeti Hesaplama",
+  "desc": "Şirketin borçlanma maliyetini vergi kalkanı etkisini düşerek (After-tax Cost of Debt) hesaplar.",
+  "shortcode": "[hc_vergi_sonrasi_borc_maliyeti_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Dinlenme Metabolizma Hızı Hesaplama",
+  "desc": "Dinlenme halindeyken (RMR) vücudunuzun yaktığı günlük kalori miktarını hesaplar.",
+  "shortcode": "[hc_dinlenme_metabolizma_hizi]"
+}

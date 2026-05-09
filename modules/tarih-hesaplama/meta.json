@@ -1,0 +1,5 @@
+{
+  "name": "Tarih Hesaplama",
+  "desc": "Tarihler arası gün sayısını hesaplayın veya bir tarihe gün ekleyip çıkarın.",
+  "shortcode": "[hc_tarih_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Şeker Tüketimi Hesaplama",
+  "desc": "Tükettiğiniz besinlerdeki şeker miktarına göre günlük toplam şeker alımınızı hesaplar.",
+  "shortcode": "[hc_gunluk_seker_tuketimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İftar Saati Hesaplama",
+  "desc": "Bulunduğunuz konuma göre iftar vaktinin (akşam ezanı) ne zaman olduğunu hesaplayın.",
+  "shortcode": "[hc_iftar_saati_hesaplama]"
+}

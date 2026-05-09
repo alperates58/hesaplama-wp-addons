@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Şarj Maliyeti Hesaplama",
+  "desc": "Elektrikli aracınızın batarya kapasitesi ve elektrik tarifesine göre tam dolum maliyetini hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_sarj_maliyeti_hesaplama]"
+}

@@ -1,0 +1,15 @@
+.hc-on-uc-burc-result {
+    text-align: center;
+}
+
+.hc-13burc-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #9b59b6;
+    margin: 10px 0;
+}
+
+.hc-13burc-desc {
+    font-style: italic;
+    color: #666;
+}

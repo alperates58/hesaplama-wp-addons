@@ -1,0 +1,5 @@
+{
+  "name": "Gebelikte Kalan Gün Hesaplama",
+  "desc": "Doğuma ne kadar zaman kaldığını gün, hafta ve ay bazında detaylı olarak hesaplar.",
+  "shortcode": "[hc_gebelikte_kalan_gun]"
+}

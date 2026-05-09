@@ -1,0 +1,5 @@
+{
+  "name": "Muhtasar Vergi Hesaplama",
+  "desc": "Kira stopajı, serbest meslek ödemeleri ve personel vergilerinin toplam muhtasar yükünü hesaplar.",
+  "shortcode": "[hc_muhtasar_vergi_hesaplama]"
+}

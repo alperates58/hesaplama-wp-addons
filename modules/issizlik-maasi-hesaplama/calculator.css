@@ -1,0 +1,65 @@
+.hc-issizlik-maasi-hesaplama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.hc-issizlik-maasi-hesaplama-help {
+    display: block;
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.hc-issizlik-maasi-hesaplama-status {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hc-issizlik-maasi-hesaplama-status.is-success {
+    color: #1d7917;
+}
+
+.hc-issizlik-maasi-hesaplama-status.is-warning {
+    color: #b45309;
+}
+
+.hc-issizlik-maasi-hesaplama-results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.hc-issizlik-maasi-hesaplama-results div {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+}
+
+.hc-issizlik-maasi-hesaplama-results span {
+    display: block;
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 13px;
+}
+
+.hc-issizlik-maasi-hesaplama-results strong {
+    color: #111827;
+}
+
+.hc-issizlik-maasi-hesaplama-note {
+    margin: 14px 0 0;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .hc-issizlik-maasi-hesaplama-grid,
+    .hc-issizlik-maasi-hesaplama-results {
+        grid-template-columns: 1fr;
+    }
+}

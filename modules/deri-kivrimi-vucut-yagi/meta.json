@@ -1,0 +1,5 @@
+{
+  "name": "Deri Kıvrımı Vücut Yağı Hesaplayıcısı",
+  "desc": "Jackson-Pollock 3 nokta deri kıvrımı ölçümlerine göre vücut yağ oranını hesaplar.",
+  "shortcode": "[hc_deri_kivrimi_vucut_yagi]"
+}

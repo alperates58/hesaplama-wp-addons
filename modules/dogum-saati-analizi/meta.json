@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Saati Analizi",
+  "desc": "Doğum saatinizin tam olarak bilinmemesi durumunda haritanızdaki etkilerini ve neden önemli olduğunu analiz edin.",
+  "shortcode": "[hc_dogum_saati_analizi]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Gebelikte Enerji İhtiyacı Hesaplama",
+  "desc": "Hamilelik haftanıza ve aktivite seviyenize göre günlük almanız gereken ek kalori miktarını hesaplar.",
+  "shortcode": "[hc_gebelikte_energy_ihtiyaci]"
+}

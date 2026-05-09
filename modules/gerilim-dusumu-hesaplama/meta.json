@@ -1,0 +1,5 @@
+{
+  "name": "Gerilim Düşümü Hesaplama",
+  "desc": "Kablo uzunluğu, akım ve kesit değerlerine göre tesisattaki gerilim düşümünü hesaplar.",
+  "shortcode": "[hc_gerilim_dusumu_hesaplama]"
+}

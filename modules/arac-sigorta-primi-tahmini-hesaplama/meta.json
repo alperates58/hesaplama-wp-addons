@@ -1,0 +1,5 @@
+{
+  "name": "Araç Sigorta Primi Tahmini Hesaplama",
+  "desc": "Araç değeriniz, yaşınız ve hasarsızlık indiriminize göre tahmini kasko ve trafik sigortası primlerini hesaplayın.",
+  "shortcode": "[hc_arac_sigorta_primi_tahmini_hesaplama]"
+}

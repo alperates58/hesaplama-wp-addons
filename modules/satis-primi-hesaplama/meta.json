@@ -1,0 +1,5 @@
+{
+  "name": "Satış Primi Hesaplama",
+  "desc": "Gerçekleşen satış cirosu ve komisyon oranı üzerinden satış primini hesaplar.",
+  "shortcode": "[hc_satis_primi_hesaplama]"
+}

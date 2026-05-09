@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Ortalama Glukoz Hesaplama",
+  "desc": "HbA1c değerini son 2-3 aydaki tahmini ortalama kan şekeri (eAG) değerine dönüştürür.",
+  "shortcode": "[hc_tahmini_ortalama_glukoz]"
+}

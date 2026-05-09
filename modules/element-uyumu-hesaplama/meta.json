@@ -1,0 +1,5 @@
+{
+  "name": "Element Uyumu Hesaplama",
+  "desc": "Burçlarınızın ait olduğu elementler arasındaki temel uyumu ve enerji dengesini hesaplayın.",
+  "shortcode": "[hc_element_uyumu_hesaplama]"
+}

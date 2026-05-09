@@ -1,0 +1,15 @@
+.hc-ay-fazi-hesaplama .hc-result {
+    text-align: center;
+}
+
+.hc-ay-val-alt {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.hc-ay-desc-alt {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}

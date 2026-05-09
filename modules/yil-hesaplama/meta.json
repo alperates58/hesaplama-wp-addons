@@ -1,0 +1,5 @@
+{
+  "name": "Yıl Hesaplama",
+  "desc": "Gün veya ay bazındaki sürelerin kaç yıl ettiğini ve kalan süreyi hesaplayın.",
+  "shortcode": "[hc_yil_hesaplama]"
+}

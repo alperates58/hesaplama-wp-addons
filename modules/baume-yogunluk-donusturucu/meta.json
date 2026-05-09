@@ -1,0 +1,5 @@
+{
+  "name": "Baumé Yoğunluk Dönüştürücü",
+  "desc": "Baumé değeri ve Özgül Ağırlık (SG) arasında dönüşüm yapın.",
+  "shortcode": "[hc_baume_yogunluk_donusturucu]"
+}

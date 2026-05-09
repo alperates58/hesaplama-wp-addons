@@ -1,0 +1,5 @@
+{
+  "name": "Hız Birimi Dönüştürücü",
+  "desc": "km/sa, m/s ve knot gibi hız birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_hiz_birimi_donusturucu]"
+}

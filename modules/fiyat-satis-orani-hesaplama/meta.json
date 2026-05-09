@@ -1,0 +1,5 @@
+{
+  "name": "Fiyat Satış Oranı Hesaplama",
+  "desc": "Şirketin piyasa değerinin toplam satışlarına oranıyla değerleme çarpanını (P/S) hesaplar.",
+  "shortcode": "[hc_fiyat_satis_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Altman Z Skoru Hesaplama",
+  "desc": "Şirketin iflas riskini ölçen Altman Z-Skoru formülünü hesaplar.",
+  "shortcode": "[hc_altman_z_skoru_hesaplama]"
+}

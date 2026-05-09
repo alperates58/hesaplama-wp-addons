@@ -1,0 +1,5 @@
+{
+  "name": "Saat Farkı Hesaplama",
+  "desc": "İki farklı saat arasındaki farkı saat, dakika ve saniye bazında hesaplayın.",
+  "shortcode": "[hc_saat_farki_hesaplama]"
+}

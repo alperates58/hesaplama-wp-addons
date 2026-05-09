@@ -1,0 +1,5 @@
+{
+  "name": "Amortisman Hesaplama",
+  "desc": "Duran varlıklar için normal ve azalan bakiyeler yöntemiyle yıllık amortisman tutarlarını hesaplar.",
+  "shortcode": "[hc_amortisman_hesaplama]"
+}

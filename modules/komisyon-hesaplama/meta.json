@@ -1,0 +1,5 @@
+{
+  "name": "Komisyon Hesaplama",
+  "desc": "Satış fiyatı ve komisyon oranı girerek ödenecek komisyon tutarını ve elinize geçecek net tutarı hesaplar.",
+  "shortcode": "[hc_komisyon_hesaplama]"
+}

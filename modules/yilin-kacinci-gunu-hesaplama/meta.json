@@ -1,0 +1,5 @@
+{
+  "name": "Yılın Kaçıncı Günü Hesaplama",
+  "desc": "Belirli bir tarihin veya bugünün yılın kaçıncı günü olduğunu ve yılın bitmesine kaç gün kaldığını hesaplayın.",
+  "shortcode": "[hc_yilin_kacinci_gunu_hesaplama]"
+}

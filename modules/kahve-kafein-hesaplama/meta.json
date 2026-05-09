@@ -1,0 +1,5 @@
+{
+  "name": "Kahve Kafein Miktarı Hesaplama",
+  "desc": "Espresso'dan Türk kahvesine kadar farklı kahve çeşitlerinin kafein içeriğini hesaplar.",
+  "shortcode": "[hc_kahve_kafein_hesaplama]"
+}

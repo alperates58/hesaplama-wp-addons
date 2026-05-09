@@ -1,0 +1,5 @@
+{
+  "name": "Tarihe Gün Ekleme Hesaplama",
+  "desc": "Başlangıç tarihine, seçilen haftanın günlerini hariç tutarak gün ekler.",
+  "shortcode": "[hc_tarihe_gun_ekleme_hesaplama]"
+}

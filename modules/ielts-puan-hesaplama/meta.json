@@ -1,0 +1,5 @@
+{
+  "name": "IELTS Puan Hesaplama",
+  "desc": "IELTS bölümlerinden (Reading, Listening, Speaking, Writing) aldığınız band skorlarını girerek genel band skorunuzu hesaplayın.",
+  "shortcode": "[hc_ielts_puan_hesaplama]"
+}

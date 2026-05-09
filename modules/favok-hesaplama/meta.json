@@ -1,0 +1,5 @@
+{
+  "name": "FAVÖK Hesaplama",
+  "desc": "Şirketin Faiz, Amortisman ve Vergi Öncesi Karını (FAVÖK/EBITDA) hesaplar.",
+  "shortcode": "[hc_favok_hesaplama]"
+}

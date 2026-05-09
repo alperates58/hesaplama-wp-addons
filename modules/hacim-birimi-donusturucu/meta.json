@@ -1,0 +1,5 @@
+{
+  "name": "Hacim Birimi Dönüştürücü",
+  "desc": "Litre, metreküp, galon ve bardak gibi hacim birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_hacim_birimi_donusturucu]"
+}

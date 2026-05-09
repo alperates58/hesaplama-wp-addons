@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Kilo Takibi Hesaplama",
+  "desc": "Bebeğinizin iki ölçüm arasındaki kilo artışını ve günlük ortalama alımını hesaplar.",
+  "shortcode": "[hc_bebek_kilo_takibi_hesaplama]"
+}

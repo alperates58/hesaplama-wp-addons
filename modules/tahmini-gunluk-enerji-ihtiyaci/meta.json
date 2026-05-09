@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Günlük Enerji İhtiyacı Hesaplama",
+  "desc": "Yaş, cinsiyet, boy, kilo ve aktivite seviyesine göre IOM (Tıp Enstitüsü) standartlarında günlük enerji ihtiyacınızı (EER) hesaplar.",
+  "shortcode": "[hc_tahmini_gunluk_enerji_ihtiyaci]"
+}

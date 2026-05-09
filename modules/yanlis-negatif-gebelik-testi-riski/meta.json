@@ -1,0 +1,5 @@
+{
+  "name": "Yanlış Negatif Gebelik Testi Riski Hesaplama",
+  "desc": "Gebelik testinin yapıldığı güne göre negatif sonucun yanlış olma ihtimalini hesaplar.",
+  "shortcode": "[hc_yanlis_negatif_gebelik_testi_riski]"
+}

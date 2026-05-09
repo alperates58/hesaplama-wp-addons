@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Yakıt Tasarrufu Hesaplama",
+  "desc": "Elektrikli aracınızın benzinli veya dizel araca göre aylık ve yıllık ne kadar yakıt tasarrufu sağladığını hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_yakit_tasarrufu_hesaplama]"
+}

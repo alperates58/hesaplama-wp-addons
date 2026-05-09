@@ -1,0 +1,5 @@
+{
+  "name": "QUICKI İnsülin Duyarlılığı Hesaplama",
+  "desc": "Açlık kan şekeri ve insülin değerlerini kullanarak QUICKI indeksi (insülin duyarlılığı) hesaplar.",
+  "shortcode": "[hc_quicki_hesaplama]"
+}

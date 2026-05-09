@@ -1,0 +1,5 @@
+{
+  "name": "Ticari Faiz Hesaplama",
+  "desc": "Ticari alacaklar ve krediler için günlük, aylık veya yıllık basit faiz tutarlarını hesaplar.",
+  "shortcode": "[hc_ticari_faiz_hesaplama]"
+}

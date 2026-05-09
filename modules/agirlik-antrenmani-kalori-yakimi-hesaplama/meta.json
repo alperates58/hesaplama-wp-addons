@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlık Antrenmanı Kalori Yakımı Hesaplama",
+  "desc": "Ağırlık antrenmanı yoğunluğu, süresi ve kilonuza göre yaktığınız kaloriyi hesaplar.",
+  "shortcode": "[hc_agirlik_antrenmani_kalori_yakimi_hesaplama]"
+}

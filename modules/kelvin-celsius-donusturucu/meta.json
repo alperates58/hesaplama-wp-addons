@@ -1,0 +1,5 @@
+{
+  "name": "Kelvin Celsius Dönüştürücü",
+  "desc": "Kelvin (K) ve Celsius (°C) sıcaklık birimleri arasında hızlıca dönüşüm yapın.",
+  "shortcode": "[hc_kelvin_celsius_donusturucu]"
+}

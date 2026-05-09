@@ -1,0 +1,5 @@
+{
+  "name": "Etsy Komisyon Hesaplama",
+  "desc": "Etsy üzerinden yaptığınız satışlar için listeleme, işlem ve ödeme komisyonlarını hesaplar.",
+  "shortcode": "[hc_etsy_komisyon_hesaplama]"
+}

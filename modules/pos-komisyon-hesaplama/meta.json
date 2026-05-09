@@ -1,0 +1,5 @@
+{
+  "name": "POS Komisyon Hesaplama",
+  "desc": "Bankaların POS cihazları için uyguladığı komisyon oranlarını ve net hakedişi hesaplar.",
+  "shortcode": "[hc_pos_komisyon_hesaplama]"
+}

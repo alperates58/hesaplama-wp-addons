@@ -1,0 +1,5 @@
+{
+  "name": "UTC Çevirici",
+  "desc": "Yerel saatinizi UTC (Eşgüdümlü Evrensel Zaman) formatına veya tersine çevirin.",
+  "shortcode": "[hc_utc_cevirici]"
+}

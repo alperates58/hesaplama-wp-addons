@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Şarj Süresi Hesaplama",
+  "desc": "Şarj istasyonunuzun gücü ve batarya kapasitesine göre aracınızın ne kadar sürede şarj olacağını hesaplayın.",
+  "shortcode": "[hc_elektrikli_arac_sarj_suresi_hesaplama]"
+}

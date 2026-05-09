@@ -1,0 +1,5 @@
+{
+  "name": "Hız Hesaplayıcı",
+  "desc": "Mesafe, zaman veya hız değerlerinden birini girerek diğerini hesaplamanızı ve farklı birimlere dönüştürmenizi sağlar.",
+  "shortcode": "[hc_hiz_hesaplayici]"
+}

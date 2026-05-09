@@ -1,0 +1,73 @@
+.hc-konut-kredisi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-konut-kredisi-ozet {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.hc-konut-kredisi-ozet span {
+    display: block;
+    margin-bottom: 4px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hc-konut-kredisi-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hc-konut-kredisi-table td,
+.hc-konut-kredisi-table th {
+    padding: 8px 4px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    text-align: left;
+}
+
+.hc-konut-kredisi-table td:last-child,
+.hc-konut-kredisi-table th:last-child {
+    text-align: right;
+}
+
+.hc-konut-kredisi-table th {
+    color: #444;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.hc-konut-kredisi-plan {
+    margin-top: 18px;
+}
+
+.hc-konut-kredisi-plan h4 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: #1d1d1d;
+}
+
+.hc-konut-kredisi-plan-wrap {
+    overflow-x: auto;
+}
+
+.hc-konut-kredisi-plan-wrap .hc-konut-kredisi-table {
+    min-width: 520px;
+}
+
+@media (max-width: 480px) {
+    .hc-konut-kredisi-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hc-konut-kredisi-table td,
+    .hc-konut-kredisi-table th {
+        font-size: 13px;
+    }
+}

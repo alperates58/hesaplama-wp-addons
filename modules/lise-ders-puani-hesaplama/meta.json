@@ -1,0 +1,5 @@
+{
+  "name": "Lise Ders Puanı Hesaplama",
+  "desc": "Lisede bir dersin dönem sonu puanını, yazılı sınavlar ve performans notları üzerinden hesaplayın.",
+  "shortcode": "[hc_lise_ders_puani_hesaplama]"
+}

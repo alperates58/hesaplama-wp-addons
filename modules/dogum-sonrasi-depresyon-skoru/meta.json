@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Sonrası Depresyon Tarama Skoru Hesaplama",
+  "desc": "Edinburgh Doğum Sonrası Depresyon Ölçeği (EPDS) kullanarak duygusal durumu değerlendirir.",
+  "shortcode": "[hc_dogum_sonrasi_depresyon_skoru]"
+}

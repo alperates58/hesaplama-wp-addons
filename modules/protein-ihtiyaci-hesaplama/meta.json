@@ -1,0 +1,5 @@
+{
+  "name": "Protein İhtiyacı Hesaplama",
+  "desc": "Kilo ve aktivite hedefine göre günlük tahmini protein ihtiyacını hesaplar.",
+  "shortcode": "[hc_protein_ihtiyaci_hesaplama]"
+}

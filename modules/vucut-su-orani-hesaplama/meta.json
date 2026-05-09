@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Su Oranı Hesaplama",
+  "desc": "Yaş, cinsiyet, boy ve kilonuza göre vücudunuzdaki toplam su miktarını ve oranını (Watson formülü) hesaplar.",
+  "shortcode": "[hc_vucut_su_orani_hesaplama]"
+}

@@ -1,0 +1,38 @@
+#hc-mb-wrap {
+    color: #111827;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 13px;
+}
+
+#hc-mb-wrap label {
+    display: block;
+    margin-bottom: 5px;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hc-mb-group {
+    margin-bottom: 12px;
+}
+
+#hc-mb-wrap input[type="url"],
+#hc-mb-wrap select {
+    width: 100%;
+    min-height: 36px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 13px;
+    padding: 6px 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    transition: border-color .15s, box-shadow .15s;
+}
+
+#hc-mb-wrap input[type="url"]:focus,
+#hc-mb-wrap select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, .15);
+    outline: none;
+}

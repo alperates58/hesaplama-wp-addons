@@ -1,0 +1,5 @@
+{
+  "name": "Benzin ve Hibrit Karşılaştırma Hesaplama",
+  "desc": "Benzinli ve hibrit araç arasındaki fiyat farkını, şehir içi yakıt tasarrufu ile ne kadar sürede amorti edeceğinizi hesaplayın.",
+  "shortcode": "[hc_benzin_ve_hibrit_karsilastirma_hesaplama]"
+}

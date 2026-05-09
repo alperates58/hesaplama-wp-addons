@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Verimliliği Puanı Hesaplama",
+  "desc": "Aracınızın yakıt tüketimine göre verimlilik sınıfını (A-G) ve çevresel etki puanını hesaplayın.",
+  "shortcode": "[hc_yakit_verimliligi_puani_hesaplama]"
+}

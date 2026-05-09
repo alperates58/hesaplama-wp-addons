@@ -1,0 +1,31 @@
+.hc-ask-uyumu-result {
+    text-align: center;
+}
+
+.hc-ask-skor {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff4757;
+    margin: 15px 0;
+    text-shadow: 0 0 10px rgba(255, 71, 87, 0.2);
+}
+
+.hc-ask-desc {
+    line-height: 1.8;
+    color: #444;
+    text-align: left;
+    background: #fffafa;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px dashed #ff4757;
+    position: relative;
+}
+
+.hc-ask-desc::before {
+    content: "❤️";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: white;
+    padding: 0 10px;
+}

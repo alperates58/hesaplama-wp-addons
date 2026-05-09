@@ -1,0 +1,5 @@
+{
+  "name": "Kan Şekeri Ortalama Hesaplama",
+  "desc": "Belirli bir dönemdeki kan şekeri ölçümlerinizin ortalamasını hesaplar.",
+  "shortcode": "[hc_kan_sekeri_ortalama_hesaplama]"
+}

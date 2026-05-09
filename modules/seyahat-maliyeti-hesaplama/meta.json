@@ -1,0 +1,5 @@
+{
+  "name": "Seyahat Maliyeti Hesaplama",
+  "desc": "Gideceğiniz mesafeye ve aracınızın tüketimine göre toplam yol maliyetini 2026 akaryakıt fiyatlarıyla hesaplar.",
+  "shortcode": "[hc_seyahat_maliyeti_hesaplama]"
+}

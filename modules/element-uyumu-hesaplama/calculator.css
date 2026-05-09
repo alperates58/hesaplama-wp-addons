@@ -1,0 +1,20 @@
+.hc-element-uyumu-result {
+    text-align: center;
+}
+
+.hc-elem-skor {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 15px 0;
+}
+
+.hc-elem-desc {
+    line-height: 1.7;
+    color: #444;
+    text-align: left;
+    background: #f4faf6;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #27ae60;
+}

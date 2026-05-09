@@ -1,0 +1,5 @@
+{
+  "name": "Gece Mesaisi Hesaplama",
+  "desc": "Gece vardiyasında yapılan (20:00 - 06:00) ve yasal sınırı aşan çalışmalar için ek ücreti hesaplar.",
+  "shortcode": "[hc_gece_mesaisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Bebek Kilosu Hesaplama (EFW)",
+  "desc": "Ultrason ölçümlerinden olan AC (karın çevresi) ve FL (uyluk kemiği boyu) değerlerini kullanarak bebeğinizin tahmini ağırlığını hesaplar.",
+  "shortcode": "[hc_tahmini_bebek_kilosu]"
+}

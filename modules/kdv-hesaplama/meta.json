@@ -1,0 +1,5 @@
+{
+  "name": "KDV Hesaplama",
+  "desc": "Belirlenmiş KDV oranları (%1, %10, %20) üzerinden KDV dahil ve hariç tutarları hesaplar.",
+  "shortcode": "[hc_kdv_hesaplama]"
+}

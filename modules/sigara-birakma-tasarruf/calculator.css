@@ -1,0 +1,212 @@
+#hc-sigara-birakma-tasarruf {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    max-width: 650px;
+    margin: 20px auto;
+    border: 1px solid #f0f0f0;
+}
+
+#hc-sigara-birakma-tasarruf .hc-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#hc-sigara-birakma-tasarruf h3 {
+    margin: 0 0 10px 0;
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#hc-sigara-birakma-tasarruf .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+#hc-sigara-birakma-tasarruf .full-width {
+    grid-column: span 2;
+}
+
+#hc-sigara-birakma-tasarruf .hc-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+#hc-sigara-birakma-tasarruf input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #f7fafc;
+    transition: all 0.3s ease;
+}
+
+#hc-sigara-birakma-tasarruf input:focus {
+    border-color: #48bb78;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(72, 187, 120, 0.1);
+    outline: none;
+}
+
+#hc-sigara-birakma-tasarruf .hc-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+#hc-sigara-birakma-tasarruf .hc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 161, 105, 0.3);
+}
+
+#hc-sigara-birakma-tasarruf .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-sigara-birakma-tasarruf .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hc-sigara-birakma-tasarruf .hc-result-header {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2f855a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 25px 0 15px 0;
+    border-bottom: 2px solid #f0fff4;
+    padding-bottom: 5px;
+}
+
+#hc-sigara-birakma-tasarruf .hc-savings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+#hc-sigara-birakma-tasarruf .hc-saving-card {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #edf2f7;
+}
+
+#hc-sigara-birakma-tasarruf .hc-saving-card.primary {
+    background: #f0fff4;
+    border-color: #c6f6d5;
+}
+
+#hc-sigara-birakma-tasarruf .hc-saving-card .hc-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+#hc-sigara-birakma-tasarruf .hc-saving-card strong {
+    font-size: 1.25rem;
+    color: #2d3748;
+}
+
+#hc-sigara-birakma-tasarruf .hc-time-display {
+    background: #ebf8ff;
+    padding: 20px;
+    border-radius: 16px;
+    border-left: 5px solid #4299e1;
+    text-align: center;
+}
+
+#hc-sigara-birakma-tasarruf .hc-time-item span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2b6cb0;
+}
+
+#hc-sigara-birakma-tasarruf .hc-time-item small {
+    color: #4a5568;
+}
+
+#hc-sigara-birakma-tasarruf .hc-health-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+#hc-sigara-birakma-tasarruf .hc-health-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: #edf2f7;
+}
+
+#hc-sigara-birakma-tasarruf .hc-timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#hc-sigara-birakma-tasarruf .hc-timeline-badge {
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #edf2f7;
+    border: 3px solid #fff;
+    z-index: 1;
+}
+
+#hc-sigara-birakma-tasarruf .hc-timeline-item.completed .hc-timeline-badge {
+    background: #48bb78;
+}
+
+#hc-sigara-birakma-tasarruf .hc-timeline-content strong {
+    font-size: 0.9rem;
+    color: #2d3748;
+}
+
+#hc-sigara-birakma-tasarruf .hc-timeline-content p {
+    font-size: 0.85rem;
+    color: #718096;
+    margin: 2px 0 0 0;
+}
+
+@media (max-width: 480px) {
+    #hc-sigara-birakma-tasarruf .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+    #hc-sigara-birakma-tasarruf .full-width {
+        grid-column: span 1;
+    }
+}

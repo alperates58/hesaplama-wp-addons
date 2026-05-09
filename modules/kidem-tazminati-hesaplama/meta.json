@@ -1,0 +1,5 @@
+{
+  "name": "Kıdem Tazminatı Hesaplama (2026)",
+  "desc": "Çalışma süresi ve brüt maaş üzerinden 2026 tavan ücretine göre kıdem tazminatı hesaplar.",
+  "shortcode": "[hc_kidem_tazminati_hesaplama]"
+}

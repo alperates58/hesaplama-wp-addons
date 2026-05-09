@@ -1,0 +1,5 @@
+{
+  "name": "Amazon Komisyon Hesaplama",
+  "desc": "Amazon Türkiye satıcıları için kategori bazlı komisyon ve kargo ücretlerini hesaplar.",
+  "shortcode": "[hc_amazon_komisyon_hesaplama]"
+}

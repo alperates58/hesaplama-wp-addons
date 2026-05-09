@@ -1,0 +1,5 @@
+{
+  "name": "E-Okul Not Hesaplama",
+  "desc": "E-Okul sistemindeki sınav ve sözlü notlarınızı girerek dönem sonu ders ortalamanızı hesaplayın.",
+  "shortcode": "[hc_e_okul_not_hesaplama]"
+}

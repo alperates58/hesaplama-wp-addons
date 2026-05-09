@@ -1,0 +1,5 @@
+{
+  "name": "Aktif Karlılığı Hesaplama",
+  "desc": "Net karın toplam aktiflere oranıyla şirketin varlık verimliliğini (ROA) hesaplar.",
+  "shortcode": "[hc_aktif_karliligi_hesaplama]"
+}

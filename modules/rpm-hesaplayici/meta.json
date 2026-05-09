@@ -1,0 +1,5 @@
+{
+  "name": "RPM Hesaplayıcı",
+  "desc": "Aracın hızı, lastik ebatı ve vites oranlarına göre motor devrini (RPM) hesaplar.",
+  "shortcode": "[hc_rpm_hesaplayici]"
+}

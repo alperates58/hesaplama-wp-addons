@@ -1,0 +1,5 @@
+{
+  "name": "İhbar Tazminatı Hesaplama (2026)",
+  "desc": "Çalışma süresine göre yasal ihbar sürelerini ve tazminat tutarını hesaplar.",
+  "shortcode": "[hc_ihbar_tazminati_hesaplama]"
+}

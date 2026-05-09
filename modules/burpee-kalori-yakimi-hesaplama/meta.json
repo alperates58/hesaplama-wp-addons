@@ -1,0 +1,5 @@
+{
+  "name": "Burpee Kalori Yakımı Hesaplama",
+  "desc": "Yaptığınız burpee egzersiz sayısına veya süresine göre yaktığınız kaloriyi hesaplar.",
+  "shortcode": "[hc_burpee_kalori_yakimi_hesaplama]"
+}

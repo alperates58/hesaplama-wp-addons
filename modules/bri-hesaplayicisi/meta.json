@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yuvarlaklık İndeksi (BRI) Hesaplayıcısı",
+  "desc": "Vücut şeklinin yuvarlaklığını ölçerek metabolik sağlık risklerini analiz eder.",
+  "shortcode": "[hc_bri_hesaplayicisi]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Akım Birimi Dönüştürme Hesaplama",
+  "desc": "Amper, miliamper ve kiloamper gibi elektrik akımı birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_akim_birimi_donusturme_hesaplama]"
+}

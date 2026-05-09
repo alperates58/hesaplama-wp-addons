@@ -1,0 +1,121 @@
+#hc-gerilim-dusumu-hesaplama {
+    background: #1e293b;
+    color: #f1f5f9;
+    border-radius: 16px;
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-header h3 {
+    margin: 0 0 5px;
+    color: #38bdf8;
+    font-size: 1.4rem;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-header p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-gerilim-dusumu-hesaplama .full-width {
+    grid-column: span 2;
+}
+
+#hc-gerilim-dusumu-hesaplama label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+}
+
+#hc-gerilim-dusumu-hesaplama input[type="number"],
+#hc-gerilim-dusumu-hesaplama select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background: #0f172a;
+    color: white;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-radio-group {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-btn {
+    width: 100%;
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #0f172a;
+    border-radius: 12px;
+    display: none;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-res-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-res-item {
+    text-align: center;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-res-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-res-item strong {
+    font-size: 1.5rem;
+    color: #38bdf8;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-res-final {
+    text-align: center;
+    padding: 10px;
+    background: #1e293b;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-gd-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+#hc-gerilim-dusumu-hesaplama .hc-gd-status.success { background: #064e3b; color: #6ee7b7; }
+#hc-gerilim-dusumu-hesaplama .hc-gd-status.error { background: #7f1d1d; color: #fca5a5; }

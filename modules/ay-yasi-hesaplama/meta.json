@@ -1,0 +1,5 @@
+{
+  "name": "Ay Yaşı Hesaplama",
+  "desc": "Ay'ın döngüsündeki kaçıncı günde olduğunu (Ay Yaşı) ve bu vaktin enerjisini hesaplayın.",
+  "shortcode": "[hc_ay_yasi_hesaplama]"
+}

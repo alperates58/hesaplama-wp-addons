@@ -1,0 +1,5 @@
+{
+  "name": "Eğitim Süresi Hesaplama",
+  "desc": "Okula başladığınız tarihten mezuniyetinize kadar geçen toplam eğitim süresini gün, ay ve yıl olarak hesaplayın.",
+  "shortcode": "[hc_egitim_suresi_hesaplama]"
+}

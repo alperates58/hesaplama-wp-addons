@@ -1,0 +1,5 @@
+{
+  "name": "Hisse Başına Kar Büyümesi Hesaplama",
+  "desc": "Şirketin dönemler arasındaki hisse başına kar (EPS) değişimini yüzde olarak hesaplar.",
+  "shortcode": "[hc_hisse_basina_kar_buyumesi_hesaplama]"
+}

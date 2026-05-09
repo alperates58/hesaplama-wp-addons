@@ -1,0 +1,16 @@
+.hc-venus-burcu-result {
+    text-align: center;
+}
+
+.hc-venus-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f1948a;
+    margin: 10px 0;
+}
+
+.hc-venus-desc {
+    font-style: italic;
+    color: #666;
+    line-height: 1.6;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk Boy Persentil Hesaplama",
+  "desc": "Çocuğunuzun boy gelişimini yaş grubuna göre analiz eder ve persentil değerini bulur.",
+  "shortcode": "[hc_cocuk_boy_persentil_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Freelancer Vergi Hesaplama",
+  "desc": "Freelance çalışanlar için aylık/yıllık gelir vergisi, KDV ve stopaj hesaplar.",
+  "shortcode": "[hc_freelancer_vergi_hesaplama]"
+}

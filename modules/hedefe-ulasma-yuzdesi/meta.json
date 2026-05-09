@@ -1,0 +1,5 @@
+{
+  "name": "Hedefe Ulaşma Yüzdesi Hesaplama",
+  "desc": "Belirlenen bir hedefe göre gerçekleşen değerin yüzde kaç olduğunu hesaplar.",
+  "shortcode": "[hc_hedefe_ulasma_yuzdesi]"
+}

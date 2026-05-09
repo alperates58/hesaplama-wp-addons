@@ -1,0 +1,162 @@
+#hc-lastik-ebat-hesaplayicisi {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #f0f0f0;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-header h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-header p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-tire-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-tire-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-tire-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#hc-lastik-ebat-hesaplayicisi input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f1f5f9;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: #f8fafc;
+    text-align: center;
+}
+
+#hc-lastik-ebat-hesaplayicisi input:focus {
+    border-color: #6366f1;
+    background: white;
+    outline: none;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-btn {
+    width: 100%;
+    background: #1e293b;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    display: none;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-result.visible {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-diff-val {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-diff-val small {
+    display: block;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#hc-lastik-ebat-hesaplayicisi #hc-res-diff-perc {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+#hc-lastik-ebat-hesaplayicisi #hc-res-status {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-res-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-res-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-res-card span {
+    display: block;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-res-card strong {
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+#hc-lastik-ebat-hesaplayicisi .hc-res-card p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: #64748b;
+}
+
+@media (max-width: 480px) {
+    #hc-lastik-ebat-hesaplayicisi .hc-tire-grid {
+        grid-template-columns: 1fr;
+    }
+    #hc-lastik-ebat-hesaplayicisi .hc-res-grid {
+        grid-template-columns: 1fr;
+    }
+}

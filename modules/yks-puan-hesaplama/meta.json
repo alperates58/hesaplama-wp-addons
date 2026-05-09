@@ -1,0 +1,5 @@
+{
+  "name": "YKS Puan Hesaplama",
+  "desc": "2026 TYT, AYT ve YDT sınavı sonuçlarınıza göre tahmini yerleştirme puanınızı ve başarı sıralamanızı hesaplayın.",
+  "shortcode": "[hc_yks_puan_hesaplama]"
+}

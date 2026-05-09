@@ -1,0 +1,5 @@
+{
+  "name": "Şahıs Şirketi Vergi Hesaplama",
+  "desc": "Gelir ve giderlerinizi girerek şahıs şirketi için ödeyeceğiniz gelir vergisi ve Bağkur primini hesaplar.",
+  "shortcode": "[hc_sahis_sirketi_vergi_hesaplama]"
+}

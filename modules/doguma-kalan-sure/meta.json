@@ -1,0 +1,5 @@
+{
+  "name": "Doğuma Kalan Süre Hesaplama",
+  "desc": "Tahmini doğum tarihine göre kalan gün, hafta ve ay bilgisini hesaplar.",
+  "shortcode": "[hc_doguma_kalan_sure]"
+}

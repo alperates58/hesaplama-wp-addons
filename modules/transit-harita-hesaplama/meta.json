@@ -1,0 +1,5 @@
+{
+  "name": "Transit Harita Hesaplama",
+  "desc": "Şu anki gezegen konumlarının (2026) doğum haritanız üzerindeki etkilerini ve güncel gökyüzü transitlerini hesaplayın.",
+  "shortcode": "[hc_transit_harita_hesaplama]"
+}

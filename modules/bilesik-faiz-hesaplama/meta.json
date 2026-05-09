@@ -1,0 +1,5 @@
+{
+  "name": "Bileşik Faiz Hesaplama",
+  "desc": "Anaparanızın faiz dönemlerine göre (aylık, yıllık) katlanarak büyümesini hesaplar.",
+  "shortcode": "[hc_bilesik_faiz_hesaplama]"
+}

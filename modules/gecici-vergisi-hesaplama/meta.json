@@ -1,0 +1,5 @@
+{
+  "name": "Geçici Vergi Hesaplama",
+  "desc": "Üçer aylık dönemler halinde beyan edilen ve ödenen geçici vergi tutarını hesaplar.",
+  "shortcode": "[hc_gecici_vergisi_hesaplama]"
+}

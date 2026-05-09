@@ -1,0 +1,16 @@
+.hc-jupiter-burcu-result {
+    text-align: center;
+}
+
+.hc-jupiter-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f39c12;
+    margin: 10px 0;
+}
+
+.hc-jupiter-desc {
+    font-style: italic;
+    color: #666;
+    line-height: 1.6;
+}

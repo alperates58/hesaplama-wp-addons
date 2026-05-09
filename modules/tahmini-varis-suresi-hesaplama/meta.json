@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Varış Süresi Hesaplama",
+  "desc": "Gideceğiniz mesafe ve ortalama hızınıza göre yolculuğunuzun ne kadar süreceğini ve varış saatinizi hesaplayın.",
+  "shortcode": "[hc_tahmini_varis_suresi_hesaplama]"
+}

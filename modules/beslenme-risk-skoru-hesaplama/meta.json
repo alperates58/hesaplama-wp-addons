@@ -1,0 +1,5 @@
+{
+  "name": "Beslenme Risk Skoru Hesaplama",
+  "desc": "Hastanede yatan veya ayaktan takip edilen hastalar için beslenme yetersizliği riskini değerlendirir.",
+  "shortcode": "[hc_beslenme_risk_skoru_hesaplama]"
+}

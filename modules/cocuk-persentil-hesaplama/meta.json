@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk ve Ergen Persentil Hesaplama (2-18 Yaş)",
+  "desc": "Çocuk ve ergenlerin boy, kilo ve vücut kitle indeksi (BMI) gelişimini CDC ve WHO standartlarına göre hesaplar.",
+  "shortcode": "[hc_cocuk_persentil_hesaplama]"
+}

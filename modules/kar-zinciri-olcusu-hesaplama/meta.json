@@ -1,0 +1,5 @@
+{
+  "name": "Kar Zinciri Ölçüsü Hesaplama",
+  "desc": "Lastik ölçülerinize göre aracınız için uygun olan kar zinciri numarasını (Grup No) bulun.",
+  "shortcode": "[hc_kar_zinciri_olcusu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İş Göremezlik Ödeneği Hesaplama",
+  "desc": "Geçici iş göremezlik durumunda (hastalık, iş kazası, analık) SGK tarafından ödenecek günlük ve toplam tutarı hesaplar.",
+  "shortcode": "[hc_is_goremezlik_odenegi_hesaplama]"
+}

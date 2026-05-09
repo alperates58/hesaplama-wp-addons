@@ -1,0 +1,5 @@
+{
+  "name": "Brix Yoğunluk Dönüştürücü",
+  "desc": "Brix değeri ve Özgül Ağırlık (SG) arasında dönüşüm yapın.",
+  "shortcode": "[hc_brix_yogunluk_donusturucu]"
+}

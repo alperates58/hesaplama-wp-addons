@@ -1,0 +1,5 @@
+{
+  "name": "Vitamin İhtiyacı Hesaplama",
+  "desc": "Yaş, cinsiyet ve özel duruma göre önerilen günlük vitamin alım değerlerini listeler.",
+  "shortcode": "[hc_onerilen_gunluk_vitamin_alimi]"
+}

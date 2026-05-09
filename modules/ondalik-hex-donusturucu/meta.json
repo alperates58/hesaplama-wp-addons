@@ -1,0 +1,5 @@
+{
+  "name": "Ondalık Hex Dönüştürücü",
+  "desc": "Onluk (Decimal) ve Onaltılık (Hexadecimal) sayı sistemleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_ondalik_hex_donusturucu]"
+}

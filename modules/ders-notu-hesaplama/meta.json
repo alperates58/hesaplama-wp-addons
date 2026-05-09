@@ -1,0 +1,5 @@
+{
+  "name": "Ders Notu Hesaplama",
+  "desc": "Vize, final ve varsa proje/ödev notlarınızın ağırlıklarına göre bir dersten aldığınız başarı notunu hesaplayın.",
+  "shortcode": "[hc_ders_notu_hesaplama]"
+}

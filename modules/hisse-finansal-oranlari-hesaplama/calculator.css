@@ -1,0 +1,15 @@
+#hc-stock-ratios .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-stock-ratios strong {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+#hc-stock-ratios input {
+    margin-bottom: 8px;
+}

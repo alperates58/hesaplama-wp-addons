@@ -1,0 +1,92 @@
+#hc-ortalama-atomik-kutle-hesaplayici {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici h3 {
+    margin: 0 0 10px;
+    color: #1e293b;
+    font-size: 1.4rem;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici p {
+    margin-bottom: 25px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-isotope-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-isotope-item label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 5px;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+    font-size: 0.9rem;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f0f9ff;
+    border-radius: 12px;
+    border: 1px solid #bae6fd;
+    text-align: center;
+    display: none;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-result.visible {
+    display: block;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici #hc-res-avg-mass {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0c4a6e;
+    display: block;
+}
+
+#hc-ortalama-atomik-kutle-hesaplayici .hc-warn-note {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #b91c1c;
+    background: #fef2f2;
+    padding: 8px;
+    border-radius: 6px;
+}

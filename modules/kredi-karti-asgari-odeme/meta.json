@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Kartı Asgari Ödeme Hesaplama",
+  "desc": "Sadece asgari ödeme yaparsanız borcunuz kaç ayda biter, toplam ne kadar faiz ödersiniz.",
+  "shortcode": "[hc_kredi_karti_asgari_odeme]"
+}

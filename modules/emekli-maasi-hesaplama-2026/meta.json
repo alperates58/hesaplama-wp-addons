@@ -1,0 +1,5 @@
+{
+  "name": "Emekli Maaşı Hesaplama 2026",
+  "desc": "Sigorta türü, başlangıç tarihi, ortalama kazanç ve hizmet yılına göre 2026 emekli maaşı tahmini hesaplar.",
+  "shortcode": "[hc_emekli_maasi_hesaplama_2026]"
+}

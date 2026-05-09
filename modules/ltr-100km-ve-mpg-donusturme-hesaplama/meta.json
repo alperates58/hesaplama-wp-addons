@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Ekonomisi Dönüştürme Hesaplama",
+  "desc": "Yakıt tüketimi birimleri olan L/100km ve MPG (Mil başına galon) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_ltr_100km_ve_mpg_donusturme_hesaplama]"
+}

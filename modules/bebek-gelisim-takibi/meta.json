@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Gelişim Takibi (Boy, Kilo, Baş Çevresi)",
+  "desc": "Bebeğinizin iki ölçüm arasındaki büyüme hızını hesaplar ve standart gelişim değerleri ile karşılaştırır.",
+  "shortcode": "[hc_bebek_gelisim_takibi]"
+}

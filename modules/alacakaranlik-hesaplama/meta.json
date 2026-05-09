@@ -1,0 +1,5 @@
+{
+  "name": "Alacakaranlık Hesaplama",
+  "desc": "Bulunduğunuz konuma ve tarihe göre akşam alacakaranlık vaktini hesaplayın.",
+  "shortcode": "[hc_alacakaranlik_hesaplama]"
+}

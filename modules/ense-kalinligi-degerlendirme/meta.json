@@ -1,0 +1,5 @@
+{
+  "name": "Ense Kalınlığı Değerlendirme Hesaplama",
+  "desc": "11-14. gebelik haftaları arasındaki ense kalınlığı (NT) ölçümünü değerlendirir.",
+  "shortcode": "[hc_ense_kalinligi_degerlendirme]"
+}

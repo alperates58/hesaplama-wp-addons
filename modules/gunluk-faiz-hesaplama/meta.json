@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Faiz Hesaplama",
+  "desc": "Anaparanızın günlük net faiz getirisini güncel oranlar üzerinden hesaplar.",
+  "shortcode": "[hc_gunluk_faiz_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Likidite Oranları Hesaplama",
+  "desc": "Cari oran, asit-test oranı ve nakit oranı üzerinden şirketin kısa vadeli borç ödeme gücünü hesaplar.",
+  "shortcode": "[hc_likidite_oranlari_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Faaliyet Oranları Hesaplama",
+  "desc": "Stok devir hızı, alacak devir hızı ve varlık devir hızı gibi operasyonel verimlilik oranlarını hesaplar.",
+  "shortcode": "[hc_faaliyet_oranlari_hesaplama]"
+}

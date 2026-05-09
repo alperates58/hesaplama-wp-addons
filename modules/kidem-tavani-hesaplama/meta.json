@@ -1,0 +1,5 @@
+{
+  "name": "Kıdem Tavanı Hesaplama",
+  "desc": "2026 yılı güncel kıdem tazminatı tavan tutarı üzerinden alınabilecek maksimum tazminatı hesaplar.",
+  "shortcode": "[hc_kidem_tavani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "ATV Kredisi Hesaplama",
+  "desc": "ATV veya UTV alımı için banka kredisi taksitlerini ve toplam ödeme maliyetlerini hesaplayın.",
+  "shortcode": "[hc_atv_kredisi_hesaplama]"
+}

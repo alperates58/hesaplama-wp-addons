@@ -1,0 +1,5 @@
+{
+  "name": "Yaş Farkı Hesaplama",
+  "desc": "İki kişi arasındaki yaş farkını yaş, doğum tarihi veya doğum yılına göre hesaplar.",
+  "shortcode": "[hc_yas_farki_hesaplama]"
+}

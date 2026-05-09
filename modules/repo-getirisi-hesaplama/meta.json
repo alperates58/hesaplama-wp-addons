@@ -1,0 +1,5 @@
+{
+  "name": "Repo Getirisi Hesaplama",
+  "desc": "Kısa vadeli likidite yatırımı olan repo işlemlerinden elde edilecek net getiriyi hesaplar.",
+  "shortcode": "[hc_repo_getirisi_hesaplama]"
+}

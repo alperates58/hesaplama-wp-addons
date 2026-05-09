@@ -1,0 +1,5 @@
+{
+  "name": "Güncel KDV Hesaplama",
+  "desc": "Türkiye'deki güncel KDV oranlarıyla KDV dahil ve KDV hariç tutarları hesaplar.",
+  "shortcode": "[hc_guncel_kdv_hesaplama]"
+}

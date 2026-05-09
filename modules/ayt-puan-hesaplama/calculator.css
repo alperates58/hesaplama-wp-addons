@@ -1,0 +1,57 @@
+.hc-ayt-puan-hesaplama-subtitle {
+    margin: 18px 0 12px;
+    font-size: 16px;
+    color: #2f3b52;
+}
+
+.hc-ayt-puan-hesaplama-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-ayt-puan-hesaplama-grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 16px;
+}
+
+.hc-ayt-puan-hesaplama-note {
+    margin: 0 0 10px;
+    font-size: 13px;
+    color: #6a7280;
+}
+
+.hc-ayt-puan-hesaplama-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hc-ayt-puan-hesaplama-card {
+    border: 1px solid #eceff5;
+    border-radius: 10px;
+    padding: 12px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hc-ayt-puan-hesaplama-label {
+    font-size: 13px;
+    color: #5f6776;
+}
+
+.hc-ayt-puan-hesaplama-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #20304a;
+}
+
+@media (max-width: 480px) {
+    .hc-ayt-puan-hesaplama-grid,
+    .hc-ayt-puan-hesaplama-grid-4,
+    .hc-ayt-puan-hesaplama-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

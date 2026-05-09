@@ -1,0 +1,5 @@
+{
+  "name": "Araç Toplam Sahip Olma Maliyeti Hesaplama",
+  "desc": "Aracın satın alma fiyatı, yakıt, vergi, sigorta ve bakım masraflarını birleştirerek gerçek kullanım maliyetini (TCO) hesaplayın.",
+  "shortcode": "[hc_arac_toplam_sahip_olma_maliyeti_hesaplama]"
+}

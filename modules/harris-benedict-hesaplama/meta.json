@@ -1,0 +1,5 @@
+{
+  "name": "Harris-Benedict Bazal Metabolizma Hesaplama",
+  "desc": "Klasik Harris-Benedict formülünü kullanarak vücudunuzun dinlenme halindeyken yaktığı enerjiyi (BMH) hesaplar.",
+  "shortcode": "[hc_harris_benedict_hesaplama]"
+}

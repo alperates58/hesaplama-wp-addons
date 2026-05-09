@@ -1,0 +1,5 @@
+{
+  "name": "Atom Hesaplama",
+  "desc": "Atom veya iyonun proton, nötron ve elektron sayılarını hesaplar.",
+  "shortcode": "[hc_atom_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "SAT Puan Hesaplama",
+  "desc": "Reading/Writing ve Math bölümlerinden aldığınız ham puanları 1600'lük SAT skalasına çevirin.",
+  "shortcode": "[hc_sat_puan_hesaplama]"
+}

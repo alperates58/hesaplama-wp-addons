@@ -1,0 +1,5 @@
+{
+  "name": "Göreceli Yağ Kütlesi (RFM) Hesaplayıcısı",
+  "desc": "Boy ve bel çevresi oranına dayalı hassas bir vücut yağ oranı tahmini yapar.",
+  "shortcode": "[hc_rfm_hesaplayicisi]"
+}

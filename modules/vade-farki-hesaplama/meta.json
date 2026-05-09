@@ -1,0 +1,5 @@
+{
+  "name": "Vade Farkı Hesaplama",
+  "desc": "Peşin fiyat ve taksit sayısı üzerinden aylık vade farkı oranına göre toplam geri ödemeyi ve fark tutarını hesaplar.",
+  "shortcode": "[hc_vade_farki_hesaplama]"
+}

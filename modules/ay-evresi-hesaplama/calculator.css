@@ -1,0 +1,24 @@
+.hc-ay-evresi-hesaplama .hc-result {
+    text-align: center;
+    background: #1a1a2e;
+    color: #e2e2e2;
+    padding: 30px;
+}
+
+.hc-ay-val {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f1c40f;
+    margin: 20px 0;
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
+}
+
+.hc-ay-desc {
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #bdc3c7;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

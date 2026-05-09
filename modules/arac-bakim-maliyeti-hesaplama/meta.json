@@ -1,0 +1,5 @@
+{
+  "name": "Araç Bakım Maliyeti Hesaplama",
+  "desc": "Aracınızın periyodik bakım (yağ, filtre, balata vb.) kalemlerine göre tahmini servis maliyetini hesaplayın.",
+  "shortcode": "[hc_arac_bakim_maliyeti_hesaplama]"
+}

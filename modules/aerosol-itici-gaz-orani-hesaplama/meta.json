@@ -1,0 +1,5 @@
+{
+  "name": "Aerosol İtici Gaz Oranı Hesaplama",
+  "desc": "Toplam ürün ağırlığı ve itici gaz yüzdesine göre eklenecek itici gaz ve konsantre miktarını hesaplar.",
+  "shortcode": "[hc_aerosol_itici_gaz_orani_hesaplama]"
+}

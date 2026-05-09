@@ -1,0 +1,5 @@
+{
+  "name": "LPG Benzin Karşılaştırma Hesaplama",
+  "desc": "Benzinli aracınıza LPG taktırdığınızda elde edeceğiniz yakıt tasarrufunu ve sistemin amortisman süresini hesaplayın.",
+  "shortcode": "[hc_lpg_tasarrufu_hesaplama]"
+}

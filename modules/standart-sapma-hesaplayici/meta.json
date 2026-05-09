@@ -1,0 +1,5 @@
+{
+  "name": "Standart Sapma Hesaplayıcı",
+  "desc": "Verilen sayı dizisinin aritmetik ortalamasını, varyansını ve standart sapmasını hesaplar.",
+  "shortcode": "[hc_standart_sapma_hesaplayici]"
+}

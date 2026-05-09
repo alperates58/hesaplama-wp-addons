@@ -1,0 +1,5 @@
+{
+  "name": "Alkol Birimi Hesaplama",
+  "desc": "Tüketilen içeceklerin hacmi ve alkol oranına göre toplam alkol birimini hesaplar.",
+  "shortcode": "[hc_alkol_birimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Lastik Hız Endeksi Hesaplama",
+  "desc": "Lastik yanağındaki hız sembolünün (örn: V) güvenli olarak yapabileceğiniz maksimum kaç km/h hıza denk geldiğini öğrenin.",
+  "shortcode": "[hc_lastik_hiz_endeksi_hesaplama]"
+}

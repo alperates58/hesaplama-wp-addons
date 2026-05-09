@@ -1,0 +1,5 @@
+{
+  "name": "Motor Sıkıştırma Oranı Hesaplama",
+  "desc": "Silindir hacmi ve yanma odası hacmini kullanarak motorun sıkıştırma oranını hesaplayın.",
+  "shortcode": "[hc_sikistirma_orani_hesaplama]"
+}

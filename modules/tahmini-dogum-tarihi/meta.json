@@ -1,0 +1,5 @@
+{
+  "name": "Tahmini Doğum Tarihi Hesaplama",
+  "desc": "Son adet tarihinize (SAT) göre bebeğinizin doğacağı tahmini tarihi hesaplar.",
+  "shortcode": "[hc_tahmini_dogum_tarihi]"
+}

@@ -1,0 +1,103 @@
+#hc-bmi-hesaplama {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+#hc-bmi-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#hc-bmi-hesaplama label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+#hc-bmi-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+#hc-bmi-hesaplama .hc-btn {
+    width: 100%;
+    background: #10b981;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-bmi-hesaplama .hc-result {
+    margin-top: 30px;
+    display: none;
+    text-align: center;
+}
+
+#hc-bmi-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-bmi-hesaplama .hc-res-main-box {
+    margin-bottom: 25px;
+}
+
+#hc-bmi-hesaplama .hc-res-val {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #064e3b;
+    line-height: 1;
+}
+
+#hc-bmi-hesaplama .hc-res-cat {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #059669;
+}
+
+#hc-bmi-hesaplama .hc-bmi-meter {
+    margin-top: 20px;
+}
+
+#hc-bmi-hesaplama .hc-meter-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #60a5fa 0%, #34d399 20%, #34d399 50%, #fbbf24 50%, #fbbf24 75%, #f87171 75%);
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#hc-bmi-hesaplama .hc-meter-pointer {
+    width: 4px;
+    height: 18px;
+    background: #1e293b;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    transition: left 0.5s ease-out;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#hc-bmi-hesaplama .hc-meter-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    font-weight: 600;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Fiili Dolaşım Oranı Hesaplama",
+  "desc": "Borsada işlem gören hisse adedinin toplam hisse adedine oranıyla fiili dolaşım oranını hesaplar.",
+  "shortcode": "[hc_fiili_dolasim_orani_hesaplama]"
+}

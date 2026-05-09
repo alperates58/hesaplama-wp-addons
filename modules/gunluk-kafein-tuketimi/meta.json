@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Kafein Tüketimi ve Limit Hesaplama",
+  "desc": "Gün boyu tükettiğiniz içeceklerdeki toplam kafein miktarını ve güvenli limitlerinizi hesaplar.",
+  "shortcode": "[hc_gunluk_kafein_tuketimi]"
+}

@@ -1,0 +1,75 @@
+.hc-geri-sayim-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.hc-geri-sayim-ozel {
+    display: none;
+}
+
+.hc-geri-sayim-kategori {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eef6ff;
+    color: #1d4f8f;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hc-geri-sayim-tarih {
+    margin: 6px 0 14px;
+    color: #5f6776;
+    font-size: 14px;
+}
+
+.hc-geri-sayim-sayac {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.hc-geri-sayim-sayac div {
+    border: 1px solid #e7edf5;
+    border-radius: 8px;
+    padding: 12px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.hc-geri-sayim-sayac strong {
+    display: block;
+    color: #20304a;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.hc-geri-sayim-sayac span {
+    display: block;
+    margin-top: 6px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.hc-geri-sayim-yorum {
+    margin: 0 0 8px;
+    color: #263348;
+    font-weight: 700;
+}
+
+.hc-geri-sayim-not {
+    margin: 0;
+    color: #667085;
+    font-size: 13px;
+}
+
+@media (max-width: 480px) {
+    .hc-geri-sayim-grid,
+    .hc-geri-sayim-sayac {
+        grid-template-columns: 1fr;
+    }
+}

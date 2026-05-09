@@ -1,0 +1,5 @@
+{
+  "name": "Cuma Namazı Saati Hesaplama",
+  "desc": "Bulunduğunuz konuma göre haftalık Cuma namazı vaktini hesaplayın.",
+  "shortcode": "[hc_cuma_namazi_saati_hesaplama]"
+}

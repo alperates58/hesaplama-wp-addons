@@ -1,0 +1,5 @@
+{
+  "name": "Doğa Yürüyüşü Kalori Hesaplama",
+  "desc": "Doğa yürüyüşü temposu, ağırlık ve süreye göre yakılan kalori miktarını hesaplar.",
+  "shortcode": "[hc_doga_yuruyusu_kalori_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Tanışma Günü Hesaplama",
+  "desc": "Tanıştığınız günden bugüne kaç gün geçtiğini ve bir sonraki yıl dönümünüze ne kadar kaldığını hesaplayın.",
+  "shortcode": "[hc_tanisma_gunu_hesaplama]"
+}

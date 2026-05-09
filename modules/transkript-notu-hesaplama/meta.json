@@ -1,0 +1,5 @@
+{
+  "name": "Transkript Notu Hesaplama",
+  "desc": "Resmi transkriptinizdeki tüm dersleri girerek ağırlıklı genel not ortalamanızı (GANO) detaylı olarak hesaplayın.",
+  "shortcode": "[hc_transkript_notu_hesaplama]"
+}

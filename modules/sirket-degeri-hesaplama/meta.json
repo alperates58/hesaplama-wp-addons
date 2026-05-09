@@ -1,0 +1,5 @@
+{
+  "name": "Şirket Değeri Hesaplama",
+  "desc": "Piyasa değeri, borç yükümlülükleri ve nakit rezervleri üzerinden şirketin toplam değerini hesaplar.",
+  "shortcode": "[hc_sirket_degeri_hesaplama]"
+}

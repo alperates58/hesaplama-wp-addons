@@ -1,0 +1,5 @@
+{
+  "name": "Araç Kiralamak mı Satın Almak mı Hesaplama",
+  "desc": "Araç sahibi olmanın maliyeti ile uzun dönem kiralamanın maliyetini karşılaştırarak en ekonomik seçeneği belirleyin.",
+  "shortcode": "[hc_arac_kiralamak_mi_satin_almak_mi_hesaplama]"
+}

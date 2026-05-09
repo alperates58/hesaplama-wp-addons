@@ -1,0 +1,5 @@
+{
+  "name": "Tuzdaki Sodyum Miktarı Hesaplama",
+  "desc": "Tuz (NaCl) miktarını sodyum (Na) miktarına (veya tam tersi) dönüştürür.",
+  "shortcode": "[hc_tuz_sodyum_miktari_hesaplama]"
+}

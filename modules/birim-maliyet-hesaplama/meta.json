@@ -1,0 +1,5 @@
+{
+  "name": "Birim Maliyet Hesaplama",
+  "desc": "Toplam üretim maliyetini üretim miktarına bölerek ürün başına düşen birim maliyeti hesaplar.",
+  "shortcode": "[hc_birim_maliyet_hesaplama]"
+}

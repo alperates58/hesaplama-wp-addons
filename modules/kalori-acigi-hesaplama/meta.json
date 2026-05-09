@@ -1,0 +1,5 @@
+{
+  "name": "Kalori Açığı Hesaplama",
+  "desc": "Hedeflediğiniz kilo kaybı için günlük ne kadar kalori açığı bırakmanız gerektiğini ve hedef kalori alımınızı hesaplar.",
+  "shortcode": "[hc_kalori_acigi_hesaplama]"
+}

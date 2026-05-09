@@ -1,0 +1,137 @@
+#hc-atom-hesaplama {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'Inter', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-atom-hesaplama .hc-header h3 {
+    margin: 0 0 10px;
+    color: #1e293b;
+    font-size: 1.4rem;
+}
+
+#hc-atom-hesaplama .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-atom-hesaplama .full-width {
+    grid-column: span 2;
+}
+
+#hc-atom-hesaplama label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.8rem;
+}
+
+#hc-atom-hesaplama input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+
+#hc-atom-hesaplama .hc-btn {
+    width: 100%;
+    background: #4f46e5;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#hc-atom-hesaplama .hc-result {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: none;
+}
+
+#hc-atom-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-atom-hesaplama .hc-atom-summary {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#hc-atom-hesaplama .hc-atom-viz {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    font-family: serif;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+}
+
+#hc-atom-hesaplama .hc-symbol {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    font-size: 3rem;
+    font-weight: 700;
+    padding-left: 5px;
+    line-height: 1;
+}
+
+#hc-atom-hesaplama .hc-a-num {
+    font-size: 1rem;
+    font-weight: 700;
+    align-self: end;
+}
+
+#hc-atom-hesaplama .hc-z-num {
+    font-size: 1rem;
+    font-weight: 700;
+    align-self: start;
+}
+
+#hc-atom-hesaplama .hc-q-num {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+#hc-atom-hesaplama .hc-atom-viz {
+    position: relative;
+}
+
+#hc-atom-hesaplama .hc-particle-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#hc-atom-hesaplama .hc-particle-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+#hc-atom-hesaplama .hc-particle-item strong {
+    color: #1e293b;
+    font-size: 1.1rem;
+}

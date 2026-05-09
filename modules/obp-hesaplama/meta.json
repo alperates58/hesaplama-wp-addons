@@ -1,0 +1,5 @@
+{
+  "name": "OBP Hesaplama",
+  "desc": "Lise mezuniyet puanınızın üniversite sınavına (YKS) eklenecek olan Ortaöğretim Başarı Puanı (OBP) karşılığını hesaplayın.",
+  "shortcode": "[hc_obp_hesaplama]"
+}

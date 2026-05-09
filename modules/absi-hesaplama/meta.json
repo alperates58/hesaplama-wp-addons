@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Şekil Endeksi (ABSI) Hesaplama",
+  "desc": "Bel çevresi, boy ve BMI oranını kullanarak iç organ yağlanması ve genel sağlık riskini analiz eder.",
+  "shortcode": "[hc_absi_hesaplama]"
+}

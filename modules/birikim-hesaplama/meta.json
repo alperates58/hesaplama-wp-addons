@@ -1,0 +1,5 @@
+{
+  "name": "Birikim Hesaplama",
+  "desc": "Belirli bir süre boyunca yapacağınız düzenli tasarrufların toplam getirisini bileşik faiz ile hesaplar.",
+  "shortcode": "[hc_birikim_hesaplama]"
+}

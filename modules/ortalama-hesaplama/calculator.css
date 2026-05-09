@@ -1,0 +1,89 @@
+#hc-ortalama-hesaplama {
+    background: #ffffff;
+    border: 2px solid #f1f5f9;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#hc-ortalama-hesaplama .hc-header h3 {
+    margin: 0 0 10px;
+    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+#hc-ortalama-hesaplama .hc-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+#hc-ortalama-hesaplama textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    font-size: 1rem;
+    font-weight: 600;
+    resize: none;
+}
+
+#hc-ortalama-hesaplama .hc-btn {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#hc-ortalama-hesaplama .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-ortalama-hesaplama .hc-result.visible {
+    display: block;
+}
+
+#hc-ortalama-hesaplama .hc-avg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+#hc-ortalama-hesaplama .hc-avg-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+#hc-ortalama-hesaplama .hc-avg-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #3b82f6;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#hc-ortalama-hesaplama .hc-avg-card div:last-child {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+@media (max-width: 480px) {
+    #hc-ortalama-hesaplama .hc-avg-grid {
+        grid-template-columns: 1fr;
+    }
+}

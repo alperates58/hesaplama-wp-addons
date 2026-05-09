@@ -1,0 +1,5 @@
+{
+  "name": "Tansiyon Risk Hesaplama",
+  "desc": "Büyük ve küçük tansiyon değerlerine göre tansiyon risk kategorisini hesaplar.",
+  "shortcode": "[hc_tansiyon_risk_hesaplama]"
+}

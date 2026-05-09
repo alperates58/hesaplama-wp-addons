@@ -1,0 +1,108 @@
+.hc-yas-farki-methods {
+    display: grid;
+    gap: 8px;
+}
+
+.hc-yas-farki-methods label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1d2433;
+}
+
+.hc-yas-farki-methods input {
+    width: 16px;
+    height: 16px;
+}
+
+.hc-yas-farki-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.hc-yas-farki-result {
+    border-left-color: #6c5f9d;
+}
+
+.hc-yas-farki-hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.hc-yas-farki-badge {
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    border-radius: 8px;
+    background: #f3f0fb;
+    border: 1px solid #d9d1ef;
+    color: #55468d;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.hc-yas-farki-subtitle {
+    margin-top: 3px;
+    color: #56616f;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.hc-yas-farki-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.hc-yas-farki-details div {
+    padding: 10px;
+    background: #f8f6fc;
+    border: 1px solid #e2dcf0;
+    border-radius: 6px;
+}
+
+.hc-yas-farki-details span,
+.hc-yas-farki-details strong {
+    display: block;
+}
+
+.hc-yas-farki-details span {
+    margin-bottom: 4px;
+    color: #666;
+    font-size: 12px;
+}
+
+.hc-yas-farki-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-yas-farki-yorum {
+    margin: 12px 0 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+    .hc-yas-farki-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hc-yas-farki-grid,
+    .hc-yas-farki-details {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-yas-farki-hero {
+        align-items: flex-start;
+    }
+}

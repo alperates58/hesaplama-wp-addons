@@ -1,0 +1,5 @@
+{
+  "name": "Takvim Haftası Hesaplama",
+  "desc": "Belirli bir tarihin ISO 8601 standartlarına göre yılın kaçıncı haftası olduğunu öğrenin.",
+  "shortcode": "[hc_takvim_haftasi_hesaplama]"
+}

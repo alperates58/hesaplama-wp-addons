@@ -1,0 +1,5 @@
+{
+  "name": "Gebelikte Kilo Alımı Hesaplama",
+  "desc": "Hamilelik öncesi kilonuza ve boyunuza göre gebelik süresince almanız gereken sağlıklı kilo aralığını hesaplar.",
+  "shortcode": "[hc_gebelikte_kilo_alimi]"
+}

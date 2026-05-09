@@ -1,0 +1,5 @@
+{
+  "name": "Basit Faiz Hesaplama",
+  "desc": "Anapara, faiz oranı ve vade üzerinden getiri tutarını basit faiz yöntemiyle hesaplar.",
+  "shortcode": "[hc_basit_faiz_hesaplama]"
+}

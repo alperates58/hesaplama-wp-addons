@@ -1,0 +1,5 @@
+{
+  "name": "Hız Göstergesi Dişli Oranı Hesaplama",
+  "desc": "Lastik çapı veya diferansiyel oranı değiştiğinde hız göstergesinin doğru çalışması için gereken dişli oranını hesaplayın.",
+  "shortcode": "[hc_hiz_gostergesi_disli_orani_hesaplama]"
+}

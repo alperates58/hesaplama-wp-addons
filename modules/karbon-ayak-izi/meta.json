@@ -1,0 +1,5 @@
+{
+  "name": "Karbon Ayak İzi Hesaplama",
+  "desc": "Enerji tüketimi, ulaşım ve yaşam tarzı alışkanlıklarınıza göre yıllık karbon salınımınızı hesaplar.",
+  "shortcode": "[hc_karbon_ayak_izi]"
+}

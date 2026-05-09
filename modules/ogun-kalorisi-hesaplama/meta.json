@@ -1,0 +1,5 @@
+{
+  "name": "Öğün Kalorisi Hesaplama",
+  "desc": "Günlük toplam kalori hedefinizi öğün sayınıza göre dağıtarak her öğünde kaç kalori almanız gerektiğini hesaplar.",
+  "shortcode": "[hc_ogun_kalorisi_hesaplama]"
+}

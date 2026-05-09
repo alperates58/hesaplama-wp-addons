@@ -1,0 +1,5 @@
+{
+  "name": "Çekme Uzunluğu Hesaplayıcısı",
+  "desc": "Kanat açıklığına göre okçuluk çekme uzunluğunu ve önerilen ok boyu aralığını hesaplar.",
+  "shortcode": "[hc_cekme_uzunlugu]"
+}

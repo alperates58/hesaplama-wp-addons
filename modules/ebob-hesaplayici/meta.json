@@ -1,0 +1,5 @@
+{
+  "name": "Ortak Bölen (EBOB) ve Çarpan Hesaplayıcı",
+  "desc": "İki veya üç sayının En Büyük Ortak Bölenini (EBOB) hesaplar.",
+  "shortcode": "[hc_ebob_hesaplayici]"
+}

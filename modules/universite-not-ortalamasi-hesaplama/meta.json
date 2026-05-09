@@ -1,0 +1,5 @@
+{
+  "name": "Üniversite Not Ortalaması Hesaplama",
+  "desc": "Dönemlik veya kümülatif üniversite not ortalamanızı ders kredileri ve harf notları üzerinden hesaplayın.",
+  "shortcode": "[hc_universite_not_ortalamasi_hesaplama]"
+}

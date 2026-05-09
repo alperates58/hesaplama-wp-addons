@@ -1,0 +1,5 @@
+{
+  "name": "Ondalık Sayıyı Yüzdeye Dönüştürme",
+  "desc": "Ondalık sayıları (Örn: 0.75) yüzde biçimine (Örn: %75) dönüştürür.",
+  "shortcode": "[hc_ondalik_yuzde_donusturme]"
+}

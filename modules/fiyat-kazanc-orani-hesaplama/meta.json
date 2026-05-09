@@ -1,0 +1,5 @@
+{
+  "name": "Fiyat Kazanç Oranı Hesaplama",
+  "desc": "Hisse fiyatının hisse başına kara oranıyla değerleme çarpanını (F/K) hesaplar.",
+  "shortcode": "[hc_fiyat_kazanc_orani_hesaplama]"
+}

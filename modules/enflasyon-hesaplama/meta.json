@@ -1,0 +1,5 @@
+{
+  "name": "Enflasyon Hesaplama",
+  "desc": "İki farklı dönem arasındaki fiyat değişimini ve satın alma gücü kaybını hesaplar.",
+  "shortcode": "[hc_enflasyon_hesaplama]"
+}

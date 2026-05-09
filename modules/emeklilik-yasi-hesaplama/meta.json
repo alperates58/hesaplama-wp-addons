@@ -1,0 +1,5 @@
+{
+  "name": "Emeklilik Yaşı Hesaplama",
+  "desc": "Doğum tarihiniz, cinsiyetiniz ve sigorta başlangıç tarihinize göre tahmini emeklilik yaşınızı hesaplayın.",
+  "shortcode": "[hc_emeklilik_yasi_hesaplama]"
+}

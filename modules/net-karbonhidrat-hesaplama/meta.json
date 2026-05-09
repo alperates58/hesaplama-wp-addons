@@ -1,0 +1,5 @@
+{
+  "name": "Net Karbonhidrat Hesaplama",
+  "desc": "Besindeki toplam karbonhidrattan lif ve şeker alkollerini çıkararak net karbonhidratı hesaplar.",
+  "shortcode": "[hc_net_karbonhidrat_hesaplama]"
+}

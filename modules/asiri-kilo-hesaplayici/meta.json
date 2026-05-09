@@ -1,0 +1,5 @@
+{
+  "name": "Aşırı Kilo Hesaplayıcı",
+  "desc": "Mevcut kilonuzun ideal kilonuzdan ne kadar fazla olduğunu ve sağlıklı aralığa ulaşmak için vermeniz gereken kiloyu hesaplar.",
+  "shortcode": "[hc_asiri_kilo_hesaplayici]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Şeker Limiti Hesaplama",
+  "desc": "Günlük kalori ihtiyacınıza göre tüketebileceğiniz maksimum güvenli şeker miktarını (gram ve küp şeker cinsinden) hesaplar.",
+  "shortcode": "[hc_gunluk_seker_limiti_hesaplama]"
+}

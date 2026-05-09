@@ -1,0 +1,5 @@
+{
+  "name": "Bazal Metabolizma Hızı Hesaplama",
+  "desc": "Boy, kilo, yaş ve cinsiyete göre bazal metabolizma hızını hesaplar.",
+  "shortcode": "[hc_bazal_metabolizma_hizi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yılın Günü Hesaplama",
+  "desc": "Bir tarihin yılın kaçıncı günü olduğunu ve gün numarasından tarihi hesaplar.",
+  "shortcode": "[hc_yilin_gunu_hesaplama]"
+}

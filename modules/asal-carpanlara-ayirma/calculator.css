@@ -1,0 +1,117 @@
+#hc-asal-carpanlara-ayirma {
+    background: #ffffff;
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 2px solid #f1f5f9;
+}
+
+#hc-asal-carpanlara-ayirma .hc-header h3 {
+    margin: 0 0 10px;
+    color: #1e293b;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+#hc-asal-carpanlara-ayirma .hc-header p {
+    color: #64748b;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+#hc-asal-carpanlara-ayirma .hc-form-group label {
+    display: block;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#hc-asal-carpanlara-ayirma input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: all 0.2s;
+}
+
+#hc-asal-carpanlara-ayirma input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #f8fafc;
+}
+
+#hc-asal-carpanlara-ayirma .hc-btn {
+    width: 100%;
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    transition: all 0.2s;
+}
+
+#hc-asal-carpanlara-ayirma .hc-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+#hc-asal-carpanlara-ayirma .hc-result {
+    margin-top: 30px;
+    display: none;
+}
+
+#hc-asal-carpanlara-ayirma .hc-result.visible {
+    display: block;
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#hc-asal-carpanlara-ayirma .hc-res-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+#hc-asal-carpanlara-ayirma .hc-res-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+#hc-asal-carpanlara-ayirma .hc-res-list,
+#hc-asal-carpanlara-ayirma .hc-res-expo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    word-break: break-all;
+}
+
+#hc-asal-carpanlara-ayirma .hc-res-expo sup {
+    color: #3b82f6;
+    font-weight: 800;
+}

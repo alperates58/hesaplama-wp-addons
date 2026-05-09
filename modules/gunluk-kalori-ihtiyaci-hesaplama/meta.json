@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Kalori İhtiyacı Hesaplama",
+  "desc": "Boy, kilo, yaş, cinsiyet, aktivite ve hedefe göre günlük kalori ihtiyacını hesaplar.",
+  "shortcode": "[hc_gunluk_kalori_ihtiyaci_hesaplama]"
+}

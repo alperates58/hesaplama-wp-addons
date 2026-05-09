@@ -1,0 +1,5 @@
+{
+  "name": "Uzunluk Birimi Dönüştürücü",
+  "desc": "Metre, santimetre, inç ve mil gibi uzunluk birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_uzunluk_birimi_donusturucu]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "CAGE Alkol Risk Testi",
+  "desc": "Alkol bağımlılığı riskini saptamak için kullanılan 4 soruluk hızlı tarama testidir.",
+  "shortcode": "[hc_cage_alkol_testi]"
+}

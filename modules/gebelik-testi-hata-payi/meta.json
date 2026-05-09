@@ -1,0 +1,5 @@
+{
+  "name": "Yanlış Negatif Gebelik Testi Riski Hesaplama",
+  "desc": "Test yaptığınız tarihin son adet tarihinize olan uzaklığına göre 'yalancı negatif' riskini hesaplar.",
+  "shortcode": "[hc_gebelik_testi_hata_payi]"
+}

@@ -1,0 +1,53 @@
+.hc-doviz-result {
+    border-left-color: #0f766e;
+}
+
+.hc-doviz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.hc-doviz-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.hc-doviz-details div {
+    padding: 10px;
+    background: #f0fdfa;
+    border: 1px solid #b7e4dc;
+    border-radius: 6px;
+}
+
+.hc-doviz-details span,
+.hc-doviz-details strong {
+    display: block;
+}
+
+.hc-doviz-details span {
+    margin-bottom: 4px;
+    color: #0f5f59;
+    font-size: 12px;
+}
+
+.hc-doviz-details strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.hc-doviz-not {
+    margin: 12px 0 0;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+    .hc-doviz-grid,
+    .hc-doviz-details {
+        grid-template-columns: 1fr;
+    }
+}

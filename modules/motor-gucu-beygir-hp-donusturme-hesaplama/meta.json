@@ -1,0 +1,5 @@
+{
+  "name": "Motor Gücü (Beygir/HP) Dönüştürme Hesaplama",
+  "desc": "Motor gücü birimleri (HP, kW, PS, BHP) arasında hızlıca dönüştürme yapın.",
+  "shortcode": "[hc_motor_gucu_beygir_hp_donusturme_hesaplama]"
+}

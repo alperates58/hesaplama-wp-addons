@@ -1,0 +1,5 @@
+{
+  "name": "Celsius Fahrenheit Dönüştürücü",
+  "desc": "Celsius (°C) ve Fahrenheit (°F) sıcaklık birimleri arasında hızlıca dönüşüm yapın.",
+  "shortcode": "[hc_celsius_fahrenheit_donusturucu]"
+}

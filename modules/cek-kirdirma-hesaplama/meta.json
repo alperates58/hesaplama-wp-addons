@@ -1,0 +1,5 @@
+{
+  "name": "Çek Kırdırma Hesaplama",
+  "desc": "Çeklerin nakde çevrilmesi sırasında kesilen banka komisyonu ve faiz tutarlarını hesaplar.",
+  "shortcode": "[hc_cek_kirdirma_hesaplama]"
+}

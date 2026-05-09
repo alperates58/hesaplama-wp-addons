@@ -1,0 +1,5 @@
+{
+  "name": "Döviz Hesaplama",
+  "desc": "Güncel kur verisiyle seçilen para birimleri arasında döviz çevirisi yapar.",
+  "shortcode": "[hc_doviz_hesaplama]"
+}

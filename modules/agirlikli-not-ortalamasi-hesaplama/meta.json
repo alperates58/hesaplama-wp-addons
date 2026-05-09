@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlıklı Not Ortalaması Hesaplama",
+  "desc": "Derslerin kredi veya saat ağırlıklarını hesaba katarak genel başarı puanınızı hesaplayın.",
+  "shortcode": "[hc_agirlikli_not_ortalamasi_hesaplama]"
+}

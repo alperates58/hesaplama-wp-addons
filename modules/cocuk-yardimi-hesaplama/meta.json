@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk Yardımı Hesaplama",
+  "desc": "2026 yılı güncel katsayılar ve çocuk sayısına göre ödenecek çocuk yardımını hesaplar.",
+  "shortcode": "[hc_cocuk_yardimi_hesaplama]"
+}

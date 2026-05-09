@@ -1,0 +1,5 @@
+{
+  "name": "Hepsiburada Komisyon Hesaplama",
+  "desc": "Hepsiburada satıcıları için komisyon, işlem bedeli ve kargo maliyetlerini hesaplar.",
+  "shortcode": "[hc_hepsiburada_komisyon_hesaplama]"
+}

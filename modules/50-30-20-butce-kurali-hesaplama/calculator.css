@@ -1,0 +1,13 @@
+#hc-503020 .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
+}
+
+#hc-503020 .label-needs { color: #c0392b; font-weight: bold; }
+#hc-503020 .label-wants { color: #f39c12; font-weight: bold; }
+#hc-503020 .label-savings { color: #27ae60; font-weight: bold; }
+
+#hc-503020 strong { font-size: 1.2rem; }

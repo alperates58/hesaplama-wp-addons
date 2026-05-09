@@ -1,0 +1,5 @@
+{
+  "name": "Bayram Namazı Saati Hesaplama",
+  "desc": "Bulunduğunuz konuma ve bayram tarihine göre bayram namazı vaktini hesaplayın.",
+  "shortcode": "[hc_bayram_namazi_saati_hesaplama]"
+}

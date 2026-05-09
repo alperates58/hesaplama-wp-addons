@@ -1,0 +1,5 @@
+{
+  "name": "Güç Birimi Dönüştürücü",
+  "desc": "Watt, kilowatt ve beygir gücü (HP/PS) gibi güç birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_guc_birimi_donusturucu]"
+}

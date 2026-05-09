@@ -1,0 +1,5 @@
+{
+  "name": "Metrekare Dönüştürücü",
+  "desc": "Metrekareyi diğer alan birimlerine (cm², mm², km², dekar, hektar, acre) dönüştürün.",
+  "shortcode": "[hc_metrekare_donusturucu]"
+}

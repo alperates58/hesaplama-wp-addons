@@ -1,0 +1,5 @@
+{
+  "name": "0-100 km/s Hızlanma Tahmini Hesaplama",
+  "desc": "Aracınızın motor gücü (HP) ve ağırlığına (kg) göre tahmini 0-100 km/s hızlanma süresini hesaplayın.",
+  "shortcode": "[hc_0_100_km_s_hizlanma_tahmini_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ürün Karlılığı Hesaplama",
+  "desc": "Alış ve satış fiyatı üzerinden brüt kâr tutarını, kâr marjını ve mark-up oranını hesaplar.",
+  "shortcode": "[hc_urun_karliligi_hesaplama]"
+}

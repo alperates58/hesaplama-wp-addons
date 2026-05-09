@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Tasarrufu Hesaplama",
+  "desc": "Yeni bir araç alırken veya sürüş tarzınızı değiştirirken elde edeceğiniz yakıt tasarrufunu ve mali kazancınızı hesaplayın.",
+  "shortcode": "[hc_yakit_tasarrufu_hesaplama]"
+}

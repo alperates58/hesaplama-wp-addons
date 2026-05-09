@@ -1,0 +1,5 @@
+{
+  "name": "Lise Ortalama Hesaplama",
+  "desc": "Lise eğitiminiz boyunca aldığınız yıl sonu başarı puanlarını girerek genel lise mezuniyet ortalamanızı hesaplayın.",
+  "shortcode": "[hc_lise_ortalama_hesaplama]"
+}

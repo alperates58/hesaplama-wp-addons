@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Depo Doluluğu Hesaplama",
+  "desc": "Aracınızın yakıt ibresine veya kat edilen mesafeye göre depodaki kalan yakıt miktarını ve doluluk oranını hesaplayın.",
+  "shortcode": "[hc_yakit_depo_dolulugu_hesaplama]"
+}

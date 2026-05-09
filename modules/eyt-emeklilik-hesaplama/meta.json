@@ -1,0 +1,5 @@
+{
+  "name": "EYT Emeklilik Hesaplama",
+  "desc": "8 Eylül 1999 öncesi sigorta girişi olanlar için emeklilik şartlarını ve prim günlerini hesaplar.",
+  "shortcode": "[hc_eyt_emeklilik_hesaplama]"
+}

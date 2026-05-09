@@ -1,0 +1,5 @@
+{
+  "name": "LGS Puan Hesaplama",
+  "desc": "2026 LGS (Liselere Geçiş Sistemi) deneme veya sınav sonuçlarınıza göre tahmini puanınızı ve yüzdelik diliminizi hesaplayın.",
+  "shortcode": "[hc_lgs_puan_hesaplama]"
+}

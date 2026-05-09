@@ -1,0 +1,5 @@
+{
+  "name": "Ramazanda Su İhtiyacı Hesaplama",
+  "desc": "Oruç tutarken vücudun ihtiyaç duyduğu günlük su miktarını iftar ve sahur arasına yayarak hesaplar.",
+  "shortcode": "[hc_ramazanda_su_ihtiyaci]"
+}

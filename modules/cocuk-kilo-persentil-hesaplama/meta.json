@@ -1,0 +1,5 @@
+{
+  "name": "Çocuk Kilo Persentil Hesaplama",
+  "desc": "Çocuğunuzun ağırlık gelişimini yaş grubuna göre analiz eder ve persentil değerini bulur.",
+  "shortcode": "[hc_cocuk_kilo_persentil_hesaplama]"
+}

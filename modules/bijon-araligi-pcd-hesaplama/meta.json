@@ -1,0 +1,5 @@
+{
+  "name": "Bijon Aralığı (PCD) Hesaplama",
+  "desc": "Jant üzerindeki bijon delikleri arasındaki mesafeyi ölçerek jantınızın PCD (Pitch Circle Diameter) değerini bulun.",
+  "shortcode": "[hc_bijon_araligi_pcd_hesaplama]"
+}

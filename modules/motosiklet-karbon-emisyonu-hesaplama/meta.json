@@ -1,0 +1,5 @@
+{
+  "name": "Motosiklet Karbon Emisyonu Hesaplama",
+  "desc": "Motosikletinizin motor hacmi ve kullanımına göre atmosfere saldığı yıllık karbon miktarını hesaplayın.",
+  "shortcode": "[hc_motosiklet_karbon_emisyonu_hesaplama]"
+}

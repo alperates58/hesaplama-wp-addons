@@ -1,0 +1,5 @@
+{
+  "name": "Ehliyet Sınav Puan Hesaplama",
+  "desc": "Ehliyet sınavındaki doğru sayılarınıza göre puanınızı hesaplayın ve geçme durumunuzu öğrenin.",
+  "shortcode": "[hc_ehliyet_sinav_puan_hesaplama]"
+}

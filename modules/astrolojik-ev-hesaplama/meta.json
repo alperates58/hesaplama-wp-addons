@@ -1,0 +1,5 @@
+{
+  "name": "Astrolojik Ev Hesaplama",
+  "desc": "Doğum haritanızdaki 12 evin hangi burçlara denk geldiğini ve hayat alanlarınızdaki etkilerini hesaplayın.",
+  "shortcode": "[hc_astrolojik_ev_hesaplama]"
+}

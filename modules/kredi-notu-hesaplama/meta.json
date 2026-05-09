@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Notu Hesaplama",
+  "desc": "Kredi puanınızı etkileyen faktörleri girerek tahmini kredi notu aralığınızı hesaplayın.",
+  "shortcode": "[hc_kredi_notu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yerleşme Kanaması Tarihi Hesaplama",
+  "desc": "Olası yerleşme kanaması (üstüne görme) tarihini hesaplar.",
+  "shortcode": "[hc_yerlesme_kanamasi_tarihi]"
+}

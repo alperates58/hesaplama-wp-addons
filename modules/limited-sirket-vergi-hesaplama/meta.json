@@ -1,0 +1,5 @@
+{
+  "name": "Limited Şirket Vergi Hesaplama",
+  "desc": "Limited şirketler için kurumlar vergisi ve kar dağıtımı stopajı dahil toplam vergi yükünü hesaplar.",
+  "shortcode": "[hc_limited_sirket_vergi_hesaplama]"
+}

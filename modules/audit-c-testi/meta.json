@@ -1,0 +1,5 @@
+{
+  "name": "AUDIT-C Alkol Kullanım Risk Skoru",
+  "desc": "Alkol kullanım alışkanlıklarınızı 3 soruda değerlendiren bilimsel bir tarama testidir.",
+  "shortcode": "[hc_audit_c_testi]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Gebelik Kesesi Ölçüsüne Göre Hafta Hesaplama",
+  "desc": "Ultrason ölçümlerindeki gebelik kesesi çapına (MSD) göre gebelik haftasını hesaplar.",
+  "shortcode": "[hc_gebelik_kesesi_hafta_hesaplama]"
+}

@@ -1,0 +1,47 @@
+.hc-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.hc-cal-day {
+    aspect-ratio: 1;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.hc-cal-num {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.hc-cal-icon {
+    font-size: 1.5rem;
+}
+
+.hc-cal-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 15px;
+}
+
+@media (max-width: 480px) {
+    .hc-cal-grid {
+        gap: 5px;
+    }
+    .hc-cal-icon {
+        font-size: 1.2rem;
+    }
+}

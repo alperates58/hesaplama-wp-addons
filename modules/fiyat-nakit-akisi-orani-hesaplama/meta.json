@@ -1,0 +1,5 @@
+{
+  "name": "Fiyat Nakit Akışı Oranı Hesaplama",
+  "desc": "Şirketin piyasa değerinin operasyonel nakit akışına oranıyla değerleme çarpanını (P/CF) hesaplar.",
+  "shortcode": "[hc_fiyat_nakit_akisi_orani_hesaplama]"
+}

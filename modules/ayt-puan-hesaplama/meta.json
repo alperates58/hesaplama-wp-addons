@@ -1,0 +1,5 @@
+{
+  "name": "AYT Puan Hesaplama",
+  "desc": "TYT, AYT netleri ve diploma notuna göre SAY, EA, SÖZ ve DİL için tahmini yerleştirme puanı hesaplar.",
+  "shortcode": "[hc_ayt_puan_hesaplama]"
+}

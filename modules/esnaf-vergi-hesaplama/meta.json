@@ -1,0 +1,5 @@
+{
+  "name": "Esnaf Vergi Hesaplama",
+  "desc": "Basit usule tabi esnaflar için istisna ve vergi durumlarını 2026 güncel mevzuatına göre hesaplar.",
+  "shortcode": "[hc_esnaf_vergi_hesaplama]"
+}

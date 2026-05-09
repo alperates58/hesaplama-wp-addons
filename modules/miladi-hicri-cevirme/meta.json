@@ -1,0 +1,5 @@
+{
+  "name": "Miladi Hicri Çevirme",
+  "desc": "Miladi takvimden Hicri takvime veya Hicri takvimden Miladi takvime tarih dönüşümü yapın.",
+  "shortcode": "[hc_miladi_hicri_cevirme]"
+}

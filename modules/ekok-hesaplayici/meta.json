@@ -1,0 +1,5 @@
+{
+  "name": "Ortak Kat (EKOK) ve Çarpan Hesaplayıcı",
+  "desc": "İki veya üç sayının En Küçük Ortak Katını (EKOK) hesaplar.",
+  "shortcode": "[hc_ekok_hesaplayici]"
+}

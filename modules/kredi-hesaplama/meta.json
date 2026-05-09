@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Hesaplama",
+  "desc": "Derslerinizin yerel kredi yüklerini toplayarak toplam akademik yükünüzü hesaplayın.",
+  "shortcode": "[hc_kredi_hesaplama]"
+}

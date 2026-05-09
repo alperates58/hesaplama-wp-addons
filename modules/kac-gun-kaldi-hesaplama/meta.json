@@ -1,0 +1,5 @@
+{
+  "name": "Kaç Gün Kaldı Hesaplama",
+  "desc": "Gelecek bir tarihe, özel bir güne veya tatile ne kadar zaman kaldığını saniye saniye takip edin.",
+  "shortcode": "[hc_kac_gun_kaldi_hesaplama]"
+}

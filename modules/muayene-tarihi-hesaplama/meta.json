@@ -1,0 +1,5 @@
+{
+  "name": "Muayene Tarihi Hesaplama",
+  "desc": "Aracınızın türü ve son muayene tarihine göre bir sonraki TÜV Türk muayene tarihini hesaplayın.",
+  "shortcode": "[hc_muayene_tarihi_hesaplama]"
+}

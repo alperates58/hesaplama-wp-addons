@@ -1,0 +1,5 @@
+{
+  "name": "PPM Dönüştürücü",
+  "desc": "PPM, mg/L ve yüzde (%) gibi derişim birimleri arasında dönüşüm yapın.",
+  "shortcode": "[hc_ppm_donusturucu]"
+}

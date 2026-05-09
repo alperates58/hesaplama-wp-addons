@@ -1,0 +1,5 @@
+{
+  "name": "Mol Kesri Hesaplama",
+  "desc": "Karışımdaki bir bileşenin mol sayısının, toplam mol sayısına oranını hesaplar.",
+  "shortcode": "[hc_mol_kesri_hesaplama]"
+}

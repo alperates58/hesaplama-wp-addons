@@ -1,0 +1,5 @@
+{
+  "name": "Sigara Paket Yılı Hesaplama",
+  "desc": "Sigara kullanım miktarını standart bir ölçü birimi olan paket yılı (pack-year) cinsinden hesaplar.",
+  "shortcode": "[hc_sigara_paket_yili]"
+}

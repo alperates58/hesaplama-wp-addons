@@ -1,0 +1,5 @@
+{
+  "name": "Alkol Kalori Hesaplama",
+  "desc": "Tükettiğiniz alkollü içeceklerin türüne ve miktarına göre vücudunuza aldığınız toplam kaloriyi hesaplar.",
+  "shortcode": "[hc_alkol_kalori_hesaplama]"
+}

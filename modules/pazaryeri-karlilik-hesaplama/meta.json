@@ -1,0 +1,5 @@
+{
+  "name": "Pazaryeri Karlılık Hesaplama",
+  "desc": "Pazaryeri satışlarınızda alış maliyeti, komisyon ve kargo sonrası net kârınızı hesaplar.",
+  "shortcode": "[hc_pazaryeri_karlilik_hesaplama]"
+}

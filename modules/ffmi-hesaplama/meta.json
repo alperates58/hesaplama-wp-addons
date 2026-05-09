@@ -1,0 +1,5 @@
+{
+  "name": "Yağsız Vücut Kitlesi (FFMI) Hesaplama",
+  "desc": "Sporcular için kas kütlesi oranını ve vücut geliştirme potansiyelini ölçer.",
+  "shortcode": "[hc_ffmi_hesaplama]"
+}
