@@ -1,0 +1,5 @@
+{
+  "name": "Çarpanlara Ayırma Hesaplama",
+  "desc": "Verilen pozitif tam sayıyı asal çarpanlara ayırır.",
+  "shortcode": "[hc_carpanlara_ayirma_hesaplama]"
+}

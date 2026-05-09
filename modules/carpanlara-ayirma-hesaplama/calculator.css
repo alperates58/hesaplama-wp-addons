@@ -1,0 +1,21 @@
+/* Çarpanlara Ayırma Hesaplama - Modül Stilleri */
+
+/* Wrapper already has .hc-calculator from global CSS */
+
+/* Result visibility handling */
+#hc-carpanlara-ayirma-hesaplama-result {
+    display: none; /* hidden by default */
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #2e7d32; /* dark green for success */
+}
+
+#hc-carpanlara-ayirma-hesaplama-result.visible {
+    display: block;
+}
+
+/* Input styling (inherits from global .hc-input) */
+/* Additional module‑specific adjustments */
+#hc-carpanlara-ayirma-sayi {
+    max-width: 200px;
+}
