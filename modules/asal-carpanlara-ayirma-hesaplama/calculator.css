@@ -1,0 +1,20 @@
+#hc-p-factors .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-p-factors .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-p-factors .hc-result-value.highlight {
+    color: #c0392b;
+    font-size: 1.2em;
+}
+
+#hc-p-factors sup {
+    font-size: 0.7em;
+    vertical-align: super;
+}

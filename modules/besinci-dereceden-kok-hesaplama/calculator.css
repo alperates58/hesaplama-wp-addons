@@ -1,0 +1,15 @@
+#hc-5th-root .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-5th-root .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-5th-root .hc-result-value.highlight {
+    color: #16a085;
+    font-size: 1.2em;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Basamak Değeri Hesaplama",
+  "desc": "Bir sayıdaki rakamların hangi basamakta olduğunu ve basamak değerlerini hesaplar.",
+  "shortcode": "[hc_basamak_degeri_hesaplama]"
+}

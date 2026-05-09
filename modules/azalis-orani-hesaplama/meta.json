@@ -1,0 +1,5 @@
+{
+  "name": "Azalış Oranı Hesaplama",
+  "desc": "Bir değerin eski ve yeni hali arasındaki yüzdece azalış miktarını hesaplar.",
+  "shortcode": "[hc_azalis_orani_hesaplama]"
+}

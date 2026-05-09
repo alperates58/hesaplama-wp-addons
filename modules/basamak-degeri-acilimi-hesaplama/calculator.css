@@ -1,0 +1,30 @@
+#hc-pv-expansion .hc-result-item {
+    margin-bottom: 15px;
+}
+
+#hc-pv-expansion .hc-result-value.highlight {
+    display: block;
+    margin-top: 5px;
+    color: #2c3e50;
+    font-size: 1.1em;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #3498db;
+}
+
+#hc-pv-expansion .hc-pve-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    font-size: 0.9em;
+}
+
+#hc-pv-expansion .hc-pve-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-pv-expansion .hc-pve-list li:last-child {
+    border-bottom: none;
+}

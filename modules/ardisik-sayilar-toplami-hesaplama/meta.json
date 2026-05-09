@@ -1,0 +1,5 @@
+{
+  "name": "Ardışık Sayılar Toplamı Hesaplama",
+  "desc": "Belirli bir sayıdan başlayan ve belirli bir kurala göre artan ardışık sayıların toplamını hesaplar.",
+  "shortcode": "[hc_ardisik_sayilar_toplami_hesaplama]"
+}

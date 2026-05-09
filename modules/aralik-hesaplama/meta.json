@@ -1,0 +1,5 @@
+{
+  "name": "Aralık Hesaplama",
+  "desc": "Bir veri setindeki en büyük ve en küçük değerler arasındaki farkı (açıklık/ranj) hesaplar.",
+  "shortcode": "[hc_aralik_hesaplama]"
+}

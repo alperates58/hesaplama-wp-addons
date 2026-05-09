@@ -1,0 +1,5 @@
+{
+  "name": "Basit Oran Hesaplama",
+  "desc": "İki sayı arasındaki oranı hesaplar ve en sade biçimde gösterir.",
+  "shortcode": "[hc_basit_oran_hesaplama]"
+}

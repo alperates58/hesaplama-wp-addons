@@ -1,0 +1,15 @@
+#hc-decrease .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-decrease .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-decrease .hc-result-value.highlight {
+    color: #e74c3c;
+    font-size: 1.2em;
+}

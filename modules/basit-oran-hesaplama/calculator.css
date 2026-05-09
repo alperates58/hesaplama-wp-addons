@@ -1,0 +1,15 @@
+#hc-ratio .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-ratio .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-ratio .hc-result-value.highlight {
+    color: #2980b9;
+    font-size: 1.2em;
+}

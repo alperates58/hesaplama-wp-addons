@@ -1,0 +1,24 @@
+#hc-place-value .hc-pv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+#hc-place-value .hc-pv-table th, 
+#hc-place-value .hc-pv-table td {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: left;
+}
+
+#hc-place-value .hc-pv-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+#hc-place-value .hc-pv-val-col {
+    font-weight: bold;
+    color: #2980b9;
+    text-align: right;
+}

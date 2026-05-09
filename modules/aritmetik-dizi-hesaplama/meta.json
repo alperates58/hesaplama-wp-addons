@@ -1,0 +1,5 @@
+{
+  "name": "Aritmetik Dizi Hesaplama",
+  "desc": "Aritmetik bir dizinin n. terimini ve ilk n terim toplamını hesaplar.",
+  "shortcode": "[hc_aritmetik_dizi_hesaplama]"
+}

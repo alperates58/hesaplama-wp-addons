@@ -1,0 +1,5 @@
+{
+  "name": "Aritmetik Ortalama Hesaplama",
+  "desc": "Verilen sayıların toplamının sayı adedine bölünmesiyle elde edilen ortalama değeri hesaplar.",
+  "shortcode": "[hc_aritmetik_ortalama_hesaplama]"
+}

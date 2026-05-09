@@ -1,0 +1,5 @@
+{
+  "name": "Basit İstatistik Hesaplama",
+  "desc": "Bir veri setinin aritmetik ortalama, medyan, mod, açıklık ve standart sapma gibi temel istatistiksel değerlerini hesaplar.",
+  "shortcode": "[hc_basit_istatistik_hesaplama]"
+}

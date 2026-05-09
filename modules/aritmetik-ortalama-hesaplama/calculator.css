@@ -1,0 +1,24 @@
+#hc-arith-avg .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-arith-avg .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-arith-avg .hc-result-value.highlight {
+    color: #2980b9;
+    font-size: 1.3em;
+}
+
+#hc-arith-avg textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: inherit;
+    resize: vertical;
+}

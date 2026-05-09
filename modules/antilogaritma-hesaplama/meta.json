@@ -1,0 +1,5 @@
+{
+  "name": "Antilogaritma Hesaplama",
+  "desc": "Belirli bir tabanda verilen logaritma değerinin asıl sayısını (ters logaritma) hesaplar.",
+  "shortcode": "[hc_antilogaritma_hesaplama]"
+}

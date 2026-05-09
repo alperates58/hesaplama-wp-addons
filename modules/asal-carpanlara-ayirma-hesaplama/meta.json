@@ -1,0 +1,5 @@
+{
+  "name": "Asal Çarpanlara Ayırma Hesaplama",
+  "desc": "Bir tam sayının asal çarpanlarını ve bu çarpanların kuvvetlerini (asal çarpan algoritması) bulur.",
+  "shortcode": "[hc_asal_carpanlara_ayirma_hesaplama]"
+}

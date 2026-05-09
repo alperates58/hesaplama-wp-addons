@@ -1,0 +1,5 @@
+{
+  "name": "Basit Olasılık Hesaplama",
+  "desc": "İstenen durum sayısının tüm olası durumların sayısına bölünmesiyle elde edilen temel olasılık değerini hesaplar.",
+  "shortcode": "[hc_basit_olasilik_hesaplama]"
+}

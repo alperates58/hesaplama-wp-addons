@@ -1,0 +1,44 @@
+#hc-stats .hc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#hc-stats .hc-stat-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+#hc-stats .hc-stat-label {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#hc-stats .hc-stat-value {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #2c3e50;
+    word-break: break-all;
+}
+
+#hc-stats textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+@media (max-width: 480px) {
+    #hc-stats .hc-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

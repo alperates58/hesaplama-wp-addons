@@ -1,0 +1,5 @@
+{
+  "name": "Bilimsel Gösterim Dönüştürme Hesaplama",
+  "desc": "Standart bir sayıyı bilimsel gösterime (a × 10ⁿ) dönüştürür veya bilimsel gösterimi standart sayıya çevirir.",
+  "shortcode": "[hc_bilimsel_gosterim_donusturme_hesaplama]"
+}
