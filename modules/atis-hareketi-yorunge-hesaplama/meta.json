@@ -1,0 +1,5 @@
+{
+  "name": "Atış Hareketi Yörünge Hesaplama",
+  "desc": "Belirli bir yatay mesafedeki (x) cismin dikey konumunu (y) hesaplayarak yörünge denklemini çözer.",
+  "shortcode": "[hc_atis_hareketi_yorunge_hesaplama]"
+}

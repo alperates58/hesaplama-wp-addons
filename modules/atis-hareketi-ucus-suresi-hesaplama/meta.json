@@ -1,0 +1,5 @@
+{
+  "name": "Atış Hareketi Uçuş Süresi Hesaplama",
+  "desc": "Fırlatılan bir cismin havada kaldığı toplam süreyi hesaplar.",
+  "shortcode": "[hc_atis_hareketi_ucus_suresi_hesaplama]"
+}

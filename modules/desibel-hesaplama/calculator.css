@@ -1,0 +1,22 @@
+#hc-desibel-hesaplama select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#hc-desibel-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #hc-desibel-hesaplama {
+        padding: 15px;
+    }
+}

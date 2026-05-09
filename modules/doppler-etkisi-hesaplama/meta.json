@@ -1,0 +1,5 @@
+{
+  "name": "Doppler Etkisi Hesaplama",
+  "desc": "Kaynağın veya gözlemcinin hareketine bağlı olarak algılanan ses frekansındaki değişimi hesaplar.",
+  "shortcode": "[hc_doppler_etkisi_hesaplama]"
+}

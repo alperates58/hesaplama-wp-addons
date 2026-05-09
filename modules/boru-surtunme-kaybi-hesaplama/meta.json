@@ -1,0 +1,5 @@
+{
+  "name": "Boru Sürtünme Kaybı Hesaplama",
+  "desc": "Boru uzunluğu, çapı ve akış hızına göre Darcy-Weisbach denklemi ile sürtünme kaynaklı basınç kaybını hesaplar.",
+  "shortcode": "[hc_boru_surtunme_kaybi_hesaplama]"
+}

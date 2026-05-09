@@ -1,0 +1,5 @@
+{
+  "name": "Eğik Düzlem Hesaplama",
+  "desc": "Eğik düzlem üzerindeki bir cismin ağırlık bileşenlerini ve net ivmesini hesaplar.",
+  "shortcode": "[hc_egik_duzlem_hesaplama]"
+}

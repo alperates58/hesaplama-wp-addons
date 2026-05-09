@@ -1,0 +1,5 @@
+{
+  "name": "Basit Harmonik Hareket Hesaplama",
+  "desc": "Kütle ve yay sabiti değerlerine göre basit harmonik hareketin periyot, frekans ve açısal hızını hesaplar.",
+  "shortcode": "[hc_basit_harmonik_hareket_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Dalga Boyu Hesaplama",
+  "desc": "Frekans ve dalga hızına göre dalga boyunu (λ) hesaplar.",
+  "shortcode": "[hc_dalga_boyu_hesaplama]"
+}

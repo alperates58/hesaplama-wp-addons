@@ -1,0 +1,5 @@
+{
+  "name": "Açısal Hız Hesaplama",
+  "desc": "Dönme hızı (RPM) veya periyot değerlerine göre bir cismin açısal hızını (rad/s) hesaplar.",
+  "shortcode": "[hc_acisal_hiz_hesaplama]"
+}

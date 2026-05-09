@@ -1,0 +1,5 @@
+{
+  "name": "Deplasman Hesaplama",
+  "desc": "Bir cismin başlangıç ve bitiş koordinatlarına göre yer değiştirmesini (deplasman) hesaplar.",
+  "shortcode": "[hc_deplasman_hesaplama]"
+}

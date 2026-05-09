@@ -1,0 +1,5 @@
+{
+  "name": "Debye Uzunluğu Hesaplama",
+  "desc": "Plazma fiziğinde yüklü parçacıkların elektrostatik etkisinin ne kadar mesafede sönümlendiğini (Debye uzunluğu) hesaplar.",
+  "shortcode": "[hc_debye_uzunlugu_hesaplama]"
+}

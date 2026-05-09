@@ -1,0 +1,5 @@
+{
+  "name": "Atış Hareketi Hesaplama",
+  "desc": "İlk hız ve fırlatılma açısına göre atış hareketinin tüm temel değerlerini (menzil, yükseklik, süre) toplu olarak hesaplar.",
+  "shortcode": "[hc_atis_hareketi_hesaplama]"
+}

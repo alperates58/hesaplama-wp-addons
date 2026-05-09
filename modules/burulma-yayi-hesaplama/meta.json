@@ -1,0 +1,5 @@
+{
+  "name": "Burulma Yayı Hesaplama",
+  "desc": "Burulma yayının (torsion spring) uyguladığı torku veya yay katsayısını hesaplar.",
+  "shortcode": "[hc_burulma_yayi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Araç Çarpışma Kuvveti Hesaplama",
+  "desc": "Hız, kütle ve durma mesafesine göre bir çarpışma anındaki ortalama darbe kuvvetini hesaplar.",
+  "shortcode": "[hc_arac_carpisma_kuvveti_hesaplama]"
+}

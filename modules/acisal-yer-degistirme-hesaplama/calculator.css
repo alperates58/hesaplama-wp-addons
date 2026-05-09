@@ -1,0 +1,25 @@
+.hc-ayd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.hc-ayd-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#hc-acisal-yer-degistirme-hesaplama .hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-ayd-grid {
+        grid-template-columns: 1fr;
+    }
+}

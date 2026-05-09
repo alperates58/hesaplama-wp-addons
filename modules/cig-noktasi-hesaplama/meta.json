@@ -1,0 +1,5 @@
+{
+  "name": "Çiğ Noktası Hesaplama",
+  "desc": "Sıcaklık ve bağıl nem değerlerine göre su buharının yoğunlaşmaya başladığı çiğ noktasını (°C) hesaplar.",
+  "shortcode": "[hc_cig_noktasi_hesaplama]"
+}

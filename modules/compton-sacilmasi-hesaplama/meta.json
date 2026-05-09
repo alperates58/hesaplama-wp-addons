@@ -1,0 +1,5 @@
+{
+  "name": "Compton Saçılması Hesaplama",
+  "desc": "Fotonun saçılma açısına göre dalga boyundaki kaymayı (Compton shift) hesaplar.",
+  "shortcode": "[hc_compton_sacilmasi_hesaplama]"
+}

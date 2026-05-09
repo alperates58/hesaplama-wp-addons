@@ -1,0 +1,5 @@
+{
+  "name": "Açısal İvme Hesaplama",
+  "desc": "Açısal hızdaki değişim ve zamana göre bir cismin açısal ivmesini (rad/s²) hesaplar.",
+  "shortcode": "[hc_acisal_ivme_hesaplama]"
+}

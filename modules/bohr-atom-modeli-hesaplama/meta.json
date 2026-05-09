@@ -1,0 +1,5 @@
+{
+  "name": "Bohr Atom Modeli Hesaplama",
+  "desc": "Bohr atom modeline göre hidrojen atomundaki bir elektronun belirli bir yörüngedeki (n) enerjisini ve yarıçapını hesaplar.",
+  "shortcode": "[hc_bohr_atom_modeli_hesaplama]"
+}

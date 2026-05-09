@@ -1,0 +1,5 @@
+{
+  "name": "Brewster Açısı Hesaplama",
+  "desc": "İki farklı ortamın kırılma indislerine göre ışığın tamamen polarlanmış olarak yansıdığı Brewster açısını hesaplar.",
+  "shortcode": "[hc_brewster_acisi_hesaplama]"
+}

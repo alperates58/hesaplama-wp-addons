@@ -1,0 +1,5 @@
+{
+  "name": "Açısal Momentum Hesaplama",
+  "desc": "Eylemsizlik momenti ve açısal hıza göre bir cismin açısal momentumunu (kg·m²/s) hesaplar.",
+  "shortcode": "[hc_acisal_momentum_hesaplama]"
+}

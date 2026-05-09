@@ -1,0 +1,5 @@
+{
+  "name": "Dişli Oranına Göre Hız Hesaplama",
+  "desc": "Tahrik eden ve edilen dişlilerin diş sayılarına göre çıkış devrini (RPM) hesaplar.",
+  "shortcode": "[hc_disli_oranina_gore_hiz_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Diyoptri Hesaplama",
+  "desc": "Bir merceğin odak uzaklığına göre kırma gücünü (diyoptri) hesaplar.",
+  "shortcode": "[hc_diyoptri_hesaplama]"
+}

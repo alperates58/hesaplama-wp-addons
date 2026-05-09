@@ -1,0 +1,5 @@
+{
+  "name": "Bileşke Kuvvet Hesaplama",
+  "desc": "Aralarında belirli bir açı bulunan iki kuvvetin toplam (bileşke) etkisini hesaplar.",
+  "shortcode": "[hc_bileske_kuvvet_hesaplama]"
+}

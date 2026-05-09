@@ -1,0 +1,5 @@
+{
+  "name": "Desibel Hesaplama",
+  "desc": "Güç veya gerilim oranlarını desibel (dB) cinsinden hesaplar.",
+  "shortcode": "[hc_desibel_hesaplama]"
+}

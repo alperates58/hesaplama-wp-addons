@@ -1,0 +1,5 @@
+{
+  "name": "Açısal Frekans Hesaplama",
+  "desc": "Frekans veya periyot değerlerine göre açısal frekansı (rad/s) hesaplar.",
+  "shortcode": "[hc_acisal_frekans_hesaplama]"
+}

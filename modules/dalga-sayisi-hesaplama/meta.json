@@ -1,0 +1,5 @@
+{
+  "name": "Dalga Sayısı Hesaplama",
+  "desc": "Dalga boyuna göre açısal dalga sayısını (k) veya spektroskopik dalga sayısını (ν̃) hesaplar.",
+  "shortcode": "[hc_dalga_sayisi_hesaplama]"
+}

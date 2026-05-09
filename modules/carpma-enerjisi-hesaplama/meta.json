@@ -1,0 +1,5 @@
+{
+  "name": "Çarpma Enerjisi Hesaplama",
+  "desc": "Bir cismin kütlesi ve hızı baz alınarak çarpışma anındaki kinetik enerjisini hesaplar.",
+  "shortcode": "[hc_carpma_enerjisi_hesaplama]"
+}

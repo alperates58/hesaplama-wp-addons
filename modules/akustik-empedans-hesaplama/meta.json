@@ -1,0 +1,5 @@
+{
+  "name": "Akustik Empedans Hesaplama",
+  "desc": "Ortam yoğunluğu ve ses hızına göre akustik empedansı (Z) hesaplar.",
+  "shortcode": "[hc_akustik_empedans_hesaplama]"
+}

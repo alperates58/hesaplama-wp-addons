@@ -1,0 +1,5 @@
+{
+  "name": "Dairesel Hareket Hesaplama",
+  "desc": "Yarıçap, hız veya periyot değerlerine göre merkezcil ivme ve merkezcil kuvveti hesaplar.",
+  "shortcode": "[hc_dairesel_hareket_hesaplama]"
+}

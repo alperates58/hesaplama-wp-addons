@@ -1,0 +1,5 @@
+{
+  "name": "Açısal Yer Değiştirme Hesaplama",
+  "desc": "Dönme hareketi yapan bir cismin radyan veya derece cinsinden açısal yer değiştirmesini hesaplar.",
+  "shortcode": "[hc_acisal_yer_degistirme_hesaplama]"
+}

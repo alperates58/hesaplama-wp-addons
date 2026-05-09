@@ -1,0 +1,5 @@
+{
+  "name": "Dünya Eğriliği Hesaplama",
+  "desc": "Belirli bir mesafede Dünya'nın eğriliğinden kaynaklanan alçalma miktarını hesaplar.",
+  "shortcode": "[hc_dunya_egriligi_hesaplama]"
+}

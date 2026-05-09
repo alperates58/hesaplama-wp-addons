@@ -1,0 +1,5 @@
+{
+  "name": "Açısal Çözünürlük Hesaplama",
+  "desc": "Rayleigh kriterine göre bir optik sistemin (teleskop, mikroskop vb.) açısal çözünürlüğünü (ayırım gücü) hesaplar.",
+  "shortcode": "[hc_acisal_cozunurluk_hesaplama]"
+}

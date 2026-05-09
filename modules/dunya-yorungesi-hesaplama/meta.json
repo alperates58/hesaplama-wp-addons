@@ -1,0 +1,5 @@
+{
+  "name": "Dünya Yörüngesi Hesaplama",
+  "desc": "Belirli bir irtifada Dünya etrafındaki yörünge hızını ve periyodunu hesaplar.",
+  "shortcode": "[hc_dunya_yorungesi_hesaplama]"
+}

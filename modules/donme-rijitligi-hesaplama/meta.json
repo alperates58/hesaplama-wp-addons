@@ -1,0 +1,5 @@
+{
+  "name": "Dönme Rijitliği Hesaplama",
+  "desc": "Bir milin malzemesi, uzunluğu ve kesitine göre burulma direncini (dönme rijitliği) hesaplar.",
+  "shortcode": "[hc_donme_rijitligi_hesaplama]"
+}

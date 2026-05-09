@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlık Newton Hesaplama",
+  "desc": "Kütle ve yerçekimi ivmesine göre bir cismin ağırlığını Newton (N) cinsinden hesaplar.",
+  "shortcode": "[hc_agirlik_newton_hesaplama]"
+}

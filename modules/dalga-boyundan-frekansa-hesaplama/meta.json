@@ -1,0 +1,5 @@
+{
+  "name": "Dalga Boyundan Frekansa Hesaplama",
+  "desc": "Dalga boyu ve yayılma hızına göre dalganın frekansını (f) hesaplar.",
+  "shortcode": "[hc_dalga_boyundan_frekansa_hesaplama]"
+}

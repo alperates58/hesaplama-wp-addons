@@ -1,0 +1,5 @@
+{
+  "name": "Bragg Yasası Hesaplama",
+  "desc": "X-ışını kırınımı için kristal düzlemler arası mesafe ve geliş açısına göre dalga boyunu hesaplar.",
+  "shortcode": "[hc_bragg_yasasi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Basit Sarkaç Hesaplama",
+  "desc": "Sarkaç uzunluğu ve yerçekimi ivmesine göre bir sarkacın salınım periyodunu hesaplar.",
+  "shortcode": "[hc_basit_sarkac_hesaplama]"
+}

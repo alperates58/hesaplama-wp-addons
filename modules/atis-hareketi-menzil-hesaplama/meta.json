@@ -1,0 +1,5 @@
+{
+  "name": "Atış Hareketi Menzil Hesaplama",
+  "desc": "Fırlatılan bir cismin yere düşene kadar katettiği yatay mesafeyi (menzil) hesaplar.",
+  "shortcode": "[hc_atis_hareketi_menzil_hesaplama]"
+}

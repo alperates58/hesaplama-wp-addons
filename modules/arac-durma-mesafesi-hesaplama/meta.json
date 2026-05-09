@@ -1,0 +1,5 @@
+{
+  "name": "Araç Durma Mesafesi Hesaplama",
+  "desc": "Hız, reaksiyon süresi ve frenleme ivmesine göre bir aracın toplam durma mesafesini hesaplar.",
+  "shortcode": "[hc_arac_durma_mesafesi_hesaplama]"
+}

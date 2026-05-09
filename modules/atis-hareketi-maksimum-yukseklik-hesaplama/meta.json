@@ -1,0 +1,5 @@
+{
+  "name": "Atış Hareketi Maksimum Yükseklik Hesaplama",
+  "desc": "Fırlatılan bir cismin ulaşabileceği en tepe noktayı (maksimum yükseklik) hesaplar.",
+  "shortcode": "[hc_atis_hareketi_maksimum_yukseklik_hesaplama]"
+}

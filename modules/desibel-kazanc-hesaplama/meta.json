@@ -1,0 +1,5 @@
+{
+  "name": "Desibel Kazanç Hesaplama",
+  "desc": "Giriş ve çıkış değerlerine göre bir sistemin desibel cinsinden kazancını (Gain) hesaplar.",
+  "shortcode": "[hc_desibel_kazanc_hesaplama]"
+}

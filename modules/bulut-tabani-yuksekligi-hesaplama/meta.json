@@ -1,0 +1,5 @@
+{
+  "name": "Bulut Tabanı Yüksekliği Hesaplama",
+  "desc": "Yer seviyesindeki sıcaklık ve çiğ noktasına göre bulut tabanının tahmini yüksekliğini hesaplar.",
+  "shortcode": "[hc_bulut_tabani_yuksekligi_hesaplama]"
+}

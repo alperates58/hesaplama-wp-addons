@@ -1,0 +1,5 @@
+{
+  "name": "Bileşke Hız Hesaplama",
+  "desc": "Aralarında belirli bir açı bulunan iki farklı hız vektörünün bileşke hızını (V) ve açısını hesaplar.",
+  "shortcode": "[hc_bileske_hiz_hesaplama]"
+}

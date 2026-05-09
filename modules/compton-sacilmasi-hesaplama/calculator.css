@@ -1,0 +1,19 @@
+.hc-cs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.hc-cs-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#hc-compton-sacilmasi-hesaplama .hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    text-align: center;
+}

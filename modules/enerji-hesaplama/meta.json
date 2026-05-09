@@ -1,0 +1,5 @@
+{
+  "name": "Enerji Hesaplama",
+  "desc": "Güç ve zaman değerlerine göre tüketilen veya üretilen toplam enerjiyi hesaplar.",
+  "shortcode": "[hc_enerji_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Dönme Kinetik Enerjisi Hesaplama",
+  "desc": "Bir cismin eylemsizlik momenti ve açısal hızına göre dönme kinetik enerjisini (KE_rot) hesaplar.",
+  "shortcode": "[hc_donme_kinetik_enerjisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ayna Denklemi Hesaplama",
+  "desc": "Odak uzaklığı ve nesne mesafesine göre bir aynada (çukur/tümsek) oluşan görüntünün yerini ve büyüteç oranını hesaplar.",
+  "shortcode": "[hc_ayna_denklemi_hesaplama]"
+}

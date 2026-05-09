@@ -1,0 +1,5 @@
+{
+  "name": "Dalga Hızı Hesaplama",
+  "desc": "Frekans ve dalga boyuna göre dalganın yayılma hızını (v) hesaplar.",
+  "shortcode": "[hc_dalga_hizi_hesaplama]"
+}

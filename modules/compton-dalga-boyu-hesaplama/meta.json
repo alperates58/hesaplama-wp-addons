@@ -1,0 +1,5 @@
+{
+  "name": "Compton Dalga Boyu Hesaplama",
+  "desc": "Bir parçacığın (genellikle elektron) kütlesine göre Compton dalga boyunu hesaplar.",
+  "shortcode": "[hc_compton_dalga_boyu_hesaplama]"
+}

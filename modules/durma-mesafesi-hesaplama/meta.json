@@ -1,0 +1,5 @@
+{
+  "name": "Durma Mesafesi Hesaplama",
+  "desc": "Başlangıç hızı ve ivme/sürtünme değerlerine göre bir cismin durana kadar katettiği mesafeyi hesaplar.",
+  "shortcode": "[hc_durma_mesafesi_hesaplama]"
+}
