@@ -3,7 +3,7 @@
  * Plugin Name: Hesaplama Suite
  * Plugin URI:  https://github.com/YOUR_USERNAME/hesaplama-wp-addons
  * Description: Modüler hesap makineleri koleksiyonu. GitHub üzerinden güncellenir.
- * Version:     1.0.18
+ * Version:     1.0.19
  * Author:      Alper ATEŞ
  * Text Domain: hesaplama-suite
  */

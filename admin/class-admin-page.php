@@ -887,8 +887,15 @@ class HC_Module_Inventory {
         if ( $post_status === 'unused' && $module['post_count'] > 0 ) return false;
         if ( $post_status === 'duplicates' && $module['post_count'] <= 1 ) return false;
 
-        if ( $category && $module['category'] !== $category ) {
-            return false;
+        if ( $category ) {
+            $cat = $module['category'] ?? '';
+            $parent = $module['category_parent'] ?? '';
+            $matches = ( $cat === $category )
+                || ( $parent === $category )
+                || ( '' !== $parent && strpos( $cat, $category . ' › ' ) === 0 );
+            if ( ! $matches ) {
+                return false;
+            }
         }
 
         if ( ! $search ) {
@@ -1401,7 +1408,7 @@ class HC_Admin_Page {
             'sort_dir'    => 'asc' === strtolower( (string) ( $request['sort_dir'] ?? 'desc' ) ) ? 'asc' : 'desc',
             'page'        => max( 1, (int) ( $request['page'] ?? 1 ) ),
             'per_page'    => max( 1, min( 100, (int) ( $request['per_page'] ?? 50 ) ) ),
-            'view'        => 'gallery' === ( $request['view'] ?? '' ) ? 'gallery' : 'table',
+            'view'        => 'table' === ( $request['view'] ?? '' ) ? 'table' : 'gallery',
         ];
     }
 
@@ -1495,12 +1502,12 @@ class HC_Admin_Page {
 
         return [
             [ 'key' => 'favorites', 'label' => 'Favoriler', 'count' => count( array_intersect( array_keys( $favorite_map ), wp_list_pluck( $modules, 'slug' ) ) ) ],
-            [ 'key' => 'recent', 'label' => 'Son AÃ§Ä±lanlar', 'count' => count( array_intersect( array_keys( $recent_map ), wp_list_pluck( $modules, 'slug' ) ) ) ],
+            [ 'key' => 'recent', 'label' => 'Son Açılanlar', 'count' => count( array_intersect( array_keys( $recent_map ), wp_list_pluck( $modules, 'slug' ) ) ) ],
             [ 'key' => 'ai-generated', 'label' => 'AI Generated', 'count' => count( array_filter( $modules, static fn( $module ) => ! empty( $module['ai_enabled'] ) ) ) ],
             [ 'key' => 'drafts', 'label' => 'Taslaklar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['draft_count'] > 0 ) ) ],
-            [ 'key' => 'unused', 'label' => 'KullanÄ±lmayanlar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] === 0 ) ) ],
+            [ 'key' => 'unused', 'label' => 'Kullanılmayanlar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] === 0 ) ) ],
             [ 'key' => 'no-category', 'label' => 'Kategorisiz', 'count' => count( array_filter( $modules, static fn( $module ) => empty( $module['category'] ) || 'Genel' === $module['category'] ) ) ],
-            [ 'key' => 'archived', 'label' => 'ArÅŸiv', 'count' => 0 ],
+            [ 'key' => 'archived', 'label' => 'Arşiv', 'count' => 0 ],
         ];
     }
 
@@ -1722,6 +1729,7 @@ class HC_Admin_Page {
             </div>
 
             <div class="hc-explorer-layout">
+                <button type="button" class="hc-sidebar-toggle" id="hc-sidebar-toggle" aria-label="Kenar çubuğunu aç/kapat">&#8249;</button>
                 <aside class="hc-explorer-sidebar" aria-label="Modül gezgini kenar çubuğu">
                     <div class="hc-explorer-panel">
                         <div class="hc-explorer-panel-head"><h3>Akıllı Koleksiyonlar</h3></div>
@@ -1756,11 +1764,6 @@ class HC_Admin_Page {
                             <button type="button" class="button hc-button-ghost" id="hc-explorer-sort-dir" data-direction="<?php echo esc_attr( $args['sort_dir'] ); ?>">
                                 <?php echo 'asc' === $args['sort_dir'] ? 'A-Z / Eski-Yeni' : 'Z-A / Yeni-Eski'; ?>
                             </button>
-                            <button type="button" class="button hc-button-ghost" id="hc-explorer-density-toggle">Kompakt görünüm</button>
-                            <div class="hc-view-switch" role="tablist" aria-label="Görünüm seçici">
-                                <button type="button" class="is-active" data-view="table">Tablo</button>
-                                <button type="button" data-view="gallery">Galeri</button>
-                            </div>
                         </div>
                     </div>
 

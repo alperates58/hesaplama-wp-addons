@@ -818,7 +818,7 @@ jQuery(function ($) {
             sort_dir: $root.data('sort-dir') || 'desc',
             page: parseInt($root.data('page'), 10) || 1,
             per_page: parseInt($root.data('per-page'), 10) || 50,
-            view: $root.data('view') || 'table',
+            view: 'gallery',
             favorites: [],
             recent: []
         };
@@ -889,7 +889,7 @@ jQuery(function ($) {
                 { label: 'Kategori', value: stats.total_categories || 0, foot: 'Gezgin ağacı' },
                 { label: 'Toplam Kullanım', value: stats.total_usage || 0, foot: 'Shortcode yerleşimi' },
                 { label: 'Mükerrer Kullanım', value: stats.duplicate_modules || 0, foot: (stats.duplicate_usage || 0) + ' ekstra kullanım' },
-                { label: 'Son Eklenen', value: latest.updated || latest.created || '-', foot: latest.name || 'Yok', small: true }
+                { label: 'Son Eklenen', value: latest.name || '-', foot: latest.updated_date || latest.created_date || '-', small: true }
             ];
             var html = '';
 
@@ -923,14 +923,27 @@ jQuery(function ($) {
 
             (categories || []).forEach(function (node) {
                 var parentActive = state.category === node.label ? ' is-active' : '';
-                html += '<div class="hc-explorer-tree-node">';
+                var hasChildren = node.children && node.children.length;
+                var childActive = false;
+                if (hasChildren) {
+                    node.children.forEach(function (child) {
+                        if (state.category === child.path) { childActive = true; }
+                    });
+                }
+                var isOpen = childActive || state.category === node.label;
+                html += '<div class="hc-explorer-tree-node' + (isOpen ? ' is-open' : '') + '">';
+                html += '<div class="hc-explorer-tree-parent">';
                 html += '<button type="button" class="hc-explorer-tree-item' + parentActive + '" data-category="' + hcEscapeHtml(node.label) + '"><span>' + hcEscapeHtml(node.label) + '</span><strong>' + hcEscapeHtml(String(node.count)) + '</strong></button>';
+                if (hasChildren) {
+                    html += '<button type="button" class="hc-tree-toggle" data-tree-toggle aria-label="Alt kategorileri aç/kapat">&#8250;</button>';
+                }
+                html += '</div>';
 
-                if (node.children && node.children.length) {
+                if (hasChildren) {
                     html += '<div class="hc-explorer-tree-children">';
                     node.children.forEach(function (child) {
-                        var childActive = state.category === child.path ? ' is-active' : '';
-                        html += '<button type="button" class="hc-explorer-tree-item is-child' + childActive + '" data-category="' + hcEscapeHtml(child.path) + '"><span>' + hcEscapeHtml(child.label) + '</span><strong>' + hcEscapeHtml(String(child.count)) + '</strong></button>';
+                        var active = state.category === child.path ? ' is-active' : '';
+                        html += '<button type="button" class="hc-explorer-tree-item is-child' + active + '" data-category="' + hcEscapeHtml(child.path) + '"><span>' + hcEscapeHtml(child.label) + '</span><strong>' + hcEscapeHtml(String(child.count)) + '</strong></button>';
                     });
                     html += '</div>';
                 }
@@ -1055,10 +1068,9 @@ jQuery(function ($) {
                     }
 
                     renderPagination(resp.data.list);
-                    renderTable(resp.data.list);
                     renderGallery(resp.data.list);
-                    $('#hc-explorer-table-wrap').prop('hidden', state.view !== 'table');
-                    $('#hc-explorer-gallery').prop('hidden', state.view !== 'gallery');
+                    $('#hc-explorer-table-wrap').prop('hidden', true);
+                    $('#hc-explorer-gallery').prop('hidden', false);
                     setStatus('', '');
                 })
                 .fail(function (xhr) {
@@ -1080,10 +1092,9 @@ jQuery(function ($) {
                     renderCollections(resp.data.sidebar.collections || []);
                     renderCategoryTree(resp.data.sidebar.categories || []);
                     renderPagination(resp.data.list);
-                    renderTable(resp.data.list);
                     renderGallery(resp.data.list);
-                    $('#hc-explorer-table-wrap').prop('hidden', state.view !== 'table');
-                    $('#hc-explorer-gallery').prop('hidden', state.view !== 'gallery');
+                    $('#hc-explorer-table-wrap').prop('hidden', true);
+                    $('#hc-explorer-gallery').prop('hidden', false);
                     setStatus('', '');
                 })
                 .fail(function (xhr) {
@@ -1126,12 +1137,18 @@ jQuery(function ($) {
             fetchModules();
         });
 
-        $(document).on('click', '.hc-view-switch [data-view]', function () {
-            state.view = $(this).data('view');
-            $('.hc-view-switch [data-view]').removeClass('is-active');
-            $(this).addClass('is-active');
-            $('#hc-explorer-table-wrap').prop('hidden', state.view !== 'table');
-            $('#hc-explorer-gallery').prop('hidden', state.view !== 'gallery');
+        $(document).on('click', '#hc-sidebar-toggle', function () {
+            var $sidebar = $('.hc-explorer-sidebar');
+            var $layout = $('.hc-explorer-layout');
+            var collapsed = $sidebar.hasClass('is-collapsed');
+            $sidebar.toggleClass('is-collapsed', !collapsed);
+            $layout.toggleClass('is-sidebar-collapsed', !collapsed);
+            $(this).html(collapsed ? '&#8249;' : '&#8250;');
+        });
+
+        $(document).on('click', '[data-tree-toggle]', function (e) {
+            e.stopPropagation();
+            $(this).closest('.hc-explorer-tree-node').toggleClass('is-open');
         });
 
         $(document).on('click', '.hc-explorer-tree-item', function () {
@@ -1247,10 +1264,6 @@ jQuery(function ($) {
                 $btn.toggleClass('is-active', !!resp.data.active);
                 fetchBootstrap();
             });
-        });
-
-        $(document).on('click', '#hc-explorer-density-toggle', function () {
-            $root.toggleClass('is-compact');
         });
 
         $(document).on('hc:module-deleted', function () {
