@@ -435,10 +435,11 @@ jQuery(function ($) {
 
             if (resp.data.existing) {
                 $msg.html('Taslak zaten vardı; kategori ve shortcode güncellendi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#b45309').show();
-                return;
+            } else {
+                $msg.html('Taslak oluşturuldu ve kaydedildi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#067647').show();
             }
 
-            $msg.html('Taslak oluşturuldu ve kaydedildi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#067647').show();
+            $(document).trigger('hc:draft-created');
         });
     });
 
@@ -1266,7 +1267,7 @@ jQuery(function ($) {
             });
         });
 
-        $(document).on('hc:module-deleted', function () {
+        $(document).on('hc:module-deleted hc:draft-created', function () {
             fetchBootstrap();
         });
 
