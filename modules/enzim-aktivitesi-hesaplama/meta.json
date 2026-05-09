@@ -1,0 +1,5 @@
+{
+  "name": "Enzim Aktivitesi Hesaplama",
+  "desc": "Absorbans değişimi ve söndürme katsayısı kullanarak enzim aktivitesini (U/mL) hesaplar.",
+  "shortcode": "[hc_enzim_aktivitesi_hesaplama]"
+}

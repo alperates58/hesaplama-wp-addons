@@ -1,0 +1,5 @@
+{
+  "name": "F-M Oranı Hesaplama",
+  "desc": "Atık su arıtma tesislerinde Gıda-Mikroorganizma (F/M) oranını hesaplar.",
+  "shortcode": "[hc_f_m_orani_hesaplama]"
+}

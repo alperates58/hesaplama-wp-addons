@@ -1,0 +1,5 @@
+{
+  "name": "DNA Molekül Ağırlığı Hesaplama",
+  "desc": "DNA dizisinin uzunluğuna (bp) göre molekül ağırlığını (Da veya g/mol) hesaplar.",
+  "shortcode": "[hc_dna_molekul_agirligi_hesaplama]"
+}

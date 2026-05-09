@@ -1,0 +1,5 @@
+{
+  "name": "Atık Su Hesaplama",
+  "desc": "Debi ve konsantrasyon değerlerine göre günlük kirletici (BOD, COD, Askıda Katı Madde) yükünü hesaplar.",
+  "shortcode": "[hc_atik_su_hesaplama]"
+}

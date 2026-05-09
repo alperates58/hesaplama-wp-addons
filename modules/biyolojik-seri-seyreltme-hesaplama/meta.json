@@ -1,0 +1,5 @@
+{
+  "name": "Biyolojik Seri Seyreltme Hesaplama",
+  "desc": "Belirli bir seyreltme faktörü ve adım sayısına göre final konsantrasyonu hesaplar.",
+  "shortcode": "[hc_biyolojik_seri_seyreltme_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hayvan İlaç Dozu Hesaplama",
+  "desc": "Hayvanın canlı ağırlığına ve ilaç dozuna (mg/kg) göre gereken toplam ilaç hacmini hesaplar.",
+  "shortcode": "[hc_hayvan_ilac_dozu_hesaplama]"
+}

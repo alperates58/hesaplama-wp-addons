@@ -1,0 +1,5 @@
+{
+  "name": "Gübre Miktarı Hesaplama",
+  "desc": "Belirli bir alan ve bitki ihtiyacına göre gereken saf besin maddesi miktarını gübre formuna göre hesaplar.",
+  "shortcode": "[hc_gubre_miktari_hesaplama]"
+}

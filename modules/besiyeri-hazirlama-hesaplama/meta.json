@@ -1,0 +1,5 @@
+{
+  "name": "Besiyeri Hazırlama Hesaplama",
+  "desc": "Laboratuvar besiyeri hazırlığı için gereken toz miktarını hacme göre hesaplar.",
+  "shortcode": "[hc_besiyeri_hazirlama_hesaplama]"
+}

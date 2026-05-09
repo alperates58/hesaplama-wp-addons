@@ -1,0 +1,5 @@
+{
+  "name": "Atık Su Biyokütle Hesaplama",
+  "desc": "Atık su arıtma tesislerinde MLVSS (Uçucu Askıda Katı Madde) miktarını hesaplar.",
+  "shortcode": "[hc_atik_su_biyokutle_hesaplama]"
+}

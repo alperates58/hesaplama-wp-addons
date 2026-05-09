@@ -1,0 +1,12 @@
+#hc-hucre-canliligi-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.9em;
+    opacity: 0.8;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    #hc-hucre-canliligi-hesaplama {
+        padding: 15px;
+    }
+}

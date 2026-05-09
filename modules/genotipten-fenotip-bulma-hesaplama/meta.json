@@ -1,0 +1,5 @@
+{
+  "name": "Genotipten Fenotip Bulma Hesaplama",
+  "desc": "Girilen genotipe (örn: AaBb) göre bireyin fenotipini ve gamet çeşitliliğini belirler.",
+  "shortcode": "[hc_genotipten_fenotip_bulma_hesaplama]"
+}

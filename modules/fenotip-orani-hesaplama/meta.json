@@ -1,0 +1,5 @@
+{
+  "name": "Fenotip Oranı Hesaplama",
+  "desc": "Mendel genetiğine göre çaprazlamalarda oluşan fenotip oranlarını hesaplar.",
+  "shortcode": "[hc_fenotip_orani_hesaplama]"
+}

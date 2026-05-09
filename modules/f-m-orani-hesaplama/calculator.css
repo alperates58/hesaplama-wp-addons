@@ -1,0 +1,11 @@
+#hc-f-m-orani-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+@media (max-width: 480px) {
+    #hc-f-m-orani-hesaplama {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Dihibrit Çaprazlama Punnett Karesi Hesaplama",
+  "desc": "İki karakter bakımından heterozigot (AaBb x AaBb) çaprazlamanın Punnett karesini ve oranlarını hesaplar.",
+  "shortcode": "[hc_dihibrit_caprazlama_punnett_karesi_hesaplama]"
+}

@@ -1,0 +1,29 @@
+#hc-dna-dan-mrna-ya-donusum-hesaplama textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 1.1em;
+    resize: vertical;
+}
+
+.hc-dna-output {
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    color: #4CAF50;
+}
+
+#hc-dna-dan-mrna-ya-donusum-hesaplama .hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}

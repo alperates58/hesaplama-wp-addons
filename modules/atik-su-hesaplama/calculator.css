@@ -1,0 +1,26 @@
+.hc-ww-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.hc-ww-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hc-ww-unit {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+@media (max-width: 480px) {
+    .hc-ww-grid {
+        grid-template-columns: 1fr;
+    }
+}

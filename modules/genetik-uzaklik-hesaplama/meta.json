@@ -1,0 +1,5 @@
+{
+  "name": "Genetik Uzaklık Hesaplama",
+  "desc": "İki popülasyon veya tür arasındaki genetik benzerlikten (Jaccard veya Nei) hareketle genetik uzaklığı hesaplar.",
+  "shortcode": "[hc_genetik_uzaklik_hesaplama]"
+}

@@ -1,0 +1,18 @@
+.hc-cs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.hc-cs-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-cs-grid {
+        grid-template-columns: 1fr;
+    }
+}

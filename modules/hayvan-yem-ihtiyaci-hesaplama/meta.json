@@ -1,0 +1,5 @@
+{
+  "name": "Hayvan Yem İhtiyacı Hesaplama",
+  "desc": "Hayvanın türüne, ağırlığına ve verim durumuna göre günlük kuru madde (KM) ve yem ihtiyacını hesaplar.",
+  "shortcode": "[hc_hayvan_yem_ihtiyaci_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "DNA Kopya Sayısı Hesaplama",
+  "desc": "Belirli bir miktardaki (ng) DNA örneğinin içerdiği kopya sayısını hesaplar.",
+  "shortcode": "[hc_dna_kopya_sayisi_hesaplama]"
+}

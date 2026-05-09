@@ -1,0 +1,5 @@
+{
+  "name": "Fotosentez Hızı Hesaplama",
+  "desc": "Işık şiddeti ve CO2 konsantrasyonu gibi faktörlere bağlı olarak göreceli fotosentez hızını hesaplar.",
+  "shortcode": "[hc_fotosentez_hizi_hesaplama]"
+}

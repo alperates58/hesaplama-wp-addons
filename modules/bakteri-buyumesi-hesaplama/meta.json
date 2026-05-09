@@ -1,0 +1,5 @@
+{
+  "name": "Bakteri Büyümesi Hesaplama",
+  "desc": "Başlangıç sayısı, büyüme süresi ve nesil süresine göre son bakteri sayısını hesaplar.",
+  "shortcode": "[hc_bakteri_buyumesi_hesaplama]"
+}

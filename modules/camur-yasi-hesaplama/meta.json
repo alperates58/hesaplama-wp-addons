@@ -1,0 +1,5 @@
+{
+  "name": "Çamur Yaşı Hesaplama",
+  "desc": "Aktif çamur sistemlerinde çamurun sistemde kalma süresini (SRT) hesaplar.",
+  "shortcode": "[hc_camur_yasi_hesaplama]"
+}

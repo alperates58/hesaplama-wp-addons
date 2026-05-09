@@ -1,0 +1,5 @@
+{
+  "name": "Antibiyotik Stok Çözeltisi Hesaplama",
+  "desc": "Belirli bir hedef hacim ve konsantrasyon için gereken antibiyotik miktarını veya stok seyreltmesini hesaplar.",
+  "shortcode": "[hc_antibiyotik_stok_cozeltisi_hesaplama]"
+}

@@ -1,0 +1,11 @@
+#hc-camur-hacim-indeksi-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+@media (max-width: 480px) {
+    #hc-camur-hacim-indeksi-hesaplama {
+        padding: 15px;
+    }
+}

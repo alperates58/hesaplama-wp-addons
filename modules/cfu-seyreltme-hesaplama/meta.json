@@ -1,0 +1,5 @@
+{
+  "name": "CFU Seyreltme Hesaplama",
+  "desc": "Plak sayım yönteminde koloni sayısı, seyreltme faktörü ve ekim hacmine göre CFU/mL değerini hesaplar.",
+  "shortcode": "[hc_cfu_seyreltme_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hücre Seyreltme Hesaplama",
+  "desc": "Belirli bir konsantrasyondaki hücre stokundan hedef konsantrasyon ve hacimde yeni bir süspansiyon hazırlamak için gereken hacimleri hesaplar.",
+  "shortcode": "[hc_hucre_seyreltme_hesaplama]"
+}

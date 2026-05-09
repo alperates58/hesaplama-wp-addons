@@ -1,0 +1,5 @@
+{
+  "name": "Gıda Kalorisi Hesaplama",
+  "desc": "Besinlerin karbonhidrat, protein ve yağ içeriğine göre toplam kalori değerini hesaplar.",
+  "shortcode": "[hc_gida_kalorisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hücre Sayısı Hesaplama",
+  "desc": "Belirli bir konsantrasyon ve hacimdeki toplam hücre sayısını hesaplar.",
+  "shortcode": "[hc_hucre_sayisi_hesaplama]"
+}

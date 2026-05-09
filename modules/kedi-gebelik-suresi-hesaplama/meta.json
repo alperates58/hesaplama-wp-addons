@@ -1,0 +1,5 @@
+{
+  "name": "Kedi Gebelik Süresi Hesaplama",
+  "desc": "Çiftleşme tarihine göre kedinizin tahmini doğum tarihini ve kalan gün sayısını hesaplar.",
+  "shortcode": "[hc_kedi_gebelik_suresi_hesaplama]"
+}

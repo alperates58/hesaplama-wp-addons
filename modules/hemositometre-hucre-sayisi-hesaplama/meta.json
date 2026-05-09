@@ -1,0 +1,5 @@
+{
+  "name": "Hemositometre Hücre Sayısı Hesaplama",
+  "desc": "Hemositometre sayım sonuçlarına göre süspansiyondaki toplam hücre konsantrasyonunu hesaplar.",
+  "shortcode": "[hc_hemositometre_hucre_sayisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Besi Hayvanı Kilo Artışı Hesaplama",
+  "desc": "Besi hayvanlarının ilk ve son canlı ağırlık değerlerine göre toplam ve günlük canlı ağırlık artışını (GCAA) hesaplar.",
+  "shortcode": "[hc_besi_hayvani_kilo_artisi_hesaplama]"
+}

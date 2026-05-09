@@ -1,0 +1,5 @@
+{
+  "name": "Çamur Hacim İndeksi Hesaplama",
+  "desc": "Atık su arıtma tesislerinde çamur çökelme özelliğini belirleyen SVI değerini hesaplar.",
+  "shortcode": "[hc_camur_hacim_indeksi_hesaplama]"
+}

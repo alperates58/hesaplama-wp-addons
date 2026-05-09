@@ -1,0 +1,5 @@
+{
+  "name": "Evapotranspirasyon Hesaplama",
+  "desc": "Sıcaklık ve enlem değerlerine göre bitkilerin su tüketimini (evapotranspirasyon - ET0) hesaplar.",
+  "shortcode": "[hc_evapotranspirasyon_hesaplama]"
+}

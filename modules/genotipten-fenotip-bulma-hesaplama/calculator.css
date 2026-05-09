@@ -1,0 +1,25 @@
+.hc-ga-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.hc-ga-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#hc-genotipten-fenotip-bulma-hesaplama .hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.8;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .hc-ga-grid {
+        grid-template-columns: 1fr;
+    }
+}

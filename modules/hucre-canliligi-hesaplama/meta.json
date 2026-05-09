@@ -1,0 +1,5 @@
+{
+  "name": "Hücre Canlılığı Hesaplama",
+  "desc": "Boyama yöntemi (örn: Trypan Blue) ile sayılan canlı ve ölü hücre sayılarına göre yüzde canlılığı hesaplar.",
+  "shortcode": "[hc_hucre_canliligi_hesaplama]"
+}

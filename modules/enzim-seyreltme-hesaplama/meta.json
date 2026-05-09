@@ -1,0 +1,5 @@
+{
+  "name": "Enzim Seyreltme Hesaplama",
+  "desc": "Enzim stok çözeltisinden belirli bir ünite veya konsantrasyonda çalışma çözeltisi hazırlamak için gereken hacimleri hesaplar.",
+  "shortcode": "[hc_enzim_seyreltme_hesaplama]"
+}

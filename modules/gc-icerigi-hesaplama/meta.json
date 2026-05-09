@@ -1,0 +1,5 @@
+{
+  "name": "GC İçeriği Hesaplama",
+  "desc": "DNA dizisindeki Guanin (G) ve Sitozin (C) bazlarının yüzdesini hesaplar.",
+  "shortcode": "[hc_gc_icerigi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Genotip Frekansı Hesaplama",
+  "desc": "Birey sayılarına göre genotip frekanslarını (AA, Aa, aa) ve toplam popülasyon oranlarını hesaplar.",
+  "shortcode": "[hc_genotip_frekansi_hesaplama]"
+}

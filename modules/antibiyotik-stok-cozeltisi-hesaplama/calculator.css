@@ -1,0 +1,11 @@
+#hc-antibiyotik-stok-cozeltisi-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    #hc-antibiyotik-stok-cozeltisi-hesaplama {
+        padding: 15px;
+    }
+}

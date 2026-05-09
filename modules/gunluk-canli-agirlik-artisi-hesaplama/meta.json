@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Canlı Ağırlık Artışı Hesaplama",
+  "desc": "Hayvanlarda iki tartım arasındaki farkı gün sayısına bölerek günlük canlı ağırlık artışını (GCAA) hesaplar.",
+  "shortcode": "[hc_gunluk_canli_agirlik_artisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hidrolik Yükleme Hızı Hesaplama",
+  "desc": "Atık su arıtma tesislerinde yüzey alanına göre hidrolik yükleme hızını (m³/m²·gün) hesaplar.",
+  "shortcode": "[hc_hidrolik_yukleme_hizi_hesaplama]"
+}

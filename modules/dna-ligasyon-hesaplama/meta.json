@@ -1,0 +1,5 @@
+{
+  "name": "DNA Ligasyon Hesaplama",
+  "desc": "Vektör ve insert DNA uzunluklarına göre ligasyon için gereken insert miktarını (ng) hesaplar.",
+  "shortcode": "[hc_dna_ligasyon_hesaplama]"
+}

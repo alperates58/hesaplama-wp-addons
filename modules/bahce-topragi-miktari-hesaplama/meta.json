@@ -1,0 +1,5 @@
+{
+  "name": "Bahçe Toprağı Miktarı Hesaplama",
+  "desc": "Belirli bir alan ve derinlik için gereken bahçe toprağı miktarını (hacim ve ağırlık) hesaplar.",
+  "shortcode": "[hc_bahce_topragi_miktari_hesaplama]"
+}

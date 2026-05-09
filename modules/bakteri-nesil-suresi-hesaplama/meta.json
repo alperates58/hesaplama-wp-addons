@@ -1,0 +1,5 @@
+{
+  "name": "Bakteri Nesil Süresi Hesaplama",
+  "desc": "Başlangıç ve son bakteri sayıları ile geçen süreye göre nesil (ikiye katlanma) süresini hesaplar.",
+  "shortcode": "[hc_bakteri_nesil_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bitki Popülasyonu Hesaplama",
+  "desc": "Belirli bir alandaki bitki sayısına veya ekim sıklığına (sıra arası/sıra üzeri) göre toplam bitki sayısını hesaplar.",
+  "shortcode": "[hc_bitki_populasyonu_hesaplama]"
+}

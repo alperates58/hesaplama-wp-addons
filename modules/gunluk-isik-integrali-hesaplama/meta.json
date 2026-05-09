@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Işık İntegrali Hesaplama",
+  "desc": "Bitkilerin bir gün boyunca aldığı toplam fotosentetik aktif radyasyonu (DLI) hesaplar.",
+  "shortcode": "[hc_gunluk_isik_integrali_hesaplama]"
+}

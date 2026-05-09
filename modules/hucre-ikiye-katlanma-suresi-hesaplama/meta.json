@@ -1,0 +1,5 @@
+{
+  "name": "Hücre İkiye Katlanma Süresi Hesaplama",
+  "desc": "Belirli bir süre içindeki hücre artışına göre hücrelerin ikiye katlanma süresini (DT) hesaplar.",
+  "shortcode": "[hc_hucre_ikiye_katlanma_suresi_hesaplama]"
+}

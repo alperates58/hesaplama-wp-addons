@@ -1,0 +1,11 @@
+#hc-bakteri-buyumesi-hesaplama .hc-result-note {
+    margin-top: 10px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    #hc-bakteri-buyumesi-hesaplama {
+        padding: 15px;
+    }
+}

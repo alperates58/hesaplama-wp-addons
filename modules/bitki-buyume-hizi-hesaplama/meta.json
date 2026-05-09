@@ -1,0 +1,5 @@
+{
+  "name": "Bitki Büyüme Hızı Hesaplama",
+  "desc": "Belirli bir süre içindeki boy artışına göre bitkinin günlük büyüme hızını hesaplar.",
+  "shortcode": "[hc_bitki_buyume_hizi_hesaplama]"
+}

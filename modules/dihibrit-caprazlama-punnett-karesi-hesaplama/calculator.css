@@ -1,0 +1,45 @@
+.hc-punnett-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.hc-punnett-table th, .hc-punnett-table td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.hc-punnett-table th {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffd700;
+}
+
+.hc-dihibrit-summary h4 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+.hc-dihibrit-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hc-dihibrit-summary li {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+    .hc-punnett-table th, .hc-punnett-table td {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+}

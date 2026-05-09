@@ -1,0 +1,5 @@
+{
+  "name": "ELISA Konsantrasyonu Hesaplama",
+  "desc": "Standart eğri (lineer regresyon) kullanarak ELISA absorbans değerlerinden konsantrasyon hesaplar.",
+  "shortcode": "[hc_elisa_konsantrasyonu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hardy-Weinberg Dengesi Hesaplama",
+  "desc": "Alel frekanslarından (p, q) genotip frekanslarını veya tersini hesaplar.",
+  "shortcode": "[hc_hardy_weinberg_dengesi_hesaplama]"
+}

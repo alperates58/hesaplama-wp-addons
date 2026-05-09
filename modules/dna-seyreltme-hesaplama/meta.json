@@ -1,0 +1,5 @@
+{
+  "name": "DNA Seyreltme Hesaplama",
+  "desc": "Stok DNA konsantrasyonundan hedef konsantrasyon ve hacme ulaşmak için gereken miktarları hesaplar.",
+  "shortcode": "[hc_dna_seyreltme_hesaplama]"
+}

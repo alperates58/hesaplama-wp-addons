@@ -1,0 +1,5 @@
+{
+  "name": "Çim Tohumu Miktarı Hesaplama",
+  "desc": "Belirli bir alan için gereken yaklaşık çim tohumu miktarını hesaplar.",
+  "shortcode": "[hc_cim_tohumu_miktari_hesaplama]"
+}

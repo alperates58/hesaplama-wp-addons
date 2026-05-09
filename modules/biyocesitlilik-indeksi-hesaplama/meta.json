@@ -1,0 +1,5 @@
+{
+  "name": "Biyoçeşitlilik İndeksi Hesaplama",
+  "desc": "Tür sayılarına ve birey sayılarına göre Simpson Biyoçeşitlilik İndeksini hesaplar.",
+  "shortcode": "[hc_biyocesitlilik_indeksi_hesaplama]"
+}

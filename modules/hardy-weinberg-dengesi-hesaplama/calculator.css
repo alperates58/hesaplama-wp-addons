@@ -1,0 +1,26 @@
+.hc-hw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.hc-hw-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#hc-hardy-weinberg-dengesi-hesaplama .hc-result-note {
+    font-size: 0.85em;
+    opacity: 0.7;
+    text-align: center;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    .hc-hw-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

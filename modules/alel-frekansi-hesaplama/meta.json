@@ -1,0 +1,5 @@
+{
+  "name": "Alel Frekansı Hesaplama",
+  "desc": "Genotip sayılarına göre alel frekanslarını (p ve q) hesaplar.",
+  "shortcode": "[hc_alel_frekansi_hesaplama]"
+}

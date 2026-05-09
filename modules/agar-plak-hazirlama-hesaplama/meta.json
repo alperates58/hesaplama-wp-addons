@@ -1,0 +1,5 @@
+{
+  "name": "Agar Plak Hazırlama Hesaplama",
+  "desc": "Belirli bir hacim ve konsantrasyon için gereken agar/besiyeri toz miktarını hesaplar.",
+  "shortcode": "[hc_agar_plak_hazirlama_hesaplama]"
+}
