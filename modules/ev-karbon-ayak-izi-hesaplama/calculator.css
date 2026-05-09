@@ -1,0 +1,19 @@
+#hc-house-co2 .hc-result-value {
+    color: #e67e22;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-house-co2 .hc-house-breakdown {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    background: #fdf6e3;
+    padding: 10px;
+    border-radius: 8px;
+}
+#hc-house-co2 .hc-break-item span {
+    font-weight: bold;
+    display: block;
+    color: #b58900;
+}

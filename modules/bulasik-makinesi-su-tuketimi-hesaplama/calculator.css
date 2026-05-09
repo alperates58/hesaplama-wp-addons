@@ -1,0 +1,17 @@
+#hc-bulasik-su .hc-result-value {
+    color: #2980b9;
+    font-size: 22px;
+    font-weight: bold;
+}
+#hc-bulasik-su .hc-res-save {
+    margin-top: 15px;
+    padding: 10px;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 5px;
+    text-align: center;
+}
+#hc-bulasik-su .hc-res-save span {
+    font-weight: bold;
+    font-size: 18px;
+}

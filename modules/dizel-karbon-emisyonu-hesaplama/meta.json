@@ -1,0 +1,5 @@
+{
+  "name": "Dizel Karbon Emisyonu Hesaplama",
+  "desc": "Tüketilen dizel yakıt miktarına göre karbon salınımını hesaplar.",
+  "shortcode": "[hc_dizel_karbon_emisyonu_hesaplama]"
+}

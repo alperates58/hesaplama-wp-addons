@@ -1,0 +1,11 @@
+#hc-biyokapasite .hc-result-value {
+    color: #8e44ad;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-biyokapasite p {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-top: 10px;
+}

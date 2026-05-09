@@ -1,0 +1,37 @@
+#hc-agac-fayda .hc-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+#hc-agac-fayda .hc-benefit-card {
+    background: rgba(46, 204, 113, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+#hc-agac-fayda .hc-benefit-card h4 {
+    margin: 10px 0 5px 0;
+    font-size: 14px;
+    color: #27ae60;
+}
+#hc-agac-fayda .hc-benefit-card p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#hc-agac-fayda .hc-benefit-card small {
+    font-size: 11px;
+    color: #666;
+    display: block;
+}
+#hc-agac-fayda .hc-icon {
+    font-size: 24px;
+    display: block;
+}
+@media (max-width: 480px) {
+    #hc-agac-fayda .hc-benefit-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,18 @@
+#hc-hand-dry .hc-res-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+#hc-hand-dry .hc-res-item span:last-child {
+    font-weight: bold;
+}
+#hc-hand-dry .hc-res-winner {
+    margin-top: 15px;
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: #1565c0;
+    border: 1px solid #bbdefb;
+}

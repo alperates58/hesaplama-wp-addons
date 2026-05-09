@@ -1,0 +1,14 @@
+#hc-meat-co2 .hc-result-value {
+    color: #c0392b;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-meat-co2 .hc-meat-info {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    background: #fdf2f2;
+    padding: 10px;
+    border-radius: 5px;
+}

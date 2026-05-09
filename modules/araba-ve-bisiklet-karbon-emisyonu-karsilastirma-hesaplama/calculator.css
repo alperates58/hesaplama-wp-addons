@@ -1,0 +1,37 @@
+#hc-araba-bisiklet .hc-comp-bar-container {
+    margin: 20px 0;
+}
+#hc-araba-bisiklet .hc-comp-label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#hc-araba-bisiklet .hc-comp-bar {
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: width 0.5s ease-out;
+}
+#hc-araba-bisiklet .hc-bar-car {
+    background: #e74c3c;
+    width: 0%;
+}
+#hc-araba-bisiklet .hc-bar-bike {
+    background: #2ecc71;
+    width: 0%;
+}
+#hc-araba-bisiklet .hc-res-summary {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+#hc-araba-bisiklet .hc-res-summary strong {
+    color: #27ae60;
+    font-size: 18px;
+}
+#hc-araba-bisiklet #hc-res-tree-equiv {
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px;
+}

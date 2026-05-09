@@ -1,0 +1,5 @@
+{
+  "name": "Ev Su Tüketimi Hesaplama",
+  "desc": "Evdeki farklı kullanım alanlarına göre günlük ve aylık su tüketimini detaylı hesaplar.",
+  "shortcode": "[hc_ev_su_tuketimi_hesaplama]"
+}

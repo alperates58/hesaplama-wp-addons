@@ -1,0 +1,14 @@
+#hc-agac-karbondioksit .hc-result-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+}
+#hc-agac-karbondioksit .hc-result-item:last-child {
+    border-bottom: none;
+}
+#hc-agac-karbondioksit .hc-result-value {
+    display: block;
+    font-size: 24px;
+    color: #2ecc71;
+    font-weight: bold;
+}

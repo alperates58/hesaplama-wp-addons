@@ -1,0 +1,18 @@
+#hc-house-water .hc-water-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+#hc-house-water .hc-water-row input {
+    width: 60px;
+}
+#hc-house-water .hc-result-value {
+    color: #2980b9;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-house-water .hc-result-item span:last-child {
+    font-weight: bold;
+}

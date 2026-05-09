@@ -1,0 +1,8 @@
+#hc-buzdolabi-el .hc-result-value {
+    color: #f1c40f;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-buzdolabi-el .hc-result-item span:last-child {
+    font-weight: bold;
+}

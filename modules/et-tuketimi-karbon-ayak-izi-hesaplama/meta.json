@@ -1,0 +1,5 @@
+{
+  "name": "Et Tüketimi Karbon Ayak İzi Hesaplama",
+  "desc": "Tüketilen et türüne ve miktarına göre karbon salınımını hesaplar.",
+  "shortcode": "[hc_et_tuketimi_karbon_ayak_izi_hesaplama]"
+}

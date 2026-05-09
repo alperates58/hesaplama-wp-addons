@@ -1,0 +1,16 @@
+#hc-eko-ayak .hc-result-value {
+    color: #27ae60;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-eko-ayak .hc-res-note {
+    margin-top: 15px;
+    background: #f1f8e9;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: #33691e;
+}
+#hc-eko-ayak .hc-res-note strong {
+    font-size: 20px;
+}

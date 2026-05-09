@@ -1,0 +1,5 @@
+{
+  "name": "Ekolojik Ayak İzi Hesaplama",
+  "desc": "Tüketim alışkanlıklarınıza göre ekolojik ayak izinizi (küresel hektar cinsinden) hesaplar.",
+  "shortcode": "[hc_ekolojik_ayak_izi_hesaplama]"
+}

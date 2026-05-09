@@ -1,0 +1,14 @@
+#hc-ev-emisyon .hc-result-value {
+    color: #2ecc71;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-ev-emisyon .hc-ev-compare {
+    margin-top: 15px;
+    background: #e8f5e9;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: #2e7d32;
+    font-size: 13px;
+}

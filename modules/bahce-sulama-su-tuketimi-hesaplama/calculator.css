@@ -1,0 +1,19 @@
+#hc-bahce-sulama .hc-result-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+#hc-bahce-sulama .hc-result-value {
+    font-size: 22px;
+    color: #3498db;
+    font-weight: bold;
+    display: block;
+}
+#hc-bahce-sulama .hc-res-tip {
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: #1976d2;
+    border-left: 4px solid #1976d2;
+}

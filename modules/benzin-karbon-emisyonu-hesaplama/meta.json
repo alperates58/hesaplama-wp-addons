@@ -1,0 +1,5 @@
+{
+  "name": "Benzin Karbon Emisyonu Hesaplama",
+  "desc": "Tüketilen benzin miktarına göre karbon salınımını hesaplar.",
+  "shortcode": "[hc_benzin_karbon_emisyonu_hesaplama]"
+}

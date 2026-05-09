@@ -1,0 +1,5 @@
+{
+  "name": "Çamaşır Makinesi Su Tüketimi Hesaplama",
+  "desc": "Çamaşır makinesinin enerji sınıfına göre yıllık su tüketimini hesaplar.",
+  "shortcode": "[hc_camasir_makinesi_su_tuketimi_hesaplama]"
+}

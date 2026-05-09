@@ -1,0 +1,23 @@
+#hc-cam-geri-donusum .hc-res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+#hc-cam-geri-donusum .hc-res-card {
+    background: #f1f8e9;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #c5e1a5;
+}
+#hc-cam-geri-donusum .hc-res-val {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #33691e;
+}
+#hc-cam-geri-donusum .hc-res-card small {
+    font-size: 10px;
+    color: #558b2f;
+}

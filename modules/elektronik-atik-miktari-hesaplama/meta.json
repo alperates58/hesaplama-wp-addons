@@ -1,0 +1,5 @@
+{
+  "name": "Elektronik Atık Miktarı Hesaplama",
+  "desc": "Evinizdeki cihazların ortalama ömürlerine göre yıllık e-atık üretimini hesaplar.",
+  "shortcode": "[hc_elektronik_atik_miktari_hesaplama]"
+}

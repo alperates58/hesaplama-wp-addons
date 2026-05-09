@@ -1,0 +1,5 @@
+{
+  "name": "Ağaç Karbondioksit Emme Miktarı Hesaplama",
+  "desc": "Ağaçların türüne ve yaşına göre yıllık emdikleri CO2 miktarını hesaplar.",
+  "shortcode": "[hc_agac_karbondioksit_emme_miktari_hesaplama]"
+}

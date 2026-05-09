@@ -1,0 +1,5 @@
+{
+  "name": "Araba ve Bisiklet Karbon Emisyonu Karşılaştırma Hesaplama",
+  "desc": "Araba ve bisiklet arasındaki karbon emisyon farkını kat edilen mesafeye göre hesaplar.",
+  "shortcode": "[hc_araba_ve_bisiklet_karbon_emisyonu_karsilastirma_hesaplama]"
+}

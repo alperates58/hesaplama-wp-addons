@@ -1,0 +1,5 @@
+{
+  "name": "COVID Kirlilik Etkisi Hesaplama",
+  "desc": "Kullanılan maske ve eldivenlerin yarattığı plastik atık miktarını hesaplar.",
+  "shortcode": "[hc_covid_kirlilik_etkisi_hesaplama]"
+}

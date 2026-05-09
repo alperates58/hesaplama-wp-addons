@@ -1,0 +1,5 @@
+{
+  "name": "Cam Geri Dönüşüm Etkisi Hesaplama",
+  "desc": "Geri dönüştürülen cam miktarına göre tasarruf edilen enerji, ham madde ve CO2 miktarını hesaplar.",
+  "shortcode": "[hc_cam_geri_donusum_etkisi_hesaplama]"
+}

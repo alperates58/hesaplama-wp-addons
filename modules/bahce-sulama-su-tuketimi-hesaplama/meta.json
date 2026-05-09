@@ -1,0 +1,5 @@
+{
+  "name": "Bahçe Sulama Su Tüketimi Hesaplama",
+  "desc": "Bahçe sulama yöntemine ve süresine göre su tüketimini hesaplar.",
+  "shortcode": "[hc_bahce_sulama_su_tuketimi_hesaplama]"
+}

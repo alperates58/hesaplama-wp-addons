@@ -1,0 +1,5 @@
+{
+  "name": "Doğalgaz Karbon Emisyonu Hesaplama",
+  "desc": "Tüketilen doğalgaz miktarına göre karbon salınımını hesaplar.",
+  "shortcode": "[hc_dogalgaz_karbon_emisyonu_hesaplama]"
+}

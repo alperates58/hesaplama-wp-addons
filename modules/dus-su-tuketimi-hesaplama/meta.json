@@ -1,0 +1,5 @@
+{
+  "name": "Duş Su Tüketimi Hesaplama",
+  "desc": "Duş süresine ve başlık tipine göre su tüketimini hesaplar.",
+  "shortcode": "[hc_dus_su_tuketimi_hesaplama]"
+}

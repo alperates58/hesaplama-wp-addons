@@ -1,0 +1,5 @@
+{
+  "name": "Ev Karbon Ayak İzi Hesaplama",
+  "desc": "Evinizdeki enerji ve kaynak tüketimine göre toplam karbon ayak izinizi hesaplar.",
+  "shortcode": "[hc_ev_karbon_ayak_izi_hesaplama]"
+}

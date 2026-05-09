@@ -1,0 +1,5 @@
+{
+  "name": "Bulaşık Makinesi Su Tüketimi Hesaplama",
+  "desc": "Bulaşık makinesinin kullanım sıklığına göre yıllık su tüketimini hesaplar ve elde yıkama ile karşılaştırır.",
+  "shortcode": "[hc_bulasik_makinesi_su_tuketimi_hesaplama]"
+}

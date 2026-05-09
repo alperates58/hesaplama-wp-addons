@@ -1,0 +1,11 @@
+#hc-dus-su .hc-result-value {
+    color: #2980b9;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-dus-su .hc-res-info {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+}

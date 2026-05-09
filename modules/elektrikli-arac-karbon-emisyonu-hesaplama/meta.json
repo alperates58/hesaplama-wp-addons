@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Araç Karbon Emisyonu Hesaplama",
+  "desc": "Elektrikli araçların (EV) şebeke kaynaklı dolaylı karbon emisyonunu hesaplar.",
+  "shortcode": "[hc_elektrikli_arac_karbon_emisyonu_hesaplama]"
+}

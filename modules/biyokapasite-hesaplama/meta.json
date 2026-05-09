@@ -1,0 +1,5 @@
+{
+  "name": "Biyokapasite Hesaplama",
+  "desc": "Belirli bir alanın doğal kaynak üretme ve atık emme kapasitesini hesaplar.",
+  "shortcode": "[hc_biyokapasite_hesaplama]"
+}

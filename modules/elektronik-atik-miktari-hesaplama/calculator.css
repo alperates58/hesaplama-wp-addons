@@ -1,0 +1,21 @@
+#hc-ewaste .hc-ewaste-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+#hc-ewaste .hc-ewaste-item input {
+    width: 60px;
+}
+#hc-ewaste .hc-result-value {
+    color: #34495e;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-ewaste p {
+    font-size: 11px;
+    color: #e74c3c;
+    margin-top: 10px;
+    font-style: italic;
+}
