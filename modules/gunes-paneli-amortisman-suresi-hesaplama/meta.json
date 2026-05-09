@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Paneli Amortisman Süresi Hesaplama",
+  "desc": "Güneş paneli yatırımının kendisini kaç yılda ödeyeceğini (amorti edeceğini) detaylı olarak hesaplar.",
+  "shortcode": "[hc_gunes_paneli_amortisman_suresi_hesaplama]"
+}

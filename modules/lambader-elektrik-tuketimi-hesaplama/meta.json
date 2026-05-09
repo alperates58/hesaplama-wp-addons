@@ -1,0 +1,5 @@
+{
+  "name": "Lambader Elektrik Tüketimi Hesaplama",
+  "desc": "Lambaderde kullanılan ampul tipine ve günlük kullanım süresine göre elektrik tüketimini hesaplar.",
+  "shortcode": "[hc_lambader_elektrik_tuketimi_hesaplama]"
+}

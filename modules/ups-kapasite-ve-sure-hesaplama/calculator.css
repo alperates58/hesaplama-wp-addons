@@ -1,0 +1,15 @@
+#hc-ups-calc .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-ups-calc .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-ups-calc .hc-result-value.highlight {
+    color: #e74c3c;
+    font-size: 1.3em;
+}

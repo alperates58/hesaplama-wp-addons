@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Enerjisi Geri Dönüş Süresi Hesaplama",
+  "desc": "Güneş enerjisi sisteminin kurulum maliyetini ve sağladığı enerji tasarrufunu karşılaştırarak amortisman süresini hesaplar.",
+  "shortcode": "[hc_gunes_enerjisi_geri_donus_suresi_hesaplama]"
+}

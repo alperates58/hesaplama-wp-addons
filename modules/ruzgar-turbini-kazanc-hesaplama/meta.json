@@ -1,0 +1,5 @@
+{
+  "name": "Rüzgar Türbini Kazanç Hesaplama",
+  "desc": "Rüzgar türbininin ürettiği elektrik miktarını ve satış birim fiyatını kullanarak toplam geliri hesaplar.",
+  "shortcode": "[hc_ruzgar_turbini_kazanc_hesaplama]"
+}

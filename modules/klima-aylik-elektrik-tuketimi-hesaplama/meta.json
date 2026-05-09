@@ -1,0 +1,5 @@
+{
+  "name": "Klima Aylık Elektrik Tüketimi Hesaplama",
+  "desc": "Klimanın BTU değerine, SEER verimlilik oranına ve günlük kullanım süresine göre aylık elektrik faturasını hesaplar.",
+  "shortcode": "[hc_klima_aylik_elektrik_tuketimi_hesaplama]"
+}

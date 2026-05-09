@@ -1,0 +1,5 @@
+{
+  "name": "Rüzgar Türbini Enerji Hesaplama",
+  "desc": "Rüzgar türbininin kurulu gücüne ve kapasite faktörüne göre üretebileceği yıllık elektrik enerjisini hesaplar.",
+  "shortcode": "[hc_ruzgar_turbini_enerji_hesaplama]"
+}

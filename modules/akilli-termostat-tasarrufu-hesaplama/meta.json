@@ -1,0 +1,5 @@
+{
+  "name": "Akıllı Termostat Tasarrufu Hesaplama",
+  "desc": "Akıllı termostat kullanımıyla elde edilebilecek aylık ve yıllık enerji tasarrufunu hesaplar.",
+  "shortcode": "[hc_akilli_termostat_tasarrufu_hesaplama]"
+}

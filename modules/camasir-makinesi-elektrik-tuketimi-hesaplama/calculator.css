@@ -1,0 +1,14 @@
+#hc-washing-machine .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-washing-machine .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-washing-machine .hc-result-value.highlight {
+    color: #27ae60;
+}

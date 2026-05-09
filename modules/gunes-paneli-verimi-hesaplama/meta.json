@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Paneli Verimi Hesaplama",
+  "desc": "Güneş panelinin boyutları ve ürettiği güce göre elektriksel verimliliğini (yüzde) hesaplar.",
+  "shortcode": "[hc_gunes_paneli_verimi_hesaplama]"
+}

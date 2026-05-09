@@ -1,0 +1,5 @@
+{
+  "name": "Jeotermal Enerji Hesaplama",
+  "desc": "Jeotermal kaynağın debisi ve sıcaklık farkına göre elde edilebilecek ısıl gücü (kW) hesaplar.",
+  "shortcode": "[hc_jeotermal_enerji_hesaplama]"
+}

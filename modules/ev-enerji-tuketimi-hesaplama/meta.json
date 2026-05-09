@@ -1,0 +1,5 @@
+{
+  "name": "Ev Enerji Tüketimi Hesaplama",
+  "desc": "Evdeki tüm cihazların toplam enerji tüketimini Watt ve kWh cinsinden hesaplayarak genel enerji profilini oluşturur.",
+  "shortcode": "[hc_ev_enerji_tuketimi_hesaplama]"
+}

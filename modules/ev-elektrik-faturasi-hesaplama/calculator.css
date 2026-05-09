@@ -1,0 +1,24 @@
+#hc-home-bill .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-home-bill .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-home-bill .hc-result-value.highlight {
+    color: #27ae60;
+    font-size: 1.3em;
+}
+
+#hc-home-bill .hc-result-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}

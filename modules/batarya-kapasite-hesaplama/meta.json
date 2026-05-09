@@ -1,0 +1,5 @@
+{
+  "name": "Batarya Kapasite Hesaplama",
+  "desc": "Bataryanın gerilim (V) ve amper-saat (Ah) değerlerine göre toplam enerji kapasitesini (Wh) hesaplar.",
+  "shortcode": "[hc_batarya_kapasite_hesaplama]"
+}

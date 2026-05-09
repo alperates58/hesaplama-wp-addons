@@ -1,0 +1,5 @@
+{
+  "name": "UPS Kapasite ve Süre Hesaplama",
+  "desc": "Kesintisiz güç kaynağının (UPS) bağlı olan cihazları ne kadar süre (dakika/saat) boyunca besleyebileceğini hesaplar.",
+  "shortcode": "[hc_ups_kapasite_ve_sure_hesaplama]"
+}

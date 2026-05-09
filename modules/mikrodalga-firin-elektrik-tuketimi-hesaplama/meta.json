@@ -1,0 +1,5 @@
+{
+  "name": "Mikrodalga Fırın Elektrik Tüketimi Hesaplama",
+  "desc": "Mikrodalganın gücüne ve pişirme süresine göre elektrik tüketimini hesaplar.",
+  "shortcode": "[hc_mikrodalga_firin_elektrik_tuketimi_hesaplama]"
+}

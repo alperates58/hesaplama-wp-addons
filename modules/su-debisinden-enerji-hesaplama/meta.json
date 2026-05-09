@@ -1,0 +1,5 @@
+{
+  "name": "Su Debisinden Enerji Hesaplama",
+  "desc": "Akan bir su kaynağının debisi ve hızı kullanılarak elde edilebilecek teorik kinetik enerji miktarını hesaplar.",
+  "shortcode": "[hc_su_debisinden_enerji_hesaplama]"
+}

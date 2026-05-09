@@ -1,0 +1,5 @@
+{
+  "name": "Bina Isı Kaybı Hesaplama",
+  "desc": "Binanın yüzey alanı, yalıtım katsayısı ve sıcaklık farkına göre anlık ısı kaybını (Watt) hesaplar.",
+  "shortcode": "[hc_bina_isi_kaybi_hesaplama]"
+}

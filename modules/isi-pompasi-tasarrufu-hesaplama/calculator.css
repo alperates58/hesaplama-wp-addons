@@ -1,0 +1,15 @@
+#hc-heat-pump .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-heat-pump .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-heat-pump .hc-result-value.highlight {
+    color: #27ae60;
+    font-size: 1.3em;
+}

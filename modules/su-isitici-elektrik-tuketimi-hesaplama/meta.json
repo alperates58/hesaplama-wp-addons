@@ -1,0 +1,5 @@
+{
+  "name": "Su Isıtıcı Elektrik Tüketimi Hesaplama",
+  "desc": "Termosifon veya şofbenin su hacmine ve sıcaklık artışına göre tükettiği elektrik enerjisini hesaplar.",
+  "shortcode": "[hc_su_isitici_elektrik_tuketimi_hesaplama]"
+}

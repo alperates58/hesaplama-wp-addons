@@ -1,0 +1,5 @@
+{
+  "name": "Çatı Yönüne Göre Panel Verimi Hesaplama",
+  "desc": "Güneş panellerinin kurulacağı çatı yönüne göre sistemin yıllık üretim verimliliğini tahmin eder.",
+  "shortcode": "[hc_cati_yonune_gore_panel_verimi_hesaplama]"
+}

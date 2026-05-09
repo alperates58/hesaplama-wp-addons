@@ -1,0 +1,5 @@
+{
+  "name": "Kombi Doğalgaz Tüketimi Hesaplama",
+  "desc": "Kombinin kapasitesine ve çalışma süresine göre tahmini doğalgaz tüketimini (m³) hesaplar.",
+  "shortcode": "[hc_kombi_dogalgaz_tuketimi_hesaplama]"
+}

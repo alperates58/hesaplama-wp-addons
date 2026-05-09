@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Paneli Kaç Panel Gerekir Hesaplama",
+  "desc": "Evin aylık elektrik tüketimine ve bölgenin güneşlenme süresine göre kurulması gereken panel sayısını hesaplar.",
+  "shortcode": "[hc_gunes_paneli_kac_panel_gerekir_hesaplama]"
+}

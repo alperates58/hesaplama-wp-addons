@@ -1,0 +1,14 @@
+#hc-device-consumption .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-device-consumption .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-device-consumption .hc-result-value.highlight {
+    color: #e67e22;
+}

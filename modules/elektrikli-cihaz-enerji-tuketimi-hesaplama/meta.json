@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Cihaz Enerji Tüketimi Hesaplama",
+  "desc": "Evdeki herhangi bir elektrikli cihazın gücü ve kullanım süresine bağlı olarak enerji tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_elektrikli_cihaz_enerji_tuketimi_hesaplama]"
+}

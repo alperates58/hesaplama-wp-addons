@@ -1,0 +1,5 @@
+{
+  "name": "Jeneratör Çalışma Süresi Hesaplama",
+  "desc": "Jeneratörün yakıt tankı kapasitesine ve yük durumuna göre ne kadar süre boyunca elektrik sağlayabileceğini hesaplar.",
+  "shortcode": "[hc_jenerator_calisma_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Jeneratör Kapasite Seçimi Hesaplama",
+  "desc": "Aynı anda çalışacak cihazların toplam gücünü ve demeraj akımlarını hesaplayarak ideal jeneratör kapasitesini (kVA) önerir.",
+  "shortcode": "[hc_jenerator_kapasite_secimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "OLED TV Elektrik Tüketimi Hesaplama",
+  "desc": "OLED TV'nin ekran boyutuna ve günlük izleme süresine göre elektrik tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_oled_tv_elektrik_tuketimi_hesaplama]"
+}

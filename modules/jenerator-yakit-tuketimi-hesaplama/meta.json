@@ -1,0 +1,5 @@
+{
+  "name": "Jeneratör Yakıt Tüketimi Hesaplama",
+  "desc": "Jeneratörün gücüne ve çalışma süresine göre tahmini yakıt tüketimini (Litre) ve maliyetini hesaplar.",
+  "shortcode": "[hc_jenerator_yakit_tuketimi_hesaplama]"
+}

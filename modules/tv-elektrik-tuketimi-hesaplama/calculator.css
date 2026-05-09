@@ -1,0 +1,14 @@
+#hc-tv-power .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-tv-power .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-tv-power .hc-result-value.highlight {
+    color: #2c3e50;
+}

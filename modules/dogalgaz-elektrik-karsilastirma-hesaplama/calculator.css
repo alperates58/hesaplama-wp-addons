@@ -1,0 +1,20 @@
+#hc-gas-vs-elec .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-gas-vs-elec .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-gas-vs-elec .hc-result-note.highlight {
+    background: #f1f8e9;
+    padding: 10px;
+    border-radius: 4px;
+    color: #2e7d32;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}

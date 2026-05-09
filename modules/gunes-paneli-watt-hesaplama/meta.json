@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Paneli Watt Hesaplama",
+  "desc": "Güneş panelinin akım (A) ve gerilim (V) değerlerine göre toplam çıkış gücünü (Watt) hesaplar.",
+  "shortcode": "[hc_gunes_paneli_watt_hesaplama]"
+}

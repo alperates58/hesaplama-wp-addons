@@ -1,0 +1,5 @@
+{
+  "name": "Rüzgar Türbini Kapasite Faktörü Hesaplama",
+  "desc": "Türbinin belirli bir dönemdeki gerçek üretimini teorik maksimum üretimi ile karşılaştırarak kapasite faktörünü (%) hesaplar.",
+  "shortcode": "[hc_ruzgar_turbini_kapasite_faktoru_hesaplama]"
+}

@@ -1,0 +1,24 @@
+#hc-bill-estimate .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-bill-estimate .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-bill-estimate .hc-result-value.highlight {
+    color: #e67e22;
+    font-size: 1.2em;
+}
+
+#hc-bill-estimate .hc-result-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    font-style: italic;
+}

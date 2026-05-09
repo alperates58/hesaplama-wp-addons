@@ -1,0 +1,23 @@
+#hc-gen-fuel .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-gen-fuel .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-gen-fuel .hc-result-value.highlight {
+    color: #d35400;
+}
+
+#hc-gen-fuel .hc-result-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}

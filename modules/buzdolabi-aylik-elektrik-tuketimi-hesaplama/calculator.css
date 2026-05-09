@@ -1,0 +1,14 @@
+#hc-fridge-power .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-fridge-power .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-fridge-power .hc-result-value.highlight {
+    color: #3498db;
+}

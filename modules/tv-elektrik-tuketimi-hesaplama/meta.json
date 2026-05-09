@@ -1,0 +1,5 @@
+{
+  "name": "TV Elektrik Tüketimi Hesaplama",
+  "desc": "Standart LED/LCD TV'lerin ekran boyutuna ve günlük kullanım süresine göre elektrik tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_tv_elektrik_tuketimi_hesaplama]"
+}

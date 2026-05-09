@@ -1,0 +1,5 @@
+{
+  "name": "Şarj Döngüsü Ömrü Hesaplama",
+  "desc": "Lityum pillerin deşarj derinliğine (DoD) ve kullanım sıklığına göre tahmini toplam ömrünü ve kalan döngü sayısını hesaplar.",
+  "shortcode": "[hc_sarj_dongusu_omru_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yalıtım Enerji Tasarrufu Hesaplama",
+  "desc": "Bina yalıtımı (mantolama) sonrası doğalgaz ve elektrik faturalarında sağlanacak tahmini tasarrufu hesaplar.",
+  "shortcode": "[hc_yalitim_enerji_tasarrufu_hesaplama]"
+}

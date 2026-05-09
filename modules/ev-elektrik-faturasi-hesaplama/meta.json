@@ -1,0 +1,5 @@
+{
+  "name": "Ev Elektrik Faturası Hesaplama",
+  "desc": "Evdeki temel beyaz eşyaların ve cihazların kullanımına göre tahmini aylık elektrik faturasını hesaplar.",
+  "shortcode": "[hc_ev_elektrik_faturasi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bulaşık Makinesi Elektrik Tüketimi Hesaplama",
+  "desc": "Bulaşık makinesinin yıkama başına ve aylık kullanım miktarına göre elektrik tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_bulasik_makinesi_elektrik_tuketimi_hesaplama]"
+}

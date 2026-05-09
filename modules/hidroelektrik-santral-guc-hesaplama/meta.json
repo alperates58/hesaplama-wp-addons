@@ -1,0 +1,5 @@
+{
+  "name": "Hidroelektrik Santral Güç Hesaplama",
+  "desc": "Su debisi ve düşü yüksekliğine bağlı olarak bir hidroelektrik santralin teorik ve net çıkış gücünü hesaplar.",
+  "shortcode": "[hc_hidroelektrik_santral_guc_hesaplama]"
+}

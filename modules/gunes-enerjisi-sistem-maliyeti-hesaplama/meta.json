@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Enerjisi Sistem Maliyeti Hesaplama",
+  "desc": "Kurulacak güneş enerjisi sisteminin kapasitesine göre toplam yatırım maliyetini (panel, inverter, işçilik vb.) hesaplar.",
+  "shortcode": "[hc_gunes_enerjisi_sistem_maliyeti_hesaplama]"
+}

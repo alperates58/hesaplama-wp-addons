@@ -1,0 +1,5 @@
+{
+  "name": "Isı Pompası Tasarrufu Hesaplama",
+  "desc": "Isı pompası kullanımının elektrikli ısıtıcı veya doğalgaza göre sağladığı enerji ve maliyet tasarrufunu hesaplar.",
+  "shortcode": "[hc_isi_pompasi_tasarrufu_hesaplama]"
+}

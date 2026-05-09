@@ -1,0 +1,5 @@
+{
+  "name": "Doğalgaz Kalorifer Maliyeti Hesaplama",
+  "desc": "Evin m² alanı ve izolasyon durumuna göre doğalgazlı ısınma maliyetini hesaplar.",
+  "shortcode": "[hc_dogalgaz_kalorifer_maliyeti_hesaplama]"
+}

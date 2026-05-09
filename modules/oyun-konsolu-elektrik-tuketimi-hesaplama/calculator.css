@@ -1,0 +1,14 @@
+#hc-console-power .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-console-power .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-console-power .hc-result-value.highlight {
+    color: #2980b9;
+}

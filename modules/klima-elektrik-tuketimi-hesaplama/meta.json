@@ -1,0 +1,5 @@
+{
+  "name": "Klima Elektrik Tüketimi Hesaplama",
+  "desc": "Belirli bir süre çalışan klimanın ne kadar elektrik harcadığını ve kaç TL yazdığını anlık veya günlük olarak hesaplar.",
+  "shortcode": "[hc_klima_elektrik_tuketimi_hesaplama]"
+}

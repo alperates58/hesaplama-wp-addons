@@ -1,0 +1,5 @@
+{
+  "name": "Doğalgaz Tüketimi Hesaplama",
+  "desc": "Sayaç üzerindeki eski ve yeni endeks değerlerini kullanarak belirli bir dönemdeki doğalgaz tüketimini hesaplar.",
+  "shortcode": "[hc_dogalgaz_tuketimi_hesaplama]"
+}

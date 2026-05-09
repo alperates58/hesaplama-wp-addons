@@ -1,0 +1,11 @@
+#hc-biomass-energy .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-biomass-energy .hc-result-value {
+    font-weight: bold;
+    color: #8e44ad;
+}

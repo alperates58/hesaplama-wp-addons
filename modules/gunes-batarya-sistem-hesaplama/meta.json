@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Batarya Sistem Hesaplama",
+  "desc": "Güneş enerjisi sistemi ile entegre çalışacak batarya grubunun kapasitesini ve şarj süresini hesaplar.",
+  "shortcode": "[hc_gunes_batarya_sistem_hesaplama]"
+}

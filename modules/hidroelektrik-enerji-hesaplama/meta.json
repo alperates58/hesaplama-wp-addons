@@ -1,0 +1,5 @@
+{
+  "name": "Hidroelektrik Enerji Hesaplama",
+  "desc": "Hidroelektrik santralin gücüne ve çalışma süresine göre ürettiği toplam elektrik enerjisini hesaplar.",
+  "shortcode": "[hc_hidroelektrik_enerji_hesaplama]"
+}

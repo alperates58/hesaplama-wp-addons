@@ -1,0 +1,5 @@
+{
+  "name": "Aylık Elektrik Faturası Tahmini Hesaplama",
+  "desc": "Günlük ortalama tüketim değerlerine göre aylık elektrik faturası tutarını tahmin eder.",
+  "shortcode": "[hc_aylik_elektrik_faturasi_tahmini_hesaplama]"
+}

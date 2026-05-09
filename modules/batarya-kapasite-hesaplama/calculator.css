@@ -1,0 +1,11 @@
+#hc-battery-cap .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-battery-cap .hc-result-value {
+    font-weight: bold;
+    color: #2980b9;
+}

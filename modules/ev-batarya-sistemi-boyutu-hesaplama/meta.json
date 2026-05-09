@@ -1,0 +1,5 @@
+{
+  "name": "Ev Batarya Sistemi Boyutu Hesaplama",
+  "desc": "Evin günlük enerji tüketimine ve istenen otonomi süresine göre ihtiyaç duyulan batarya kapasitesini (kWh) hesaplar.",
+  "shortcode": "[hc_ev_batarya_sistemi_boyutu_hesaplama]"
+}

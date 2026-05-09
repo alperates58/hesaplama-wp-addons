@@ -1,0 +1,5 @@
+{
+  "name": "Doğalgaz Faturası Hesaplama",
+  "desc": "Aylık doğalgaz tüketimine (m³) ve güncel birim fiyatlara göre toplam fatura tutarını hesaplar.",
+  "shortcode": "[hc_dogalgaz_faturasi_hesaplama]"
+}

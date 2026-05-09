@@ -1,0 +1,14 @@
+#hc-lamp-cons .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-lamp-cons .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-lamp-cons .hc-result-value.highlight {
+    color: #f1c40f;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Enerji Verimliliği Sınıfı Hesaplama",
+  "desc": "Cihazın enerji tüketimine ve standart referans değerlere göre enerji sınıfını (A, B, C vb.) tahmin eder.",
+  "shortcode": "[hc_enerji_verimliligi_sinifi_hesaplama]"
+}

@@ -1,0 +1,15 @@
+#hc-solar-watt .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-solar-watt .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-solar-watt .hc-result-value.highlight {
+    color: #e67e22;
+    font-size: 1.4em;
+}

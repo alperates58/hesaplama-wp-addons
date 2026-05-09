@@ -1,0 +1,5 @@
+{
+  "name": "Çamaşır Makinesi Elektrik Tüketimi Hesaplama",
+  "desc": "Çamaşır makinesinin program tipine ve haftalık kullanım sıklığına göre aylık elektrik maliyetini hesaplar.",
+  "shortcode": "[hc_camasir_makinesi_elektrik_tuketimi_hesaplama]"
+}

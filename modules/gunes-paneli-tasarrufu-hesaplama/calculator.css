@@ -1,0 +1,15 @@
+#hc-solar-savings .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-solar-savings .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-solar-savings .hc-result-value.highlight {
+    color: #27ae60;
+    font-size: 1.3em;
+}

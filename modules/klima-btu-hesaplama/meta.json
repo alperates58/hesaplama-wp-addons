@@ -1,0 +1,5 @@
+{
+  "name": "Klima BTU Hesaplama",
+  "desc": "Odanın alanına, kişi sayısına ve ısı kaynaklarına göre ihtiyacınız olan klima kapasitesini (BTU/saat) hesaplar.",
+  "shortcode": "[hc_klima_btu_hesaplama]"
+}

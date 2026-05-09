@@ -1,0 +1,24 @@
+#hc-ac-monthly .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-ac-monthly .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-ac-monthly .hc-result-value.highlight {
+    color: #e67e22;
+    font-size: 1.3em;
+}
+
+#hc-ac-monthly .hc-result-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}

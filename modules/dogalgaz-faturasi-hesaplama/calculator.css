@@ -1,0 +1,15 @@
+#hc-gas-bill .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-gas-bill .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-gas-bill .hc-result-value.highlight {
+    color: #e67e22;
+    font-size: 1.3em;
+}

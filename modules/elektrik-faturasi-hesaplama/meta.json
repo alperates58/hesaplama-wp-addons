@@ -1,0 +1,5 @@
+{
+  "name": "Elektrik Faturası Hesaplama",
+  "desc": "Aylık toplam elektrik tüketimine (kWh) ve 2026 yılı kademeli tarife oranlarına göre fatura tutarını hesaplar.",
+  "shortcode": "[hc_elektrik_faturasi_hesaplama]"
+}

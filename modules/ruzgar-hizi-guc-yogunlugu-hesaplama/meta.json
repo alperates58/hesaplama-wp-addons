@@ -1,0 +1,5 @@
+{
+  "name": "Rüzgar Hızı Güç Yoğunluğu Hesaplama",
+  "desc": "Rüzgar hızına ve hava yoğunluğuna bağlı olarak rüzgarın taşıdığı metrekare başına düşen gücü (W/m²) hesaplar.",
+  "shortcode": "[hc_ruzgar_hizi_guc_yogunlugu_hesaplama]"
+}

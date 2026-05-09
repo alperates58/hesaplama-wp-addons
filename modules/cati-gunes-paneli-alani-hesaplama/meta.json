@@ -1,0 +1,5 @@
+{
+  "name": "Çatı Güneş Paneli Alanı Hesaplama",
+  "desc": "Kurulması planlanan güneş enerjisi sisteminin gücüne göre ihtiyaç duyulan çatı alanını hesaplar.",
+  "shortcode": "[hc_cati_gunes_paneli_alani_hesaplama]"
+}

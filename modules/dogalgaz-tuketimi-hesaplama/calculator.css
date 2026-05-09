@@ -1,0 +1,11 @@
+#hc-gas-consumption .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-gas-consumption .hc-result-value {
+    font-weight: bold;
+    color: #2980b9;
+}

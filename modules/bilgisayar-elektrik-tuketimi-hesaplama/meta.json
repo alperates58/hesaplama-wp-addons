@@ -1,0 +1,5 @@
+{
+  "name": "Bilgisayar Elektrik Tüketimi Hesaplama",
+  "desc": "Bilgisayarın (laptop veya masaüstü) güç tüketimine ve kullanım süresine göre aylık maliyetini hesaplar.",
+  "shortcode": "[hc_bilgisayar_elektrik_tuketimi_hesaplama]"
+}

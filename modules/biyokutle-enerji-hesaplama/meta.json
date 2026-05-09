@@ -1,0 +1,5 @@
+{
+  "name": "Biyokütle Enerji Hesaplama",
+  "desc": "Belirli bir miktar biyokütle kaynağından (odun, pelet vb.) elde edilebilecek ısıl enerjiyi hesaplar.",
+  "shortcode": "[hc_biyokutle_enerji_hesaplama]"
+}

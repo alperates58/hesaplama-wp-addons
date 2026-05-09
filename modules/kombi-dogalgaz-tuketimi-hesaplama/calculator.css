@@ -1,0 +1,14 @@
+#hc-boiler-cons .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-boiler-cons .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-boiler-cons .hc-result-value.highlight {
+    color: #d35400;
+}

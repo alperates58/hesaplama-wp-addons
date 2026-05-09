@@ -1,0 +1,5 @@
+{
+  "name": "Çift Cam Tasarrufu Hesaplama",
+  "desc": "Tek camlı pencerelerin çift cam (veya ısıcam) ile değiştirilmesi durumunda ısınma faturasından yapılacak tasarrufu hesaplar.",
+  "shortcode": "[hc_cift_cam_tasarrufu_hesaplama]"
+}

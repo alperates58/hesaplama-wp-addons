@@ -1,0 +1,5 @@
+{
+  "name": "Buzdolabı Aylık Elektrik Tüketimi Hesaplama",
+  "desc": "Buzdolabının yıllık enerji tüketimine göre aylık elektrik sarfiyatını ve maliyetini hesaplar.",
+  "shortcode": "[hc_buzdolabi_aylik_elektrik_tuketimi_hesaplama]"
+}

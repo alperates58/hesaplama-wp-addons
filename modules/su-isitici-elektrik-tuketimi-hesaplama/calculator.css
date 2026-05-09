@@ -1,0 +1,14 @@
+#hc-water-heater .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-water-heater .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-water-heater .hc-result-value.highlight {
+    color: #e67e22;
+}

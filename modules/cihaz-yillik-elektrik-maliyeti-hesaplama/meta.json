@@ -1,0 +1,5 @@
+{
+  "name": "Cihaz Yıllık Elektrik Maliyeti Hesaplama",
+  "desc": "Herhangi bir elektrikli cihazın gücü ve kullanım sıklığına göre yıllık enerji tüketimini ve toplam maliyetini hesaplar.",
+  "shortcode": "[hc_cihaz_yillik_elektrik_maliyeti_hesaplama]"
+}

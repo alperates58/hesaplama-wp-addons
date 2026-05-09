@@ -1,0 +1,14 @@
+#hc-dishwasher-power .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#hc-dishwasher-power .hc-result-value {
+    font-weight: bold;
+}
+
+#hc-dishwasher-power .hc-result-value.highlight {
+    color: #27ae60;
+}

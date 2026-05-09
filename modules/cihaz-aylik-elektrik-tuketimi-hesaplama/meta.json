@@ -1,0 +1,5 @@
+{
+  "name": "Cihaz Aylık Elektrik Tüketimi Hesaplama",
+  "desc": "Herhangi bir elektrikli cihazın gücü ve günlük kullanım süresine göre aylık tüketimini hesaplar.",
+  "shortcode": "[hc_cihaz_aylik_elektrik_tuketimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Masaüstü Bilgisayar Elektrik Tüketimi Hesaplama",
+  "desc": "Bilgisayarın donanım gücüne ve günlük kullanım süresine göre aylık elektrik tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_masaustu_bilgisayar_elektrik_tuketimi_hesaplama]"
+}

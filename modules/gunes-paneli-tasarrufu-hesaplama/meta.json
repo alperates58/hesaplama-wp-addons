@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Paneli Tasarrufu Hesaplama",
+  "desc": "Güneş paneli sisteminin ürettiği elektrik miktarına göre aylık ve yıllık bazda sağladığı nakit tasarrufu hesaplar.",
+  "shortcode": "[hc_gunes_paneli_tasarrufu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ütü Elektrik Tüketimi Hesaplama",
+  "desc": "Ütünün gücüne ve kullanım süresine göre elektrik tüketimini ve maliyetini hesaplar.",
+  "shortcode": "[hc_utu_elektrik_tuketimi_hesaplama]"
+}

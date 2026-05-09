@@ -1,0 +1,5 @@
+{
+  "name": "Doğalgaz Elektrik Karşılaştırma Hesaplama",
+  "desc": "Isınma veya pişirme amacıyla kullanılan doğalgaz ve elektriğin maliyetlerini birbiriyle karşılaştırır.",
+  "shortcode": "[hc_dogalgaz_elektrik_karsilastirma_hesaplama]"
+}

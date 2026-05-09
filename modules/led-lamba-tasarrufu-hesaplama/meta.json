@@ -1,0 +1,5 @@
+{
+  "name": "LED Lamba Tasarrufu Hesaplama",
+  "desc": "Eski tip akkor veya tasarruflu ampullerin LED ile değiştirilmesi durumunda yapılacak elektrik tasarrufunu hesaplar.",
+  "shortcode": "[hc_led_lamba_tasarrufu_hesaplama]"
+}
