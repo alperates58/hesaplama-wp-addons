@@ -1,0 +1,9 @@
+#hc-single-use .hc-result-value {
+    color: #f39c12;
+}
+#hc-single-use .hc-su-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 10px;
+}

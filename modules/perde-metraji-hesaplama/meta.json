@@ -1,0 +1,5 @@
+{
+  "name": "Perde Metrajı Hesaplama",
+  "desc": "Kumaş eni ve tavan yüksekliğine göre kaç metre kumaş sipariş etmeniz gerektiğini hesaplar.",
+  "shortcode": "[hc_perde_metraji_hesaplama]"
+}

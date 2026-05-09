@@ -1,0 +1,5 @@
+{
+  "name": "Metre Başına Fiyat Hesaplama",
+  "desc": "Toplam tutarı uzunluğa bölerek metre başına düşen fiyatı hesaplar.",
+  "shortcode": "[hc_metre_basina_fiyat_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Perde Ölçüsü Hesaplama",
+  "desc": "Pencere boyutlarına ve pile yoğunluğuna göre kumaş enini hesaplar.",
+  "shortcode": "[hc_perde_olcusu_hesaplama]"
+}

@@ -1,0 +1,29 @@
+#hc-random-name textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: inherit;
+    resize: vertical;
+}
+#hc-random-name .hc-winner-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+#hc-random-name .hc-winner-item {
+    background: #fff;
+    border: 2px solid #f1c40f;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    animation: hcWinnerPop 0.5s ease-out;
+}
+@keyframes hcWinnerPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}

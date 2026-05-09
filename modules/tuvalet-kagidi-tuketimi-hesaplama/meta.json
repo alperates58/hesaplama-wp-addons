@@ -1,0 +1,5 @@
+{
+  "name": "Tuvalet Kağıdı Tüketimi Hesaplama",
+  "desc": "Kişi sayısı ve kullanım alışkanlıklarına göre yıllık tuvalet kağıdı tüketimini hesaplar.",
+  "shortcode": "[hc_tuvalet_kagidi_tuketimi_hesaplama]"
+}

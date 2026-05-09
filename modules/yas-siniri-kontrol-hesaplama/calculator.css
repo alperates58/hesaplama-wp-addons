@@ -1,0 +1,15 @@
+#hc-age-check .hc-status-badge {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: white;
+}
+#hc-age-check .success { background: #27ae60; }
+#hc-age-check .danger { background: #e74c3c; }
+#hc-age-check #hc-res-age-current {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}

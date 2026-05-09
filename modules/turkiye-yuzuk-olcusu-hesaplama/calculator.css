@@ -1,0 +1,12 @@
+#hc-tr-yuzuk .hc-result-value {
+    color: #d35400;
+    font-size: 32px;
+}
+#hc-tr-yuzuk .hc-ring-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    background: #fff3e0;
+    padding: 10px;
+    border-radius: 5px;
+}

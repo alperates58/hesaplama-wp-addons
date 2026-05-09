@@ -1,0 +1,11 @@
+#hc-audiobook-time .hc-result-value {
+    color: #6c5ce7;
+    font-size: 24px;
+    font-weight: bold;
+}
+#hc-audiobook-time .hc-ab-info {
+    font-size: 11px;
+    color: #b2bec3;
+    margin-top: 15px;
+    font-style: italic;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Masa Yüksekliği Hesaplama",
+  "desc": "Boyunuza göre ergonomik olarak en uygun masa ve sandalye yüksekliğini hesaplar.",
+  "shortcode": "[hc_masa_yuksekligi_hesaplama]"
+}

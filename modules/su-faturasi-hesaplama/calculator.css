@@ -1,0 +1,11 @@
+#hc-water-bill .hc-result-value {
+    color: #2980b9;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-water-bill .hc-water-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    text-align: center;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Saç Uzama Süresi Hesaplama",
+  "desc": "Mevcut saç uzunluğu ve hedeflenen uzunluğa göre tahmini uzama süresini hesaplar.",
+  "shortcode": "[hc_sac_uzama_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Oy Yüzdesi Hesaplama",
+  "desc": "Seçim sonuçlarına göre alınan oyların yüzdesini ve kazanma durumunu hesaplar.",
+  "shortcode": "[hc_oy_yuzdesi_hesaplama]"
+}

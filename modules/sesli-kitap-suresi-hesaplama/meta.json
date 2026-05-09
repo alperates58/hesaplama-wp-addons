@@ -1,0 +1,5 @@
+{
+  "name": "Sesli Kitap Süresi Hesaplama",
+  "desc": "Kitap sayfa sayısına veya kelime sayısına göre sesli kitap dinleme süresini hesaplar.",
+  "shortcode": "[hc_sesli_kitap_suresi_hesaplama]"
+}

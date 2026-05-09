@@ -1,0 +1,5 @@
+{
+  "name": "Su Faturası Hesaplama",
+  "desc": "Kullanılan su miktarı ve bölgesel fiyatlandırmaya göre toplam faturayı hesaplar.",
+  "shortcode": "[hc_su_faturasi_hesaplama]"
+}

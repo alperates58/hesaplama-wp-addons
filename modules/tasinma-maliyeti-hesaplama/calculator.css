@@ -1,0 +1,17 @@
+#hc-moving-cost .hc-check-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+#hc-moving-cost .hc-check-group input {
+    margin-right: 10px;
+}
+#hc-moving-cost .hc-result-value {
+    color: #2980b9;
+}
+#hc-moving-cost .hc-move-info {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+}

@@ -1,0 +1,23 @@
+#hc-wake-calc .hc-wake-slots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+#hc-wake-calc .hc-wake-slot {
+    background: #fff5f5;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #e53e3e;
+}
+#hc-wake-calc .hc-wake-slot span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #c53030;
+}
+#hc-wake-calc .hc-wake-slot small {
+    font-size: 11px;
+    color: #9b2c2c;
+}

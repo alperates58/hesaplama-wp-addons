@@ -1,0 +1,18 @@
+#hc-cleaning-cost .hc-check-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+#hc-cleaning-cost .hc-check-group input {
+    margin-right: 10px;
+}
+#hc-cleaning-cost .hc-result-value {
+    color: #16a085;
+}
+#hc-cleaning-cost .hc-clean-note {
+    font-size: 11px;
+    color: #95a5a6;
+    text-align: center;
+    margin-top: 10px;
+}

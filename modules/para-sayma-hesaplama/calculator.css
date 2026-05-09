@@ -1,0 +1,26 @@
+#hc-money-count .hc-money-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#hc-money-count .hc-money-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+#hc-money-count .hc-money-row label {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+#hc-money-count .hc-m-input {
+    width: 80px;
+    text-align: center;
+}
+#hc-money-count .hc-result-value {
+    color: #27ae60;
+}

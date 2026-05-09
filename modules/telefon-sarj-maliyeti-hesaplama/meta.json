@@ -1,0 +1,5 @@
+{
+  "name": "Telefon Şarj Maliyeti Hesaplama",
+  "desc": "Telefonunuzun batarya kapasitesine ve şarj sıklığına göre yıllık elektrik maliyetini hesaplar.",
+  "shortcode": "[hc_telefon_sarj_maliyeti_hesaplama]"
+}

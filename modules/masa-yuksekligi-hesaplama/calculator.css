@@ -1,0 +1,12 @@
+#hc-desk-height .hc-result-value {
+    color: #2980b9;
+    font-size: 28px;
+    font-weight: bold;
+}
+#hc-desk-height .hc-desk-info {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}

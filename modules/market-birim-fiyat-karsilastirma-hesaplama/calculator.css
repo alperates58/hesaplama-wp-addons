@@ -1,0 +1,24 @@
+#hc-unit-compare .hc-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+#hc-unit-compare .hc-compare-col {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+#hc-unit-compare .hc-winner-badge {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+#hc-unit-compare .hc-compare-details {
+    font-size: 13px;
+    text-align: center;
+}

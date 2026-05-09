@@ -1,0 +1,5 @@
+{
+  "name": "Podcast Dinleme Süresi Hesaplama",
+  "desc": "Bölüm sayısı ve dinleme hızına göre toplam podcast süresini ve zaman kazancını hesaplar.",
+  "shortcode": "[hc_podcast_dinleme_suresi_hesaplama]"
+}

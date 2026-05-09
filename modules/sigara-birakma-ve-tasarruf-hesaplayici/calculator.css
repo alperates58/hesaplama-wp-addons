@@ -1,0 +1,17 @@
+#hc-quit-smoke .hc-result-value {
+    color: #27ae60;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-quit-smoke .hc-health-timeline {
+    margin-top: 20px;
+    background: #e8f5e9;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #2e7d32;
+    line-height: 1.5;
+}
+#hc-quit-smoke .hc-res-item span:last-child {
+    font-weight: bold;
+}

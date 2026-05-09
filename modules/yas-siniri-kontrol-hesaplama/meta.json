@@ -1,0 +1,5 @@
+{
+  "name": "Yaş Sınırı Kontrol Hesaplama",
+  "desc": "Doğum tarihine göre belirli bir yaş sınırına uygunluğu kontrol eder.",
+  "shortcode": "[hc_yas_siniri_kontrol_hesaplama]"
+}

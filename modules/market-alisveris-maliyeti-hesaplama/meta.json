@@ -1,0 +1,5 @@
+{
+  "name": "Market Alışveriş Maliyeti Hesaplama",
+  "desc": "Alışveriş listenizdeki ürünleri ve fiyatlarını toplayarak toplam bütçenizi hesaplar.",
+  "shortcode": "[hc_market_alisveris_maliyeti_hesaplama]"
+}

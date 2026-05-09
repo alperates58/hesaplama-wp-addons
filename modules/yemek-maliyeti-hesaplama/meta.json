@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Maliyeti Hesaplama",
+  "desc": "Malzeme fiyatlarına göre yemeğin porsiyon ve toplam maliyetini hesaplar.",
+  "shortcode": "[hc_yemek_maliyeti_hesaplama]"
+}

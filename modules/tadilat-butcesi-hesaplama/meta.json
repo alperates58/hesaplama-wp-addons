@@ -1,0 +1,5 @@
+{
+  "name": "Tadilat Bütçesi Hesaplama",
+  "desc": "Boya, zemin ve diğer tadilat kalemlerine göre tahmini bütçe oluşturur.",
+  "shortcode": "[hc_tadilat_butcesi_hesaplama]"
+}

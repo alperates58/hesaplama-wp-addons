@@ -1,0 +1,12 @@
+#hc-bra-size .hc-result-value {
+    color: #e84393;
+    font-size: 32px;
+    font-weight: bold;
+}
+#hc-bra-size .hc-bra-info {
+    font-size: 11px;
+    color: #636e72;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}

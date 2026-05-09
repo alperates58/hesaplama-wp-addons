@@ -1,0 +1,9 @@
+#hc-phone-charge .hc-result-value {
+    color: #27ae60;
+}
+#hc-phone-charge .hc-charge-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+    margin-top: 10px;
+}

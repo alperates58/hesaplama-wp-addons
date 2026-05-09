@@ -1,0 +1,5 @@
+{
+  "name": "Masa Örtüsü Metrajı Hesaplama",
+  "desc": "Kumaş eni ve masa örtüsü ölçüsüne göre kaç metre kumaş almanız gerektiğini hesaplar.",
+  "shortcode": "[hc_masa_ortusu_metraji_hesaplama]"
+}

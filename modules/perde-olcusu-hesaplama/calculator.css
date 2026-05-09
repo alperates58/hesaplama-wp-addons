@@ -1,0 +1,10 @@
+#hc-curtain-size .hc-result-value {
+    color: #27ae60;
+    font-size: 28px;
+    font-weight: bold;
+}
+#hc-curtain-size .hc-curt-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+}

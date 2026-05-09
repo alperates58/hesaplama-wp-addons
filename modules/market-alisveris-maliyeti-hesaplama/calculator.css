@@ -1,0 +1,19 @@
+#hc-shopping-cost .hc-sc-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#hc-shopping-cost .hc-btn-alt {
+    width: 100%;
+    padding: 10px;
+    background: #f1f2f6;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+#hc-shopping-cost .hc-result-value {
+    color: #27ae60;
+}

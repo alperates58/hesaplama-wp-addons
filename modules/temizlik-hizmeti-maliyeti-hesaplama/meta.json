@@ -1,0 +1,5 @@
+{
+  "name": "Temizlik Hizmeti Maliyeti Hesaplama",
+  "desc": "Evin m² ölçüsü ve oda sayısına göre ortalama temizlik hizmeti maliyetini hesaplar.",
+  "shortcode": "[hc_temizlik_hizmeti_maliyeti_hesaplama]"
+}

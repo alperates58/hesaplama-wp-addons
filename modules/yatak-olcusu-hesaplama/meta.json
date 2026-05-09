@@ -1,0 +1,5 @@
+{
+  "name": "Yatak Ölçüsü Hesaplama",
+  "desc": "Standart yatak ölçülerini (tek, çift, king) ve uygun oda boyutlarını gösterir.",
+  "shortcode": "[hc_yatak_olcusu_hesaplama]"
+}

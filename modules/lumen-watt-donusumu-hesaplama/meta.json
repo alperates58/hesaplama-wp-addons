@@ -1,0 +1,5 @@
+{
+  "name": "Lümen Watt Dönüşümü Hesaplama",
+  "desc": "Işık akısı (lümen) değerini farklı ampul türleri için tahmini güç tüketimine (Watt) dönüştürür.",
+  "shortcode": "[hc_lumen_watt_donusumu_hesaplama]"
+}

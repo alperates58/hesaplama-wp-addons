@@ -1,0 +1,5 @@
+{
+  "name": "Sosyal Medya Zaman Maliyeti Hesaplama",
+  "desc": "Günlük sosyal medya kullanım sürenizin yıllık toplamını ve bu sürede yapabileceğiniz aktiviteleri hesaplar.",
+  "shortcode": "[hc_sosyal_medya_zaman_maliyeti_hesaplama]"
+}

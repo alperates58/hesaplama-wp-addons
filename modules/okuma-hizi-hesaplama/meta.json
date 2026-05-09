@@ -1,0 +1,5 @@
+{
+  "name": "Okuma Hızı Hesaplama",
+  "desc": "Belirli bir metni okuma sürenize göre dakikada okuduğunuz kelime sayısını (WPM) hesaplar.",
+  "shortcode": "[hc_okuma_hizi_hesaplama]"
+}

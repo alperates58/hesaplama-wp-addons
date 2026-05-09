@@ -1,0 +1,5 @@
+{
+  "name": "Tek Kullanım Elektrik Maliyeti Hesaplama",
+  "desc": "Cihazın gücüne ve kullanım süresine göre tek bir kullanımın maliyetini hesaplar.",
+  "shortcode": "[hc_tek_kullanim_elektrik_maliyeti_hesaplama]"
+}

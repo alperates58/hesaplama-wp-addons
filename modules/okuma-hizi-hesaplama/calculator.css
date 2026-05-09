@@ -1,0 +1,10 @@
+#hc-reading-speed .hc-result-value {
+    color: #8e44ad;
+}
+#hc-reading-speed .hc-rs-desc {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    color: #2c3e50;
+}

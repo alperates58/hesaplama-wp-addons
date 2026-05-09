@@ -1,0 +1,5 @@
+{
+  "name": "Pomodoro Süresi Hesaplama",
+  "desc": "Çalışma hedefinize göre Pomodoro oturum sayısını ve mola sürelerini hesaplar.",
+  "shortcode": "[hc_pomodoro_suresi_hesaplama]"
+}

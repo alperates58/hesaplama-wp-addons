@@ -1,0 +1,5 @@
+{
+  "name": "Toplantı Maliyeti Hesaplama",
+  "desc": "Katılımcı sayısı ve maaş ortalamasına göre toplantının şirkete maliyetini hesaplar.",
+  "shortcode": "[hc_toplanti_maliyeti_hesaplama]"
+}

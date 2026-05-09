@@ -1,0 +1,10 @@
+#hc-reading-time .hc-result-value {
+    color: #16a085;
+}
+#hc-reading-time .hc-read-note {
+    font-size: 11px;
+    color: #95a5a6;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}

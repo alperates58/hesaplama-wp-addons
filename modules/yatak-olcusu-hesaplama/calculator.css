@@ -1,0 +1,23 @@
+#hc-bed-size .hc-bed-visual {
+    background: #f8f9fa;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+#hc-bed-box {
+    background: #3498db;
+    border: 3px solid #2980b9;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+#hc-bed-size .hc-bed-advice {
+    font-size: 13px;
+    color: #27ae60;
+    margin-top: 10px;
+    font-weight: 500;
+    text-align: center;
+}

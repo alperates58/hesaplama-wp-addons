@@ -1,0 +1,29 @@
+#hc-sleep-time .hc-sleep-slots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+#hc-sleep-time .hc-sleep-slot {
+    background: #edf2f7;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #4a5568;
+}
+#hc-sleep-time .hc-sleep-slot span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2d3748;
+}
+#hc-sleep-time .hc-sleep-slot small {
+    font-size: 11px;
+    color: #718096;
+}
+#hc-sleep-time .hc-note {
+    font-size: 11px;
+    color: #a0aec0;
+    margin-top: 15px;
+    text-align: center;
+}

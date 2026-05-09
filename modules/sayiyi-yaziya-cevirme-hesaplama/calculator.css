@@ -1,0 +1,9 @@
+#hc-num-to-text .hc-result-value {
+    background: #fdf6e3;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee8d5;
+    width: 100%;
+    color: #586e75;
+    text-transform: capitalize;
+}

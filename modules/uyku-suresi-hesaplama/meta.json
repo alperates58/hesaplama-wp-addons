@@ -1,0 +1,5 @@
+{
+  "name": "Uyku Süresi Hesaplama",
+  "desc": "Zinde uyanmak için gereken uyku döngülerini ve ideal yatış saatlerini hesaplar.",
+  "shortcode": "[hc_uyku_suresi_hesaplama]"
+}

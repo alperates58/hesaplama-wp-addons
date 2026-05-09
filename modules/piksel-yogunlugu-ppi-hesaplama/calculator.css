@@ -1,0 +1,12 @@
+#hc-ppi-calc .hc-result-value {
+    color: #2980b9;
+    font-size: 32px;
+    font-weight: bold;
+}
+#hc-ppi-calc .hc-ppi-desc {
+    font-size: 14px;
+    text-align: center;
+    color: #7f8c8d;
+    margin-top: 10px;
+    font-weight: 500;
+}

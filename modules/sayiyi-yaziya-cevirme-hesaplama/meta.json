@@ -1,0 +1,5 @@
+{
+  "name": "Sayıyı Yazıya Çevirme Hesaplama",
+  "desc": "Girilen rakamları Türkçe metin haline dönüştürür (çek ve senet formatına uygun).",
+  "shortcode": "[hc_sayiyi_yaziya_cevirme_hesaplama]"
+}

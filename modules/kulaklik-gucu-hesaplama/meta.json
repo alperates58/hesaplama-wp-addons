@@ -1,0 +1,5 @@
+{
+  "name": "Kulaklık Gücü Hesaplama",
+  "desc": "Kulaklığınızın empedans ve hassasiyet değerlerine göre gereken amfi gücünü hesaplar.",
+  "shortcode": "[hc_kulaklik_gucu_hesaplama]"
+}

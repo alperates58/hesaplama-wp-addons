@@ -1,0 +1,5 @@
+{
+  "name": "Piksel Yoğunluğu PPI Hesaplama",
+  "desc": "Ekran çözünürlüğü ve boyutuna göre inç başına düşen piksel sayısını (PPI) hesaplar.",
+  "shortcode": "[hc_piksel_yogunlugu_ppi_hesaplama]"
+}

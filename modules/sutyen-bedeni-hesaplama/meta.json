@@ -1,0 +1,5 @@
+{
+  "name": "Sütyen Bedeni Hesaplama",
+  "desc": "Alt göğüs ve göğüs çevresi ölçülerine göre sütyen bedenini ve kap ölçüsünü hesaplar.",
+  "shortcode": "[hc_sutyen_bedeni_hesaplama]"
+}

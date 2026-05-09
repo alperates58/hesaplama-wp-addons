@@ -1,0 +1,12 @@
+#hc-headphone-power .hc-result-value {
+    color: #d63031;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-headphone-power .hc-hp-note {
+    font-size: 11px;
+    color: #636e72;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}

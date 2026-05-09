@@ -1,0 +1,5 @@
+{
+  "name": "Litre Başına Fiyat Hesaplama",
+  "desc": "Toplam tutarı hacme bölerek litre başına düşen fiyatı hesaplar.",
+  "shortcode": "[hc_litre_basina_fiyat_hesaplama]"
+}

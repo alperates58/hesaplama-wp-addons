@@ -1,0 +1,5 @@
+{
+  "name": "Taşınma Maliyeti Hesaplama",
+  "desc": "Ev tipi, kat durumu ve mesafeye göre tahmini taşınma maliyetini hesaplar.",
+  "shortcode": "[hc_tasinma_maliyeti_hesaplama]"
+}

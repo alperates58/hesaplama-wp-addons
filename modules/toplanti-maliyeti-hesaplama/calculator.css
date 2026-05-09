@@ -1,0 +1,13 @@
+#hc-meeting-cost .hc-result-value {
+    color: #c0392b;
+    font-size: 26px;
+    font-weight: bold;
+}
+#hc-meeting-cost .hc-meet-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 4px;
+}

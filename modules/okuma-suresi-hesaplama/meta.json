@@ -1,0 +1,5 @@
+{
+  "name": "Okuma Süresi Hesaplama",
+  "desc": "Kitap sayfa veya kelime sayısına göre tahmini okuma süresini hesaplar.",
+  "shortcode": "[hc_okuma_suresi_hesaplama]"
+}

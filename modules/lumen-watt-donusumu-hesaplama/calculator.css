@@ -1,0 +1,22 @@
+#hc-lumen-watt .hc-lw-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+#hc-lumen-watt .hc-lw-item {
+    background: #fdf6e3;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eee8d5;
+}
+#hc-lumen-watt .hc-lw-item span {
+    display: block;
+    font-size: 12px;
+    color: #657b83;
+}
+#hc-lumen-watt .hc-lw-item b {
+    font-size: 20px;
+    color: #b58900;
+}

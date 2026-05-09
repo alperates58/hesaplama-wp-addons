@@ -1,0 +1,5 @@
+{
+  "name": "Market Birim Fiyat Karşılaştırma Hesaplama",
+  "desc": "Farklı gramaj ve fiyattaki iki üründen hangisinin daha avantajlı olduğunu hesaplar.",
+  "shortcode": "[hc_market_birim_fiyat_karsilastirma_hesaplama]"
+}

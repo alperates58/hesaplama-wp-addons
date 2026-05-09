@@ -1,0 +1,5 @@
+{
+  "name": "Rastgele İsim Seçme Hesaplama",
+  "desc": "Girdiğiniz isim listesinden bir veya birden fazla kişiyi rastgele seçer.",
+  "shortcode": "[hc_rastgele_isim_secme_hesaplama]"
+}

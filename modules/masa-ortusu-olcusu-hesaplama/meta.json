@@ -1,0 +1,5 @@
+{
+  "name": "Masa Örtüsü Ölçüsü Hesaplama",
+  "desc": "Masa boyutlarına ve istenen sarkma payına göre ideal masa örtüsü ölçüsünü hesaplar.",
+  "shortcode": "[hc_masa_ortusu_olcusu_hesaplama]"
+}

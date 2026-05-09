@@ -1,0 +1,5 @@
+{
+  "name": "Para Sayma Hesaplama",
+  "desc": "Elinizdeki Türk Lirası banknot ve madeni paraların toplam tutarını hesaplar.",
+  "shortcode": "[hc_para_sayma_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Şapka Bedeni Hesaplama",
+  "desc": "Baş çevresi ölçüsüne (cm) göre uluslararası şapka bedenini hesaplar.",
+  "shortcode": "[hc_sapka_bedeni_hesaplama]"
+}

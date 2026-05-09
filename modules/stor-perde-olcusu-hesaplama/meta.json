@@ -1,0 +1,5 @@
+{
+  "name": "Stor Perde Ölçüsü Hesaplama",
+  "desc": "Pencere ölçülerine göre ideal stor perde kumaş ve kasa ölçüsünü hesaplar.",
+  "shortcode": "[hc_stor_perde_olcusu_hesaplama]"
+}

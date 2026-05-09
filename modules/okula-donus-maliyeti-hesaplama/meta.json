@@ -1,0 +1,5 @@
+{
+  "name": "Okula Dönüş Maliyeti Hesaplama",
+  "desc": "Kırtasiye, kıyafet ve diğer okul ihtiyaçlarına göre toplam eğitim maliyetini hesaplar.",
+  "shortcode": "[hc_okula_donus_maliyeti_hesaplama]"
+}

@@ -1,0 +1,13 @@
+#hc-blind-size .hc-result-item span:last-child {
+    font-weight: bold;
+    color: #34495e;
+    font-size: 18px;
+}
+#hc-blind-size .hc-blind-warn {
+    font-size: 11px;
+    color: #e67e22;
+    background: #fff3e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
