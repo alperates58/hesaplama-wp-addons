@@ -178,7 +178,9 @@ hesaplama-wp-addons/
 - Her modül tamamen bağımsız çalışmalı, diğer modüllere bağımlılık olmamalı
 - Formülleri ve hesaplama mantığını yorumsuz, temiz kod olarak yaz
 - **Modül İsimleri:** Kullanıcı tarafından belirtilen modül isimleri (konu başlıkları) kesinlikle değiştirilmemeli, verilen metin ile birebir aynı kalmalıdır (örn. "Hesaplama" takısı varsa korunmalı, yoksa eklenmemelidir).
-- Kaynak sayfayı okuyamazsan formülü web aramasıyla bul; tahminle veya eski bilgiyle hesaplama yazma
+- **Veri ve Tarih Standartları (2026):** Vergi, maaş, enerji tarifeleri ve diğer değişken veriler içeren tüm modüller **2026 yılı** projeksiyonlarına ve güncel verilerine göre hazırlanmalıdır. Web araması yaparak 2026 için geçerli olacak yasal sınırları, vergi dilimlerini ve maaş katsayılarını kullan. Arayüzde "2026 verisidir" gibi ibareler kullanma, doğrudan en güncel veriyi yansıt.
+- **Toplu İşlem ve Commit:** Her modül için tek tek commit yapmak yerine, bir oturumda verilen tüm modülleri tamamladıktan sonra toplu olarak `main` branch'ine commit ve push yap.
+- Kaynak sayfayı okuyamazsan formülü web aramasıyla bul; tahminle veya eski bilgiyle hesaplama yazma.
 
 ---
 
