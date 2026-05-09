@@ -163,6 +163,10 @@ class HC_Github_Updater {
             update_option( 'hc_last_update_sha', $remote_sha );
         }
 
+        if ( class_exists( 'HC_Module_Inventory' ) ) {
+            HC_Module_Inventory::invalidate_caches();
+        }
+
         if ( function_exists( 'wp_clean_plugins_cache' ) ) {
             wp_clean_plugins_cache( true );
         }

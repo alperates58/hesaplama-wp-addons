@@ -10,6 +10,7 @@ class HC_Module_Inventory {
     const INDEX_TRANSIENT = 'hc_module_inventory_index_v2';
     const CATEGORY_TRANSIENT = 'hc_module_inventory_categories_v2';
     const USAGE_TRANSIENT = 'hc_module_inventory_usage_v2';
+    const CACHE_VERSION_OPTION = 'hc_module_inventory_cache_version';
     private static $module_index_cache = null;
     private static $module_usage_cache = null;
     private static $category_choices_cache = null;
@@ -175,6 +176,13 @@ class HC_Module_Inventory {
     }
 
     private static function get_module_index() {
+        $cache_version = (string) get_option( self::CACHE_VERSION_OPTION, '' );
+
+        if ( $cache_version !== HC_VERSION ) {
+            self::invalidate_caches();
+            update_option( self::CACHE_VERSION_OPTION, HC_VERSION, false );
+        }
+
         if ( null !== self::$module_index_cache ) {
             return self::$module_index_cache;
         }
