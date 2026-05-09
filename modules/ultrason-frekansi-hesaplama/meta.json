@@ -1,0 +1,5 @@
+{
+  "name": "Ultrason Frekansı Hesaplama",
+  "desc": "Ses dalgasının hızı ve dalga boyuna göre ultrason frekansını hesaplar.",
+  "shortcode": "[hc_ultrason_frekansi_hesaplama]"
+}

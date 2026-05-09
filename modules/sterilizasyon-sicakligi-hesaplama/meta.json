@@ -1,0 +1,5 @@
+{
+  "name": "Sterilizasyon Sıcaklığı Hesaplama",
+  "desc": "Belirli bir sterilizasyon süresi ve hedef F0 değeri için gereken ideal işlem sıcaklığını hesaplar.",
+  "shortcode": "[hc_sterilizasyon_sicakligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Soğutma Yükü Hesaplama",
+  "desc": "Bir ortamı veya maddeyi belirli bir sürede soğutmak için gereken toplam ısı transferi (soğutma kapasitesi) yükünü hesaplar.",
+  "shortcode": "[hc_sogutma_yuku_hesaplama]"
+}

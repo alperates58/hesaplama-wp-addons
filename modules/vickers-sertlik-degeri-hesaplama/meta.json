@@ -1,0 +1,5 @@
+{
+  "name": "Vickers Sertlik Değeri Hesaplama",
+  "desc": "Malzeme sertliğini, elmas piramit uçla yapılan iz çapı üzerinden (Vickers) hesaplar.",
+  "shortcode": "[hc_vickers_sertlik_degeri_hesaplama]"
+}

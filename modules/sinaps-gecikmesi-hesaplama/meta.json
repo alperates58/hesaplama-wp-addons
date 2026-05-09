@@ -1,0 +1,5 @@
+{
+  "name": "Sinaps Gecikmesi Hesaplama",
+  "desc": "Nörofizyolojide, bir uyarana verilen toplam tepki süresinden sinapslardaki toplam gecikme süresini hesaplar.",
+  "shortcode": "[hc_sinaps_gecikmesi_hesaplama]"
+}

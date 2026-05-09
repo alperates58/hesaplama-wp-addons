@@ -1,0 +1,5 @@
+{
+  "name": "Takt Süresi Hesaplama",
+  "desc": "Yalın üretimde, müşteri talebini karşılamak için bir ürünün tamamlanması gereken maksimum süreyi hesaplar.",
+  "shortcode": "[hc_takt_suresi_hesaplama]"
+}

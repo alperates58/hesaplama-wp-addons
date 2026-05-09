@@ -1,0 +1,5 @@
+{
+  "name": "Wheatstone Köprüsü Hesaplama",
+  "desc": "Elektronik devrelerde bilinmeyen bir direnci denge prensibiyle hesaplar.",
+  "shortcode": "[hc_wheatstone_koprusu_hesaplama]"
+}

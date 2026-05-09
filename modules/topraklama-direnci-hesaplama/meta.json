@@ -1,0 +1,5 @@
+{
+  "name": "Topraklama Direnci Hesaplama",
+  "desc": "Elektriksel güvenliğin sağlanması için topraklama elektrodunun (çubuk) teorik direncini hesaplar.",
+  "shortcode": "[hc_topraklama_direnci_hesaplama]"
+}

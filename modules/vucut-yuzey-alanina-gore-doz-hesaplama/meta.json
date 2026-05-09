@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yüzey Alanına Göre Doz Hesaplama",
+  "desc": "Tıbbi tedavilerde ilaç dozajını vücut yüzey alanına (BSA) göre hassas şekilde hesaplar.",
+  "shortcode": "[hc_vucut_yuzey_alanina_gore_doz_hesaplama]"
+}

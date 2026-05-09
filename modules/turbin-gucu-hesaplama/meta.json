@@ -1,0 +1,5 @@
+{
+  "name": "Türbin Gücü Hesaplama",
+  "desc": "Hidrolik türbinlerin enerji potansiyelini debi, yükseklik ve verimlilik değerlerine göre hesaplar.",
+  "shortcode": "[hc_turbin_gucu_hesaplama]"
+}

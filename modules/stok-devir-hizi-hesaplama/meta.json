@@ -1,5 +1,5 @@
 {
   "name": "Stok Devir Hızı Hesaplama",
-  "desc": "Satılan malların maliyetini ortalama stok değerine bölerek stokların yılda kaç kez yenilendiğini hesaplar.",
+  "desc": "Bir işletmenin stoklarını ne kadar verimli yönettiğini, stok devir hızı ve gün bazında devir süresi ile analiz eder.",
   "shortcode": "[hc_stok_devir_hizi_hesaplama]"
 }

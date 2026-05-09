@@ -1,0 +1,5 @@
+{
+  "name": "Seri Direnç Hesaplama",
+  "desc": "Elektronik devrelerde seri bağlı dirençlerin toplam eşdeğer direncini hesaplar.",
+  "shortcode": "[hc_seri_direnc_hesaplama]"
+}

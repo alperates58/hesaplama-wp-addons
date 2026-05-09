@@ -1,0 +1,5 @@
+{
+  "name": "Valf Akış Hesaplama",
+  "desc": "Bir valf üzerinden geçen sıvı veya gaz akış miktarını basınç farkı ve valf katsayısına göre hesaplar.",
+  "shortcode": "[hc_valf_akis_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Uzama Oranı Hesaplama",
+  "desc": "Bir malzemenin çekme testi sonrasındaki boyca değişim (uzama) yüzdesini hesaplar.",
+  "shortcode": "[hc_uzama_orani_hesaplama]"
+}

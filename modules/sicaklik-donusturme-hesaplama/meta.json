@@ -1,0 +1,5 @@
+{
+  "name": "Sıcaklık Dönüştürme Hesaplama",
+  "desc": "Celsius, Fahrenheit ve Kelvin birimleri arasında hızlı ve hassas sıcaklık dönüşümü yapar.",
+  "shortcode": "[hc_sicaklik_donusturme_hesaplama]"
+}

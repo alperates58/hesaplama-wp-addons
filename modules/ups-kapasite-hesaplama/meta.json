@@ -1,0 +1,5 @@
+{
+  "name": "UPS Kapasite Hesaplama",
+  "desc": "Bağlı cihazların toplam gücüne göre ihtiyacınız olan UPS (Kesintisiz Güç Kaynağı) kapasitesini ve çalışma süresini hesaplar.",
+  "shortcode": "[hc_ups_kapasite_hesaplama]"
+}

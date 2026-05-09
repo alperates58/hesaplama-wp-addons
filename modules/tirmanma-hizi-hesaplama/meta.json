@@ -1,0 +1,5 @@
+{
+  "name": "Tırmanma Hızı Hesaplama",
+  "desc": "Hava araçlarının yükselme performansını (Rate of Climb) güç fazlası ve ağırlık değerlerine göre hesaplar.",
+  "shortcode": "[hc_tirmanma_hizi_hesaplama]"
+}

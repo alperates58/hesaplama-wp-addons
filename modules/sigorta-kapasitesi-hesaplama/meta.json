@@ -1,0 +1,5 @@
+{
+  "name": "Sigorta Kapasitesi Hesaplama",
+  "desc": "Elektrik devrelerinde bağlı yükün gücüne göre kullanılması gereken ideal sigorta akımını hesaplar.",
+  "shortcode": "[hc_sigorta_kapasitesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Su Isıtma Enerjisi Hesaplama",
+  "desc": "Belirli bir miktar suyun sıcaklığını artırmak için gereken ısıl enerjiyi ve teorik maliyeti hesaplar.",
+  "shortcode": "[hc_su_isitma_enerjisi_hesaplama]"
+}

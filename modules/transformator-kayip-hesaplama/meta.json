@@ -1,0 +1,5 @@
+{
+  "name": "Transformatör Kayıp Hesaplama",
+  "desc": "Transformatörlerdeki demir (boşta) ve bakır (yükte) kayıplarını toplayarak toplam enerji kaybını hesaplar.",
+  "shortcode": "[hc_transformator_kayip_hesaplama]"
+}

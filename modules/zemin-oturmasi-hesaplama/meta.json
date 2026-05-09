@@ -1,0 +1,5 @@
+{
+  "name": "Zemin Oturması Hesaplama",
+  "desc": "Zemin tabakasının yük altındaki konsolidasyon oturmasını (settlement) hesaplar.",
+  "shortcode": "[hc_zemin_oturmasi_hesaplama]"
+}

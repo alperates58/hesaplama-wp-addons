@@ -1,0 +1,5 @@
+{
+  "name": "Trafo Gücü Hesaplama",
+  "desc": "Tek veya üç fazlı transformatörlerin görünür gücünü (kVA) akım ve gerilim değerlerine göre hesaplar.",
+  "shortcode": "[hc_trafo_gucu_hesaplama]"
+}

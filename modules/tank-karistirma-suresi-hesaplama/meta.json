@@ -1,0 +1,5 @@
+{
+  "name": "Tank Karıştırma Süresi Hesaplama",
+  "desc": "Endüstriyel tanklarda homojen bir karışım elde etmek için gereken süreyi tank hacmi ve debiye göre hesaplar.",
+  "shortcode": "[hc_tank_karistirma_suresi_hesaplama]"
+}

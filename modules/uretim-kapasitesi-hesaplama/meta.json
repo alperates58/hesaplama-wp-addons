@@ -1,0 +1,5 @@
+{
+  "name": "Üretim Kapasitesi Hesaplama",
+  "desc": "Belirli bir sürede üretilebilecek maksimum ürün miktarını çevrim süresi ve verimliliğe göre hesaplar.",
+  "shortcode": "[hc_uretim_kapasitesi_hesaplama]"
+}

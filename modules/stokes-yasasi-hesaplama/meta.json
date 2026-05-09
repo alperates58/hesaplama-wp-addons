@@ -1,0 +1,5 @@
+{
+  "name": "Stokes Yasası Hesaplama",
+  "desc": "Akışkanlar mekaniğinde, küçük bir kürenin akışkan içindeki çökelme hızını Stokes yasası ile hesaplar.",
+  "shortcode": "[hc_stokes_yasasi_hesaplama]"
+}

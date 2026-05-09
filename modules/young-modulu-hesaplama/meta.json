@@ -1,0 +1,5 @@
+{
+  "name": "Young Modülü Hesaplama",
+  "desc": "Bir malzemenin elastisite (Young) modülünü gerilme ve gerinim değerlerine göre hesaplar.",
+  "shortcode": "[hc_young_modulu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Rulman Ömrü Hesaplama",
+  "desc": "Mekanik sistemlerdeki rulmanların yük ve hız parametrelerine göre beklenen çalışma ömrünü (L10) hesaplar.",
+  "shortcode": "[hc_rulman_omru_hesaplama]"
+}

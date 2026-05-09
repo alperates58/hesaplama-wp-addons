@@ -1,0 +1,5 @@
+{
+  "name": "Zemin Emniyet Gerilmesi Hesaplama",
+  "desc": "Zeminin taşıma kapasitesini ve güvenli emniyet gerilmesini hesaplar.",
+  "shortcode": "[hc_zemin_emniyet_gerilmesi_hesaplama]"
+}

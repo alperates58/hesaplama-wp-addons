@@ -1,0 +1,5 @@
+{
+  "name": "Seri Bobin Hesaplama",
+  "desc": "Elektronik devrelerde seri bağlı bobinlerin (endüktansların) toplam eşdeğer endüktansını hesaplar.",
+  "shortcode": "[hc_seri_bobin_hesaplama]"
+}

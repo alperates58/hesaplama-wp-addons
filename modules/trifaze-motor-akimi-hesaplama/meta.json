@@ -1,0 +1,5 @@
+{
+  "name": "Trifaze Motor Akımı Hesaplama",
+  "desc": "Üç fazlı AC motorların çekeceği nominal akımı güç, gerilim ve güç faktörüne göre hesaplar.",
+  "shortcode": "[hc_trifaze_motor_akimi_hesaplama]"
+}

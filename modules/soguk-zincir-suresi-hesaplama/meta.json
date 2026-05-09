@@ -1,0 +1,5 @@
+{
+  "name": "Soğuk Zincir Süresi Hesaplama",
+  "desc": "Lojistikte, ürünlerin güvenli sıcaklık aralığında kalabileceği maksimum süreyi ortam sıcaklığı ve yalıtım özelliklerine göre hesaplar.",
+  "shortcode": "[hc_soguk_zincir_suresi_hesaplama]"
+}

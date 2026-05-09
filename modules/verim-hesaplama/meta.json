@@ -1,0 +1,5 @@
+{
+  "name": "Verim Hesaplama",
+  "desc": "Bir sistemin veya cihazın aldığı enerjiye karşılık ürettiği yararlı enerjinin oranını (verimlilik) hesaplar.",
+  "shortcode": "[hc_verim_hesaplama]"
+}

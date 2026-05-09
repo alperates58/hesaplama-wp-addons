@@ -1,0 +1,5 @@
+{
+  "name": "Veri Aktarım Süresi Hesaplama",
+  "desc": "Belirli boyuttaki bir dosyanın, mevcut internet veya ağ hızına göre ne kadar sürede indirileceğini hesaplar.",
+  "shortcode": "[hc_veri_aktarim_suresi_hesaplama]"
+}

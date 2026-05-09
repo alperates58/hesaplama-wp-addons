@@ -1,0 +1,5 @@
+{
+  "name": "Stall Hızı Hesaplama",
+  "desc": "Havacılıkta, bir hava aracının taşıma kuvvetini kaybedip perdövitese (stall) girdiği minimum hızı hesaplar.",
+  "shortcode": "[hc_stall_hizi_hesaplama]"
+}

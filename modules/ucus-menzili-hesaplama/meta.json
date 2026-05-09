@@ -1,0 +1,5 @@
+{
+  "name": "Uçuş Menzili Hesaplama",
+  "desc": "Hava araçları için yakıt miktarı, tüketim oranı ve hıza göre maksimum uçuş menzilini hesaplar.",
+  "shortcode": "[hc_ucus_menzili_hesaplama]"
+}

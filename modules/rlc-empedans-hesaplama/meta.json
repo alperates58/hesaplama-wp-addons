@@ -1,0 +1,5 @@
+{
+  "name": "RLC Empedans Hesaplama",
+  "desc": "Alternatif akım devrelerinde seri bağlı direnç (R), bobin (L) ve kondansatörün (C) toplam empedansını ve faz açısını hesaplar.",
+  "shortcode": "[hc_rlc_empedans_hesaplama]"
+}

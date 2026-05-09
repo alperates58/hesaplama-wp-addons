@@ -1,0 +1,5 @@
+{
+  "name": "Temel Taşıma Gücü Hesaplama",
+  "desc": "Zemin mekaniğinde, yüzeysel temellerin nihai taşıma kapasitesini Terzaghi formülüyle hesaplar.",
+  "shortcode": "[hc_temel_tasima_gucu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "RLC Devresi Hesaplama",
+  "desc": "RLC devrelerinde rezonans frekansı, Q faktörü ve bant genişliği gibi kritik devre parametrelerini hesaplar.",
+  "shortcode": "[hc_rlc_devresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Van der Waals Denklemi Hesaplama",
+  "desc": "Gerçek gazların basınç, hacim ve sıcaklık ilişkisini Van der Waals düzeltme katsayılarıyla hesaplar.",
+  "shortcode": "[hc_van_der_waals_denklemi_hesaplama]"
+}

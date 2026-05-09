@@ -1,0 +1,5 @@
+{
+  "name": "Rockwell Sertlik Dönüşümü Hesaplama",
+  "desc": "Malzeme biliminde Rockwell (HRC/HRB) sertlik değerlerini Brinell (HB) ve Vickers (HV) sertlik birimlerine dönüştürür.",
+  "shortcode": "[hc_rockwell_sertlik_donusumu_hesaplama]"
+}

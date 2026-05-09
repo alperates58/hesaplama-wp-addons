@@ -1,0 +1,5 @@
+{
+  "name": "Sunucu Kapasitesi Hesaplama",
+  "desc": "Web sunucularının karşılayabileceği trafik yükünü, eşzamanlı kullanıcı sayısı ve sunucu gücüne göre hesaplar.",
+  "shortcode": "[hc_sunucu_kapasitesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Von Mises Gerilmesi Hesaplama",
+  "desc": "Malzeme biliminde, karmaşık gerilme durumlarını tek bir eşdeğer gerilmeye (Von Mises) dönüştürür.",
+  "shortcode": "[hc_von_mises_gerilmesi_hesaplama]"
+}

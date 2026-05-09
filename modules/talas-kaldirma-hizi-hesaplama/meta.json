@@ -1,0 +1,5 @@
+{
+  "name": "Talaş Kaldırma Hızı Hesaplama",
+  "desc": "Talaşlı imalatta kesme hızı, ilerleme ve kesme derinliğine göre birim zamandaki talaş kaldırma hacmini (MRR) hesaplar.",
+  "shortcode": "[hc_talas_kaldirma_hizi_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Sigma Seviyesi Hesaplama",
-  "desc": "Bir sürecin hata oranına (DPMO) göre 6-Sigma ölçeğindeki başarı seviyesini hesaplar.",
+  "desc": "Altı Sigma (Six Sigma) metodolojisinde, bir sürecin hata oranına (DPMO) göre kalite seviyesini (Sigma) hesaplar.",
   "shortcode": "[hc_sigma_seviyesi_hesaplama]"
 }

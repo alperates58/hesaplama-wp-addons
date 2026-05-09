@@ -1,5 +1,5 @@
 {
-  "name": "Motor Sıkıştırma Oranı Hesaplama",
-  "desc": "Silindir hacmi ve yanma odası hacmini kullanarak motorun sıkıştırma oranını hesaplayın.",
+  "name": "Sıkıştırma Oranı Hesaplama",
+  "desc": "İçten yanmalı motorlarda silindir hacmi ve yanma odası hacmine göre sıkıştırma oranını (Compression Ratio) hesaplar.",
   "shortcode": "[hc_sikistirma_orani_hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Transistör Bias Hesaplama",
+  "desc": "BJT transistörlü devrelerde gerilim bölücü bias devresinin çalışma noktası (Q-noktası) değerlerini hesaplar.",
+  "shortcode": "[hc_transistor_bias_hesaplama]"
+}

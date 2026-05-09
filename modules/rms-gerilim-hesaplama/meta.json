@@ -1,0 +1,5 @@
+{
+  "name": "RMS Gerilim Hesaplama",
+  "desc": "Alternatif akımda (AC), tepe gerilimi (Vp) veya tepeden tepeye gerilimi (Vpp) etkin RMS değerine dönüştürür.",
+  "shortcode": "[hc_rms_gerilim_hesaplama]"
+}

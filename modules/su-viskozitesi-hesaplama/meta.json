@@ -1,0 +1,5 @@
+{
+  "name": "Su Viskozitesi Hesaplama",
+  "desc": "Sıcaklığa bağlı olarak suyun dinamik ve kinematik viskozitesini hassas bir şekilde hesaplar.",
+  "shortcode": "[hc_su_viskozitesi_hesaplama]"
+}

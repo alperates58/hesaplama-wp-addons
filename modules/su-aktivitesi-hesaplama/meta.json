@@ -1,0 +1,5 @@
+{
+  "name": "Su Aktivitesi Hesaplama",
+  "desc": "Gıda biliminde, ürünün dengeli bağıl nemine (ERH) göre su aktivitesini (aw) hesaplar.",
+  "shortcode": "[hc_su_aktivitesi_hesaplama]"
+}

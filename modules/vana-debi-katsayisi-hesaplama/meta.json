@@ -1,0 +1,5 @@
+{
+  "name": "Vana Debi Katsayısı Hesaplama",
+  "desc": "Vanadan geçen akış miktarını ve basınç kaybını belirleyen Cv katsayısını hesaplar.",
+  "shortcode": "[hc_vana_debi_katsayisi_hesaplama]"
+}

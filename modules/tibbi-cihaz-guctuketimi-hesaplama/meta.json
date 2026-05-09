@@ -1,0 +1,5 @@
+{
+  "name": "Tıbbi Cihaz Güç Tüketimi Hesaplama",
+  "desc": "Tıbbi cihazların çalışma süresine göre tükettiği toplam elektrik enerjisini ve maliyetini hesaplar.",
+  "shortcode": "[hc_tibbi_cihaz_guctuketimi_hesaplama]"
+}

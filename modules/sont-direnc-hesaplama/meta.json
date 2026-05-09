@@ -1,0 +1,5 @@
+{
+  "name": "Şönt Direnç Hesaplama",
+  "desc": "Bir ampermetrenin ölçüm aralığını genişletmek için gereken şönt direnç değerini hesaplar.",
+  "shortcode": "[hc_sont_direnc_hesaplama]"
+}

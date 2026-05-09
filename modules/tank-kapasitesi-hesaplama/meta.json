@@ -1,0 +1,5 @@
+{
+  "name": "Tank Kapasitesi Hesaplama",
+  "desc": "Silindirik veya dikdörtgen prizma şeklindeki tankların toplam hacmini ve sıvı kapasitesini hesaplar.",
+  "shortcode": "[hc_tank_kapasitesi_hesaplama]"
+}

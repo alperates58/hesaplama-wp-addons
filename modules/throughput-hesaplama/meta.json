@@ -1,0 +1,5 @@
+{
+  "name": "Throughput Hesaplama",
+  "desc": "Bir sistemin veya ağın birim zamanda başarıyla ilettiği veya işlediği toplam veri miktarını hesaplar.",
+  "shortcode": "[hc_throughput_hesaplama]"
+}

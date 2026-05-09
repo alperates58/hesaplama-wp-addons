@@ -1,0 +1,5 @@
+{
+  "name": "Üretim Hattı Kapasitesi Hesaplama",
+  "desc": "Birden fazla istasyondan oluşan bir üretim hattının, en yavaş istasyonu (darboğaz) baz alarak kapasitesini hesaplar.",
+  "shortcode": "[hc_uretim_hatti_kapasitesi_hesaplama]"
+}

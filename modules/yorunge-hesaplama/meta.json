@@ -1,0 +1,5 @@
+{
+  "name": "Yörünge Hesaplama",
+  "desc": "Bir cismin bir gezegen etrafındaki yörünge hızını ve periyodunu hesaplar.",
+  "shortcode": "[hc_yorunge_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yağmur Suyu Yönetimi Hesaplama",
+  "desc": "Çatı alanı ve yağış miktarına göre toplanabilecek yağmur suyu miktarını hesaplar.",
+  "shortcode": "[hc_yagmur_suyu_yonetimi_hesaplama]"
+}

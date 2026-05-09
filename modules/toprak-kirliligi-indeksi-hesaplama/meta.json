@@ -1,0 +1,5 @@
+{
+  "name": "Toprak Kirliliği İndeksi Hesaplama",
+  "desc": "Topraktaki ağır metal veya kimyasal konsantrasyonunu limit değerlerle karşılaştırarak kirlilik indeksini (PI) hesaplar.",
+  "shortcode": "[hc_toprak_kirliligi_indeksi_hesaplama]"
+}

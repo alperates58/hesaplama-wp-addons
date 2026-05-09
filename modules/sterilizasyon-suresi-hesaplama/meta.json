@@ -1,0 +1,5 @@
+{
+  "name": "Sterilizasyon Süresi Hesaplama",
+  "desc": "Gıda ve tıp endüstrisinde, mikroorganizma inaktivasyonu için gereken eşdeğer sterilizasyon süresini (F0) hesaplar.",
+  "shortcode": "[hc_sterilizasyon_suresi_hesaplama]"
+}

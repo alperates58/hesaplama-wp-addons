@@ -1,0 +1,5 @@
+{
+  "name": "Volttan Elektronvolta Hesaplama",
+  "desc": "Elektriksel potansiyel farkı (Volt), bir elektronun kazandığı enerjiye (eV) dönüştürür.",
+  "shortcode": "[hc_volttan_elektronvolta_hesaplama]"
+}

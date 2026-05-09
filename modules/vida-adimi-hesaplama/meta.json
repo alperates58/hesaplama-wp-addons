@@ -1,0 +1,5 @@
+{
+  "name": "Vida Adımı Hesaplama",
+  "desc": "Vidanın bir tam turda ne kadar ilerleyeceğini (vida adımı / pitch) diş sayısı ve mesafeye göre hesaplar.",
+  "shortcode": "[hc_vida_adimi_hesaplama]"
+}

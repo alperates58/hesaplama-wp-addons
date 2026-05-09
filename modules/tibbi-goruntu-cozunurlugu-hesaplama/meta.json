@@ -1,0 +1,5 @@
+{
+  "name": "Tıbbi Görüntü Çözünürlüğü Hesaplama",
+  "desc": "BT, MRG veya Röntgen görüntülerinde FOV ve matris boyutuna göre piksel büyüklüğünü hesaplar.",
+  "shortcode": "[hc_tibbi_goruntu_cozunurlugu_hesaplama]"
+}

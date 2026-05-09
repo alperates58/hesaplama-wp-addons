@@ -1,0 +1,5 @@
+{
+  "name": "Takım Ömrü Hesaplama",
+  "desc": "Talaşlı imalatta kesici takımın ömrünü, kesme hızı ve Taylor denklemi katsayılarına göre tahmin eder.",
+  "shortcode": "[hc_takim_omru_hesaplama]"
+}

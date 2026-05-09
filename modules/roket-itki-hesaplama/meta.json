@@ -1,0 +1,5 @@
+{
+  "name": "Roket İtki Hesaplama",
+  "desc": "Roket motorlarının ürettiği itki kuvvetini (thrust), kütlesel debi ve egzoz hızı parametrelerine göre hesaplar.",
+  "shortcode": "[hc_roket_itki_hesaplama]"
+}

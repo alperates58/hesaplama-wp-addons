@@ -1,0 +1,5 @@
+{
+  "name": "Video Bit Hızı Hesaplama",
+  "desc": "Video dosyasının kalitesini ve boyutunu belirleyen bit hızını (bitrate) çözünürlük ve kare hızına göre hesaplar.",
+  "shortcode": "[hc_video_bit_hizi_hesaplama]"
+}

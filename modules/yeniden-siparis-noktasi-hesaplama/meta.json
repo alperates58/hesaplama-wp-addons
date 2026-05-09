@@ -1,0 +1,5 @@
+{
+  "name": "Yeniden Sipariş Noktası Hesaplama",
+  "desc": "Stok yönetiminde, yeni bir siparişin verilmesi gereken en düşük stok seviyesini hesaplar.",
+  "shortcode": "[hc_yeniden_siparis_noktasi_hesaplama]"
+}

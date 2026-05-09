@@ -1,0 +1,5 @@
+{
+  "name": "Yol Eğim Hesaplama",
+  "desc": "Yükseklik farkı ve yatay mesafeye göre yolun eğim yüzdesini ve açısını hesaplar.",
+  "shortcode": "[hc_yol_egim_hesaplama]"
+}

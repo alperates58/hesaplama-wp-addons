@@ -1,0 +1,5 @@
+{
+  "name": "Seri Kondansatör Hesaplama",
+  "desc": "Elektronik devrelerde seri bağlı kondansatörlerin toplam eşdeğer kapasitansını hesaplar.",
+  "shortcode": "[hc_seri_kondansator_hesaplama]"
+}

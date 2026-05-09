@@ -1,0 +1,5 @@
+{
+  "name": "Tabakalı Zemin Gerilmesi Hesaplama",
+  "desc": "Farklı yoğunluklara sahip zemin katmanlarının belirli bir derinlikte oluşturduğu toplam düşey gerilmeyi hesaplar.",
+  "shortcode": "[hc_tabakali_zemin_gerilmesi_hesaplama]"
+}

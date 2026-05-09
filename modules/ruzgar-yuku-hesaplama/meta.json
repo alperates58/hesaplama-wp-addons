@@ -1,0 +1,5 @@
+{
+  "name": "Rüzgar Yükü Hesaplama",
+  "desc": "Yapısal tasarımda, rüzgar hızı ve bina özelliklerine göre yüzeye etki eden rüzgar basıncını (yükünü) hesaplar.",
+  "shortcode": "[hc_ruzgar_yuku_hesaplama]"
+}
