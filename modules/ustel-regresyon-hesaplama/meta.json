@@ -1,0 +1,5 @@
+{
+  "name": "Üstel Regresyon Hesaplama",
+  "desc": "Veri setindeki x ve y değerleri arasındaki üstel ilişkiyi (y = a * e^(bx)) analiz eder.",
+  "shortcode": "[hc_ustel_regresyon_hesaplama]"
+}

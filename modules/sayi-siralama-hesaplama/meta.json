@@ -1,0 +1,5 @@
+{
+  "name": "Sayı Sıralama Hesaplama",
+  "desc": "Verilen sayı dizisini belirtilen kriterlere göre düzenler ve analiz eder.",
+  "shortcode": "[hc_sayi_siralama_hesaplama]"
+}

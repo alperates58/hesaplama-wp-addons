@@ -1,0 +1,5 @@
+{
+  "name": "Yanlış Pozitif Oranı Hesaplama",
+  "desc": "Bir testin özgüllük değerine dayanarak, sağlıklı bireylerin yanlışlıkla hasta olarak sınıflandırılma oranını hesaplar.",
+  "shortcode": "[hc_yanlis_pozitif_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yayılım Ölçüleri Hesaplama",
+  "desc": "Bir veri setinin açıklık (range), varyans, standart sapma ve değişim katsayısı gibi yayılım değerlerini hesaplar.",
+  "shortcode": "[hc_yayilim_olculeri_hesaplama]"
+}

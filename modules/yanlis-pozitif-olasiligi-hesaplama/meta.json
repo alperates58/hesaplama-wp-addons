@@ -1,0 +1,5 @@
+{
+  "name": "Yanlış Pozitif Olasılığı Hesaplama",
+  "desc": "Bayes teoremini kullanarak, pozitif çıkan bir test sonucunun gerçekten pozitif olma (veya yanlış pozitif olma) olasılığını hesaplar.",
+  "shortcode": "[hc_yanlis_pozitif_olasiligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Varyans Hesaplama",
+  "desc": "Bir veri setindeki değerlerin ortalamadan ne kadar uzaklaştığını (değişkenliğini) hesaplar.",
+  "shortcode": "[hc_varyans_hesaplama]"
+}

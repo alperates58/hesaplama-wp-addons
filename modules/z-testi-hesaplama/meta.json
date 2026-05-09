@@ -1,0 +1,5 @@
+{
+  "name": "Z Testi Hesaplama",
+  "desc": "Örneklem ortalamasının, bilinen bir popülasyon ortalamasından anlamlı şekilde farklı olup olmadığını test eder.",
+  "shortcode": "[hc_z_testi_hesaplama]"
+}

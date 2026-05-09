@@ -1,0 +1,5 @@
+{
+  "name": "Tekrarsız Permütasyon Hesaplama",
+  "desc": "n elemanlı bir kümeden seçilen r elemanın sıralı diziliş (permütasyon) sayısını hesaplar.",
+  "shortcode": "[hc_tekrarsiz_permutasyon_hesaplama]"
+}

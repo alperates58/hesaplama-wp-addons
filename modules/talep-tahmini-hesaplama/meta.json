@@ -1,0 +1,5 @@
+{
+  "name": "Talep Tahmini Hesaplama",
+  "desc": "Geçmiş dönem verilerini kullanarak basit hareketli ortalama (SMA) yöntemiyle gelecek dönem talebini tahmin eder.",
+  "shortcode": "[hc_talep_tahmini_hesaplama]"
+}

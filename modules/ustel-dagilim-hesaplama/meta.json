@@ -1,0 +1,5 @@
+{
+  "name": "Üstel Dağılım Hesaplama",
+  "desc": "Olaylar arasındaki zaman aralığını modelleyen Üstel (Exponential) dağılımın olasılık değerlerini hesaplar.",
+  "shortcode": "[hc_ustel_dagilim_hesaplama]"
+}

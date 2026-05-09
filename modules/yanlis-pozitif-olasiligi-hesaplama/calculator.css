@@ -1,0 +1,8 @@
+#hc-false-pos-prob .hc-result-value {
+    color: #27ae60;
+}
+#hc-false-pos-prob .hc-fpp-note {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 15px;
+}

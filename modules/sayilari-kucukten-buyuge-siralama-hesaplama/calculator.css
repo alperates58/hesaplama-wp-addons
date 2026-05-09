@@ -1,0 +1,11 @@
+.hc-sa-stats {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #7f8c8d;
+}
+#hc-sort-asc textarea[readonly] {
+    background: #fdfdfd;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.4;
+}

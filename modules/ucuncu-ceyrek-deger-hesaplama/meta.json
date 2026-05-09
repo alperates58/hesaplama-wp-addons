@@ -1,0 +1,5 @@
+{
+  "name": "Üçüncü Çeyrek Değer Hesaplama",
+  "desc": "Bir veri setindeki değerlerin %75'inin altında kaldığı nokta olan Üçüncü Çeyrek (Q3) değerini hesaplar.",
+  "shortcode": "[hc_ucuncu_ceyrek_deger_hesaplama]"
+}

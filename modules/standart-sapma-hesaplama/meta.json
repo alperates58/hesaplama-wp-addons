@@ -1,0 +1,5 @@
+{
+  "name": "Standart Sapma Hesaplama",
+  "desc": "Veri setindeki değerlerin ortalamaya göre ne kadar yayıldığını (popülasyon veya örneklem) hesaplar.",
+  "shortcode": "[hc_standart_sapma_hesaplama]"
+}

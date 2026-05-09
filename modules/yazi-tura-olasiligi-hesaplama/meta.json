@@ -1,0 +1,5 @@
+{
+  "name": "Yazı Tura Olasılığı Hesaplama",
+  "desc": "Toplam atış sayısı ve hedeflenen Yazı/Tura sayısına göre binom olasılığını hesaplar.",
+  "shortcode": "[hc_yazi_tura_olasiligi_hesaplama]"
+}

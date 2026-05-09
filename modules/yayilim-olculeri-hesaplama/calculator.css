@@ -1,0 +1,22 @@
+#hc-dispersion .hc-do-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+#hc-dispersion .hc-do-item {
+    background: #f4f7f6;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e0e6e4;
+}
+#hc-dispersion .hc-do-item span {
+    display: block;
+    font-size: 11px;
+    color: #7f8c8d;
+}
+#hc-dispersion .hc-do-item b {
+    font-size: 18px;
+    color: #16a085;
+}

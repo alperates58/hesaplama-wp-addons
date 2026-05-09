@@ -1,0 +1,5 @@
+{
+  "name": "Verimlilik Oranı Hesaplama",
+  "desc": "Belirli bir girdiye karşılık elde edilen çıktı miktarını analiz ederek verimlilik yüzdesini hesaplar.",
+  "shortcode": "[hc_verimlilik_orani_hesaplama]"
+}

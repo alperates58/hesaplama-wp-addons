@@ -1,0 +1,10 @@
+#hc-cubic-reg .hc-result-value {
+    color: #2980b9;
+    font-size: 14px;
+}
+.hc-cr-coefs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Spearman Sıra Korelasyonu Hesaplama",
+  "desc": "İki değişken arasındaki ilişkinin ne kadar iyi bir monotonik fonksiyonla açıklanabileceğini (sıralamalar üzerinden) hesaplar.",
+  "shortcode": "[hc_spearman_sira_korelasyonu_hesaplama]"
+}

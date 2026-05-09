@@ -1,0 +1,5 @@
+{
+  "name": "Ret Oranı Hesaplama",
+  "desc": "Üretim veya süreç yönetiminde, toplam çıktı içerisindeki hatalı (ret) ürünlerin yüzdesini hesaplar.",
+  "shortcode": "[hc_ret_orani_hesaplama]"
+}

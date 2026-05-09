@@ -1,0 +1,5 @@
+{
+  "name": "Wilcoxon Sıra Toplamı Testi Hesaplama",
+  "desc": "İki bağımsız grubun medyanları arasında anlamlı fark olup olmadığını test eden parametrik olmayan bir araçtır.",
+  "shortcode": "[hc_wilcoxon_sira_toplami_testi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "VEYA Olasılığı Hesaplama",
+  "desc": "İki olayın en az birinin gerçekleşme (VEYA) olasılığını, bağımlı veya bağımsız olma durumuna göre hesaplar.",
+  "shortcode": "[hc_veya_olasiligi_hesaplama]"
+}

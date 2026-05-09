@@ -1,0 +1,5 @@
+{
+  "name": "Tekrarsız Kombinasyon Hesaplama",
+  "desc": "n elemanlı bir kümeden seçilen r elemanın sırasız gruplanma (kombinasyon) sayısını hesaplar.",
+  "shortcode": "[hc_tekrarsiz_kombinasyon_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Zar Ortalama Değer Hesaplama",
+  "desc": "Zar sayısına ve zarın yüzey sayısına göre beklenen (ortalama) toplam değeri hesaplar.",
+  "shortcode": "[hc_zar_ortalama_deger_hesaplama]"
+}

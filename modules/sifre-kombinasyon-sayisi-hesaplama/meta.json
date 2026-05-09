@@ -1,0 +1,5 @@
+{
+  "name": "Şifre Kombinasyon Sayısı Hesaplama",
+  "desc": "Şifre uzunluğu ve kullanılan karakter setine göre kaç farklı şifre kombinasyonu oluşturulabileceğini hesaplar.",
+  "shortcode": "[hc_sifre_kombinasyon_sayisi_hesaplama]"
+}

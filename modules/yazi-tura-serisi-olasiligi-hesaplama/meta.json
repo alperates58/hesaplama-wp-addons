@@ -1,0 +1,5 @@
+{
+  "name": "Yazı Tura Serisi Olasılığı Hesaplama",
+  "desc": "Belirli bir sayıda ardışık Yazı veya Tura gelme olasılığını hesaplar.",
+  "shortcode": "[hc_yazi_tura_serisi_olasiligi_hesaplama]"
+}

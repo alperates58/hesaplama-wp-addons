@@ -1,0 +1,5 @@
+{
+  "name": "Tekrarlı Permütasyon Hesaplama",
+  "desc": "Belirli elemanların tekrar ettiği bir kümede, tüm elemanların farklı diziliş sayılarını hesaplar.",
+  "shortcode": "[hc_tekrarli_permutasyon_hesaplama]"
+}

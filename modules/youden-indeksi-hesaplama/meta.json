@@ -1,0 +1,5 @@
+{
+  "name": "Youden İndeksi Hesaplama",
+  "desc": "Bir tanı testinin etkinliğini (duyarlılık ve özgüllük toplamı) ölçen istatistiksel değeri hesaplar.",
+  "shortcode": "[hc_youden_indeksi_hesaplama]"
+}

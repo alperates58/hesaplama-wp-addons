@@ -1,0 +1,5 @@
+{
+  "name": "Uniform Dağılım Hesaplama",
+  "desc": "Belirli bir aralıktaki tüm değerlerin eşit olasılığa sahip olduğu Sürekli Uniform Dağılım olasılıklarını hesaplar.",
+  "shortcode": "[hc_uniform_dagilim_hesaplama]"
+}

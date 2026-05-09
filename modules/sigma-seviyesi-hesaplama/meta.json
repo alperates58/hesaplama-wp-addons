@@ -1,0 +1,5 @@
+{
+  "name": "Sigma Seviyesi Hesaplama",
+  "desc": "Bir sürecin hata oranına (DPMO) göre 6-Sigma ölçeğindeki başarı seviyesini hesaplar.",
+  "shortcode": "[hc_sigma_seviyesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Üçüncü Derece Regresyon Hesaplama",
+  "desc": "Veri setindeki x ve y değerleri arasındaki kübik (3. derece) ilişkiyi (y = ax³ + bx² + cx + d) analiz eder.",
+  "shortcode": "[hc_ucuncu_derece_regresyon_hesaplama]"
+}

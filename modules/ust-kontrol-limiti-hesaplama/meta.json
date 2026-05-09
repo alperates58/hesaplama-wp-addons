@@ -1,0 +1,5 @@
+{
+  "name": "Üst Kontrol Limiti Hesaplama",
+  "desc": "İstatistiksel süreç kontrolünde, bir sürecin değişkenlik sınırını (genellikle 3-sigma) temsil eden Üst Kontrol Limitini (UCL) hesaplar.",
+  "shortcode": "[hc_ust_kontrol_limiti_hesaplama]"
+}

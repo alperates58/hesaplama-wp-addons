@@ -1,0 +1,5 @@
+{
+  "name": "VE Olasılığı Hesaplama",
+  "desc": "İki olayın aynı anda gerçekleşme (VE) olasılığını, bağımlı veya bağımsız olma durumuna göre hesaplar.",
+  "shortcode": "[hc_ve_olasiligi_hesaplama]"
+}

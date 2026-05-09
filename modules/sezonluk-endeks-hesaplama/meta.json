@@ -1,0 +1,5 @@
+{
+  "name": "Sezonluk Endeks Hesaplama",
+  "desc": "Satış veya talep verilerindeki mevsimsel dalgalanmaları ölçmek için sezonluk endeks değerlerini hesaplar.",
+  "shortcode": "[hc_sezonluk_endeks_hesaplama]"
+}

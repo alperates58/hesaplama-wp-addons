@@ -1,0 +1,5 @@
+{
+  "name": "Test Sonrası Olasılık Hesaplama",
+  "desc": "Tanısal testlerde, test sonucunun pozitif çıkmasından sonra gerçek hastalık olasılığını (Post-test Probability) hesaplar.",
+  "shortcode": "[hc_test_sonrasi_olasilik_hesaplama]"
+}

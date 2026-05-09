@@ -1,0 +1,5 @@
+{
+  "name": "Serbestlik Derecesi Hesaplama",
+  "desc": "İstatistiksel analizlerde (T-testi, Varyans vb.) kullanılan serbestlik derecesi (Degrees of Freedom) değerini hesaplar.",
+  "shortcode": "[hc_serbestlik_derecesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Üst Aykırı Değer Sınırı Hesaplama",
+  "desc": "Tukey yöntemi kullanarak (Çeyrekler arası açıklık üzerinden), bir veri setindeki potansiyel aykırı değerleri belirleyen üst sınırı hesaplar.",
+  "shortcode": "[hc_ust_aykiri_deger_siniri_hesaplama]"
+}

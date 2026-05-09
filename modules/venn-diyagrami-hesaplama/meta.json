@@ -1,0 +1,5 @@
+{
+  "name": "Venn Diyagramı Hesaplama",
+  "desc": "İki kümenin eleman sayılarına ve kesişimine göre birleşim ve fark değerlerini hesaplar.",
+  "shortcode": "[hc_venn_diyagrami_hesaplama]"
+}

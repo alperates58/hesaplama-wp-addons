@@ -1,0 +1,5 @@
+{
+  "name": "Xbar-R Kontrol Grafiği Hesaplama",
+  "desc": "Kalite kontrol süreçlerinde süreç kararlılığını izlemek için ortalama (Xbar) ve açıklık (R) kontrol limitlerini hesaplar.",
+  "shortcode": "[hc_xbar_r_kontrol_grafigi_hesaplama]"
+}

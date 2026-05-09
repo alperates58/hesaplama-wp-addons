@@ -1,0 +1,5 @@
+{
+  "name": "Ters Normal Dağılım Hesaplama",
+  "desc": "Verilen bir olasılık değerine (alan) karşılık gelen Z-skoru değerini hesaplar.",
+  "shortcode": "[hc_ters_normal_dagilim_hesaplama]"
+}

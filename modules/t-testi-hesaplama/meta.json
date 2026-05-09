@@ -1,0 +1,5 @@
+{
+  "name": "T Testi Hesaplama",
+  "desc": "Örneklem ortalamasının, bilinen veya varsayılan bir popülasyon ortalamasından anlamlı şekilde farklı olup olmadığını test eder (tek örneklem T-testi).",
+  "shortcode": "[hc_t_testi_hesaplama]"
+}

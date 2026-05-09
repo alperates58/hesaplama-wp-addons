@@ -1,0 +1,8 @@
+#hc-risk-calc .hc-result-value {
+    font-size: 32px;
+}
+.hc-ri-level {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}

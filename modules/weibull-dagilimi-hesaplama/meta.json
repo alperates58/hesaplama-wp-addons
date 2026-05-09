@@ -1,0 +1,5 @@
+{
+  "name": "Weibull Dağılımı Hesaplama",
+  "desc": "Güvenilirlik ve ömür analizlerinde kullanılan Weibull olasılık yoğunluk fonksiyonu değerlerini hesaplar.",
+  "shortcode": "[hc_weibull_dagilimi_hesaplama]"
+}

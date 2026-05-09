@@ -1,0 +1,16 @@
+.hc-pc-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+.hc-pc-checks label {
+    font-size: 13px;
+    cursor: pointer;
+}
+#hc-pass-comb .hc-result-value {
+    color: #c0392b;
+    font-size: 22px;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Üç Olay Olasılığı Hesaplama",
+  "desc": "Üç farklı bağımsız olayın aynı anda (A VE B VE C) gerçekleşme olasılığını hesaplar.",
+  "shortcode": "[hc_uc_olay_olasiligi_hesaplama]"
+}

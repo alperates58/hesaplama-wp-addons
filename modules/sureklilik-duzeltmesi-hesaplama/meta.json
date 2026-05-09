@@ -1,0 +1,5 @@
+{
+  "name": "Süreklilik Düzeltmesi Hesaplama",
+  "desc": "Kesikli olasılık dağılımlarını (binom vb.) normal dağılımla yaklaşık olarak hesaplarken kullanılan Yates süreklilik düzeltmesini uygular.",
+  "shortcode": "[hc_sureklilik_duzeltmesi_hesaplama]"
+}

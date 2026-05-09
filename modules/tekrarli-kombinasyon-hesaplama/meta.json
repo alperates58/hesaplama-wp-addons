@@ -1,0 +1,5 @@
+{
+  "name": "Tekrarlı Kombinasyon Hesaplama",
+  "desc": "Elemanların birden fazla kez seçilebildiği durumlarda n eleman arasından r elemanın kaç farklı şekilde seçilebileceğini hesaplar.",
+  "shortcode": "[hc_tekrarli_kombinasyon_hesaplama]"
+}

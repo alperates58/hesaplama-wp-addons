@@ -1,0 +1,5 @@
+{
+  "name": "Sınıf Aralığı Genişliği Hesaplama",
+  "desc": "Veri setindeki minimum ve maksimum değerlere göre histogram oluşturmak için ideal sınıf aralığı genişliğini hesaplar.",
+  "shortcode": "[hc_sinif_araligi_genisligi_hesaplama]"
+}

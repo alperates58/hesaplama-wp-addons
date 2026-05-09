@@ -1,0 +1,5 @@
+{
+  "name": "T İstatistiği Hesaplama",
+  "desc": "Örneklem verileri üzerinden T-değerini ve serbestlik derecesini hesaplar.",
+  "shortcode": "[hc_t_istatistigi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Sayıları Küçükten Büyüğe Sıralama Hesaplama",
+  "desc": "Karışık olarak verilen sayı listesini anında küçükten büyüğe (veya tam tersi) sıralar.",
+  "shortcode": "[hc_sayilari_kucukten_buyuge_siralama_hesaplama]"
+}

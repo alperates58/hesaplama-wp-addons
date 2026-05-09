@@ -1,0 +1,5 @@
+{
+  "name": "Risk Hesaplama",
+  "desc": "Bir olayın gerçekleşme olasılığı ve yaratacağı etki (şiddet) üzerinden risk puanını hesaplar.",
+  "shortcode": "[hc_risk_hesaplama]"
+}

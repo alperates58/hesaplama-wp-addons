@@ -1,0 +1,5 @@
+{
+  "name": "Standart Hata Hesaplama",
+  "desc": "Örneklem ortalamasının, popülasyon ortalamasından ne kadar sapma gösterebileceğini (Standart Hata) hesaplar.",
+  "shortcode": "[hc_standart_hata_hesaplama]"
+}

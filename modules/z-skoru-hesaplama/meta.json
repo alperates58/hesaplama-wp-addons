@@ -1,0 +1,5 @@
+{
+  "name": "Z Skoru Hesaplama",
+  "desc": "Bir veri değerinin ortalamadan kaç standart sapma uzakta olduğunu hesaplar (standartlaştırma).",
+  "shortcode": "[hc_z_skoru_hesaplama]"
+}

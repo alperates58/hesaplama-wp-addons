@@ -1,0 +1,5 @@
+{
+  "name": "Varyasyon Katsayısı Hesaplama",
+  "desc": "Standart sapmanın ortalamaya oranını (CV) hesaplayarak verilerin göreli değişkenliğini ölçer.",
+  "shortcode": "[hc_varyasyon_katsayisi_hesaplama]"
+}
