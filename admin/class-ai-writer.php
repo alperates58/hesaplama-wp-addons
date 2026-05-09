@@ -248,6 +248,8 @@ class HC_AI_Writer {
 
         if ( $slug && ! empty( $category_result['label'] ) ) {
             HC_Module_Inventory::save_module_category_assignment( $slug, $category_result['label'] );
+        } else {
+            HC_Module_Inventory::invalidate_caches();
         }
 
         $existing = get_page_by_title( $name, OBJECT, 'post' );
@@ -265,6 +267,8 @@ class HC_AI_Writer {
                     ]
                 );
             }
+
+            HC_Module_Inventory::invalidate_caches();
 
             wp_send_json_success( [
                 'post_id'  => $existing->ID,
@@ -289,6 +293,8 @@ class HC_AI_Writer {
         if ( is_wp_error( $post_id ) ) {
             wp_send_json_error( $post_id->get_error_message() );
         }
+
+        HC_Module_Inventory::invalidate_caches();
 
         wp_send_json_success( [
             'post_id'  => $post_id,
