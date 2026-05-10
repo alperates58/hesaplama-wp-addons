@@ -1,0 +1,5 @@
+{
+  "name": "Yıllık Kilo Değişimi Hesaplama",
+  "desc": "Günlük kalori dengenize göre bir yıl sonundaki tahmini kilo değişimini hesaplar.",
+  "shortcode": "[hc_yillik_kilo_degisimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yağsız Vücut Kütlesi Hesaplama",
+  "desc": "Toplam kilonuzdan yağ miktarını çıkararak net yağsız kütlenizi (LBM) hesaplar.",
+  "shortcode": "[hc_yagsiz_vucut_kutlesi_hesaplama]"
+}

@@ -1,0 +1,12 @@
+.hc-sp-card {
+    padding: 20px;
+    background: rgba(var(--hc-primary-rgb), 0.05);
+    border-radius: 12px;
+    text-align: center;
+}
+.hc-sp-card strong {
+    font-size: 1.5rem;
+    color: var(--hc-primary);
+    display: block;
+    margin-bottom: 10px;
+}

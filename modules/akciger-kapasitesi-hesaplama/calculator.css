@@ -1,0 +1,13 @@
+#hc-akciger-kapasitesi .hc-result-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: rgba(var(--hc-primary-rgb), 0.05);
+    border-radius: 4px;
+}
+
+#hc-akciger-kapasitesi .hc-result-value {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--hc-primary);
+    margin-top: 5px;
+}

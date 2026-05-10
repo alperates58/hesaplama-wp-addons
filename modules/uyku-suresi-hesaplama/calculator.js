@@ -1,26 +1,39 @@
-function hcSleepTimeHesapla() {
-    const wakeTime = document.getElementById('hc-wake-time').value;
-    if (!wakeTime) return;
+function hcUykuSuresiHesapla() {
+    const bedStr = document.getElementById('hc-us-bed').value;
+    const wakeStr = document.getElementById('hc-us-wake').value;
 
-    const [h, m] = wakeTime.split(':').map(Number);
-    const wakeDate = new Date();
-    wakeDate.setHours(h, m, 0);
+    if (!bedStr || !wakeStr) {
+        alert('Lütfen yatış ve uyanma saatlerini seçiniz.');
+        return;
+    }
 
-    const slotsContainer = document.getElementById('hc-res-sleep-slots');
-    slotsContainer.innerHTML = '';
+    const bed = new Date('2026-01-01T' + bedStr);
+    let wake = new Date('2026-01-01T' + wakeStr);
 
-    // 90 dakikalık 6, 5, 4 ve 3 döngüleri (sondan başa)
-    const cycles = [6, 5, 4, 3];
-    cycles.forEach(c => {
-        const sleepDate = new Date(wakeDate.getTime() - (c * 90 * 60000) - (15 * 60000));
-        const hh = sleepDate.getHours().toString().padStart(2, '0');
-        const mm = sleepDate.getMinutes().toString().padStart(2, '0');
-        
-        const slot = document.createElement('div');
-        slot.className = 'hc-sleep-slot';
-        slot.innerHTML = `<span>${hh}:${mm}</span><small>${c} Döngü (${(c * 1.5).toFixed(1)} Saat)</small>`;
-        slotsContainer.appendChild(slot);
-    });
+    if (wake <= bed) {
+        wake = new Date('2026-01-02T' + wakeStr);
+    }
 
-    document.getElementById('hc-sleep-time-result').classList.add('visible');
+    const diffMs = wake - bed;
+    const diffHrs = diffMs / (1000 * 60 * 60);
+    const hours = Math.floor(diffHrs);
+    const minutes = Math.round((diffHrs - hours) * 60);
+
+    const resVal = document.getElementById('hc-us-res-val');
+    const resDesc = document.getElementById('hc-us-res-desc');
+
+    resVal.innerText = hours + ' Saat ' + minutes + ' Dakika';
+
+    if (diffHrs < 7) {
+        resDesc.innerText = 'Yetersiz uyku. Yetişkinler için 7-9 saat önerilir.';
+        resDesc.style.color = '#e67e22';
+    } else if (diffHrs <= 9) {
+        resDesc.innerText = 'İdeal uyku süresi.';
+        resDesc.style.color = '#27ae60';
+    } else {
+        resDesc.innerText = 'Fazla uyku. Uzun süreli uyku bazı sağlık sorunlarının habercisi olabilir.';
+        resDesc.style.color = '#2980b9';
+    }
+
+    document.getElementById('hc-uyku-suresi-result').classList.add('visible');
 }

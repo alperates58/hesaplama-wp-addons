@@ -1,0 +1,29 @@
+.hc-cr-timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid var(--hc-primary);
+}
+.hc-cr-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+.hc-cr-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border: 2px solid var(--hc-primary);
+    border-radius: 50%;
+}
+.hc-cr-time {
+    font-weight: bold;
+    color: var(--hc-primary);
+}
+.hc-cr-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

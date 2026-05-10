@@ -1,0 +1,5 @@
+{
+  "name": "CURB-65 Pnömoni Skoru Hesaplama",
+  "desc": "Toplum kökenli pnömoni hastalarında mortalite riskini ve tedavi yerini belirler.",
+  "shortcode": "[hc_curb_65_pnomoni_skoru_hesaplama]"
+}

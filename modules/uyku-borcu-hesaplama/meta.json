@@ -1,0 +1,5 @@
+{
+  "name": "Uyku Borcu Hesaplama",
+  "desc": "İhtiyaç duyduğunuz uyku ile gerçek uykunuz arasındaki farkı hesaplar.",
+  "shortcode": "[hc_uyku_borcu_hesaplama]"
+}

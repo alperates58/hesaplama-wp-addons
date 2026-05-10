@@ -1,0 +1,5 @@
+{
+  "name": "Gebelikte Vücut Kitle İndeksi Hesaplama",
+  "desc": "Gebelik öncesi VKİ değerine göre gebelik süresince önerilen ideal kilo alımını hesaplar.",
+  "shortcode": "[hc_gebelikte_vucut_kitle_indeksi_hesaplama]"
+}

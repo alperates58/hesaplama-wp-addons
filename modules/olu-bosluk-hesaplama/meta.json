@@ -1,0 +1,5 @@
+{
+  "name": "Ölü Boşluk Hesaplama",
+  "desc": "Gaz değişimine katılmayan fizyolojik ölü boşluk oranını (Vd/Vt) hesaplar.",
+  "shortcode": "[hc_olu_bosluk_hesaplama]"
+}

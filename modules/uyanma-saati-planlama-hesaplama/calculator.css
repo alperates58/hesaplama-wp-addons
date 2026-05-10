@@ -1,0 +1,23 @@
+.hc-wp-list {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.hc-wp-item {
+    flex: 1;
+    min-width: 140px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+.hc-wp-item:hover {
+    border-color: var(--hc-primary);
+}
+.hc-wp-item strong {
+    font-size: 1.4rem;
+    color: var(--hc-primary);
+    display: block;
+}

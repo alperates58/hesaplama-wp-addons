@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Şekil İndeksi Hesaplama",
+  "desc": "Bel çevresi, boy ve VKİ değerlerini kullanarak merkezi obezite riskini (ABSI) hesaplar.",
+  "shortcode": "[hc_vucut_sekil_indeksi_hesaplama]"
+}

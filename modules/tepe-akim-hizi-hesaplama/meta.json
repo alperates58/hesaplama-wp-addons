@@ -1,0 +1,5 @@
+{
+  "name": "Tepe Akım Hızı Hesaplama",
+  "desc": "Yaş, boy ve cinsiyete göre tahmini Tepe Akım Hızını (PEF) hesaplar.",
+  "shortcode": "[hc_tepe_akim_hizi_hesaplama]"
+}

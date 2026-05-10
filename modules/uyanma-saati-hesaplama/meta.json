@@ -1,5 +1,5 @@
 {
   "name": "Uyanma Saati Hesaplama",
-  "desc": "Yattığınız saate göre en dinç uyanacağınız saatleri hesaplar.",
+  "desc": "Yatacağınız saate göre en dinç uyanacağınız saatleri hesaplar.",
   "shortcode": "[hc_uyanma_saati_hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Deri Kıvrımıyla Yağ Oranı Hesaplama",
+  "desc": "Kaliper ölçümleri (Jackson-Pollock metodu) ile vücut yağ oranını hassas şekilde hesaplar.",
+  "shortcode": "[hc_deri_kivrimiyla_yag_orani_hesaplama]"
+}

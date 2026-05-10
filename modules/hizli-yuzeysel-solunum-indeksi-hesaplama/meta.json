@@ -1,0 +1,5 @@
+{
+  "name": "Hızlı Yüzeyel Solunum İndeksi Hesaplama",
+  "desc": "Mekanik ventilatörden ayrılma başarısını öngörmek için RSBI değerini hesaplar.",
+  "shortcode": "[hc_hizli_yuzeysel_solunum_indeksi_hesaplama]"
+}

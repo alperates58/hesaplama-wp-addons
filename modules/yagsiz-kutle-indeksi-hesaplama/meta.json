@@ -1,0 +1,5 @@
+{
+  "name": "Yağsız Kütle İndeksi Hesaplama",
+  "desc": "Kas kütlenizin vücut ağırlığınıza oranını ve gelişim seviyenizi (FFMI) hesaplar.",
+  "shortcode": "[hc_yagsiz_kutle_indeksi_hesaplama]"
+}

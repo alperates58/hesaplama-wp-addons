@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Uyku Süresi Hesaplama",
+  "desc": "Bebeğinizin yaşına göre günlük uyku ihtiyacını ve ideal aralıkları gösterir.",
+  "shortcode": "[hc_bebek_uyku_suresi_hesaplama]"
+}

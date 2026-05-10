@@ -1,0 +1,8 @@
+#hc-stop-bang .hc-result-value {
+    font-size: 2.5rem;
+    color: var(--hc-primary);
+}
+#hc-stop-bang .hc-form-group label {
+    cursor: pointer;
+    display: block;
+}

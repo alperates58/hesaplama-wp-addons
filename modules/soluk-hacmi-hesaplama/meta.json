@@ -1,0 +1,5 @@
+{
+  "name": "Soluk Hacmi Hesaplama",
+  "desc": "Vücut ağırlığına göre ideal soluk hacmini (tidal volüm) hesaplar.",
+  "shortcode": "[hc_soluk_hacmi_hesaplama]"
+}

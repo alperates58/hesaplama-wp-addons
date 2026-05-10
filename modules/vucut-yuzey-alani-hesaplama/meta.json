@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yüzey Alanı Hesaplama",
+  "desc": "Boy ve kilonuza göre toplam vücut yüzey alanınızı (BSA) m² cinsinden hesaplar.",
+  "shortcode": "[hc_vucut_yuzey_alani_hesaplama]"
+}

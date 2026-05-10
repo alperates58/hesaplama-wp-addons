@@ -1,0 +1,14 @@
+.hc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.hc-table th, .hc-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.hc-table th {
+    background: #f8f9fa;
+    font-size: 0.9rem;
+}

@@ -1,33 +1,25 @@
-function hcWakeCalcHesapla() {
-    const sleepTime = document.getElementById('hc-sleep-time-input').value;
-    const now = new Date();
-    
-    let sleepDate;
-    if (sleepTime) {
-        const [h, m] = sleepTime.split(':').map(Number);
-        sleepDate = new Date();
-        sleepDate.setHours(h, m, 0);
-    } else {
-        sleepDate = now;
-    }
+function hcUyanmaSaatiHesapla() {
+    const sleepStr = document.getElementById('hc-ua-sleep').value;
+    if (!sleepStr) return;
 
-    // 15 dk uykuya dalma
-    const startTime = sleepDate.getTime() + (15 * 60000);
+    const resList = document.getElementById('hc-ua-res-list');
+    resList.innerHTML = '';
 
-    const slotsContainer = document.getElementById('hc-res-wake-slots');
-    slotsContainer.innerHTML = '';
+    const sleepTime = new Date('2026-01-01T' + sleepStr);
+    const cycles = [4, 5, 6];
 
-    // 90 dk döngüler: 3, 4, 5, 6
-    [3, 4, 5, 6].forEach(c => {
-        const wakeDate = new Date(startTime + (c * 90 * 60000));
-        const hh = wakeDate.getHours().toString().padStart(2, '0');
-        const mm = wakeDate.getMinutes().toString().padStart(2, '0');
+    cycles.forEach(c => {
+        const wakeTime = new Date(sleepTime.getTime() + (c * 90 * 60000) + (15 * 60000));
+        const timeStr = wakeTime.getHours().toString().padStart(2, '0') + ':' + wakeTime.getMinutes().toString().padStart(2, '0');
         
-        const slot = document.createElement('div');
-        slot.className = 'hc-wake-slot';
-        slot.innerHTML = `<span>${hh}:${mm}</span><small>${c} Döngü Sleep</small>`;
-        slotsContainer.appendChild(slot);
+        const item = document.createElement('div');
+        item.className = 'hc-ua-item' + (c >= 5 ? ' best' : '');
+        item.innerHTML = `
+            <strong>${timeStr}</strong>
+            <span>${c} Döngü (${c * 1.5} saat uyku)</span>
+        `;
+        resList.appendChild(item);
     });
 
-    document.getElementById('hc-wake-calc-result').classList.add('visible');
+    document.getElementById('hc-uyanma-saati-result').classList.add('visible');
 }

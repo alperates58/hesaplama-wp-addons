@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yağ Oranı Hesaplama",
+  "desc": "Boy, boyun ve bel ölçülerine göre (Donanma Metodu) vücut yağ oranınızı hesaplar.",
+  "shortcode": "[hc_vucut_yag_orani_hesaplama]"
+}

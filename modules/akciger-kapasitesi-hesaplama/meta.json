@@ -1,0 +1,5 @@
+{
+  "name": "Akciğer Kapasitesi Hesaplama",
+  "desc": "Akciğerlerin alabileceği toplam hava hacmini ve farklı kapasite türlerini hesaplar.",
+  "shortcode": "[hc_akciger_kapasitesi_hesaplama]"
+}

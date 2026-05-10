@@ -1,0 +1,5 @@
+{
+  "name": "Bel Çevresi Risk Hesaplama",
+  "desc": "Bel çevresi ölçümünüze göre metabolik sendrom ve kalp hastalığı riskini analiz eder.",
+  "shortcode": "[hc_bel_cevresi_risk_hesaplama]"
+}

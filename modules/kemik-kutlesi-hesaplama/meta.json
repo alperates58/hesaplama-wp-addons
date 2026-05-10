@@ -1,0 +1,5 @@
+{
+  "name": "Kemik Kütlesi Hesaplama",
+  "desc": "Vücut ağırlığınız ve genel iskelet yapınıza göre tahmini kemik kütlenizi hesaplar.",
+  "shortcode": "[hc_kemik_kutlesi_hesaplama]"
+}

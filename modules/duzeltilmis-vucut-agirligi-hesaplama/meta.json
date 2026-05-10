@@ -1,0 +1,5 @@
+{
+  "name": "Düzeltilmiş Vücut Ağırlığı Hesaplama",
+  "desc": "Obezite durumunda ilaç dozlaması ve beslenme planı için düzeltilmiş ağırlığı (AjBW) hesaplar.",
+  "shortcode": "[hc_duzeltilmis_vucut_agirligi_hesaplama]"
+}

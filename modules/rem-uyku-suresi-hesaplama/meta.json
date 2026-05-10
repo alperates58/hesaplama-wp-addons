@@ -1,0 +1,5 @@
+{
+  "name": "REM Uyku Süresi Hesaplama",
+  "desc": "Toplam uyku süresine göre tahmini REM uykusu miktarını hesaplar.",
+  "shortcode": "[hc_rem_uyku_suresi_hesaplama]"
+}

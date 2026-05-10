@@ -1,0 +1,5 @@
+{
+  "name": "Apne Hipopne İndeksi Hesaplama",
+  "desc": "Uyku testi verilerine göre uyku apnesinin şiddetini (AHI) hesaplar.",
+  "shortcode": "[hc_apne_hipopne_indeksi_hesaplama]"
+}

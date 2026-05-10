@@ -1,0 +1,5 @@
+{
+  "name": "Çocuklarda Vücut Kitle İndeksi Hesaplama",
+  "desc": "Çocuk ve ergenler için yaş ve cinsiyete dayalı VKİ persentil değerlendirmesi yapar.",
+  "shortcode": "[hc_cocuklarda_vucut_kitle_indeksi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Kitle İndeksi Hesaplama",
+  "desc": "Boy ve kilonuza göre vücut kitle indeksinizi (VKİ) hesaplar ve kategorize eder.",
+  "shortcode": "[hc_vucut_kitle_indeksi_hesaplama]"
+}

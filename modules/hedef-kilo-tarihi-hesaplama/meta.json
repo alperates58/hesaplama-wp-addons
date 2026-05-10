@@ -1,0 +1,5 @@
+{
+  "name": "Hedef Kilo Tarihi Hesaplama",
+  "desc": "Vermek istediğiniz kiloya ve günlük kalori açığınıza göre hedefinize ulaşacağınız tarihi tahmin eder.",
+  "shortcode": "[hc_hedef_kilo_tarihi_hesaplama]"
+}

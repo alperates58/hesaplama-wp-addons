@@ -1,0 +1,5 @@
+{
+  "name": "Kilo Verme Yüzdesi Hesaplama",
+  "desc": "Başlangıç ve mevcut kilonuza göre toplam kilo kaybı yüzdenizi hesaplar.",
+  "shortcode": "[hc_kilo_verme_yuzdesi_hesaplama]"
+}

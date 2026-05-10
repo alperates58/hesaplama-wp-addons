@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yapısı Ölçüsü Hesaplama",
+  "desc": "Bilek çevrenize göre iskelet yapınızın (İnce, Orta, İri) hangi kategoride olduğunu belirler.",
+  "shortcode": "[hc_vucut_yapisi_olcusu_hesaplama]"
+}

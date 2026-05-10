@@ -1,0 +1,8 @@
+.ess-q {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+#hc-ess .hc-result-value {
+    font-size: 2.5rem;
+    color: var(--hc-primary);
+}

@@ -1,0 +1,17 @@
+.hc-m-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+.hc-m-box {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    background: #f8f9fa;
+}
+.hc-m-box strong { display: block; font-size: 0.8rem; margin-bottom: 5px; }
+.hc-m-box div { font-size: 1.5rem; font-weight: bold; }
+.hc-m-box.prot { border-top: 4px solid #e74c3c; }
+.hc-m-box.carb { border-top: 4px solid #3498db; }
+.hc-m-box.fat { border-top: 4px solid #f1c40f; }

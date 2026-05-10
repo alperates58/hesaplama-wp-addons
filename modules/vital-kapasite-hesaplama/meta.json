@@ -1,0 +1,5 @@
+{
+  "name": "Vital Kapasite Hesaplama",
+  "desc": "Maksimum nefes alımından sonra dışarı verilebilen maksimum hava hacmini hesaplar.",
+  "shortcode": "[hc_vital_kapasite_hesaplama]"
+}

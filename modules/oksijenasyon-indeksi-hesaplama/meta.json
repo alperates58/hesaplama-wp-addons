@@ -1,0 +1,5 @@
+{
+  "name": "Oksijenasyon İndeksi Hesaplama",
+  "desc": "Akciğerlerin oksijen değişim etkinliğini ve hipoksemi şiddetini hesaplar.",
+  "shortcode": "[hc_oksijenasyon_indeksi_hesaplama]"
+}

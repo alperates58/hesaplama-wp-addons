@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Tipi Hesaplama",
+  "desc": "Omuz, bel ve kalça ölçülerinize göre vücut tipinizi (Armut, Elma, Kum Saati vb.) belirler.",
+  "shortcode": "[hc_vucut_tipi_hesaplama]"
+}

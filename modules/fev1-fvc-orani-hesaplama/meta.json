@@ -1,0 +1,5 @@
+{
+  "name": "FEV1/FVC Oranı Hesaplama",
+  "desc": "Solunum testi sonuçlarına göre havayolu tıkanıklığı riskini değerlendirir.",
+  "shortcode": "[hc_fev1_fvc_orani_hesaplama]"
+}

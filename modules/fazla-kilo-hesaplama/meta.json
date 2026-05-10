@@ -1,0 +1,5 @@
+{
+  "name": "Fazla Kilo Hesaplama",
+  "desc": "Mevcut kilonuzun ideal kilonuzdan ne kadar fazla olduğunu hesaplar.",
+  "shortcode": "[hc_fazla_kilo_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Gebelikte Fazla Kilo Alımı Hesaplama",
+  "desc": "Mevcut gebelik haftanıza göre aldığınız kilonun önerilen sınırların üzerinde olup olmadığını kontrol eder.",
+  "shortcode": "[hc_gebelikte_fazla_kilo_alimi_hesaplama]"
+}

@@ -1,0 +1,10 @@
+#hc-curb65 .hc-result-value {
+    font-size: 2.5rem;
+    color: var(--hc-primary);
+}
+
+#hc-curb65 .hc-form-group label {
+    cursor: pointer;
+    display: block;
+    padding: 5px 0;
+}

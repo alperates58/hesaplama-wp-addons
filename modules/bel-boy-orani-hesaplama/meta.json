@@ -1,0 +1,5 @@
+{
+  "name": "Bel Boy Oranı Hesaplama",
+  "desc": "Bel çevrenizin boyunuza oranını hesaplayarak kalp hastalığı ve diyabet riskini analiz eder.",
+  "shortcode": "[hc_bel_boy_orani_hesaplama]"
+}

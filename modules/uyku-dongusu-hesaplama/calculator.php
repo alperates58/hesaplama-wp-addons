@@ -1,37 +1,38 @@
 <?php
-if (!defined('ABSPATH')) exit;
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_uyku_dongusu_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-uyku-dongusu-hesaplama-js',
+        'hc-uyku-dongusu',
         HC_PLUGIN_URL . 'modules/uyku-dongusu-hesaplama/calculator.js',
-        array(),
-        HC_VERSION,
-        true
+        [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-uyku-dongusu-hesaplama-css',
+        'hc-uyku-dongusu-css',
         HC_PLUGIN_URL . 'modules/uyku-dongusu-hesaplama/calculator.css',
-        array(),
-        HC_VERSION
+        [ 'hesaplama-suite' ], HC_VERSION
     );
-
     ?>
-    <div id="hc-uyku-hesaplama" class="hc-calculator hc-uyku-dongusu-hesaplama-panel">
-        <h3 class="hc-uyku-dongusu-hesaplama-title">Uyku Döngüsü Hesaplama</h3>
+    <div class="hc-calculator" id="hc-uyku-dongusu">
+        <h3>Uyku Döngüsü Hesaplama</h3>
+        <p>Ne zaman yatmalısınız veya ne zaman uyanmalısınız?</p>
         <div class="hc-form-group">
-            <label for="hc-mode">Hesaplama modu</label>
-            <select id="hc-mode" name="mode" class="hc-uyku-dongusu-hesaplama-select">
-                <option value="wake">Uyanma saatine göre yatma saatleri</option>
-                <option value="bed">Yatma saatine göre uyanma saatleri</option>
+            <label>Seçenek:</label>
+            <select id="hc-ud-mode" onchange="hcUdToggleMode()">
+                <option value="wake">Uyanmak istediğim saat belli</option>
+                <option value="sleep">Şimdi yatacağım</option>
             </select>
         </div>
-        <div class="hc-form-group">
-            <label for="hc-time">Saat (HH:MM)</label>
-            <input type="time" id="hc-time" name="time" class="hc-uyku-dongusu-hesaplama-input" required>
+        <div class="hc-form-group" id="hc-ud-time-group">
+            <label for="hc-ud-time">Saat:</label>
+            <input type="time" id="hc-ud-time" value="07:00">
         </div>
-        <button type="button" id="hc-calculate" class="hc-btn hc-uyku-dongusu-hesaplama-button">Hesapla</button>
-        <div id="hc-results" class="hc-result hc-uyku-dongusu-hesaplama-results"></div>
+        <button class="hc-btn" onclick="hcUdHesapla()">Önerileri Göster</button>
+        <div class="hc-result" id="hc-uyku-dongusu-result">
+            <div id="hc-ud-res-title" style="font-weight:bold; margin-bottom:15px;"></div>
+            <div id="hc-ud-res-list" class="hc-ud-list"></div>
+            <p style="font-size:0.85em; margin-top:15px; opacity:0.8;">* Hesaplamalara 15 dakikalık ortalama uykuya dalma süresi eklenmiştir.</p>
+        </div>
     </div>
     <?php
 }

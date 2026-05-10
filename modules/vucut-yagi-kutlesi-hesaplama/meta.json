@@ -1,0 +1,5 @@
+{
+  "name": "Vücut Yağı Kütlesi Hesaplama",
+  "desc": "Kilonuz ve yağ oranınıza göre vücudunuzdaki toplam yağ miktarını (kg) hesaplar.",
+  "shortcode": "[hc_vucut_yagi_kutlesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Protein İhtiyacı Hesaplama",
+  "desc": "Vücut ağırlığınıza ve aktivite düzeyinize göre kas gelişimi veya koruma için gereken protein miktarını hesaplar.",
+  "shortcode": "[hc_gunluk_protein_ihtiyaci_hesaplama]"
+}

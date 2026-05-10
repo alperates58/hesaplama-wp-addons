@@ -1,0 +1,5 @@
+{
+  "name": "Yaşlılarda Vücut Kitle İndeksi Hesaplama",
+  "desc": "65 yaş üstü bireyler için sağlıklı kabul edilen VKİ aralıklarını baz alan hesaplama yapar.",
+  "shortcode": "[hc_yaslilarda_vucut_kitle_indeksi_hesaplama]"
+}

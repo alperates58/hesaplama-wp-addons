@@ -1,5 +1,5 @@
 {
   "name": "İdeal Kilo Hesaplama",
-  "desc": "Boy, cinsiyet ve mevcut kiloya göre ideal kilo tahminlerini, sağlıklı kilo aralığını ve BKİ yorumunu hesaplar.",
+  "desc": "Boyunuza ve cinsiyetinize göre sağlık açısından en uygun kilo aralığını hesaplar.",
   "shortcode": "[hc_ideal_kilo_hesaplama]"
 }

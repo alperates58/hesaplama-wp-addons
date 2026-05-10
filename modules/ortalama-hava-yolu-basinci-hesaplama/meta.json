@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Hava Yolu Basıncı Hesaplama",
+  "desc": "Mekanik ventilasyon sırasında hava yollarındaki ortalama basıncı (MAP) hesaplar.",
+  "shortcode": "[hc_ortalama_hava_yolu_basinci_hesaplama]"
+}

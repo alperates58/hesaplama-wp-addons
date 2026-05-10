@@ -1,0 +1,5 @@
+{
+  "name": "Uyku Apnesi Risk Skoru Hesaplama",
+  "desc": "STOP-BANG anketi ile uyku apnesi riskini hızlıca değerlendirir.",
+  "shortcode": "[hc_uyku_apnesi_risk_skoru_hesaplama]"
+}

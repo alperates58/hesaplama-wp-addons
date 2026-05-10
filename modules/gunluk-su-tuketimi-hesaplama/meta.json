@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Su Tüketimi Hesaplama",
+  "desc": "Vücut ağırlığınıza ve aktivite seviyenize göre içmeniz gereken ideal su miktarını belirler.",
+  "shortcode": "[hc_gunluk_su_tuketimi_hesaplama]"
+}

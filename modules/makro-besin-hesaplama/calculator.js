@@ -1,41 +1,21 @@
-function hcMakroHesapla() {
-    const toplam = parseFloat(document.getElementById('hc-m-toplam').value);
-    const hedef = document.getElementById('hc-m-hedef').value;
+function hcMacrosHesapla() {
+    const kcal = parseFloat(document.getElementById('hc-m-calories').value);
+    const goal = document.getElementById('hc-m-goal').value;
 
-    if (!toplam) {
-        alert('Lütfen günlük toplam kalori hedefinizi girin.');
-        return;
-    }
+    if (!kcal) return;
 
-    let cRatio, pRatio, fRatio;
+    let pPerc, cPerc, fPerc;
+    if (goal === 'balanced') { cPerc = 0.4; pPerc = 0.3; fPerc = 0.3; }
+    else if (goal === 'lowcarb') { cPerc = 0.25; pPerc = 0.4; fPerc = 0.35; }
+    else { cPerc = 0.6; pPerc = 0.2; fPerc = 0.2; }
 
-    switch (hedef) {
-        case 'dengeli':
-            cRatio = 0.50; pRatio = 0.20; fRatio = 0.30;
-            break;
-        case 'dusuk-karb':
-            cRatio = 0.25; pRatio = 0.40; fRatio = 0.35;
-            break;
-        case 'yuksek-protein':
-            cRatio = 0.35; pRatio = 0.35; fRatio = 0.30;
-            break;
-        case 'sporcu':
-            cRatio = 0.60; pRatio = 0.20; fRatio = 0.20;
-            break;
-    }
+    const prot = (kcal * pPerc) / 4;
+    const carb = (kcal * cPerc) / 4;
+    const fat = (kcal * fPerc) / 9;
 
-    const cKcal = toplam * cRatio;
-    const pKcal = toplam * pRatio;
-    const fKcal = toplam * fRatio;
+    document.getElementById('hc-m-res-prot').innerText = Math.round(prot);
+    document.getElementById('hc-m-res-carb').innerText = Math.round(carb);
+    document.getElementById('hc-m-res-fat').innerText = Math.round(fat);
 
-    document.getElementById('hc-m-carb-g').innerText = Math.round(cKcal / 4) + ' g';
-    document.getElementById('hc-m-carb-kcal').innerText = Math.round(cKcal) + ' kcal';
-
-    document.getElementById('hc-m-prot-g').innerText = Math.round(pKcal / 4) + ' g';
-    document.getElementById('hc-m-prot-kcal').innerText = Math.round(pKcal) + ' kcal';
-
-    document.getElementById('hc-m-fat-g').innerText = Math.round(fKcal / 9) + ' g';
-    document.getElementById('hc-m-fat-kcal').innerText = Math.round(fKcal) + ' kcal';
-
-    document.getElementById('hc-makro-besin-result').classList.add('visible');
+    document.getElementById('hc-macros-result').classList.add('visible');
 }

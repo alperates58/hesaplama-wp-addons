@@ -1,0 +1,14 @@
+.hc-vcs-plan strong {
+    color: var(--hc-primary);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+.hc-vcs-plan ul {
+    list-style: none;
+    padding: 0;
+}
+.hc-vcs-plan li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}

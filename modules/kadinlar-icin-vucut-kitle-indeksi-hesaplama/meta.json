@@ -1,0 +1,5 @@
+{
+  "name": "Kadınlar İçin Vücut Kitle İndeksi Hesaplama",
+  "desc": "Kadınlara özel referans aralıklarını dikkate alarak VKİ hesaplaması yapar.",
+  "shortcode": "[hc_kadinlar_icin_vucut_kitle_indeksi_hesaplama]"
+}
