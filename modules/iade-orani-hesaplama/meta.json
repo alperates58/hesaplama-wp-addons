@@ -1,0 +1,5 @@
+{
+  "name": "İade Oranı Hesaplama",
+  "desc": "Toplam satış içerisindeki iade edilen ürünlerin oranını hesaplar.",
+  "shortcode": "[hc_iade_orani_hesaplama]"
+}

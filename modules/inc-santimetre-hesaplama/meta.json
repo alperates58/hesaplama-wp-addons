@@ -1,0 +1,5 @@
+{
+  "name": "İnç - Santimetre Hesaplama",
+  "desc": "İnç (inch) cinsinden verilen uzunluğu santimetreye (cm) çevirir.",
+  "shortcode": "[hc_inc_santimetre_hesaplama]"
+}

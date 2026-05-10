@@ -1,0 +1,5 @@
+{
+  "name": "EBOB Hesaplama",
+  "desc": "Verilen iki sayının En Büyük Ortak Bölenini (EBOB) hesaplar.",
+  "shortcode": "[hc_ebob_hesaplama]"
+}

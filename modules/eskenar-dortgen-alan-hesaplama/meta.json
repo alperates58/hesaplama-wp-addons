@@ -1,0 +1,5 @@
+{
+  "name": "Eşkenar Dörtgen Alan Hesaplama",
+  "desc": "Köşegen uzunlukları veya taban ve yükseklik değerlerine göre eşkenar dörtgenin alanını hesaplar.",
+  "shortcode": "[hc_eskenar_dortgen_alan_hesaplama]"
+}

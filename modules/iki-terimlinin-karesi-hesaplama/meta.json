@@ -1,0 +1,5 @@
+{
+  "name": "İki Terimlinin Karesi Hesaplama",
+  "desc": "(a + b)² veya (a - b)² özdeşliklerini (a² ± 2ab + b²) hesaplar.",
+  "shortcode": "[hc_iki_terimlinin_karesi_hesaplama]"
+}

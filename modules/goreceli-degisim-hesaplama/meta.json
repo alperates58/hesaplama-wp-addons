@@ -1,0 +1,5 @@
+{
+  "name": "Göreceli Değişim Hesaplama",
+  "desc": "İki değer arasındaki yüzde değişimini veya göreceli farkı hesaplar.",
+  "shortcode": "[hc_goreceli_degisim_hesaplama]"
+}

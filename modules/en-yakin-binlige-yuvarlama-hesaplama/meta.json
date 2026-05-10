@@ -1,0 +1,5 @@
+{
+  "name": "En Yakın Binliğe Yuvarlama Hesaplama",
+  "desc": "Verilen sayıyı en yakın binliğe (1000'in katlarına) yuvarlar.",
+  "shortcode": "[hc_en_yakin_binlige_yuvarlama_hesaplama]"
+}

@@ -1,0 +1,4 @@
+.hc-dist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.hc-dist-point { background: rgba(var(--hc-primary-rgb), 0.05); padding: 15px; border-radius: 10px; }
+.hc-dist-point strong { display: block; margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px; }
+#hc-distance .hc-result-value { font-size: 2.5rem; color: var(--hc-primary); }

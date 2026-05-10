@@ -1,0 +1,5 @@
+{
+  "name": "Enflasyon Fark Oranı Hesaplama",
+  "desc": "İki farklı dönem arasındaki TÜFE verilerine göre enflasyon farkını ve artış oranını hesaplar.",
+  "shortcode": "[hc_enflasyon_fark_orani_hesaplama]"
+}

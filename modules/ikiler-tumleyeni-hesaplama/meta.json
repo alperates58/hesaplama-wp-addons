@@ -1,0 +1,5 @@
+{
+  "name": "İkiler Tümleyeni Hesaplama",
+  "desc": "Verilen bir ikili (binary) sayının ikiler tümleyenini (two's complement) hesaplar.",
+  "shortcode": "[hc_ikiler_tumleyeni_hesaplama]"
+}

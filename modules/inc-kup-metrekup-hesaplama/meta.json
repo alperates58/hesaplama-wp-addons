@@ -1,0 +1,5 @@
+{
+  "name": "İnç Küp - Metreküp Hesaplama",
+  "desc": "İnç küp (cu in) cinsinden verilen hacmi metreküpe (m³) çevirir.",
+  "shortcode": "[hc_inc_kup_metrekup_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İnç - Metre Hesaplama",
+  "desc": "İnç (inch) cinsinden verilen uzunluğu metreye (m) çevirir.",
+  "shortcode": "[hc_inc_metre_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Fiyat Artış Oranı Hesaplama",
+  "desc": "Eski fiyat ve yeni fiyat arasındaki artış miktarını ve yüzdesini hesaplar.",
+  "shortcode": "[hc_fiyat_artis_orani_hesaplama]"
+}

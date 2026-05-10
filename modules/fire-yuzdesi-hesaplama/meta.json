@@ -1,0 +1,5 @@
+{
+  "name": "Fire Yüzdesi Hesaplama",
+  "desc": "Üretim veya süreç sonrası oluşan fire miktarının yüzdesini (%) hesaplar.",
+  "shortcode": "[hc_fire_yuzdesi_hesaplama]"
+}

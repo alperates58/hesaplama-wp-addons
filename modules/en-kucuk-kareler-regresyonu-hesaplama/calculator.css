@@ -1,0 +1,2 @@
+#hc-regression .hc-result-value { font-size: 1.8rem; color: var(--hc-primary); word-break: break-all; }
+#hc-rg-data { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd; font-family: monospace; }

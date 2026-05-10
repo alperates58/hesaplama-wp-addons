@@ -1,0 +1,5 @@
+{
+  "name": "İnç Kare - Metrekare Hesaplama",
+  "desc": "İnç kare (sq in) cinsinden verilen alanı metrekareye (m²) çevirir.",
+  "shortcode": "[hc_inc_kare_metrekare_hesaplama]"
+}

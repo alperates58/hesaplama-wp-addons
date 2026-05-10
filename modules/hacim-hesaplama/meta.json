@@ -1,5 +1,5 @@
 {
   "name": "Hacim Hesaplama",
-  "desc": "Küp, küre, silindir ve koni gibi farklı geometrik şekillerin hacmini hesaplar.",
+  "desc": "Küp, dikdörtgen prizma, silindir ve küre gibi geometrik şekillerin hacmini hesaplar.",
   "shortcode": "[hc_hacim_hesaplama]"
 }

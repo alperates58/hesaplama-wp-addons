@@ -1,0 +1,5 @@
+{
+  "name": "İkili Sayı Çıkarma Hesaplama",
+  "desc": "İki ikili (binary) sayı arasında çıkarma işlemi yapar.",
+  "shortcode": "[hc_ikili_sayi_cikarma_hesaplama]"
+}

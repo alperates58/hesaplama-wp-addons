@@ -1,0 +1,5 @@
+{
+  "name": "Faktöriyel Hesaplama",
+  "desc": "Verilen pozitif bir tam sayının faktöriyelini (n!) hesaplar.",
+  "shortcode": "[hc_faktoryel_hesaplama]"
+}

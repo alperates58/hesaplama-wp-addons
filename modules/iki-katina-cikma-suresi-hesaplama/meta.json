@@ -1,0 +1,5 @@
+{
+  "name": "İki Katına Çıkma Süresi Hesaplama",
+  "desc": "Bileşik büyüme veya faiz oranıyla bir değerin iki katına çıkması için gereken süreyi (72 kuralı) hesaplar.",
+  "shortcode": "[hc_iki_katina_cikma_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Geometrik Ortalama Hesaplama",
+  "desc": "Verilen sayı dizisinin geometrik ortalamasını hesaplar.",
+  "shortcode": "[hc_geometrik_ortalama_hesaplama]"
+}

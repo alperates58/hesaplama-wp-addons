@@ -1,0 +1,5 @@
+{
+  "name": "İki Nokta Arası Mesafe Hesaplama",
+  "desc": "Kartezyen koordinat sisteminde iki nokta (x1,y1) ve (x2,y2) arasındaki kuş uçuşu mesafeyi hesaplar.",
+  "shortcode": "[hc_iki_nokta_arasi_mesafe_hesaplama]"
+}

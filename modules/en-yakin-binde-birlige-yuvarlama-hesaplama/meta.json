@@ -1,0 +1,5 @@
+{
+  "name": "En Yakın Binde Birliğe Yuvarlama Hesaplama",
+  "desc": "Verilen sayıyı en yakın binde birliğe (3 ondalık basamak) yuvarlar.",
+  "shortcode": "[hc_en_yakin_binde_birlige_yuvarlama_hesaplama]"
+}

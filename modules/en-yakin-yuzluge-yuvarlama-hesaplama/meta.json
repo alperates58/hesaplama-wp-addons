@@ -1,0 +1,5 @@
+{
+  "name": "En Yakın Yüzlüğe Yuvarlama Hesaplama",
+  "desc": "Verilen sayıyı en yakın yüzlüğe (100'ün katlarına) yuvarlar.",
+  "shortcode": "[hc_en_yakin_yuzluge_yuvarlama_hesaplama]"
+}

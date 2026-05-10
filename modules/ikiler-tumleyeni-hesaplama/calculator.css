@@ -1,0 +1,4 @@
+.hc-ts-row { margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 5px; }
+.hc-ts-row strong { font-size: 0.85rem; }
+.hc-ts-row span { font-family: monospace; font-size: 1.1rem; }
+#hc-twos .hc-result-value { font-size: 1.8rem; color: var(--hc-primary); }

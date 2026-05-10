@@ -1,0 +1,5 @@
+{
+  "name": "Harmonik Ortalama Hesaplama",
+  "desc": "Verilen sayı dizisinin harmonik ortalamasını hesaplar.",
+  "shortcode": "[hc_harmonik_ortalama_hesaplama]"
+}

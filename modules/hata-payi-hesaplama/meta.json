@@ -1,0 +1,5 @@
+{
+  "name": "Hata Payı Hesaplama",
+  "desc": "Örneklem büyüklüğü ve güven aralığına göre istatistiksel hata payını hesaplar.",
+  "shortcode": "[hc_hata_payi_hesaplama]"
+}

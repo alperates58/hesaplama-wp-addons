@@ -1,0 +1,5 @@
+{
+  "name": "Hipotenüs Hesaplama",
+  "desc": "Dik üçgende iki dik kenar uzunluğuna göre hipotenüs (c) uzunluğunu hesaplar.",
+  "shortcode": "[hc_hipotenus_hesaplama]"
+}

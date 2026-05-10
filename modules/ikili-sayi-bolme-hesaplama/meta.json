@@ -1,0 +1,5 @@
+{
+  "name": "İkili Sayı Bölme Hesaplama",
+  "desc": "İki ikili (binary) sayı arasında bölme işlemi yapar.",
+  "shortcode": "[hc_ikili_sayi_bolme_hesaplama]"
+}

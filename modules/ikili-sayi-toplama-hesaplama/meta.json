@@ -1,0 +1,5 @@
+{
+  "name": "İkili Sayı Toplama Hesaplama",
+  "desc": "İki ikili (binary) sayı arasında toplama işlemi yapar.",
+  "shortcode": "[hc_ikili_sayi_toplama_hesaplama]"
+}

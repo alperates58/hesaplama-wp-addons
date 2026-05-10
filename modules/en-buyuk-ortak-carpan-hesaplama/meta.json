@@ -1,0 +1,5 @@
+{
+  "name": "En Büyük Ortak Çarpan Hesaplama",
+  "desc": "Verilen iki sayının En Büyük Ortak Çarpanını (EBOC) hesaplar.",
+  "shortcode": "[hc_en_buyuk_ortak_carpan_hesaplama]"
+}

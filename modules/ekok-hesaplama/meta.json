@@ -1,0 +1,5 @@
+{
+  "name": "EKOK Hesaplama",
+  "desc": "Verilen iki sayının En Küçük Ortak Katını (EKOK) hesaplar.",
+  "shortcode": "[hc_ekok_hesaplama]"
+}

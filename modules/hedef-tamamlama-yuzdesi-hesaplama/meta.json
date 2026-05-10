@@ -1,0 +1,5 @@
+{
+  "name": "Hedef Tamamlama Yüzdesi Hesaplama",
+  "desc": "Belirlenen bir hedefin ne kadarının tamamlandığını yüzde olarak hesaplar.",
+  "shortcode": "[hc_hedef_tamamlama_yuzdesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hedefe Kalan Yüzde Hesaplama",
+  "desc": "Hedefe ulaşmak için gereken kalan miktarın toplam hedefe olan yüzdesini hesaplar.",
+  "shortcode": "[hc_hedefe_kalan_yuzde_hesaplama]"
+}

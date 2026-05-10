@@ -1,0 +1,5 @@
+{
+  "name": "Finalden Kaç Almalıyım Hesaplama",
+  "desc": "Vize notu ve geçme notuna göre final sınavından almanız gereken minimum puanı hesaplar.",
+  "shortcode": "[hc_finalden_kac_almaliyim_hesaplama]"
+}

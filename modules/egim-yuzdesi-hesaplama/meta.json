@@ -1,0 +1,5 @@
+{
+  "name": "Eğim Yüzdesi Hesaplama",
+  "desc": "Yükseklik ve yatay mesafe değerlerine göre eğim yüzdesini hesaplar.",
+  "shortcode": "[hc_egim_yuzdesi_hesaplama]"
+}

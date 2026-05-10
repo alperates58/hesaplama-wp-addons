@@ -1,0 +1,5 @@
+{
+  "name": "En Küçük Kareler Regresyonu Hesaplama",
+  "desc": "Verilen veri noktaları için en küçük kareler yöntemiyle regresyon doğrusunu (y = ax + b) hesaplar.",
+  "shortcode": "[hc_en_kucuk_kareler_regresyonu_hesaplama]"
+}

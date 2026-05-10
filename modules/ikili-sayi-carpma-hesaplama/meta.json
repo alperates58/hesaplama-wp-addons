@@ -1,0 +1,5 @@
+{
+  "name": "İkili Sayı Çarpma Hesaplama",
+  "desc": "İki ikili (binary) sayı arasında çarpma işlemi yapar.",
+  "shortcode": "[hc_ikili_sayi_carpma_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "En Yakın Ondalığa Yuvarlama Hesaplama",
+  "desc": "Verilen sayıyı en yakın ondalığa (1 ondalık basamak) yuvarlar.",
+  "shortcode": "[hc_en_yakin_ondaliga_yuvarlama_hesaplama]"
+}

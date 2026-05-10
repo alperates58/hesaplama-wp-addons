@@ -1,0 +1,5 @@
+{
+  "name": "İkili Sayıdan Onlu Sayıya Hesaplama",
+  "desc": "İkili (binary) tabandaki bir sayıyı onlu (decimal) tabana çevirir.",
+  "shortcode": "[hc_ikili_sayidan_onlu_sayiya_hesaplama]"
+}

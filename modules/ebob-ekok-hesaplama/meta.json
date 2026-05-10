@@ -1,0 +1,5 @@
+{
+  "name": "EBOB EKOK Hesaplama",
+  "desc": "İki sayının En Büyük Ortak Bölenini (EBOB) ve En Küçük Ortak Katını (EKOK) hesaplar.",
+  "shortcode": "[hc_ebob_ekok_hesaplama]"
+}

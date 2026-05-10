@@ -1,0 +1,5 @@
+{
+  "name": "Eğim Hesaplama",
+  "desc": "Yükseklik ve yatay mesafe değerlerine göre eğimi hesaplar.",
+  "shortcode": "[hc_egim_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İki Sayı Arası Fark Hesaplama",
+  "desc": "İki sayı arasındaki mutlak farkı ve değişim miktarını hesaplar.",
+  "shortcode": "[hc_iki_sayi_arasi_fark_hesaplama]"
+}

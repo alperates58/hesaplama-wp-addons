@@ -1,0 +1,5 @@
+{
+  "name": "En Yakın Yüzde Birliğe Yuvarlama Hesaplama",
+  "desc": "Verilen sayıyı en yakın yüzde birliğe (2 ondalık basamak) yuvarlar.",
+  "shortcode": "[hc_en_yakin_yuzde_birlige_yuvarlama_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İki Sayı Oranı Hesaplama",
+  "desc": "İki sayı arasındaki oranı (A:B) ve sadeleştirilmiş biçimini hesaplar.",
+  "shortcode": "[hc_iki_sayi_orani_hesaplama]"
+}

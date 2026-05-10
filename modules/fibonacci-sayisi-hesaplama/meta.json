@@ -1,0 +1,5 @@
+{
+  "name": "Fibonacci Sayısı Hesaplama",
+  "desc": "Fibonacci dizisindeki n. terimi veya dizinin belirli bir bölümünü hesaplar.",
+  "shortcode": "[hc_fibonacci_sayisi_hesaplama]"
+}
