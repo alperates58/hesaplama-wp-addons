@@ -1,0 +1,5 @@
+{
+  "name": "Turşu Salamura Hesaplama",
+  "desc": "Kullanılan sebze ve su miktarına göre turşunun bozulmaması için gereken ideal tuz ve sirke oranlarını hesaplar.",
+  "shortcode": "[hc_tursu_salamura_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Porsiyon Ölçüsü Hesaplama",
+  "desc": "Belirli bir yiyecek miktarı için standart porsiyon sayısını veya hedeflenen porsiyon için gereken toplam miktarı hesaplar.",
+  "shortcode": "[hc_porsiyon_olcusu_hesaplama]"
+}

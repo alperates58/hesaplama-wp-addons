@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Stok Devir Hızı Hesaplama",
+  "desc": "Mutfak veya restoran stoklarının ne kadar sürede yenilendiğini hesaplayarak verimlilik analizi yapar.",
+  "shortcode": "[hc_yemek_stok_devir_hizi_hesaplama]"
+}

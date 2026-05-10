@@ -1,0 +1,5 @@
+{
+  "name": "Yemekhane Kişi Başı Maliyet Hesaplama",
+  "desc": "Yemekhanelerde toplam malzeme, işçilik ve enerji giderlerini kişi sayısına bölerek birim yemek maliyetini hesaplar.",
+  "shortcode": "[hc_yemekhane_kisi_basi_maliyet_hesaplama]"
+}

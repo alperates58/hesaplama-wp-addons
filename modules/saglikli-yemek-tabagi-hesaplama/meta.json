@@ -1,0 +1,5 @@
+{
+  "name": "Sağlıklı Yemek Tabağı Hesaplama",
+  "desc": "Günlük kalori hedefine göre tabağın ne kadarının protein, karbonhidrat ve sebze olması gerektiğini hesaplar.",
+  "shortcode": "[hc_saglikli_yemek_tabagi_hesaplama]"
+}

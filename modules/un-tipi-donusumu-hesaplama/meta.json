@@ -1,0 +1,5 @@
+{
+  "name": "Un Tipi Dönüşümü Hesaplama",
+  "desc": "Tariflerdeki farklı un tiplerini (00, Tip 550, Tam Buğday vb.) birbirine göre su kaldırma kapasitesiyle dönüştürür.",
+  "shortcode": "[hc_un_tipi_donusumu_hesaplama]"
+}

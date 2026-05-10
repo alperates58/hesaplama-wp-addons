@@ -1,0 +1,5 @@
+{
+  "name": "Tabak Maliyeti Hesaplama",
+  "desc": "Bir yemeğin içerisindeki tüm malzemelerin gramaj bazlı maliyetlerini toplayarak toplam tabak maliyetini ve önerilen satış fiyatını hesaplar.",
+  "shortcode": "[hc_tabak_maliyeti_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yağ Çekme Oranı Hesaplama",
+  "desc": "Kızartılan gıdaların (patates, hamur işi vb.) pişirme sırasında ne kadar yağ çektiğini ve kalorideki artışı hesaplar.",
+  "shortcode": "[hc_yag_cekme_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Termometresi Kalibrasyonu Hesaplama",
+  "desc": "Buzlu su ve kaynar su yöntemleriyle yemek termometresinin doğruluğunu kontrol etmek için gereken sapma payını hesaplar.",
+  "shortcode": "[hc_yemek_termometresi_kalibrasyonu_hesaplama]"
+}

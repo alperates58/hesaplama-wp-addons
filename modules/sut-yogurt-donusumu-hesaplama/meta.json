@@ -1,0 +1,5 @@
+{
+  "name": "Süt Yoğurt Dönüşümü Hesaplama",
+  "desc": "Mayalanacak süt miktarından ne kadar süzme veya normal yoğurt elde edileceğini hesaplar.",
+  "shortcode": "[hc_sut_yogurt_donusumu_hesaplama]"
+}

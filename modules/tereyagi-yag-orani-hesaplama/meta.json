@@ -1,0 +1,5 @@
+{
+  "name": "Tereyağı Yağ Oranı Hesaplama",
+  "desc": "Tereyağındaki saf süt yağı ve su oranını (genellikle %82 yağ) hesaplayarak yemeklerdeki etkisini analiz eder.",
+  "shortcode": "[hc_tereyagi_yag_orani_hesaplama]"
+}

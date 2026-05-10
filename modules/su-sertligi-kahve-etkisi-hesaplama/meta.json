@@ -1,0 +1,5 @@
+{
+  "name": "Su Sertliği Kahve Etkisi Hesaplama",
+  "desc": "Suyun sertlik derecesine (PPM/fH) göre kahve demlerken aroma çözünürlüğünü ve ideal demleme parametrelerini hesaplar.",
+  "shortcode": "[hc_su_sertligi_kahve_etkisi_hesaplama]"
+}

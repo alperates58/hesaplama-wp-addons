@@ -1,0 +1,5 @@
+{
+  "name": "Tarif Büyütme Küçültme Hesaplama",
+  "desc": "Herhangi bir yemek tarifindeki tüm malzemeleri porsiyon sayısına göre otomatik olarak orantılar.",
+  "shortcode": "[hc_tarif_buyutme_kucultme_hesaplama]"
+}

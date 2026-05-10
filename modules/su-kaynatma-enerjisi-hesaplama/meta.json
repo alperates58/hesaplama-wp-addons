@@ -1,0 +1,5 @@
+{
+  "name": "Su Kaynatma Enerjisi Hesaplama",
+  "desc": "Belirli bir miktar suyun kaynama noktasına ulaşması için gereken teorik enerji miktarını ve maliyetini hesaplar.",
+  "shortcode": "[hc_su_kaynatma_enerjisi_hesaplama]"
+}

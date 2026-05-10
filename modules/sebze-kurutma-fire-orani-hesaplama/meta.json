@@ -1,0 +1,5 @@
+{
+  "name": "Sebze Kurutma Fire Oranı Hesaplama",
+  "desc": "Taze sebzelerin kurutulduğunda ne kadar ağırlık kaybedeceğini ve elde edilecek kuru ürün miktarını hesaplar.",
+  "shortcode": "[hc_sebze_kurutma_fire_orani_hesaplama]"
+}

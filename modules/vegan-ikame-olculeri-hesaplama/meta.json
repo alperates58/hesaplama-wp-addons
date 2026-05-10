@@ -1,0 +1,5 @@
+{
+  "name": "Vegan İkame Ölçüleri Hesaplama",
+  "desc": "Yumurta, süt ve tereyağı gibi hayvansal gıdaların vegan alternatifleri (keten tohumu, elma püresi vb.) ile olan dönüşüm oranlarını hesaplar.",
+  "shortcode": "[hc_vegan_ikame_olculeri_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Tavuk Pişirme Süresi Hesaplama",
+  "desc": "Tavuğun ağırlığına ve pişirme yöntemine (fırın, tencere vb.) göre ideal iç sıcaklık ve sürelerini hesaplar.",
+  "shortcode": "[hc_tavuk_pisirme_suresi_hesaplama]"
+}

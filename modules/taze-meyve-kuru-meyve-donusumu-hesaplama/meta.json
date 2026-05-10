@@ -1,0 +1,5 @@
+{
+  "name": "Taze Meyve Kuru Meyve Dönüşümü Hesaplama",
+  "desc": "Tariflerde taze meyve yerine ne kadar kuru meyve (veya tam tersi) kullanılması gerektiğini hesaplar.",
+  "shortcode": "[hc_taze_meyve_kuru_meyve_donusumu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yarım Tarif Hesaplama",
+  "desc": "Herhangi bir tarifteki tüm malzemeleri tam olarak yarıya bölerek yeni ölçüleri hesaplar.",
+  "shortcode": "[hc_yarim_tarif_hesaplama]"
+}

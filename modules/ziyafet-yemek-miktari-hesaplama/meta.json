@@ -1,0 +1,5 @@
+{
+  "name": "Ziyafet Yemek Miktarı Hesaplama",
+  "desc": "Düğün, davet veya toplu etkinliklerde davetli sayısına göre ana yemek, yan ürün ve içecek miktarlarını hesaplar.",
+  "shortcode": "[hc_ziyafet_yemek_miktari_hesaplama]"
+}

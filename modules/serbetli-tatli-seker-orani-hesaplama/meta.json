@@ -1,0 +1,5 @@
+{
+  "name": "Şerbetli Tatlı Şeker Oranı Hesaplama",
+  "desc": "Baklava, kadayıf gibi şerbetli tatlılar için tepsi boyutuna göre ideal şerbet (şeker/su) miktarını hesaplar.",
+  "shortcode": "[hc_serbetli_tatli_seker_orani_hesaplama]"
+}

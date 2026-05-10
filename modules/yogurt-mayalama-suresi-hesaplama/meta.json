@@ -1,0 +1,5 @@
+{
+  "name": "Yoğurt Mayalama Süresi Hesaplama",
+  "desc": "Süt sıcaklığına ve ortam ısısına göre yoğurdun ideal mayalanma süresini ve gereken sıcaklık koşullarını hesaplar.",
+  "shortcode": "[hc_yogurt_mayalama_suresi_hesaplama]"
+}

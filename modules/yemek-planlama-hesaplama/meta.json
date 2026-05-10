@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Planlama Hesaplama",
+  "desc": "Haftalık yemek planı için gereken toplam malzeme miktarını ve bütçeyi porsiyon sayısına göre hesaplar.",
+  "shortcode": "[hc_yemek_planlama_hesaplama]"
+}

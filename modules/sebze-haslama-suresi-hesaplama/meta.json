@@ -1,0 +1,5 @@
+{
+  "name": "Sebze Haşlama Süresi Hesaplama",
+  "desc": "Sebze türüne ve kesim şekline göre ideal haşlama (blanşing) sürelerini verir.",
+  "shortcode": "[hc_sebze_haslama_suresi_hesaplama]"
+}

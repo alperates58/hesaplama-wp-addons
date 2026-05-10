@@ -1,0 +1,5 @@
+{
+  "name": "Şarap Kadehi Porsiyon Hesaplama",
+  "desc": "Şarap şişesi hacmine ve kadeh boyutuna göre bir şişeden kaç kadeh şarap çıkacağını hesaplar.",
+  "shortcode": "[hc_sarap_kadehi_porsiyon_hesaplama]"
+}

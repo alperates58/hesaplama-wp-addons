@@ -1,0 +1,5 @@
+{
+  "name": "Sütlaç Pirinç Oranı Hesaplama",
+  "desc": "Kullanılan süt miktarına göre sütlacın kıvamı için gereken ideal pirinç ve şeker miktarını hesaplar.",
+  "shortcode": "[hc_sutlac_pirinc_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Toplam Kalori Hesaplama",
+  "desc": "Farklı yiyeceklerin kalori değerlerini toplayarak günlük veya öğün bazlı toplam kalori alımını hesaplar.",
+  "shortcode": "[hc_toplam_kalori_hesaplama]"
+}

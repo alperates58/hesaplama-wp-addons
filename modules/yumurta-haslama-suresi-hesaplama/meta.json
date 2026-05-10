@@ -1,0 +1,5 @@
+{
+  "name": "Yumurta Haşlama Süresi Hesaplama",
+  "desc": "Yumurtanın kıvamına (rafadan, kayısı, katı) göre kaynar suda beklemesi gereken süreyi hesaplar.",
+  "shortcode": "[hc_yumurta_haslama_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Zeytinyağı Asitlik Oranı Hesaplama",
+  "desc": "Zeytinyağındaki serbest yağ asidi miktarını yüzde olarak analiz ederek kalite sınıfını (sızma, riviera vb.) belirler.",
+  "shortcode": "[hc_zeytinyagi_asitlik_orani_hesaplama]"
+}

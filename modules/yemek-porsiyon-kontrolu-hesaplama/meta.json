@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Porsiyon Kontrolü Hesaplama",
+  "desc": "Yemeklerin kalori yoğunluğuna göre doyurucu ve sağlıklı porsiyon boyutlarını gram bazında hesaplar.",
+  "shortcode": "[hc_yemek_porsiyon_kontrolu_hesaplama]"
+}

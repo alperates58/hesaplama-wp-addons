@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Hazırlama Süresi Hesaplama",
+  "desc": "Tarifteki hazırlama, dinlenme ve pişirme sürelerini toplayarak yemeğin ne zaman servise hazır olacağını hesaplar.",
+  "shortcode": "[hc_yemek_hazirlama_suresi_hesaplama]"
+}

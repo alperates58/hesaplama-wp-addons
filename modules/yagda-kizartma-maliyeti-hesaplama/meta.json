@@ -1,0 +1,5 @@
+{
+  "name": "Yağda Kızartma Maliyeti Hesaplama",
+  "desc": "Kullanılan yağ miktarı, yağın birim fiyatı ve fire oranına göre kızartma işleminin birim maliyetini hesaplar.",
+  "shortcode": "[hc_yagda_kizartma_maliyeti_hesaplama]"
+}

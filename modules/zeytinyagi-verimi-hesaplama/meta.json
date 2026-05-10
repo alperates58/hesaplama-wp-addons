@@ -1,0 +1,5 @@
+{
+  "name": "Zeytinyağı Verimi Hesaplama",
+  "desc": "Zeytin miktarına ve zeytin türüne göre tahmini ne kadar zeytinyağı elde edileceğini hesaplar.",
+  "shortcode": "[hc_zeytinyagi_verimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Taze Ot Kuru Ot Dönüşümü Hesaplama",
+  "desc": "Tariflerde taze nane, kekik, biberiye gibi otların kuru halleriyle olan ölçü dönüşümünü (genellikle 3:1 oranı) hesaplar.",
+  "shortcode": "[hc_taze_ot_kuru_ot_donusumu_hesaplama]"
+}

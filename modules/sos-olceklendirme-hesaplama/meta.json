@@ -1,0 +1,5 @@
+{
+  "name": "Sos Ölçeklendirme Hesaplama",
+  "desc": "Tariflerdeki sos miktarlarını tencere boyutuna veya porsiyon sayısına göre orantılı olarak büyütür veya küçültür.",
+  "shortcode": "[hc_sos_olceklendirme_hesaplama]"
+}

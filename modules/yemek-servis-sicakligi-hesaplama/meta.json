@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Servis Sıcaklığı Hesaplama",
+  "desc": "Gıda güvenliği ve lezzet standartlarına göre farklı yemek türleri için ideal servis ve saklama sıcaklıklarını gösterir.",
+  "shortcode": "[hc_yemek_servis_sicakligi_hesaplama]"
+}

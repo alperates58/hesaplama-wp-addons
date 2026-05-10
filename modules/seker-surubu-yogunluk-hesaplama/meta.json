@@ -1,0 +1,5 @@
+{
+  "name": "Şeker Şurubu Yoğunluk Hesaplama",
+  "desc": "Su ve şeker miktarına göre şurubun (şerbetin) yoğunluğunu ve Brix derecesini hesaplar.",
+  "shortcode": "[hc_seker_surubu_yogunluk_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yemek Isıtma Süresi Hesaplama",
+  "desc": "Yemeğin türüne ve porsiyonuna göre mikrodalga veya ocakta ideal ısıtma sürelerini hesaplar.",
+  "shortcode": "[hc_yemek_isitma_suresi_hesaplama]"
+}

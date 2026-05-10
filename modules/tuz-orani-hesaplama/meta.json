@@ -1,0 +1,5 @@
+{
+  "name": "Tuz Oranı Hesaplama",
+  "desc": "Yemeğin veya hamurun toplam ağırlığına göre eklenmesi gereken ideal tuz miktarını (%1.5 - %2.5 arası) hesaplar.",
+  "shortcode": "[hc_tuz_orani_hesaplama]"
+}

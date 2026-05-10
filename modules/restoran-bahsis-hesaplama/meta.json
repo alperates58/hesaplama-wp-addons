@@ -1,0 +1,5 @@
+{
+  "name": "Restoran Bahşiş Hesaplama",
+  "desc": "Hesap tutarına ve istenilen yüzdeye göre verilmesi gereken bahşiş miktarını ve kişi başı toplam tutarı hesaplar.",
+  "shortcode": "[hc_restoran_bahsis_hesaplama]"
+}

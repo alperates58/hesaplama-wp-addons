@@ -1,0 +1,5 @@
+{
+  "name": "Yakılan Kalori Yemek Karşılığı Hesaplama",
+  "desc": "Egzersizle yakılan kalori miktarının hangi yemeğe (hamburger, elma, pizza dilimi vb.) eşdeğer olduğunu gösterir.",
+  "shortcode": "[hc_yakilan_kalori_yemek_karsiligi_hesaplama]"
+}
