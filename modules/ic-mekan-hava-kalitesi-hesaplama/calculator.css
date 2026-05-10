@@ -1,0 +1,8 @@
+.hc-check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#hc-indoor-air .hc-result-value {
+    color: #2980b9;
+}

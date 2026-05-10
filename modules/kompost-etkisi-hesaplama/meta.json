@@ -1,0 +1,5 @@
+{
+  "name": "Kompost Etkisi Hesaplama",
+  "desc": "Organik atıklarınızı komposta dönüştürerek engellediğiniz metan gazı salınımını ve kazandığınız toprak değerini hesaplar.",
+  "shortcode": "[hc_kompost_etkisi_hesaplama]"
+}

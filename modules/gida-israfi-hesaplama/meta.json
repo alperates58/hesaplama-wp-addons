@@ -1,0 +1,5 @@
+{
+  "name": "Gıda İsrafı Hesaplama",
+  "desc": "Çöpe giden gıdaların ekonomik değerini ve çevresel maliyetini hesaplar.",
+  "shortcode": "[hc_gida_israfi_hesaplama]"
+}

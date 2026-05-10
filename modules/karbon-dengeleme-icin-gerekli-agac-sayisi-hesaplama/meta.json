@@ -1,0 +1,5 @@
+{
+  "name": "Karbon Dengeleme İçin Gerekli Ağaç Sayısı Hesaplama",
+  "desc": "Belirli bir miktar karbon salınımını absorbe etmek için kaç ağaç dikmeniz gerektiğini hesaplar.",
+  "shortcode": "[hc_karbon_dengeleme_icin_gerekli_agac_sayisi_hesaplama]"
+}

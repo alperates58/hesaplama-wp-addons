@@ -1,0 +1,8 @@
+#hc-sustain-score .hc-result-value {
+    color: #27ae60;
+}
+.hc-check-list label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}

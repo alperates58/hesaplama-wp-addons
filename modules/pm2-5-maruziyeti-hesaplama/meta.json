@@ -1,0 +1,5 @@
+{
+  "name": "PM2.5 Maruziyeti Hesaplama",
+  "desc": "Soluduğunuz havadaki PM2.5 seviyesine göre sağlığınız üzerindeki uzun vadeli etkileri hesaplar.",
+  "shortcode": "[hc_pm2_5_maruziyeti_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Uçuş Karbon Emisyonu Hesaplama",
+  "desc": "Uçak seyahatlerinizin mesafeye ve uçuş sınıfına göre karbon ayak izini hesaplar.",
+  "shortcode": "[hc_ucus_karbon_emisyonu_hesaplama]"
+}

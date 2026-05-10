@@ -1,0 +1,5 @@
+{
+  "name": "Yapay Zeka Su Ayak İzi Hesaplama",
+  "desc": "Büyük dil modellerini (AI) kullanırken tüketilen tahmini su miktarını hesaplar.",
+  "shortcode": "[hc_yapay_zeka_su_ayak_izi_hesaplama]"
+}

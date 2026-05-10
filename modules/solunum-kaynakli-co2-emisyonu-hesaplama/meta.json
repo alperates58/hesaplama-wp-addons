@@ -1,0 +1,5 @@
+{
+  "name": "Solunum Kaynaklı CO₂ Emisyonu Hesaplama",
+  "desc": "İnsanların soluk alıp vermesiyle ürettikleri tahmini karbondioksit (CO₂) miktarını hesaplar.",
+  "shortcode": "[hc_solunum_kaynakli_co2_emisyonu_hesaplama]"
+}

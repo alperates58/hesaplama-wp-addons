@@ -1,0 +1,5 @@
+{
+  "name": "Evsel Atık Miktarı Hesaplama",
+  "desc": "Hane halkı büyüklüğüne göre günlük, aylık ve yıllık tahmini evsel atık miktarınızı hesaplar.",
+  "shortcode": "[hc_evsel_atik_miktari_hesaplama]"
+}

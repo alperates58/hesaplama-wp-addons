@@ -1,0 +1,5 @@
+{
+  "name": "Tren Karbon Emisyonu Hesaplama",
+  "desc": "Tren seyahatlerinizin (Hızlı tren, banliyö vb.) kişi başı karbon ayak izini hesaplar.",
+  "shortcode": "[hc_tren_karbon_emisyonu_hesaplama]"
+}

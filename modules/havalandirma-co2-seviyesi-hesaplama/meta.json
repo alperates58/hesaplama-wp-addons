@@ -1,0 +1,5 @@
+{
+  "name": "Havalandırma CO₂ Seviyesi Hesaplama",
+  "desc": "Odadaki kişi sayısı ve havalandırma debisine göre karbondioksit (CO₂) birikimini hesaplar.",
+  "shortcode": "[hc_havalandirma_co2_seviyesi_hesaplama]"
+}

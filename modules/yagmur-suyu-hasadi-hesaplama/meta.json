@@ -1,0 +1,5 @@
+{
+  "name": "Yağmur Suyu Hasadı Hesaplama",
+  "desc": "Çatınıza düşen yağmur suyunu toplayarak ne kadar su biriktirebileceğinizi ve tasarruf edebileceğinizi hesaplar.",
+  "shortcode": "[hc_yagmur_suyu_hasadi_hesaplama]"
+}

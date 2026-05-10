@@ -1,0 +1,5 @@
+{
+  "name": "Otobüs Karbon Emisyonu Hesaplama",
+  "desc": "Otobüs ile yaptığınız seyahatlerin kişi başı karbon emisyonunu hesaplar.",
+  "shortcode": "[hc_otobus_karbon_emisyonu_hesaplama]"
+}

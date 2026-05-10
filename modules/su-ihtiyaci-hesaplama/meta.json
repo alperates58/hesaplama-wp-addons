@@ -1,0 +1,5 @@
+{
+  "name": "Su İhtiyacı Hesaplama",
+  "desc": "Yaş, kilo ve fiziksel aktivite seviyenize göre günlük tüketmeniz gereken su miktarını hesaplar.",
+  "shortcode": "[hc_su_ihtiyaci_hesaplama]"
+}

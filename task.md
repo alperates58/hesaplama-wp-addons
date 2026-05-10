@@ -1,48 +1,51 @@
-# Görev Listesi - 46 Pratik Hesaplama Modülü
+# Görev Listesi - Batch 3: 49 Sürdürülebilirlik ve Çevre Modülü
 
-- [x] Kozmetik Ürün Kullanım Maliyeti Hesaplama
-- [x] Kot Pantolon Bedeni Hesaplama
-- [x] Koltuk Ölçüsü Hesaplama
-- [x] Kitap Okuma Hedefi Hesaplama
-- [x] Kilogram Başına Fiyat Hesaplama
-- [x] Kemer Ölçüsü Hesaplama
-- [x] Kelime Sayısı Hesaplama
-- [x] Karakter Sayısı Hesaplama
-- [x] Jeneratör Gücü Hesaplama
-- [x] İnternet Veri Kullanımı Hesaplama
-- [x] İnternet Kota Kullanımı Hesaplama
-- [x] İngiltere Amerika Ayakkabı Numarası Dönüştürme Hesaplama
-- [x] IP Adresim Nedir
-- [x] Helyum Balon Kaldırma Gücü Hesaplama
-- [x] Havuz Tuz Miktarı Hesaplama
-- [x] Havuz Şok Klor Miktarı Hesaplama
-- [x] Halı Ölçüsü Hesaplama
-- [x] Halı Metrekare Hesaplama
-- [x] Güneş Kremi Miktarı Hesaplama
-- [x] Gözlük Ölçüsü Hesaplama
-- [x] Ev Temizliği Ücreti Hesaplama
-- [x] En Boy Oranı Hesaplama
-- [x] Elektrikli Cihaz Watt Hesaplama
-- [x] Eldiven Bedeni Hesaplama
-- [x] Elbise Bedeni Hesaplama
-- [x] Düğün Bütçesi Hesaplama
-- [x] Doğalgaz Faturası Hesaplama
-- [x] Dizi İzleme Süresi Hesaplama
-- [x] Dakika Başına Maliyet Hesaplama
-- [x] Çöp Poşeti Ölçüsü Hesaplama
-- [x] Çorap Bedeni Hesaplama
-- [x] Çerçeve Ölçüsü Hesaplama
-- [x] Çamaşır Makinesi Elektrik ve Su Tüketimi Hesaplama
-- [x] Çadır Kişi Kapasitesi Hesaplama
-- [x] Ceket Bedeni Hesaplama
-- [x] Bulaşık Makinesi Elektrik ve Su Tüketimi Hesaplama
-- [x] Bikini Bedeni Hesaplama
-- [x] Bebek Bezi İhtiyacı Hesaplama
-- [x] Bebek Bakıcısı Ücreti Hesaplama
-- [x] Aylık Market Bütçesi Hesaplama
-- [x] Aydınlatma İhtiyacı Hesaplama
-- [x] Ayakta Çalışma Masası Yüksekliği Hesaplama
-- [x] Ayakkabı Numarası Dönüştürme Hesaplama
-- [x] Araç Kiralama Maliyeti Hesaplama
-- [x] Apartman Aidatı Hesaplama
-- [x] Akvaryum Su Kapasitesi Hesaplama
+- [x] Evsel Atık Miktarı Hesaplama
+- [x] Geri Dönüşüm Etkisi Hesaplama
+- [x] Gıda İsrafı Hesaplama
+- [x] Gri Su Geri Kazanım Hesaplama
+- [x] Gürültü Kirliliği Hesaplama
+- [x] Hava Kalitesi İndeksi Hesaplama
+- [x] Havalandırma CO₂ Seviyesi Hesaplama
+- [x] İç Mekan Hava Kalitesi Hesaplama
+- [x] İşe Gidiş Geliş Karbon Ayak İzi Hesaplama
+- [x] İşletme Karbon Ayak İzi Hesaplama
+- [x] Kağıt Geri Dönüşüm Etkisi Hesaplama
+- [x] Karbon Ayak İzi Hesaplama
+- [x] Karbon Dengeleme Hesaplama
+- [x] Karbon Dengeleme İçin Gerekli Ağaç Sayısı Hesaplama
+- [x] Kargo Karbon Ayak İzi Hesaplama
+- [x] Kişisel Karbon Ayak İzi Hesaplama
+- [x] Kitap ve E-Kitap Çevresel Etki Hesaplama
+- [x] Kompost Etkisi Hesaplama
+- [x] Kripto Para Karbon Ayak İzi Hesaplama
+- [x] Küresel Plastik Politikası Etki Hesaplama
+- [x] Lotka-Volterra Popülasyon Hesaplama
+- [x] LPG Karbon Emisyonu Hesaplama
+- [x] Metal Geri Dönüşüm Etkisi Hesaplama
+- [x] Motosiklet Karbon Emisyonu Hesaplama
+- [x] Musluk Suyu Kullanımı Hesaplama
+- [x] Nakliye Karbon Emisyonu Hesaplama
+- [x] Olimpiyat Oyunları Sürdürülebilirlik Etkisi Hesaplama
+- [x] Orman Karbon Depolama Hesaplama
+- [x] Otobüs Karbon Emisyonu Hesaplama
+- [x] Pil Geri Dönüşüm Etkisi Hesaplama
+- [x] Plastik Atık Miktarı Hesaplama
+- [x] Plastik Karbon Ayak İzi Hesaplama
+- [x] Plastik Kullanımı Azaltma Hesaplama
+- [x] PM2.5 Maruziyeti Hesaplama
+- [x] Shannon Çeşitlilik İndeksi Hesaplama
+- [x] Sıfır Atık Skoru Hesaplama
+- [x] Sigara İzmariti Kirlilik Etkisi Hesaplama
+- [x] Solunum Kaynaklı CO₂ Emisyonu Hesaplama
+- [x] Su Ayak İzi Hesaplama
+- [x] Su İhtiyacı Hesaplama
+- [x] Sürdürülebilirlik Skoru Hesaplama
+- [x] Taşıma Kapasitesi Hesaplama
+- [x] Tren Karbon Emisyonu Hesaplama
+- [x] Tuvalet Su Tüketimi Hesaplama
+- [x] Uçuş Karbon Emisyonu Hesaplama
+- [x] Vegan Beslenme Karbon Ayak İzi Hesaplama
+- [x] Yağmur Suyu Hasadı Hesaplama
+- [x] Yakıt Karbon Emisyonu Hesaplama
+- [x] Yapay Zeka Su Ayak İzi Hesaplama

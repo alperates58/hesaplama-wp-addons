@@ -1,0 +1,5 @@
+{
+  "name": "İşletme Karbon Ayak İzi Hesaplama",
+  "desc": "Ofis veya işletmenizin elektrik, yakıt ve ısınma verilerine göre yıllık toplam karbon salınımını hesaplar.",
+  "shortcode": "[hc_isletme_karbon_ayak_izi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "LPG Karbon Emisyonu Hesaplama",
+  "desc": "Tüketilen LPG (Litre veya kg) miktarının karbon ayak izini hesaplar.",
+  "shortcode": "[hc_lpg_karbon_emisyonu_hesaplama]"
+}

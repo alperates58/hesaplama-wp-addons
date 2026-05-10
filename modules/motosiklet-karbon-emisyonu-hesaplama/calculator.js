@@ -1,20 +1,11 @@
-function hcMccHesapla() {
-    const fuelCo2PerLitre = 2.31; // Petrol
-    const cons = parseFloat(document.getElementById('hc-mcc-cons').value);
-    const km = parseFloat(document.getElementById('hc-mcc-km').value);
+function hcMotosikletKarbonEmisyonuHesapla() {
+    const dist = parseFloat(document.getElementById('hc-mc-dist').value);
+    const factor = parseFloat(document.getElementById('hc-mc-size').value);
 
-    if (isNaN(cons) || isNaN(km)) {
-        alert('Lütfen alanları doldurun.');
-        return;
-    }
+    if (!dist) return;
 
-    const totalLitres = (km / 100) * cons;
-    const totalCo2Kg = totalLitres * fuelCo2PerLitre;
-    
-    const treeCount = Math.ceil(totalCo2Kg / 20);
+    const yearlyCo2 = dist * 52 * factor;
 
-    document.getElementById('hc-mcc-val').innerText = totalCo2Kg.toFixed(1) + " kg CO2 / Yıl";
-    document.getElementById('hc-mcc-tree').innerText = "Bu salınımı nötrlemek için yılda yaklaşık " + treeCount + " ağaç dikilmelidir.";
-
-    document.getElementById('hc-mcc-result').classList.add('visible');
+    document.getElementById('hc-mc-val').innerText = Math.round(yearlyCo2).toLocaleString('tr-TR') + ' kg CO₂e';
+    document.getElementById('hc-mc-result').classList.add('visible');
 }

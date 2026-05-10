@@ -1,0 +1,5 @@
+{
+  "name": "İşe Gidiş Geliş Karbon Ayak İzi Hesaplama",
+  "desc": "Günlük işe gitme alışkanlıklarınızın (araç tipi, mesafe) yıllık karbon salınımını hesaplar.",
+  "shortcode": "[hc_ise_gidis_gelis_karbon_ayak_izi_hesaplama]"
+}

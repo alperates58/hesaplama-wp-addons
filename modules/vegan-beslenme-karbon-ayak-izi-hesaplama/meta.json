@@ -1,0 +1,5 @@
+{
+  "name": "Vegan Beslenme Karbon Ayak İzi Hesaplama",
+  "desc": "Vegan beslenmenin et bazlı beslenmeye göre sağladığı karbon ve su tasarrufunu hesaplar.",
+  "shortcode": "[hc_vegan_beslenme_karbon_ayak_izi_hesaplama]"
+}

@@ -1,28 +1,36 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-function hc_render_motosiklet_karbon_emisyon_hesaplama( $atts ) {
+function hc_render_motosiklet_karbon_emisyonu_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-moto-carbon',
+        'hc-motosiklet-karbon-emisyonu-hesaplama',
         HC_PLUGIN_URL . 'modules/motosiklet-karbon-emisyonu-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-motosiklet-karbon-emisyonu-hesaplama-css',
+        HC_PLUGIN_URL . 'modules/motosiklet-karbon-emisyonu-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-mcc-box">
-        <h3>Motosiklet Karbon Emisyonu Hesaplama</h3>
+    <div class="hc-calculator" id="hc-moto-carbon">
+        <h3>Motosiklet Karbon Emisyonu</h3>
         <div class="hc-form-group">
-            <label>Ortalama Yakıt Tüketimi (L/100km)</label>
-            <input type="number" step="0.1" id="hc-mcc-cons" value="3.5">
+            <label for="hc-mc-dist">Haftalık Mesafe (km)</label>
+            <input type="number" id="hc-mc-dist" placeholder="Örn: 50">
         </div>
         <div class="hc-form-group">
-            <label>Yıllık Kat Edilen Yol (km)</label>
-            <input type="number" id="hc-mcc-km" value="5000">
+            <label for="hc-mc-size">Motor Hacmi</label>
+            <select id="hc-mc-size">
+                <option value="0.07">Küçük ( < 125cc ) - 0.07 kg/km</option>
+                <option value="0.09" selected>Orta ( 125cc - 500cc ) - 0.09 kg/km</option>
+                <option value="0.13">Büyük ( > 500cc ) - 0.13 kg/km</option>
+            </select>
         </div>
-        <button class="hc-btn" onclick="hcMccHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-mcc-result">
-            <div class="hc-result-title">Yıllık CO2 Salınımı:</div>
-            <div class="hc-result-value" id="hc-mcc-val">-</div>
-            <div id="hc-mcc-tree" style="margin-top: 10px; font-size: 14px;"></div>
+        <button class="hc-btn" onclick="hcMotosikletKarbonEmisyonuHesapla()">Hesapla</button>
+        <div class="hc-result" id="hc-mc-result">
+            <div class="hc-result-label">Yıllık Emisyon:</div>
+            <div class="hc-result-value" id="hc-mc-val">-</div>
         </div>
     </div>
     <?php

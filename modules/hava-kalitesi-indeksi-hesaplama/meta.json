@@ -1,0 +1,5 @@
+{
+  "name": "Hava Kalitesi İndeksi Hesaplama",
+  "desc": "Partikül madde (PM2.5, PM10) ve gaz kirleticilere göre anlık AQI değerini ve sağlık tavsiyelerini hesaplar.",
+  "shortcode": "[hc_hava_kalitesi_indeksi_hesaplama]"
+}

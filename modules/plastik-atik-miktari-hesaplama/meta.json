@@ -1,0 +1,5 @@
+{
+  "name": "Plastik Atık Miktarı Hesaplama",
+  "desc": "Günlük kullanım alışkanlıklarınıza göre yıllık ürettiğiniz plastik atık miktarını hesaplar.",
+  "shortcode": "[hc_plastik_atik_miktari_hesaplama]"
+}

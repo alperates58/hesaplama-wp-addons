@@ -1,0 +1,5 @@
+{
+  "name": "Sigara İzmariti Kirlilik Etkisi Hesaplama",
+  "desc": "Yere atılan sigara izmaritlerinin su ve toprak ekosistemi üzerindeki toksik etkisini hesaplar.",
+  "shortcode": "[hc_sigara_izmariti_kirlilik_etkisi_hesaplama]"
+}

@@ -1,0 +1,6 @@
+#hc-plastic-policy input[type="range"] {
+    width: 100%;
+}
+#hc-plastic-policy .hc-result {
+    border-color: #2980b9;
+}

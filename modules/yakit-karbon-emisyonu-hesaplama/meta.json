@@ -1,0 +1,5 @@
+{
+  "name": "Yakıt Karbon Emisyonu Hesaplama",
+  "desc": "Tükettiğiniz yakıt tipine (Benzin, Dizel) ve miktarına göre karbon salınımını hesaplar.",
+  "shortcode": "[hc_yakit_karbon_emisyonu_hesaplama]"
+}

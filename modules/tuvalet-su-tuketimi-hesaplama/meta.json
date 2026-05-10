@@ -1,0 +1,5 @@
+{
+  "name": "Tuvalet Su Tüketimi Hesaplama",
+  "desc": "Sifon kullanımı ve rezervuar tipine göre yıllık tuvalet su tüketiminizi ve potansiyel tasarrufu hesaplar.",
+  "shortcode": "[hc_tuvalet_su_tuketimi_hesaplama]"
+}

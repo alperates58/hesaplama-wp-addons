@@ -1,0 +1,5 @@
+{
+  "name": "Lotka-Volterra Popülasyon Hesaplama",
+  "desc": "Av-avcı ilişkisini Lotka-Volterra denklemleriyle simüle ederek popülasyon değişimlerini hesaplar.",
+  "shortcode": "[hc_lotka_volterra_populasyon_hesaplama]"
+}

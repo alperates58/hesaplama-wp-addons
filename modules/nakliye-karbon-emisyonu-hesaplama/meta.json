@@ -1,0 +1,5 @@
+{
+  "name": "Nakliye Karbon Emisyonu Hesaplama",
+  "desc": "Yük taşıyan araçların (kamyon, tır) taşıdığı yük ve mesafeye göre emisyon değerini hesaplar.",
+  "shortcode": "[hc_nakliye_karbon_emisyonu_hesaplama]"
+}

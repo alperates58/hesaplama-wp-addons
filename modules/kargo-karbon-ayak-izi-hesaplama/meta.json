@@ -1,0 +1,5 @@
+{
+  "name": "Kargo Karbon Ayak İzi Hesaplama",
+  "desc": "Gönderdiğiniz kargoların taşıma mesafesi ve ağırlığına göre karbon emisyonunu hesaplar.",
+  "shortcode": "[hc_kargo_karbon_ayak_izi_hesaplama]"
+}

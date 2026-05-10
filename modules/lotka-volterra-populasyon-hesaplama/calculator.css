@@ -1,0 +1,4 @@
+#hc-lotka .hc-result {
+    max-height: 300px;
+    overflow-y: auto;
+}

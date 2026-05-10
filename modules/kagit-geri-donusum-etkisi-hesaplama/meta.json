@@ -1,0 +1,5 @@
+{
+  "name": "Kağıt Geri Dönüşüm Etkisi Hesaplama",
+  "desc": "Geri dönüştürdüğünüz kağıt miktarına göre kurtarılan ağaç, su ve enerji tasarrufunu detaylı hesaplar.",
+  "shortcode": "[hc_kagit_geri_donusum_etkisi_hesaplama]"
+}

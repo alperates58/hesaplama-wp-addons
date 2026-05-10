@@ -1,0 +1,5 @@
+{
+  "name": "Geri Dönüşüm Etkisi Hesaplama",
+  "desc": "Geri dönüştürdüğünüz atık miktarına göre kurtarılan ağaç, su ve enerji tasarrufunu hesaplar.",
+  "shortcode": "[hc_geri_donusum_etkisi_hesaplama]"
+}

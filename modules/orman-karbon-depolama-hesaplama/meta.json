@@ -1,0 +1,5 @@
+{
+  "name": "Orman Karbon Depolama Hesaplama",
+  "desc": "Belirli bir alanın (hektar) orman örtüsüne göre ne kadar karbon depoladığını hesaplar.",
+  "shortcode": "[hc_orman_karbon_depolama_hesaplama]"
+}

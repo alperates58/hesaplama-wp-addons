@@ -1,0 +1,5 @@
+{
+  "name": "Pil Geri Dönüşüm Etkisi Hesaplama",
+  "desc": "Geri dönüştürülen pillerin çevreye sızmasını engellediği ağır metal miktarını hesaplar.",
+  "shortcode": "[hc_pil_geri_donusum_etkisi_hesaplama]"
+}

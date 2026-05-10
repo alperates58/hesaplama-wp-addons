@@ -1,0 +1,5 @@
+{
+  "name": "Musluk Suyu Kullanımı Hesaplama",
+  "desc": "Açık bırakılan veya damlatan muslukların ne kadar su israfına yol açtığını hesaplar.",
+  "shortcode": "[hc_musluk_suyu_kullanimi_hesaplama]"
+}

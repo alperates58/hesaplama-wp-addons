@@ -1,0 +1,5 @@
+{
+  "name": "Gürültü Kirliliği Hesaplama",
+  "desc": "Farklı ses kaynaklarının birleşik desibel (dB) seviyesini ve sağlık üzerindeki etkilerini hesaplar.",
+  "shortcode": "[hc_gurultu_kirliligi_hesaplama]"
+}

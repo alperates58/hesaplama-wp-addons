@@ -1,0 +1,5 @@
+{
+  "name": "Karbon Dengeleme Hesaplama",
+  "desc": "Karbon ayak izinizi sıfırlamak için ne kadar yatırım yapmanız veya kaç ağaç dikmeniz gerektiğini hesaplar.",
+  "shortcode": "[hc_karbon_dengeleme_hesaplama]"
+}

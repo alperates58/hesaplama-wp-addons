@@ -1,0 +1,5 @@
+{
+  "name": "Kripto Para Karbon Ayak İzi Hesaplama",
+  "desc": "Kripto para madenciliği veya işlemleri için tüketilen enerjinin tahmini karbon emisyonunu hesaplar.",
+  "shortcode": "[hc_kripto_para_karbon_ayak_izi_hesaplama]"
+}
