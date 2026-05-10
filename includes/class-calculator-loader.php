@@ -13,15 +13,26 @@ class HC_Calculator_Loader {
         $modules_dir = HC_PLUGIN_DIR . 'modules/';
         if ( ! is_dir( $modules_dir ) ) return;
 
-        $loaded_module_keys = [];
+        $loaded_module_keys  = [];
+        $loaded_render_names = [];
 
         foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $module_path ) {
+            if ( $this->should_skip_module_directory( $module_path ) ) {
+                continue;
+            }
+
             $slug           = basename( $module_path );
             $normalized_key = $this->normalize_module_key( $slug );
             $file           = $module_path . '/calculator.php';
+            $render_name    = $this->extract_render_function_name( $file );
 
             if ( isset( $loaded_module_keys[ $normalized_key ] ) ) {
                 error_log( sprintf( 'HC duplicate module skipped: %s (duplicate of %s)', $slug, $loaded_module_keys[ $normalized_key ] ) );
+                continue;
+            }
+
+            if ( $render_name && isset( $loaded_render_names[ $render_name ] ) ) {
+                error_log( sprintf( 'HC duplicate render function skipped: %s (%s already provided by %s)', $slug, $render_name, $loaded_render_names[ $render_name ] ) );
                 continue;
             }
 
@@ -30,6 +41,9 @@ class HC_Calculator_Loader {
                 $first_bytes = file_get_contents( $file, false, null, 0, 100 );
                 if ( false !== strpos( $first_bytes, '<?php' ) ) {
                     $loaded_module_keys[ $normalized_key ] = $slug;
+                    if ( $render_name ) {
+                        $loaded_render_names[ $render_name ] = $slug;
+                    }
                     require_once $file;
                     add_shortcode( 'hc_' . str_replace( '-', '_', $slug ), [ $this, 'render_shortcode' ] );
                 }
@@ -88,5 +102,29 @@ class HC_Calculator_Loader {
         $slug = preg_replace( '/[^\p{L}\p{N}]+/u', ' ', $slug );
 
         return trim( preg_replace( '/\s+/', ' ', $slug ) );
+    }
+
+    private function should_skip_module_directory( $module_path ) {
+        $slug = basename( (string) $module_path );
+        $slug = function_exists( 'mb_strtolower' ) ? mb_strtolower( $slug, 'UTF-8' ) : strtolower( $slug );
+
+        return false !== strpos( $slug, '.disabled' ) || false !== strpos( $slug, '.off' );
+    }
+
+    private function extract_render_function_name( $file ) {
+        if ( ! file_exists( $file ) ) {
+            return '';
+        }
+
+        $contents = file_get_contents( $file );
+        if ( false === $contents ) {
+            return '';
+        }
+
+        if ( ! preg_match( '/function\s+(hc_render_[a-z0-9_]+)\s*\(/i', $contents, $matches ) ) {
+            return '';
+        }
+
+        return strtolower( $matches[1] );
     }
 }

@@ -147,6 +147,12 @@ class HC_Github_Updater {
             return 'İndirilen paket açılamadı veya beklenen klasör bulunamadı.';
         }
 
+        $validation = $this->prepare_extracted_modules_for_install( $extracted_dir );
+        if ( is_wp_error( $validation ) ) {
+            $wp_filesystem->delete( $extracted_dir, true );
+            return $validation->get_error_message();
+        }
+
         $copied = copy_dir( $extracted_dir, $dest );
         $wp_filesystem->delete( $extracted_dir, true );
 
@@ -216,5 +222,88 @@ class HC_Github_Updater {
 
     private function is_valid_repo( $repo ) {
         return (bool) preg_match( '/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/', $repo );
+    }
+
+    private function prepare_extracted_modules_for_install( $extracted_dir ) {
+        global $wp_filesystem;
+
+        $modules_dir = trailingslashit( $extracted_dir ) . 'modules';
+
+        if ( ! is_dir( $modules_dir ) ) {
+            return true;
+        }
+
+        $slug_map   = [];
+        $render_map = [];
+        $duplicates = [];
+
+        foreach ( glob( trailingslashit( $modules_dir ) . '*', GLOB_ONLYDIR ) as $module_path ) {
+            $slug        = basename( $module_path );
+            $module_file = trailingslashit( $module_path ) . 'calculator.php';
+
+            if ( $this->should_skip_module_directory( $slug ) ) {
+                $wp_filesystem->delete( $module_path, true );
+                continue;
+            }
+
+            $normalized_slug = $this->normalize_module_key( $slug );
+            $render_name     = $this->extract_render_function_name( $module_file );
+
+            if ( isset( $slug_map[ $normalized_slug ] ) ) {
+                $duplicates[] = sprintf( '%s (duplicate slug of %s)', $slug, $slug_map[ $normalized_slug ] );
+                continue;
+            }
+
+            if ( $render_name && isset( $render_map[ $render_name ] ) ) {
+                $duplicates[] = sprintf( '%s (duplicate render function %s with %s)', $slug, $render_name, $render_map[ $render_name ] );
+                continue;
+            }
+
+            $slug_map[ $normalized_slug ] = $slug;
+            if ( $render_name ) {
+                $render_map[ $render_name ] = $slug;
+            }
+        }
+
+        if ( empty( $duplicates ) ) {
+            return true;
+        }
+
+        return new WP_Error(
+            'hc_duplicate_modules_detected',
+            'GitHub update durduruldu. Duplicate modüller bulundu: ' . implode( '; ', $duplicates )
+        );
+    }
+
+    private function normalize_module_key( $slug ) {
+        $slug = remove_accents( wp_strip_all_tags( (string) $slug ) );
+        $slug = function_exists( 'mb_strtolower' ) ? mb_strtolower( $slug, 'UTF-8' ) : strtolower( $slug );
+        $slug = str_replace( [ '_', '-' ], ' ', $slug );
+        $slug = preg_replace( '/[^\p{L}\p{N}]+/u', ' ', $slug );
+
+        return trim( preg_replace( '/\s+/', ' ', $slug ) );
+    }
+
+    private function should_skip_module_directory( $slug ) {
+        $slug = function_exists( 'mb_strtolower' ) ? mb_strtolower( (string) $slug, 'UTF-8' ) : strtolower( (string) $slug );
+
+        return false !== strpos( $slug, '.disabled' ) || false !== strpos( $slug, '.off' );
+    }
+
+    private function extract_render_function_name( $file ) {
+        if ( ! file_exists( $file ) ) {
+            return '';
+        }
+
+        $contents = file_get_contents( $file );
+        if ( false === $contents ) {
+            return '';
+        }
+
+        if ( ! preg_match( '/function\s+(hc_render_[a-z0-9_]+)\s*\(/i', $contents, $matches ) ) {
+            return '';
+        }
+
+        return strtolower( $matches[1] );
     }
 }

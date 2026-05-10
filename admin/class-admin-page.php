@@ -194,13 +194,30 @@ class HC_Module_Inventory {
             return self::$module_index_cache;
         }
 
-        $modules     = [];
-        $modules_dir = HC_PLUGIN_DIR . 'modules/';
-        $usage_cache = self::get_shortcode_usage_cache();
+        $modules      = [];
+        $modules_dir  = HC_PLUGIN_DIR . 'modules/';
+        $usage_cache  = self::get_shortcode_usage_cache();
+        $seen_slugs   = [];
+        $seen_renders = [];
 
         if ( is_dir( $modules_dir ) ) {
             foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $path ) {
-                $slug      = basename( $path );
+                if ( self::should_skip_module_directory( $path ) ) {
+                    continue;
+                }
+
+                $slug       = basename( $path );
+                $slug_key   = self::normalize_module_directory_key( $slug );
+                $render_name = self::extract_module_render_function_name( $path . '/calculator.php' );
+
+                if ( isset( $seen_slugs[ $slug_key ] ) ) {
+                    continue;
+                }
+
+                if ( $render_name && isset( $seen_renders[ $render_name ] ) ) {
+                    continue;
+                }
+
                 $meta_file = $path . '/meta.json';
                 $meta      = file_exists( $meta_file ) ? json_decode( file_get_contents( $meta_file ), true ) : [];
                 $shortcode      = '[hc_' . str_replace( '-', '_', $slug ) . ']';
@@ -213,6 +230,11 @@ class HC_Module_Inventory {
                     $meta['name'] ?? '',
                     $usage_snapshot
                 );
+
+                $seen_slugs[ $slug_key ] = $slug;
+                if ( $render_name ) {
+                    $seen_renders[ $render_name ] = $slug;
+                }
 
                 $modules[] = [
                     'slug'              => $slug,
@@ -1065,6 +1087,39 @@ class HC_Module_Inventory {
         }
 
         return preg_match( '/^\[hc_[a-z0-9_]+\]$/', $shortcode ) ? $shortcode : '';
+    }
+
+    private static function should_skip_module_directory( $path ) {
+        $slug = basename( (string) $path );
+        $slug = function_exists( 'mb_strtolower' ) ? mb_strtolower( $slug, 'UTF-8' ) : strtolower( $slug );
+
+        return false !== strpos( $slug, '.disabled' ) || false !== strpos( $slug, '.off' );
+    }
+
+    private static function normalize_module_directory_key( $slug ) {
+        $slug = remove_accents( wp_strip_all_tags( (string) $slug ) );
+        $slug = function_exists( 'mb_strtolower' ) ? mb_strtolower( $slug, 'UTF-8' ) : strtolower( $slug );
+        $slug = str_replace( [ '_', '-' ], ' ', $slug );
+        $slug = preg_replace( '/[^\p{L}\p{N}]+/u', ' ', $slug );
+
+        return trim( preg_replace( '/\s+/', ' ', $slug ) );
+    }
+
+    private static function extract_module_render_function_name( $file ) {
+        if ( ! file_exists( $file ) ) {
+            return '';
+        }
+
+        $contents = file_get_contents( $file );
+        if ( false === $contents ) {
+            return '';
+        }
+
+        if ( ! preg_match( '/function\s+(hc_render_[a-z0-9_]+)\s*\(/i', $contents, $matches ) ) {
+            return '';
+        }
+
+        return strtolower( $matches[1] );
     }
 
     private static function get_manual_shortcode_aliases() {
