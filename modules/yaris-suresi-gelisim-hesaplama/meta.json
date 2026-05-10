@@ -1,0 +1,5 @@
+{
+  "name": "Yarış Süresi Gelişim Hesaplama",
+  "desc": "Eski ve yeni yarış süreleriniz arasındaki gelişim miktarını ve yüzde farkını hesaplar.",
+  "shortcode": "[hc_yaris_suresi_gelisim_hesaplama]"
+}

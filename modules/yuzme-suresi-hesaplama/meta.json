@@ -1,0 +1,5 @@
+{
+  "name": "Yüzme Süresi Hesaplama",
+  "desc": "Havuz uzunluğu ve tur sayısına göre toplam yüzme mesafenizi ve sürenizi hesaplar.",
+  "shortcode": "[hc_yuzme_suresi_hesaplama]"
+}

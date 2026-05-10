@@ -1,0 +1,5 @@
+{
+  "name": "Yağ Yakım Nabız Bölgesi Hesaplama",
+  "desc": "Kilonuza ve bazal nabzınıza göre yağ yakımı için en verimli nabız aralığını hesaplar.",
+  "shortcode": "[hc_yag_yakim_nabiz_bolgesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+.hc-tri-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 15px; }
+.hc-tri-item { background: rgba(var(--hc-primary-rgb), 0.05); padding: 10px; border-radius: 8px; text-align: center; }
+.hc-tri-item strong { display: block; font-size: 0.8rem; color: var(--hc-primary); margin-bottom: 5px; }
+.hc-tri-item div { font-weight: bold; font-size: 1rem; }
+@media (max-width: 480px) { .hc-tri-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,4 @@
+.hc-zones-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; }
+.hc-zones-table th, .hc-zones-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+.hc-zones-table th { background: rgba(var(--hc-primary-rgb), 0.05); color: var(--hc-primary); }
+.hc-zones-table td strong { color: var(--hc-primary); }

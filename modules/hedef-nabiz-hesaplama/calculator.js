@@ -1,14 +1,20 @@
-function hcHedefNabızHesapla() {
-    const age = parseFloat(document.getElementById('hc-thr-age').value);
-    const rest = parseFloat(document.getElementById('hc-thr-rest').value);
-    const intensity = parseFloat(document.getElementById('hc-thr-intensity').value) / 100;
+function hcHrTargetHesapla() {
+    const age = parseInt(document.getElementById('hc-ht-age').value);
+    const restHr = parseInt(document.getElementById('hc-ht-rest').value);
+    const intensity = parseInt(document.getElementById('hc-ht-intensity').value) / 100;
 
-    if (!age || !rest || isNaN(intensity)) return;
+    if (!age || !restHr || !intensity) {
+        alert('Lütfen tüm bilgileri giriniz.');
+        return;
+    }
 
-    const mhr = 220 - age;
-    const hrr = mhr - rest; // Heart Rate Reserve
-    const thr = (hrr * intensity) + rest;
+    // Karvonen Formula
+    const maxHr = 220 - age;
+    const hrr = maxHr - restHr;
+    const targetHr = (hrr * intensity) + restHr;
 
-    document.getElementById('hc-thr-val').innerText = Math.round(thr) + ' bpm';
-    document.getElementById('hc-thr-result').classList.add('visible');
+    const resVal = document.getElementById('hc-ht-res-val');
+    resVal.innerText = Math.round(targetHr);
+
+    document.getElementById('hc-hr-target-result').classList.add('visible');
 }

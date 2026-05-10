@@ -1,0 +1,5 @@
+{
+  "name": "Adım Uzunluğu Hesaplama",
+  "desc": "Boyunuza veya katettiğiniz mesafeye göre bir adımınızın ortalama uzunluğunu (cm) hesaplar.",
+  "shortcode": "[hc_adim_uzunlugu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Anaerobik Eşik Hesaplama",
+  "desc": "Laktat birikiminin başladığı ve yorgunluğun hızlandığı kritik nabız eşiğini tahmin eder.",
+  "shortcode": "[hc_anaerobik_esik_hesaplama]"
+}

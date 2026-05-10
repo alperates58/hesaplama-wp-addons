@@ -1,3 +1,1 @@
-#hc-target-hr .hc-result-value {
-    color: #2980b9;
-}
+#hc-hr-target .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

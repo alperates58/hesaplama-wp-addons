@@ -1,0 +1,5 @@
+{
+  "name": "Kiteboard Rüzgar ve Ekipman Hesaplama",
+  "desc": "Kilonuza ve rüzgar hızına (knot) göre kullanmanız gereken ideal kite boyutunu hesaplar.",
+  "shortcode": "[hc_kiteboard_ruzgar_ve_ekipman_hesaplama]"
+}

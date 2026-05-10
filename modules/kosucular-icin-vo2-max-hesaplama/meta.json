@@ -1,0 +1,5 @@
+{
+  "name": "Koşucular İçin VO₂ Max Hesaplama",
+  "desc": "Cooper testi (12 dakikalık koşu mesafesi) kullanarak vücudunuzun maksimum oksijen tüketim kapasitesini tahmin eder.",
+  "shortcode": "[hc_kosucular_icin_vo2_max_hesaplama]"
+}

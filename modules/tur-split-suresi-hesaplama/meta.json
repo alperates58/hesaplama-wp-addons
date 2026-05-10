@@ -1,0 +1,5 @@
+{
+  "name": "Tur - Split Süresi Hesaplama",
+  "desc": "Toplam hedef süreniz için her turda (split) koşmanız gereken süreyi hesaplar.",
+  "shortcode": "[hc_tur_split_suresi_hesaplama]"
+}

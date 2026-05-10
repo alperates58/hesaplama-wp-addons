@@ -1,3 +1,1 @@
-#hc-frame-size .hc-result-value {
-    color: #2c3e50;
-}
+#hc-bike-frame .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

@@ -1,0 +1,5 @@
+{
+  "name": "Dalış Ağırlığı Hesaplama",
+  "desc": "Vücut ağırlığınıza, elbise kalınlığınıza ve su tipine (tatlı/tuzlu) göre dalışta kullanmanız gereken kurşun ağırlığı hesaplar.",
+  "shortcode": "[hc_dalis_agirligi_hesaplama]"
+}

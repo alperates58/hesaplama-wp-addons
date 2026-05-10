@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Nabız Bölgesi Hesaplama",
+  "desc": "Bisiklet antrenmanları için özel güç (LTHR) odaklı nabız bölgelerini hesaplar.",
+  "shortcode": "[hc_bisiklet_nabiz_bolgesi_hesaplama]"
+}

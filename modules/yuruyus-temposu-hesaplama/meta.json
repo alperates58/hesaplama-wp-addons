@@ -1,0 +1,5 @@
+{
+  "name": "Yürüyüş Temposu Hesaplama",
+  "desc": "Mesafe ve sürenize göre yürüyüş hızınızı (km/s) ve adım frekansınızı hesaplar.",
+  "shortcode": "[hc_yuruyus_temposu_hesaplama]"
+}

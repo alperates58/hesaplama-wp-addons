@@ -1,0 +1,5 @@
+{
+  "name": "Yaşa Göre Koşu Performansı Hesaplama",
+  "desc": "Koşu sürenizi dünya rekorlarıyla kıyaslayarak yaşınıza göre performans yüzdenizi (Age-Graded Score) hesaplar.",
+  "shortcode": "[hc_yasa_gore_kosu_performansi_hesaplama]"
+}

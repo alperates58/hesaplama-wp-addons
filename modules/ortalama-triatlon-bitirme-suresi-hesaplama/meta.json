@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Triatlon Bitirme Süresi Hesaplama",
+  "desc": "Yaş grubu ve cinsiyete göre farklı triatlon mesafeleri için dünya geneli ortalama bitirme sürelerini gösterir.",
+  "shortcode": "[hc_ortalama_triatlon_bitirme_suresi_hesaplama]"
+}

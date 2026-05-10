@@ -1,0 +1,5 @@
+{
+  "name": "Nabız Hesaplama",
+  "desc": "Manuel ölçüm sonuçlarına göre dakikadaki kalp atım sayınızı (BPM) hesaplar.",
+  "shortcode": "[hc_nabiz_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kano Kürek Boyu Hesaplama",
+  "desc": "Boyunuza ve kano tipine göre sizin için en konforlu kürek uzunluğunu (cm) hesaplar.",
+  "shortcode": "[hc_kano_kurek_boyu_hesaplama]"
+}

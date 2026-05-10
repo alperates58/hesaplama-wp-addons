@@ -1,0 +1,5 @@
+{
+  "name": "Triatlon Süresi Hesaplama",
+  "desc": "Yüzme, bisiklet, koşu ve geçiş (T1/T2) sürelerinizi toplayarak toplam triatlon sürenizi hesaplar.",
+  "shortcode": "[hc_triatlon_suresi_hesaplama]"
+}

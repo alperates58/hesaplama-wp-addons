@@ -1,0 +1,5 @@
+{
+  "name": "Triatlon Antrenman Planı Hesaplama",
+  "desc": "Hedef yarış mesafenize (Sprint, Olimpik, Ironman) göre haftalık minimum antrenman hacimlerinizi belirler.",
+  "shortcode": "[hc_triatlon_antrenman_plani_hesaplama]"
+}

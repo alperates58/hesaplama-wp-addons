@@ -1,0 +1,5 @@
+{
+  "name": "5K Koşu Temposu Hesaplama",
+  "desc": "Hedeflediğiniz 5K süresine göre koşmanız gereken km başı tempoyu hesaplar.",
+  "shortcode": "[hc_5k_kosu_temposu_hesaplama]"
+}

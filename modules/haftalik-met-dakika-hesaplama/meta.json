@@ -1,0 +1,5 @@
+{
+  "name": "Haftalık MET Dakika Hesaplama",
+  "desc": "Yaptığınız egzersizlerin yoğunluğuna göre haftalık toplam MET (Metabolik Eşdeğer) skorunuzu hesaplar.",
+  "shortcode": "[hc_haftalik_met_dakika_hesaplama]"
+}

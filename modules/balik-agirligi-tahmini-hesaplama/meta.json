@@ -1,0 +1,5 @@
+{
+  "name": "Balık Ağırlığı Tahmini Hesaplama",
+  "desc": "Balığın türüne, boyuna ve çevresine göre tahmini ağırlığını hesaplar.",
+  "shortcode": "[hc_balik_agirligi_tahmini_hesaplama]"
+}

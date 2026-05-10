@@ -1,0 +1,5 @@
+{
+  "name": "Koşu Mesafe Süre Hesaplama",
+  "desc": "Hedeflediğiniz bir tempoda (dk/km) belirli bir mesafeyi ne kadar sürede koşacağınızı hesaplar.",
+  "shortcode": "[hc_kosu_mesafe_sure_hesaplama]"
+}

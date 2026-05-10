@@ -1,0 +1,4 @@
+.hc-plan-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.hc-plan-table th, .hc-plan-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+.hc-plan-table th { background: rgba(var(--hc-primary-rgb), 0.05); color: var(--hc-primary); }
+.hc-plan-table td strong { color: var(--hc-primary); }

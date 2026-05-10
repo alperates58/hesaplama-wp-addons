@@ -1,5 +1,5 @@
 {
   "name": "Adım Mesafe Hesaplama",
-  "desc": "Attığınız adım sayısını yürünen toplam mesafeye (km/metre) dönüştürür.",
+  "desc": "Belirli bir adım sayısının kaç metre veya kilometreye tekabül ettiğini hassas şekilde hesaplar.",
   "shortcode": "[hc_adim_mesafe_hesaplama]"
 }

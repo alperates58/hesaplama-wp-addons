@@ -1,0 +1,5 @@
+{
+  "name": "Olta Makinesi Misina Kapasitesi Hesaplama",
+  "desc": "Farklı kalınlıktaki misinalar için olta makinenizin ne kadar misina alacağını hesaplar.",
+  "shortcode": "[hc_olta_makinesi_misina_kapasitesi_hesaplama]"
+}

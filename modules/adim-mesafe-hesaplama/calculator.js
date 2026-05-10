@@ -1,19 +1,16 @@
-function hcAdımMesafeHesapla() {
-    const steps = parseFloat(document.getElementById('hc-sd-steps').value);
-    const height = parseFloat(document.getElementById('hc-sd-height').value);
-    const sex = document.getElementById('hc-sd-sex').value;
+function hcStepDistHesapla() {
+    const steps = parseInt(document.getElementById('hc-sd-steps').value);
+    const stepLen = parseFloat(document.getElementById('hc-sd-len').value);
 
-    if (isNaN(steps) || isNaN(height)) {
-        alert('Lütfen tüm alanları doldurun.');
+    if (!steps || !stepLen) {
+        alert('Lütfen bilgileri giriniz.');
         return;
     }
 
-    // Average stride length: height * 0.413 for male, 0.415 for female
-    const factor = (sex === 'male') ? 0.413 : 0.415;
-    const strideLengthCm = height * factor;
-    const totalDistanceCm = steps * strideLengthCm;
-    const totalDistanceKm = totalDistanceCm / 100000;
+    const distKm = (steps * stepLen) / 100000;
 
-    document.getElementById('hc-sd-value').innerText = totalDistanceKm.toFixed(2).toLocaleString('tr-TR') + ' km';
+    const resVal = document.getElementById('hc-sd-res-val');
+    resVal.innerText = distKm.toFixed(2).toLocaleString('tr-TR');
+
     document.getElementById('hc-step-dist-result').classList.add('visible');
 }

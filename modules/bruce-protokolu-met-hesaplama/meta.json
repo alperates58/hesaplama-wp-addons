@@ -1,0 +1,5 @@
+{
+  "name": "Bruce Protokolü MET Hesaplama",
+  "desc": "Koşu bandı Bruce protokolü stres testi süresine göre MET ve VO₂ Max değerlerinizi hesaplar.",
+  "shortcode": "[hc_bruce_protokolu_met_hesaplama]"
+}

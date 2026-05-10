@@ -3,35 +3,36 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_hedef_nabiz_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-hedef-nabiz-hesaplama',
+        'hc-hr-target',
         HC_PLUGIN_URL . 'modules/hedef-nabiz-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-hedef-nabiz-hesaplama-css',
+        'hc-hr-target-css',
         HC_PLUGIN_URL . 'modules/hedef-nabiz-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-target-hr">
-        <h3>Hedef Nabız Hesaplama (Karvonen)</h3>
+    <div class="hc-calculator" id="hc-hr-target">
+        <h3>Hedef Antrenman Nabzı</h3>
         <div class="hc-form-group">
-            <label for="hc-thr-age">Yaşınız</label>
-            <input type="number" id="hc-thr-age" placeholder="Örn: 30">
+            <label for="hc-ht-age">Yaşınız:</label>
+            <input type="number" id="hc-ht-age" placeholder="30">
         </div>
         <div class="hc-form-group">
-            <label for="hc-thr-rest">Dinlenik Nabız (bpm)</label>
-            <input type="number" id="hc-thr-rest" placeholder="Örn: 65">
+            <label for="hc-ht-rest">Dinlenik Nabız (BPM):</label>
+            <input type="number" id="hc-ht-rest" placeholder="70">
         </div>
         <div class="hc-form-group">
-            <label for="hc-thr-intensity">Egzersiz Şiddeti (%)</label>
-            <input type="number" id="hc-thr-intensity" placeholder="Örn: 70" value="70">
+            <label for="hc-ht-intensity">Hedef Yoğunluk (%):</label>
+            <input type="number" id="hc-ht-intensity" placeholder="75">
+            <small>Örn: %70-80 aerobik gelişim içindir.</small>
         </div>
-        <button class="hc-btn" onclick="hcHedefNabızHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-thr-result">
-            <div class="hc-result-label">Hedef Nabız:</div>
-            <div class="hc-result-value" id="hc-thr-val">-</div>
-            <p style="font-size:0.85em; color:#666; margin-top:10px;">*Karvonen Formülü: ((Max Nabız - Dinlenik Nabız) * Şiddet) + Dinlenik Nabız</p>
+        <button class="hc-btn" onclick="hcHrTargetHesapla()">Hesapla</button>
+        <div class="hc-result" id="hc-hr-target-result">
+            <strong>Hedef Nabız Değeriniz:</strong>
+            <div id="hc-ht-res-val" class="hc-result-value">-</div>
+            <span>BPM</span>
         </div>
     </div>
     <?php

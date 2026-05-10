@@ -1,5 +1,5 @@
 {
   "name": "Yağ Yakım Nabız Aralığı Hesaplama",
-  "desc": "Kullanıcının yaşına göre en verimli yağ yakımı için gerekli nabız aralığını hesaplar.",
+  "desc": "Kilonuza ve bazal nabzınıza göre yağ yakımı için en verimli nabız aralığını hesaplar.",
   "shortcode": "[hc_yag_yakim_nabiz_araligi_hesaplama]"
 }

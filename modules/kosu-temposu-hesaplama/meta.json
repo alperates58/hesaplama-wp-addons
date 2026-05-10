@@ -1,0 +1,5 @@
+{
+  "name": "Koşu Temposu Hesaplama",
+  "desc": "Mesafe ve zamana göre ortalama koşu temponuzu (dakika/km) ve hızınızı hesaplar.",
+  "shortcode": "[hc_kosu_temposu_hesaplama]"
+}

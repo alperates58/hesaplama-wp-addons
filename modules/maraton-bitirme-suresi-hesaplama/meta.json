@@ -1,0 +1,5 @@
+{
+  "name": "Maraton Bitirme Süresi Hesaplama",
+  "desc": "Belirlediğiniz koşu temposuna göre maraton (42.195 km) bitirme sürenizi hesaplar.",
+  "shortcode": "[hc_maraton_bitirme_suresi_hesaplama]"
+}

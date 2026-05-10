@@ -1,0 +1,5 @@
+{
+  "name": "Yarı Maraton Temposu Hesaplama",
+  "desc": "Hedeflediğiniz yarı maraton süresine göre koşmanız gereken km başı tempoyu hesaplar.",
+  "shortcode": "[hc_yari_maraton_temposu_hesaplama]"
+}

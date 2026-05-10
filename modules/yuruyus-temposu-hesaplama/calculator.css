@@ -1,0 +1,4 @@
+.hc-walk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+.hc-walk-item { background: rgba(var(--hc-primary-rgb), 0.05); padding: 15px; border-radius: 10px; text-align: center; }
+.hc-walk-item strong { display: block; font-size: 0.85rem; color: var(--hc-primary); margin-bottom: 5px; }
+.hc-walk-item div { font-weight: bold; font-size: 1.5rem; }

@@ -1,0 +1,5 @@
+{
+  "name": "Ok Boyu Hesaplama",
+  "desc": "Kol açıklığınıza göre sizin için en uygun ok uzunluğunu (cm) hesaplar.",
+  "shortcode": "[hc_ok_boyu_hesaplama]"
+}

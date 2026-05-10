@@ -1,0 +1,4 @@
+.hc-pace-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.hc-pace-table th, .hc-pace-table td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+.hc-pace-table th { background: rgba(var(--hc-primary-rgb), 0.05); color: var(--hc-primary); }
+.hc-pace-table td strong { color: var(--hc-primary); }

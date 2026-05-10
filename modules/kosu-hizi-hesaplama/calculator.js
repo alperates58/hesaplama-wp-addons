@@ -1,23 +1,18 @@
-function hcKoşuHızıHesapla() {
-    const dist = parseFloat(document.getElementById('hc-rs-dist').value);
-    const h = parseInt(document.getElementById('hc-rs-h').value) || 0;
-    const m = parseInt(document.getElementById('hc-rs-m').value) || 0;
-    const s = parseInt(document.getElementById('hc-rs-s').value) || 0;
+function hcRunSpeedHesapla() {
+    const min = parseInt(document.getElementById('hc-rs-min').value || 0);
+    const sec = parseInt(document.getElementById('hc-rs-sec').value || 0);
 
-    const totalSeconds = (h * 3600) + (m * 60) + s;
-
-    if (isNaN(dist) || totalSeconds <= 0) {
-        alert('Lütfen geçerli mesafe ve süre girin.');
+    if (!min && !sec) {
+        alert('Lütfen tempoyu giriniz.');
         return;
     }
 
-    const speedKmh = dist / (totalSeconds / 3600);
-    const secondsPerKm = totalSeconds / dist;
-    const pM = Math.floor(secondsPerKm / 60);
-    const pS = Math.round(secondsPerKm % 60);
+    const totalMinutesPerKm = min + (sec / 60);
+    // Speed (km/h) = 60 / (Minutes per km)
+    const speed = 60 / totalMinutesPerKm;
 
-    document.getElementById('hc-rs-value').innerText = speedKmh.toFixed(2).toLocaleString('tr-TR') + " km/sa";
-    document.getElementById('hc-rs-pace').innerText = pM + ":" + (pS < 10 ? "0" + pS : pS) + " dk/km";
+    const resVal = document.getElementById('hc-rs-res-val');
+    resVal.innerText = speed.toFixed(1).toLocaleString('tr-TR');
 
     document.getElementById('hc-run-speed-result').classList.add('visible');
 }

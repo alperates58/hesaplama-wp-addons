@@ -1,0 +1,5 @@
+{
+  "name": "Nabız Bölgesi Hesaplama",
+  "desc": "5 bölgeli sistemle (Z1-Z5) antrenman yoğunluk aralıklarınızı hesaplar.",
+  "shortcode": "[hc_nabiz_bolgesi_hesaplama]"
+}

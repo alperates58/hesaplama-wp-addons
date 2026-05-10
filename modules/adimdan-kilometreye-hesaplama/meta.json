@@ -1,0 +1,5 @@
+{
+  "name": "Adımdan Kilometreye Hesaplama",
+  "desc": "Attığınız adım sayısını boyunuza ve adım uzunluğunuza göre tahmini kilometreye dönüştürür.",
+  "shortcode": "[hc_adimdan_kilometreye_hesaplama]"
+}

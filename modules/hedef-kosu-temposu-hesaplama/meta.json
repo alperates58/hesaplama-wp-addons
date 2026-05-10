@@ -1,0 +1,5 @@
+{
+  "name": "Hedef Koşu Temposu Hesaplama",
+  "desc": "Belirlediğiniz bir mesafeyi hedeflediğiniz sürede bitirmek için koşmanız gereken tempoyu hesaplar.",
+  "shortcode": "[hc_hedef_kosu_temposu_hesaplama]"
+}

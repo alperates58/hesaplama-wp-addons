@@ -1,0 +1,5 @@
+{
+  "name": "Golf Handikap Hesaplama",
+  "desc": "Son skorlarınıza ve saha zorluk derecesine göre golf handikap indeksinizi hesaplar.",
+  "shortcode": "[hc_golf_handikap_hesaplama]"
+}

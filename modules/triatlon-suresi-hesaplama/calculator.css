@@ -1,0 +1,5 @@
+.hc-tri-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.hc-time-row { display: flex; gap: 5px; }
+.hc-time-row input { flex: 1; }
+#hc-tri-time .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }
+@media (max-width: 480px) { .hc-tri-input-grid { grid-template-columns: 1fr; } }

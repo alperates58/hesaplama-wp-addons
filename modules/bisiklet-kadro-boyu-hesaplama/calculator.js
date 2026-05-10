@@ -1,29 +1,29 @@
-function hcBisikletKadroBoyuHesapla() {
-    const inseam = parseFloat(document.getElementById('hc-inseam').value);
-    const type = document.getElementById('hc-bike-type').value;
+function hcBikeFrameHesapla() {
+    const inseam = parseFloat(document.getElementById('hc-bf-inseam').value);
+    const type = document.getElementById('hc-bf-type').value;
 
     if (!inseam) {
-        alert('Lütfen iç bacak boyunuzu girin.');
+        alert('Lütfen iç bacak boyunuzu giriniz.');
         return;
     }
 
-    let size = "";
-    let info = "";
+    let frameSize = 0;
+    let unit = "cm";
 
     if (type === 'road') {
-        size = (inseam * 0.665).toFixed(1) + " cm";
-        info = "Yol bisikletlerinde kadro boyu genellikle cm cinsinden ifade edilir.";
-    } else if (type === 'mountain') {
-        const sizeCm = (inseam * 0.67) - 10;
-        const sizeInch = (sizeCm / 2.54).toFixed(1);
-        size = sizeInch + " inç (" + Math.round(sizeCm) + " cm)";
-        info = "Dağ bisikletlerinde kadro boyu genellikle inç cinsinden ifade edilir.";
-    } else {
-        size = (inseam * 0.685).toFixed(1) + " cm";
-        info = "Şehir bisikletlerinde daha dik bir oturuş pozisyonu için biraz daha büyük kadro tercih edilebilir.";
+        frameSize = inseam * 0.665;
+        unit = "cm";
+    } else if (type === 'mtb') {
+        frameSize = (inseam * 0.67 - 10) / 2.54; // Convert to inch
+        unit = "inç (L/XL)";
+    } else if (type === 'city') {
+        frameSize = inseam * 0.685;
+        unit = "cm";
     }
 
-    document.getElementById('hc-frame-val').innerText = size;
-    document.getElementById('hc-frame-info').innerText = info;
-    document.getElementById('hc-frame-result').classList.add('visible');
+    const resVal = document.getElementById('hc-bf-res-val');
+    resVal.innerText = frameSize.toFixed(1).toLocaleString('tr-TR');
+    document.getElementById('hc-bf-unit').innerText = unit;
+
+    document.getElementById('hc-bike-frame-result').classList.add('visible');
 }

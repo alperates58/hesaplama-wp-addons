@@ -1,0 +1,5 @@
+{
+  "name": "Antrenman Temposu Hesaplama",
+  "desc": "Güncel 5K veya 10K sürenize göre farklı antrenman türleri (Easy, Tempo, Interval) için ideal hızlarınızı hesaplar.",
+  "shortcode": "[hc_antrenman_temposu_hesaplama]"
+}

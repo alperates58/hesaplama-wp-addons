@@ -1,0 +1,5 @@
+{
+  "name": "Sörf Tahtası Hacim Hesaplama",
+  "desc": "Kilonuza ve sörf seviyenize göre sizin için ideal sörf tahtası hacmini (litre) hesaplar.",
+  "shortcode": "[hc_sorf_tahtasi_hacim_hesaplama]"
+}

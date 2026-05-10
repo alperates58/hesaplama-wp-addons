@@ -1,21 +1,18 @@
-function hcYuruyusSüresiHesapla() {
+function hcWalkTimeHesapla() {
     const dist = parseFloat(document.getElementById('hc-wt-dist').value);
     const speed = parseFloat(document.getElementById('hc-wt-speed').value);
 
-    if (isNaN(dist)) {
-        alert('Lütfen mesafeyi girin.');
+    if (!dist) {
+        alert('Lütfen mesafeyi giriniz.');
         return;
     }
 
-    const hours = dist / speed;
-    const totalMinutes = Math.round(hours * 60);
-    const h = Math.floor(totalMinutes / 60);
-    const m = totalMinutes % 60;
+    const totalHours = dist / speed;
+    const h = Math.floor(totalHours);
+    const m = Math.round((totalHours - h) * 60);
 
-    let resultText = "";
-    if (h > 0) resultText += h + " saat ";
-    resultText += m + " dakika";
+    const resVal = document.getElementById('hc-wt-res-val');
+    resVal.innerText = `${h}:${m < 10 ? '0' + m : m}`;
 
-    document.getElementById('hc-wt-value').innerText = resultText;
     document.getElementById('hc-walk-time-result').classList.add('visible');
 }

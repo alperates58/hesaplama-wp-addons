@@ -1,0 +1,5 @@
+{
+  "name": "Snowboard Tahtası Boyu Hesaplama",
+  "desc": "Boyunuza, kilonuza ve sürüş tarzınıza göre en uygun snowboard tahtası uzunluğunu (cm) hesaplar.",
+  "shortcode": "[hc_snowboard_tahtasi_boyu_hesaplama]"
+}

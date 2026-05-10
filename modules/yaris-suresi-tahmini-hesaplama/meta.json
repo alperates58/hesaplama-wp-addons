@@ -1,0 +1,5 @@
+{
+  "name": "Yarış Süresi Tahmini Hesaplama",
+  "desc": "Mevcut bir yarış sonucunuza göre (örn: 5K) diğer mesafelerdeki (10K, Yarı Maraton, Maraton) potansiyel sürenizi Riegel formülü ile tahmin eder.",
+  "shortcode": "[hc_yaris_suresi_tahmini_hesaplama]"
+}

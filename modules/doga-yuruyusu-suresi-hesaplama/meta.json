@@ -1,0 +1,5 @@
+{
+  "name": "Doğa Yürüyüşü Süresi Hesaplama",
+  "desc": "Mesafe ve irtifa kazancına (yokuş) göre doğa yürüyüşü (hiking) sürenizi Naismith kuralı ile hesaplar.",
+  "shortcode": "[hc_doga_yuruyusu_suresi_hesaplama]"
+}
