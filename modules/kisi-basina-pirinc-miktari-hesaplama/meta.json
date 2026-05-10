@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Başına Pirinç Miktarı Hesaplama",
+  "desc": "Kişi sayısına ve pirinç türüne (pilavlık, çorbalık vb.) göre gereken toplam pirinç miktarını hesaplar.",
+  "shortcode": "[hc_kisi_basina_pirinc_miktari_hesaplama]"
+}

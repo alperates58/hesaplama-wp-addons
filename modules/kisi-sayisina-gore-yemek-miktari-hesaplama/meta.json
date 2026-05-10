@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Sayısına Göre Yemek Miktarı Hesaplama",
+  "desc": "Genel davet ve organizasyonlar için kişi sayısına göre ana yemek, yan yemek ve içecek miktarlarını hesaplar.",
+  "shortcode": "[hc_kisi_sayisina_gore_yemek_miktari_hesaplama]"
+}

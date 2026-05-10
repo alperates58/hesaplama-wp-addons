@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Sayısına Göre Pankek Hesaplama",
+  "desc": "Kişi sayısına göre pankek tarifi için gereken un, süt, yumurta ve şeker miktarlarını hesaplar.",
+  "shortcode": "[hc_kisi_sayisina_gore_pankek_hesaplama]"
+}

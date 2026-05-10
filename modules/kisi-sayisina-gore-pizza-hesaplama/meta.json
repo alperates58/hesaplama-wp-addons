@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Sayısına Göre Pizza Hesaplama",
+  "desc": "Kişi sayısına ve pizza boyutuna göre kaç adet pizza sipariş edilmesi veya yapılması gerektiğini hesaplar.",
+  "shortcode": "[hc_kisi_sayisina_gore_pizza_hesaplama]"
+}

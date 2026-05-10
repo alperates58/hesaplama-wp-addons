@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Başına Salata Miktarı Hesaplama",
+  "desc": "Davetli sayısına ve öğün türüne göre hazırlanması gereken toplam salata ve malzeme miktarını hesaplar.",
+  "shortcode": "[hc_kisi_basina_salata_miktari_hesaplama]"
+}
