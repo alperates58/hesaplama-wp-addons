@@ -425,7 +425,7 @@ class HC_Module_Inventory {
         $modules           = self::get_modules();
         $total_posts       = array_sum( wp_list_pluck( $modules, 'post_count' ) );
         $duplicate_modules = array_values( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] > 1 ) );
-        $latest_module     = ! empty( $modules ) ? $modules[0] : null;
+        $latest_post       = self::get_latest_shortcode_post_summary();
 
         return [
             'total_modules'     => count( $modules ),
@@ -438,7 +438,7 @@ class HC_Module_Inventory {
                     $duplicate_modules
                 )
             ),
-            'latest_module'     => $latest_module,
+            'latest_post'       => $latest_post,
         ];
     }
 
@@ -899,6 +899,31 @@ class HC_Module_Inventory {
         }
 
         return false;
+    }
+
+    private static function get_latest_shortcode_post_summary() {
+        global $wpdb;
+
+        $row = $wpdb->get_row(
+            "SELECT ID, post_title, post_date
+             FROM {$wpdb->posts}
+             WHERE post_type = 'post'
+               AND post_status IN ('publish','draft','pending','future','private')
+               AND post_content LIKE '%[hc_%'
+             ORDER BY post_date DESC
+             LIMIT 1",
+            ARRAY_A
+        );
+
+        if ( empty( $row['ID'] ) ) {
+            return null;
+        }
+
+        return [
+            'title'    => get_the_title( (int) $row['ID'] ),
+            'date'     => wp_date( 'd M Y H:i', strtotime( (string) $row['post_date'] ) ),
+            'edit_url' => get_edit_post_link( (int) $row['ID'], '' ),
+        ];
     }
 
     private static function get_usage_snapshot_for_shortcodes( $shortcodes, $usage_cache = null ) {
@@ -2061,7 +2086,7 @@ class HC_Admin_Page {
         $all_categories    = HC_Module_Inventory::get_all_categories();
         $nonce             = wp_create_nonce( 'hc_ajax_nonce' );
         $total_posts       = array_sum( wp_list_pluck( $all_modules, 'post_count' ) );
-        $latest_module     = ! empty( $all_modules ) ? $all_modules[0] : null;
+        $latest_post       = HC_Module_Inventory::get_dashboard_stats()['latest_post'] ?? null;
         $grouped_modules   = HC_Module_Inventory::group_modules_by_category( $modules );
         $duplicate_modules = array_values( array_filter( $all_modules, static fn( $module ) => (int) $module['post_count'] > 1 ) );
         $duplicate_extra_usage = array_sum(
@@ -2098,8 +2123,8 @@ class HC_Admin_Page {
             </div>
             <div class="hc-stat-card">
                 <span class="hc-stat-label">Son Eklenen</span>
-                <strong class="hc-stat-value hc-stat-small"><?php echo esc_html( $latest_module ? $latest_module['created_datetime'] : '-' ); ?></strong>
-                <span class="hc-stat-foot"><?php echo esc_html( $latest_module ? $latest_module['name'] : 'Yok' ); ?></span>
+                <strong class="hc-stat-value hc-stat-small"><?php echo esc_html( $latest_post['title'] ?? '-' ); ?></strong>
+                <span class="hc-stat-foot"><?php echo esc_html( $latest_post['date'] ?? 'Yok' ); ?></span>
             </div>
         </div>
 

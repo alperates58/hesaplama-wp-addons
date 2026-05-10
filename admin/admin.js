@@ -884,13 +884,13 @@ jQuery(function ($) {
         }
 
         function renderStats(stats) {
-            var latest = stats.latest_module || {};
+            var latest = stats.latest_post || {};
             var cards = [
                 { label: 'Toplam Modül', value: stats.total_modules || 0, foot: 'Canlı katalog' },
                 { label: 'Kategori', value: stats.total_categories || 0, foot: 'Gezgin ağacı' },
                 { label: 'Toplam Kullanım', value: stats.total_usage || 0, foot: 'Shortcode yerleşimi' },
                 { label: 'Mükerrer Kullanım', value: stats.duplicate_modules || 0, foot: (stats.duplicate_usage || 0) + ' ekstra kullanım' },
-                { label: 'Son Eklenen', value: latest.name || '-', foot: latest.updated_date || latest.created_date || '-', small: true }
+                { label: 'Son Eklenen', value: latest.title || '-', foot: latest.date || '-', small: true }
             ];
             var html = '';
 
