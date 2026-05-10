@@ -1,5 +1,5 @@
 {
   "name": "Çit Maliyeti Hesaplama",
-  "desc": "Çit uzunluğu, direk aralıkları ve malzeme birim fiyatlarına göre toplam çit yapım maliyetini hesaplar.",
+  "desc": "Malzeme ve işçilik dahil toplam çit kurulum maliyetini hesaplar.",
   "shortcode": "[hc_cit_maliyeti_hesaplama]"
 }

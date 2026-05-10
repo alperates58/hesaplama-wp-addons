@@ -1,0 +1,5 @@
+{
+  "name": "Mahremiyet Çiti Hesaplama",
+  "desc": "Bahçe mahremiyeti için kurulan kapalı tip çitlerin panel ve direk sayısını hesaplar.",
+  "shortcode": "[hc_mahremiyet_citi_hesaplama]"
+}

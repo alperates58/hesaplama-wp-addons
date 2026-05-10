@@ -1,0 +1,5 @@
+{
+  "name": "Vida Diş Adımı Hesaplama",
+  "desc": "Vidanın toplam boyuna ve diş sayısına göre diş adımı (pitch) değerini hesaplar.",
+  "shortcode": "[hc_vida_dis_adimi_hesaplama]"
+}

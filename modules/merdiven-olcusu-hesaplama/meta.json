@@ -1,0 +1,5 @@
+{
+  "name": "Merdiven Ölçüsü Hesaplama",
+  "desc": "Basamak yüksekliği, genişliği ve toplam rıht sayısını yönetmeliklere göre hesaplar.",
+  "shortcode": "[hc_merdiven_olcusu_hesaplama]"
+}

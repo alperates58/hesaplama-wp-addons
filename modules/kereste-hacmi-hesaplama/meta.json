@@ -1,0 +1,5 @@
+{
+  "name": "Kereste Hacmi Hesaplama",
+  "desc": "Boyutları bilinen kerestelerin toplam hacmini metreküp (m³) cinsinden hesaplar.",
+  "shortcode": "[hc_kereste_hacmi_hesaplama]"
+}

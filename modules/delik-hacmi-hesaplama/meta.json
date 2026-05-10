@@ -1,0 +1,5 @@
+{
+  "name": "Delik Hacmi Hesaplama",
+  "desc": "Silindirik bir deliğin (direk deliği vb.) hacmini çap ve derinliğe göre hesaplar.",
+  "shortcode": "[hc_delik_hacmi_hesaplama]"
+}

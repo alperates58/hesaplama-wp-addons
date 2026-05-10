@@ -1,0 +1,5 @@
+{
+  "name": "Mahremiyet Çiti Miktarı Hesaplama",
+  "desc": "Ahşap mahremiyet çiti için gereken dikey tahta (slat) sayısını ve maliyetini hesaplar.",
+  "shortcode": "[hc_mahremiyet_citi_miktari_hesaplama]"
+}

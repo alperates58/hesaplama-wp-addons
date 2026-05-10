@@ -1,0 +1,5 @@
+{
+  "name": "K Faktörü Hesaplama",
+  "desc": "Sac bükümünde kullanılan K-Faktörünü, nötr eksen konumuna göre hesaplar.",
+  "shortcode": "[hc_k_faktoru_hesaplama]"
+}

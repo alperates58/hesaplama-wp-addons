@@ -1,0 +1,5 @@
+{
+  "name": "Vida Dişi Hesaplama",
+  "desc": "Metrik vida ölçülerine göre diş dibi çapını ve uygun matkap ucunu hesaplar.",
+  "shortcode": "[hc_vida_disi_hesaplama]"
+}

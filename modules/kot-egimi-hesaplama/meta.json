@@ -1,0 +1,5 @@
+{
+  "name": "Kot Eğimi Hesaplama",
+  "desc": "İki nokta arasındaki yükseklik farkı (kot) ve yatay mesafeye göre eğimi hesaplar.",
+  "shortcode": "[hc_kot_egimi_hesaplama]"
+}

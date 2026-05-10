@@ -1,0 +1,5 @@
+{
+  "name": "Fayans Yapıştırıcı Miktarı Hesaplama",
+  "desc": "Kaplanacak fayans alanına ve tarak boyutuna göre gereken fayans yapıştırıcı (kalekim) miktarını hesaplar.",
+  "shortcode": "[hc_fayans_yapistirici_miktari_hesaplama]"
+}

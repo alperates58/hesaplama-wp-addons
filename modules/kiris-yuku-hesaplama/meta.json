@@ -1,0 +1,5 @@
+{
+  "name": "Kiriş Yükü Hesaplama",
+  "desc": "Bir kiriş üzerindeki toplam yükü ve destek tepkilerini (reactions) hesaplar.",
+  "shortcode": "[hc_kiris_yuku_hesaplama]"
+}

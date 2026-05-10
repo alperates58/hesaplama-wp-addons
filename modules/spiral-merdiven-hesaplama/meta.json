@@ -1,0 +1,5 @@
+{
+  "name": "Spiral Merdiven Hesaplama",
+  "desc": "Spiral (döner) merdivenler için basamak açısını, genişliğini ve rıht yüksekliğini hesaplar.",
+  "shortcode": "[hc_spiral_merdiven_hesaplama]"
+}

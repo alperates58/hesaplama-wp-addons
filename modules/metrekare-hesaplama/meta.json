@@ -1,0 +1,5 @@
+{
+  "name": "Metrekare Hesaplama",
+  "desc": "Dikdörtgen, üçgen veya daire formundaki alanların metrekare ölçüsünü hesaplar.",
+  "shortcode": "[hc_metrekare_hesaplama]"
+}

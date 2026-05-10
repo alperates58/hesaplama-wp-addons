@@ -1,0 +1,5 @@
+{
+  "name": "Kar Yükü Hesaplama",
+  "desc": "Çatı eğimine ve bölgenin kar yoğunluğuna göre çatıya binen kar yükünü hesaplar.",
+  "shortcode": "[hc_kar_yuku_hesaplama]"
+}

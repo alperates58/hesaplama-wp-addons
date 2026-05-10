@@ -1,0 +1,5 @@
+{
+  "name": "İnşaat Demiri Ağırlığı Hesaplama",
+  "desc": "Demir çapına ve uzunluğuna göre inşaat demiri ağırlığını (kg) hesaplar.",
+  "shortcode": "[hc_insaat_demiri_agirligi_hesaplama]"
+}

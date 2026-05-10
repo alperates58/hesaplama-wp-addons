@@ -1,5 +1,5 @@
 {
   "name": "Sehim Hesaplama",
-  "desc": "Yapısal mühendislikte, bir kirişin üzerine etki eden yük altında yaptığı maksimum yer değiştirmeyi (sehim) hesaplar.",
+  "desc": "Basit bir kiriş üzerindeki yükün yarattığı maksimum sehim (çökme) miktarını hesaplar.",
   "shortcode": "[hc_sehim_hesaplama]"
 }

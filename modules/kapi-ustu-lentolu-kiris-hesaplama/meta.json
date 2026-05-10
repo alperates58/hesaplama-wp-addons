@@ -1,0 +1,5 @@
+{
+  "name": "Kapı Üstü Lentolu Kiriş Hesaplama",
+  "desc": "Kapı veya pencere açıklıkları üzerindeki lento (header) için gereken taşıma kapasitesini ve yükü hesaplar.",
+  "shortcode": "[hc_kapi_ustu_lentolu_kiris_hesaplama]"
+}

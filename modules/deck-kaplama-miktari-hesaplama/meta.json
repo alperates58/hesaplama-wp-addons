@@ -1,0 +1,5 @@
+{
+  "name": "Deck Kaplama Miktarı Hesaplama",
+  "desc": "Teras veya balkon deck kaplaması için gereken tahta sayısını ve toplam alanı hesaplar.",
+  "shortcode": "[hc_deck_kaplama_miktari_hesaplama]"
+}

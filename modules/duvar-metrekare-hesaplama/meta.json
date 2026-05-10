@@ -1,0 +1,5 @@
+{
+  "name": "Duvar Metrekare Hesaplama",
+  "desc": "Duvarın uzunluk ve yüksekliğine göre alanını hesaplar, kapı ve pencereleri toplam alandan düşer.",
+  "shortcode": "[hc_duvar_metrekare_hesaplama]"
+}

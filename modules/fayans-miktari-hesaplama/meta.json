@@ -1,0 +1,5 @@
+{
+  "name": "Fayans Miktarı Hesaplama",
+  "desc": "Kaplanacak alana ve fayans boyutlarına göre ihtiyacınız olan fayans adetini ve kutu sayısını hesaplar.",
+  "shortcode": "[hc_fayans_miktari_hesaplama]"
+}

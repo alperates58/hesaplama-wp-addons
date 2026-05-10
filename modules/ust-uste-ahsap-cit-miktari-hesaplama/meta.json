@@ -1,0 +1,5 @@
+{
+  "name": "Üst Üste Ahşap Çit Miktarı Hesaplama",
+  "desc": "Yatay tahtaların üst üste bindiği (overlap) çit modelleri için gereken tahta miktarını hesaplar.",
+  "shortcode": "[hc_ust_uste_ahsap_cit_miktari_hesaplama]"
+}

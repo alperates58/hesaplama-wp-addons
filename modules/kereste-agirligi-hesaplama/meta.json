@@ -1,0 +1,5 @@
+{
+  "name": "Kereste Ağırlığı Hesaplama",
+  "desc": "Ahşap türüne ve hacmine göre kerestelerin tahmini ağırlığını (kg) hesaplar.",
+  "shortcode": "[hc_kereste_agirligi_hesaplama]"
+}

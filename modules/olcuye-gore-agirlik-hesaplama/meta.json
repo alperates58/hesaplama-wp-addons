@@ -1,0 +1,5 @@
+{
+  "name": "Ölçüye Göre Ağırlık Hesaplama",
+  "desc": "Boyutları ve malzeme türü (metal, ahşap, plastik vb.) bilinen cisimlerin toplam ağırlığını hesaplar.",
+  "shortcode": "[hc_olcuye_gore_agirlik_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yol Temel Malzemesi Hesaplama",
+  "desc": "Yol, otopark veya driveway temeli için gereken stabilize dolgu miktarını hesaplar.",
+  "shortcode": "[hc_yol_temel_malzemesi_hesaplama]"
+}

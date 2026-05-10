@@ -1,0 +1,5 @@
+{
+  "name": "Kırma Çatı Ölçüsü Hesaplama",
+  "desc": "Kırma çatı (hip roof) için yüzey alanı, mertek uzunluğu ve mahya ölçülerini hesaplar.",
+  "shortcode": "[hc_kirma_cati_olcusu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Metrekareden Metreküpe Hesaplama",
+  "desc": "Belirli bir alan ve kalınlık (derinlik) bilgisine göre metreküp hacmini hesaplar.",
+  "shortcode": "[hc_metrekareden_metrekupe_hesaplama]"
+}

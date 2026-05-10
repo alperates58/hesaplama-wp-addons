@@ -1,0 +1,5 @@
+{
+  "name": "Döşeme Kirişi Hesaplama",
+  "desc": "Zemin veya tavan döşemesi için gereken kiriş (joist) sayısını ve aralıklarını hesaplar.",
+  "shortcode": "[hc_doseme_kirisi_hesaplama]"
+}

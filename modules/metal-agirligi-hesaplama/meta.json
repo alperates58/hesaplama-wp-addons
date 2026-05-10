@@ -1,0 +1,5 @@
+{
+  "name": "Metal Ağırlığı Hesaplama",
+  "desc": "Çeşitli metal profillerin (boru, kare, dikdörtgen) ölçülerine göre ağırlığını hesaplar.",
+  "shortcode": "[hc_metal_agirligi_hesaplama]"
+}

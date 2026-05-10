@@ -3,43 +3,35 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_cit_maliyeti_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-cit-maliyeti-hesaplama',
+        'hc-fence-cost',
         HC_PLUGIN_URL . 'modules/cit-maliyeti-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-cit-maliyeti-hesaplama-css',
+        'hc-fence-cost-css',
         HC_PLUGIN_URL . 'modules/cit-maliyeti-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-cit-maliyeti-hesaplama">
+    <div class="hc-calculator" id="hc-fcost">
         <h3>Çit Maliyeti Hesaplama</h3>
         <div class="hc-form-group">
-            <label for="hc-cmal-len">Toplam Çit Uzunluğu (m)</label>
-            <input type="number" id="hc-cmal-len" placeholder="Örn: 50">
+            <label for="hc-fc-len">Toplam Uzunluk (m):</label>
+            <input type="number" id="hc-fc-len" placeholder="50">
         </div>
         <div class="hc-form-group">
-            <label for="hc-cmal-spacing">Direk Aralığı (m)</label>
-            <input type="number" id="hc-cmal-spacing" value="2.5" step="0.1">
+            <label for="hc-fc-mat">Malzeme Birim Fiyatı (TL/m):</label>
+            <input type="number" id="hc-fc-mat" placeholder="250">
         </div>
         <div class="hc-form-group">
-            <label for="hc-cmal-post-price">Direk Birim Fiyatı (₺)</label>
-            <input type="number" id="hc-cmal-post-price" placeholder="Örn: 250">
+            <label for="hc-fc-labor">İşçilik Birim Fiyatı (TL/m):</label>
+            <input type="number" id="hc-fc-labor" placeholder="100">
         </div>
-        <div class="hc-form-group">
-            <label for="hc-cmal-panel-price">Panel / Tel m Fiyatı (₺)</label>
-            <input type="number" id="hc-cmal-panel-price" placeholder="Örn: 150">
-        </div>
-        <div class="hc-form-group">
-            <label for="hc-cmal-labor">İşçilik m Fiyatı (₺)</label>
-            <input type="number" id="hc-cmal-labor" placeholder="Örn: 50">
-        </div>
-        <button class="hc-btn" onclick="hcCMALHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-cmal-result">
-            <div class="hc-result-label">Tahmini Toplam Maliyet:</div>
-            <div class="hc-result-value" id="hc-cmal-val">-</div>
-            <div class="hc-result-note">Nakliye ve küçük bağlantı elemanları hariçtir.</div>
+        <button class="hc-btn" onclick="hcFenceCostHesapla()">Hesapla</button>
+        <div class="hc-result" id="hc-fence-cost-result">
+            <strong>Toplam Tahmini Maliyet:</strong>
+            <div id="hc-fc-res-val" class="hc-result-value">-</div>
+            <span>Türk Lirası (₺)</span>
         </div>
     </div>
     <?php

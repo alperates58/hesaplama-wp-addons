@@ -1,0 +1,5 @@
+{
+  "name": "Tomruk Ağırlığı Hesaplama",
+  "desc": "Kesilmiş tomrukların boyuna ve çapına göre tahmini ağırlığını hesaplar.",
+  "shortcode": "[hc_tomruk_agirligi_hesaplama]"
+}

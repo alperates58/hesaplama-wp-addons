@@ -1,0 +1,5 @@
+{
+  "name": "Eğilme Gerilmesi Hesaplama",
+  "desc": "Bir kiriş üzerindeki yükün yarattığı maksimum eğilme gerilmesini (stress) hesaplar.",
+  "shortcode": "[hc_egilme_gerilmesi_hesaplama]"
+}

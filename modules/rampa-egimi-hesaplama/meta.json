@@ -1,0 +1,5 @@
+{
+  "name": "Rampa Eğimi Hesaplama",
+  "desc": "Engelli rampası veya araç rampası için gereken eğimi ve uzunluğu yönetmeliklere göre hesaplar.",
+  "shortcode": "[hc_rampa_egimi_hesaplama]"
+}

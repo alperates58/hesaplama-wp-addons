@@ -1,0 +1,5 @@
+{
+  "name": "Isıtıcı Kapasitesi Hesaplama",
+  "desc": "Belirli bir hacmi ısıtmak için gereken elektrikli veya gazlı ısıtıcı kapasitesini hesaplar.",
+  "shortcode": "[hc_isitici_kapasitesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kaynak Hesaplama",
+  "desc": "Kaynak dikiş boyuna ve tipine göre gereken elektrot veya kaynak teli miktarını hesaplar.",
+  "shortcode": "[hc_kaynak_hesaplama]"
+}

@@ -1,0 +1,2 @@
+.hc-lumber-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+#hc-lumber-qty .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

@@ -1,0 +1,5 @@
+{
+  "name": "Harç Miktarı Hesaplama",
+  "desc": "Tuğla örme veya sıva için gereken kum, çimento ve su miktarlarını hacme göre hesaplar.",
+  "shortcode": "[hc_harc_miktari_hesaplama]"
+}

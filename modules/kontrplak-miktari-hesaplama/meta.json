@@ -1,0 +1,5 @@
+{
+  "name": "Kontrplak Miktarı Hesaplama",
+  "desc": "Alanınıza göre gereken kontrplak veya OSB levha sayısını standart ölçülere göre hesaplar.",
+  "shortcode": "[hc_kontrplak_miktari_hesaplama]"
+}

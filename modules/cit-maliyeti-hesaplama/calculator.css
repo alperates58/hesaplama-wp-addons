@@ -1,12 +1,1 @@
-#hc-cit-maliyeti-hesaplama .hc-result-note {
-    margin-top: 10px;
-    font-size: 0.85em;
-    opacity: 0.7;
-    font-style: italic;
-}
-
-@media (max-width: 480px) {
-    #hc-cit-maliyeti-hesaplama {
-        padding: 15px;
-    }
-}
+#hc-fcost .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

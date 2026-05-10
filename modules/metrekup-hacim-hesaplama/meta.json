@@ -1,0 +1,5 @@
+{
+  "name": "Metreküp Hacim Hesaplama",
+  "desc": "Dikdörtgen, silindir veya küre formundaki alanların metreküp (m³) hacmini hesaplar.",
+  "shortcode": "[hc_metrekup_hacim_hesaplama]"
+}

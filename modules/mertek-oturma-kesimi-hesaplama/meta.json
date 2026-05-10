@@ -1,0 +1,5 @@
+{
+  "name": "Mertek Oturma Kesimi Hesaplama",
+  "desc": "Merteğin duvar plakasına oturacağı kuş ağzı (birdsmouth) kesim ölçülerini hesaplar.",
+  "shortcode": "[hc_mertek_oturma_kesimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kereste Miktarı Hesaplama",
+  "desc": "Belirli boyutlardaki kereste adetini toplam hacme veya adet bazlı miktara dönüştürür.",
+  "shortcode": "[hc_kereste_miktari_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Metrekare Başına Litre Hesaplama",
+  "desc": "Boya, astar veya izolasyon malzemelerinin m² sarfiyatına göre toplam litre ihtiyacını hesaplar.",
+  "shortcode": "[hc_metrekare_basina_litre_hesaplama]"
+}

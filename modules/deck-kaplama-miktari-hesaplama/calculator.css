@@ -1,0 +1,2 @@
+.hc-dc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+#hc-deck .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

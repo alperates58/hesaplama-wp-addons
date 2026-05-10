@@ -1,0 +1,4 @@
+.hc-st-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 15px; }
+.hc-st-item { background: rgba(var(--hc-primary-rgb), 0.05); padding: 10px; border-radius: 10px; text-align: center; }
+.hc-st-item strong { display: block; font-size: 0.75rem; color: var(--hc-primary); margin-bottom: 5px; }
+.hc-st-item div { font-weight: bold; font-size: 1.2rem; }

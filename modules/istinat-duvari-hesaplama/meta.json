@@ -1,0 +1,5 @@
+{
+  "name": "İstinat Duvarı Hesaplama",
+  "desc": "Belirli ölçülerdeki bir istinat duvarı için gereken blok sayısı veya beton hacmini hesaplar.",
+  "shortcode": "[hc_istinat_duvari_hesaplama]"
+}

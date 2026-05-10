@@ -1,0 +1,5 @@
+{
+  "name": "Perçin Ölçüsü Hesaplama",
+  "desc": "Birleştirilecek plaka kalınlıklarına göre gereken perçin boyunu ve çapını hesaplar.",
+  "shortcode": "[hc_percin_olcusu_hesaplama]"
+}

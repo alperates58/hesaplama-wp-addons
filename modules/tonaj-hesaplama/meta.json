@@ -1,0 +1,5 @@
+{
+  "name": "Tonaj Hesaplama",
+  "desc": "Hacmi ve yoğunluğu bilinen malzemelerin toplam ağırlığını ton cinsinden hesaplar.",
+  "shortcode": "[hc_tonaj_hesaplama]"
+}

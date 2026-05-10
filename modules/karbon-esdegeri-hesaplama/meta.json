@@ -1,0 +1,5 @@
+{
+  "name": "Karbon Eşdeğeri Hesaplama",
+  "desc": "Çeliklerin kaynak edilebilirliğini belirlemek için kimyasal bileşimine göre Karbon Eşdeğerini (CE) hesaplar.",
+  "shortcode": "[hc_karbon_esdegeri_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kiriş Sehim Hesaplama",
+  "desc": "Belirli bir yükleme altındaki kirişin (yayılı yük) maksimum sehim miktarını hesaplar.",
+  "shortcode": "[hc_kiris_sehim_hesaplama]"
+}

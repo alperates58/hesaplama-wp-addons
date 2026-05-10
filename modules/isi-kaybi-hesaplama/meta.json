@@ -1,0 +1,5 @@
+{
+  "name": "Isı Kaybı Hesaplama",
+  "desc": "Oda hacmi, yalıtım durumu ve bölge sıcaklık farkına göre ısı kaybını (Watt) hesaplar.",
+  "shortcode": "[hc_isi_kaybi_hesaplama]"
+}

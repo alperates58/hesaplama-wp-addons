@@ -1,0 +1,5 @@
+{
+  "name": "Metal Plaka Ağırlığı Hesaplama",
+  "desc": "Metal plakanın boyutlarına, kalınlığına ve malzeme türüne göre ağırlığını hesaplar.",
+  "shortcode": "[hc_metal_plaka_agirligi_hesaplama]"
+}

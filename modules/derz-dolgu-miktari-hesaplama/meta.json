@@ -1,0 +1,5 @@
+{
+  "name": "Derz Dolgu Miktarı Hesaplama",
+  "desc": "Fayans boyutlarına, derz genişliğine ve alanınıza göre gereken derz dolgu miktarını hesaplar.",
+  "shortcode": "[hc_derz_dolgu_miktari_hesaplama]"
+}

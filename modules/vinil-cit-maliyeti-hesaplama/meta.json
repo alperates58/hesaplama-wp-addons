@@ -1,0 +1,5 @@
+{
+  "name": "Vinil Çit Maliyeti Hesaplama",
+  "desc": "Gereken vinil çit malzemelerinin toplam tahmini maliyetini birim fiyatlara göre hesaplar.",
+  "shortcode": "[hc_vinil_cit_maliyeti_hesaplama]"
+}

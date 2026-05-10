@@ -1,20 +1,17 @@
-function hcCMALHesapla() {
-    const len = parseFloat(document.getElementById('hc-cmal-len').value);
-    const spacing = parseFloat(document.getElementById('hc-cmal-spacing').value);
-    const postPrice = parseFloat(document.getElementById('hc-cmal-post-price').value) || 0;
-    const panelPrice = parseFloat(document.getElementById('hc-cmal-panel-price').value) || 0;
-    const labor = parseFloat(document.getElementById('hc-cmal-labor').value) || 0;
+function hcFenceCostHesapla() {
+    const L = parseFloat(document.getElementById('hc-fc-len').value);
+    const M = parseFloat(document.getElementById('hc-fc-mat').value);
+    const W = parseFloat(document.getElementById('hc-fc-labor').value);
 
-    if (isNaN(len) || len <= 0 || isNaN(spacing) || spacing <= 0) {
-        alert('Lütfen geçerli uzunluk ve aralık değerleri giriniz.');
+    if (!L) {
+        alert('Lütfen uzunluk giriniz.');
         return;
     }
 
-    const postCount = Math.ceil(len / spacing) + 1;
-    const totalMaterial = (postCount * postPrice) + (len * panelPrice);
-    const totalLabor = len * labor;
-    const total = totalMaterial + totalLabor;
+    const total = L * (M + W);
 
-    document.getElementById('hc-cmal-val').innerText = total.toLocaleString('tr-TR', { maximumFractionDigits: 0 }) + ' ₺';
-    document.getElementById('hc-cmal-result').classList.add('visible');
+    const resVal = document.getElementById('hc-fc-res-val');
+    resVal.innerText = total.toLocaleString('tr-TR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " ₺";
+
+    document.getElementById('hc-fence-cost-result').classList.add('visible');
 }

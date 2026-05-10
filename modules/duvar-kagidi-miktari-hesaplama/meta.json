@@ -1,0 +1,5 @@
+{
+  "name": "Duvar Kağıdı Miktarı Hesaplama",
+  "desc": "Duvar ölçülerinize ve rulo boyutlarına göre ihtiyacınız olan duvar kağıdı rulo sayısını hesaplar.",
+  "shortcode": "[hc_duvar_kagidi_miktari_hesaplama]"
+}

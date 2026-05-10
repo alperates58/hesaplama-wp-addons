@@ -1,0 +1,5 @@
+{
+  "name": "Mertek Uzunluğu Hesaplama",
+  "desc": "Çatı eğimine ve bina genişliğine göre ana merteklerin (rafter) uzunluğunu hesaplar.",
+  "shortcode": "[hc_mertek_uzunlugu_hesaplama]"
+}

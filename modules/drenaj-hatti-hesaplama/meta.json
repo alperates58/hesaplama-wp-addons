@@ -1,0 +1,5 @@
+{
+  "name": "Drenaj Hattı Hesaplama",
+  "desc": "Drenaj borusu için gereken eğimi ve toplam kazı hacmini hesaplar.",
+  "shortcode": "[hc_drenaj_hatti_hesaplama]"
+}

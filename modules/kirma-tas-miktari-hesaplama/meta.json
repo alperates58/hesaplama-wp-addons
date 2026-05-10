@@ -1,0 +1,5 @@
+{
+  "name": "Kırma Taş Miktarı Hesaplama",
+  "desc": "Zemin dolgusu veya drenaj için gereken kırma taş (mıcır) hacmini ve tonajını hesaplar.",
+  "shortcode": "[hc_kirma_tas_miktari_hesaplama]"
+}

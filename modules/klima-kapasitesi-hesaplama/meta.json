@@ -1,0 +1,5 @@
+{
+  "name": "Klima Kapasitesi Hesaplama",
+  "desc": "Oda metrekaresi ve kullanım amacına göre gereken klima kapasitesini (BTU/saat) hesaplar.",
+  "shortcode": "[hc_klima_kapasitesi_hesaplama]"
+}

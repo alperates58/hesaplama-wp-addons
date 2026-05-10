@@ -1,0 +1,5 @@
+{
+  "name": "Epoksi Miktarı Hesaplama",
+  "desc": "Zemin kaplama için gereken epoksi reçine ve sertleştirici miktarını alan ve kalınlığa göre hesaplar.",
+  "shortcode": "[hc_epoksi_miktari_hesaplama]"
+}

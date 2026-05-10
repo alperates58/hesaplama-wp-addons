@@ -1,0 +1,5 @@
+{
+  "name": "Direk Deliği Beton Miktarı Hesaplama",
+  "desc": "Çit direği veya yapısal direkler için açılan deliğe gereken beton miktarını, direk hacmini düşerek hesaplar.",
+  "shortcode": "[hc_direk_deligi_beton_miktari_hesaplama]"
+}

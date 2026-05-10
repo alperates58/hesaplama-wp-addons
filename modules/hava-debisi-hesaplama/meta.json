@@ -1,0 +1,5 @@
+{
+  "name": "Hava Debisi Hesaplama",
+  "desc": "Havalandırma sistemleri için kanal kesiti ve hava hızına göre debiyi (m³/h) hesaplar.",
+  "shortcode": "[hc_hava_debisi_hesaplama]"
+}

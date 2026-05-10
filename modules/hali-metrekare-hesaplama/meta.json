@@ -1,5 +1,5 @@
 {
   "name": "Halı Metrekare Hesaplama",
-  "desc": "Halılarınızın toplam metrekaresini ve yıkama maliyetini hesaplar.",
+  "desc": "Odanızın boyutlarına göre ihtiyacınız olan halı alanını ve rulo firesini hesaplar.",
   "shortcode": "[hc_hali_metrekare_hesaplama]"
 }
