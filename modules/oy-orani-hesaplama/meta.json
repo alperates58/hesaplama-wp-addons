@@ -1,0 +1,5 @@
+{
+  "name": "Oy Oranı Hesaplama",
+  "desc": "Alınan oy sayısına ve toplam geçerli oy sayısına göre yüzdeyi hesaplar.",
+  "shortcode": "[hc_oy_orani_hesaplama]"
+}

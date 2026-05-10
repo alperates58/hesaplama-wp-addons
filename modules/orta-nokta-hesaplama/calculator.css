@@ -1,0 +1,3 @@
+.hc-mid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.hc-mid-point h4 { margin-top: 0; font-size: 0.9rem; color: #666; }
+@media (max-width: 480px) { .hc-mid-grid { grid-template-columns: 1fr; } }

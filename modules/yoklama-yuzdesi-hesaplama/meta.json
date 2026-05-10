@@ -1,0 +1,5 @@
+{
+  "name": "Yoklama Yüzdesi Hesaplama",
+  "desc": "Katılınan ders saatinin toplam ders saatine oranına göre devamsızlık/katılım yüzdesini hesaplar.",
+  "shortcode": "[hc_yoklama_yuzdesi_hesaplama]"
+}

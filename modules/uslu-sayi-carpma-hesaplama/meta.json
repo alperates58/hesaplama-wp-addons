@@ -1,0 +1,5 @@
+{
+  "name": "Üslü Sayı Çarpma Hesaplama",
+  "desc": "Aynı tabanlı üslü sayılar arasında çarpma işlemi yapar (aˣ * aʸ = aˣ⁺ʸ).",
+  "shortcode": "[hc_uslu_sayi_carpma_hesaplama]"
+}

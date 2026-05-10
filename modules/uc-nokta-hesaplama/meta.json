@@ -1,0 +1,5 @@
+{
+  "name": "Uç Nokta Hesaplama",
+  "desc": "Orta noktası ve bir uç noktası bilinen bir doğrunun diğer uç noktasını hesaplar.",
+  "shortcode": "[hc_uc_nokta_hesaplama]"
+}

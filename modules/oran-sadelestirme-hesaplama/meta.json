@@ -1,0 +1,5 @@
+{
+  "name": "Oran Sadeleştirme Hesaplama",
+  "desc": "Verilen bir oranı en sade haline getirir.",
+  "shortcode": "[hc_oran_sadelestirme_hesaplama]"
+}

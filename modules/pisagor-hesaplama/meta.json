@@ -1,0 +1,5 @@
+{
+  "name": "Pisagor Hesaplama",
+  "desc": "Dik üçgende iki kenar biliniyorsa hipotenüsü veya dik kenarı hesaplar.",
+  "shortcode": "[hc_pisagor_hesaplama]"
+}

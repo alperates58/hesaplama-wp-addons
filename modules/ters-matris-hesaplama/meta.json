@@ -1,0 +1,5 @@
+{
+  "name": "Ters Matris Hesaplama",
+  "desc": "2x2 bir matrisin tersini (inverse) hesaplar.",
+  "shortcode": "[hc_ters_matris_hesaplama]"
+}

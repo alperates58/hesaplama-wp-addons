@@ -1,21 +1,21 @@
 function hcVarianceHesapla() {
-    const input = document.getElementById('hc-va-data').value;
-    const data = input.split(',').map(x => parseFloat(x.trim())).filter(x => !isNaN(x));
-    const type = document.getElementById('hc-va-type').value;
+    const input = document.getElementById('hc-v-input').value;
+    const nums = input.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+    const type = document.getElementById('hc-v-type').value;
 
-    if (data.length < 2) {
-        alert('Lütfen en az 2 sayı girin.');
+    if (nums.length < 2) {
+        alert('Lütfen en az iki sayı giriniz.');
         return;
     }
 
-    const n = data.length;
-    const mean = data.reduce((a, b) => a + b) / n;
-    const sqDiffs = data.reduce((a, b) => a + Math.pow(b - mean, 2), 0);
+    const mean = nums.reduce((a, b) => a + b, 0) / nums.length;
+    const sqDiffs = nums.map(n => Math.pow(n - mean, 2));
+    const sumSqDiffs = sqDiffs.reduce((a, b) => a + b, 0);
     
-    const variance = (type === 'sample') ? sqDiffs / (n - 1) : sqDiffs / n;
+    const variance = type === 'sample' ? sumSqDiffs / (nums.length - 1) : sumSqDiffs / nums.length;
+    const stdDev = Math.sqrt(variance);
 
-    document.getElementById('hc-res-va-val').innerText = variance.toLocaleString('tr-TR', { maximumFractionDigits: 4 });
-    document.getElementById('hc-res-va-mean').innerText = mean.toLocaleString('tr-TR', { maximumFractionDigits: 4 });
-    
-    document.getElementById('hc-variance-result').classList.add('visible');
+    document.getElementById('hc-v-res-val').innerText = variance.toLocaleString('tr-TR', { maximumFractionDigits: 4 });
+    document.getElementById('hc-v-sd').innerText = `Standart Sapma: ${stdDev.toLocaleString('tr-TR', { maximumFractionDigits: 4 })}`;
+    document.getElementById('hc-varyans-result').classList.add('visible');
 }

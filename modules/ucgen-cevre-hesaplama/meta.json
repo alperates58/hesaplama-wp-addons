@@ -1,0 +1,5 @@
+{
+  "name": "Üçgen Çevre Hesaplama",
+  "desc": "Üçgenin üç kenar uzunluğunun toplamını hesaplar.",
+  "shortcode": "[hc_ucgen_cevre_hesaplama]"
+}

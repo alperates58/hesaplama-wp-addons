@@ -1,0 +1,5 @@
+{
+  "name": "Vektör Toplama Hesaplama",
+  "desc": "İki vektörün bileşke vektörünü (A + B) hesaplar.",
+  "shortcode": "[hc_vektor_toplama_hesaplama]"
+}

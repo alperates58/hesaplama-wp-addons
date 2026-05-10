@@ -1,0 +1,5 @@
+{
+  "name": "Orantı Hesaplama",
+  "desc": "Doğru orantı kuralını kullanarak bilinmeyen değeri hesaplar (a/b = c/x).",
+  "shortcode": "[hc_oranti_hesaplama]"
+}

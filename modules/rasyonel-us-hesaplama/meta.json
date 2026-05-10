@@ -1,0 +1,5 @@
+{
+  "name": "Rasyonel Üs Hesaplama",
+  "desc": "Bir sayının rasyonel (kesirli) üssünü (a^(b/c)) hesaplar.",
+  "shortcode": "[hc_rasyonel_us_hesaplama]"
+}

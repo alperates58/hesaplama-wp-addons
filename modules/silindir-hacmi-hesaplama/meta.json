@@ -1,5 +1,5 @@
 {
-  "name": "Motor Hacmi Hesaplama",
-  "desc": "Motorun silindir çapı, strok uzunluğu ve silindir sayısına göre toplam motor hacmini (cc) hesaplayın.",
+  "name": "Silindir Hacmi Hesaplama",
+  "desc": "Silindirin yarıçap ve yükseklik değerlerine göre hacmini (m³) hesaplar.",
   "shortcode": "[hc_silindir_hacmi_hesaplama]"
 }

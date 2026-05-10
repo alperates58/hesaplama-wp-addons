@@ -1,5 +1,5 @@
 {
   "name": "Ortalama Yüzde Hesaplama",
-  "desc": "Birden fazla yüzde değerinin aritmetik ortalamasını hesaplar.",
+  "desc": "Farklı yüzde değerlerinin ortalamasını (ağırlıklı veya basit) hesaplar.",
   "shortcode": "[hc_ortalama_yuzde_hesaplama]"
 }

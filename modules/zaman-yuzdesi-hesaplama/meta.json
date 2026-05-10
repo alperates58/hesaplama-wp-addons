@@ -1,0 +1,5 @@
+{
+  "name": "Zaman Yüzdesi Hesaplama",
+  "desc": "Geçen sürenin toplam süreye oranını (yüzdesini) hesaplar.",
+  "shortcode": "[hc_zaman_yuzdesi_hesaplama]"
+}

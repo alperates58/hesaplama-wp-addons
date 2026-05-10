@@ -1,0 +1,5 @@
+{
+  "name": "Tolerans Hesaplama",
+  "desc": "Bir ölçümdeki üst ve alt tolerans sınırlarını (±) hesaplar.",
+  "shortcode": "[hc_tolerans_hesaplama]"
+}

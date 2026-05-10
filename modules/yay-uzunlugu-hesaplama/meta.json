@@ -1,0 +1,5 @@
+{
+  "name": "Yay Uzunluğu Hesaplama",
+  "desc": "Bir daire diliminin merkez açısına ve yarıçapına göre yay uzunluğunu hesaplar.",
+  "shortcode": "[hc_yay_uzunlugu_hesaplama]"
+}

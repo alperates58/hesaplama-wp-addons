@@ -1,0 +1,5 @@
+{
+  "name": "Tam Sayılı Kesir Hesaplama",
+  "desc": "Tam sayılı kesirleri (a b/c) toplama, çıkarma, çarpma ve bölme işlemlerine sokar.",
+  "shortcode": "[hc_tam_sayili_kesir_hesaplama]"
+}

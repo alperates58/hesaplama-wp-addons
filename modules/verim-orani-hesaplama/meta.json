@@ -1,0 +1,5 @@
+{
+  "name": "Verim Oranı Hesaplama",
+  "desc": "Bir sistemdeki faydalı çıktının toplam girdiye oranını hesaplar.",
+  "shortcode": "[hc_verim_orani_hesaplama]"
+}

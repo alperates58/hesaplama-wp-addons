@@ -1,0 +1,5 @@
+{
+  "name": "Verim Yüzdesi Hesaplama",
+  "desc": "Teorik verim ile gerçek verim arasındaki yüzde farkını hesaplar.",
+  "shortcode": "[hc_verim_yuzdesi_hesaplama]"
+}

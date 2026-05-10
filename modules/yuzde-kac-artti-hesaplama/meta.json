@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Kaç Arttı Hesaplama",
+  "desc": "Bir sayının diğerine göre yüzde kaç arttığını hesaplar.",
+  "shortcode": "[hc_yuzde_kac_artti_hesaplama]"
+}

@@ -1,29 +1,25 @@
 function hcDiceProbHesapla() {
-    const n = parseInt(document.getElementById('hc-dp-count').value) || 0;
-    const s = parseInt(document.getElementById('hc-dp-target').value) || 0;
+    const count = parseInt(document.getElementById('hc-dp-count').value);
+    const target = parseInt(document.getElementById('hc-dp-target').value);
 
-    if (n <= 0 || n > 5 || s < n || s > n * 6) {
-        document.getElementById('hc-res-dp-val').innerText = '%0';
-        document.getElementById('hc-dice-prob-result').classList.add('visible');
-        return;
-    }
+    if (isNaN(target)) { alert('Lütfen bir hedef giriniz.'); return; }
 
-    // Dinamik programlama ile kombinasyon sayısı bulma
-    const dp = Array.from({ length: n + 1 }, () => Array(s + 1).fill(0));
-    dp[0][0] = 1;
-
-    for (let i = 1; i <= n; i++) {
-        for (let j = 1; j <= s; j++) {
-            for (let k = 1; k <= 6 && k <= j; k++) {
-                dp[i][j] += dp[i - 1][j - k];
+    let prob = 0;
+    if (count === 1) {
+        if (target >= 1 && target <= 6) prob = 1/6;
+    } else {
+        // 2 Dice combinations
+        let combos = 0;
+        for (let i = 1; i <= 6; i++) {
+            for (let j = 1; j <= 6; j++) {
+                if (i + j === target) combos++;
             }
         }
+        prob = combos / 36;
     }
 
-    const ways = dp[n][s];
-    const totalWays = Math.pow(6, n);
-    const prob = (ways / totalWays) * 100;
+    const pct = prob * 100;
 
-    document.getElementById('hc-res-dp-val').innerText = '%' + prob.toLocaleString('tr-TR', { maximumFractionDigits: 4 });
-    document.getElementById('hc-dice-prob-result').classList.add('visible');
+    document.getElementById('hc-dp-res-val').innerText = `% ${pct.toLocaleString('tr-TR', { maximumFractionDigits: 2 })}`;
+    document.getElementById('hc-zar-olasiligi-result').classList.add('visible');
 }

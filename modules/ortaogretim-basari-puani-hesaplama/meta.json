@@ -1,0 +1,5 @@
+{
+  "name": "Ortaöğretim Başarı Puanı Hesaplama",
+  "desc": "Lise mezuniyet notuna göre OBP puanını ve YKS yerleştirme puanına etkisini hesaplar.",
+  "shortcode": "[hc_ortaogretim_basari_puani_hesaplama]"
+}

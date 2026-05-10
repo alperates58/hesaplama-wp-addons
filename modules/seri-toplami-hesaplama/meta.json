@@ -1,0 +1,5 @@
+{
+  "name": "Seri Toplamı Hesaplama",
+  "desc": "Aritmetik veya geometrik bir serinin belirli bir terime kadar olan toplamını hesaplar.",
+  "shortcode": "[hc_seri_toplami_hesaplama]"
+}

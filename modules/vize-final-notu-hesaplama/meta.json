@@ -1,0 +1,5 @@
+{
+  "name": "Vize Final Notu Hesaplama",
+  "desc": "Vize ve final notu ağırlıklarına göre ders ortalamasını hesaplar.",
+  "shortcode": "[hc_vize_final_notu_hesaplama]"
+}

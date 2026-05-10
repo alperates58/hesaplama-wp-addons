@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Kaç Hesaplama",
+  "desc": "Bir sayının başka bir sayıya oranını yüzde olarak verir.",
+  "shortcode": "[hc_yuzde_kac_hesaplama]"
+}

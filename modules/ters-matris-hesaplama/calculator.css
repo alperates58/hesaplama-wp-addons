@@ -1,0 +1,3 @@
+.hc-matrix-grid { display: grid; grid-template-columns: 80px 80px; gap: 10px; justify-content: center; margin-bottom: 20px; }
+.hc-matrix-grid input, .hc-matrix-grid div { width: 80px; text-align: center; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+.hc-matrix-res .hc-matrix-grid div { background: #f9f9f9; font-weight: bold; }

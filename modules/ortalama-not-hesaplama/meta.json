@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Not Hesaplama",
+  "desc": "Vize ve final notlarına göre yıl sonu ortalamasını hesaplar.",
+  "shortcode": "[hc_ortalama_not_hesaplama]"
+}

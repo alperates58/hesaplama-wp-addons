@@ -1,0 +1,5 @@
+{
+  "name": "Para Atma Olasılığı Hesaplama",
+  "desc": "Belirli sayıda para atışında hedeflenen yazı/tura gelme olasılığını hesaplar.",
+  "shortcode": "[hc_para_atma_olasiligi_hesaplama]"
+}

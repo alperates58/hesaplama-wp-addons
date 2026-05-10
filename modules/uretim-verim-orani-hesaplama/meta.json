@@ -1,0 +1,5 @@
+{
+  "name": "Üretim Verim Oranı Hesaplama",
+  "desc": "Gerçekleşen üretimin hedeflenen üretime oranına göre verimliliği hesaplar.",
+  "shortcode": "[hc_uretim_verim_orani_hesaplama]"
+}

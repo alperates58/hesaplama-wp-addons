@@ -1,0 +1,5 @@
+{
+  "name": "Permütasyon Kombinasyon Hesaplama",
+  "desc": "Aynı anda hem permütasyon hem de kombinasyon değerlerini hesaplar ve karşılaştırır.",
+  "shortcode": "[hc_permutasyon_kombinasyon_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Permütasyon Hesaplama",
+  "desc": "n elemanlı bir kümenin r'li permütasyonlarının sayısını hesaplar.",
+  "shortcode": "[hc_permutasyon_hesaplama]"
+}

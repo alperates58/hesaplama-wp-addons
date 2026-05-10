@@ -1,0 +1,5 @@
+{
+  "name": "Ters Orantı Hesaplama",
+  "desc": "Ters orantı kuralını kullanarak bilinmeyen değeri hesaplar (a * b = c * x).",
+  "shortcode": "[hc_ters_oranti_hesaplama]"
+}

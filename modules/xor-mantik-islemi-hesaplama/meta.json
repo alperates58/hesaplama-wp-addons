@@ -1,0 +1,5 @@
+{
+  "name": "XOR Mantık İşlemi Hesaplama",
+  "desc": "İki ikili (binary) değer arasında ÖZEL VEYA (XOR) mantık işlemini gerçekleştirir.",
+  "shortcode": "[hc_xor_mantik_islemi_hesaplama]"
+}

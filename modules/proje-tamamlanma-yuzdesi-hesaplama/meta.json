@@ -1,0 +1,5 @@
+{
+  "name": "Proje Tamamlanma Yüzdesi Hesaplama",
+  "desc": "Tamamlanan görev sayısının toplam görev sayısına oranına göre proje ilerlemesini hesaplar.",
+  "shortcode": "[hc_proje_tamamlanma_yuzdesi_hesaplama]"
+}

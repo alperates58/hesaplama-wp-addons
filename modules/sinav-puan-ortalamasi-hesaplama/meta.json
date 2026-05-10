@@ -1,0 +1,5 @@
+{
+  "name": "Sınav Puan Ortalaması Hesaplama",
+  "desc": "Birden fazla sınavın puanlarını toplayıp ortalamasını alır.",
+  "shortcode": "[hc_sinav_puan_ortalamasi_hesaplama]"
+}

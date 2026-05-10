@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Değişim Hızı Hesaplama",
+  "desc": "Bir fonksiyonun veya veri setinin belirli bir aralıktaki ortalama değişim hızını hesaplar.",
+  "shortcode": "[hc_ortalama_degisim_hizi_hesaplama]"
+}

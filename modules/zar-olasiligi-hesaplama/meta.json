@@ -1,5 +1,5 @@
 {
   "name": "Zar Olasılığı Hesaplama",
-  "desc": "Belirli bir zar sayısıyla atılan zarların toplamının belirli bir değere eşit olma olasılığını hesaplar.",
+  "desc": "Bir veya birden fazla zar atıldığında hedeflenen toplamın gelme olasılığını hesaplar.",
   "shortcode": "[hc_zar_olasiligi_hesaplama]"
 }

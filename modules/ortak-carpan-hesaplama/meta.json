@@ -1,0 +1,5 @@
+{
+  "name": "Ortak Çarpan Hesaplama",
+  "desc": "İki veya daha fazla sayının tüm ortak çarpanlarını bulur.",
+  "shortcode": "[hc_ortak_carpan_hesaplama]"
+}

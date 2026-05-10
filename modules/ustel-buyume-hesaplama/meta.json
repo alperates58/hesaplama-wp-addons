@@ -1,0 +1,5 @@
+{
+  "name": "Üstel Büyüme Hesaplama",
+  "desc": "Nüfus veya yatırım gibi belirli bir büyüme oranına sahip değerlerin zamanla artışını (A = P(1+r)^t) hesaplar.",
+  "shortcode": "[hc_ustel_buyume_hesaplama]"
+}

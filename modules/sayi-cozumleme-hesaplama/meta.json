@@ -1,0 +1,5 @@
+{
+  "name": "Sayı Çözümleme Hesaplama",
+  "desc": "Bir sayıyı basamak değerlerine göre çözümler (Örn: 123 = 100 + 20 + 3).",
+  "shortcode": "[hc_sayi_cozumleme_hesaplama]"
+}

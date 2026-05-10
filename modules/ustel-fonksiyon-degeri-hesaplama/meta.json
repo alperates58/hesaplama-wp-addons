@@ -1,0 +1,5 @@
+{
+  "name": "Üstel Fonksiyon Değeri Hesaplama",
+  "desc": "Doğal üstel fonksiyon e^x veya a^x değerlerini hesaplar.",
+  "shortcode": "[hc_ustel_fonksiyon_degeri_hesaplama]"
+}

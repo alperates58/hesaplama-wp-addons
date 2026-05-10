@@ -1,0 +1,5 @@
+{
+  "name": "Uzun Çarpma Hesaplama",
+  "desc": "İki sayıyı çarpar ve sonucu gösterir.",
+  "shortcode": "[hc_uzun_carpma_hesaplama]"
+}

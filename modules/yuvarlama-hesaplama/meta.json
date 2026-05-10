@@ -1,0 +1,5 @@
+{
+  "name": "Yuvarlama Hesaplama",
+  "desc": "Genel bir yuvarlama aracıdır; aşağı, yukarı veya en yakına yuvarlama seçenekleri sunar.",
+  "shortcode": "[hc_yuvarlama_hesaplama]"
+}

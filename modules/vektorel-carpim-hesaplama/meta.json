@@ -1,0 +1,5 @@
+{
+  "name": "Vektörel Çarpım Hesaplama",
+  "desc": "3D koordinat sisteminde iki vektörün vektörel (dış) çarpımını (A x B) hesaplar.",
+  "shortcode": "[hc_vektorel_carpim_hesaplama]"
+}

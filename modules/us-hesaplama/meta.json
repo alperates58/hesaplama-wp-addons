@@ -1,0 +1,5 @@
+{
+  "name": "Üs Hesaplama",
+  "desc": "Bir sayının istenen bir üssünü (a^b) hesaplar.",
+  "shortcode": "[hc_us_hesaplama]"
+}

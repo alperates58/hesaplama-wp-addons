@@ -1,13 +1,12 @@
-function hcUniAddRow() {
-    const container = document.getElementById('hc-uni-rows');
-    const row = document.createElement('div');
-    row.className = 'hc-form-group hc-uni-row';
-    row.style.display = 'flex';
-    row.style.gap = '10px';
-    row.style.marginBottom = '10px';
-    row.innerHTML = `
-        <input type="text" class="hc-uni-name" placeholder="Ders Adı" style="flex: 2;">
-        <select class="hc-uni-grade" style="flex: 1;">
+function hcGanoAddInput() {
+    const container = document.getElementById('hc-gano-inputs');
+    const div = document.createElement('div');
+    div.className = 'hc-gano-row';
+    div.style = 'display:grid; grid-template-columns: 2fr 1fr 1fr; gap:10px; margin-bottom:10px;';
+    div.innerHTML = `
+        <input type="text" placeholder="Ders Adı" style="font-size:0.8rem">
+        <input type="number" class="hc-g-credit" placeholder="Kredi/AKTS">
+        <select class="hc-g-grade">
             <option value="4.0">AA (4.0)</option>
             <option value="3.5">BA (3.5)</option>
             <option value="3.0">BB (3.0)</option>
@@ -18,31 +17,33 @@ function hcUniAddRow() {
             <option value="0.5">FD (0.5)</option>
             <option value="0.0">FF (0.0)</option>
         </select>
-        <input type="number" step="0.5" class="hc-uni-credit" placeholder="Kredi" style="flex: 1;">
     `;
-    container.appendChild(row);
+    container.appendChild(div);
 }
 
-function hcUniHesapla() {
-    const rows = document.querySelectorAll('.hc-uni-row');
-    let totalPoints = 0;
+function hcGanoHesapla() {
+    const credits = document.getElementsByClassName('hc-g-credit');
+    const grades = document.getElementsByClassName('hc-g-grade');
+    
+    let totalWeighted = 0;
     let totalCredits = 0;
 
-    rows.forEach(row => {
-        const grade = parseFloat(row.querySelector('.hc-uni-grade').value);
-        const credit = parseFloat(row.querySelector('.hc-uni-credit').value);
-        if (!isNaN(grade) && !isNaN(credit)) {
-            totalPoints += grade * credit;
-            totalCredits += credit;
+    for (let i = 0; i < credits.length; i++) {
+        let c = parseFloat(credits[i].value);
+        let g = parseFloat(grades[i].value);
+        if (!isNaN(c)) {
+            totalWeighted += c * g;
+            totalCredits += c;
         }
-    });
+    }
 
     if (totalCredits === 0) {
-        alert('Lütfen en az bir ders ve kredi girin.');
+        alert('Lütfen ders kredilerini giriniz.');
         return;
     }
 
-    const gpa = (totalPoints / totalCredits).toFixed(2);
-    document.getElementById('hc-uni-val').innerText = gpa;
-    document.getElementById('hc-uni-result').classList.add('visible');
+    const gano = totalWeighted / totalCredits;
+
+    document.getElementById('hc-g-res-val').innerText = gano.toLocaleString('tr-TR', { maximumFractionDigits: 2 });
+    document.getElementById('hc-universite-not-result').classList.add('visible');
 }

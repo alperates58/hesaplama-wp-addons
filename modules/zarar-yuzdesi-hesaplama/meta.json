@@ -1,0 +1,5 @@
+{
+  "name": "Zarar Yüzdesi Hesaplama",
+  "desc": "Alış fiyatı ile satış fiyatı arasındaki zarar oranını (yüzde) hesaplar.",
+  "shortcode": "[hc_zarar_yuzdesi_hesaplama]"
+}

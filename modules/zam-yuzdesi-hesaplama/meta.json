@@ -1,0 +1,5 @@
+{
+  "name": "Zam Yüzdesi Hesaplama",
+  "desc": "Verilen bir değerin üzerine belirli bir zam yüzdesi eklendiğinde oluşacak sonucu hesaplar.",
+  "shortcode": "[hc_zam_yuzdesi_hesaplama]"
+}

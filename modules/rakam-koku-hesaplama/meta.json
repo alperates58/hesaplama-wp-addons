@@ -1,0 +1,5 @@
+{
+  "name": "Rakam Kökü Hesaplama",
+  "desc": "Bir sayının rakamlarını tek basamağa inene kadar ardışık olarak toplar.",
+  "shortcode": "[hc_rakam_koku_hesaplama]"
+}

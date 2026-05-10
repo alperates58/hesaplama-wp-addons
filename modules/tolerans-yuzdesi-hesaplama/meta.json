@@ -1,0 +1,5 @@
+{
+  "name": "Tolerans Yüzdesi Hesaplama",
+  "desc": "Hata veya tolerans miktarının nominal değere göre yüzdesini hesaplar.",
+  "shortcode": "[hc_tolerans_yuzdesi_hesaplama]"
+}

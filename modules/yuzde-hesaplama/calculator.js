@@ -1,23 +1,14 @@
-function hcYuzdeTip1() {
-    const val = parseFloat(document.getElementById('hc-y1-val').value);
-    const perc = parseFloat(document.getElementById('hc-y1-perc').value);
+function hcPctGenHesapla() {
+    const x = parseFloat(document.getElementById('hc-pg-x').value);
+    const y = parseFloat(document.getElementById('hc-pg-y').value);
 
-    if (isNaN(val) || isNaN(perc)) { alert('Lütfen değerleri giriniz.'); return; }
+    if (isNaN(x) || isNaN(y) || y === 0) {
+        alert('Lütfen geçerli değerler giriniz.');
+        return;
+    }
 
-    const result = (val * perc) / 100;
-    const resDiv = document.getElementById('hc-y1-res');
-    resDiv.innerHTML = `Sonuç: <strong>${result.toLocaleString('tr-TR')}</strong>`;
-    resDiv.classList.add('visible');
-}
+    const res = (x / y) * 100;
 
-function hcYuzdeTip2() {
-    const v1 = parseFloat(document.getElementById('hc-y2-val1').value);
-    const v2 = parseFloat(document.getElementById('hc-y2-val2').value);
-
-    if (isNaN(v1) || isNaN(v2) || v2 === 0) { alert('Lütfen değerleri giriniz.'); return; }
-
-    const result = (v1 / v2) * 100;
-    const resDiv = document.getElementById('hc-y2-res');
-    resDiv.innerHTML = `Sonuç: <strong>%${result.toLocaleString('tr-TR', { maximumFractionDigits: 4 })}</strong>`;
-    resDiv.classList.add('visible');
+    document.getElementById('hc-pg-res-val').innerText = `% ${res.toLocaleString('tr-TR', { maximumFractionDigits: 2 })}`;
+    document.getElementById('hc-yuzde-gen-result').classList.add('visible');
 }

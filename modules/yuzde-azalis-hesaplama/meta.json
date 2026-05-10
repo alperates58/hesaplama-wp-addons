@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Azalış Hesaplama",
+  "desc": "Bir değerin belirli bir yüzde oranında azaltıldığında ulaştığı yeni değeri hesaplar.",
+  "shortcode": "[hc_yuzde_azalis_hesaplama]"
+}

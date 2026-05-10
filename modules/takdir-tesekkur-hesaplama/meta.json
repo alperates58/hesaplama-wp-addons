@@ -1,5 +1,5 @@
 {
   "name": "Takdir Teşekkür Hesaplama",
-  "desc": "Dönem sonu ortalamanıza göre Takdir veya Teşekkür belgesi alıp alamayacağınızı MEB standartlarına göre hesaplayın.",
+  "desc": "Dönem sonu ağırlıklı not ortalamasına göre belge durumunu (Teşekkür/Takdir) hesaplar.",
   "shortcode": "[hc_takdir_tesekkur_hesaplama]"
 }

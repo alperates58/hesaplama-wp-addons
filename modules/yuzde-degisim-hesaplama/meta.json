@@ -1,5 +1,5 @@
 {
   "name": "Yüzde Değişim Hesaplama",
-  "desc": "İki değer arasındaki yüzde artış veya azalış oranını hesaplar.",
+  "desc": "İki değer arasındaki yüzde farkını (artış veya azalış oranı) hesaplar.",
   "shortcode": "[hc_yuzde_degisim_hesaplama]"
 }

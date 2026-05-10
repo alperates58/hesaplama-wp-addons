@@ -1,21 +1,15 @@
-function hcAvgPHesapla() {
-    const input = document.getElementById('hc-avgp-input').value;
-    const data = input.split(/[,\s]+/)
-        .map(n => parseFloat(n.trim()))
-        .filter(n => !isNaN(n));
+function hcAvgPercentHesapla() {
+    const input = document.getElementById('hc-ap-input').value;
+    const percents = input.split(',').map(p => parseFloat(p.trim())).filter(p => !isNaN(p));
 
-    if (data.length < 1) {
+    if (percents.length === 0) {
         alert('Lütfen en az bir yüzde değeri giriniz.');
         return;
     }
 
-    const n = data.length;
-    const sum = data.reduce((a, b) => a + b, 0);
-    const average = sum / n;
+    const sum = percents.reduce((a, b) => a + b, 0);
+    const avg = sum / percents.length;
 
-    document.getElementById('hc-res-avgp-val').innerText = average.toLocaleString('tr-TR', { 
-        maximumFractionDigits: 2 
-    });
-
-    document.getElementById('hc-avgp-result').classList.add('visible');
+    document.getElementById('hc-ap-res-val').innerText = `% ${avg.toLocaleString('tr-TR', { maximumFractionDigits: 2 })}`;
+    document.getElementById('hc-avg-percent-result').classList.add('visible');
 }

@@ -1,5 +1,5 @@
 {
   "name": "Varyans Hesaplama",
-  "desc": "Bir veri setindeki değerlerin ortalamadan ne kadar uzaklaştığını (değişkenliğini) hesaplar.",
+  "desc": "Bir veri setinin varyansını (popülasyon veya örneklem) hesaplar.",
   "shortcode": "[hc_varyans_hesaplama]"
 }

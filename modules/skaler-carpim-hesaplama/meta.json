@@ -1,0 +1,5 @@
+{
+  "name": "Skaler Çarpım Hesaplama",
+  "desc": "İki vektörün skaler (nokta) çarpımını (A · B) hesaplar.",
+  "shortcode": "[hc_skaler_carpim_hesaplama]"
+}

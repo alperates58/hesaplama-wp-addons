@@ -1,16 +1,15 @@
-function hcCcHesapla() {
-    const bore = parseFloat(document.getElementById('hc-cc-bore').value);
-    const stroke = parseFloat(document.getElementById('hc-cc-stroke').value);
-    const count = parseInt(document.getElementById('hc-cc-count').value);
+function hcCylVolHesapla() {
+    const r = parseFloat(document.getElementById('hc-cv-radius').value);
+    const h = parseFloat(document.getElementById('hc-cv-height').value);
 
-    if (isNaN(bore) || isNaN(stroke) || isNaN(count)) {
-        alert('Lütfen tüm değerleri girin.');
+    if (isNaN(r) || isNaN(h) || r <= 0 || h <= 0) {
+        alert('Lütfen geçerli pozitif değerler giriniz.');
         return;
     }
 
-    // PI * r^2 * h * cylinders
-    const volume = Math.PI * Math.pow(bore / 2, 2) * stroke * count / 1000;
+    // V = π * r² * h
+    const vol = Math.PI * Math.pow(r, 2) * h;
 
-    document.getElementById('hc-cc-val').innerText = Math.round(volume) + " cc";
-    document.getElementById('hc-cc-result').classList.add('visible');
+    document.getElementById('hc-cv-res-val').innerText = vol.toLocaleString('tr-TR', { maximumFractionDigits: 4 });
+    document.getElementById('hc-silindir-hacmi-result').classList.add('visible');
 }

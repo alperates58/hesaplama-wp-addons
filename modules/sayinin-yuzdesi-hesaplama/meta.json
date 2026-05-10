@@ -1,0 +1,5 @@
+{
+  "name": "Sayının Yüzdesi Hesaplama",
+  "desc": "Bir sayının belirli bir yüzdesini (örn: 200'ün %15'i) hesaplar.",
+  "shortcode": "[hc_sayinin_yuzdesi_hesaplama]"
+}

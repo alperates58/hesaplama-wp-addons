@@ -1,0 +1,5 @@
+{
+  "name": "Rakamları Toplamı Hesaplama",
+  "desc": "Bir sayının tüm basamaklarındaki rakamların toplamını hesaplar.",
+  "shortcode": "[hc_rakamlari_toplami_hesaplama]"
+}

@@ -1,24 +1,14 @@
-function hcPuanHesapla() {
-    const got = parseFloat(document.getElementById('hc-score-got').value);
-    const total = parseFloat(document.getElementById('hc-score-total').value);
+function hcPctPointHesapla() {
+    const p1 = parseFloat(document.getElementById('hc-pp-p1').value);
+    const p2 = parseFloat(document.getElementById('hc-pp-p2').value);
 
-    if (isNaN(got) || isNaN(total) || total === 0) {
-        alert('Lütfen geçerli değerler giriniz.');
+    if (isNaN(p1) || isNaN(p2)) {
+        alert('Lütfen değerleri giriniz.');
         return;
     }
 
-    const percentage = (got / total) * 100;
-    const clampedPerc = Math.min(100, Math.max(0, percentage));
+    const diff = p2 - p1;
 
-    document.getElementById('hc-res-puan-val').textContent = Math.round(percentage) + '%';
-    document.getElementById('hc-res-circle-path').setAttribute('stroke-dasharray', `${clampedPerc}, 100`);
-
-    let info = '';
-    if (percentage >= 85) info = 'Mükemmel! 🌟';
-    else if (percentage >= 70) info = 'Çok İyi! ✨';
-    else if (percentage >= 50) info = 'Başarılı. 👍';
-    else info = 'Daha çok çalışmalısın. 📚';
-
-    document.getElementById('hc-puan-info').innerText = info;
-    document.getElementById('hc-puan-result').classList.add('visible');
+    document.getElementById('hc-pp-res-val').innerText = `${diff.toLocaleString('tr-TR', { maximumFractionDigits: 2 })} Puan`;
+    document.getElementById('hc-yuzde-puan-result').classList.add('visible');
 }

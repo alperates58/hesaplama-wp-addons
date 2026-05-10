@@ -1,0 +1,5 @@
+{
+  "name": "YKS Net Yüzdesi Hesaplama",
+  "desc": "YKS sınavında yapılan net sayısının toplam soru sayısına oranını (yüzdesini) hesaplar.",
+  "shortcode": "[hc_yks_net_yuzdesi_hesaplama]"
+}

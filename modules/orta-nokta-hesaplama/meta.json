@@ -1,0 +1,5 @@
+{
+  "name": "Orta Nokta Hesaplama",
+  "desc": "İki nokta arasındaki orta noktanın koordinatlarını hesaplar.",
+  "shortcode": "[hc_orta_nokta_hesaplama]"
+}

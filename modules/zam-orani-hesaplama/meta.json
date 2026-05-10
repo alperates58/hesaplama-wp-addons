@@ -1,0 +1,5 @@
+{
+  "name": "Zam Oranı Hesaplama",
+  "desc": "Maaş veya fiyatlardaki zam oranını (yüzde) hesaplar.",
+  "shortcode": "[hc_zam_orani_hesaplama]"
+}

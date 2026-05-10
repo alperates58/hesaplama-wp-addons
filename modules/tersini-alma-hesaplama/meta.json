@@ -1,0 +1,5 @@
+{
+  "name": "Tersini Alma Hesaplama",
+  "desc": "Bir sayının toplamsal tersini (-x) ve çarpımsal tersini (1/x) hesaplar.",
+  "shortcode": "[hc_tersini_alma_hesaplama]"
+}

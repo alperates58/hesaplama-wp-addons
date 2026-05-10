@@ -1,0 +1,5 @@
+{
+  "name": "Yüzdenin Yüzdesi Hesaplama",
+  "desc": "Bir sayının yüzdesinin başka bir yüzdesini (örn: 200'ün %10'unun %50'si) hesaplar.",
+  "shortcode": "[hc_yuzdenin_yuzdesi_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Ortalama Hesaplama",
-  "desc": "Sayı dizisinin aritmetik, geometrik ve harmonik ortalamalarını hesaplar.",
+  "desc": "Girilen sayı dizisinin aritmetik ortalamasını hesaplar.",
   "shortcode": "[hc_ortalama_hesaplama]"
 }

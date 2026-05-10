@@ -1,0 +1,5 @@
+{
+  "name": "Paralelkenar Alan Hesaplama",
+  "desc": "Paralelkenarın taban ve yükseklik değerlerine göre alanını hesaplar.",
+  "shortcode": "[hc_paralelkenar_alan_hesaplama]"
+}

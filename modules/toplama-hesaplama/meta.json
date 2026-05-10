@@ -1,0 +1,5 @@
+{
+  "name": "Toplama Hesaplama",
+  "desc": "Girilen birden fazla sayının toplamını hesaplar.",
+  "shortcode": "[hc_toplama_hesaplama]"
+}

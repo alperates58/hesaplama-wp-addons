@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Artış Hesaplama",
+  "desc": "Bir değerin belirli bir yüzde oranında artırıldığında ulaştığı yeni değeri hesaplar.",
+  "shortcode": "[hc_yuzde_artis_hesaplama]"
+}

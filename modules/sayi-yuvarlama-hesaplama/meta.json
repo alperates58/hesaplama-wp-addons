@@ -1,0 +1,5 @@
+{
+  "name": "Sayı Yuvarlama Hesaplama",
+  "desc": "Bir sayıyı istenen basamağa (onluk, yüzlük, binlik veya ondalık) göre yuvarlar.",
+  "shortcode": "[hc_sayi_yuvarlama_hesaplama]"
+}

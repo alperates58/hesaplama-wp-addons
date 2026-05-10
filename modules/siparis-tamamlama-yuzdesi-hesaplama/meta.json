@@ -1,0 +1,5 @@
+{
+  "name": "Sipariş Tamamlama Yüzdesi Hesaplama",
+  "desc": "Hazırlanan siparişlerin toplam sipariş sayısına oranına göre yüzdeyi hesaplar.",
+  "shortcode": "[hc_siparis_tamamlama_yuzdesi_hesaplama]"
+}

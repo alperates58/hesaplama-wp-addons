@@ -1,0 +1,5 @@
+{
+  "name": "Temel Sayma Prensibi Hesaplama",
+  "desc": "Çarpma yoluyla sayma prensibini kullanarak toplam olay sayısını hesaplar (n1 * n2 * ...).",
+  "shortcode": "[hc_temel_sayma_prensibi_hesaplama]"
+}

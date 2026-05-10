@@ -1,0 +1,5 @@
+{
+  "name": "Stok Fire Oranı Hesaplama",
+  "desc": "Stoktaki kayıp veya fire miktarının toplam stoka oranını hesaplar.",
+  "shortcode": "[hc_stok_fire_orani_hesaplama]"
+}

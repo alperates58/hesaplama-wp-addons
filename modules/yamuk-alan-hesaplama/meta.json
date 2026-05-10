@@ -1,0 +1,5 @@
+{
+  "name": "Yamuk Alan Hesaplama",
+  "desc": "Yamuğun alt taban, üst taban ve yükseklik değerlerine göre alanını hesaplar.",
+  "shortcode": "[hc_yamuk_alan_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Üç Boyutta İki Nokta Arası Mesafe Hesaplama",
+  "desc": "3D koordinat sisteminde (x, y, z) iki nokta arasındaki öklid mesafesini hesaplar.",
+  "shortcode": "[hc_uc_boyutta_iki_nokta_arasi_mesafe_hesaplama]"
+}

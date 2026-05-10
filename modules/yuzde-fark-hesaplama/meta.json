@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Fark Hesaplama",
+  "desc": "İki sayı arasındaki mutlak yüzde farkını hesaplar.",
+  "shortcode": "[hc_yuzde_fark_hesaplama]"
+}

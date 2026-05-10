@@ -1,0 +1,5 @@
+{
+  "name": "Tam Sayılı Kesirden Bileşik Kesre Çevirme Hesaplama",
+  "desc": "Tam sayılı bir kesri (a b/c) bileşik kesre (d/c) dönüştürür.",
+  "shortcode": "[hc_tam_sayili_kesirden_bilesik_kesre_cevirme_hesaplama]"
+}

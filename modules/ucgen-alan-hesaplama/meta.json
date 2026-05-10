@@ -1,0 +1,5 @@
+{
+  "name": "Üçgen Alan Hesaplama",
+  "desc": "Üçgenin taban ve yükseklik veya üç kenar uzunluğuna göre alanını hesaplar.",
+  "shortcode": "[hc_ucgen_alan_hesaplama]"
+}

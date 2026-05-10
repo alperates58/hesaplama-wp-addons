@@ -1,0 +1,5 @@
+{
+  "name": "OR Mantık İşlemi Hesaplama",
+  "desc": "İki ikili (binary) değer arasında VEYA (OR) mantık işlemini gerçekleştirir.",
+  "shortcode": "[hc_or_mantik_islemi_hesaplama]"
+}

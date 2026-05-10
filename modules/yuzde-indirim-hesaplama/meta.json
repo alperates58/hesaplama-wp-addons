@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde İndirim Hesaplama",
+  "desc": "Bir ürünün fiyatından yapılan yüzde indirimi ve indirimli fiyatı hesaplar.",
+  "shortcode": "[hc_yuzde_indirim_hesaplama]"
+}

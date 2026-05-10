@@ -1,0 +1,5 @@
+{
+  "name": "Vektör Büyüklüğü Hesaplama",
+  "desc": "Vektörün koordinatlarına göre büyüklüğünü (norm/şiddet) hesaplar.",
+  "shortcode": "[hc_vektor_buyuklugu_hesaplama]"
+}

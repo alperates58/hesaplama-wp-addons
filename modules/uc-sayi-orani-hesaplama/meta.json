@@ -1,0 +1,5 @@
+{
+  "name": "Üç Sayı Oranı Hesaplama",
+  "desc": "Üç farklı sayı arasındaki oranı (a : b : c) en sade biçimde hesaplar.",
+  "shortcode": "[hc_uc_sayi_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Standart Gösterim Hesaplama",
+  "desc": "Büyük veya küçük sayıları standart bilimsel gösterim formatına (a × 10ⁿ) çevirir.",
+  "shortcode": "[hc_standart_gosterim_hesaplama]"
+}
