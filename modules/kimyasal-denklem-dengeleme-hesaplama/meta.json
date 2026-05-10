@@ -1,0 +1,5 @@
+{
+  "name": "Kimyasal Denklem Dengeleme Hesaplama",
+  "desc": "Kimyasal tepkimelerdeki reaktif ve ürünlerin katsayılarını otomatik olarak dengelemek için rehberlik eder.",
+  "shortcode": "[hc_kimyasal_denklem_dengeleme_hesaplama]"
+}

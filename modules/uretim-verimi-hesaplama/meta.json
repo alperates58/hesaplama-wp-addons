@@ -1,0 +1,5 @@
+{
+  "name": "Üretim Verimi Hesaplama",
+  "desc": "Teorik ve gerçek üretim miktarlarına göre yüzde verimi hesaplar.",
+  "shortcode": "[hc_uretim_verimi_hesaplama]"
+}

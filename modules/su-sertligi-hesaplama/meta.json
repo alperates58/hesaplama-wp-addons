@@ -1,0 +1,5 @@
+{
+  "name": "Su Sertliği Hesaplama",
+  "desc": "Sudaki kalsiyum ve magnezyum iyonlarına göre Fransız, Alman ve İngiliz sertlik derecelerini hesaplar.",
+  "shortcode": "[hc_su_sertligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Titrasyon Hesaplama",
+  "desc": "Titrasyon verilerine (M1V1=M2V2) göre bilinmeyen derişimi veya gereken hacmi hesaplar.",
+  "shortcode": "[hc_titrasyon_hesaplama]"
+}

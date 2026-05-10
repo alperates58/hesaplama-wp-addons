@@ -1,0 +1,5 @@
+{
+  "name": "Kozmetik Formül Ölçeklendirme Hesaplama",
+  "desc": "Küçük bir deneme formülünü istenen toplam üretim miktarına göre yeniden hesaplar (ölçeklendirir).",
+  "shortcode": "[hc_kozmetik_formul_olceklendirme_hesaplama]"
+}

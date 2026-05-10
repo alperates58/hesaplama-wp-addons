@@ -1,0 +1,5 @@
+{
+  "name": "Redoks Tepkimesi Hesaplama",
+  "desc": "Redoks tepkimelerinde yükseltgenme basamaklarını ve elektron transferini analiz eder.",
+  "shortcode": "[hc_redoks_tepkimesi_hesaplama]"
+}

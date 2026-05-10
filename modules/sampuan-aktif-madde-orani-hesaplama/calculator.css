@@ -1,0 +1,8 @@
+.hc-sa-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+#hc-shampoo .hc-result-value {
+    color: #2980b9;
+}

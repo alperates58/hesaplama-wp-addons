@@ -1,0 +1,5 @@
+{
+  "name": "Molar Çözünürlük Hesaplama",
+  "desc": "Ksp sabitine göre bir tuzun sudaki maksimum molar çözünürlüğünü hesaplar.",
+  "shortcode": "[hc_molar_cozunurluk_hesaplama]"
+}

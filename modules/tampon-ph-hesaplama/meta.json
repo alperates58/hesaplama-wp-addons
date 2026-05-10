@@ -1,0 +1,5 @@
+{
+  "name": "Tampon pH Hesaplama",
+  "desc": "Henderson-Hasselbalch denklemini kullanarak bir tampon çözeltinin pH değerini hesaplar.",
+  "shortcode": "[hc_tampon_ph_hesaplama]"
+}

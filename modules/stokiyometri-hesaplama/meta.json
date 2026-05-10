@@ -1,0 +1,5 @@
+{
+  "name": "Stokiyometri Hesaplama",
+  "desc": "Kimyasal tepkimelerdeki madde miktarları arasındaki mol-kütle ilişkilerini hesaplar.",
+  "shortcode": "[hc_stokiyometri_hesaplama]"
+}

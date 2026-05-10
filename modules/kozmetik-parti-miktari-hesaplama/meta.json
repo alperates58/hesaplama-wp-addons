@@ -1,0 +1,5 @@
+{
+  "name": "Kozmetik Parti Miktarı Hesaplama",
+  "desc": "Belirli bir üretim partisi (batch) için gereken hammadde stok ihtiyacını hesaplar.",
+  "shortcode": "[hc_kozmetik_parti_miktari_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Tepkime Hızı Hesaplama",
+  "desc": "Derişim değişimine ve zamana göre kimyasal tepkime hızını hesaplar.",
+  "shortcode": "[hc_tepkime_hizi_hesaplama]"
+}

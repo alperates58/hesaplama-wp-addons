@@ -1,23 +1,12 @@
 function hcMolaliteHesapla() {
-    const soluteMols = parseFloat(document.getElementById('hc-solute-mols').value);
-    const solventGrams = parseFloat(document.getElementById('hc-solvent-mass').value);
+    const mol = parseFloat(document.getElementById('hc-mo-mol').value);
+    const mass = parseFloat(document.getElementById('hc-mo-mass').value);
 
-    if (isNaN(soluteMols) || isNaN(solventGrams) || soluteMols <= 0 || solventGrams <= 0) {
-        alert('Lütfen geçerli pozitif değerler giriniz.');
-        return;
-    }
-
-    // Gram -> Kilogram dönüşümü
-    const solventKg = solventGrams / 1000;
+    if (!mol || !mass) return;
 
     // m = mol / kg
-    const molality = soluteMols / solventKg;
+    const molality = mol / mass;
 
-    document.getElementById('hc-res-molalite-val').innerText = molality.toLocaleString('tr-TR', { 
-        minimumFractionDigits: 2, 
-        maximumFractionDigits: 4 
-    });
-
-    document.getElementById('hc-molalite-result').classList.add('visible');
-    document.getElementById('hc-molalite-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    document.getElementById('hc-mo-val').innerText = molality.toFixed(4) + ' m';
+    document.getElementById('hc-mo-result').classList.add('visible');
 }

@@ -1,5 +1,5 @@
 {
   "name": "Molalite Hesaplama",
-  "desc": "Çözünen maddenin mol sayısının, çözücü kütlesine (kg) oranını hesaplar.",
+  "desc": "Çözünen maddenin mol sayısının çözücü kütlesine (kg) oranını (m) hesaplar.",
   "shortcode": "[hc_molalite_hesaplama]"
 }

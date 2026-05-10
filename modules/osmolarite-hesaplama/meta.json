@@ -1,0 +1,5 @@
+{
+  "name": "Osmolarite Hesaplama",
+  "desc": "Çözeltideki toplam ozmotik aktif partikül sayısının çözelti hacmine (L) oranını hesaplar.",
+  "shortcode": "[hc_osmolarite_hesaplama]"
+}

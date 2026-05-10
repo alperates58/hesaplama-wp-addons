@@ -1,0 +1,5 @@
+{
+  "name": "Kütlece Yüzde Hesaplama",
+  "desc": "Çözünen kütlesinin toplam çözelti kütlesine oranını (w/w) hesaplar.",
+  "shortcode": "[hc_kutlece_yuzde_hesaplama]"
+}

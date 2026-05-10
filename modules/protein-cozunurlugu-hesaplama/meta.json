@@ -1,0 +1,5 @@
+{
+  "name": "Protein Çözünürlüğü Hesaplama",
+  "desc": "Toplam protein ve çözünmüş protein miktarlarına göre yüzde çözünürlüğü hesaplar.",
+  "shortcode": "[hc_protein_cozunurlugu_hesaplama]"
+}

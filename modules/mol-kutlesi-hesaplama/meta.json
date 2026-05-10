@@ -1,0 +1,5 @@
+{
+  "name": "Mol Kütlesi Hesaplama",
+  "desc": "Bir bileşiğin kimyasal formülüne göre toplam mol kütlesini (molar ağırlığını) hesaplar.",
+  "shortcode": "[hc_mol_kutlesi_hesaplama]"
+}

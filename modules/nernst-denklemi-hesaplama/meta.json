@@ -1,0 +1,5 @@
+{
+  "name": "Nernst Denklemi Hesaplama",
+  "desc": "Elektrot potansiyelini sıcaklık ve iyon derişimlerine göre hesaplar.",
+  "shortcode": "[hc_nernst_denklemi_hesaplama]"
+}

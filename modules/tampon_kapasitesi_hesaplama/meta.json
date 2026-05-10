@@ -1,0 +1,5 @@
+{
+  "name": "Tampon Kapasitesi Hesaplama",
+  "desc": "Bir tampon çözeltinin pH değişimine karşı direncini (van Slyke denklemi) hesaplar.",
+  "shortcode": "[hc_tampon_kapasitesi_hesaplama]"
+}

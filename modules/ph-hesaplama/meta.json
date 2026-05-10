@@ -1,0 +1,5 @@
+{
+  "name": "pH Hesaplama",
+  "desc": "Hidrojen iyonu derişimine [H+] göre çözeltinin pH değerini hesaplar.",
+  "shortcode": "[hc_ph_hesaplama]"
+}

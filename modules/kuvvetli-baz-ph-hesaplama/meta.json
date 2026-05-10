@@ -1,0 +1,5 @@
+{
+  "name": "Kuvvetli Baz pH Hesaplama",
+  "desc": "Kuvvetli bazların molar derişimine göre pH ve pOH değerlerini hesaplar.",
+  "shortcode": "[hc_kuvvetli_baz_ph_hesaplama]"
+}

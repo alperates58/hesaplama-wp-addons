@@ -1,0 +1,5 @@
+{
+  "name": "LPG Oranı Hesaplama",
+  "desc": "LPG karışımlarındaki Propan ve Bütan oranlarını ve yakıt özelliklerini hesaplar.",
+  "shortcode": "[hc_lpg_orani_hesaplama]"
+}

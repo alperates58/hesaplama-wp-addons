@@ -1,0 +1,5 @@
+{
+  "name": "Koruyucu Dozajı Hesaplama",
+  "desc": "Kozmetik veya gıda formüllerinde kullanılan koruyucuların (preservatives) yasal limitlere göre miktarını hesaplar.",
+  "shortcode": "[hc_koruyucu_dozaji_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Seri Seyreltme Hesaplama",
+  "desc": "Laboratuvar çalışmalarında ardışık seyreltme (serial dilution) adımlarını ve nihai derişimi hesaplar.",
+  "shortcode": "[hc_seri_seyreltme_hesaplama]"
+}

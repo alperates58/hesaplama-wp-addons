@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Derişim Hesaplama",
+  "desc": "Kütlece veya hacimce yüzde derişim değerlerini hesaplar.",
+  "shortcode": "[hc_yuzde_derisim_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Toplam Su Sertliği Hesaplama",
+  "desc": "Sudaki kalsiyum ve magnezyum iyonlarının toplam CaCO3 eşdeğeri sertliğini hesaplar.",
+  "shortcode": "[hc_toplam_su_sertligi_hesaplama]"
+}

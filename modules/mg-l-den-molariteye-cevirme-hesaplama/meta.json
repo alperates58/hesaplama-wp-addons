@@ -1,0 +1,5 @@
+{
+  "name": "mg L den Molariteye Çevirme Hesaplama",
+  "desc": "Kütlesel derişimi (mg/L) moleküler ağırlığa göre molariteye (mol/L) dönüştürür.",
+  "shortcode": "[hc_mg_l_den_molariteye_cevirme_hesaplama]"
+}

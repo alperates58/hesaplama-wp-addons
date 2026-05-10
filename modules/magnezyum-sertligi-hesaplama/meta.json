@@ -1,0 +1,5 @@
+{
+  "name": "Magnezyum Sertliği Hesaplama",
+  "desc": "Sudaki magnezyum iyonu derişimine göre magnezyum sertliğini (CaCO3 eşdeğeri) hesaplar.",
+  "shortcode": "[hc_magnezyum_sertligi_hesaplama]"
+}

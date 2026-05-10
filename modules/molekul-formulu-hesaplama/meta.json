@@ -1,0 +1,5 @@
+{
+  "name": "Molekül Formülü Hesaplama",
+  "desc": "Basit formül ve molekül ağırlığına göre bir bileşiğin gerçek molekül formülünü hesaplar.",
+  "shortcode": "[hc_molekul_formulu_hesaplama]"
+}

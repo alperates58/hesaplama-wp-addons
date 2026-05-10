@@ -1,0 +1,5 @@
+{
+  "name": "Yanma Tepkimesi Hesaplama",
+  "desc": "Hidrokarbon yanma tepkimelerini denkleştirir ve gereken oksijen miktarını hesaplar.",
+  "shortcode": "[hc_yanma_tepkimesi_hesaplama]"
+}

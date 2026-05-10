@@ -1,0 +1,5 @@
+{
+  "name": "Mol Oranı Hesaplama",
+  "desc": "Bir karışımı oluşturan bileşenlerin mol oranlarını ve mol yüzdelerini hesaplar.",
+  "shortcode": "[hc_mol_orani_hesaplama]"
+}

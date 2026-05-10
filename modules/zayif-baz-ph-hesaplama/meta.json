@@ -1,0 +1,5 @@
+{
+  "name": "Zayıf Baz pH Hesaplama",
+  "desc": "Zayıf bazların Kb değerine ve derişimine göre çözelti pH'ını hesaplar.",
+  "shortcode": "[hc_zayif_baz_ph_hesaplama]"
+}

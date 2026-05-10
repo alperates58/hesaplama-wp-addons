@@ -1,0 +1,5 @@
+{
+  "name": "Standart Sıcaklık ve Basınç Hesaplama",
+  "desc": "Gazların STP (0°C, 1 atm) ve SATP (25°C, 1 bar) koşullarındaki hacimsel özelliklerini hesaplar.",
+  "shortcode": "[hc_standart_sicaklik_ve_basinc_hesaplama]"
+}

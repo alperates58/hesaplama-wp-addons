@@ -1,0 +1,5 @@
+{
+  "name": "Molekül Ağırlığı Hesaplama",
+  "desc": "Kimyasal bir formülün toplam molekül ağırlığını (MA) gram/mol cinsinden hesaplar.",
+  "shortcode": "[hc_molekul_agirligi_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Normalite Hesaplama",
-  "desc": "Çözeltinin normalitesini (eşdeğer gram sayısı / litre) hesaplar.",
+  "desc": "Çözeltinin eşdeğer gram sayısının hacmine oranını (N) hesaplar.",
   "shortcode": "[hc_normalite_hesaplama]"
 }

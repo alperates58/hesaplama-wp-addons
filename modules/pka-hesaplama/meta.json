@@ -1,0 +1,5 @@
+{
+  "name": "pKa Hesaplama",
+  "desc": "Asitlik sabiti Ka değerini logaritmik pKa değerine dönüştürür.",
+  "shortcode": "[hc_pka_hesaplama]"
+}

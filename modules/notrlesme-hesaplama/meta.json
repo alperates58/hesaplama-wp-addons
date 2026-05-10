@@ -1,0 +1,5 @@
+{
+  "name": "Nötrleşme Hesaplama",
+  "desc": "Asit-baz nötrleşme tepkimelerinde gereken asit veya baz hacimlerini hesaplar.",
+  "shortcode": "[hc_notrlesme_hesaplama]"
+}

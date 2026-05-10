@@ -1,0 +1,5 @@
+{
+  "name": "Zayıf Asit pH Hesaplama",
+  "desc": "Zayıf asitlerin Ka değerine ve derişimine göre çözelti pH'ını hesaplar.",
+  "shortcode": "[hc_zayif_asit_ph_hesaplama]"
+}

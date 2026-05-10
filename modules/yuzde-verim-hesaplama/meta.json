@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Verim Hesaplama",
+  "desc": "Tepkime sonunda elde edilen gerçek ürün miktarının teorik miktara oranını hesaplar.",
+  "shortcode": "[hc_yuzde_verim_hesaplama]"
+}

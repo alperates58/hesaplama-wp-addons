@@ -1,0 +1,5 @@
+{
+  "name": "ppm Hesaplama",
+  "desc": "Çözünen kütlesinin toplam kütleye veya hacme oranını milyonda bir (ppm) cinsinden hesaplar.",
+  "shortcode": "[hc_ppm_hesaplama]"
+}

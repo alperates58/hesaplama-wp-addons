@@ -1,0 +1,5 @@
+{
+  "name": "pOH Hesaplama",
+  "desc": "Hidroksil iyonu derişimine [OH-] göre çözeltinin pOH değerini hesaplar.",
+  "shortcode": "[hc_poh_hesaplama]"
+}

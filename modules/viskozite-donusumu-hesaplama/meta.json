@@ -1,0 +1,5 @@
+{
+  "name": "Viskozite Dönüşümü Hesaplama",
+  "desc": "Kinematik viskozite (cSt) ve dinamik viskozite (cP) arasındaki dönüşümü yoğunluğa göre hesaplar.",
+  "shortcode": "[hc_viskozite_donusumu_hesaplama]"
+}

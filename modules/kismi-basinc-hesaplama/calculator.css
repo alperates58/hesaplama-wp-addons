@@ -1,0 +1,11 @@
+#hc-partial-pressure .hc-result {
+    border-color: #2c3e50;
+}
+.hc-btn-secondary {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}

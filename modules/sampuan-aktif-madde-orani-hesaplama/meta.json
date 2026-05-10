@@ -1,0 +1,5 @@
+{
+  "name": "Şampuan Aktif Madde Oranı Hesaplama",
+  "desc": "Şampuan formüllerindeki sürfaktanların (aktif maddelerin) toplam oranını ve maliyetini hesaplar.",
+  "shortcode": "[hc_sampuan_aktif_madde_orani_hesaplama]"
+}

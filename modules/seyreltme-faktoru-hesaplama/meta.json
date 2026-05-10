@@ -1,0 +1,5 @@
+{
+  "name": "Seyreltme Faktörü Hesaplama",
+  "desc": "Başlangıç ve bitiş hacimlerine göre çözeltinin kaç kat seyreltildiğini hesaplar.",
+  "shortcode": "[hc_seyreltme_faktoru_hesaplama]"
+}

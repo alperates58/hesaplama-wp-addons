@@ -1,0 +1,5 @@
+{
+  "name": "Parfüm Seyreltme Hesaplama",
+  "desc": "Esans ve alkol oranlarına göre parfüm (EDP, EDT, EDC) hazırlamak için gereken miktarları hesaplar.",
+  "shortcode": "[hc_parfum_seyreltme_hesaplama]"
+}

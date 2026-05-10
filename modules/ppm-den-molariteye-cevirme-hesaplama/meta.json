@@ -1,0 +1,5 @@
+{
+  "name": "ppm den Molariteye Çevirme Hesaplama",
+  "desc": "Milyonda bir birimi (ppm), molekül ağırlığına göre molariteye (mol/L) dönüştürür.",
+  "shortcode": "[hc_ppm_den_molariteye_cevirme_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ksp Hesaplama",
+  "desc": "Az çözünen tuzların çözünürlük çarpımı sabitini (Ksp) veya molar çözünürlüğünü hesaplar.",
+  "shortcode": "[hc_ksp_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yüzey Gerilimi Hesaplama",
+  "desc": "Kılcal yükselme yöntemine göre sıvının yüzey gerilimini hesaplar.",
+  "shortcode": "[hc_yuzey_gerilimi_hesaplama]"
+}

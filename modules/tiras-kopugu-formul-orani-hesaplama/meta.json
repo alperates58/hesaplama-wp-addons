@@ -1,0 +1,5 @@
+{
+  "name": "Tıraş Köpüğü Formül Oranı Hesaplama",
+  "desc": "Tıraş köpüğü ve jeli üretiminde kullanılan yağ, alkali ve su oranlarını hesaplar.",
+  "shortcode": "[hc_tiras_kopugu_formul_orani_hesaplama]"
+}

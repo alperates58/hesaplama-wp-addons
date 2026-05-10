@@ -10,39 +10,23 @@ function hc_render_molarite_hesaplama( $atts ) {
     wp_enqueue_style(
         'hc-molarite-hesaplama-css',
         HC_PLUGIN_URL . 'modules/molarite-hesaplama/calculator.css',
-        [], HC_VERSION
+        [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-molarite-hesaplama">
-        <div class="hc-header">
-            <h3>Molarite Hesaplama</h3>
-            <p>Çözünen mol sayısını ve toplam hacmi girerek molarite (M) değerini bulun.</p>
+    <div class="hc-calculator" id="hc-molarity">
+        <h3>Molarite Hesaplama (M)</h3>
+        <div class="hc-form-group">
+            <label for="hc-ma-mol">Çözünen Molü (mol)</label>
+            <input type="number" id="hc-ma-mol" placeholder="Örn: 0.1">
         </div>
-        
-        <div class="hc-form-grid">
-            <div class="hc-form-group">
-                <label for="hc-molar-n">Çözünen Mol Sayısı (mol)</label>
-                <input type="number" id="hc-molar-n" placeholder="Örn: 0.1" step="0.001">
-            </div>
-
-            <div class="hc-form-group">
-                <label for="hc-molar-v">Çözelti Hacmi (mL)</label>
-                <input type="number" id="hc-molar-v" placeholder="Örn: 250" step="1">
-            </div>
+        <div class="hc-form-group">
+            <label for="hc-ma-vol">Çözelti Hacmi (Litre)</label>
+            <input type="number" id="hc-ma-vol" placeholder="Örn: 0.5">
         </div>
-
-        <button class="hc-btn" onclick="hcMolariteHesapla()">Hesapla</button>
-
-        <div class="hc-result" id="hc-molarity-result">
-            <div class="hc-res-label">Molarite (M)</div>
-            <div class="hc-res-main">
-                <span id="hc-res-molar-val">-</span>
-                <small>mol / L</small>
-            </div>
-            
-            <div class="hc-formula-box">
-                M = n<sub>çözünen</sub> / V<sub>çözelti (L)</sub>
-            </div>
+        <button class="hc-btn" onclick="hcMolariteHesapla()">Molarite Hesapla</button>
+        <div class="hc-result" id="hc-ma-result">
+            <div class="hc-result-label">Molarite (M):</div>
+            <div class="hc-result-value" id="hc-ma-val">-</div>
         </div>
     </div>
     <?php

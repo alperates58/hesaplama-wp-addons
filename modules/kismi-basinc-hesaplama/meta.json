@@ -1,0 +1,5 @@
+{
+  "name": "Kısmi Basınç Hesaplama",
+  "desc": "Bir gaz karışımındaki her bir gazın mol sayısına ve toplam basınca göre kısmi basınçlarını hesaplar.",
+  "shortcode": "[hc_kismi_basinc_hesaplama]"
+}

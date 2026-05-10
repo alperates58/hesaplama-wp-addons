@@ -1,0 +1,5 @@
+{
+  "name": "Kolonya Alkol Oranı Hesaplama",
+  "desc": "İstenen derece ve hacme göre kolonya yapımında gereken alkol ve su miktarlarını hesaplar.",
+  "shortcode": "[hc_kolonya_alkol_orani_hesaplama]"
+}

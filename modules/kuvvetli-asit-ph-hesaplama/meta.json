@@ -1,0 +1,5 @@
+{
+  "name": "Kuvvetli Asit pH Hesaplama",
+  "desc": "Kuvvetli asitlerin molar derişimine göre pH ve pOH değerlerini hesaplar.",
+  "shortcode": "[hc_kuvvetli_asit_ph_hesaplama]"
+}

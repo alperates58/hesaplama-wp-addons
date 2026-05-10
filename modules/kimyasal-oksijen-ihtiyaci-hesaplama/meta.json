@@ -1,0 +1,5 @@
+{
+  "name": "Kimyasal Oksijen İhtiyacı Hesaplama",
+  "desc": "Sudaki organik maddelerin kimyasal oksidasyonu için gereken oksijen miktarını (KOİ) hesaplar.",
+  "shortcode": "[hc_kimyasal_oksijen_ihtiyaci_hesaplama]"
+}

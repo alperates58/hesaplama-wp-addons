@@ -1,0 +1,8 @@
+.hc-fs-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+#hc-formula-scale .hc-result {
+    border-color: #9b59b6;
+}

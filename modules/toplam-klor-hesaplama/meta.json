@@ -1,0 +1,5 @@
+{
+  "name": "Toplam Klor Hesaplama",
+  "desc": "Sudaki serbest klor ve bağlı klor (kloraminler) toplamını hesaplar.",
+  "shortcode": "[hc_toplam_klor_hesaplama]"
+}

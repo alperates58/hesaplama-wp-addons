@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Klor Hesaplama",
+  "desc": "Sudaki serbest klor (HOCl + OCl-) miktarını ve dezenfeksiyon kapasitesini hesaplar.",
+  "shortcode": "[hc_serbest_klor_hesaplama]"
+}

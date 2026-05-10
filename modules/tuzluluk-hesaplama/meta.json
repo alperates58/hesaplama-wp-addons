@@ -1,0 +1,5 @@
+{
+  "name": "Tuzluluk Hesaplama",
+  "desc": "Suyun iletkenliğine (EC) veya TDS değerine göre tuzluluk oranını (ppt) hesaplar.",
+  "shortcode": "[hc_tuzluluk_hesaplama]"
+}

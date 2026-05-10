@@ -1,0 +1,5 @@
+{
+  "name": "pH pOH Dönüşümü Hesaplama",
+  "desc": "pH ve pOH değerleri arasındaki dönüşümü (pH + pOH = 14) yapar.",
+  "shortcode": "[hc_ph_poh_donusumu_hesaplama]"
+}

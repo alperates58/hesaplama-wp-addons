@@ -1,0 +1,5 @@
+{
+  "name": "Mol Hesaplama",
+  "desc": "Kütle ve mol kütlesine (n = m/MA) göre madde miktarını mol cinsinden hesaplar.",
+  "shortcode": "[hc_mol_hesaplama]"
+}

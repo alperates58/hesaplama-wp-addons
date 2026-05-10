@@ -1,0 +1,5 @@
+{
+  "name": "Kırılma İndisi Hesaplama",
+  "desc": "Işığın bir ortamdaki hızına veya geliş/kırılma açılarına göre kırıcılık indisini hesaplar.",
+  "shortcode": "[hc_kirilma_indisi_hesaplama]"
+}

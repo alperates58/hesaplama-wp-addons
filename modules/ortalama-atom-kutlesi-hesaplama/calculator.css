@@ -1,0 +1,8 @@
+.hc-aa-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#hc-avg-atomic .hc-result-value {
+    color: #34495e;
+}

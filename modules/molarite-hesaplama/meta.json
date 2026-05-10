@@ -1,5 +1,5 @@
 {
   "name": "Molarite Hesaplama",
-  "desc": "Çözünen maddenin mol sayısının, toplam çözelti hacmine (L) oranını hesaplar.",
+  "desc": "Çözünen maddenin mol sayısının çözelti hacmine (L) oranını (M) hesaplar.",
   "shortcode": "[hc_molarite_hesaplama]"
 }

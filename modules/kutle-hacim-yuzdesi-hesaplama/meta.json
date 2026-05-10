@@ -1,0 +1,5 @@
+{
+  "name": "Kütle Hacim Yüzdesi Hesaplama",
+  "desc": "Çözünen kütlesinin çözelti hacmine olan yüzde oranını (w/v) hesaplar.",
+  "shortcode": "[hc_kutle_hacim_yuzdesi_hesaplama]"
+}
