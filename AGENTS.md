@@ -181,6 +181,8 @@ hesaplama-wp-addons/
 - **Veri ve Tarih Standartları (2026):** Vergi, maaş, enerji tarifeleri ve diğer değişken veriler içeren tüm modüller **2026 yılı** projeksiyonlarına ve güncel verilerine göre hazırlanmalıdır. Web araması yaparak 2026 için geçerli olacak yasal sınırları, vergi dilimlerini ve maaş katsayılarını kullan. Arayüzde "2026 verisidir" gibi ibareler kullanma, doğrudan en güncel veriyi yansıt.
 - **Toplu İşlem ve Commit:** Her modül için tek tek commit yapmak yerine, bir oturumda verilen tüm modülleri tamamladıktan sonra toplu olarak `main` branch'ine commit ve push yap.
 - Kaynak sayfayı okuyamazsan formülü web aramasıyla bul; tahminle veya eski bilgiyle hesaplama yazma.
+- **Duplicate modül koruması:** Yeni modül oluşturmadan önce `modules/` altında aynı modülün tire/alt çizgi ve Türkçe karakter normalize edilmiş varyasyonlarını kontrol et. Aynı normalize slug zaten varsa yeni klasör oluşturma.
+- **Shortcode alias kuralı:** Eski canlı shortcode varsa `post_content` veya mevcut shortcode'u değiştirme. Gerekirse sadece Dashboard/Inventory kullanım sayımı için alias olarak tanımla.
 
 ---
 
