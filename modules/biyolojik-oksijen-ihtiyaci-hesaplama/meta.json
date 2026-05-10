@@ -1,5 +1,5 @@
 {
-  "name": "Biyolojik Oksijen İhtiyacı (BOİ) Hesaplama",
+  "name": "Biyolojik Oksijen İhtiyacı Hesaplama",
   "desc": "Atık su analizlerinde 5 günlük biyolojik oksijen ihtiyacını (BOİ5) hesaplar.",
   "shortcode": "[hc_biyolojik_oksijen_ihtiyaci_hesaplama]"
 }

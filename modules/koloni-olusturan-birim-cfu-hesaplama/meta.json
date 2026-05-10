@@ -1,5 +1,5 @@
 {
-  "name": "Koloni Oluşturan Birim (CFU) Hesaplama",
+  "name": "Koloni Oluşturan Birim CFU Hesaplama",
   "desc": "Plaka sayımı yöntemiyle bir numunedeki canlı mikrop sayısını (CFU/mL) hesaplar.",
   "shortcode": "[hc_koloni_olusturan_birim_cfu_hesaplama]"
 }

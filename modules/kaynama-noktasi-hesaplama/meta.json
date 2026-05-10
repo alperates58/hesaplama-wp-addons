@@ -1,5 +1,5 @@
 {
-  "name": "Kaynama Noktası Hesaplama (İrtifa)",
+  "name": "Kaynama Noktası Hesaplama",
   "desc": "Deniz seviyesinden yüksekliğe (rakıma) göre suyun kaynama noktasını hesaplar.",
   "shortcode": "[hc_kaynama_noktasi_hesaplama]"
 }

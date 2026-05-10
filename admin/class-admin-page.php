@@ -1304,6 +1304,7 @@ class HC_Admin_Page {
         }
 
         HC_Module_Inventory::delete_module_category_assignment( $slug );
+        HC_Module_Inventory::invalidate_caches();
 
         wp_send_json_success(
             [

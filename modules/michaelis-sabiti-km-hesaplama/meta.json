@@ -1,5 +1,5 @@
 {
-  "name": "Michaelis Sabiti (Km) Hesaplama",
+  "name": "Michaelis Sabiti Km Hesaplama",
   "desc": "Enzim reaksiyon hızına ve substrat konsantrasyonuna göre Michaelis sabiti Km değerini hesaplar.",
   "shortcode": "[hc_michaelis_sabiti_km_hesaplama]"
 }

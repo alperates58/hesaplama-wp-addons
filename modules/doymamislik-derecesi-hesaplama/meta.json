@@ -1,5 +1,5 @@
 {
-  "name": "Doymamışlık Derecesi (İyot İndisi) Hesaplama",
+  "name": "Doymamışlık Derecesi Hesaplama",
   "desc": "Yağlardaki doymamışlık derecesini belirlemek için iyot indisi değerini hesaplar.",
   "shortcode": "[hc_doymamislik_derecesi_hesaplama]"
 }

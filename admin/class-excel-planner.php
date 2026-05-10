@@ -262,6 +262,7 @@ class HC_Excel_Planner {
         ];
 
         self::save_data( $data );
+        HC_Module_Inventory::invalidate_caches();
 
         $match_count = count( array_filter( $new_topics, static fn( $t ) => ! empty( $t['module_slug'] ) ) );
 
@@ -519,6 +520,7 @@ class HC_Excel_Planner {
         if ( $existing_post ) {
             $topics[ $topic_idx ]['draft_post_id'] = $existing_post->ID;
             self::save_data( $data );
+            HC_Module_Inventory::invalidate_caches();
             wp_send_json_success( [
                 'post_id'  => $existing_post->ID,
                 'edit_url' => get_edit_post_link( $existing_post->ID ),
@@ -542,6 +544,7 @@ class HC_Excel_Planner {
         $topics[ $topic_idx ]['draft_post_id'] = $post_id;
         self::save_data( $data );
         update_post_meta( $post_id, '_hc_planner_category_source', $category_source );
+        HC_Module_Inventory::invalidate_caches();
 
         wp_send_json_success( [
             'post_id'  => $post_id,

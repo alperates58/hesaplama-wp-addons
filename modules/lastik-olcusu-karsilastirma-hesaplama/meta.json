@@ -1,5 +1,5 @@
 {
-  "name": "Lastik Ölçüsüne Göre Hız Göstergesi Hatası Hesaplama",
+  "name": "Lastik Ölçüsü Karşılaştırma Hesaplama",
   "desc": "Orijinal lastik ölçünüz ile yeni seçtiğiniz ölçüyü karşılaştırarak çap farkını ve hız göstergesi değişimini hesaplayın.",
   "shortcode": "[hc_lastik_olcusu_karsilastirma_hesaplama]"
 }
