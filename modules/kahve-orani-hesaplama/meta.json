@@ -1,0 +1,5 @@
+{
+  "name": "Kahve Oranı Hesaplama",
+  "desc": "Arzu edilen kahve-su oranına göre (örn: 1:16) gereken kahve veya su miktarını hesaplar.",
+  "shortcode": "[hc_kahve_orani_hesaplama]"
+}

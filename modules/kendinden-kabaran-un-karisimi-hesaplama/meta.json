@@ -1,0 +1,5 @@
+{
+  "name": "Kendinden Kabaran Un Karışımı Hesaplama",
+  "desc": "Normal un, kabartma tozu ve tuz kullanarak ev yapımı 'kendinden kabaran un' (self-rising flour) karışımı oranlarını hesaplar.",
+  "shortcode": "[hc_kendinden_kabaran_un_karisimi_hesaplama]"
+}

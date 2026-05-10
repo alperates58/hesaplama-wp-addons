@@ -1,0 +1,5 @@
+{
+  "name": "Hamur Yağ Oranı Hesaplama",
+  "desc": "Un miktarına göre hamurda (brioche, kurabiye vb.) kullanılması gereken yağ oranını hesaplar.",
+  "shortcode": "[hc_hamur_yag_orani_hesaplama]"
+}

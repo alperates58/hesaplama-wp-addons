@@ -1,0 +1,5 @@
+{
+  "name": "İçecek Soğutma Süresi Hesaplama",
+  "desc": "İçeceğin (su, meşrubat, bira vb.) ortam sıcaklığına göre buzdolabında veya dondurucuda ne kadar sürede soğuyacağını tahmin eder.",
+  "shortcode": "[hc_icecek_sogutma_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Başına Makarna Miktarı Hesaplama",
+  "desc": "Kişi sayısına göre gereken kuru makarna miktarını ve pişmiş halinin yaklaşık ağırlığını hesaplar.",
+  "shortcode": "[hc_kisi_basina_makarna_miktari_hesaplama]"
+}

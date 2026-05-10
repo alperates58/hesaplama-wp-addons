@@ -1,0 +1,5 @@
+{
+  "name": "Kek Kalıbı Ölçüsü Hesaplama",
+  "desc": "Kek kalıbının hacmini (metreküp/litre) ve kaç kişilik kek için uygun olduğunu hesaplar.",
+  "shortcode": "[hc_kek_kalibi_olcusu_hesaplama]"
+}

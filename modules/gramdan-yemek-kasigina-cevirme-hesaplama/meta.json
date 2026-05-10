@@ -1,0 +1,5 @@
+{
+  "name": "Gramdan Yemek Kaşığına Çevirme Hesaplama",
+  "desc": "Gram cinsinden verilen malzemenin (un, yağ, şeker vb.) yaklaşık yemek kaşığı karşılığını hesaplar.",
+  "shortcode": "[hc_gramdan_yemek_kasigina_cevirme_hesaplama]"
+}

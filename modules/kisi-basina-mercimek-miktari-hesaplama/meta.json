@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Başına Mercimek Miktarı Hesaplama",
+  "desc": "Kişi sayısına ve yemek türüne (çorba, köfte, pilav vb.) göre gereken toplam mercimek miktarını hesaplar.",
+  "shortcode": "[hc_kisi_basina_mercimek_miktari_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Kafein Miktarı Hesaplama",
+  "desc": "Tüketilen içeceklere göre alınan toplam günlük kafein miktarını hesaplar.",
+  "shortcode": "[hc_gunluk_kafein_miktari_hesaplama]"
+}

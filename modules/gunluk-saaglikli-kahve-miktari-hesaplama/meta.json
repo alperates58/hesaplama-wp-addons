@@ -1,0 +1,5 @@
+{
+  "name": "Günlük Sağlıklı Kahve Miktarı Hesaplama",
+  "desc": "Vücut ağırlığına ve sağlık rehberlerine göre günlük tüketilebilecek maksimum sağlıklı kahve miktarını hesaplar.",
+  "shortcode": "[hc_gunluk_saglikli_kahve_miktari_hesaplama]"
+}

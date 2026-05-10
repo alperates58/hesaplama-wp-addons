@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Başına Kıyma Miktarı Hesaplama",
+  "desc": "Kişi sayısına ve yapılacak yemeğin türüne (köfte, dolma, börek vb.) göre gereken toplam kıyma miktarını hesaplar.",
+  "shortcode": "[hc_kisi_basina_kiyma_miktari_hesaplama]"
+}

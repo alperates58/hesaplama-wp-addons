@@ -1,0 +1,5 @@
+{
+  "name": "Hamur Tuz Oranı Hesaplama",
+  "desc": "Un miktarına göre hamurda kullanılması gereken ideal tuz miktarını fırıncı yüzdesine göre hesaplar.",
+  "shortcode": "[hc_hamur_tuz_orani_hesaplama]"
+}

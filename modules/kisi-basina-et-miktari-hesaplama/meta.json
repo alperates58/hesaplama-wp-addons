@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Başına Et Miktarı Hesaplama",
+  "desc": "Davetli sayısına ve et türüne (kemikli, kemiksiz vb.) göre alınması gereken toplam et miktarını hesaplar.",
+  "shortcode": "[hc_kisi_basina_et_miktari_hesaplama]"
+}

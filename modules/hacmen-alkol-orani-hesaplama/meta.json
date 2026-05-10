@@ -1,0 +1,5 @@
+{
+  "name": "Hacmen Alkol Oranı Hesaplama",
+  "desc": "Bir karışımın içindeki alkol miktarını hacimsel yüzde (ABV) olarak hesaplar.",
+  "shortcode": "[hc_hacmen_alkol_orani_hesaplama]"
+}

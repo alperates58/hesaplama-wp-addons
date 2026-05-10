@@ -1,15 +1,20 @@
-function hcWaterCalcHesapla() {
-    const weight = parseFloat(document.getElementById('hc-wc-weight').value);
-    const activity = parseFloat(document.getElementById('hc-wc-activity').value) || 0;
+function hcDailyWaterHesapla() {
+    const weight = parseFloat(document.getElementById('hc-water-weight').value);
+    const activity = parseFloat(document.getElementById('hc-water-activity').value);
 
-    if (!weight) return;
+    if (isNaN(weight) || weight <= 0) {
+        alert('Lütfen kilonuzu giriniz.');
+        return;
+    }
 
-    // Basic requirement: 0.033 L per kg
-    // Activity: approx 350ml per 30 min activity
-    const baseWater = weight * 0.033;
-    const activityWater = (activity / 30) * 0.35;
-    const total = baseWater + activityWater;
+    // Temel formül: Kilo x 0.033 litre. 
+    // Ekstra aktivite için +0.5 veya +1.0 litre eklenebilir.
+    let water = weight * 0.033 + activity;
 
-    document.getElementById('hc-wc-res-val').innerText = total.toFixed(1).toLocaleString('tr-TR');
-    document.getElementById('hc-water-calc-result').classList.add('visible');
+    document.getElementById('hc-water-val').innerText = water.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Litre';
+    
+    const glasses = Math.ceil(water / 0.2); // 200ml bardak
+    document.getElementById('hc-water-glasses').innerText = `Yaklaşık ${glasses} standart (200ml) bardak.`;
+    
+    document.getElementById('hc-daily-water-result').classList.add('visible');
 }

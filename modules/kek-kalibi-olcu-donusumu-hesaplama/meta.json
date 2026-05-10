@@ -1,0 +1,5 @@
+{
+  "name": "Kek Kalıbı Ölçü Dönüşümü Hesaplama",
+  "desc": "Tarifteki kek kalıbı boyutu ile elinizdeki kalıbın boyutu arasındaki farka göre malzeme miktarlarını yeniden hesaplar.",
+  "shortcode": "[hc_kek_kalibi_olcu_donusumu_hesaplama]"
+}
