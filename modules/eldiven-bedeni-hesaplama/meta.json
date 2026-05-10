@@ -1,0 +1,5 @@
+{
+  "name": "Eldiven Bedeni Hesaplama",
+  "desc": "El çevresi ölçünüze göre size uygun eldiven bedenini (S, M, L vb.) hesaplar.",
+  "shortcode": "[hc_eldiven_bedeni_hesaplama]"
+}

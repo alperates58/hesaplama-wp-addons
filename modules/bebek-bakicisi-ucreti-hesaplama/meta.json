@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Bakıcısı Ücreti Hesaplama",
+  "desc": "Çalışma saatine ve çocuk sayısına göre 2026 yılı bebek bakıcısı ücretini hesaplar.",
+  "shortcode": "[hc_bebek_bakicisi_ucreti_hesaplama]"
+}

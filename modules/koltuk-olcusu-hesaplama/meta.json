@@ -1,0 +1,5 @@
+{
+  "name": "Koltuk Ölçüsü Hesaplama",
+  "desc": "Odanıza ve kişi sayısına göre ihtiyacınız olan koltuk veya kanepe boyutlarını hesaplar.",
+  "shortcode": "[hc_koltuk_olcusu_hesaplama]"
+}

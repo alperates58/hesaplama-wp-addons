@@ -1,0 +1,5 @@
+{
+  "name": "Aydınlatma İhtiyacı Hesaplama",
+  "desc": "Odanızın boyutlarına ve kullanım amacına göre gereken toplam Lümen (ışık gücü) miktarını hesaplar.",
+  "shortcode": "[hc_aydinlatma_ihtiyaci_hesaplama]"
+}

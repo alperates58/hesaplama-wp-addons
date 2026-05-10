@@ -1,0 +1,5 @@
+{
+  "name": "Dakika Başına Maliyet Hesaplama",
+  "desc": "Bir hizmetin veya aboneliğin dakika başına düşen gerçek maliyetini hesaplar.",
+  "shortcode": "[hc_dakika_basina_maliyet_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çamaşır Makinesi Elektrik ve Su Tüketimi Hesaplama",
+  "desc": "Yıkama programına ve kullanım sıklığına göre çamaşır makinenizin aylık elektrik ve su maliyetini hesaplar.",
+  "shortcode": "[hc_camasir_makinesi_elektrik_ve_su_tuketimi_hesaplama]"
+}

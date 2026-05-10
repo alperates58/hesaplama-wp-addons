@@ -1,0 +1,5 @@
+{
+  "name": "Halı Metrekare Hesaplama",
+  "desc": "Halılarınızın toplam metrekaresini ve yıkama maliyetini hesaplar.",
+  "shortcode": "[hc_hali_metrekare_hesaplama]"
+}

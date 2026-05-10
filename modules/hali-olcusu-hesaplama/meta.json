@@ -1,0 +1,5 @@
+{
+  "name": "Halı Ölçüsü Hesaplama",
+  "desc": "Odanızın boyutlarına ve mobilya düzenine göre ideal halı ölçülerini önerir.",
+  "shortcode": "[hc_hali_olcusu_hesaplama]"
+}

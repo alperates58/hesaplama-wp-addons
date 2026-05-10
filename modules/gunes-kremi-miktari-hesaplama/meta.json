@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Kremi Miktarı Hesaplama",
+  "desc": "Vücut yüzey alanınıza göre tam koruma için ne kadar güneş kremi sürmeniz gerektiğini hesaplar.",
+  "shortcode": "[hc_gunes_kremi_miktari_hesaplama]"
+}

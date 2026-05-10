@@ -1,0 +1,5 @@
+{
+  "name": "Kitap Okuma Hedefi Hesaplama",
+  "desc": "Hedeflediğiniz kitap sayısına veya süresine göre günlük kaç sayfa okumanız gerektiğini hesaplar.",
+  "shortcode": "[hc_kitap_okuma_hedefi_hesaplama]"
+}

@@ -1,0 +1,48 @@
+# Görev Listesi - 46 Pratik Hesaplama Modülü
+
+- [x] Kozmetik Ürün Kullanım Maliyeti Hesaplama
+- [x] Kot Pantolon Bedeni Hesaplama
+- [x] Koltuk Ölçüsü Hesaplama
+- [x] Kitap Okuma Hedefi Hesaplama
+- [x] Kilogram Başına Fiyat Hesaplama
+- [x] Kemer Ölçüsü Hesaplama
+- [x] Kelime Sayısı Hesaplama
+- [x] Karakter Sayısı Hesaplama
+- [x] Jeneratör Gücü Hesaplama
+- [x] İnternet Veri Kullanımı Hesaplama
+- [x] İnternet Kota Kullanımı Hesaplama
+- [x] İngiltere Amerika Ayakkabı Numarası Dönüştürme Hesaplama
+- [x] IP Adresim Nedir
+- [x] Helyum Balon Kaldırma Gücü Hesaplama
+- [x] Havuz Tuz Miktarı Hesaplama
+- [x] Havuz Şok Klor Miktarı Hesaplama
+- [x] Halı Ölçüsü Hesaplama
+- [x] Halı Metrekare Hesaplama
+- [x] Güneş Kremi Miktarı Hesaplama
+- [x] Gözlük Ölçüsü Hesaplama
+- [x] Ev Temizliği Ücreti Hesaplama
+- [x] En Boy Oranı Hesaplama
+- [x] Elektrikli Cihaz Watt Hesaplama
+- [x] Eldiven Bedeni Hesaplama
+- [x] Elbise Bedeni Hesaplama
+- [x] Düğün Bütçesi Hesaplama
+- [x] Doğalgaz Faturası Hesaplama
+- [x] Dizi İzleme Süresi Hesaplama
+- [x] Dakika Başına Maliyet Hesaplama
+- [x] Çöp Poşeti Ölçüsü Hesaplama
+- [x] Çorap Bedeni Hesaplama
+- [x] Çerçeve Ölçüsü Hesaplama
+- [x] Çamaşır Makinesi Elektrik ve Su Tüketimi Hesaplama
+- [x] Çadır Kişi Kapasitesi Hesaplama
+- [x] Ceket Bedeni Hesaplama
+- [x] Bulaşık Makinesi Elektrik ve Su Tüketimi Hesaplama
+- [x] Bikini Bedeni Hesaplama
+- [x] Bebek Bezi İhtiyacı Hesaplama
+- [x] Bebek Bakıcısı Ücreti Hesaplama
+- [x] Aylık Market Bütçesi Hesaplama
+- [x] Aydınlatma İhtiyacı Hesaplama
+- [x] Ayakta Çalışma Masası Yüksekliği Hesaplama
+- [x] Ayakkabı Numarası Dönüştürme Hesaplama
+- [x] Araç Kiralama Maliyeti Hesaplama
+- [x] Apartman Aidatı Hesaplama
+- [x] Akvaryum Su Kapasitesi Hesaplama

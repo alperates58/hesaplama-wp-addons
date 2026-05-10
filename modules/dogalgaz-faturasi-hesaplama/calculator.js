@@ -1,19 +1,12 @@
-function hcGazFaturasiHesapla() {
-    const consumption = parseFloat(document.getElementById('hc-gb-consumption').value);
-    const price = parseFloat(document.getElementById('hc-gb-price').value);
-    const fixed = parseFloat(document.getElementById('hc-gb-fixed').value);
+function hcDoğalgazFaturasıHesapla() {
+    const m3 = parseFloat(document.getElementById('hc-gb-m3').value);
 
-    if (isNaN(consumption) || isNaN(price) || isNaN(fixed)) {
-        alert('Lütfen tüm alanları doldurun.');
-        return;
-    }
+    if (!m3) return;
 
-    const energyCost = consumption * price;
-    const totalBeforeTax = energyCost + fixed;
-    const totalWithVat = totalBeforeTax * 1.20; // 20% VAT (KDV) in 2026 estimate
+    // 2026 Tahmini: 12.50 TL/m3 (Vergiler dahil yaklaşık birim fiyat)
+    const unitPrice = 12.50;
+    const total = m3 * unitPrice;
 
-    document.getElementById('hc-res-gb-energy').innerText = energyCost.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-res-gb-total').innerText = totalWithVat.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
-
+    document.getElementById('hc-gb-val').innerText = total.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' });
     document.getElementById('hc-gb-result').classList.add('visible');
 }

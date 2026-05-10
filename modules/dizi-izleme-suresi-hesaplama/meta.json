@@ -1,0 +1,5 @@
+{
+  "name": "Dizi İzleme Süresi Hesaplama",
+  "desc": "Bir dizinin tüm sezonlarını bitirmek için ne kadar süre (gün/saat) ayırmanız gerektiğini hesaplar.",
+  "shortcode": "[hc_dizi_izleme_suresi_hesaplama]"
+}

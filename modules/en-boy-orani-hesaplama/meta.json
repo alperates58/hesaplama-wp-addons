@@ -1,0 +1,5 @@
+{
+  "name": "En Boy Oranı Hesaplama",
+  "desc": "Görsel veya video dosyalarınız için en-boy oranını (Aspect Ratio) hesaplar ve standart formatlarla karşılaştırır.",
+  "shortcode": "[hc_en_boy_orani_hesaplama]"
+}

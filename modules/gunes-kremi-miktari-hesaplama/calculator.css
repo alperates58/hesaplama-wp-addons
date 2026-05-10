@@ -1,0 +1,9 @@
+.hc-check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+#hc-sunscreen .hc-result-value {
+    color: #f39c12;
+}

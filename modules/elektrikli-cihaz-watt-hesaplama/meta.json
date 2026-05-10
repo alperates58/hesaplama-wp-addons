@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Cihaz Watt Hesaplama",
+  "desc": "Cihazlarınızın Volt ve Amper değerlerine göre kaç Watt enerji tükettiğini hesaplar.",
+  "shortcode": "[hc_elektrikli_cihaz_watt_hesaplama]"
+}

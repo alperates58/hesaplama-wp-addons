@@ -1,0 +1,5 @@
+{
+  "name": "Karakter Sayısı Hesaplama",
+  "desc": "Metninizdeki karakterleri boşluklu ve boşluksuz olarak detaylı şekilde sayar.",
+  "shortcode": "[hc_karakter_sayisi_hesaplama]"
+}

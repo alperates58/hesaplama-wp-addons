@@ -1,0 +1,5 @@
+{
+  "name": "Havuz Şok Klor Miktarı Hesaplama",
+  "desc": "Havuz suyunun dezenfeksiyonu için gereken şok klor miktarını hesaplar.",
+  "shortcode": "[hc_havuz_sok_klor_miktari_hesaplama]"
+}

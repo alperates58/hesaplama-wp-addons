@@ -1,0 +1,5 @@
+{
+  "name": "Akvaryum Su Kapasitesi Hesaplama",
+  "desc": "Akvaryumunuzun boyutlarına göre kaç litre su aldığını ve gereken kum/dekorasyon payını hesaplar.",
+  "shortcode": "[hc_akvaryum_su_kapasitesi_hesaplama]"
+}

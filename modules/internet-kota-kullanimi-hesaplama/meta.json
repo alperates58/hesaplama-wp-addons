@@ -1,0 +1,5 @@
+{
+  "name": "İnternet Kota Kullanımı Hesaplama",
+  "desc": "Dosya indirme, yükleme ve internet trafiği üzerinden kotanızın ne kadar sürede dolacağını hesaplar.",
+  "shortcode": "[hc_internet_kota_kullanimi_hesaplama]"
+}

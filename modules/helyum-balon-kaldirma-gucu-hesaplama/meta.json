@@ -1,0 +1,5 @@
+{
+  "name": "Helyum Balon Kaldırma Gücü Hesaplama",
+  "desc": "Balonunuzun hacmine göre kaç gram veya kilogram yük kaldırabileceğini hesaplar.",
+  "shortcode": "[hc_helyum_balon_kaldirma_gucu_hesaplama]"
+}

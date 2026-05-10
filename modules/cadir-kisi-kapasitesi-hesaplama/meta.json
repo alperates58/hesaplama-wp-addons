@@ -1,0 +1,5 @@
+{
+  "name": "Çadır Kişi Kapasitesi Hesaplama",
+  "desc": "Çadırın taban alanına ve kişi başı konfor alanına göre kaç kişinin konaklayabileceğini hesaplar.",
+  "shortcode": "[hc_cadir_kisi_kapasitesi_hesaplama]"
+}

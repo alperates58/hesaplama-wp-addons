@@ -1,0 +1,5 @@
+{
+  "name": "Havuz Tuz Miktarı Hesaplama",
+  "desc": "Havuz hacmine göre ideal tuzluluk oranı için ne kadar tuz eklemeniz gerektiğini hesaplar.",
+  "shortcode": "[hc_havuz_tuz_miktari_hesaplama]"
+}

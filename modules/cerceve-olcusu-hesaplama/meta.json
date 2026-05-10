@@ -1,0 +1,5 @@
+{
+  "name": "Çerçeve Ölçüsü Hesaplama",
+  "desc": "Fotoğrafınızın boyutuna ve istediğiniz paspartu genişliğine göre ideal çerçeve ölçüsünü hesaplar.",
+  "shortcode": "[hc_cerceve_olcusu_hesaplama]"
+}

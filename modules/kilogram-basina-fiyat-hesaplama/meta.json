@@ -1,0 +1,5 @@
+{
+  "name": "Kilogram Başına Fiyat Hesaplama",
+  "desc": "Gramajı ve fiyatı farklı ürünlerin kilogram birim fiyatlarını karşılaştırmanıza yardımcı olur.",
+  "shortcode": "[hc_kilogram_basina_fiyat_hesaplama]"
+}

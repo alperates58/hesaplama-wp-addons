@@ -1,0 +1,5 @@
+{
+  "name": "İnternet Veri Kullanımı Hesaplama",
+  "desc": "Günlük internet aktivitelerinize göre aylık tahmini veri tüketiminizi (GB) hesaplar.",
+  "shortcode": "[hc_internet_veri_kullanimi_hesaplama]"
+}

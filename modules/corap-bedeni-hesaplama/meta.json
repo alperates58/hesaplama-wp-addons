@@ -1,0 +1,5 @@
+{
+  "name": "Çorap Bedeni Hesaplama",
+  "desc": "Ayakkabı numaranıza göre size uygun olan çorap bedenini (S, M, L vb.) hesaplar.",
+  "shortcode": "[hc_corap_bedeni_hesaplama]"
+}

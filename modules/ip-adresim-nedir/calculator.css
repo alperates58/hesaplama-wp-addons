@@ -1,0 +1,14 @@
+.hc-ip-box {
+    background: #f1f8ff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid #d1e9ff;
+}
+
+#hc-ip-val {
+    font-size: 2em;
+    font-family: monospace;
+    color: #0366d6;
+}

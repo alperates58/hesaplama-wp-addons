@@ -1,0 +1,5 @@
+{
+  "name": "Aylık Market Bütçesi Hesaplama",
+  "desc": "Ailedeki kişi sayısına ve beslenme alışkanlıklarınıza göre aylık tahmini market harcamanızı hesaplar.",
+  "shortcode": "[hc_aylik_market_butcesi_hesaplama]"
+}

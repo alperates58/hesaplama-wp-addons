@@ -1,0 +1,5 @@
+{
+  "name": "Kelime Sayısı Hesaplama",
+  "desc": "Girdiğiniz metindeki toplam kelime sayısını anlık olarak hesaplar.",
+  "shortcode": "[hc_kelime_sayisi_hesaplama]"
+}

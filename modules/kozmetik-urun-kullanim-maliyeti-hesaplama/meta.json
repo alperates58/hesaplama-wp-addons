@@ -1,0 +1,5 @@
+{
+  "name": "Kozmetik Ürün Kullanım Maliyeti Hesaplama",
+  "desc": "Kozmetik ürününüzün gram veya mililitre başına maliyetini ve bir kullanımın size ne kadara mal olduğunu hesaplar.",
+  "shortcode": "[hc_kozmetik_urun_kullanim_maliyeti_hesaplama]"
+}

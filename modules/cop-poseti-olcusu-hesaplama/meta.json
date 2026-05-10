@@ -1,0 +1,5 @@
+{
+  "name": "Çöp Poşeti Ölçüsü Hesaplama",
+  "desc": "Çöp kovanızın boyutlarına göre en uygun çöp poşeti ölçüsünü hesaplar.",
+  "shortcode": "[hc_cop_poseti_olcusu_hesaplama]"
+}

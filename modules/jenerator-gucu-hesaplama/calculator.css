@@ -1,0 +1,14 @@
+.hc-gen-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hc-gen-row input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.hc-gen-name { flex: 2; }
+.hc-gen-watt { flex: 1; }

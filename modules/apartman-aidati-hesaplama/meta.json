@@ -1,0 +1,5 @@
+{
+  "name": "Apartman Aidatı Hesaplama",
+  "desc": "Apartman giderlerini daire sayısına göre bölüştürerek aylık aidat miktarını hesaplar.",
+  "shortcode": "[hc_apartman_aidati_hesaplama]"
+}

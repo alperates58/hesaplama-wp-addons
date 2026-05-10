@@ -1,0 +1,5 @@
+{
+  "name": "Araç Kiralama Maliyeti Hesaplama",
+  "desc": "Kira süresi, yakıt ve sigorta gibi ek masraflarla toplam araç kiralama maliyetinizi hesaplar.",
+  "shortcode": "[hc_arac_kiralama_maliyeti_hesaplama]"
+}

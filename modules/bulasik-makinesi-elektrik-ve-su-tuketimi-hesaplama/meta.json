@@ -1,0 +1,5 @@
+{
+  "name": "Bulaşık Makinesi Elektrik ve Su Tüketimi Hesaplama",
+  "desc": "Program tipine ve kullanım sıklığına göre bulaşık makinenizin enerji ve su maliyetini hesaplar.",
+  "shortcode": "[hc_bulasik_makinesi_elektrik_ve_su_tuketimi_hesaplama]"
+}

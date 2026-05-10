@@ -1,0 +1,5 @@
+{
+  "name": "Jeneratör Gücü Hesaplama",
+  "desc": "Ev veya iş yerindeki cihazların toplam tüketimine göre ihtiyacınız olan jeneratör kapasitesini (kVA) hesaplar.",
+  "shortcode": "[hc_jenerator_gucu_hesaplama]"
+}

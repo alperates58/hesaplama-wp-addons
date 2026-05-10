@@ -1,0 +1,5 @@
+{
+  "name": "Bebek Bezi İhtiyacı Hesaplama",
+  "desc": "Bebeğinizin yaşına göre günlük ve aylık tahmini bebek bezi ihtiyacınızı hesaplar.",
+  "shortcode": "[hc_bebek_bezi_ihtiyaci_hesaplama]"
+}

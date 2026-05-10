@@ -1,0 +1,5 @@
+{
+  "name": "Ev Temizliği Ücreti Hesaplama",
+  "desc": "Evinizin oda sayısına ve temizlik tipine göre 2026 piyasa ortalaması temizlik ücretini hesaplar.",
+  "shortcode": "[hc_ev_temizligi_ucreti_hesaplama]"
+}

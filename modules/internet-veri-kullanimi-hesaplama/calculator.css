@@ -1,0 +1,6 @@
+#hc-data .hc-result-value {
+    color: #3498db;
+}
+#hc-data-vid-sd, #hc-data-vid-hd, #hc-data-vid-4k {
+    flex: 1;
+}

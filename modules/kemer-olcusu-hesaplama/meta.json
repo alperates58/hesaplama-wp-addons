@@ -1,0 +1,5 @@
+{
+  "name": "Kemer Ölçüsü Hesaplama",
+  "desc": "Pantolon bedeninize veya bel ölçünüze göre en uygun kemer boyunu hesaplar.",
+  "shortcode": "[hc_kemer_olcusu_hesaplama]"
+}
