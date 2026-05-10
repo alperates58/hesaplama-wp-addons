@@ -1,0 +1,5 @@
+{
+  "name": "Elektrikli Bisiklet Menzili Hesaplama",
+  "desc": "Batarya kapasitesi ve sürüş koşullarına göre elektrikli bisikletinizin tahmini menzilini hesaplar.",
+  "shortcode": "[hc_elektrikli_bisiklet_menzili_hesaplama]"
+}

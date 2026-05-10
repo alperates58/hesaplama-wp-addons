@@ -1,0 +1,5 @@
+{
+  "name": "Squat Maksimum Ağırlık Hesaplama",
+  "desc": "Squat egzersizinde kaldırabileceğiniz maksimum ağırlığı (1RM) tahmin eder.",
+  "shortcode": "[hc_squat_maksimum_agirlik_hesaplama]"
+}

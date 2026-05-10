@@ -1,0 +1,5 @@
+{
+  "name": "Antrenman Yükü Hesaplama",
+  "desc": "Ağırlık, tekrar ve set sayısına göre toplam antrenman hacmini ve yükünü hesaplar.",
+  "shortcode": "[hc_antrenman_yuku_hesaplama]"
+}

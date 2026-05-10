@@ -1,0 +1,5 @@
+{
+  "name": "Spor İçeceği Karışımı Hesaplama",
+  "desc": "Egzersiz süresine ve yoğunluğuna göre ev yapımı ideal izotonik spor içeceği tarifini hesaplar.",
+  "shortcode": "[hc_spor_icecegi_karisimi_hesaplama]"
+}

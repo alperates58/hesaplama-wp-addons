@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Watt Gücü Hesaplama",
+  "desc": "Hız, ağırlık ve eğime bağlı olarak bisiklet sürerken ürettiğiniz tahmini gücü (Watt) hesaplar.",
+  "shortcode": "[hc_bisiklet_watt_gucu_hesaplama]"
+}

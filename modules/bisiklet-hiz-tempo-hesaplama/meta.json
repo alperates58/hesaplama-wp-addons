@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Hız Tempo Hesaplama",
+  "desc": "Bisiklet sürüşünüz için hem hızı hem de dakikadaki tempo değerini aynı anda hesaplar.",
+  "shortcode": "[hc_bisiklet_hiz_tempo_hesaplama]"
+}

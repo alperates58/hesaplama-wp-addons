@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Tempo Hesaplama",
+  "desc": "Bisiklet hızınızı dakika/km cinsinden tempoya dönüştürür.",
+  "shortcode": "[hc_bisiklet_tempo_hesaplama]"
+}

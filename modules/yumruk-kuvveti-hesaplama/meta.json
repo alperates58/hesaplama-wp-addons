@@ -1,0 +1,5 @@
+{
+  "name": "Yumruk Kuvveti Hesaplama",
+  "desc": "Vücut ağırlığı ve hıza dayalı olarak tahmini yumruk darbe kuvvetini hesaplar.",
+  "shortcode": "[hc_yumruk_kuvveti_hesaplama]"
+}

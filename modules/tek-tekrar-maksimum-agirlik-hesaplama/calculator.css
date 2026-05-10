@@ -1,0 +1,19 @@
+#hc-1rm .hc-result {
+    background: rgba(var(--hc-primary-rgb), 0.05);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#hc-1rm-levels {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+@media (max-width: 480px) {
+    #hc-1rm-levels {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Spor Sırasında Su İhtiyacı Hesaplama",
+  "desc": "Terleme oranınıza göre antrenman sırasında ve sonrasında tüketmeniz gereken su miktarını hesaplar.",
+  "shortcode": "[hc_spor_sirasinda_su_ihtiyaci_hesaplama]"
+}

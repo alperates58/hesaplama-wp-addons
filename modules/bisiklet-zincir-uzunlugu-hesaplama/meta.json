@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Zincir Uzunluğu Hesaplama",
+  "desc": "Kadro ve vites yapınıza göre ideal bisiklet zincir uzunluğunu (bakla sayısı) hesaplar.",
+  "shortcode": "[hc_bisiklet_zincir_uzunlugu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Kadans Hesaplama",
+  "desc": "Belirli bir hız ve vites oranında yapmanız gereken pedal devrini (RPM) hesaplar.",
+  "shortcode": "[hc_bisiklet_kadans_hesaplama]"
+}

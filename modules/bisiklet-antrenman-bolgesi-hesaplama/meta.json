@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Antrenman Bölgesi Hesaplama",
+  "desc": "FTP (Fonksiyonel Eşik Gücü) değerinize göre kişisel güç bölgelerinizi hesaplar.",
+  "shortcode": "[hc_bisiklet_antrenman_bolgesi_hesaplama]"
+}

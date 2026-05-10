@@ -1,0 +1,5 @@
+{
+  "name": "Spor Protein İhtiyacı Hesaplama",
+  "desc": "Vücut ağırlığınız ve aktivite seviyenize göre günlük tüketmeniz gereken ideal protein miktarını hesaplar.",
+  "shortcode": "[hc_spor_protein_ihtiyaci_hesaplama]"
+}

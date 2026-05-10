@@ -1,0 +1,5 @@
+{
+  "name": "Haftalık Spor Süresi Hesaplama",
+  "desc": "Haftalık toplam egzersiz sürenizi hesaplar ve sağlık hedefleriyle karşılaştırır.",
+  "shortcode": "[hc_haftalik_spor_suresi_hesaplama]"
+}

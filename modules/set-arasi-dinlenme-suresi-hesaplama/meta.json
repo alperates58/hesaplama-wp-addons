@@ -1,0 +1,5 @@
+{
+  "name": "Set Arası Dinlenme Süresi Hesaplama",
+  "desc": "Antrenman hedefinize göre setler arasında ne kadar dinlenmeniz gerektiğini belirler.",
+  "shortcode": "[hc_set_arasi_dinlenme_suresi_hesaplama]"
+}

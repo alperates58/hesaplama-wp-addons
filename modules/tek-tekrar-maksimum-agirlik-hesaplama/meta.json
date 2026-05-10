@@ -1,0 +1,5 @@
+{
+  "name": "Tek Tekrar Maksimum Ağırlık Hesaplama",
+  "desc": "Kaldırdığınız ağırlık ve tekrar sayısına göre maksimum gücünüzü (1RM) hesaplar.",
+  "shortcode": "[hc_tek_tekrar_maksimum_agirlik_hesaplama]"
+}

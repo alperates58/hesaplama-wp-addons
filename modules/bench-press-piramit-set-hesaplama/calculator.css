@@ -1,0 +1,16 @@
+#hc-bench-pyramid table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#hc-bench-pyramid th, #hc-bench-pyramid td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+#hc-bench-pyramid th {
+    background: #f8f9fa;
+    font-weight: 600;
+}

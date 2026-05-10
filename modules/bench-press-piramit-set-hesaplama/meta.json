@@ -1,0 +1,5 @@
+{
+  "name": "Bench Press Piramit Set Hesaplama",
+  "desc": "1RM değerinize göre Bench Press için piramit set ağırlıklarını hesaplar.",
+  "shortcode": "[hc_bench_press_piramit_set_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Kadans ve Hız Hesaplama",
+  "desc": "Kadans, vites oranı ve tekerlek boyutuna göre bisiklet hızını hesaplar.",
+  "shortcode": "[hc_bisiklet_kadans_ve_hiz_hesaplama]"
+}

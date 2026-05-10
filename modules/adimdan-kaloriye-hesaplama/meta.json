@@ -1,0 +1,5 @@
+{
+  "name": "Adımdan Kaloriye Hesaplama",
+  "desc": "Günlük attığınız adım sayısını yaktığınız tahmini kalori miktarına dönüştürür.",
+  "shortcode": "[hc_adimdan_kaloriye_hesaplama]"
+}

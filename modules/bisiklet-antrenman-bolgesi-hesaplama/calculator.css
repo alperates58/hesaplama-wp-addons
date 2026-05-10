@@ -1,0 +1,18 @@
+#hc-bike-zones table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#hc-bike-zones th, #hc-bike-zones td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.zone-Z1 { border-left: 5px solid #bdc3c7; }
+.zone-Z2 { border-left: 5px solid #2ecc71; }
+.zone-Z3 { border-left: 5px solid #f1c40f; }
+.zone-Z4 { border-left: 5px solid #e67e22; }
+.zone-Z5 { border-left: 5px solid #e74c3c; }
+.zone-Z6 { border-left: 5px solid #9b59b6; }
+.zone-Z7 { border-left: 5px solid #2c3e50; }

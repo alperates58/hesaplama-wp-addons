@@ -1,0 +1,25 @@
+.hc-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.hc-days-grid label {
+    font-size: 0.8em;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.hc-days-grid input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+    .hc-days-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

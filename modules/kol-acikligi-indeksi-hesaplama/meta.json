@@ -1,0 +1,5 @@
+{
+  "name": "Kol Açıklığı İndeksi Hesaplama",
+  "desc": "Boyunuz ve kol açıklığınız arasındaki oranı (Ape Index) hesaplar.",
+  "shortcode": "[hc_kol_acikligi_indeksi_hesaplama]"
+}

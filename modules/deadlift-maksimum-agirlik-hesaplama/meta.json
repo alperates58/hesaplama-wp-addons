@@ -1,0 +1,5 @@
+{
+  "name": "Deadlift Maksimum Ağırlık Hesaplama",
+  "desc": "Deadlift egzersizinde kaldırabileceğiniz maksimum ağırlığı (1RM) tahmin eder.",
+  "shortcode": "[hc_deadlift_maksimum_agirlik_hesaplama]"
+}

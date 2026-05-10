@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Dişli Oranı Hesaplama",
+  "desc": "Aynakol ve ruble diş sayılarına göre vites oranını ve bir pedal devrinde gidilen mesafeyi hesaplar.",
+  "shortcode": "[hc_bisiklet_disli_orani_hesaplama]"
+}

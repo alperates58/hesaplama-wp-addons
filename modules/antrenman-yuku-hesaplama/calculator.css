@@ -1,0 +1,25 @@
+.hc-load-set {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hc-load-set input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.hc-btn-secondary {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.hc-btn-secondary:hover {
+    background: #e0e0e0;
+}

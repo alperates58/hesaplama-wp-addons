@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Kadro Boyu Hesaplama",
+  "desc": "İç bacak boyunuza göre size en uygun bisiklet kadro boyunu hesaplar.",
+  "shortcode": "[hc_bisiklet_kadro_boyu_hesaplama]"
+}

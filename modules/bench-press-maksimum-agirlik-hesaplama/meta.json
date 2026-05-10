@@ -1,0 +1,5 @@
+{
+  "name": "Bench Press Maksimum Ağırlık Hesaplama",
+  "desc": "Bench Press egzersizinde kaldırabileceğiniz maksimum ağırlığı (1RM) tahmin eder.",
+  "shortcode": "[hc_bench_press_maksimum_agirlik_hesaplama]"
+}

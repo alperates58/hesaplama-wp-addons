@@ -1,0 +1,5 @@
+{
+  "name": "Powerlifting Wilks Puanı Hesaplama",
+  "desc": "Vücut ağırlığınız ve toplam kaldırışınıza göre Wilks 2020 puanınızı hesaplar.",
+  "shortcode": "[hc_powerlifting_wilks_puani_hesaplama]"
+}

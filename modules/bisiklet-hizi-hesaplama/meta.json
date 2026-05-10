@@ -1,0 +1,5 @@
+{
+  "name": "Bisiklet Hızı Hesaplama",
+  "desc": "Kadans ve vites oranınıza göre anlık bisiklet hızınızı tahmin eder.",
+  "shortcode": "[hc_bisiklet_hizi_hesaplama]"
+}

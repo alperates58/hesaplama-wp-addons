@@ -1,0 +1,5 @@
+{
+  "name": "Tempo Hesaplama",
+  "desc": "Koşu veya yürüyüş süratinizi dakika/km cinsinden tempoya dönüştürür veya tersini yapar.",
+  "shortcode": "[hc_tempo_hesaplama]"
+}
