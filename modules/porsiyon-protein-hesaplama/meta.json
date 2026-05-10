@@ -1,0 +1,5 @@
+{
+  "name": "Porsiyon Protein Hesaplama",
+  "desc": "Yemek porsiyonundaki toplam protein miktarını gıda türüne göre hesaplar.",
+  "shortcode": "[hc_porsiyon_protein_hesaplama]"
+}

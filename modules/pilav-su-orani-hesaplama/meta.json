@@ -1,0 +1,5 @@
+{
+  "name": "Pilav Su Oranı Hesaplama",
+  "desc": "Pirinç veya bulgur türüne göre tane tane pilav için gereken ideal su miktarını hesaplar.",
+  "shortcode": "[hc_pilav_su_orani_hesaplama]"
+}

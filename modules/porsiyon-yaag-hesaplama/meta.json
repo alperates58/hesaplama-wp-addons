@@ -1,0 +1,5 @@
+{
+  "name": "Porsiyon Yağ Hesaplama",
+  "desc": "Yemek porsiyonundaki toplam yağ miktarını gıda türüne ve pişirme yöntemine göre hesaplar.",
+  "shortcode": "[hc_porsiyon_yaag_hesaplama]"
+}

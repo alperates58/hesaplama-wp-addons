@@ -1,0 +1,5 @@
+{
+  "name": "Kişi Sayısına Göre Çay Miktarı Hesaplama",
+  "desc": "Davetli sayısına göre demlenmesi gereken ideal çay miktarını ve su oranını hesaplar.",
+  "shortcode": "[hc_kisi_sayisina_gore_cay_miktari_hesaplama]"
+}

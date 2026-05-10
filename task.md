@@ -1,51 +1,95 @@
-# Görev Listesi - Batch 3: 49 Sürdürülebilirlik ve Çevre Modülü
+# Mutfak ve Gıda Modülleri İsim Düzeltme ve Eşleştirme Görevi
 
-- [x] Evsel Atık Miktarı Hesaplama
-- [x] Geri Dönüşüm Etkisi Hesaplama
-- [x] Gıda İsrafı Hesaplama
-- [x] Gri Su Geri Kazanım Hesaplama
-- [x] Gürültü Kirliliği Hesaplama
-- [x] Hava Kalitesi İndeksi Hesaplama
-- [x] Havalandırma CO₂ Seviyesi Hesaplama
-- [x] İç Mekan Hava Kalitesi Hesaplama
-- [x] İşe Gidiş Geliş Karbon Ayak İzi Hesaplama
-- [x] İşletme Karbon Ayak İzi Hesaplama
-- [x] Kağıt Geri Dönüşüm Etkisi Hesaplama
-- [x] Karbon Ayak İzi Hesaplama
-- [x] Karbon Dengeleme Hesaplama
-- [x] Karbon Dengeleme İçin Gerekli Ağaç Sayısı Hesaplama
-- [x] Kargo Karbon Ayak İzi Hesaplama
-- [x] Kişisel Karbon Ayak İzi Hesaplama
-- [x] Kitap ve E-Kitap Çevresel Etki Hesaplama
-- [x] Kompost Etkisi Hesaplama
-- [x] Kripto Para Karbon Ayak İzi Hesaplama
-- [x] Küresel Plastik Politikası Etki Hesaplama
-- [x] Lotka-Volterra Popülasyon Hesaplama
-- [x] LPG Karbon Emisyonu Hesaplama
-- [x] Metal Geri Dönüşüm Etkisi Hesaplama
-- [x] Motosiklet Karbon Emisyonu Hesaplama
-- [x] Musluk Suyu Kullanımı Hesaplama
-- [x] Nakliye Karbon Emisyonu Hesaplama
-- [x] Olimpiyat Oyunları Sürdürülebilirlik Etkisi Hesaplama
-- [x] Orman Karbon Depolama Hesaplama
-- [x] Otobüs Karbon Emisyonu Hesaplama
-- [x] Pil Geri Dönüşüm Etkisi Hesaplama
-- [x] Plastik Atık Miktarı Hesaplama
-- [x] Plastik Karbon Ayak İzi Hesaplama
-- [x] Plastik Kullanımı Azaltma Hesaplama
-- [x] PM2.5 Maruziyeti Hesaplama
-- [x] Shannon Çeşitlilik İndeksi Hesaplama
-- [x] Sıfır Atık Skoru Hesaplama
-- [x] Sigara İzmariti Kirlilik Etkisi Hesaplama
-- [x] Solunum Kaynaklı CO₂ Emisyonu Hesaplama
-- [x] Su Ayak İzi Hesaplama
-- [x] Su İhtiyacı Hesaplama
-- [x] Sürdürülebilirlik Skoru Hesaplama
-- [x] Taşıma Kapasitesi Hesaplama
-- [x] Tren Karbon Emisyonu Hesaplama
-- [x] Tuvalet Su Tüketimi Hesaplama
-- [x] Uçuş Karbon Emisyonu Hesaplama
-- [x] Vegan Beslenme Karbon Ayak İzi Hesaplama
-- [x] Yağmur Suyu Hasadı Hesaplama
-- [x] Yakıt Karbon Emisyonu Hesaplama
-- [x] Yapay Zeka Su Ayak İzi Hesaplama
+Kullanıcının verdiği 85 maddelik listenin, mevcut modüllerle %100 isim uyumlu hale getirilmesi.
+
+## Görev Listesi
+- [ ] 01. Gramdan Çay Kaşığına Çevirme Hesaplama (Mevcut: gramdan-cay-kasigina-cevirme-hesaplama)
+- [ ] 02. Gramdan Yemek Kaşığına Çevirme Hesaplama (Mevcut: gramdan-yemek-kasigina-cevirme-hesaplama)
+- [ ] 03. Günlük Kafein Miktarı Hesaplama (Mevcut: gunluk-kafein-miktari-hesaplama)
+- [ ] 04. Günlük Sağlıklı Kahve Miktarı Hesaplama (Mevcut: gunluk-saaglikli-kahve-miktari-hesaplama -> DÜZELTİLECEK: saaglikli -> saglikli)
+- [ ] 05. Günlük Su Tüketimi Hesaplama (Mevcut: gunluk-su-tuketimi-hesaplama)
+- [ ] 06. Hacmen Alkol Oranı Hesaplama (Mevcut: hacmen-alkol-orani-hesaplama)
+- [ ] 07. Hamur Tuz Oranı Hesaplama (Mevcut: hamur-tuz-orani-hesaplama)
+- [ ] 08. Hamur Yağ Oranı Hesaplama (Mevcut: hamur-yag-orani-hesaplama)
+- [ ] 09. İçecek Soğutma Süresi Hesaplama (Mevcut: icecek-sogutma-suresi-hesaplama)
+- [ ] 10. Kahve Kafein Etkisi Hesaplama (Mevcut: kahve-kafein-etkisi-hesaplama)
+- [ ] 11. Kahve Karbon Ayak İzi Hesaplama (Mevcut: kahve-karbon-ayak-izi-hesaplama)
+- [ ] 12. Kahve Oranı Hesaplama (Mevcut: kahve-orani-hesaplama)
+- [ ] 13. Kahve Ölçüsü Hesaplama (Mevcut: kahve-olcusu-hesaplama)
+- [ ] 14. Kahve Su Oranı Hesaplama (Mevcut: kahve-su-orani-hesaplama)
+- [ ] 15. Kek Kalıbı Ölçü Dönüşümü Hesaplama (Mevcut: kek-kalibi-olcu-donusumu-hesaplama)
+- [ ] 16. Kek Kalıbı Ölçüsü Hesaplama (Mevcut: kek-kalibi-olcusu-hesaplama)
+- [ ] 17. Kendinden Kabaran Un Karışımı Hesaplama (Mevcut: kendinden-kabaran-un-karisimi-hesaplama)
+- [ ] 18. Kişi Başına Balık Miktarı Hesaplama (Mevcut: kisi-basina-balik-miktari-hesaplama)
+- [ ] 19. Kişi Başına Çorba Miktarı Hesaplama (Mevcut: kisi-basina-corba-miktari-hesaplama)
+- [ ] 20. Kişi Başına Et Miktarı Hesaplama (Mevcut: kisi-basina-et-miktari-hesaplama)
+- [ ] 21. Kişi Başına Kıyma Miktarı Hesaplama (Mevcut: kisi-basina-kiyma-miktari-hesaplama)
+- [ ] 22. Kişi Başına Makarna Miktarı Hesaplama (Mevcut: kisi-basina-makarna-miktari-hesaplama)
+- [ ] 23. Kişi Başına Mercimek Miktarı Hesaplama (Mevcut: kisi-basina-mercimek-miktari-hesaplama)
+- [ ] 24. Kişi Başına Pirinç Miktarı Hesaplama (Mevcut: kisi-basina-pirinc-miktari-hesaplama)
+- [ ] 25. Kişi Başına Salata Miktarı Hesaplama (Mevcut: kisi-basina-salata-miktari-hesaplama)
+- [ ] 26. Kişi Başına Tavuk Miktarı Hesaplama (Mevcut: kisi-basina-tavuk-miktari-hesaplama)
+- [ ] 27. Kişi Sayısına Göre Çay Miktarı Hesaplama (EKSİK - Eklenecek)
+- [ ] 28. Kişi Sayısına Göre Kahve Miktarı Hesaplama (Mevcut: kisi-sayisina-gore-kahve-miktari-hesaplama)
+- [ ] 29. Kişi Sayısına Göre Mangal Miktarı Hesaplama (Mevcut: kisi-sayisina-gore-mangal-miktari-hesaplama)
+- [ ] 30. Kişi Sayısına Göre Pankek Hesaplama (Mevcut: kisi-sayisina-gore-pankek-hesaplama)
+- [ ] 31. Kişi Sayısına Göre Pizza Hesaplama (Mevcut: kisi-sayisina-gore-pizza-hesaplama)
+- [ ] 32. Kişi Sayısına Göre Taco Malzemesi Hesaplama (Mevcut: kisi-sayisina-gore-taco-malzemesi-hesaplama)
+- [ ] 33. Kişi Sayısına Göre Yemek Miktarı Hesaplama (Mevcut: kisi-sayisina-gore-yemek-miktari-hesaplama)
+- [ ] 34. Kuru Makarnadan Pişmiş Makarnaya Hesaplama (Mevcut: kuru-makarnadan-pismis-makarnaya-hesaplama)
+- [ ] 35. Lokma Porsiyon Hesaplama (Mevcut: lokma-porsiyon-hesaplama)
+- [ ] 36. Mangal Izgara Boyutu Hesaplama (Mevcut: mangal-izgara-boyutu-hesaplama)
+- [ ] 37. Maya Miktarı Hesaplama (Mevcut: maya-miktari-hesaplama)
+- [ ] 38. Maya Ölçüsü Dönüşümü Hesaplama (Mevcut: maya-olcusu-donusumu-hesaplama)
+- [ ] 39. Menü Fiyatı Hesaplama (Mevcut: menu-fiyati-hesaplama)
+- [ ] 40. Mililitreden Grama Çevirme Hesaplama (Mevcut: mililitreden-grama-cevirme-hesaplama)
+- [ ] 41. Mutfak Ölçü Birimi Hesaplama (Mevcut: mutfak-olcu-birimi-hesaplama)
+- [ ] 42. Pankek Tarifi Ölçeklendirme Hesaplama (Mevcut: pankek-tarifi-olceklendirme-hesaplama)
+- [ ] 43. Pasta Fiyatı Hesaplama (Mevcut: pasta-fiyati-hesaplama)
+- [ ] 44. Pasta Porsiyon Hesaplama (Mevcut: pasta-porsiyon-hesaplama)
+- [ ] 45. Pasta Porsiyon Sayısı Hesaplama (Mevcut: pasta-porsiyon-sayisi-hesaplama)
+- [ ] 46. Patates Püresi Miktarı Hesaplama (Mevcut: patates-puresi-miktari-hesaplama)
+- [ ] 47. Patlamış Mısır Miktarı Hesaplama (Mevcut: patlamis-misir-miktari-hesaplama)
+- [ ] 48. Peynir Salamura Oranı Hesaplama (Mevcut: peynir-salamura-orani-hesaplama)
+- [ ] 49. Pilav Su Oranı Hesaplama (EKSİK - Eklenecek)
+- [ ] 50. Pirinç Su Oranı Hesaplama (Mevcut: pirinc-su-orani-hesaplama)
+- [ ] 51. Pizza Boyutu Karşılaştırma Hesaplama (Mevcut: pizza-boyutu-karsilastirma-hesaplama)
+- [ ] 52. Pizza Hamuru Ölçüsü Hesaplama (Mevcut: pizza-hamuru-olcusu-hesaplama)
+- [ ] 53. Pizza Hamuru Su Oranı Hesaplama (Mevcut: pizza-hamuru-su-orani-hesaplama)
+- [ ] 54. Pizza Malzeme Miktarı Hesaplama (Mevcut: pizza-malzeme-miktari-hesaplama)
+- [ ] 55. Porsiyon Kalori Hesaplama (Mevcut: porsiyon-olcusu-hesaplama -> DÜZELTİLECEK)
+- [ ] 56. Porsiyon Karbonhidrat Hesaplama (EKSİK - Eklenecek)
+- [ ] 57. Porsiyon Maliyeti Hesaplama (Mevcut: porsiyon-maliyeti-hesaplama)
+- [ ] 58. Porsiyon Miktarı Hesaplama (Mevcut: porsiyon-miktari-hesaplama)
+- [ ] 59. Porsiyon Protein Hesaplama (EKSİK - Eklenecek)
+- [ ] 60. Porsiyon Yağ Hesaplama (EKSİK - Eklenecek)
+- [ ] 61. Reçel Şeker Oranı Hesaplama (Mevcut: recel-seker-orani-hesaplama)
+- [ ] 62. Restoran Yemek Maliyeti Hesaplama (Mevcut: restoran-yemek-maliyeti-hesaplama)
+- [ ] 63. Salamura Tuz Oranı Hesaplama (Mevcut: salamura-tuz-orani-hesaplama)
+- [ ] 64. Salata Kalori Hesaplama (Mevcut: salata-kalori-hesaplama)
+- [ ] 65. Sarımsak Ölçüsü Hesaplama (Mevcut: sarimsak-olcusu-hesaplama)
+- [ ] 66. Sıvı Yağ Tereyağı Dönüşümü Hesaplama (Mevcut: sivi-yag-tereyagi-donusumu-hesaplama)
+- [ ] 67. Su Soğutma Süresi Hesaplama (Mevcut: su-sogutma-suresi-hesaplama)
+- [ ] 68. Şarap SO₂ Miktarı Hesaplama (Mevcut: sarap-so2-miktari-hesaplama)
+- [ ] 69. Şeker Ölçüsü Dönüştürme Hesaplama (Mevcut: seker-olcusu-donusturme-hesaplama)
+- [ ] 70. Şerbet Oranı Hesaplama (Mevcut: serbet-orani-hesaplama)
+- [ ] 71. Tarif Maliyeti Hesaplama (Mevcut: tarif-maliyeti-hesaplama)
+- [ ] 72. Tarif Ölçeklendirme Hesaplama (Mevcut: tarif-olceklendirme-hesaplama)
+- [ ] 73. Taze Kuru Baharat Dönüşümü Hesaplama (Mevcut: taze-kuru-baharat-donusumu-hesaplama)
+- [ ] 74. Tereyağı Ölçüsü Dönüştürme Hesaplama (Mevcut: tereyagi-olcusu-donusturme-hesaplama)
+- [ ] 75. Tereyağı Ölçüsü Hesaplama (Mevcut: tereyagi-olcusu-hesaplama)
+- [ ] 76. Turşu Salamura Oranı Hesaplama (Mevcut: tursu-salamura-orani-hesaplama)
+- [ ] 77. Tuz Ölçüsü Dönüştürme Hesaplama (Mevcut: tuz-olcusu-donusturme-hesaplama)
+- [ ] 78. Türk Kahvesi Ölçüsü Hesaplama (Mevcut: turk-kahvesi-olcusu-hesaplama)
+- [ ] 79. Un Ölçüsü Dönüştürme Hesaplama (Mevcut: un-olcusu-donusturme-hesaplama)
+- [ ] 80. Un Su Oranı Hesaplama (Mevcut: un-su-orani-hesaplama)
+- [ ] 81. Yemek Maliyeti Hesaplama (Mevcut: yemek-maliyeti-hesaplama)
+- [ ] 82. Yoğurt Mayalama Oranı Hesaplama (Mevcut: yogurt-mayalama-orani-hesaplama)
+- [ ] 83. Yumurta Haşlama Süresi Hesaplama (Mevcut: yumurta-haslama-suresi-hesaplama)
+- [ ] 84. Yumurta Miktarı Hesaplama (Mevcut: yumurta-miktari-hesaplama)
+- [ ] 85. Zeytin Salamura Oranı Hesaplama (Mevcut: zeytin-salamura-orani-hesaplama)
+
+## Revizyon ve Push
+- [ ] Tüm modül meta.json 'name' alanlarını %100 eşle
+- [ ] Tüm klasör (slug) adlarını %100 eşle
+- [ ] Git commit & push (main)

@@ -1,0 +1,5 @@
+{
+  "name": "Porsiyon Karbonhidrat Hesaplama",
+  "desc": "Yemek porsiyonundaki toplam karbonhidrat miktarını malzeme ağırlıklarına göre hesaplar.",
+  "shortcode": "[hc_porsiyon_karbonhidrat_hesaplama]"
+}
