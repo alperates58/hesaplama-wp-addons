@@ -1,0 +1,5 @@
+{
+  "name": "Klorofil İçeriği Hesaplama",
+  "desc": "Absorbans değerlerine (A645, A663) göre bitki örneklerindeki klorofil a, b ve toplam klorofil miktarını hesaplar.",
+  "shortcode": "[hc_klorofil_icerigi_hesaplama]"
+}

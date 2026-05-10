@@ -1,5 +1,5 @@
 {
   "name": "KOİ BOİ Oranı Hesaplama",
-  "desc": "Sudaki kirliliğin biyolojik olarak parçalanabilirliğini belirlemek için KOİ/BOİ oranını hesaplar.",
+  "desc": "Atık suların biyolojik parçalanabilirliğini belirlemek için KOİ / BOİ oranını hesaplar.",
   "shortcode": "[hc_koi_boi_orani_hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "RNA Molekül Ağırlığı Hesaplama",
+  "desc": "Nükleotit dizisine göre RNA molekülünün toplam ağırlığını (Da) hesaplar.",
+  "shortcode": "[hc_rna_molekul_agirligi_hesaplama]"
+}

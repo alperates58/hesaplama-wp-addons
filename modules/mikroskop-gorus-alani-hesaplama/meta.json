@@ -1,0 +1,5 @@
+{
+  "name": "Mikroskop Görüş Alanı Hesaplama",
+  "desc": "Mikroskobunuzun farklı büyütme oranlarındaki görüş alanı (field of view) çapını hesaplar.",
+  "shortcode": "[hc_mikroskop_gorus_alani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Transfeksiyon Verimliliği Hesaplama",
+  "desc": "Pozitif hücre sayısına göre transfeksiyon reaksiyonunun yüzde verimliliğini hesaplar.",
+  "shortcode": "[hc_transfeksiyon_verimliligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kedi Kalori İhtiyacı Hesaplama",
+  "desc": "Kedinizin yaşına, kilosuna ve aktivite seviyesine göre günlük kalori ihtiyacını hesaplar.",
+  "shortcode": "[hc_kedi_kalori_ihtiyaci_hesaplama]"
+}

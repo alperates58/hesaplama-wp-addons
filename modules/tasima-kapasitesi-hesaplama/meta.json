@@ -1,5 +1,5 @@
 {
   "name": "Taşıma Kapasitesi Hesaplama",
-  "desc": "Belirli bir ekosistemin veya alanın, kaynaklarını tüketmeden barındırabileceği maksimum nüfusu hesaplar.",
+  "desc": "Lojistik büyüme modeline göre bir popülasyonun ekosistemdeki taşıma kapasitesini (K) tahmin eder.",
   "shortcode": "[hc_tasima_kapasitesi_hesaplama]"
 }

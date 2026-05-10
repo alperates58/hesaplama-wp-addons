@@ -1,0 +1,5 @@
+{
+  "name": "Toprak İhtiyacı Hesaplama",
+  "desc": "Belirli bir alan ve derinlik için gereken toplam toprak veya dolgu malzemesi hacmini (m³) hesaplar.",
+  "shortcode": "[hc_toprak_ihtiyaci_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Köpek Gebelik Süresi Hesaplama",
+  "desc": "Köpeğinizin tahmini doğum tarihini ve gebelik dönemini hesaplar.",
+  "shortcode": "[hc_kopek_gebelik_suresi_hesaplama]"
+}

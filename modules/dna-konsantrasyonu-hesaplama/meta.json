@@ -1,5 +1,5 @@
 {
   "name": "DNA Konsantrasyonu Hesaplama",
-  "desc": "A260 spektrofotometre değerine ve seyreltme faktörüne göre DNA konsantrasyonunu hesaplar.",
+  "desc": "Absorbans (A260) değerine göre DNA örneğinizin konsantrasyonunu ve saflığını hesaplar.",
   "shortcode": "[hc_dna_konsantrasyonu_hesaplama]"
 }

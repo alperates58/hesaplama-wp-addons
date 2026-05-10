@@ -1,0 +1,5 @@
+{
+  "name": "Mutasyon Oranı Hesaplama",
+  "desc": "Belirli bir populasyondaki mutant birey sayısına göre mutasyon oranını hesaplar.",
+  "shortcode": "[hc_mutasyon_orani_hesaplama]"
+}

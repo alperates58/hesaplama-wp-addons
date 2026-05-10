@@ -1,0 +1,5 @@
+{
+  "name": "Su Tüketimi Hesaplama",
+  "desc": "Evsel veya tarımsal kullanım için günlük ve aylık su tüketimini tahmin eder.",
+  "shortcode": "[hc_su_tuketimi_hesaplama]"
+}

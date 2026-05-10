@@ -1,0 +1,5 @@
+{
+  "name": "Primer Erime Sıcaklığı Hesaplama",
+  "desc": "Oligonükleotit (primer) dizinizin Tm (erime sıcaklığı) değerini hesaplar.",
+  "shortcode": "[hc_primer_erime_sicakligi_hesaplama]"
+}

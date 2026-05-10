@@ -1,0 +1,5 @@
+{
+  "name": "Protein Molekül Ağırlığı Hesaplama",
+  "desc": "Amino asit dizisine göre proteinin toplam molekül ağırlığını (Da) hesaplar.",
+  "shortcode": "[hc_protein_molekul_agirligi_hesaplama]"
+}

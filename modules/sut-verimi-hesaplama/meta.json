@@ -1,0 +1,5 @@
+{
+  "name": "Süt Verimi Hesaplama",
+  "desc": "Hayvan başına günlük ve laktasyon bazlı süt verimini hesaplar.",
+  "shortcode": "[hc_sut_verimi_hesaplama]"
+}

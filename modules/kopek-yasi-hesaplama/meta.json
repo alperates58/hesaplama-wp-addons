@@ -1,5 +1,5 @@
 {
   "name": "Köpek Yaşı Hesaplama",
-  "desc": "Köpeğinizin insan yaşına göre kaç yaşında olduğunu bilimsel yöntemlerle hesaplayın.",
+  "desc": "Köpeğinizin yaşını ırk boyutuna göre insan yaşına çevirir.",
   "shortcode": "[hc_kopek_yasi_hesaplama]"
 }

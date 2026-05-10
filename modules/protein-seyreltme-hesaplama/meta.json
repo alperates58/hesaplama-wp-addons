@@ -1,0 +1,5 @@
+{
+  "name": "Protein Seyreltme Hesaplama",
+  "desc": "Belirli bir konsantrasyondaki protein stokundan hedef konsantrasyonu hazırlamak için gereken hacimleri hesaplar.",
+  "shortcode": "[hc_protein_seyreltme_hesaplama]"
+}

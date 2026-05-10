@@ -1,0 +1,5 @@
+{
+  "name": "RNA Seyreltme Hesaplama",
+  "desc": "RNA stokunuzdan hedef konsantrasyon hazırlamak için gereken hacimleri hesaplar.",
+  "shortcode": "[hc_rna_seyreltme_hesaplama]"
+}

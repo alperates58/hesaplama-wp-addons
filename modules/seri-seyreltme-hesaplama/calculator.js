@@ -1,18 +1,21 @@
-function hcSeriSeyreltmeHesapla() {
-    const start = parseFloat(document.getElementById('hc-sd-start').value);
+function hcSerialDilHesapla() {
     const factor = parseFloat(document.getElementById('hc-sd-factor').value);
-    const steps = parseInt(document.getElementById('hc-sd-steps').value);
+    const targetVol = parseFloat(document.getElementById('hc-sd-vol').value);
 
-    if (isNaN(start) || !factor || !steps) return;
-
-    let output = "<strong>Seyreltme Adımları:</strong><br>";
-    let current = start;
-
-    for (let i = 1; i <= steps; i++) {
-        current = current / factor;
-        output += `Adım ${i}: <strong>${current.toExponential(3)}</strong><br>`;
+    if (!factor || !targetVol) {
+        alert('Lütfen oran ve hacim bilgilerini giriniz.');
+        return;
     }
 
-    document.getElementById('hc-sd-stats').innerHTML = output;
-    document.getElementById('hc-sd-result').classList.add('visible');
+    // V_stok = V_hedef / (f - 1)
+    // Örn: 1/10 seyreltme için (f=10): 9mL su + 1mL stok = 10mL toplam.
+    // Bizim formül: f = Toplam / Stok -> Stok = Toplam / f
+    const stokVol = targetVol / (factor - 1);
+    
+    document.getElementById('hc-sd-res-info').innerHTML = `
+        Her adımda <strong>${stokVol.toFixed(2).toLocaleString('tr-TR')} mL</strong> stok/örneği, 
+        <strong>${targetVol.toFixed(2).toLocaleString('tr-TR')} mL</strong> seyrelticiye (su/tampon) ekleyin.
+    `;
+
+    document.getElementById('hc-serial-dil-result').classList.add('visible');
 }

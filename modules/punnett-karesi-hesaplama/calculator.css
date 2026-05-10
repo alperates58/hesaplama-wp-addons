@@ -1,0 +1,3 @@
+.hc-punnett-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.hc-punnett-table th, .hc-punnett-table td { border: 2px solid var(--hc-primary); padding: 15px; text-align: center; font-size: 1.2rem; font-weight: bold; }
+.hc-punnett-table th { background: rgba(var(--hc-primary-rgb), 0.1); }

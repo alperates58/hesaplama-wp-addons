@@ -3,33 +3,29 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_seri_seyreltme_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-seri-seyreltme-hesaplama',
+        'hc-serial-dil',
         HC_PLUGIN_URL . 'modules/seri-seyreltme-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-seri-seyreltme-hesaplama-css',
+        'hc-serial-dil-css',
         HC_PLUGIN_URL . 'modules/seri-seyreltme-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-serial-dilution">
+    <div class="hc-calculator" id="hc-serial-dil">
         <h3>Seri Seyreltme Hesaplama</h3>
         <div class="hc-form-group">
-            <label for="hc-sd-start">Başlangıç Derişimi</label>
-            <input type="number" id="hc-sd-start" placeholder="Örn: 100">
+            <label for="hc-sd-factor">Seyreltme Oranı (Örn: 1/10 ise 10 girin):</label>
+            <input type="number" id="hc-sd-factor" placeholder="10">
         </div>
         <div class="hc-form-group">
-            <label for="hc-sd-factor">Seyreltme Faktörü (Her adımda)</label>
-            <input type="number" id="hc-sd-factor" value="10" placeholder="Örn: 10 (1/10 seyreltme)">
+            <label for="hc-sd-vol">Her Tüpteki Hedef Hacim (mL):</label>
+            <input type="number" id="hc-sd-vol" placeholder="9">
         </div>
-        <div class="hc-form-group">
-            <label for="hc-sd-steps">Adım Sayısı</label>
-            <input type="number" id="hc-sd-steps" value="5" min="1">
-        </div>
-        <button class="hc-btn" onclick="hcSeriSeyreltmeHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-sd-result">
-            <div id="hc-sd-stats" style="text-align:left; font-size:1em; line-height:1.6;"></div>
+        <button class="hc-btn" onclick="hcSerialDilHesapla()">Hesapla</button>
+        <div class="hc-result" id="hc-serial-dil-result">
+            <div id="hc-sd-res-info"></div>
         </div>
     </div>
     <?php

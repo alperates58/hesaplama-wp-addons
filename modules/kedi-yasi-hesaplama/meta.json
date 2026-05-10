@@ -1,5 +1,5 @@
 {
   "name": "Kedi Yaşı Hesaplama",
-  "desc": "Kedinizin insan yaşına göre kaç yaşında olduğunu bilimsel yöntemlerle hesaplayın.",
+  "desc": "Kedinizin yaşını insan yaşına çevirerek yaşam evrelerini gösterir.",
   "shortcode": "[hc_kedi_yasi_hesaplama]"
 }

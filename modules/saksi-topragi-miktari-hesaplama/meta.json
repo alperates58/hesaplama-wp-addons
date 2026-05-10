@@ -1,0 +1,5 @@
+{
+  "name": "Saksı Toprağı Miktarı Hesaplama",
+  "desc": "Saksı boyutlarına (çap ve yükseklik) göre gereken toprak hacmini (Litre) hesaplar.",
+  "shortcode": "[hc_saksi_topragi_miktari_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Köpek Yaşam Süresi Hesaplama",
+  "desc": "Köpeğinizin ırkına ve kilosuna göre tahmini yaşam süresini hesaplar.",
+  "shortcode": "[hc_kopek_yasam_suresi_hesaplama]"
+}

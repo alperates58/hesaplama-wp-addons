@@ -1,0 +1,5 @@
+{
+  "name": "Tohum Ekim Oranı Hesaplama",
+  "desc": "Alan boyutuna ve hedef bitki sıklığına göre gereken tohum miktarını (kg) hesaplar.",
+  "shortcode": "[hc_tohum_ekim_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Köpek Boyutu Tahmini Hesaplama",
+  "desc": "Yavru köpeğinizin yetişkinlikteki tahmini ağırlığını hesaplar.",
+  "shortcode": "[hc_kopek_boyutu_tahmini_hesaplama]"
+}

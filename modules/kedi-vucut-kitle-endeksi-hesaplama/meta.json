@@ -1,0 +1,5 @@
+{
+  "name": "Kedi Vücut Kitle Endeksi Hesaplama",
+  "desc": "Kedinizin FBMI (Feline Body Mass Index) değerini hesaplayarak ideal kilo durumunu belirler.",
+  "shortcode": "[hc_kedi_vucut_kitle_endeksi_hesaplama]"
+}

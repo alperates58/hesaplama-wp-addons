@@ -1,0 +1,5 @@
+{
+  "name": "RNA Konsantrasyonu Hesaplama",
+  "desc": "Absorbans (A260) değerine göre RNA örneğinizin konsantrasyonunu hesaplar.",
+  "shortcode": "[hc_rna_konsantrasyonu_hesaplama]"
+}

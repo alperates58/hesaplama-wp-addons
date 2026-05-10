@@ -1,16 +1,18 @@
-function hcDNAKonsHesapla() {
-    const a260 = parseFloat(document.getElementById('hc-dna-a260').value);
-    const df = parseFloat(document.getElementById('hc-dna-df').value);
-    const factor = parseFloat(document.getElementById('hc-dna-type').value);
+function hcDnaConcHesapla() {
+    const a260 = parseFloat(document.getElementById('hc-dc-a260').value);
+    const df = parseFloat(document.getElementById('hc-dc-df').value || 1);
+    const factor = parseFloat(document.getElementById('hc-dc-type').value);
 
-    if (isNaN(a260) || isNaN(df) || a260 < 0 || df <= 0) {
-        alert('Lütfen geçerli değerler giriniz.');
+    if (isNaN(a260)) {
+        alert('Lütfen A260 absorbans değerini giriniz.');
         return;
     }
 
+    // Konsantrasyon = A260 * Faktör * Seyreltme Faktörü
     const conc = a260 * factor * df;
 
-    document.getElementById('hc-dna-conc-val').innerText = conc.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' µg/mL';
-    document.getElementById('hc-dna-conc-note').innerText = `Hesaplama ${factor} µg/mL/A₂₆₀ katsayısı ve ${df} seyreltme faktörü kullanılarak yapılmıştır.`;
+    const resVal = document.getElementById('hc-dc-res-val');
+    resVal.innerText = conc.toFixed(2).toLocaleString('tr-TR');
+
     document.getElementById('hc-dna-conc-result').classList.add('visible');
 }

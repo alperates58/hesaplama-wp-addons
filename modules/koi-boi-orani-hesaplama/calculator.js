@@ -1,21 +1,28 @@
-function hcKOİBOİOranıHesapla() {
-    const cod = parseFloat(document.getElementById('hc-cb-cod').value);
-    const bod = parseFloat(document.getElementById('hc-cb-bod').value);
+function hcKoiBoiHesapla() {
+    const koi = parseFloat(document.getElementById('hc-cb-koi').value);
+    const boi = parseFloat(document.getElementById('hc-cb-boi').value);
 
-    if (!cod || !bod) return;
-
-    const ratio = cod / bod;
-    document.getElementById('hc-cb-val').innerText = ratio.toFixed(2);
-
-    let interpretation = "";
-    if (ratio < 2.5) {
-        interpretation = "<strong>Kolayca Biyobozunur:</strong> Biyolojik arıtma için uygundur.";
-    } else if (ratio < 4) {
-        interpretation = "<strong>Kısmen Biyobozunur:</strong> Arıtma için ön işlem gerekebilir.";
-    } else {
-        interpretation = "<strong>Zor Biyobozunur:</strong> Kimyasal veya ileri arıtma yöntemleri gerekebilir.";
+    if (!koi || !boi) {
+        alert('Lütfen KOİ ve BOİ değerlerini giriniz.');
+        return;
     }
 
-    document.getElementById('hc-cb-interpretation').innerHTML = interpretation;
-    document.getElementById('hc-cb-result').classList.add('visible');
+    const ratio = koi / boi;
+    const resVal = document.getElementById('hc-cb-res-val');
+    const resDesc = document.getElementById('hc-cb-res-desc');
+
+    resVal.innerText = ratio.toFixed(2).toLocaleString('tr-TR');
+
+    if (ratio < 2) {
+        resDesc.innerText = "Kolayca biyolojik olarak parçalanabilir atık su.";
+        resDesc.style.color = "#27ae60";
+    } else if (ratio <= 4) {
+        resDesc.innerText = "Orta derecede parçalanabilir.";
+        resDesc.style.color = "#f1c40f";
+    } else {
+        resDesc.innerText = "Zor parçalanan, kimyasal işlem gerektirebilecek atık su.";
+        resDesc.style.color = "#e74c3c";
+    }
+
+    document.getElementById('hc-cod-bod-result').classList.add('visible');
 }

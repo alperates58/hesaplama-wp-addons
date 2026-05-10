@@ -1,0 +1,5 @@
+{
+  "name": "Köpek Kalori İhtiyacı Hesaplama",
+  "desc": "Köpeğinizin kilosuna ve aktivite seviyesine göre günlük kalori ihtiyacını hesaplar.",
+  "shortcode": "[hc_kopek_kalori_ihtiyaci_hesaplama]"
+}

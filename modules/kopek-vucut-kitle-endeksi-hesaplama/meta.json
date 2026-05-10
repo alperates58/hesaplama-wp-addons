@@ -1,0 +1,5 @@
+{
+  "name": "Köpek Vücut Kitle Endeksi Hesaplama",
+  "desc": "Köpeğinizin vücut kondisyon puanını (BCS) ve kilosunun durumunu analiz eder.",
+  "shortcode": "[hc_kopek_vucut_kitle_endeksi_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Shannon Çeşitlilik İndeksi Hesaplama",
-  "desc": "Bir ekosistemdeki tür çeşitliliğini ve türler arası dağılımın dengesini (Shannon-Wiener İndeksi) hesaplar.",
+  "desc": "Bir ekosistemdeki tür çeşitliliğini ve türler arası dengeyi (Shannon-Wiener H') hesaplar.",
   "shortcode": "[hc_shannon_cesitlilik_indeksi_hesaplama]"
 }

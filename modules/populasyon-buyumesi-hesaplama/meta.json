@@ -1,0 +1,5 @@
+{
+  "name": "Popülasyon Büyümesi Hesaplama",
+  "desc": "Üssel veya lojistik model kullanarak popülasyon büyümesini ve gelecekteki birey sayısını hesaplar.",
+  "shortcode": "[hc_populasyon_buyumesi_hesaplama]"
+}

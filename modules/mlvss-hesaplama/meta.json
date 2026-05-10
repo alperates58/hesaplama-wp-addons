@@ -1,0 +1,5 @@
+{
+  "name": "MLVSS Hesaplama",
+  "desc": "Havalandırma havuzundaki uçucu askıda katı madde (MLVSS) miktarını hesaplayarak aktif mikroorganizma oranını belirler.",
+  "shortcode": "[hc_mlvss_hesaplama]"
+}

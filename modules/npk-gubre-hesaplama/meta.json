@@ -1,0 +1,5 @@
+{
+  "name": "NPK Gübre Hesaplama",
+  "desc": "Hedeflenen besin miktarına göre N-P-K (Azot, Fosfor, Potasyum) gübresi dozajını hesaplar.",
+  "shortcode": "[hc_npk_gubre_hesaplama]"
+}

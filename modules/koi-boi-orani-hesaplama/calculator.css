@@ -1,3 +1,1 @@
-#hc-cod-bod .hc-result-value {
-    color: #e67e22;
-}
+#hc-cod-bod .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

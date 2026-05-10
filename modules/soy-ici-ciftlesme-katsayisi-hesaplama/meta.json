@@ -1,0 +1,5 @@
+{
+  "name": "Soy içi Çiftleşme Katsayısı Hesaplama",
+  "desc": "Ebeveynler arasındaki akrabalık derecesine göre yavruların soy içi çiftleşme katsayısını (F) hesaplar.",
+  "shortcode": "[hc_soy_ici_ciftlesme_katsayisi_hesaplama]"
+}

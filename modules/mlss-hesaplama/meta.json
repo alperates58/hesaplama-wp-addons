@@ -1,0 +1,5 @@
+{
+  "name": "MLSS Hesaplama",
+  "desc": "Havalandırma havuzundaki toplam askıda katı madde (MLSS) konsantrasyonunu hesaplar.",
+  "shortcode": "[hc_mlss_hesaplama]"
+}

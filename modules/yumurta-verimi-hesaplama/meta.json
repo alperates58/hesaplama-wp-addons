@@ -1,0 +1,5 @@
+{
+  "name": "Yumurta Verimi Hesaplama",
+  "desc": "Kümesinizdeki tavukların yumurta verim yüzdesini (HDP) hesaplar.",
+  "shortcode": "[hc_yumurta_verimi_hesaplama]"
+}

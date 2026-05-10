@@ -1,0 +1,5 @@
+{
+  "name": "Mikroskop Büyütme Oranı Hesaplama",
+  "desc": "Oküler ve objektif lens değerlerine göre mikroskobunuzun toplam büyütme gücünü hesaplar.",
+  "shortcode": "[hc_mikroskop_buyutme_orani_hesaplama]"
+}

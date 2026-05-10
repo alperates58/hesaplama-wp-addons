@@ -1,0 +1,5 @@
+{
+  "name": "qPCR Verimliliği Hesaplama",
+  "desc": "Standart eğri eğimine (slope) göre qPCR reaksiyonunun verimliliğini hesaplar.",
+  "shortcode": "[hc_qpcr_verimliligi_hesaplama]"
+}

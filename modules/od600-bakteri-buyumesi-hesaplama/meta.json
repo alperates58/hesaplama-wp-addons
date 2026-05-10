@@ -1,0 +1,5 @@
+{
+  "name": "OD600 Bakteri Büyümesi Hesaplama",
+  "desc": "Optik yoğunluk (OD600) değerine göre sıvı kültürdeki bakteri sayısını (CFU/mL) tahmin eder.",
+  "shortcode": "[hc_od600_bakteri_buyumesi_hesaplama]"
+}

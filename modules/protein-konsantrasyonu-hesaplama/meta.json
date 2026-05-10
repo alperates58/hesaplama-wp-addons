@@ -1,0 +1,5 @@
+{
+  "name": "Protein Konsantrasyonu Hesaplama",
+  "desc": "A280 absorbans değerine ve ekstinksiyon katsayısına göre protein konsantrasyonunu hesaplar.",
+  "shortcode": "[hc_protein_konsantrasyonu_hesaplama]"
+}

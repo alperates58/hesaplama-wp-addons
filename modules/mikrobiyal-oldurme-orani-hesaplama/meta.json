@@ -1,0 +1,5 @@
+{
+  "name": "Mikrobiyal Öldürme Oranı Hesaplama",
+  "desc": "Sterilizasyon öncesi ve sonrası mikrop sayılarına göre öldürme verimliliğini (yüzde) hesaplar.",
+  "shortcode": "[hc_mikrobiyal_oldurme_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Tampon Çözeltisi Hazırlama Hesaplama",
+  "desc": "İstenen molaritede tampon çözelti hazırlamak için gereken madde miktarını hesaplar.",
+  "shortcode": "[hc_tampon_cozeltisi_hazirlama_hesaplama]"
+}

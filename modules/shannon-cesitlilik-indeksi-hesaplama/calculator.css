@@ -1,12 +1,1 @@
-#hc-shannon .hc-result-value {
-    color: #8e44ad;
-}
-.hc-btn-secondary {
-    background: #ecf0f1;
-    color: #34495e;
-    border: 1px solid #bdc3c7;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-}
+#hc-shannon-calc .hc-result-value { font-size: 2.2rem; color: var(--hc-primary); }

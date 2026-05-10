@@ -1,0 +1,5 @@
+{
+  "name": "Kompost Miktarı Hesaplama",
+  "desc": "Bahçeniz veya tarlanız için gereken ideal kompost miktarını hesaplar.",
+  "shortcode": "[hc_kompost_miktari_hesaplama]"
+}

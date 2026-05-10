@@ -3,35 +3,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_shannon_cesitlilik_indeksi_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-shannon-cesitlilik-indeksi-hesaplama',
+        'hc-shannon-calc',
         HC_PLUGIN_URL . 'modules/shannon-cesitlilik-indeksi-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-shannon-cesitlilik-indeksi-hesaplama-css',
+        'hc-shannon-calc-css',
         HC_PLUGIN_URL . 'modules/shannon-cesitlilik-indeksi-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-shannon">
-        <h3>Shannon Çeşitlilik İndeksi (H)</h3>
-        <p style="font-size:0.85em; color:#666; margin-bottom:15px;">Her türün birey sayısını girin.</p>
-        <div id="hc-sh-inputs">
-            <div class="hc-form-group">
-                <label>Tür 1 Birey Sayısı</label>
-                <input type="number" class="hc-sh-val" placeholder="Örn: 10" value="10">
-            </div>
-            <div class="hc-form-group">
-                <label>Tür 2 Birey Sayısı</label>
-                <input type="number" class="hc-sh-val" placeholder="Örn: 20" value="20">
-            </div>
+    <div class="hc-calculator" id="hc-shannon-calc">
+        <h3>Shannon Çeşitlilik İndeksi (H')</h3>
+        <p style="font-size:0.85rem; margin-bottom:15px;">Türlerin sayılarını virgülle ayırarak girin (Örn: 10, 25, 5, 2).</p>
+        <div class="hc-form-group">
+            <label for="hc-si-counts">Tür Birey Sayıları:</label>
+            <input type="text" id="hc-si-counts" placeholder="10, 20, 5, 15">
         </div>
-        <button class="hc-btn-secondary" onclick="hcAddShannonInput()" style="margin-bottom:10px;">+ Tür Ekle</button>
-        <button class="hc-btn" onclick="hcShannonÇeşitlilikİndeksiHesapla()">İndeksi Hesapla</button>
-        <div class="hc-result" id="hc-sh-result">
-            <div class="hc-result-label">İndeks Değeri (H):</div>
-            <div class="hc-result-value" id="hc-sh-val">-</div>
-            <p id="hc-sh-evenness" style="margin-top:10px; font-size:0.9em;"></p>
+        <button class="hc-btn" onclick="hcShannonHesapla()">Hesapla</button>
+        <div class="hc-result" id="hc-shannon-calc-result">
+            <strong>Shannon İndeksi (H'):</strong>
+            <div id="hc-si-res-val" class="hc-result-value">-</div>
+            <div id="hc-si-res-even" style="margin-top:10px; font-weight:bold;"></div>
         </div>
     </div>
     <?php

@@ -1,0 +1,5 @@
+{
+  "name": "Western Blot Normalizasyon Hesaplama",
+  "desc": "Yükleme kontrolüne (loading control) göre hedef protein bant yoğunluğunu normalize eder.",
+  "shortcode": "[hc_western_blot_normalizasyon_hesaplama]"
+}

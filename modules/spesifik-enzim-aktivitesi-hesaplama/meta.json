@@ -1,0 +1,5 @@
+{
+  "name": "Spesifik Enzim Aktivitesi Hesaplama",
+  "desc": "Toplam protein miktarına göre enziminizin spesifik aktivitesini (U/mg) hesaplar.",
+  "shortcode": "[hc_spesifik_enzim_aktivitesi_hesaplama]"
+}

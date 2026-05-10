@@ -1,0 +1,5 @@
+{
+  "name": "Punnett Karesi Hesaplama",
+  "desc": "Ebeveyn genotiplerine göre yavruların genotip ve fenotip oranlarını (monohibrit) hesaplar.",
+  "shortcode": "[hc_punnett_karesi_hesaplama]"
+}

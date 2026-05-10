@@ -1,0 +1,5 @@
+{
+  "name": "Sterilizasyon Log Azaltma Hesaplama",
+  "desc": "Mikrobiyal populasyondaki logaritmik azalma (log reduction) miktarını hesaplar.",
+  "shortcode": "[hc_sterilizasyon_log_azaltma_hesaplama]"
+}

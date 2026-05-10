@@ -1,0 +1,5 @@
+{
+  "name": "Maksimum Reaksiyon Hızı (Vmax) Hesaplama",
+  "desc": "Michaelis-Menten kinetiği kullanarak bir enzimin ulaşabileceği maksimum reaksiyon hızını hesaplar.",
+  "shortcode": "[hc_maksimum_reaksiyon_hizi_vmax_hesaplama]"
+}

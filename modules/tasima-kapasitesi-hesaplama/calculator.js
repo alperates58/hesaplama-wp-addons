@@ -1,14 +1,17 @@
-function hcTaşımaKapasitesiHesapla() {
-    const resource = parseFloat(document.getElementById('hc-cc-resource').value);
-    const consumption = parseFloat(document.getElementById('hc-cc-consumption').value);
-    const regen = parseFloat(document.getElementById('hc-cc-regen').value) / 100;
+function hcCarryCapHesapla() {
+    const area = parseFloat(document.getElementById('hc-cc-area').value);
+    const factor = parseFloat(document.getElementById('hc-cc-resource').value);
 
-    if (!resource || !consumption) return;
+    if (!area || !factor) {
+        alert('Lütfen alan ve verimlilik değerlerini giriniz.');
+        return;
+    }
 
-    // Sürdürülebilir kapasite: Yıllık yenilenen miktar / Kişi başı yıllık tüketim
-    const annualRegen = resource * regen;
-    const capacity = annualRegen / consumption;
+    // K = Alan * Verimlilik Faktörü
+    const k = area * factor;
 
-    document.getElementById('hc-cc-val').innerText = Math.floor(capacity).toLocaleString('tr-TR') + ' Kişi';
-    document.getElementById('hc-cc-result').classList.add('visible');
+    const resVal = document.getElementById('hc-cc-res-val');
+    resVal.innerText = Math.round(k).toLocaleString('tr-TR');
+
+    document.getElementById('hc-carry-cap-result').classList.add('visible');
 }

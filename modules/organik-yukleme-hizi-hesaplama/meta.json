@@ -1,0 +1,5 @@
+{
+  "name": "Organik Yükleme Hızı Hesaplama",
+  "desc": "Biyolojik arıtma sistemlerinde reaktör hacmine göre günlük organik yükleme miktarını (OLR) hesaplar.",
+  "shortcode": "[hc_organik_yukleme_hizi_hesaplama]"
+}
