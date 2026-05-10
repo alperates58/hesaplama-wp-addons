@@ -1,0 +1,5 @@
+{
+  "name": "Eritrosit İndeksleri Hesaplama",
+  "desc": "Tam kan sayımı verilerine göre MCV, MCH ve MCHC değerlerini hesaplar.",
+  "shortcode": "[hc_eritrosit_indeksleri_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İdrar Çıkışı Hesaplama",
+  "desc": "Kilo ve süreye göre idrar miktarını (mL/kg/saat) hesaplayarak böbrek perfüzyonunu değerlendirir.",
+  "shortcode": "[hc_idrar_cikisi_hesaplama]"
+}

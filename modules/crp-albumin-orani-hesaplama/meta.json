@@ -1,0 +1,5 @@
+{
+  "name": "CRP Albümin Oranı Hesaplama",
+  "desc": "Enflamatuar ve beslenme durumunu değerlendirmek için CRP'nin albümine oranını hesaplar.",
+  "shortcode": "[hc_crp_albumin_orani_hesaplama]"
+}

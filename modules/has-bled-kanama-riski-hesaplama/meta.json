@@ -1,0 +1,5 @@
+{
+  "name": "HAS-BLED Kanama Riski Hesaplama",
+  "desc": "Atriyal fibrilasyonlu hastalarda antikoagülan kullanımına bağlı majör kanama riskini hesaplar.",
+  "shortcode": "[hc_has_bled_kanama_riski_hesaplama]"
+}

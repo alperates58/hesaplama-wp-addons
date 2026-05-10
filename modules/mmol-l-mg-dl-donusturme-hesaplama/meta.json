@@ -1,0 +1,5 @@
+{
+  "name": "mmol/L mg/dL Dönüştürme Hesaplama",
+  "desc": "Kan şekeri, kolesterol ve diğer maddeler için mmol/L ve mg/dL birimleri arasında dönüşüm yapar.",
+  "shortcode": "[hc_mmol_l_mg_dl_donusturme_hesaplama]"
+}

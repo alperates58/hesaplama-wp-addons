@@ -1,0 +1,5 @@
+{
+  "name": "Hedef Nabız Bölgesi Hesaplama",
+  "desc": "Kullanıcının yaşına göre yağ yakımı ve kardiyo için ideal nabız aralıklarını hesaplar.",
+  "shortcode": "[hc_hedef_nabiz_bolgesi_hesaplama]"
+}

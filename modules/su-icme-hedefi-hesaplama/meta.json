@@ -1,0 +1,5 @@
+{
+  "name": "Su İçme Hedefi Hesaplama",
+  "desc": "Vücut ağırlığına göre günlük içilmesi gereken ideal su miktarını hesaplar.",
+  "shortcode": "[hc_su_icme_hedefi_hesaplama]"
+}

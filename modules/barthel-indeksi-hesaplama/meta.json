@@ -1,0 +1,5 @@
+{
+  "name": "Barthel İndeksi Hesaplama",
+  "desc": "Yaşlı veya rehabilite hastalarında günlük yaşam aktivitelerini (öz-bakım) skorlayarak bağımsızlık düzeyini ölçer.",
+  "shortcode": "[hc_barthel_indeksi_hesaplama]"
+}

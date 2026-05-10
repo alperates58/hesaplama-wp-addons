@@ -1,0 +1,5 @@
+{
+  "name": "Atım Hacmi Hesaplama",
+  "desc": "Sol ventrikül diyastol sonu ve sistol sonu hacimlerine göre atım hacmini (Stroke Volume) hesaplar.",
+  "shortcode": "[hc_atim_hacmi_hesaplama]"
+}

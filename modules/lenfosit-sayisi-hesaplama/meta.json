@@ -1,0 +1,5 @@
+{
+  "name": "Lenfosit Sayısı Hesaplama",
+  "desc": "WBC ve yüzde oranına göre mutlak lenfosit sayısını hesaplar.",
+  "shortcode": "[hc_lenfosit_sayisi_hesaplama]"
+}

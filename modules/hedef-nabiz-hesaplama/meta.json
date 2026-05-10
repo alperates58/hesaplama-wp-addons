@@ -1,0 +1,5 @@
+{
+  "name": "Hedef Nabız Hesaplama",
+  "desc": "Karvonen formülünü kullanarak egzersiz sırasındaki hedef nabız aralığını hesaplar.",
+  "shortcode": "[hc_hedef_nabiz_hesaplama]"
+}

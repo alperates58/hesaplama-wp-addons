@@ -1,0 +1,5 @@
+{
+  "name": "Alkol Kan Seviyesi Hesaplama",
+  "desc": "Tüketilen alkol miktarı, cinsiyet ve kiloya göre tahmini kan alkol konsantrasyonunu (BAC) hesaplar.",
+  "shortcode": "[hc_alkol_kan_seviyesi_hesaplama]"
+}

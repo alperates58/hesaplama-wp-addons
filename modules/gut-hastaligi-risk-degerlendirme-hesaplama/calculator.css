@@ -1,0 +1,6 @@
+#hc-gout .hc-checkbox-group label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    cursor: pointer;
+}

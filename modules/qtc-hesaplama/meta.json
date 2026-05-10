@@ -1,0 +1,5 @@
+{
+  "name": "QTc Hesaplama",
+  "desc": "Bazett formülünü kullanarak kalp hızı ile düzeltilmiş QT aralığını (QTc) hesaplar.",
+  "shortcode": "[hc_qtc_hesaplama]"
+}

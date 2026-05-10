@@ -1,0 +1,5 @@
+{
+  "name": "Nötrofil Lenfosit Oranı Hesaplama",
+  "desc": "Enflamasyon göstergesi olarak mutlak nötrofil sayısının lenfosit sayısına oranını hesaplar.",
+  "shortcode": "[hc_notrofil_lenfosit_orani_hesaplama]"
+}

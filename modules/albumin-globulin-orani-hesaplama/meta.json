@@ -1,0 +1,5 @@
+{
+  "name": "Albümin Globulin Oranı Hesaplama",
+  "desc": "Serum protein profilindeki albümin ve globulin oranını (A/G oranı) hesaplar.",
+  "shortcode": "[hc_albumin_globulin_orani_hesaplama]"
+}

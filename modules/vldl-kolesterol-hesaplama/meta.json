@@ -1,5 +1,5 @@
 {
   "name": "VLDL Kolesterol Hesaplama",
-  "desc": "Trigliserid seviyenize dayanarak damar sağlığı için önemli olan VLDL (Çok Düşük Yoğunluklu Lipoprotein) kolesterol miktarını hesaplar.",
+  "desc": "Trigliserid seviyesine göre VLDL kolesterol miktarını hesaplar.",
   "shortcode": "[hc_vldl_kolesterol_hesaplama]"
 }

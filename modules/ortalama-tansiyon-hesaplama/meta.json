@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Tansiyon Hesaplama",
+  "desc": "Girilen birden fazla tansiyon ölçümünün aritmetik ortalamasını hesaplar.",
+  "shortcode": "[hc_ortalama_tansiyon_hesaplama]"
+}

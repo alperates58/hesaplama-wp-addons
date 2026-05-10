@@ -1,0 +1,5 @@
+{
+  "name": "Ferritin Değeri Değerlendirme Hesaplama",
+  "desc": "Serum ferritin seviyesine göre demir depolarını değerlendirir.",
+  "shortcode": "[hc_ferritin_degeri_degerlendirme_hesaplama]"
+}

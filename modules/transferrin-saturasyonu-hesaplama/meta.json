@@ -1,0 +1,5 @@
+{
+  "name": "Transferrin Saturasyonu Hesaplama",
+  "desc": "Serum demiri ve TIBC değerlerine göre transferrin doygunluk yüzdesini hesaplar.",
+  "shortcode": "[hc_transferrin_saturasyonu_hesaplama]"
+}

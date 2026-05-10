@@ -1,0 +1,5 @@
+{
+  "name": "Mesane Hacmi Hesaplama",
+  "desc": "Boyutlara göre (Boy x En x Derinlik) veya yaşa göre tahmini mesane kapasitesini hesaplar.",
+  "shortcode": "[hc_mesane_hacmi_hesaplama]"
+}

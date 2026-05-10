@@ -1,0 +1,5 @@
+{
+  "name": "Nabız Basınç Çarpımı Hesaplama",
+  "desc": "Miyokardiyal oksijen tüketiminin bir göstergesi olan nabız-basınç çarpımını (RPP) hesaplar.",
+  "shortcode": "[hc_nabiz_basinc_carpimi_hesaplama]"
+}

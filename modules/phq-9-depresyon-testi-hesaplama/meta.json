@@ -1,0 +1,5 @@
+{
+  "name": "PHQ-9 Depresyon Testi Hesaplama",
+  "desc": "Dokuz soruluk Hasta Sağlık Anketi (PHQ-9) ile depresyon şiddetini skorlar.",
+  "shortcode": "[hc_phq_9_depresyon_testi_hesaplama]"
+}

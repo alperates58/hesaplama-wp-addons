@@ -1,0 +1,5 @@
+{
+  "name": "Eozinofil Sayısı Hesaplama",
+  "desc": "WBC ve yüzde oranına göre mutlak eozinofil sayısını hesaplar.",
+  "shortcode": "[hc_eozinofil_sayisi_hesaplama]"
+}

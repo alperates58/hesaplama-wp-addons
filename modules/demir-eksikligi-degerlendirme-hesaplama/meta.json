@@ -1,0 +1,5 @@
+{
+  "name": "Demir Eksikliği Değerlendirme Hesaplama",
+  "desc": "Ganzoni formülü ile vücudun toplam demir açığını ve gereken takviye miktarını hesaplar.",
+  "shortcode": "[hc_demir_eksikligi_değerlendirme_hesaplama]"
+}

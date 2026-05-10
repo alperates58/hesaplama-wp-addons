@@ -1,0 +1,5 @@
+{
+  "name": "Metabolik Sendrom Riski Hesaplama",
+  "desc": "ATP III kriterlerine göre metabolik sendrom riskini ve varlığını değerlendirir.",
+  "shortcode": "[hc_metabolik_sendrom_riski_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "APGAR Skoru Hesaplama",
+  "desc": "Yenidoğanın doğum sonrası ilk dakikalardaki fiziksel durumunu skorlar.",
+  "shortcode": "[hc_apgar_skoru_hesaplama]"
+}

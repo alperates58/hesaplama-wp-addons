@@ -1,0 +1,5 @@
+{
+  "name": "Glasgow Koma Skalası Hesaplama",
+  "desc": "Bilinç durumunu göz, sözel ve motor yanıtlarına göre skorlayarak nörolojik durumu değerlendirir.",
+  "shortcode": "[hc_glasgow_koma_skalasi_hesaplama]"
+}

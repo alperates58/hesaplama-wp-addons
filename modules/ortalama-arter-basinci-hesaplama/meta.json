@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Arter Basıncı Hesaplama",
+  "desc": "Sistolik ve diyastolik basınç değerlerini kullanarak ortalama arter basıncını (MAP) hesaplar.",
+  "shortcode": "[hc_ortalama_arter_basinci_hesaplama]"
+}

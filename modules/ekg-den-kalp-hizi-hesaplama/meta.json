@@ -1,0 +1,5 @@
+{
+  "name": "EKG den Kalp Hızı Hesaplama",
+  "desc": "EKG kağıdı üzerindeki R-R aralığına göre kalp hızını hesaplar.",
+  "shortcode": "[hc_ekg_den_kalp_hizi_hesaplama]"
+}

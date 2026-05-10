@@ -1,0 +1,5 @@
+{
+  "name": "Retikülosit Sayısı Hesaplama",
+  "desc": "Hematokrit değerine göre düzeltilmiş retikülosit sayısını (Reticulocyte Index) hesaplar.",
+  "shortcode": "[hc_retikulosit_sayisi_hesaplama]"
+}

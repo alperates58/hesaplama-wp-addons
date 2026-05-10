@@ -1,0 +1,5 @@
+{
+  "name": "Kolesterol Risk Oranı Hesaplama",
+  "desc": "Toplam kolesterolün HDL kolesterole oranını hesaplayarak kalp hastalığı riskini değerlendirir.",
+  "shortcode": "[hc_kolesterol_risk_orani_hesaplama]"
+}

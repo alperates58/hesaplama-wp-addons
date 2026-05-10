@@ -1,0 +1,7 @@
+#hc-phq9 .hc-quiz-group {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+#hc-phq9 p { margin: 0 0 5px; font-weight: 500; }
+#hc-phq9 .hc-result-value { color: #8e44ad; }

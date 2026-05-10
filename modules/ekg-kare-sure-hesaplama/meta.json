@@ -1,0 +1,5 @@
+{
+  "name": "EKG Kare Süre Hesaplama",
+  "desc": "EKG kağıdı üzerindeki küçük ve büyük karelerin süre (ms) karşılıklarını hesaplar.",
+  "shortcode": "[hc_ekg_kare_sure_hesaplama]"
+}

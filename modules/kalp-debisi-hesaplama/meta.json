@@ -1,0 +1,5 @@
+{
+  "name": "Kalp Debisi Hesaplama",
+  "desc": "Atım hacmi ve kalp hızına göre bir dakikada pompalanan kan miktarını (Cardiac Output) hesaplar.",
+  "shortcode": "[hc_kalp_debisi_hesaplama]"
+}

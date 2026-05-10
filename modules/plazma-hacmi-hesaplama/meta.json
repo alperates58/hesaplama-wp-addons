@@ -1,0 +1,5 @@
+{
+  "name": "Plazma Hacmi Hesaplama",
+  "desc": "Toplam kan hacmi ve hematokrit değerine göre plazma hacmini hesaplar.",
+  "shortcode": "[hc_plazma_hacmi_hesaplama]"
+}

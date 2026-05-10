@@ -1,0 +1,5 @@
+{
+  "name": "Kan Hacmi Hesaplama",
+  "desc": "Boy ve kiloya göre Nadler formülünü kullanarak vücuttaki toplam kan hacmini hesaplar.",
+  "shortcode": "[hc_kan_hacmi_hesaplama]"
+}

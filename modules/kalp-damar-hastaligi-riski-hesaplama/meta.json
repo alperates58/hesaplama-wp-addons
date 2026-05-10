@@ -1,0 +1,5 @@
+{
+  "name": "Kalp Damar Hastalığı Riski Hesaplama",
+  "desc": "Genel risk faktörlerine göre kardiyovasküler hastalık olasılığını değerlendirir.",
+  "shortcode": "[hc_kalp_damar_hastaligi_riski_hesaplama]"
+}

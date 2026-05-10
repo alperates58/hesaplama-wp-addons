@@ -1,0 +1,5 @@
+{
+  "name": "Hematokrit Hemoglobin Dönüştürme Hesaplama",
+  "desc": "Hematokrit (Hct) ve Hemoglobin (Hb) değerleri arasındaki yaklaşık dönüşümü yapar.",
+  "shortcode": "[hc_hematokrit_hemoglobin_donusturme_hesaplama]"
+}

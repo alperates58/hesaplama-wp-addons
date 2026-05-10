@@ -1,0 +1,5 @@
+{
+  "name": "Tansiyon Değerlendirme Hesaplama",
+  "desc": "Sistolik ve diyastolik kan basıncı değerlerine göre tansiyon kategorisini belirler.",
+  "shortcode": "[hc_tansiyon_degerlendirme_hesaplama]"
+}

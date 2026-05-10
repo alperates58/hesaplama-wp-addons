@@ -1,0 +1,5 @@
+{
+  "name": "Tansiyon ve Nabız Takibi Hesaplama",
+  "desc": "Günlük tansiyon ve nabız ölçümlerini kaydederek ortalama değerleri hesaplar.",
+  "shortcode": "[hc_tansiyon_ve_nabiz_takibi_hesaplama]"
+}

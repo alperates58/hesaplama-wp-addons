@@ -1,0 +1,5 @@
+{
+  "name": "Gut Hastalığı Risk Değerlendirme Hesaplama",
+  "desc": "Klinik belirtiler ve ürik asit seviyesine göre gut hastalığı olasılığını değerlendirir.",
+  "shortcode": "[hc_gut_hastaligi_risk_degerlendirme_hesaplama]"
+}

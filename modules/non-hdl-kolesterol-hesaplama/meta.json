@@ -1,0 +1,5 @@
+{
+  "name": "Non-HDL Kolesterol Hesaplama",
+  "desc": "Toplam kolesterolden HDL kolesterolü çıkararak tüm aterojenik kolesterol miktarını hesaplar.",
+  "shortcode": "[hc_non_hdl_kolesterol_hesaplama]"
+}

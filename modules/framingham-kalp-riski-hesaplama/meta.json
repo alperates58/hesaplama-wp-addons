@@ -1,0 +1,5 @@
+{
+  "name": "Framingham Kalp Riski Hesaplama",
+  "desc": "Önümüzdeki 10 yıl içinde kalp-damar hastalığı geliştirme riskini Framingham modeline göre hesaplar.",
+  "shortcode": "[hc_framingham_kalp_riski_hesaplama]"
+}

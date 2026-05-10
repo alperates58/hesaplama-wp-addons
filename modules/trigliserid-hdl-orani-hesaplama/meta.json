@@ -1,0 +1,5 @@
+{
+  "name": "Trigliserid HDL Oranı Hesaplama",
+  "desc": "Trigliserid seviyesinin HDL kolesterole oranını hesaplayarak insülin direnci riskini değerlendirir.",
+  "shortcode": "[hc_trigliserid_hdl_orani_hesaplama]"
+}

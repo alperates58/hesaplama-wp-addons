@@ -1,0 +1,5 @@
+{
+  "name": "Pulmoner Emboli Wells Skoru Hesaplama",
+  "desc": "Pulmoner emboli olasılığını klinik kriterlere göre Wells skoruna göre değerlendirir.",
+  "shortcode": "[hc_pulmoner_emboli_wells_skoru_hesaplama]"
+}

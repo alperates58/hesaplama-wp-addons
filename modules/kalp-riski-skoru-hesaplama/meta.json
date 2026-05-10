@@ -1,0 +1,5 @@
+{
+  "name": "Kalp Riski Skoru Hesaplama",
+  "desc": "SCORE2 ve SCORE2-OP kriterlerine göre kardiyovasküler risk değerlendirmesi yapar.",
+  "shortcode": "[hc_kalp_riski_skoru_hesaplama]"
+}

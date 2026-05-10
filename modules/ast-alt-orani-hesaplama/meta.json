@@ -1,0 +1,5 @@
+{
+  "name": "AST ALT Oranı Hesaplama",
+  "desc": "Karaciğer hasarını değerlendirmek için De Ritis oranını (AST/ALT) hesaplar.",
+  "shortcode": "[hc_ast_alt_orani_hesaplama]"
+}

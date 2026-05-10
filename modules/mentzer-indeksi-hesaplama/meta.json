@@ -1,0 +1,5 @@
+{
+  "name": "Mentzer İndeksi Hesaplama",
+  "desc": "Demir eksikliği anemisi ile talasemi taşıyıcılığını ayırt etmede kullanılır.",
+  "shortcode": "[hc_mentzer_indeksi_hesaplama]"
+}

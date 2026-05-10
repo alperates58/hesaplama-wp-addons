@@ -1,0 +1,5 @@
+{
+  "name": "Kardiyak İndeks Hesaplama",
+  "desc": "Kalp debisini vücut yüzey alanına (BSA) oranlayarak kardiyak indeksi hesaplar.",
+  "shortcode": "[hc_kardiyak_indeks_hesaplama]"
+}

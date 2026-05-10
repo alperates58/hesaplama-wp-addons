@@ -1,0 +1,7 @@
+#hc-barthel .hc-quiz-group {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+#hc-barthel p { margin: 0 0 5px; font-weight: 500; }
+#hc-barthel .hc-result-value { color: #27ae60; }
