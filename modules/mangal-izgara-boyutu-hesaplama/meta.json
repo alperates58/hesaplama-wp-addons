@@ -1,0 +1,5 @@
+{
+  "name": "Mangal Izgara Boyutu Hesaplama",
+  "desc": "Kişi sayısına ve pişirilecek et türüne göre ihtiyaç duyulan ideal mangal/ızgara yüzey alanını hesaplar.",
+  "shortcode": "[hc_mangal_izgara_boyutu_hesaplama]"
+}

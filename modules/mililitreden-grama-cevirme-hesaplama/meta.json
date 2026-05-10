@@ -1,0 +1,5 @@
+{
+  "name": "Mililitreden Grama Çevirme Hesaplama",
+  "desc": "Sıvı malzemelerin (yağ, süt, bal vb.) hacmini (ml) yoğunluklarına göre ağırlığa (g) çevirir.",
+  "shortcode": "[hc_mililitreden_grama_cevirme_hesaplama]"
+}
