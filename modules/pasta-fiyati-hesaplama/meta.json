@@ -1,0 +1,5 @@
+{
+  "name": "Pasta Fiyatı Hesaplama",
+  "desc": "Malzeme maliyeti, dekorasyon işçiliği ve genel giderlere göre pastanın satış fiyatını hesaplar.",
+  "shortcode": "[hc_pasta_fiyati_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Patlamış Mısır Miktarı Hesaplama",
+  "desc": "Kuru mısır miktarından ne kadar hacimde patlamış mısır elde edileceğini ve porsiyon sayısını hesaplar.",
+  "shortcode": "[hc_patlamis_misir_miktari_hesaplama]"
+}

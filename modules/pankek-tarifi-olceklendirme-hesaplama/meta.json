@@ -1,0 +1,5 @@
+{
+  "name": "Pankek Tarifi Ölçeklendirme Hesaplama",
+  "desc": "Elinizdeki ana malzemeye (örn: 2 yumurta) göre pankek tarifindeki tüm diğer malzemeleri orantılı olarak yeniden hesaplar.",
+  "shortcode": "[hc_pankek_tarifi_olceklendirme_hesaplama]"
+}

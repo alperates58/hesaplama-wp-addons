@@ -1,0 +1,5 @@
+{
+  "name": "Patates Püresi Miktarı Hesaplama",
+  "desc": "Kişi sayısına göre hazırlanması gereken patates püresi için patates, süt ve tereyağı miktarlarını hesaplar.",
+  "shortcode": "[hc_patates_puresi_miktari_hesaplama]"
+}
