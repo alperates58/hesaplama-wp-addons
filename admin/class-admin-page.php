@@ -2439,7 +2439,7 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         try {
@@ -2456,7 +2456,7 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         try {
@@ -2473,7 +2473,7 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         try {
@@ -2481,7 +2481,7 @@ class HC_Admin_Page {
             $module = HC_Module_Inventory::get_module_detail( $slug );
 
             if ( ! $module ) {
-            wp_send_json_error( 'ModÃ¼l bulunamadÄ±.', 404 );
+                wp_send_json_error( 'Modül bulunamadı.', 404 );
             }
 
             wp_send_json_success(
@@ -2503,7 +2503,7 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         $assignments = (array) wp_unslash( $_POST['assignments'] ?? [] );
@@ -2512,7 +2512,7 @@ class HC_Admin_Page {
             HC_Module_Inventory::save_module_category_assignment( $slug, $category );
         }
 
-        wp_send_json_success( [ 'message' => 'Kategori deÄŸiÅŸiklikleri kaydedildi.' ] );
+        wp_send_json_success( [ 'message' => 'Kategori değişiklikleri kaydedildi.' ] );
     }
 
     public function ajax_save_module_catalog_state() {
@@ -2521,12 +2521,12 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         HC_Module_Inventory::save_catalog_settings( $_POST );
 
-        wp_send_json_success( [ 'message' => 'ModÃ¼l kataloÄŸu gÃ¼ncellendi.' ] );
+        wp_send_json_success( [ 'message' => 'Modül kataloğu güncellendi.' ] );
     }
 
     public function ajax_fix_shortcode_mismatch() {
@@ -2635,7 +2635,7 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         $slug      = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
@@ -2661,7 +2661,7 @@ class HC_Admin_Page {
         }
 
         if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
-            wp_send_json_error( 'GÃ¼venlik doÄŸrulamasÄ± baÅŸarÄ±sÄ±z oldu.', 400 );
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
         }
 
         $slug = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
