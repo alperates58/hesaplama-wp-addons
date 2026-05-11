@@ -1168,13 +1168,30 @@
             $('#hc-explorer-bulkbar').prop('hidden', !selected.length);
         }
 
+        function getAjaxErrorMessage(resp, fallback) {
+            if (resp && typeof resp.data === 'string' && resp.data) {
+                return resp.data;
+            }
+            if (resp && resp.data && typeof resp.data.message === 'string' && resp.data.message) {
+                return resp.data.message;
+            }
+            return fallback;
+        }
+
+        function getXhrErrorMessage(xhr, fallback) {
+            if (xhr && xhr.responseJSON) {
+                return getAjaxErrorMessage(xhr.responseJSON, fallback);
+            }
+            return fallback;
+        }
+
         function fetchModules() {
             setStatus(hcAdmin.explorerLoading || 'Mod\u00fcller y\u00fckleniyor...', 'loading');
 
             $.post(hcAdmin.ajaxurl, $.extend({ action: 'hc_explorer_modules' }, getPayload()))
                 .done(function (resp) {
                     if (!resp || !resp.success) {
-                        setStatus(hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.', 'error');
+                        setStatus(getAjaxErrorMessage(resp, hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.'), 'error');
                         return;
                     }
 
@@ -1185,7 +1202,7 @@
                     setStatus('', '');
                 })
                 .fail(function (xhr) {
-                    setStatus((hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.') + ' HTTP ' + xhr.status, 'error');
+                    setStatus(getXhrErrorMessage(xhr, hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.') + ' HTTP ' + xhr.status, 'error');
                 });
         }
 
@@ -1193,7 +1210,7 @@
             $.post(hcAdmin.ajaxurl, $.extend({ action: 'hc_explorer_bootstrap' }, getPayload()))
                 .done(function (resp) {
                     if (!resp || !resp.success) {
-                        setStatus(hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.', 'error');
+                        setStatus(getAjaxErrorMessage(resp, hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.'), 'error');
                         return;
                     }
 
@@ -1209,7 +1226,7 @@
                     setStatus('', '');
                 })
                 .fail(function (xhr) {
-                    setStatus((hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.') + ' HTTP ' + xhr.status, 'error');
+                    setStatus(getXhrErrorMessage(xhr, hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.') + ' HTTP ' + xhr.status, 'error');
                 });
         }
 
@@ -1220,6 +1237,7 @@
                 slug: slug
             }).done(function (resp) {
                 if (!resp || !resp.success) {
+                    setStatus(getAjaxErrorMessage(resp, hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.'), 'error');
                     return;
                 }
 
