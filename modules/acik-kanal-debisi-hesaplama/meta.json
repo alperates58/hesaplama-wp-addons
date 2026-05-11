@@ -1,0 +1,5 @@
+{
+  "name": "Açık Kanal Debisi Hesaplama",
+  "desc": "Manning formülü kullanarak açık kanallardaki su debisini hesaplar.",
+  "shortcode": "[hc_acik_kanal_debisi_hesaplama]"
+}

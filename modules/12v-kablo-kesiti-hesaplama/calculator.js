@@ -1,0 +1,34 @@
+function hc12VKabloKesitiHesapla() {
+    const akim = parseFloat(document.getElementById('hc-12v-akim').value);
+    const mesafe = parseFloat(document.getElementById('hc-12v-mesafe').value);
+    const kayipYuzde = parseFloat(document.getElementById('hc-12v-kayip').value);
+
+    if (!akim || !mesafe) {
+        alert('Lütfen akım ve mesafe bilgilerini giriniz.');
+        return;
+    }
+
+    const voltaj = 12;
+    const ozdirenc = 0.0175; // Bakır (ohm*mm2/m)
+    const izinVerilenKayip = (voltaj * kayipYuzde) / 100;
+
+    // S = (2 * L * I * rho) / V_drop
+    const kesit = (2 * mesafe * akim * ozdirenc) / izinVerilenKayip;
+
+    // Standart kablo kesitleri
+    const standartKesitler = [0.5, 0.75, 1, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120];
+    let onerilenKesit = standartKesitler.find(s => s >= kesit);
+    
+    if (!onerilenKesit) {
+        onerilenKesit = Math.ceil(kesit);
+    }
+
+    const sonucDiv = document.getElementById('hc-12v-result');
+    document.getElementById('hc-12v-res-section').innerText = onerilenKesit.toLocaleString('tr-TR') + ' mm²';
+    document.getElementById('hc-12v-res-drop').innerText = (voltaj * kayipYuzde / 100).toLocaleString('tr-TR') + ' V (' + kayipYuzde + '%)';
+    
+    const noteDiv = document.getElementById('hc-12v-res-note');
+    noteDiv.innerText = `Hesaplanan teorik kesit: ${kesit.toFixed(2).toLocaleString('tr-TR')} mm². En yakın üst standart kesit önerilmiştir.`;
+
+    sonucDiv.classList.add('visible');
+}

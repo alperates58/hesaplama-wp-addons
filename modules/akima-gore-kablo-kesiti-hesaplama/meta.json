@@ -1,0 +1,5 @@
+{
+  "name": "Akıma Göre Kablo Kesiti Hesaplama",
+  "desc": "Çalışma akımına ve tesisat tipine göre uygun kablo kesitini standartlara uygun olarak belirler.",
+  "shortcode": "[hc_akima_gore_kablo_kesiti_hesaplama]"
+}

@@ -1,0 +1,18 @@
+.hc-calculator#hc-pkg-weight {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-pw-res-val {
+    color: #495057;
+    font-size: 1.8em;
+}
+
+.hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}

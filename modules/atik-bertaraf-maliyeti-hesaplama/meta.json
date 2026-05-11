@@ -1,0 +1,5 @@
+{
+  "name": "Atık Bertaraf Maliyeti Hesaplama",
+  "desc": "Atık türü, miktarı ve nakliye mesafesine göre tahmini bertaraf maliyetlerini hesaplar.",
+  "shortcode": "[hc_atik_bertaraf_maliyeti_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Asitlik Oranı Hesaplama",
+  "desc": "Titrasyon verilerine göre gıdalardaki (özellikle zeytinyağı) serbest asitlik oranını hesaplar.",
+  "shortcode": "[hc_asitlik_orani_hesaplama]"
+}

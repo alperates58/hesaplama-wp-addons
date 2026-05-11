@@ -1,0 +1,22 @@
+.hc-calculator#hc-waste {
+    background: #fdf2f2;
+    border: 1px solid #ffcdd2;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.hc-at-res-total {
+    color: #c62828;
+    font-size: 2em;
+}
+
+.hc-result-item {
+    border-bottom: 1px solid #ef9a9a;
+    padding: 10px 0;
+}
+
+.hc-result-note {
+    font-size: 0.8em;
+    color: #757575;
+    margin-top: 15px;
+}

@@ -1,0 +1,22 @@
+.hc-calculator#hc-stress {
+    background: #fdfdfd;
+    border: 1px solid #c8c8c8;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.hc-st-res-s1 {
+    color: #d32f2f;
+}
+
+.hc-st-res-s2 {
+    color: #1976d2;
+}
+
+.hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}

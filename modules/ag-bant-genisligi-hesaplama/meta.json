@@ -1,0 +1,5 @@
+{
+  "name": "Ağ Bant Genişliği Hesaplama",
+  "desc": "Dosya boyutu ve süreye göre gerekli ağ bant genişliğini veya indirme süresini hesaplar.",
+  "shortcode": "[hc_ag_bant_genisligi_hesaplama]"
+}

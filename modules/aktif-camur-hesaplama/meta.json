@@ -1,0 +1,5 @@
+{
+  "name": "Aktif Çamur Hesaplama",
+  "desc": "Atık su arıtma tesislerinde F/M oranı, çamur yaşı ve MLSS değerlerini hesaplar.",
+  "shortcode": "[hc_aktif_camur_hesaplama]"
+}

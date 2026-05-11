@@ -1,0 +1,5 @@
+{
+  "name": "Algoritma Karmaşıklığı Hesaplama",
+  "desc": "Kod yapısına göre algoritmanın zaman karmaşıklığını (Big O) belirler ve analiz eder.",
+  "shortcode": "[hc_algoritma_karmasikligi_hesaplama]"
+}

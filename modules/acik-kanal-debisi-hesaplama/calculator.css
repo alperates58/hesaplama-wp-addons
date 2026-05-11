@@ -1,0 +1,18 @@
+.hc-calculator#hc-acik-kanal-debi {
+    background: #f0f4f8;
+    border: 2px solid #d1d9e6;
+    border-radius: 20px;
+    padding: 30px;
+    color: #334e68;
+}
+
+.hc-acik-res-q {
+    color: #007bff;
+}
+
+.hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #cbd5e0;
+}

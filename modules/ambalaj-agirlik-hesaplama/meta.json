@@ -1,0 +1,5 @@
+{
+  "name": "Ambalaj Ağırlık Hesaplama",
+  "desc": "Kutu, torba veya ambalaj malzemelerinin boyut ve materyaline göre toplam ağırlığını hesaplar.",
+  "shortcode": "[hc_ambalaj_agirlik_hesaplama]"
+}

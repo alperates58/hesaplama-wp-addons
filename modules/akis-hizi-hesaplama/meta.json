@@ -1,0 +1,5 @@
+{
+  "name": "Akış Hızı Hesaplama",
+  "desc": "Debi ve kesit alanına bağlı olarak akışkanın hızını hesaplar.",
+  "shortcode": "[hc_akis_hizi_hesaplama]"
+}

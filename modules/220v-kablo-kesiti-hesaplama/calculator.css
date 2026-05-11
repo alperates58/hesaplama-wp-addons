@@ -1,0 +1,27 @@
+.hc-calculator#hc-220v-kablo-kesiti {
+    background: linear-gradient(145deg, rgba(30, 30, 40, 0.9), rgba(10, 10, 20, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    color: #fff;
+}
+
+.hc-220v-result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.hc-220v-res-note {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 10px;
+}
+
+@media (max-width: 480px) {
+    .hc-calculator#hc-220v-kablo-kesiti {
+        padding: 20px;
+    }
+}

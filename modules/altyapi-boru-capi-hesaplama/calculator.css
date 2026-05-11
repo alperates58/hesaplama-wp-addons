@@ -1,0 +1,16 @@
+.hc-calculator#hc-pipe-size {
+    background: #eef2f3;
+    border: 1px solid #cfd9df;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.hc-ps-res-val {
+    color: #243b55;
+    font-size: 1.8em;
+}
+
+.hc-result-item {
+    border-bottom: 1px solid #cfd9df;
+    padding: 10px 0;
+}

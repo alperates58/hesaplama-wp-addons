@@ -1,0 +1,5 @@
+{
+  "name": "Asal Gerilme Hesaplama",
+  "desc": "Verilen normal ve kayma gerilmelerine göre malzemedeki asal gerilmeleri ve maksimum kayma gerilmesini hesaplar.",
+  "shortcode": "[hc_asal_gerilme_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Altın Ağırlığı Hesaplama",
+  "desc": "Ayara ve boyutlara göre altın objelerin gram ağırlığını ve saf altın içeriğini hesaplar.",
+  "shortcode": "[hc_altin_agirligi_hesaplama]"
+}

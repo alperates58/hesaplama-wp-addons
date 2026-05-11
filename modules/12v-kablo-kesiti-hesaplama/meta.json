@@ -1,0 +1,5 @@
+{
+  "name": "12V Kablo Kesiti Hesaplama",
+  "desc": "Mesafe ve akıma göre 12V sistemler için gerekli kablo kesitini hesaplar.",
+  "shortcode": "[hc_12v_kablo_kesiti_hesaplama]"
+}

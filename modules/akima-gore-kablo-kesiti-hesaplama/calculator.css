@@ -1,0 +1,22 @@
+.hc-calculator#hc-akim-kesit {
+    background: #f8f9fa;
+    border-top: 4px solid #ffc107;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hc-ak-res-val {
+    color: #d39e00;
+    font-size: 1.8em;
+}
+
+.hc-result-note {
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.9em;
+}

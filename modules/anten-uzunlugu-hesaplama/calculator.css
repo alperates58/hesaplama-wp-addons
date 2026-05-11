@@ -1,0 +1,16 @@
+.hc-calculator#hc-antenna {
+    background: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 15px;
+    padding: 25px;
+    color: #00d4ff;
+}
+
+.hc-ant-res-half, .hc-ant-res-quarter {
+    color: #ffffff;
+}
+
+.hc-result-item {
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+}

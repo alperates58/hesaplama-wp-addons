@@ -1,0 +1,5 @@
+{
+  "name": "Alçak Geçiren Filtre Hesaplama",
+  "desc": "RC (Direnç-Kondansatör) alçak geçiren filtre devresi için kesim frekansını hesaplar.",
+  "shortcode": "[hc_alcak_geciren_filtre_hesaplama]"
+}

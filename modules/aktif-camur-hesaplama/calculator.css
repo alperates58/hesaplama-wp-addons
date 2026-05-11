@@ -1,0 +1,15 @@
+.hc-calculator#hc-aktif-camur {
+    background: #e3f2fd;
+    border: 1px solid #90caf9;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.hc-ac-res-fm {
+    color: #1565c0;
+}
+
+.hc-result-item {
+    border-bottom: 1px solid #bbdefb;
+    padding: 8px 0;
+}

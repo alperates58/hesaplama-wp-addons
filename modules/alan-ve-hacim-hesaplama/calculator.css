@@ -1,0 +1,15 @@
+.hc-calculator#hc-alan-hacim {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.hc-ah-dynamic-input {
+    width: 100%;
+}
+
+.hc-ah-res-val {
+    color: #2e7d32;
+    font-size: 1.5em;
+}

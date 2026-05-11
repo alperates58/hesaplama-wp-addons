@@ -1,0 +1,28 @@
+.hc-calculator#hc-12v-kablo-kesiti {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.hc-12v-result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.hc-12v-res-note {
+    font-size: 0.85em;
+    color: #aaa;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    .hc-calculator#hc-12v-kablo-kesiti {
+        padding: 20px;
+    }
+}

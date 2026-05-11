@@ -1,0 +1,5 @@
+{
+  "name": "220V Kablo Kesiti Hesaplama",
+  "desc": "Güç ve mesafeye göre 220V şebeke sistemleri için uygun kablo kesitini hesaplar.",
+  "shortcode": "[hc_220v_kablo_kesiti_hesaplama]"
+}

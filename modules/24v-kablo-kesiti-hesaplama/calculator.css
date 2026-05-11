@@ -1,0 +1,21 @@
+.hc-calculator#hc-24v-kablo-kesiti {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    color: #eee;
+}
+
+.hc-24v-result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.hc-24v-res-note {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 15px;
+    border-left: 3px solid #007bff;
+    padding-left: 10px;
+}

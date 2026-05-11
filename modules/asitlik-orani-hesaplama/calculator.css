@@ -1,0 +1,18 @@
+.hc-calculator#hc-acidity {
+    background: #fff;
+    border: 1px solid #c5e1a5;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.hc-acid-res-val {
+    color: #558b2f;
+}
+
+.hc-result-note {
+    background: #f1f8e9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #33691e;
+}

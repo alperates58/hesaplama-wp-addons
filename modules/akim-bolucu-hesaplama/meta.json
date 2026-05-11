@@ -1,0 +1,5 @@
+{
+  "name": "Akım Bölücü Hesaplama",
+  "desc": "Paralel dirençli devrelerde kollara ayrılan akım miktarlarını hesaplar.",
+  "shortcode": "[hc_akim_bolucu_hesaplama]"
+}

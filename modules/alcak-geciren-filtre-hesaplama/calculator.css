@@ -1,0 +1,15 @@
+.hc-calculator#hc-lpf {
+    background: #fafafa;
+    border: 1px solid #007bff;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.hc-lpf-res-val {
+    color: #007bff;
+}
+
+.hc-result-item {
+    border-bottom: 2px solid #e7f1ff;
+    padding: 10px 0;
+}

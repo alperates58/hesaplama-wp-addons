@@ -1,0 +1,5 @@
+{
+  "name": "24V Kablo Kesiti Hesaplama",
+  "desc": "24V DC sistemlerde mesafe ve akıma göre gerekli kablo kesitini hesaplar.",
+  "shortcode": "[hc_24v_kablo_kesiti_hesaplama]"
+}

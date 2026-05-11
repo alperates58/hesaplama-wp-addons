@@ -1,0 +1,5 @@
+{
+  "name": "Altyapı Boru Çapı Hesaplama",
+  "desc": "Debi ve hedef akış hızına göre altyapı projeleri için gerekli boru çapını hesaplar.",
+  "shortcode": "[hc_altyapi_boru_capi_hesaplama]"
+}

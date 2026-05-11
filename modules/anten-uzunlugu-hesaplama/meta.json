@@ -1,0 +1,5 @@
+{
+  "name": "Anten Uzunluğu Hesaplama",
+  "desc": "Belirli bir frekans için yarım dalga ve çeyrek dalga anten uzunluklarını hesaplar.",
+  "shortcode": "[hc_anten_uzunlugu_hesaplama]"
+}

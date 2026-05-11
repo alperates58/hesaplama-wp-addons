@@ -1,0 +1,32 @@
+.hc-calculator#hc-ag-bw {
+    background: #111;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.hc-calculator#hc-ag-bw h3 {
+    color: #0f0;
+    text-transform: uppercase;
+    border-bottom: 1px solid #0f0;
+    padding-bottom: 10px;
+}
+
+.hc-bw-res-val {
+    font-size: 2em;
+    text-shadow: 0 0 10px #0f0;
+}
+
+.hc-calculator#hc-ag-bw select, .hc-calculator#hc-ag-bw input {
+    background: #222;
+    color: #0f0;
+    border: 1px solid #0f0;
+}
+
+.hc-calculator#hc-ag-bw .hc-btn {
+    background: #0f0;
+    color: #000;
+    font-weight: bold;
+}
