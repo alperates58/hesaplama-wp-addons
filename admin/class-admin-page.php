@@ -11,7 +11,7 @@ class HC_Module_Inventory {
     const CATEGORY_TRANSIENT = 'hc_module_inventory_categories_v2';
     const USAGE_TRANSIENT = 'hc_module_inventory_usage_v3';
     const CACHE_VERSION_OPTION = 'hc_module_inventory_cache_version';
-    const POST_SCAN_BATCH_SIZE = 100;
+    const POST_SCAN_BATCH_SIZE = 25;
     private static $module_index_cache = null;
     private static $module_usage_cache = null;
     private static $post_usage_index_cache = null;
@@ -336,39 +336,65 @@ class HC_Module_Inventory {
             return self::$category_choices_cache;
         }
 
-        $terms = get_terms(
-            [
-                'taxonomy'   => 'category',
-                'hide_empty' => false,
-            ]
+        global $wpdb;
+
+        $terms = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT t.term_id, t.name, t.slug, tt.parent
+                 FROM {$wpdb->terms} t
+                 INNER JOIN {$wpdb->term_taxonomy} tt
+                    ON tt.term_id = t.term_id
+                 WHERE tt.taxonomy = %s
+                 ORDER BY t.name ASC",
+                'category'
+            ),
+            ARRAY_A
         );
 
-        if ( is_wp_error( $terms ) || empty( $terms ) ) {
+        if ( empty( $terms ) ) {
             return [];
         }
 
         $term_map = [];
         foreach ( $terms as $term ) {
-            $term_map[ $term->term_id ] = $term;
+            $term_id = (int) ( $term['term_id'] ?? 0 );
+
+            if ( ! $term_id ) {
+                continue;
+            }
+
+            $term_map[ $term_id ] = [
+                'term_id' => $term_id,
+                'name'    => (string) ( $term['name'] ?? '' ),
+                'slug'    => (string) ( $term['slug'] ?? '' ),
+                'parent'  => (int) ( $term['parent'] ?? 0 ),
+            ];
         }
 
         $choices = [];
         foreach ( $terms as $term ) {
-            $lineage = self::get_term_lineage( $term->term_id, $term_map );
-            $names   = wp_list_pluck( $lineage, 'name' );
+            $term_id = (int) ( $term['term_id'] ?? 0 );
+
+            if ( ! $term_id || empty( $term_map[ $term_id ] ) ) {
+                continue;
+            }
+
+            $lineage = self::get_term_lineage( $term_id, $term_map );
+            $names   = array_column( $lineage, 'name' );
             $depth   = max( 0, count( $names ) - 1 );
+            $parent   = $lineage[ count( $lineage ) - 2 ] ?? [];
 
             $choices[] = [
-                'term_id'   => (int) $term->term_id,
-                'parent_id' => (int) $term->parent,
-                'name'      => $term->name,
-                'slug'      => $term->slug,
+                'term_id'   => $term_id,
+                'parent_id' => (int) $term_map[ $term_id ]['parent'],
+                'name'      => $term_map[ $term_id ]['name'],
+                'slug'      => $term_map[ $term_id ]['slug'],
                 'depth'     => $depth,
                 'path'      => implode( ' › ', $names ),
-                'parent'    => $names[0] ?? $term->name,
-                'child'     => $depth > 0 ? $term->name : '',
-                'parent_name' => ! empty( $lineage[ count( $lineage ) - 2 ] ) ? $lineage[ count( $lineage ) - 2 ]->name : '',
-                'parent_slug' => ! empty( $lineage[ count( $lineage ) - 2 ] ) ? $lineage[ count( $lineage ) - 2 ]->slug : '',
+                'parent'    => $names[0] ?? $term_map[ $term_id ]['name'],
+                'child'     => $depth > 0 ? $term_map[ $term_id ]['name'] : '',
+                'parent_name' => (string) ( $parent['name'] ?? '' ),
+                'parent_slug' => (string) ( $parent['slug'] ?? '' ),
             ];
         }
 
@@ -435,19 +461,6 @@ class HC_Module_Inventory {
                     'parent' => $category['parent'] ?? $category['label'],
                     'child'  => $category['child'] ?? '',
                     'source' => 'post_categories',
-                ];
-            }
-        }
-
-        foreach ( self::sort_same_slug_posts( $same_slug_posts ) as $post ) {
-            $planner = $post_usage_index['planner_categories'][ (int) $post['ID'] ] ?? [];
-
-            if ( ! empty( $planner['label'] ) ) {
-                return [
-                    'label'  => $planner['label'],
-                    'parent' => $planner['parent'] ?? $planner['label'],
-                    'child'  => $planner['child'] ?? '',
-                    'source' => 'planner',
                 ];
             }
         }
@@ -746,7 +759,7 @@ class HC_Module_Inventory {
 
         while ( $term_id && isset( $term_map[ $term_id ] ) && $guard < 10 ) {
             array_unshift( $lineage, $term_map[ $term_id ] );
-            $term_id = (int) $term_map[ $term_id ]->parent;
+            $term_id = (int) ( is_array( $term_map[ $term_id ] ) ? ( $term_map[ $term_id ]['parent'] ?? 0 ) : $term_map[ $term_id ]->parent );
             $guard++;
         }
 
@@ -918,36 +931,28 @@ class HC_Module_Inventory {
         $posts_by_slug         = [];
         $categories_by_post_id = [];
         $post_categories       = [];
-        $last_id               = 0;
         $batch_size            = max( 1, (int) self::POST_SCAN_BATCH_SIZE );
-        $module_slug_lookup    = self::get_module_slug_lookup();
+        $module_slugs          = array_keys( self::get_module_slug_lookup() );
+        $slug_chunks           = array_chunk( $module_slugs, 100 );
 
-        do {
-            $rows = $wpdb->get_results(
-                $wpdb->prepare(
-                    "SELECT ID, post_status, post_title, post_name, post_modified
-                     FROM {$wpdb->posts}
-                     WHERE post_type = 'post'
-                       AND post_status IN ({$status_sql})
-                       AND ID > %d
-                     ORDER BY ID ASC
-                     LIMIT %d",
-                    $last_id,
-                    $batch_size
-                ),
-                ARRAY_A
+        foreach ( $slug_chunks as $slug_chunk ) {
+            $placeholders = implode( ',', array_fill( 0, count( $slug_chunk ), '%s' ) );
+            $sql          = $wpdb->prepare(
+                "SELECT ID, post_status, post_title, post_name, post_modified
+                 FROM {$wpdb->posts}
+                 WHERE post_type = 'post'
+                   AND post_status IN ({$status_sql})
+                   AND post_name IN ({$placeholders})
+                 ORDER BY ID ASC",
+                $slug_chunk
             );
+            $rows         = $wpdb->get_results( $sql, ARRAY_A );
 
-            if ( empty( $rows ) ) {
-                break;
-            }
-
-            foreach ( $rows as $row ) {
+            foreach ( (array) $rows as $row ) {
                 $post_id = (int) $row['ID'];
-                $last_id = $post_id;
                 $slug    = sanitize_title( $row['post_name'] ?? '' );
 
-                if ( ! $slug || empty( $module_slug_lookup[ $slug ] ) ) {
+                if ( ! $slug ) {
                     continue;
                 }
 
@@ -964,10 +969,9 @@ class HC_Module_Inventory {
                 ];
             }
 
-            unset( $rows );
-        } while ( true );
+            unset( $rows, $sql );
+        }
 
-        $planner_categories      = self::get_planner_post_category_index();
         $usage                   = [];
         $found_shortcodes_by_post_id = [];
         $last_id                 = 0;
@@ -1053,7 +1057,6 @@ class HC_Module_Inventory {
             'categories_by_post_id'      => $categories_by_post_id,
             'category_choice_map'        => $choice_map,
             'post_categories'            => $post_categories,
-            'planner_categories'         => $planner_categories,
             'found_shortcodes_by_post_id' => $found_shortcodes_by_post_id,
         ];
     }
