@@ -1,0 +1,5 @@
+{
+  "name": "Katalizör Aktivitesi Hesaplama",
+  "desc": "Katalizörlerin reaksiyon hızını artırma performansını (Turnover Frequency - TOF) hesaplar.",
+  "shortcode": "[hc_katalizor_aktivitesi_hesaplama]"
+}

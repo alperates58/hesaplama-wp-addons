@@ -1,0 +1,5 @@
+{
+  "name": "Gerçek Birim Uzama Hesaplama",
+  "desc": "Malzemelerde şekil değişimi sırasında anlık boy değişimine dayalı gerçek birim uzamayı (True Strain) hesaplar.",
+  "shortcode": "[hc_gercek_birim_uzama_hesaplama]"
+}

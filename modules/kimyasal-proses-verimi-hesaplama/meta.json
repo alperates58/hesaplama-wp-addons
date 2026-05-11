@@ -1,0 +1,5 @@
+{
+  "name": "Kimyasal Proses Verimi Hesaplama",
+  "desc": "Kimyasal reaksiyonlarda elde edilen gerçek ürün miktarının, hesaplanan teorik miktara oranını hesaplar.",
+  "shortcode": "[hc_kimyasal_proses_verimi_hesaplama]"
+}

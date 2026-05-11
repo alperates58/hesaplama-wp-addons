@@ -1,0 +1,5 @@
+{
+  "name": "Konserve Proses Yeterliliği Hesaplama",
+  "desc": "Gıda sanayisinde ısıl işlemin (sterilizasyon) mikroorganizmaları yok etme yeterliliğini (F₀ değeri) hesaplar.",
+  "shortcode": "[hc_konserve_proses_yeterliligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Isıl Enerji Hesaplama",
+  "desc": "Yüzeyler arasındaki ışınım (radyasyon) yoluyla gerçekleşen ısı transfer miktarını hesaplar.",
+  "shortcode": "[hc_isil_enerji_hesaplama]"
+}

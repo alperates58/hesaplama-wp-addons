@@ -1,0 +1,5 @@
+{
+  "name": "Kayma Gerilmesi Hesaplama",
+  "desc": "Kuvvetin uygulandığı yüzeye paralel olduğu durumlarda oluşan kayma gerilmesini (τ = V/A) hesaplar.",
+  "shortcode": "[hc_kayma_gerilmesi_hesaplama]"
+}

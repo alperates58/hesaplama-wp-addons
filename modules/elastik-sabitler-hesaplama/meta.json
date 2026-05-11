@@ -1,0 +1,5 @@
+{
+  "name": "Elastik Sabitler Hesaplama",
+  "desc": "Malzemenin Young modülü ve Poisson oranı değerlerinden kayma (G) ve hacim (K) modüllerini hesaplar.",
+  "shortcode": "[hc_elastik_sabitler_hesaplama]"
+}

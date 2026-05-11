@@ -1,0 +1,5 @@
+{
+  "name": "İş Makinesi Yakıt Tüketimi Hesaplama",
+  "desc": "Motor gücü, yük faktörü ve çalışma süresine bağlı olarak iş makinelerinin tahmini yakıt tüketimini hesaplar.",
+  "shortcode": "[hc_is_makinesi_yakit_tuketimi_hesaplama]"
+}

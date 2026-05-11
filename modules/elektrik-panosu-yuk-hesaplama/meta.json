@@ -1,0 +1,5 @@
+{
+  "name": "Elektrik Panosu Yük Hesaplama",
+  "desc": "Kurulu güç ve eşzamanlılık faktörü üzerinden panonun toplam talep gücünü ve ana giriş akımını hesaplar.",
+  "shortcode": "[hc_elektrik_panosu_yuk_hesaplama]"
+}

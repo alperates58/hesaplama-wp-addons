@@ -1,0 +1,5 @@
+{
+  "name": "Gerilme Hesaplama",
+  "desc": "Bir malzemenin birim kesit alanına düşen iç kuvvet miktarını (σ = F/A) hesaplar.",
+  "shortcode": "[hc_gerilme_hesaplama]"
+}

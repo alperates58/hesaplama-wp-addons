@@ -1,0 +1,5 @@
+{
+  "name": "LED Sürücü Hesaplama",
+  "desc": "Seri veya paralel LED grupları için gereken sürücü (driver) gerilim, akım ve güç değerlerini hesaplar.",
+  "shortcode": "[hc_led_surucu_hesaplama]"
+}

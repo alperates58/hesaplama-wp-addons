@@ -1,0 +1,5 @@
+{
+  "name": "Isı Enerjisi Hesaplama",
+  "desc": "Belirli bir kütlenin sıcaklığını değiştirmek için gereken ısı miktarını (Q = mcΔT) hesaplar.",
+  "shortcode": "[hc_isi_enerjisi_hesaplama]"
+}

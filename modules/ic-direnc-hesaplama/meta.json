@@ -1,0 +1,5 @@
+{
+  "name": "İç Direnç Hesaplama",
+  "desc": "Güç kaynaklarının veya bataryaların yük altındaki gerilim düşümüne göre iç direncini hesaplar.",
+  "shortcode": "[hc_ic_direnc_hesaplama]"
+}

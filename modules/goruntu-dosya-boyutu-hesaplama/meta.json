@@ -1,0 +1,5 @@
+{
+  "name": "Görüntü Dosya Boyutu Hesaplama",
+  "desc": "Piksel boyutları ve renk derinliğine bağlı olarak ham (RAW) ve sıkıştırılmış görüntü dosyalarının boyutlarını hesaplar.",
+  "shortcode": "[hc_goruntu_dosya_boyutu_hesaplama]"
+}

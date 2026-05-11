@@ -1,0 +1,5 @@
+{
+  "name": "Kablo Direnci Hesaplama",
+  "desc": "Kablo uzunluğu, kesiti ve malzeme tipine göre iletkenin elektriksel direncini hesaplar.",
+  "shortcode": "[hc_kablo_direnci_hesaplama]"
+}

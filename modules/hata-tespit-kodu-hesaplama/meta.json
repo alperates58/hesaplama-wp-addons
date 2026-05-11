@@ -1,0 +1,5 @@
+{
+  "name": "Hata Tespit Kodu Hesaplama",
+  "desc": "Veri iletiminde hata kontrolü için kullanılan Parite biti ve Checksum (kontrol toplamı) değerlerini hesaplar.",
+  "shortcode": "[hc_hata_tespit_kodu_hesaplama]"
+}

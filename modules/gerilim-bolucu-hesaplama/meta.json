@@ -1,0 +1,5 @@
+{
+  "name": "Gerilim Bölücü Hesaplama",
+  "desc": "Seri bağlı dirençler üzerinden istenen çıkış gerilimini elde etmek için direnç değerlerini hesaplar.",
+  "shortcode": "[hc_gerilim_bolucu_hesaplama]"
+}

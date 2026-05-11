@@ -1,0 +1,5 @@
+{
+  "name": "İdeal Gaz Basıncı Hesaplama",
+  "desc": "Belirli hacim, sıcaklık ve mol sayısındaki bir ideal gazın basıncını (P = nRT / V) hesaplar.",
+  "shortcode": "[hc_ideal_gaz_basinci_hesaplama]"
+}

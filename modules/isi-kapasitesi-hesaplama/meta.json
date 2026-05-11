@@ -1,0 +1,5 @@
+{
+  "name": "Isı Kapasitesi Hesaplama",
+  "desc": "Bir maddenin sıcaklığını 1 derece artırmak için gereken toplam ısı miktarını (C = mc) hesaplar.",
+  "shortcode": "[hc_isi_kapasitesi_hesaplama]"
+}

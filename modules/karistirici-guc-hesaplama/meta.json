@@ -1,0 +1,5 @@
+{
+  "name": "Karıştırıcı Güç Hesaplama",
+  "desc": "Endüstriyel karıştırma tanklarında, çark tipi ve akış özelliklerine göre gereken motor gücünü hesaplar.",
+  "shortcode": "[hc_karistirici_guc_hesaplama]"
+}

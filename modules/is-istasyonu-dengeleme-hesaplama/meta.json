@@ -1,0 +1,5 @@
+{
+  "name": "İş İstasyonu Dengeleme Hesaplama",
+  "desc": "Montaj hattı dengeleme problemlerinde çevrim süresi ve minimum istasyon sayısını hesaplar.",
+  "shortcode": "[hc_is_istasyonu_dengeleme_hesaplama]"
+}

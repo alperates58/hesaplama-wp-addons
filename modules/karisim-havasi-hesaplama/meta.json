@@ -1,0 +1,5 @@
+{
+  "name": "Karışım Havası Hesaplama",
+  "desc": "Farklı kaynaklardan gelen hava akışlarının birleşmesi sonucu oluşan toplam debiyi ve karışım oranlarını hesaplar.",
+  "shortcode": "[hc_karisim_havasi_hesaplama]"
+}

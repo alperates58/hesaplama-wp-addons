@@ -1,0 +1,5 @@
+{
+  "name": "Gözeneklilik ve Geçirgenlik Hesaplama",
+  "desc": "Zemin veya filtre malzemelerinde boşluk hacminin toplam hacme oranını (Porozite) hesaplar.",
+  "shortcode": "[hc_gozeneklilik_ve_gecirgenlik_hesaplama]"
+}

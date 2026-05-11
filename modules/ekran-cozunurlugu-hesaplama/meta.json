@@ -1,0 +1,5 @@
+{
+  "name": "Ekran Çözünürlüğü Hesaplama",
+  "desc": "Ekranın piksel boyutları ve fiziksel ölçülerine göre piksel yoğunluğunu (PPI) ve toplam çözünürlüğü hesaplar.",
+  "shortcode": "[hc_ekran_cozunurlugu_hesaplama]"
+}

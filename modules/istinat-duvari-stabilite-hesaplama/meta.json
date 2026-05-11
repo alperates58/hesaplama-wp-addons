@@ -1,0 +1,5 @@
+{
+  "name": "İstinat Duvarı Stabilite Hesaplama",
+  "desc": "Toprak basıncı ve duvar ağırlığını dikkate alarak istinat duvarlarının devrilme ve kayma güvenliğini hesaplar.",
+  "shortcode": "[hc_istinat_duvari_stabilite_hesaplama]"
+}

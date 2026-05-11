@@ -1,0 +1,5 @@
+{
+  "name": "Hidrolik İletkenlik Hesaplama",
+  "desc": "Zemin veya gözenekli ortamlarda suyun geçiş hızını (Darcy Yasası) hesaplar.",
+  "shortcode": "[hc_hidrolik_iletkenlik_hesaplama]"
+}

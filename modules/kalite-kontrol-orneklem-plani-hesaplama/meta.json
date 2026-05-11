@@ -1,0 +1,5 @@
+{
+  "name": "Kalite Kontrol Örneklem Planı Hesaplama",
+  "desc": "Parti büyüklüğü ve kabul edilebilir kalite seviyesine (AQL) göre muayene edilecek örneklem sayısını belirler.",
+  "shortcode": "[hc_kalite_kontrol_orneklem_plani_hesaplama]"
+}

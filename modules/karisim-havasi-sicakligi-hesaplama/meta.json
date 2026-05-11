@@ -1,0 +1,5 @@
+{
+  "name": "Karışım Havası Sıcaklığı Hesaplama",
+  "desc": "Farklı sıcaklıktaki hava akımlarının karışımı sonrası oluşan nihai karışım sıcaklığını hesaplar.",
+  "shortcode": "[hc_karisim_havasi_sicakligi_hesaplama]"
+}

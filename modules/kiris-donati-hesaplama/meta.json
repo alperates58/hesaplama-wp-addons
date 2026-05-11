@@ -1,0 +1,5 @@
+{
+  "name": "Kiriş Donatı Hesaplama",
+  "desc": "Betonarme kirişlerde eğilme momentine bağlı olarak gereken boyuna donatı alanını hesaplar.",
+  "shortcode": "[hc_kiris_donati_hesaplama]"
+}

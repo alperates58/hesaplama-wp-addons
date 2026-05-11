@@ -1,0 +1,5 @@
+{
+  "name": "LC Filtre Hesaplama",
+  "desc": "Bobin (L) ve kondansatör (C) değerlerine göre filtrenin rezonans frekansını hesaplar.",
+  "shortcode": "[hc_lc_filtre_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Emniyet Katsayısı Hesaplama",
+  "desc": "Malzemenin mukavemet değeri ile maruz kaldığı gerilme arasındaki güvenlik oranını (FOS) hesaplar.",
+  "shortcode": "[hc_emniyet_katsayisi_hesaplama]"
+}

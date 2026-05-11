@@ -1,0 +1,5 @@
+{
+  "name": "Kesit Modülü Hesaplama",
+  "desc": "Kiriş kesitlerinin eğilme direncini belirleyen geometrik bir özellik olan kesit modülünü (S = I/c) hesaplar.",
+  "shortcode": "[hc_kesit_modulu_hesaplama]"
+}

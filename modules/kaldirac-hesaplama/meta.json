@@ -1,0 +1,5 @@
+{
+  "name": "Kaldıraç Hesaplama",
+  "desc": "Kaldıraçlardaki mekanik avantajı ve denge için gereken kuvvet/kol uzunluklarını hesaplar.",
+  "shortcode": "[hc_kaldirac_hesaplama]"
+}

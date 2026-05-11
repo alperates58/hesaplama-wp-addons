@@ -1,0 +1,5 @@
+{
+  "name": "Isıl Gerilme Hesaplama",
+  "desc": "Genleşmesi engellenen bir malzemede sıcaklık değişimi nedeniyle oluşan iç gerilmeyi (σ = EαΔT) hesaplar.",
+  "shortcode": "[hc_isil_gerilme_hesaplama]"
+}

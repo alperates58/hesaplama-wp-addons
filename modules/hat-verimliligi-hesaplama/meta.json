@@ -1,0 +1,5 @@
+{
+  "name": "Hat Verimliliği Hesaplama",
+  "desc": "Üretim hattının standart çalışma süreleri ile fiili üretim çıktılarını karşılaştırarak verimlilik oranını hesaplar.",
+  "shortcode": "[hc_hat_verimliligi_hesaplama]"
+}

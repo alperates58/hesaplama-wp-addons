@@ -1,0 +1,5 @@
+{
+  "name": "Kolon Donatı Hesaplama",
+  "desc": "Betonarme kolonlarda eksenel yüke bağlı olarak gereken minimum boyuna donatı miktarını hesaplar.",
+  "shortcode": "[hc_kolon_donati_hesaplama]"
+}

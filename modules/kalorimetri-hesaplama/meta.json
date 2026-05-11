@@ -1,0 +1,5 @@
+{
+  "name": "Kalorimetri Hesaplama",
+  "desc": "Bir maddenin sıcaklığını değiştirmek için gereken veya açığa çıkan ısı enerjisini (Q = m·c·ΔT) hesaplar.",
+  "shortcode": "[hc_kalorimetri_hesaplama]"
+}

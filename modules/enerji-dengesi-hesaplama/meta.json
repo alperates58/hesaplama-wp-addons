@@ -1,0 +1,5 @@
+{
+  "name": "Enerji Dengesi Hesaplama",
+  "desc": "Termodinamiğin birinci yasasına göre sisteme giren ısı ve yapılan iş arasındaki enerji farkını hesaplar.",
+  "shortcode": "[hc_enerji_dengesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "kVA dan Ampere Hesaplama",
+  "desc": "Görünür güç (kVA) ve gerilim değerlerine göre devreden geçen akımı (Amper) hesaplar.",
+  "shortcode": "[hc_kva_dan_ampere_hesaplama]"
+}

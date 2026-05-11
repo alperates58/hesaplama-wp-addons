@@ -1,0 +1,5 @@
+{
+  "name": "Lineer Aktüatör Kuvveti Hesaplama",
+  "desc": "Tork ve vida adımı parametrelerini kullanarak lineer aktüatörün ürettiği itme/çekme kuvvetini hesaplar.",
+  "shortcode": "[hc_lineer_aktuator_kuvveti_hesaplama]"
+}

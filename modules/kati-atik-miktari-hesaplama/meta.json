@@ -1,0 +1,5 @@
+{
+  "name": "Katı Atık Miktarı Hesaplama",
+  "desc": "Kişi sayısı ve süreye bağlı olarak üretilen tahmini katı atık miktarını hesaplar.",
+  "shortcode": "[hc_kati_atik_miktari_hesaplama]"
+}

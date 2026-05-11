@@ -1,0 +1,5 @@
+{
+  "name": "İnsan Gücü İhtiyacı Hesaplama",
+  "desc": "Belirli bir üretim hedefine ulaşmak için gereken toplam iş gücü ve personel sayısını hesaplar.",
+  "shortcode": "[hc_insan_gucu_ihtiyaci_hesaplama]"
+}

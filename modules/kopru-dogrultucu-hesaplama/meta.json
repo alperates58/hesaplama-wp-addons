@@ -1,0 +1,5 @@
+{
+  "name": "Köprü Doğrultucu Hesaplama",
+  "desc": "Tam dalga köprü doğrultucu devrelerinde çıkış gerilimi ve dalgalanma (ripple) miktarını hesaplar.",
+  "shortcode": "[hc_kopru_dogrultucu_hesaplama]"
+}

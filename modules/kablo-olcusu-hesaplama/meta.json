@@ -1,0 +1,5 @@
+{
+  "name": "Kablo Ölçüsü Hesaplama",
+  "desc": "AWG (American Wire Gauge) değerini standart milimetrik çap ve kesit alanına dönüştürür.",
+  "shortcode": "[hc_kablo_olcusu_hesaplama]"
+}

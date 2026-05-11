@@ -1,0 +1,5 @@
+{
+  "name": "Kaldırma Kuvveti Hesaplama",
+  "desc": "Aerodinamik prensiplerine göre bir kanat profilinin ürettiği toplam kaldırma kuvvetini (Lift) hesaplar.",
+  "shortcode": "[hc_kaldirma_kuvveti_hesaplama]"
+}

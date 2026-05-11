@@ -1,0 +1,5 @@
+{
+  "name": "İniş Mesafesi Hesaplama",
+  "desc": "Hava araçlarının iniş sırasındaki hız ve zemin koşullarına bağlı olarak duruş mesafesini hesaplar.",
+  "shortcode": "[hc_inis_mesafesi_hesaplama]"
+}

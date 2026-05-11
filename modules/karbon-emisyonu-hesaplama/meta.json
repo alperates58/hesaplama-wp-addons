@@ -1,0 +1,5 @@
+{
+  "name": "Karbon Emisyonu Hesaplama",
+  "desc": "Enerji tüketimi ve yakıt kullanımına bağlı olarak atmosfere salınan CO2 eşdeğeri miktarını hesaplar.",
+  "shortcode": "[hc_karbon_emisyonu_hesaplama]"
+}

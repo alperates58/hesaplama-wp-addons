@@ -1,0 +1,5 @@
+{
+  "name": "Kurutma Hızı Hesaplama",
+  "desc": "Endüstriyel kurutma işlemlerinde birim alandan birim zamanda uzaklaştırılan nem miktarını hesaplar.",
+  "shortcode": "[hc_kurutma_hizi_hesaplama]"
+}

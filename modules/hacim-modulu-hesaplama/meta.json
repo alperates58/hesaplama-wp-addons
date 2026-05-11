@@ -1,0 +1,5 @@
+{
+  "name": "Hacim Modülü Hesaplama",
+  "desc": "Bir malzemenin her yönden gelen basınca karşı gösterdiği direnci (K = -V ΔP/ΔV) hesaplar.",
+  "shortcode": "[hc_hacim_modulu_hesaplama]"
+}

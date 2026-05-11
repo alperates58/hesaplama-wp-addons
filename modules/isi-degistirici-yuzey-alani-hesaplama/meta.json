@@ -1,0 +1,5 @@
+{
+  "name": "Isı Değiştirici Yüzey Alanı Hesaplama",
+  "desc": "Isı değiştiricilerde (eşanjör) istenen ısı transferini sağlamak için gereken minimum yüzey alanını hesaplar.",
+  "shortcode": "[hc_isi_degistirici_yuzey_alani_hesaplama]"
+}

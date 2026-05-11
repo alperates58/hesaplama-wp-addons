@@ -1,0 +1,5 @@
+{
+  "name": "Isıl Denge Hesaplama",
+  "desc": "Farklı sıcaklıktaki iki maddenin karışımı sonrası ulaştıkları son denge sıcaklığını hesaplar.",
+  "shortcode": "[hc_isil_denge_hesaplama]"
+}

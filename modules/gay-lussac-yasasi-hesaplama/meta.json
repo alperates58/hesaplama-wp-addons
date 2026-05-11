@@ -1,0 +1,5 @@
+{
+  "name": "Gay-Lussac Yasası Hesaplama",
+  "desc": "Sabit hacimdeki bir gazın basınç ve sıcaklık (P/T=k) arasındaki ilişkisini hesaplar.",
+  "shortcode": "[hc_gay_lussac_yasasi_hesaplama]"
+}

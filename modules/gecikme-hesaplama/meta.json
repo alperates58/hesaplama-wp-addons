@@ -1,0 +1,5 @@
+{
+  "name": "Gecikme Hesaplama",
+  "desc": "Veri iletimindeki ağ gecikmesini (latans), mesafe ve sinyal hızına bağlı olarak hesaplar.",
+  "shortcode": "[hc_gecikme_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Joule Isınması Hesaplama",
+  "desc": "Elektrik akımı geçen bir dirençte açığa çıkan ısıl enerjiyi (Joule Yasası: Q = I²Rt) hesaplar.",
+  "shortcode": "[hc_joule_isinmasi_hesaplama]"
+}

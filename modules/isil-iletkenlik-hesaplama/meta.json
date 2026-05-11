@@ -1,0 +1,5 @@
+{
+  "name": "Isıl İletkenlik Hesaplama",
+  "desc": "Malzemenin ısı iletme yeteneğini (k), ısı transfer miktarı ve boyutsal parametreler üzerinden hesaplar.",
+  "shortcode": "[hc_isil_iletkenlik_hesaplama]"
+}

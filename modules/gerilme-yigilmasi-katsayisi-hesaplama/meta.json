@@ -1,0 +1,5 @@
+{
+  "name": "Gerilme Yığılması Katsayısı Hesaplama",
+  "desc": "Kesit değişimleri veya delikler nedeniyle oluşan maksimum gerilmenin nominal gerilmeye oranını (Kt) hesaplar.",
+  "shortcode": "[hc_gerilme_yigilmasi_katsayisi_hesaplama]"
+}

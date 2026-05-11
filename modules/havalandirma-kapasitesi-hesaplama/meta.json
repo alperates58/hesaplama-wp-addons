@@ -1,0 +1,5 @@
+{
+  "name": "Havalandırma Kapasitesi Hesaplama",
+  "desc": "Oda hacmi ve gerekli hava değişim katsayısına göre ihtiyaç duyulan havalandırma debisini (m³/h) hesaplar.",
+  "shortcode": "[hc_havalandirma_kapasitesi_hesaplama]"
+}

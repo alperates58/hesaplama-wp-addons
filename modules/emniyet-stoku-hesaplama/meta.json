@@ -1,0 +1,5 @@
+{
+  "name": "Emniyet Stoku Hesaplama",
+  "desc": "Talep belirsizliği ve tedarik süresini dikkate alarak stokta tutulması gereken minimum emniyet miktarını hesaplar.",
+  "shortcode": "[hc_emniyet_stoku_hesaplama]"
+}

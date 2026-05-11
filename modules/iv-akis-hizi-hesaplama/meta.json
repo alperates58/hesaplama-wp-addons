@@ -1,0 +1,5 @@
+{
+  "name": "İV Akış Hızı Hesaplama",
+  "desc": "Damla faktörü ve toplam hacme göre serum veya İV sıvıların akış hızını (damla/dakika) hesaplar.",
+  "shortcode": "[hc_iv_akis_hizi_hesaplama]"
+}

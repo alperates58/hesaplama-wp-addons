@@ -1,0 +1,5 @@
+{
+  "name": "Isı Transferi Hesaplama",
+  "desc": "Katı bir malzeme üzerinden iletim yoluyla gerçekleşen ısı transfer miktarını (Fourier Yasası) hesaplar.",
+  "shortcode": "[hc_isi_transferi_hesaplama]"
+}

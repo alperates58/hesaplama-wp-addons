@@ -1,0 +1,5 @@
+{
+  "name": "Flanş Cıvata Tork Hesaplama",
+  "desc": "Cıvata çapı ve dayanım sınıfına göre flanş bağlantılarında uygulanması gereken sıkma torkunu hesaplar.",
+  "shortcode": "[hc_flans_civata_tork_hesaplama]"
+}

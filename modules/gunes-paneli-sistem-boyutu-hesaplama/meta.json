@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Paneli Sistem Boyutu Hesaplama",
+  "desc": "Enerji tüketimi ve bölgenin güneşlenme verilerine göre gereken güneş paneli kapasitesini hesaplar.",
+  "shortcode": "[hc_gunes_paneli_sistem_boyutu_hesaplama]"
+}

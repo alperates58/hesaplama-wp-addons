@@ -1,0 +1,5 @@
+{
+  "name": "Kesme Hızı ve İlerleme Hesaplama",
+  "desc": "Talaşlı imalatta (frezeleme/torna) takım çapı ve devir sayısına göre kesme hızı ve ilerleme değerlerini hesaplar.",
+  "shortcode": "[hc_kesme_hizi_ve_ilerleme_hesaplama]"
+}

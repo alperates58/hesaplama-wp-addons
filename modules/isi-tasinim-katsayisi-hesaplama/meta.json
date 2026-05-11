@@ -1,0 +1,5 @@
+{
+  "name": "Isı Taşınım Katsayısı Hesaplama",
+  "desc": "Yüzey alanı, ısı akısı ve sıcaklık farkı değerlerinden ısı taşınım katsayısını (h) hesaplar.",
+  "shortcode": "[hc_isi_tasinim_katsayisi_hesaplama]"
+}

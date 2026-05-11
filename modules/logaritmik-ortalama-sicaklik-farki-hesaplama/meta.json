@@ -1,0 +1,5 @@
+{
+  "name": "Logaritmik Ortalama Sıcaklık Farkı Hesaplama",
+  "desc": "Isı değiştiricilerde akışkanlar arasındaki ortalama sıcaklık farkını (LMTD) hesaplar.",
+  "shortcode": "[hc_logaritmik_ortalama_sicaklik_farki_hesaplama]"
+}

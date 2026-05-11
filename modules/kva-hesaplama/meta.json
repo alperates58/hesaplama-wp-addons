@@ -1,0 +1,5 @@
+{
+  "name": "kVA Hesaplama",
+  "desc": "Gerilim ve akım değerlerine göre sistemin görünür gücünü (kVA) hesaplar.",
+  "shortcode": "[hc_kva_hesaplama]"
+}

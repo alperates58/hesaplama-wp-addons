@@ -1,0 +1,5 @@
+{
+  "name": "Kaldırma Katsayısı Hesaplama",
+  "desc": "Bir kanadın veya hava aracının aerodinamik kaldırma katsayısını (Cl) hesaplar.",
+  "shortcode": "[hc_kaldirma_katsayisi_hesaplama]"
+}

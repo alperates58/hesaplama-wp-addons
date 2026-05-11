@@ -1,0 +1,5 @@
+{
+  "name": "Kondansatör Şarj Süresi Hesaplama",
+  "desc": "RC devresindeki direnç ve kapasite değerlerine göre kondansatörün dolum süresini hesaplar.",
+  "shortcode": "[hc_kondansator_sarj_suresi_hesaplama]"
+}

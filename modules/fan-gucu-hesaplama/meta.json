@@ -1,0 +1,5 @@
+{
+  "name": "Fan Gücü Hesaplama",
+  "desc": "Havalandırma sistemlerinde debi ve basınç kaybına göre ihtiyaç duyulan fan gücünü hesaplar.",
+  "shortcode": "[hc_fan_gucu_hesaplama]"
+}

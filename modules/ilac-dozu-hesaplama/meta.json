@@ -1,0 +1,5 @@
+{
+  "name": "İlaç Dozu Hesaplama",
+  "desc": "Hasta kilosuna ve reçete edilen birim doza göre verilmesi gereken toplam ilaç miktarını hesaplar.",
+  "shortcode": "[hc_ilac_dozu_hesaplama]"
+}

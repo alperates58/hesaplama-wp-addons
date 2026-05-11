@@ -1,0 +1,5 @@
+{
+  "name": "Hash Çarpışma Olasılığı Hesaplama",
+  "desc": "Belirli bir hash uzunluğu ve veri giriş sayısı için çakışma (çarpışma) ihtimalini doğum günü problemi yaklaşımıyla hesaplar.",
+  "shortcode": "[hc_hash_carpisma_olasiligi_hesaplama]"
+}

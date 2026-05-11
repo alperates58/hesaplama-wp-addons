@@ -1,0 +1,5 @@
+{
+  "name": "Kapasitans Hesaplama",
+  "desc": "Paralel levhalı kondansatörlerde levha alanı, uzaklık ve dielektrik katsayısına göre kapasiteyi hesaplar.",
+  "shortcode": "[hc_kapasitans_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Geri Dönüşüm Oranı Hesaplama",
+  "desc": "Toplam atık miktarı içindeki geri kazanılan ve geri dönüştürülen atıkların yüzdesini hesaplar.",
+  "shortcode": "[hc_geri_donusum_orani_hesaplama]"
+}

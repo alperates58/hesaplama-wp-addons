@@ -1,0 +1,5 @@
+{
+  "name": "Hidrolik Basınç Hesaplama",
+  "desc": "Hidrolik sistemlerde uygulanan kuvvet ve piston alanına göre oluşan basıncı (P = F/A) hesaplar.",
+  "shortcode": "[hc_hidrolik_basinc_hesaplama]"
+}

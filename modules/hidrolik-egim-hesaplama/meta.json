@@ -1,0 +1,5 @@
+{
+  "name": "Hidrolik Eğim Hesaplama",
+  "desc": "Açık kanal veya boru akışlarında enerji kaybı oranını (hidrolik gradyan) hesaplar.",
+  "shortcode": "[hc_hidrolik_egim_hesaplama]"
+}

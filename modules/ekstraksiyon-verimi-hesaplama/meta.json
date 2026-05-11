@@ -1,0 +1,5 @@
+{
+  "name": "Ekstraksiyon Verimi Hesaplama",
+  "desc": "Kimyasal proseslerde bir maddeden ayrıştırılan (ekstre edilen) bileşenin verimlilik oranını hesaplar.",
+  "shortcode": "[hc_ekstraksiyon_verimi_hesaplama]"
+}

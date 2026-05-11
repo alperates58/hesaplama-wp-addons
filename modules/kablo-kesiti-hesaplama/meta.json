@@ -1,0 +1,5 @@
+{
+  "name": "Kablo Kesiti Hesaplama",
+  "desc": "Gerilim düşümü ve taşıma kapasitesine göre elektrik tesisatında kullanılması gereken kablo kesitini hesaplar.",
+  "shortcode": "[hc_kablo_kesiti_hesaplama]"
+}

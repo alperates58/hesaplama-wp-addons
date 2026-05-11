@@ -1,0 +1,5 @@
+{
+  "name": "Kalp Pili Pil Ömrü Hesaplama",
+  "desc": "Batarya kapasitesi ve ortalama akım tüketimine göre kalp pilinin tahmini ömrünü hesaplar.",
+  "shortcode": "[hc_kalp_pili_pil_omru_hesaplama]"
+}

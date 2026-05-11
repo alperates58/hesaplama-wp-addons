@@ -1,0 +1,5 @@
+{
+  "name": "Kapasite Kullanım Oranı Hesaplama",
+  "desc": "Bir üretim tesisinin mevcut üretim miktarının toplam potansiyel kapasiteye oranını hesaplar.",
+  "shortcode": "[hc_kapasite_kullanim_orani_hesaplama]"
+}

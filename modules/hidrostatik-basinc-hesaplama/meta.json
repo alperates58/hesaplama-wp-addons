@@ -1,0 +1,5 @@
+{
+  "name": "Hidrostatik Basınç Hesaplama",
+  "desc": "Durgun bir akışkanın derinliğine ve yoğunluğuna bağlı olarak uyguladığı basıncı (P = ρgh) hesaplar.",
+  "shortcode": "[hc_hidrostatik_basinc_hesaplama]"
+}

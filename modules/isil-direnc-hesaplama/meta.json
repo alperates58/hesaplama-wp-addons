@@ -1,0 +1,5 @@
+{
+  "name": "Isıl Direnç Hesaplama",
+  "desc": "Bir malzemenin ısı geçişine karşı gösterdiği direnci (R = L/kA) hesaplar.",
+  "shortcode": "[hc_isil_direnc_hesaplama]"
+}

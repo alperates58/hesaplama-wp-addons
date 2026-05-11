@@ -1,0 +1,5 @@
+{
+  "name": "İyon Değiştirici Kapasite Hesaplama",
+  "desc": "Su yumuşatma ve saflaştırma sistemlerinde reçinenin iyon tutma kapasitesini hesaplar.",
+  "shortcode": "[hc_iyon_degistirici_kapasite_hesaplama]"
+}

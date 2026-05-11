@@ -1,0 +1,5 @@
+{
+  "name": "Mach Sayısı Hesaplama",
+  "desc": "Bir nesnenin hızının, bulunduğu ortamdaki ses hızına oranını (M = v/a) hesaplar.",
+  "shortcode": "[hc_mach_sayisi_hesaplama]"
+}

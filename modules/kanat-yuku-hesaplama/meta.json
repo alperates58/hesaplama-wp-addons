@@ -1,0 +1,5 @@
+{
+  "name": "Kanat Yükü Hesaplama",
+  "desc": "Hava aracının toplam kütlesinin kanat alanına oranını (kanat yüklemesi) hesaplar.",
+  "shortcode": "[hc_kanat_yuku_hesaplama]"
+}

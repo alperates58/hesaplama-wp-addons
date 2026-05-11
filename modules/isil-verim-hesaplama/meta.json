@@ -1,0 +1,5 @@
+{
+  "name": "Isıl Verim Hesaplama",
+  "desc": "Isı makinelerinde sisteme verilen enerji ile elde edilen faydalı iş arasındaki verimlilik oranını hesaplar.",
+  "shortcode": "[hc_isil_verim_hesaplama]"
+}

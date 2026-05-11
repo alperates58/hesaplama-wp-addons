@@ -1,0 +1,5 @@
+{
+  "name": "Kısa Devre Akımı Hesaplama",
+  "desc": "Transformatör gücü ve empedans değerine göre sistemin maksimum kısa devre akımını hesaplar.",
+  "shortcode": "[hc_kisa_devre_akimi_hesaplama]"
+}

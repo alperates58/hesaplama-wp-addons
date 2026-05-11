@@ -1,0 +1,5 @@
+{
+  "name": "Kompresör Gücü Hesaplama",
+  "desc": "Hava kompresörlerinde istenen debi ve basınç artışı için gereken motor gücünü hesaplar.",
+  "shortcode": "[hc_kompresor_gucu_hesaplama]"
+}

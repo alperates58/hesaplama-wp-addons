@@ -1,0 +1,5 @@
+{
+  "name": "Elektrik Gücü Hesaplama",
+  "desc": "Gerilim, akım ve güç faktörü parametrelerini kullanarak DC ve AC sistemlerdeki elektriksel gücü hesaplar.",
+  "shortcode": "[hc_elektrik_gucu_hesaplama]"
+}

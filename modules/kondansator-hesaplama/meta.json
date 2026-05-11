@@ -1,0 +1,5 @@
+{
+  "name": "Kondansatör Hesaplama",
+  "desc": "Seri veya paralel bağlı kondansatörlerin eşdeğer kapasitesini hesaplar.",
+  "shortcode": "[hc_kondansator_hesaplama]"
+}

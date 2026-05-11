@@ -1,0 +1,5 @@
+{
+  "name": "Kayma Modülü Hesaplama",
+  "desc": "Kayma gerilmesi ve kayma şekil değiştirmesi oranına göre malzemenin rijitliğini (G = τ/γ) hesaplar.",
+  "shortcode": "[hc_kayma_modulu_hesaplama]"
+}

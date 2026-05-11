@@ -1,0 +1,5 @@
+{
+  "name": "Fire ve Randıman Hesaplama",
+  "desc": "Üretim süreçlerindeki hammadde kullanım verimliliğini ve kayıp (fire) oranlarını hesaplar.",
+  "shortcode": "[hc_fire_ve_randiman_hesaplama]"
+}

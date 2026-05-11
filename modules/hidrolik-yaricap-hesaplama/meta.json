@@ -1,0 +1,5 @@
+{
+  "name": "Hidrolik Yarıçap Hesaplama",
+  "desc": "Açık kanal veya boru akışlarında akış kesit alanının ıslak çevreye oranını (Rh = A/P) hesaplar.",
+  "shortcode": "[hc_hidrolik_yaricap_hesaplama]"
+}

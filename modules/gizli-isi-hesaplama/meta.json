@@ -1,0 +1,5 @@
+{
+  "name": "Gizli Isı Hesaplama",
+  "desc": "Hal değişimi sırasında sıcaklık değişmeden emilen veya salınan ısı enerjisini (Q = mL) hesaplar.",
+  "shortcode": "[hc_gizli_isi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Filtrasyon Hızı Hesaplama",
+  "desc": "Su arıtma veya endüstriyel filtre sistemlerinde birim alandan geçen akış hızını hesaplar.",
+  "shortcode": "[hc_filtrasyon_hizi_hesaplama]"
+}

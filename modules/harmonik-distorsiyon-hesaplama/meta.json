@@ -1,0 +1,5 @@
+{
+  "name": "Harmonik Distorsiyon Hesaplama",
+  "desc": "Elektrik şebekesindeki harmonik bileşenlerin temel frekansa oranını (THD) hesaplar.",
+  "shortcode": "[hc_harmonik_distorsiyon_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Endüktif Reaktans Hesaplama",
+  "desc": "Alternatif akım devrelerinde bobinin frekansa bağlı olarak gösterdiği direnci (XL = 2πfL) hesaplar.",
+  "shortcode": "[hc_enduktif_reaktans_hesaplama]"
+}

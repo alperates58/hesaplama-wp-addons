@@ -1,0 +1,5 @@
+{
+  "name": "Kaynak Dikişi Hesaplama",
+  "desc": "Kaynaklı bağlantılarda dikiş kalınlığı ve uzunluğuna göre dayanımı ve emniyetli yük taşıma kapasitesini hesaplar.",
+  "shortcode": "[hc_kaynak_dikisi_hesaplama]"
+}

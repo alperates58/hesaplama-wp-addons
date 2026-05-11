@@ -1,0 +1,5 @@
+{
+  "name": "Genleşme Tankı Hesaplama",
+  "desc": "Isıtma sistemlerindeki su genleşmesini dengelemek için gereken genleşme tankı kapasitesini hesaplar.",
+  "shortcode": "[hc_genlesme_tanki_hesaplama]"
+}

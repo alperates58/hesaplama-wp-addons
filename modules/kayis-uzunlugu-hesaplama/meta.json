@@ -1,0 +1,5 @@
+{
+  "name": "Kayış Uzunluğu Hesaplama",
+  "desc": "İki kasnak arasındaki merkez mesafesi ve kasnak çaplarına göre gereken kayış uzunluğunu hesaplar.",
+  "shortcode": "[hc_kayis_uzunlugu_hesaplama]"
+}

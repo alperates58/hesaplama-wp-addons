@@ -1,0 +1,5 @@
+{
+  "name": "Kondansatör Enerjisi Hesaplama",
+  "desc": "Bir kondansatörde depolanan elektriksel potansiyel enerjiyi (E = ½CV²) hesaplar.",
+  "shortcode": "[hc_kondansator_enerjisi_hesaplama]"
+}

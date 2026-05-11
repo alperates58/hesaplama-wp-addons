@@ -1,0 +1,5 @@
+{
+  "name": "Kalori Yoğunluğu Hesaplama",
+  "desc": "Gıdaların birim ağırlık başına içerdikleri enerji miktarını (kcal/g) hesaplar.",
+  "shortcode": "[hc_kalori_yogunlugu_hesaplama]"
+}

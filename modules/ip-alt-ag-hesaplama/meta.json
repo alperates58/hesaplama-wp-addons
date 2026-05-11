@@ -1,0 +1,5 @@
+{
+  "name": "IP Alt Ağ Hesaplama",
+  "desc": "IP adresi ve alt ağ maskesine (CIDR) göre ağ adresi, yayın adresi ve kullanılabilir host sayısını hesaplar.",
+  "shortcode": "[hc_ip_alt_ag_hesaplama]"
+}

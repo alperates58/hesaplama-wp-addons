@@ -1,0 +1,5 @@
+{
+  "name": "Isıl Yayınım Katsayısı Hesaplama",
+  "desc": "Malzemenin ısıyı bünyesinde ne kadar hızlı yaydığını gösteren katsayıyı (α = k / ρCp) hesaplar.",
+  "shortcode": "[hc_isil_yayinim_katsayisi_hesaplama]"
+}

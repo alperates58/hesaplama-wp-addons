@@ -1,0 +1,5 @@
+{
+  "name": "Froude Sayısı Hesaplama",
+  "desc": "Akışkanlar mekaniğinde atalet kuvvetlerinin yerçekimi kuvvetlerine oranını (Fr = v/√(gL)) hesaplar.",
+  "shortcode": "[hc_froude_sayisi_hesaplama]"
+}

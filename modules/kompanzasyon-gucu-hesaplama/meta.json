@@ -1,0 +1,5 @@
+{
+  "name": "Kompanzasyon Gücü Hesaplama",
+  "desc": "Sistemin güç faktörünü istenen seviyeye çekmek için gereken kondansatör bankası gücünü (kVAr) hesaplar.",
+  "shortcode": "[hc_kompanzasyon_gucu_hesaplama]"
+}

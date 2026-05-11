@@ -1,0 +1,5 @@
+{
+  "name": "İtki Ağırlık Oranı Hesaplama",
+  "desc": "Bir hava aracının veya roketin itki kuvvetinin toplam ağırlığına oranını hesaplar.",
+  "shortcode": "[hc_itki_agirlik_orani_hesaplama]"
+}

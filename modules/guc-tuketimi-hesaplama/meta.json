@@ -1,0 +1,5 @@
+{
+  "name": "Güç Tüketimi Hesaplama",
+  "desc": "Elektrikli cihazların kullanım süresine göre tükettikleri toplam enerjiyi (kWh) ve tahmini maliyetini hesaplar.",
+  "shortcode": "[hc_guc_tuketimi_hesaplama]"
+}

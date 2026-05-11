@@ -1,0 +1,5 @@
+{
+  "name": "Güç Kaybı Hesaplama",
+  "desc": "Elektrik hatlarındaki direnç ve akım değerlerine bağlı olarak oluşan ısıl güç kaybını (I²R) hesaplar.",
+  "shortcode": "[hc_guc_kaybi_hesaplama]"
+}

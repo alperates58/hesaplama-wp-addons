@@ -1,0 +1,5 @@
+{
+  "name": "Güç Faktörü Hesaplama",
+  "desc": "Aktif ve reaktif güç değerlerinden sistemin güç faktörünü (cos φ) ve görünür gücünü hesaplar.",
+  "shortcode": "[hc_guc_faktoru_hesaplama]"
+}

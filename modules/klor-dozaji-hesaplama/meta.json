@@ -1,0 +1,5 @@
+{
+  "name": "Klor Dozajı Hesaplama",
+  "desc": "Su dezenfeksiyonu için gereken klor miktarını, su hacmi ve hedef konsantrasyona göre hesaplar.",
+  "shortcode": "[hc_klor_dozaji_hesaplama]"
+}

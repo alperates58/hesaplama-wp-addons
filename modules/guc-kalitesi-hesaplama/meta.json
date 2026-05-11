@@ -1,0 +1,5 @@
+{
+  "name": "Güç Kalitesi Hesaplama",
+  "desc": "Üç fazlı sistemlerde faz gerilimleri arasındaki dengesizliği (Voltage Unbalance) hesaplar.",
+  "shortcode": "[hc_guc_kalitesi_hesaplama]"
+}

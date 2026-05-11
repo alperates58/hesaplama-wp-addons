@@ -1,0 +1,5 @@
+{
+  "name": "Kaldıraç Denge Noktası Hesaplama",
+  "desc": "Kuvvet ve yük dengesini (F1 x d1 = F2 x d2) baz alarak kaldıraçlardaki denge noktasını hesaplar.",
+  "shortcode": "[hc_kaldirac_denge_noktasi_hesaplama]"
+}

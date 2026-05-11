@@ -1,0 +1,5 @@
+{
+  "name": "LED Direnç Hesaplama",
+  "desc": "Besleme gerilimi ve LED özelliklerine göre LED'i korumak için gereken direnç değerini ve gücünü hesaplar.",
+  "shortcode": "[hc_led_direnc_hesaplama]"
+}

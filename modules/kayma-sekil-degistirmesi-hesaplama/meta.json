@@ -1,0 +1,5 @@
+{
+  "name": "Kayma Şekil Değiştirmesi Hesaplama",
+  "desc": "Kayma kuvveti etkisiyle malzemede meydana gelen açısal yer değiştirmeyi (γ = Δx/L) hesaplar.",
+  "shortcode": "[hc_kayma_sekil_degistirmesi_hesaplama]"
+}

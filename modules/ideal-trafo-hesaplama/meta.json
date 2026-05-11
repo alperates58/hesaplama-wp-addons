@@ -1,0 +1,5 @@
+{
+  "name": "İdeal Trafo Hesaplama",
+  "desc": "Transformatörlerde sarım sayısı, gerilim ve akım arasındaki ideal dönüşüm oranlarını hesaplar.",
+  "shortcode": "[hc_ideal_trafo_hesaplama]"
+}

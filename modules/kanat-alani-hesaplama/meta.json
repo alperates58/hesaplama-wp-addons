@@ -1,0 +1,5 @@
+{
+  "name": "Kanat Alanı Hesaplama",
+  "desc": "Geometrik boyutlar veya aerodinamik gereksinimlere göre gereken toplam kanat alanını hesaplar.",
+  "shortcode": "[hc_kanat_alani_hesaplama]"
+}
