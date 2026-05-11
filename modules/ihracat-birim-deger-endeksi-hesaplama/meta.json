@@ -1,0 +1,5 @@
+{
+  "name": "İhracat Birim Değer Endeksi Hesaplama",
+  "desc": "İhracat edilen ürünlerin birim fiyatlarındaki değişimi temel yıla göre analiz ederek dış ticaret performansını ölçer.",
+  "shortcode": "[hc_ihracat_birim_deger_endeksi_hesaplama]"
+}

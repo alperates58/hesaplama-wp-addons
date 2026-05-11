@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Nakit Akışı Hesaplama",
+  "desc": "İşletmenin operasyonel faaliyetlerinden elde ettiği nakitten yatırım harcamalarını düşerek kalan serbest nakit akışını (FCF) hesaplar.",
+  "shortcode": "[hc_serbest_nakit_akisi_hesaplama]"
+}

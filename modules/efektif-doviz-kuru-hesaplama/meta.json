@@ -1,0 +1,5 @@
+{
+  "name": "Efektif Döviz Kuru Hesaplama",
+  "desc": "Türk Lirası'nın döviz sepeti (0.5 USD + 0.5 EUR) karşısındaki değerini ve efektif kur değişimini hesaplar.",
+  "shortcode": "[hc_efektif_doviz_kuru_hesaplama]"
+}

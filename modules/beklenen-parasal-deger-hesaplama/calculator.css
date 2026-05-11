@@ -1,0 +1,15 @@
+.hc-emv-scenario {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.hc-emv-scenario:last-child {
+    border-bottom: none;
+}
+
+.hc-beklenen-parasal-deger- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}

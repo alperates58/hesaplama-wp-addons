@@ -1,0 +1,5 @@
+{
+  "name": "Gelir Gider Defteri Hesaplama",
+  "desc": "Basit bir gelir-gider takip tablosu oluşturarak toplam gelir, toplam gider ve net bakiye durumunu hesaplar.",
+  "shortcode": "[hc_gelir_gider_defteri_hesaplama]"
+}

@@ -1,0 +1,11 @@
+.hc-firsat-maliyeti- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.hc-firsat-maliyeti- .hc-small-text {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 10px;
+}

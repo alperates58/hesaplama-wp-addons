@@ -1,0 +1,5 @@
+{
+  "name": "Konut Kredisi Karşılaştırma Hesaplama",
+  "desc": "İki farklı konut kredisi teklifini (faiz, vade, masraflar) karşılaştırarak toplam maliyet farkını gösterir.",
+  "shortcode": "[hc_konut_kredisi_karsilastirma_hesaplama]"
+}

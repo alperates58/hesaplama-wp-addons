@@ -1,0 +1,5 @@
+{
+  "name": "LIFO Stok Değerleme Hesaplama",
+  "desc": "Son giren ilk çıkar (Last-In First-Out) yöntemine göre stok maliyetini ve kalan stok değerini hesaplar.",
+  "shortcode": "[hc_lifo_stok_degerleme_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Gümrük Vergisi Hesaplama",
-  "desc": "Yurt dışından gelen ürünler için gümrük vergisi, ÖTV ve KDV dahil toplam maliyeti hesaplar.",
+  "desc": "İthal edilen eşyaların türüne ve menşei ülkesine göre ödenecek gümrük vergisi ve ek mali yükümlülükleri hesaplar.",
   "shortcode": "[hc_gumruk_vergisi_hesaplama]"
 }

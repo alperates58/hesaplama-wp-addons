@@ -1,0 +1,5 @@
+{
+  "name": "Konut Kredisi Ödeme Planı Hesaplama",
+  "desc": "Konut kredisi taksitlerini, anapara ve faiz dağılımını içeren aylık ödeme planını (itfa tablosu) oluşturur.",
+  "shortcode": "[hc_konut_kredisi_odeme_plani_hesaplama]"
+}

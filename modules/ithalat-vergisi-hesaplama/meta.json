@@ -1,0 +1,5 @@
+{
+  "name": "İthalat Vergisi Hesaplama",
+  "desc": "Yurtdışından gelen ürünlerin CIF bedeli üzerinden gümrük vergisi, KDV ve diğer ithalat masraflarını hesaplar.",
+  "shortcode": "[hc_ithalat_vergisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Akreditif Masrafı Hesaplama",
+  "desc": "Dış ticarette kullanılan akreditif (L/C) ödeme yöntemi için banka komisyonlarını ve operasyonel masrafları hesaplar.",
+  "shortcode": "[hc_akreditif_masrafi_hesaplama]"
+}

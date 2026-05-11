@@ -1,0 +1,5 @@
+{
+  "name": "Stok Brüt Karlılık Getirisi Hesaplama",
+  "desc": "Stok yatırımının kârlılığını (GMROI) ölçer; her 1 TL'lik stok yatırımının ne kadar brüt kâr getirdiğini hesaplar.",
+  "shortcode": "[hc_stok_brut_karlilik_getirisi_hesaplama]"
+}

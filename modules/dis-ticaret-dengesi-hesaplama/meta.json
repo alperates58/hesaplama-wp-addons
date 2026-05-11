@@ -1,0 +1,5 @@
+{
+  "name": "Dış Ticaret Dengesi Hesaplama",
+  "desc": "Belirli bir dönemdeki toplam ihracat ve ithalat verilerini karşılaştırarak ticaret dengesini (açık veya fazla) hesaplar.",
+  "shortcode": "[hc_dis_ticaret_dengesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Döviz Arbitraj Hesaplama",
+  "desc": "Farklı döviz çiftleri arasındaki çapraz kur farklarını hesaplayarak arbitraj fırsatlarını veya kur dönüşüm avantajlarını analiz eder.",
+  "shortcode": "[hc_doviz_arbitraj_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ek Ödemeli Konut Kredisi Hesaplama",
+  "desc": "Kredi süresince yapılan ara ödemelerin veya taksit artışlarının toplam borca ve vadeye etkisini hesaplar.",
+  "shortcode": "[hc_ek_odemeli_konut_kredisi_hesaplama]"
+}

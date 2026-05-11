@@ -1,0 +1,5 @@
+{
+  "name": "Kiralık Gayrimenkul Getirisi Hesaplama",
+  "desc": "Bir gayrimenkulün yıllık kira gelirinin satış fiyatına oranını (brüt ve net verim) yüzde bazında hesaplar.",
+  "shortcode": "[hc_kiralik_gayrimenkul_getirisi_hesaplama]"
+}

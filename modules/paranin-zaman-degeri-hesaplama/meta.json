@@ -1,0 +1,5 @@
+{
+  "name": "Paranın Zaman Değeri Hesaplama",
+  "desc": "Paranın bugünkü değeri (PV) ile gelecekteki değeri (FV) arasındaki dönüşümü enflasyon veya faiz oranı bazında hesaplar.",
+  "shortcode": "[hc_paranin_zaman_degeri_hesaplama]"
+}

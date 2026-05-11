@@ -1,0 +1,5 @@
+{
+  "name": "Forward Kur Hesaplama",
+  "desc": "Spot kur ve iki para birimi arasındaki faiz farklarına dayanarak gelecekteki tahmini döviz kurunu (Forward Rate) hesaplar.",
+  "shortcode": "[hc_forward_kur_hesaplama]"
+}

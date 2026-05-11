@@ -1,0 +1,5 @@
+{
+  "name": "Eşdeğer Faiz Oranı Hesaplama",
+  "desc": "Farklı vade ve bileşik dönemlere sahip faiz oranlarını birbiriyle kıyaslamak için eşdeğer oranları hesaplar.",
+  "shortcode": "[hc_esdeger_faiz_orani_hesaplama]"
+}

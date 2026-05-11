@@ -1,0 +1,5 @@
+{
+  "name": "Maksimum Düşüş Hesaplama",
+  "desc": "Bir yatırımın veya portföyün belirli bir dönemde ulaştığı zirve değerden en dip noktaya kadar yaşadığı en büyük kaybı (Maximum Drawdown) hesaplar.",
+  "shortcode": "[hc_maksimum_dusus_hesaplama]"
+}

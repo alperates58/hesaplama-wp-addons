@@ -1,0 +1,5 @@
+{
+  "name": "Karlılık Endeksi Hesaplama",
+  "desc": "Bir yatırım projesinin yarattığı değerin maliyetine oranını (Profitability Index) hesaplar.",
+  "shortcode": "[hc_karlilik_endeksi_hesaplama]"
+}

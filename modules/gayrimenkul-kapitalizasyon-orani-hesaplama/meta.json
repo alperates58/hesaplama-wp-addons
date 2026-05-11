@@ -1,0 +1,5 @@
+{
+  "name": "Gayrimenkul Kapitalizasyon Oranı Hesaplama",
+  "desc": "Bir yatırım amaçlı gayrimenkulün net işletme gelirinin (NOI) piyasa değerine oranını (Cap Rate) hesaplar.",
+  "shortcode": "[hc_gayrimenkul_kapitalizasyon_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "ÖTV Hesaplama (Araç)",
+  "desc": "Araç motor silindir hacmi ve vergisiz fiyatına göre 2026 yılı güncel ÖTV ve KDV tutarlarını hesaplar.",
+  "shortcode": "[hc_otv_arac_hesaplama]"
+}

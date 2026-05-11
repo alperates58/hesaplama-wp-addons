@@ -1,0 +1,5 @@
+{
+  "name": "Efektif Faiz Oranı Hesaplama",
+  "desc": "Nominal faiz oranını bileşik faiz etkisini dikkate alarak yıllık efektif faiz oranına dönüştürür.",
+  "shortcode": "[hc_efektif_faiz_orani_hesaplama]"
+}

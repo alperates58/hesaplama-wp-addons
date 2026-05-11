@@ -1,0 +1,17 @@
+.hc-vadeli-mevduat-getirisi- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hc-vadeli-mevduat-getirisi- .hc-result-item:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 480px) {
+    .hc-vadeli-mevduat-getirisi- .hc-result-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

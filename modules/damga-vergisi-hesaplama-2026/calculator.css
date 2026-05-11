@@ -1,0 +1,11 @@
+.hc-damga-vergisi-2026- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.hc-damga-vergisi-2026- .hc-small-text {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 10px;
+}

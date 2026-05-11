@@ -1,0 +1,5 @@
+{
+  "name": "KDV Hesaplama (Tevkifatlı)",
+  "desc": "KDV tevkifatı (kısmi vergi kesintisi) oranlarına göre KDV tutarını ve satıcıya/devlete ödenecek kısımları hesaplar.",
+  "shortcode": "[hc_kdv_hesaplama_tevkifatli]"
+}

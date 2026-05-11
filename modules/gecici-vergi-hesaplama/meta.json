@@ -1,0 +1,5 @@
+{
+  "name": "Geçici Vergi Hesaplama",
+  "desc": "Ticari kazanç sahipleri ve serbest meslek erbabı için dönem içindeki kâr üzerinden ödenecek geçici vergi tutarını hesaplar.",
+  "shortcode": "[hc_gecici_vergi_hesaplama]"
+}

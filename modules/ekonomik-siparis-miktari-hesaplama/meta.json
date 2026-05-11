@@ -1,0 +1,5 @@
+{
+  "name": "Ekonomik Sipariş Miktarı Hesaplama",
+  "desc": "Stok maliyetlerini (sipariş ve tutma maliyeti) minimize eden ideal sipariş miktarını (EOQ) hesaplar.",
+  "shortcode": "[hc_ekonomik_siparis_miktari_hesaplama]"
+}

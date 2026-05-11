@@ -1,0 +1,5 @@
+{
+  "name": "Libor / Euribor Faiz Hesaplama",
+  "desc": "Uluslararası piyasalarda kullanılan Libor veya Euribor referans faiz oranlarına göre kredi veya mevduat faiz getirisini hesaplar.",
+  "shortcode": "[hc_libor_euribor_faiz_hesaplama]"
+}

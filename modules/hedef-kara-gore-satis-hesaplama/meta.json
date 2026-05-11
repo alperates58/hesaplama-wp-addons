@@ -1,0 +1,5 @@
+{
+  "name": "Hedef Kara Göre Satış Hesaplama",
+  "desc": "Belirli bir kâr hedefine ulaşmak için satılması gereken ürün miktarını ve ulaşılması gereken toplam ciroyu hesaplar.",
+  "shortcode": "[hc_hedef_kara_gore_satis_hesaplama]"
+}

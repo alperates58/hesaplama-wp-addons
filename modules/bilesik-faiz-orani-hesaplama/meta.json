@@ -1,0 +1,5 @@
+{
+  "name": "Bileşik Faiz Oranı Hesaplama",
+  "desc": "Belirli bir süre sonunda hedeflenen tutara ulaşmak için gereken yıllık bileşik faiz oranını hesaplar.",
+  "shortcode": "[hc_bilesik_faiz_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Satılan Malın Maliyeti Hesaplama",
+  "desc": "Belirli bir dönemde satılan ürünlerin toplam üretim veya tedarik maliyetini (SMM) hesaplar.",
+  "shortcode": "[hc_satilan_malin_maliyeti_hesaplama]"
+}

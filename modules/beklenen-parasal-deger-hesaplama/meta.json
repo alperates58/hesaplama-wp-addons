@@ -1,0 +1,5 @@
+{
+  "name": "Beklenen Parasal Değer Hesaplama",
+  "desc": "Farklı senaryoların gerçekleşme olasılıklarına göre risklerin veya fırsatların beklenen ortalama parasal değerini (EMV) hesaplar.",
+  "shortcode": "[hc_beklenen_parasal_deger_hesaplama]"
+}

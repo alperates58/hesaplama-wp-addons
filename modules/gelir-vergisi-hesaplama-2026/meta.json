@@ -1,0 +1,5 @@
+{
+  "name": "Gelir Vergisi Hesaplama (2026)",
+  "desc": "2026 yılı gelir vergisi tarifesine göre ücret ve kira geliri vergi tutarlarını hesaplar.",
+  "shortcode": "[hc_gelir_vergisi_hesaplama_2026]"
+}

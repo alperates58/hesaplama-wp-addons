@@ -1,0 +1,15 @@
+.hc-fifo-batch {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.hc-fifo-batch:last-child {
+    border-bottom: none;
+}
+
+.hc-fifo-stok-degerleme- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}

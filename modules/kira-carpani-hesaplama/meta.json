@@ -1,0 +1,5 @@
+{
+  "name": "Kira Çarpanı Hesaplama",
+  "desc": "Gayrimenkulün satış fiyatının aylık kira getirisine oranını (amortisman süresi) yıl bazında hesaplar.",
+  "shortcode": "[hc_kira_carpani_hesaplama]"
+}

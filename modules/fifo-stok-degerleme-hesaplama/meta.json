@@ -1,0 +1,5 @@
+{
+  "name": "FIFO Stok Değerleme Hesaplama",
+  "desc": "İlk giren ilk çıkar (First-In First-Out) yöntemine göre stok maliyetini ve kalan stok değerini hesaplar.",
+  "shortcode": "[hc_fifo_stok_degerleme_hesaplama]"
+}

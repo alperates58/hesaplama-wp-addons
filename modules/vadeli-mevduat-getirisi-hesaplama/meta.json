@@ -1,0 +1,5 @@
+{
+  "name": "Vadeli Mevduat Getirisi Hesaplama",
+  "desc": "Anapara ve faiz oranına göre vadeli mevduatın net getirisini ve stopaj kesintisini hesaplar.",
+  "shortcode": "[hc_vadeli_mevduat_getirisi_hesaplama]"
+}

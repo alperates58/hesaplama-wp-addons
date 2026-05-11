@@ -1,0 +1,5 @@
+{
+  "name": "Ev Almak mı Kiralamak mı Hesaplama",
+  "desc": "Konut satın alma ile kiralama senaryolarını; peşinatın alternatif getirisi, kredi maliyeti ve emlak değer artışı bazında karşılaştırır.",
+  "shortcode": "[hc_ev_almak_mi_kiralamak_mi_hesaplama]"
+}

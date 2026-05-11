@@ -1,18 +1,20 @@
 function hcGumrukVergisiHesapla() {
-    const price = parseFloat(document.getElementById('hc-gv-price').value) || 0;
-    const originRate = parseFloat(document.getElementById('hc-gv-origin').value);
-    const otvRate = (parseFloat(document.getElementById('hc-gv-otv').value) || 0) / 100;
+    const value = parseFloat(document.getElementById('hc-gv-value').value);
+    const rate = parseFloat(document.getElementById('hc-gv-rate').value) / 100;
+    const ekRate = parseFloat(document.getElementById('hc-gv-ek').value) / 100 || 0;
 
-    const gv = price * originRate;
-    const otv = (price + gv) * otvRate;
-    const kdv = (price + gv + otv) * 0.20;
-    
-    // Fixed custom presentation fee (Gümrük Sunum Ücreti) ~ 100 TL
-    const total = price + gv + otv + kdv + 100;
+    if (isNaN(value) || value <= 0) {
+        alert('Lütfen geçerli bir kıymet girin.');
+        return;
+    }
 
-    document.getElementById('hc-gv-res-gv').innerText = gv.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-gv-res-kdv').innerText = kdv.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-gv-res-total').innerText = total.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    const amount = value * rate;
+    const ekAmount = value * ekRate;
+    const total = amount + ekAmount;
 
-    document.getElementById('hc-gumruk-result').classList.add('visible');
+    document.getElementById('hc-gv-res-amount').innerText = amount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-gv-res-ek').innerText = ekAmount.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-gv-res-total').innerText = total.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+
+    document.getElementById('hc-gv-result').classList.add('visible');
 }

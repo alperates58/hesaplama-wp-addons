@@ -1,0 +1,5 @@
+{
+  "name": "Kira Artışı Hesaplama",
+  "desc": "TÜİK tarafından açıklanan 12 aylık TÜFE ortalamasına göre yasal kira artış oranını ve yeni kira tutarını hesaplar.",
+  "shortcode": "[hc_kira_artisi_hesaplama]"
+}

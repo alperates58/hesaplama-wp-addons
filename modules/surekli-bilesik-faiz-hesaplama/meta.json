@@ -1,0 +1,5 @@
+{
+  "name": "Sürekli Bileşik Faiz Hesaplama",
+  "desc": "Faiz oranının anlık olarak anaparaya eklendiği sürekli bileşik faiz modeline göre gelecek değeri hesaplar.",
+  "shortcode": "[hc_surekli_bilesik_faiz_hesaplama]"
+}

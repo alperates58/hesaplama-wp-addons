@@ -1,0 +1,5 @@
+{
+  "name": "Başabaş Noktası Hesaplama",
+  "desc": "Bir işletmenin kâra geçmesi için satması gereken minimum ürün miktarını veya ulaşması gereken ciroyu hesaplar.",
+  "shortcode": "[hc_basabas_noktasi_hesaplama]"
+}

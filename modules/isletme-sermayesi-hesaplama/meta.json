@@ -1,0 +1,5 @@
+{
+  "name": "İşletme Sermayesi Hesaplama",
+  "desc": "İşletmenin günlük operasyonlarını sürdürmek için kullandığı likit varlıklarını (Dönen Varlıklar - Kısa Vadeli Yükümlülükler) hesaplar.",
+  "shortcode": "[hc_isletme_sermayesi_hesaplama]"
+}

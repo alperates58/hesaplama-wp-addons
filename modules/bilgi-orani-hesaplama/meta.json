@@ -1,0 +1,5 @@
+{
+  "name": "Bilgi Oranı Hesaplama",
+  "desc": "Bir portföy yöneticisinin karşılaştırma ölçütüne (benchmark) göre riskten arındırılmış getiri performansını (Information Ratio) hesaplar.",
+  "shortcode": "[hc_bilgi_orani_hesaplama]"
+}

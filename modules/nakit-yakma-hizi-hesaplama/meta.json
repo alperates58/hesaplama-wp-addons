@@ -1,0 +1,5 @@
+{
+  "name": "Nakit Yakma Hızı Hesaplama",
+  "desc": "Özellikle startup ve yeni işletmeler için nakit rezervlerinin aylık azalma hızını (Cash Burn Rate) ve mevcut paranın kaç ay yeteceğini hesaplar.",
+  "shortcode": "[hc_nakit_yakma_hizi_hesaplama]"
+}

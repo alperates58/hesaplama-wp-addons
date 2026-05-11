@@ -1,0 +1,5 @@
+{
+  "name": "Konut Kredisi Kapatma Hesaplama",
+  "desc": "Konut kredisini vadesinden önce kapatmak istendiğinde kalan anapara borcunu ve yasal erken kapama masrafını hesaplar.",
+  "shortcode": "[hc_konut_kredisi_kapatma_hesaplama]"
+}

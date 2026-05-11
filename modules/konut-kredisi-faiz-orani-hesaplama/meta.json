@@ -1,0 +1,5 @@
+{
+  "name": "Konut Kredisi Faiz Oranı Hesaplama",
+  "desc": "Aylık taksit tutarı, vade ve kredi miktarı bilinen bir konut kredisinin uygulanan aylık faiz oranını hesaplar.",
+  "shortcode": "[hc_konut_kredisi_faiz_orani_hesaplama]"
+}

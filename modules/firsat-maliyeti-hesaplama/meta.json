@@ -1,0 +1,5 @@
+{
+  "name": "Fırsat Maliyeti Hesaplama",
+  "desc": "Bir yatırım veya karar tercih edildiğinde vazgeçilen en iyi alternatifin getirisini (fırsat kaybını) hesaplar.",
+  "shortcode": "[hc_firsat_maliyeti_hesaplama]"
+}
