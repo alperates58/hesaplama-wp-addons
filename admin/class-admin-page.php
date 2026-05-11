@@ -880,7 +880,6 @@ class HC_Module_Inventory {
 
         $post_ids              = [];
         $posts_by_slug         = [];
-        $posts_by_id           = [];
         $categories_by_post_id = [];
         $post_categories       = [];
 
@@ -895,8 +894,7 @@ class HC_Module_Inventory {
                 'post_modified' => (string) $row['post_modified'],
             ];
 
-            $post_ids[]             = $post_id;
-            $posts_by_id[ $post_id ] = $post_record;
+            $post_ids[] = $post_id;
 
             if ( $slug ) {
                 if ( empty( $posts_by_slug[ $slug ] ) ) {
@@ -982,35 +980,26 @@ class HC_Module_Inventory {
                 foreach ( $shortcodes as $shortcode ) {
                     if ( empty( $usage[ $shortcode ] ) ) {
                         $usage[ $shortcode ] = [
-                            'count'              => 0,
-                            'draft_count'        => 0,
-                            'published_count'    => 0,
-                            'post_ids'           => [],
-                            'draft_post_ids'     => [],
-                            'published_post_ids' => [],
-                            'path_counts'        => [],
-                            'path_post_ids'      => [],
+                            'count'           => 0,
+                            'draft_count'     => 0,
+                            'published_count' => 0,
+                            'path_counts'     => [],
                         ];
                     }
 
-                    $usage[ $shortcode ]['post_ids'][ $post_id ] = $post_id;
-
                     if ( 'publish' === (string) $row['post_status'] ) {
-                        $usage[ $shortcode ]['published_post_ids'][ $post_id ] = $post_id;
+                        $usage[ $shortcode ]['published_count']++;
                     } else {
-                        $usage[ $shortcode ]['draft_post_ids'][ $post_id ] = $post_id;
+                        $usage[ $shortcode ]['draft_count']++;
                     }
+
+                    $usage[ $shortcode ]['count']++;
 
                     foreach ( $paths as $path ) {
                         if ( empty( $usage[ $shortcode ]['path_counts'][ $path['path'] ] ) ) {
                             $usage[ $shortcode ]['path_counts'][ $path['path'] ] = $path + [ 'count' => 0 ];
                         }
-
-                        if ( empty( $usage[ $shortcode ]['path_post_ids'][ $path['path'] ] ) ) {
-                            $usage[ $shortcode ]['path_post_ids'][ $path['path'] ] = [];
-                        }
-
-                        $usage[ $shortcode ]['path_post_ids'][ $path['path'] ][ $post_id ] = $post_id;
+                        $usage[ $shortcode ]['path_counts'][ $path['path'] ]['count']++;
                     }
                 }
             }
@@ -1025,7 +1014,6 @@ class HC_Module_Inventory {
         return [
             'usage'                      => $usage,
             'posts_by_slug'              => $posts_by_slug,
-            'posts_by_id'                => $posts_by_id,
             'categories_by_post_id'      => $categories_by_post_id,
             'category_choice_map'        => $choice_map,
             'post_categories'            => $post_categories,
@@ -1094,15 +1082,7 @@ class HC_Module_Inventory {
     }
 
     private static function finalize_usage_snapshot( $snapshot ) {
-        $snapshot['count']           = count( $snapshot['post_ids'] ?? [] );
-        $snapshot['draft_count']     = count( $snapshot['draft_post_ids'] ?? [] );
-        $snapshot['published_count'] = count( $snapshot['published_post_ids'] ?? [] );
-
         if ( ! empty( $snapshot['path_counts'] ) ) {
-            foreach ( array_keys( $snapshot['path_counts'] ) as $path_label ) {
-                $snapshot['path_counts'][ $path_label ]['count'] = count( $snapshot['path_post_ids'][ $path_label ] ?? [] );
-            }
-
             uasort(
                 $snapshot['path_counts'],
                 static function ( $a, $b ) {
@@ -1393,14 +1373,10 @@ class HC_Module_Inventory {
         }
 
         $snapshot = [
-            'count'              => 0,
-            'draft_count'        => 0,
-            'published_count'    => 0,
-            'post_ids'           => [],
-            'draft_post_ids'     => [],
-            'published_post_ids' => [],
-            'path_counts'        => [],
-            'path_post_ids'      => [],
+            'count'           => 0,
+            'draft_count'     => 0,
+            'published_count' => 0,
+            'path_counts'     => [],
         ];
 
         foreach ( $shortcodes as $shortcode ) {
@@ -1410,38 +1386,17 @@ class HC_Module_Inventory {
 
             $item = $usage_cache[ $shortcode ];
 
-            foreach ( (array) ( $item['post_ids'] ?? [] ) as $post_id ) {
-                $snapshot['post_ids'][ (int) $post_id ] = (int) $post_id;
-            }
-
-            foreach ( (array) ( $item['draft_post_ids'] ?? [] ) as $post_id ) {
-                $snapshot['draft_post_ids'][ (int) $post_id ] = (int) $post_id;
-            }
-
-            foreach ( (array) ( $item['published_post_ids'] ?? [] ) as $post_id ) {
-                $snapshot['published_post_ids'][ (int) $post_id ] = (int) $post_id;
-            }
+            $snapshot['count']           += (int) ( $item['count'] ?? 0 );
+            $snapshot['draft_count']     += (int) ( $item['draft_count'] ?? 0 );
+            $snapshot['published_count'] += (int) ( $item['published_count'] ?? 0 );
 
             foreach ( (array) ( $item['path_counts'] ?? [] ) as $path_label => $path_data ) {
                 if ( empty( $snapshot['path_counts'][ $path_label ] ) ) {
                     $snapshot['path_counts'][ $path_label ] = $path_data + [ 'count' => 0 ];
                 }
-
-                if ( empty( $snapshot['path_post_ids'][ $path_label ] ) ) {
-                    $snapshot['path_post_ids'][ $path_label ] = [];
-                }
-
-                foreach ( (array) ( $item['path_post_ids'][ $path_label ] ?? [] ) as $post_id ) {
-                    $snapshot['path_post_ids'][ $path_label ][ (int) $post_id ] = (int) $post_id;
-                }
-
-                $snapshot['path_counts'][ $path_label ]['count'] = count( $snapshot['path_post_ids'][ $path_label ] );
+                $snapshot['path_counts'][ $path_label ]['count'] += (int) ( $path_data['count'] ?? 0 );
             }
         }
-
-        $snapshot['count']           = count( $snapshot['post_ids'] );
-        $snapshot['draft_count']     = count( $snapshot['draft_post_ids'] );
-        $snapshot['published_count'] = count( $snapshot['published_post_ids'] );
 
         if ( ! empty( $snapshot['path_counts'] ) ) {
             uasort(
