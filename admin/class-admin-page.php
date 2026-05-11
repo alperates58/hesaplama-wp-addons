@@ -228,9 +228,17 @@ class HC_Module_Inventory {
                 $meta_file         = $path . '/meta.json';
                 $meta              = file_exists( $meta_file ) ? json_decode( file_get_contents( $meta_file ), true ) : [];
                 $shortcode         = self::normalize_shortcode_tag( '[hc_' . str_replace( '-', '_', $slug ) . ']' );
-                $usage_snapshot    = self::get_usage_snapshot_for_shortcodes( [ $shortcode ], $usage_cache );
+                $accepted_shortcodes = self::get_accepted_shortcodes_for_module(
+                    [
+                        'slug'               => $slug,
+                        'shortcode'          => $shortcode,
+                        'expected_shortcode' => $shortcode,
+                        'aliases'            => ! empty( $meta['shortcode'] ) ? [ $meta['shortcode'] ] : [],
+                    ] + ( is_array( $meta ) ? $meta : [] )
+                );
+                $usage_snapshot    = self::get_usage_snapshot_for_shortcodes( $accepted_shortcodes, $usage_cache );
                 $same_slug_posts   = $post_usage_index['posts_by_slug'][ sanitize_title( $slug ) ] ?? [];
-                $mismatch_data     = self::detect_shortcode_mismatch( $slug, $shortcode, $same_slug_posts, $post_usage_index );
+                $mismatch_data     = self::detect_shortcode_mismatch( $slug, $accepted_shortcodes, $same_slug_posts, $post_usage_index );
                 $created           = file_exists( $meta_file ) ? filemtime( $meta_file ) : filemtime( $path );
                 $category_data = self::resolve_module_category_data(
                     $slug,
@@ -266,6 +274,7 @@ class HC_Module_Inventory {
                     'category_source'   => $category_data['source'] ?? '',
                     'category_term_ids' => $category_data['term_ids'] ?? [],
                     'expected_shortcode'         => $shortcode ?: '',
+                    'accepted_shortcodes'        => $accepted_shortcodes,
                     'matched_post_id'            => 0,
                     'matched_post_status'        => '',
                     'matched_post_title'         => '',
@@ -273,8 +282,11 @@ class HC_Module_Inventory {
                     'matched_post_categories'    => [],
                     'matched_post_category_label'=> '',
                     'found_shortcodes'           => [],
+                    'shortcode_alias_match'      => false,
+                    'matched_alias_shortcode'    => '',
                     'has_same_slug_post'         => false,
                     'shortcode_mismatch'         => false,
+                    'shortcode_mismatch_reason'  => 'none',
                     'same_slug_post_count'       => 0,
                     'shortcode_mismatch_count'   => 0,
                     'suggested_category_parent'  => '',
@@ -294,8 +306,11 @@ class HC_Module_Inventory {
                     'matched_post_categories'     => array_values( $mismatch_data['matched_post_categories'] ?? [] ),
                     'matched_post_category_label' => $mismatch_data['matched_post_category_label'] ?? '',
                     'found_shortcodes'            => array_values( $mismatch_data['found_shortcodes'] ?? [] ),
+                    'shortcode_alias_match'       => ! empty( $mismatch_data['shortcode_alias_match'] ),
+                    'matched_alias_shortcode'     => $mismatch_data['matched_alias_shortcode'] ?? '',
                     'has_same_slug_post'          => ! empty( $mismatch_data['has_same_slug_post'] ),
                     'shortcode_mismatch'          => ! empty( $mismatch_data['shortcode_mismatch'] ),
+                    'shortcode_mismatch_reason'   => $mismatch_data['shortcode_mismatch_reason'] ?? 'none',
                     'same_slug_post_count'        => (int) ( $mismatch_data['same_slug_post_count'] ?? 0 ),
                     'shortcode_mismatch_count'    => (int) ( $mismatch_data['shortcode_mismatch_count'] ?? 0 ),
                     'suggested_category_parent'   => $suggested_category['parent'] ?? '',
@@ -708,6 +723,7 @@ class HC_Module_Inventory {
             'desc'            => $module['desc'],
             'shortcode'       => $module['shortcode'],
             'expected_shortcode' => $module['expected_shortcode'],
+            'accepted_shortcodes' => array_values( $module['accepted_shortcodes'] ?? [] ),
             'category'        => $module['category'],
             'category_parent' => $module['category_parent'],
             'category_child'  => $module['category_child'],
@@ -727,6 +743,9 @@ class HC_Module_Inventory {
             'matched_post_category_label' => $module['matched_post_category_label'],
             'has_same_slug_post' => ! empty( $module['has_same_slug_post'] ),
             'shortcode_mismatch' => ! empty( $module['shortcode_mismatch'] ),
+            'shortcode_alias_match' => ! empty( $module['shortcode_alias_match'] ),
+            'matched_alias_shortcode' => $module['matched_alias_shortcode'] ?? '',
+            'shortcode_mismatch_reason' => $module['shortcode_mismatch_reason'] ?? 'none',
             'same_slug_post_count' => (int) $module['same_slug_post_count'],
             'shortcode_mismatch_count' => (int) $module['shortcode_mismatch_count'],
             'found_shortcodes' => array_values( $module['found_shortcodes'] ?? [] ),
@@ -1243,13 +1262,21 @@ class HC_Module_Inventory {
         return $index;
     }
 
-    private static function detect_shortcode_mismatch( $slug, $expected_shortcode, $same_slug_posts, &$post_usage_index ) {
+    private static function detect_shortcode_mismatch( $slug, $accepted_shortcodes, $same_slug_posts, &$post_usage_index ) {
         $same_slug_posts = is_array( $same_slug_posts ) ? self::sort_same_slug_posts( $same_slug_posts ) : [];
         $matched_post    = $same_slug_posts[0] ?? null;
         $found           = [];
         $mismatch_count  = 0;
+        $accepted_shortcodes = array_values(
+            array_unique(
+                array_filter(
+                    array_map( [ __CLASS__, 'normalize_shortcode_tag' ], (array) $accepted_shortcodes )
+                )
+            )
+        );
+        $expected_shortcode = $accepted_shortcodes[0] ?? '';
 
-        if ( ! $expected_shortcode ) {
+        if ( empty( $same_slug_posts ) || empty( $accepted_shortcodes ) ) {
             return [
                 'matched_post_id'             => $matched_post ? (int) $matched_post['ID'] : 0,
                 'matched_post_status'         => $matched_post['post_status'] ?? '',
@@ -1258,23 +1285,67 @@ class HC_Module_Inventory {
                 'matched_post_categories'     => self::build_matched_post_categories( $matched_post, $post_usage_index ),
                 'matched_post_category_label' => self::build_matched_post_category_label( $matched_post, $post_usage_index ),
                 'found_shortcodes'            => [],
+                'shortcode_alias_match'       => false,
+                'matched_alias_shortcode'     => '',
                 'has_same_slug_post'          => ! empty( $same_slug_posts ),
                 'shortcode_mismatch'          => false,
+                'shortcode_mismatch_reason'   => empty( $same_slug_posts ) ? 'no_same_slug_post' : 'none',
                 'same_slug_post_count'        => count( $same_slug_posts ),
                 'shortcode_mismatch_count'    => 0,
             ];
         }
 
+        $accepted_map = array_fill_keys( $accepted_shortcodes, true );
+        $matched_alias_shortcode = '';
+
         foreach ( $same_slug_posts as $post ) {
             $post_shortcodes = self::get_found_shortcodes_for_post( (int) ( $post['ID'] ?? 0 ), $post_usage_index );
             $found           = array_merge( $found, $post_shortcodes );
 
-            if ( $expected_shortcode && ! in_array( $expected_shortcode, $post_shortcodes, true ) ) {
+            $has_accepted = false;
+            foreach ( $post_shortcodes as $post_shortcode ) {
+                $post_shortcode = self::normalize_shortcode_tag( $post_shortcode );
+
+                if ( ! empty( $accepted_map[ $post_shortcode ] ) ) {
+                    $has_accepted = true;
+
+                    if ( $post_shortcode !== $expected_shortcode ) {
+                        $matched_alias_shortcode = $post_shortcode;
+                    }
+
+                    break;
+                }
+            }
+
+            if ( ! empty( $post_shortcodes ) && ! $has_accepted ) {
                 $mismatch_count++;
             }
         }
 
         $found = array_values( array_unique( array_filter( array_map( [ __CLASS__, 'normalize_shortcode_tag' ], $found ) ) ) );
+        $has_accepted_shortcode = false;
+
+        foreach ( $found as $found_shortcode ) {
+            if ( ! empty( $accepted_map[ $found_shortcode ] ) ) {
+                $has_accepted_shortcode = true;
+
+                if ( $found_shortcode !== $expected_shortcode ) {
+                    $matched_alias_shortcode = $found_shortcode;
+                }
+
+                break;
+            }
+        }
+
+        $has_found_shortcodes = ! empty( $found );
+        $is_mismatch          = $has_found_shortcodes && ! $has_accepted_shortcode;
+        $reason               = 'none';
+
+        if ( $matched_alias_shortcode ) {
+            $reason = 'alias_match';
+        } elseif ( $is_mismatch ) {
+            $reason = 'wrong_shortcode';
+        }
 
         return [
             'matched_post_id'             => $matched_post ? (int) $matched_post['ID'] : 0,
@@ -1284,8 +1355,11 @@ class HC_Module_Inventory {
             'matched_post_categories'     => self::build_matched_post_categories( $matched_post, $post_usage_index ),
             'matched_post_category_label' => self::build_matched_post_category_label( $matched_post, $post_usage_index ),
             'found_shortcodes'            => $found,
+            'shortcode_alias_match'       => (bool) $matched_alias_shortcode,
+            'matched_alias_shortcode'     => $matched_alias_shortcode,
             'has_same_slug_post'          => ! empty( $same_slug_posts ),
-            'shortcode_mismatch'          => (bool) ( $expected_shortcode && ! empty( $same_slug_posts ) && ! in_array( $expected_shortcode, $found, true ) ),
+            'shortcode_mismatch'          => $is_mismatch,
+            'shortcode_mismatch_reason'   => $reason,
             'same_slug_post_count'        => count( $same_slug_posts ),
             'shortcode_mismatch_count'    => $mismatch_count,
         ];
@@ -1578,23 +1652,46 @@ class HC_Module_Inventory {
         return $snapshot;
     }
 
-    private static function get_module_shortcodes( $slug, $meta = [] ) {
-        $shortcodes = [
-            '[hc_' . str_replace( '-', '_', $slug ) . ']',
-        ];
+    public static function get_accepted_shortcodes_for_module( array $module ) {
+        $slug = sanitize_key( (string) ( $module['slug'] ?? '' ) );
+        $shortcodes = [];
 
-        if ( ! empty( $meta['shortcode'] ) && is_string( $meta['shortcode'] ) ) {
-            $shortcodes[] = $meta['shortcode'];
+        if ( ! empty( $module['expected_shortcode'] ) ) {
+            $shortcodes[] = $module['expected_shortcode'];
         }
 
-        $slug_shortcode = '[hc_' . sanitize_key( str_replace( '-', '_', $slug ) ) . ']';
-        $shortcodes[]   = $slug_shortcode;
+        if ( ! empty( $module['shortcode'] ) ) {
+            $shortcodes[] = $module['shortcode'];
+        }
 
-        foreach ( self::get_manual_shortcode_aliases()[ $slug ] ?? [] as $alias ) {
+        foreach ( (array) ( $module['aliases'] ?? [] ) as $alias ) {
             $shortcodes[] = $alias;
         }
 
-        return array_values( array_unique( array_filter( array_map( [ __CLASS__, 'normalize_shortcode_tag' ], $shortcodes ) ) ) );
+        if ( $slug ) {
+            $shortcodes[] = '[hc_' . str_replace( '-', '_', $slug ) . ']';
+
+            foreach ( self::get_manual_shortcode_aliases()[ $slug ] ?? [] as $alias ) {
+                $shortcodes[] = $alias;
+            }
+        }
+
+        return array_values(
+            array_unique(
+                array_filter(
+                    array_map( [ __CLASS__, 'normalize_shortcode_tag' ], $shortcodes )
+                )
+            )
+        );
+    }
+
+    private static function get_module_shortcodes( $slug, $meta = [] ) {
+        return self::get_accepted_shortcodes_for_module(
+            [
+                'slug'      => $slug,
+                'shortcode' => $meta['shortcode'] ?? '',
+            ]
+        );
     }
 
     private static function get_related_shortcodes( $shortcode ) {
@@ -1676,6 +1773,7 @@ class HC_Module_Inventory {
             'gunluk-adim-hedefi-hesaplama'               => [ '[hc_gunluk_adim_hedefi]' ],
             'hba1c-ortalama-kan-sekeri-hesaplama'        => [ '[hc_hba1c_ortalama_kan_sekeri]' ],
             'hedefe-ulasma-yuzdesi-hesaplama'            => [ '[hc_hedefe_ulasma_yuzdesi]' ],
+            'karbon-ayak-izi-hesaplama'                  => [ '[hc_karbon_ayak_izi]' ],
             'kosu-kalori-yakimi-hesaplama'               => [ '[hc_kosu_kalori_yakimi]' ],
             'yuruyus-kalori-yakimi-hesaplama'            => [ '[hc_yuruyus_kalori_yakimi]' ],
             'yuzme-kalori-yakimi-hesaplama'              => [ '[hc_yuzme_kalori_yakimi]' ],

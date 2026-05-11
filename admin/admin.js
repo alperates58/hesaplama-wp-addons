@@ -1002,6 +1002,9 @@
             if (item.shortcode_mismatch) {
                 badges.push('<span class="hc-inline-badge is-mismatch">Shortcode Uyu\u015fmazl\u0131\u011f\u0131</span>');
             }
+            if (item.shortcode_alias_match) {
+                badges.push('<span class="hc-inline-badge is-suggested">Alias shortcode kullan\u0131l\u0131yor</span>');
+            }
             if (!item.category || item.category === 'Genel') {
                 badges.push('<span class="hc-inline-badge is-no-category">Kategorisiz</span>');
             }
