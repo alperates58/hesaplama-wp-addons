@@ -1,0 +1,5 @@
+{
+  "name": "RF Güç Hesaplama",
+  "desc": "dBm ve Watt birimleri arasında hızlı dönüşüm sağlar.",
+  "shortcode": "[hc_rf_guc_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Efektif Basınç Hesaplama",
+  "desc": "İçten yanmalı motorlarda silindir içindeki ortalama efektif basıncı (MEP) hesaplar.",
+  "shortcode": "[hc_ortalama_efektif_basinc_hesaplama]"
+}

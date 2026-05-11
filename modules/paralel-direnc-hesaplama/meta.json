@@ -1,0 +1,5 @@
+{
+  "name": "Paralel Direnç Hesaplama",
+  "desc": "Paralel bağlı dirençlerin eşdeğer direncini (Req) hesaplar.",
+  "shortcode": "[hc_paralel_direnc_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Proses Yeterlilik Cp Cpk Hesaplama",
+  "desc": "Bir üretim sürecinin spesifikasyon limitleri dahilinde çıktı üretme yeteneğini (Cp ve Cpk) hesaplar.",
+  "shortcode": "[hc_proses_yeterlilik_cp_cpk_hesaplama]"
+}

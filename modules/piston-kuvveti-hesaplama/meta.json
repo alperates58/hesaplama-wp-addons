@@ -1,0 +1,5 @@
+{
+  "name": "Piston Kuvveti Hesaplama",
+  "desc": "Hidrolik veya pnömatik bir pistonun uyguladığı kuvveti basınç ve çap değerlerine göre hesaplar.",
+  "shortcode": "[hc_piston_kuvveti_hesaplama]"
+}

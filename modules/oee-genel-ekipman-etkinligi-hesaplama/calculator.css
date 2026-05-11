@@ -1,0 +1,31 @@
+.hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.hc-result-card {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.hc-result-item.main {
+    text-align: center;
+    background: rgba(var(--hc-primary-rgb), 0.1);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.hc-result-value.small {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+    .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Reaktör Hacmi Hesaplama",
+  "desc": "Kimyasal süreçlerde istenen dönüşüm oranı ve debiye göre gerekli reaktör hacmini (CSTR modeli) hesaplar.",
+  "shortcode": "[hc_reaktor_hacmi_hesaplama]"
+}

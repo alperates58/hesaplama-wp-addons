@@ -1,0 +1,5 @@
+{
+  "name": "Merdiven Hesaplama",
+  "desc": "Blondel kuralına göre ergonomik rıht yüksekliği ve basamak genişliği hesaplar.",
+  "shortcode": "[hc_merdiven_hesaplama]"
+}

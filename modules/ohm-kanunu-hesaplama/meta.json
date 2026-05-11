@@ -1,0 +1,5 @@
+{
+  "name": "Ohm Kanunu Hesaplama",
+  "desc": "Elektrik devrelerinde akım, gerilim ve direnç hesaplamaları için Ohm kanununu uygular.",
+  "shortcode": "[hc_ohm_kanunu_hesaplama]"
+}

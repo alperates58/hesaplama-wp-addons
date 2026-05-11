@@ -1,0 +1,5 @@
+{
+  "name": "Makara Sistemi Hesaplama",
+  "desc": "Sabit ve hareketli makara sayısına göre sistemin mekanik avantajını ve gereken kuvveti hesaplar.",
+  "shortcode": "[hc_makara_sistemi_hesaplama]"
+}

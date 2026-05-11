@@ -1,0 +1,5 @@
+{
+  "name": "Paralel Bobin Hesaplama",
+  "desc": "Paralel bağlı bobinlerin (endüktans) toplam endüktansını hesaplar.",
+  "shortcode": "[hc_paralel_bobin_hesaplama]"
+}

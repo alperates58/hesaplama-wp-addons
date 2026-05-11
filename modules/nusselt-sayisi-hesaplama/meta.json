@@ -1,0 +1,5 @@
+{
+  "name": "Nusselt Sayısı Hesaplama",
+  "desc": "Konveksiyonel ısı transferinin kondüksiyonel ısı transferine oranını belirleyen Nusselt sayısını hesaplar.",
+  "shortcode": "[hc_nusselt_sayisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Manometre Hesaplama",
+  "desc": "U-borulu manometrelerde sıvı seviyesi farkına göre basınç farkını hesaplar.",
+  "shortcode": "[hc_manometre_hesaplama]"
+}

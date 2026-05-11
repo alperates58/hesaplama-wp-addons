@@ -1,0 +1,5 @@
+{
+  "name": "Piston Hızı Hesaplama",
+  "desc": "Motor devri ve strok boyuna göre pistonun ortalama hızını hesaplar.",
+  "shortcode": "[hc_piston_hizi_hesaplama]"
+}

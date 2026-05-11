@@ -1,0 +1,5 @@
+{
+  "name": "Narinlik Oranı Hesaplama",
+  "desc": "Kolonların burkulma analizinde kullanılan narinlik oranını (slenderness ratio) hesaplar.",
+  "shortcode": "[hc_narinlik_orani_hesaplama]"
+}

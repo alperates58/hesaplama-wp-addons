@@ -1,0 +1,5 @@
+{
+  "name": "Mekanik Avantaj Hesaplama",
+  "desc": "Basit makinelerde uygulanan kuvvet ve elde edilen yük arasındaki mekanik avantaj oranını hesaplar.",
+  "shortcode": "[hc_mekanik_avantaj_hesaplama]"
+}

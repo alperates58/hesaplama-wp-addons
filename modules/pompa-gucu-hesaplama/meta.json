@@ -1,0 +1,5 @@
+{
+  "name": "Pompa Gücü Hesaplama",
+  "desc": "Debi, basma yüksekliği ve verimlilik değerlerine göre gerekli pompa mil gücünü hesaplar.",
+  "shortcode": "[hc_pompa_gucu_hesaplama]"
+}

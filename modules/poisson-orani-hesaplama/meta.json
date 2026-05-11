@@ -1,0 +1,5 @@
+{
+  "name": "Poisson Oranı Hesaplama",
+  "desc": "Malzemelerin boyuna ve enine birim şekil değiştirmelerini kullanarak Poisson oranını hesaplar.",
+  "shortcode": "[hc_poisson_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Makine Kullanılabilirlik Hesaplama",
+  "desc": "Bir makinenin planlanan üretim süresine oranla gerçek çalışma süresini (Availability) hesaplar.",
+  "shortcode": "[hc_makine_kullanilabilirlik_hesaplama]"
+}

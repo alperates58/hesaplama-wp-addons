@@ -1,0 +1,28 @@
+.hc-result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.hc-result-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.hc-result-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.hc-result-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--hc-primary);
+}

@@ -1,0 +1,5 @@
+{
+  "name": "OEE Genel Ekipman Etkinliği Hesaplama",
+  "desc": "Üretim verimliliğini ölçmek için Kullanılabilirlik, Performans ve Kalite oranlarını kullanarak OEE değerini hesaplar.",
+  "shortcode": "[hc_oee_genel_ekipman_etkinligi_hesaplama]"
+}

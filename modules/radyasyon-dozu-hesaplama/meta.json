@@ -1,0 +1,5 @@
+{
+  "name": "Radyasyon Dozu Hesaplama",
+  "desc": "Ters kare yasasını kullanarak radyasyon kaynağına olan mesafeye göre doz değişimini hesaplar.",
+  "shortcode": "[hc_radyasyon_dozu_hesaplama]"
+}

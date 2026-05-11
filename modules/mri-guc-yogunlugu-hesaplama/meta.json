@@ -1,0 +1,5 @@
+{
+  "name": "MRI Güç Yoğunluğu Hesaplama",
+  "desc": "MRI çekimi sırasında doku tarafından absorbe edilen spesifik enerji oranını (SAR) hesaplar.",
+  "shortcode": "[hc_mri_guc_yogunlugu_hesaplama]"
+}

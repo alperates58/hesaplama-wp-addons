@@ -1,0 +1,5 @@
+{
+  "name": "Nem İçeriği Hesaplama",
+  "desc": "Malzemelerin yaş ve kuru ağırlıklarına göre içerdikleri nem miktarını yüzde olarak hesaplar.",
+  "shortcode": "[hc_nem_icerigi_hesaplama]"
+}

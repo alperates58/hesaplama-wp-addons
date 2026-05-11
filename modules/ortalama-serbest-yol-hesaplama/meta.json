@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Serbest Yol Hesaplama",
+  "desc": "Gaz moleküllerinin birbirleriyle çarpışmadan önce katettikleri ortalama mesafeyi hesaplar.",
+  "shortcode": "[hc_ortalama_serbest_yol_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "MTTR Ortalama Onarım Süresi Hesaplama",
+  "desc": "Arızalı bir cihazın veya sistemin onarılması için geçen ortalama süreyi (Mean Time To Repair) hesaplar.",
+  "shortcode": "[hc_mttr_ortalama_onarim_suresi_hesaplama]"
+}

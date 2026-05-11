@@ -1,0 +1,5 @@
+{
+  "name": "Motor Akımı Hesaplama",
+  "desc": "Motorun gücü, voltajı, güç faktörü ve verimliliğine göre çekeceği akımı hesaplar.",
+  "shortcode": "[hc_motor_akimi_hesaplama]"
+}

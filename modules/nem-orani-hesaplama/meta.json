@@ -1,0 +1,5 @@
+{
+  "name": "Nem Oranı Hesaplama",
+  "desc": "Sıcaklık ve çiğ noktası değerlerine göre havadaki bağıl nem oranını hesaplar.",
+  "shortcode": "[hc_nem_orani_hesaplama]"
+}

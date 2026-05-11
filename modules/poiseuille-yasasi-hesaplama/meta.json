@@ -1,0 +1,5 @@
+{
+  "name": "Poiseuille Yasası Hesaplama",
+  "desc": "Laminer akışta bir boru içindeki debiyi (Q) veya basınç farkını (ΔP) hesaplar.",
+  "shortcode": "[hc_poiseuille_yasasi_hesaplama]"
+}

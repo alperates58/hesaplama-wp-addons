@@ -1,0 +1,5 @@
+{
+  "name": "PCB İz Genişliği Hesaplama",
+  "desc": "IPC-2221 standardına göre akım ve sıcaklık artışına bağlı olarak gerekli PCB yol genişliğini hesaplar.",
+  "shortcode": "[hc_pcb_iz_genisligi_hesaplama]"
+}

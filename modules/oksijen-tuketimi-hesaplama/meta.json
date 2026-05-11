@@ -1,0 +1,5 @@
+{
+  "name": "Oksijen Tüketimi Hesaplama",
+  "desc": "Vücut ağırlığı ve aktivite yoğunluğuna (MET) göre dakikalık oksijen tüketimini (VO2) hesaplar.",
+  "shortcode": "[hc_oksijen_tuketimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Protez Yük Hesaplama",
+  "desc": "Vücut ağırlığı ve aktivite türüne göre protez üzerine binen dinamik yükü hesaplar.",
+  "shortcode": "[hc_protez_yuk_hesaplama]"
+}

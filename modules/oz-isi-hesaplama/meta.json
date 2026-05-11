@@ -1,0 +1,5 @@
+{
+  "name": "Öz Isı Hesaplama",
+  "desc": "Kütle, sıcaklık değişimi ve aktarılan ısıya göre bir maddenin öz ısısını (c) hesaplar.",
+  "shortcode": "[hc_oz_isi_hesaplama]"
+}

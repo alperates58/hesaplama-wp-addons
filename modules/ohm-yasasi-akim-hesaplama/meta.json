@@ -1,0 +1,5 @@
+{
+  "name": "Ohm Yasası Akım Hesaplama",
+  "desc": "Akımı (I) gerilim (V) ve direnç (R) değerlerini kullanarak hesaplar.",
+  "shortcode": "[hc_ohm_yasasi_akim_hesaplama]"
+}

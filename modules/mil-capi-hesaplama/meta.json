@@ -1,0 +1,5 @@
+{
+  "name": "Mil Çapı Hesaplama",
+  "desc": "İletilecek tork ve malzemenin emniyet gerilmesine göre gerekli mil çapını hesaplar.",
+  "shortcode": "[hc_mil_capi_hesaplama]"
+}

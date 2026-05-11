@@ -1,0 +1,5 @@
+{
+  "name": "MOSFET Hesaplama",
+  "desc": "MOSFET doyma bölgesi akımını (ID) ve direnç parametrelerini hesaplar.",
+  "shortcode": "[hc_mosfet_hesaplama]"
+}

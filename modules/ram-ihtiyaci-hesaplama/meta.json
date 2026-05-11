@@ -1,0 +1,5 @@
+{
+  "name": "RAM İhtiyacı Hesaplama",
+  "desc": "Sunucu veya sistem kullanıcı sayısına ve uygulama yüküne göre gereken toplam RAM miktarını hesaplar.",
+  "shortcode": "[hc_ram_ihtiyaci_hesaplama]"
+}

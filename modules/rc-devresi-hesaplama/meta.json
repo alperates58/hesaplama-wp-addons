@@ -1,0 +1,5 @@
+{
+  "name": "RC Devresi Hesaplama",
+  "desc": "Direnç ve kondansatör değerlerine göre zaman sabitini (tau) ve kesim frekansını hesaplar.",
+  "shortcode": "[hc_rc_devresi_hesaplama]"
+}

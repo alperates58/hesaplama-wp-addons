@@ -1,0 +1,39 @@
+.hc-result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.hc-result-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+}
+
+.hc-result-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.hc-result-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--hc-primary);
+}
+
+.hc-result-unit {
+    font-size: 0.8rem;
+    color: #adb5bd;
+}
+
+@media (max-width: 480px) {
+    .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

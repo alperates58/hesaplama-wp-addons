@@ -1,0 +1,5 @@
+{
+  "name": "Pastörizasyon Süresi Hesaplama",
+  "desc": "Gıda güvenliği standartlarına (F-değeri) göre belirli bir sıcaklıkta gerekli pastörizasyon süresini hesaplar.",
+  "shortcode": "[hc_pastorizasyon_suresi_hesaplama]"
+}

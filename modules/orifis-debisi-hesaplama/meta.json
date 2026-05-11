@@ -1,0 +1,5 @@
+{
+  "name": "Orifis Debisi Hesaplama",
+  "desc": "Bir orifis plakasından geçen akışkanın debisini (Q) basınç farkına göre hesaplar.",
+  "shortcode": "[hc_orifis_debisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ohm Yasası Güç Hesaplama",
+  "desc": "Elektriksel gücü (P) gerilim (V) ve akım (I) değerlerini kullanarak hesaplar.",
+  "shortcode": "[hc_ohm_yasasi_guc_hesaplama]"
+}

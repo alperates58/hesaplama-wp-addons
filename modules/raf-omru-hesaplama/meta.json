@@ -1,0 +1,5 @@
+{
+  "name": "Raf Ömrü Hesaplama",
+  "desc": "Sıcaklığın raf ömrü üzerindeki etkisini Q10 modelini kullanarak hesaplar.",
+  "shortcode": "[hc_raf_omru_hesaplama]"
+}

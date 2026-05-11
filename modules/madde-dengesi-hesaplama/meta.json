@@ -1,0 +1,5 @@
+{
+  "name": "Madde Dengesi Hesaplama",
+  "desc": "İki farklı akışın karışımı sonrası oluşan yeni konsantrasyonu ve kütleyi hesaplar.",
+  "shortcode": "[hc_madde_dengesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "pH Ölçüm Hesaplama",
+  "desc": "Hidrojen iyonu konsantrasyonuna göre çözeltinin pH ve pOH değerlerini hesaplar.",
+  "shortcode": "[hc_ph_olcum_hesaplama]"
+}

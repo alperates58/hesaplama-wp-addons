@@ -1,0 +1,11 @@
+.hc-rf-guc-summary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+    background: rgba(var(--hc-primary-rgb), 0.1);
+    border-radius: 8px;
+}
+
+#hc-rf-res-dbm { color: var(--hc-primary); }
+#hc-rf-res-watt { color: #2ecc71; }

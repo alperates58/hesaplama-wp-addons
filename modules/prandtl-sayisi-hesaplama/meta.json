@@ -1,0 +1,5 @@
+{
+  "name": "Prandtl Sayısı Hesaplama",
+  "desc": "Momentum difüzyonunun ısıl difüzyona oranını belirleyen Prandtl sayısını hesaplar.",
+  "shortcode": "[hc_prandtl_sayisi_hesaplama]"
+}

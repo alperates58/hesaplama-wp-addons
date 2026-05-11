@@ -1,0 +1,5 @@
+{
+  "name": "MTBF Ortalama Arızalar Arası Süre Hesaplama",
+  "desc": "Sistemin iki arıza arasında geçen ortalama çalışma süresini (Mean Time Between Failures) hesaplar.",
+  "shortcode": "[hc_mtbf_ortalama_arizalar_arasi_sure_hesaplama]"
+}

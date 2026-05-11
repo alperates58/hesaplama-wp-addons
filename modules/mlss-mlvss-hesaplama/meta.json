@@ -1,0 +1,5 @@
+{
+  "name": "MLSS MLVSS Hesaplama",
+  "desc": "Atık su arıtma tesislerinde aktif çamur konsantrasyonunu (MLSS ve MLVSS) hesaplar.",
+  "shortcode": "[hc_mlss_mlvss_hesaplama]"
+}

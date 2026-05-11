@@ -1,0 +1,5 @@
+{
+  "name": "NPSH Pompa Emiş Yükü Hesaplama",
+  "desc": "Pompanın kavitasyona girmemesi için gerekli olan Net Pozitif Emme Yükü (NPSH) değerini hesaplar.",
+  "shortcode": "[hc_npsh_pompa_emis_yuku_hesaplama]"
+}

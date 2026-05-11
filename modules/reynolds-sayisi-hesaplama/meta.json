@@ -1,0 +1,5 @@
+{
+  "name": "Reynolds Sayısı Hesaplama",
+  "desc": "Akışın karakterini (laminer veya türbülanslı) belirlemek için Reynolds sayısını hesaplar.",
+  "shortcode": "[hc_reynolds_sayisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Paralel Kondansatör Hesaplama",
+  "desc": "Paralel bağlı kondansatörlerin toplam kapasitansını hesaplar.",
+  "shortcode": "[hc_paralel_kondansator_hesaplama]"
+}

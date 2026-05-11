@@ -1,0 +1,5 @@
+{
+  "name": "Motor Verimi Hesaplama",
+  "desc": "Elektrik motorunun giriş ve çıkış gücüne göre verimlilik yüzdesini hesaplar.",
+  "shortcode": "[hc_motor_verimi_hesaplama]"
+}
