@@ -1,0 +1,5 @@
+{
+  "name": "Aydınlatma Seviyesi Hesaplama",
+  "desc": "Bir alanın ortalama aydınlık düzeyini (Lüks) armatür sayısı ve lümen değerine göre hesaplar.",
+  "shortcode": "[hc_aydinlatma_seviyesi_hesaplama]"
+}

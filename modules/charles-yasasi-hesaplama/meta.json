@@ -1,0 +1,5 @@
+{
+  "name": "Charles Yasası Hesaplama",
+  "desc": "Sabit basınçtaki ideal bir gazın hacmi ile sıcaklığı arasındaki doğru orantılı ilişkiyi (V1/T1 = V2/T2) hesaplar.",
+  "shortcode": "[hc_charles_yasasi_hesaplama]"
+}

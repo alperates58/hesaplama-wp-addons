@@ -1,0 +1,5 @@
+{
+  "name": "Boru Hattı Basınç Düşümü Hesaplama",
+  "desc": "Boru hattındaki sürtünme kaynaklı basınç kaybını Darcy-Weisbach denklemi ile hesaplar.",
+  "shortcode": "[hc_boru_hatti_basinc_dusumu_hesaplama]"
+}

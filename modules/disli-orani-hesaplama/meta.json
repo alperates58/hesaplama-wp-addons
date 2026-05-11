@@ -1,0 +1,5 @@
+{
+  "name": "Dişli Oranı Hesaplama",
+  "desc": "İki dişli arasındaki diş sayılarına veya çaplarına göre dişli oranını (Gear Ratio) hesaplar.",
+  "shortcode": "[hc_disli_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Bernoulli Denklemi Hesaplama",
+  "desc": "İdeal bir akışkanın iki noktası arasındaki basınç, hız ve yükseklik ilişkisini Bernoulli denklemi ile hesaplar.",
+  "shortcode": "[hc_bernoulli_denklemi_hesaplama]"
+}

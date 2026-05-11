@@ -1,0 +1,5 @@
+{
+  "name": "Egzoz Borusu Çapı Hesaplama",
+  "desc": "Motor gücü veya egzoz gazı debisine göre, geri basıncı minimize eden uygun egzoz borusu çapını hesaplar.",
+  "shortcode": "[hc_egzoz_borusu_capi_hesaplama]"
+}

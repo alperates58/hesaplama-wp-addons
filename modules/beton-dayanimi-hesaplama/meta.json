@@ -1,0 +1,5 @@
+{
+  "name": "Beton Dayanımı Hesaplama",
+  "desc": "Betonun zamana bağlı dayanım gelişimini (t. gündeki basınç dayanımı) çimento tipine göre hesaplar.",
+  "shortcode": "[hc_beton_dayanimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çözme Süresi Hesaplama",
+  "desc": "Dondurulmuş gıdaların kalınlık ve çözme yöntemine (buzdolabı, su, oda sıcaklığı) göre tahmini çözülme süresini hesaplar.",
+  "shortcode": "[hc_cozme_suresi_hesaplama]"
+}

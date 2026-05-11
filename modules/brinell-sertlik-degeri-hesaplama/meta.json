@@ -1,0 +1,5 @@
+{
+  "name": "Brinell Sertlik Değeri Hesaplama",
+  "desc": "Malzeme biliminde, bir bilye baskı ucu kullanılarak elde edilen Brinell sertlik değerini (HBW) hesaplar.",
+  "shortcode": "[hc_brinell_sertlik_degeri_hesaplama]"
+}

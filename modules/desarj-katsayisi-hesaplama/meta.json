@@ -1,0 +1,5 @@
+{
+  "name": "Deşarj Katsayısı Hesaplama",
+  "desc": "Bir orifis, lüle veya venturiden geçen akışkanın gerçek debisinin teorik debisine oranını (Cd) hesaplar.",
+  "shortcode": "[hc_desarj_katsayisi_hesaplama]"
+}

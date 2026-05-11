@@ -1,0 +1,5 @@
+{
+  "name": "Çevrim Süresi Hesaplama",
+  "desc": "Endüstriyel üretimde, bir birim ürünün tamamlanması için geçen ortalama süreyi (Cycle Time) hesaplar.",
+  "shortcode": "[hc_cevrim_suresi_hesaplama]"
+}

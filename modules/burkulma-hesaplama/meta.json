@@ -1,0 +1,5 @@
+{
+  "name": "Burkulma Hesaplama",
+  "desc": "İnce kolonların kritik burkulma yükünü (Pcr) Euler formülü kullanarak uç koşullarına göre hesaplar.",
+  "shortcode": "[hc_burkulma_hesaplama]"
+}

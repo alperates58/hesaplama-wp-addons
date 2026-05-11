@@ -1,0 +1,5 @@
+{
+  "name": "Batarya Şarj Süresi Hesaplama",
+  "desc": "Batarya kapasitesi ve şarj akımına göre tahmini şarj süresini verimlilik kaybını da hesaba katarak hesaplar.",
+  "shortcode": "[hc_batarya_sarj_suresi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "COP Performans Katsayısı Hesaplama",
+  "desc": "Isı pompaları ve soğutma sistemlerinin verimliliğini gösteren COP (Coefficient of Performance) değerini hesaplar.",
+  "shortcode": "[hc_cop_performans_katsayisi_hesaplama]"
+}

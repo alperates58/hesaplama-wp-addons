@@ -1,0 +1,5 @@
+{
+  "name": "Damıtma Kolonu Hesaplama",
+  "desc": "Fenske denklemini kullanarak, istenen saflıktaki ürünler için gerekli minimum teorik kademe sayısını hesaplar.",
+  "shortcode": "[hc_damitma_kolonu_hesaplama]"
+}

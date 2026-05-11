@@ -1,0 +1,5 @@
+{
+  "name": "Çevresel Gerilme Hesaplama",
+  "desc": "Basınçlı kaplarda ve borularda oluşan çevresel gerilmeyi (hoop stress) iç basınç ve geometriye göre hesaplar.",
+  "shortcode": "[hc_cevresel_gerilme_hesaplama]"
+}

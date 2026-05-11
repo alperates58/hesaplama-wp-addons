@@ -1,0 +1,5 @@
+{
+  "name": "Deprem Yükü Hesaplama",
+  "desc": "Türkiye Bina Deprem Yönetmeliği (TBDY 2018) prensiplerine göre, binaya etki eden toplam eşdeğer deprem yükünü (taban kesme kuvveti) hesaplar.",
+  "shortcode": "[hc_deprem_yuku_hesaplama]"
+}

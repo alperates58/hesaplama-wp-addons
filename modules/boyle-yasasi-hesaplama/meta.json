@@ -1,0 +1,5 @@
+{
+  "name": "Boyle Yasası Hesaplama",
+  "desc": "Sabit sıcaklıktaki ideal bir gazın basınç ve hacim arasındaki ters orantılı ilişkiyi (P1·V1 = P2·V2) hesaplar.",
+  "shortcode": "[hc_boyle_yasasi_hesaplama]"
+}

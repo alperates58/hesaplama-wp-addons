@@ -1,0 +1,5 @@
+{
+  "name": "Betonarme Kolon Boyutu Hesaplama",
+  "desc": "Binanın kat sayısı ve yüküne bağlı olarak, TS 500 ve TBDY standartlarına göre kaba kolon kesit alanını hesaplar.",
+  "shortcode": "[hc_betonarme_kolon_boyutu_hesaplama]"
+}

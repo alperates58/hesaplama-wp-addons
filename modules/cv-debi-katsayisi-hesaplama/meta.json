@@ -1,0 +1,5 @@
+{
+  "name": "Cv Debi Katsayısı Hesaplama",
+  "desc": "Valf ve boru bileşenlerinin debi kapasitesini (Cv ve Kv katsayıları) hesaplar.",
+  "shortcode": "[hc_cv_debi_katsayisi_hesaplama]"
+}

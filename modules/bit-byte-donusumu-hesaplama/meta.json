@@ -1,0 +1,5 @@
+{
+  "name": "Bit Byte Dönüşümü Hesaplama",
+  "desc": "Veri depolama ve transfer hızlarını bit, byte, kilobyte gibi farklı birimler arasında dönüştürür.",
+  "shortcode": "[hc_bit_byte_donusumu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Atık Su Debisi Hesaplama",
+  "desc": "Nüfus ve kişi başı su tüketimine dayalı olarak kanalizasyon şebekesi için atık su debisini hesaplar.",
+  "shortcode": "[hc_atik_su_debisi_hesaplama]"
+}

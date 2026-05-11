@@ -1,0 +1,5 @@
+{
+  "name": "Basınç Hesaplama",
+  "desc": "Bir yüzeye uygulanan kuvvetin birim alana düşen miktarını (P = F / A) hesaplar.",
+  "shortcode": "[hc_basinc_hesaplama]"
+}

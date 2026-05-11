@@ -1,0 +1,5 @@
+{
+  "name": "Direnç Renk Kodu Hesaplama",
+  "desc": "Direnç üzerindeki renkli bantlara göre direnç değerini (Ohm) ve tolerans yüzdesini hesaplar.",
+  "shortcode": "[hc_direnc_renk_kodu_hesaplama]"
+}

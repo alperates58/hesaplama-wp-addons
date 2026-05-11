@@ -1,0 +1,5 @@
+{
+  "name": "CPU Kullanım Oranı Hesaplama",
+  "desc": "Bir işlemcinin toplam zaman dilimi içindeki aktif çalışma süresine göre kullanım yüzdesini hesaplar.",
+  "shortcode": "[hc_cpu_kullanim_orani_hesaplama]"
+}

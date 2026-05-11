@@ -1,0 +1,5 @@
+{
+  "name": "Biot Sayısı Hesaplama",
+  "desc": "Isı transferi analizinde, bir cismin içindeki ısıl direncin yüzeyindeki ısıl dirence oranını (Biot sayısı) hesaplar.",
+  "shortcode": "[hc_biot_sayisi_hesaplama]"
+}

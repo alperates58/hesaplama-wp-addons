@@ -1,0 +1,5 @@
+{
+  "name": "Boru Debisi Hesaplama",
+  "desc": "Boru çapı ve akış hızına göre borudan geçen akışkanın debisini hesaplar.",
+  "shortcode": "[hc_boru_debisi_hesaplama]"
+}

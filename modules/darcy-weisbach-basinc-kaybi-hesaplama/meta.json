@@ -1,0 +1,5 @@
+{
+  "name": "Darcy-Weisbach Basınç Kaybı Hesaplama",
+  "desc": "Boru içindeki akışta oluşan sürtünme kaynaklı yük kaybını (head loss) Darcy-Weisbach denklemi ile hesaplar.",
+  "shortcode": "[hc_darcy_weisbach_basinc_kaybi_hesaplama]"
+}

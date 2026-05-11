@@ -1,0 +1,5 @@
+{
+  "name": "Biyosensör Duyarlılık Hesaplama",
+  "desc": "Biyosensörün birim konsantrasyon değişimine verdiği tepkiyi (duyarlılık) sinyal değişimi ve elektrot alanına göre hesaplar.",
+  "shortcode": "[hc_biyosensor_duyarlilik_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "CNC Kesim Süresi Hesaplama",
+  "desc": "CNC tezgahlarında yapılacak kesim işleminin toplam yol ve ilerleme hızına göre tahmini süresini hesaplar.",
+  "shortcode": "[hc_cnc_kesim_suresi_hesaplama]"
+}

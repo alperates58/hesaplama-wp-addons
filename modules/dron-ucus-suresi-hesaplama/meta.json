@@ -1,0 +1,5 @@
+{
+  "name": "Dron Uçuş Süresi Hesaplama",
+  "desc": "Dronun batarya kapasitesi ve motorların çektiği akıma bağlı olarak tahmini uçuş süresini hesaplar.",
+  "shortcode": "[hc_dron_ucus_suresi_hesaplama]"
+}

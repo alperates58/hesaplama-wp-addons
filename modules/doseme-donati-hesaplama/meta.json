@@ -1,0 +1,5 @@
+{
+  "name": "Döşeme Donatı Hesaplama",
+  "desc": "Betonarme döşemeler için eğilme momenti ve tasarım standartlarına göre gerekli çelik donatı alanını hesaplar.",
+  "shortcode": "[hc_doseme_donati_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Dişli Oranına Göre Devir Hesaplama",
+  "desc": "Giriş devir sayısı ve dişli oranına bağlı olarak çıkış milinin devir sayısını (RPM) hesaplar.",
+  "shortcode": "[hc_disli_oranina_gore_devir_hesaplama]"
+}

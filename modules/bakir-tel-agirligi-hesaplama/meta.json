@@ -1,0 +1,5 @@
+{
+  "name": "Bakır Tel Ağırlığı Hesaplama",
+  "desc": "Belirli bir çap ve uzunluktaki bakır telin toplam ağırlığını hesaplar.",
+  "shortcode": "[hc_bakir_tel_agirligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Buharlaşma Hızı Hesaplama",
+  "desc": "Su yüzeyinden (havuz, depo vb.) birim zamanda buharlaşan su miktarını sıcaklık, nem ve rüzgar hızına göre hesaplar.",
+  "shortcode": "[hc_buharlasma_hizi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Duyulur Isı Hesaplama",
+  "desc": "Bir maddenin sıcaklığını değiştirmek için gereken ısı enerjisini (Q = m·c·ΔT) hesaplar.",
+  "shortcode": "[hc_duyulur_isi_hesaplama]"
+}

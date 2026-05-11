@@ -1,0 +1,5 @@
+{
+  "name": "Darboğaz Analizi Hesaplama",
+  "desc": "Üretim hattındaki farklı istasyonların kapasitelerini karşılaştırarak sistemin toplam kapasitesini ve darboğaz (en yavaş) noktasını belirler.",
+  "shortcode": "[hc_darbogaz_analizi_hesaplama]"
+}

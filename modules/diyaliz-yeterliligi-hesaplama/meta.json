@@ -1,0 +1,5 @@
+{
+  "name": "Diyaliz Yeterliliği Hesaplama",
+  "desc": "Daugirdas formülü kullanarak, hemodiyaliz tedavisinin etkinliğini gösteren Kt/V değerini hesaplar.",
+  "shortcode": "[hc_diyaliz_yeterliligi_hesaplama]"
+}

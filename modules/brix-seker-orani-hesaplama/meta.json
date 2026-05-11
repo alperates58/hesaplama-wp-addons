@@ -1,0 +1,5 @@
+{
+  "name": "Brix Şeker Oranı Hesaplama",
+  "desc": "Bir çözeltideki çözünmüş şeker miktarını (Brix yüzdesi) kütle oranına göre hesaplar.",
+  "shortcode": "[hc_brix_seker_orani_hesaplama]"
+}

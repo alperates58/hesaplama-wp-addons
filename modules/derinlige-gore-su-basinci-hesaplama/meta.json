@@ -1,0 +1,5 @@
+{
+  "name": "Derinliğe Göre Su Basıncı Hesaplama",
+  "desc": "Suyun derinliğine bağlı olarak oluşan statik basıncı (hidrostatik basınç) hesaplar.",
+  "shortcode": "[hc_derinlige_gore_su_basinci_hesaplama]"
+}

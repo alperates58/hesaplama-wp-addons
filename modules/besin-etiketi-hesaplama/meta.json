@@ -1,0 +1,5 @@
+{
+  "name": "Besin Etiketi Hesaplama",
+  "desc": "Besinlerin makro değerlerine (protein, yağ, karbonhidrat) göre toplam kalori miktarını ve günlük değer yüzdelerini hesaplar.",
+  "shortcode": "[hc_besin_etiketi_hesaplama]"
+}

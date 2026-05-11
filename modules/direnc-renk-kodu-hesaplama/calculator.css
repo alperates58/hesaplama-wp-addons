@@ -1,0 +1,19 @@
+.hc-rk-select option {
+    padding: 5px;
+    font-weight: bold;
+}
+
+#hc-rk-bands select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#hc-rk-bands select:focus {
+    border-color: #3498db;
+    outline: none;
+}

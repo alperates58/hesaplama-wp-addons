@@ -1,0 +1,5 @@
+{
+  "name": "Dron Yük Kapasitesi Hesaplama",
+  "desc": "Dronun motor itki gücü (thrust) ve kendi ağırlığına bağlı olarak taşıyabileceği maksimum faydalı yükü hesaplar.",
+  "shortcode": "[hc_dron_yuk_kapasitesi_hesaplama]"
+}

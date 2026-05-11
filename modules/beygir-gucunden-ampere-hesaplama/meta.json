@@ -1,0 +1,5 @@
+{
+  "name": "Beygir Gücünden Ampere Hesaplama",
+  "desc": "Elektrik motorlarının beygir gücü (HP) değerini, çalışma gerilimi ve faz sayısına göre Amper cinsinden akıma dönüştürür.",
+  "shortcode": "[hc_beygir_gucunden_ampere_hesaplama]"
+}

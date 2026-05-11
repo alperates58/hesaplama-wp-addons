@@ -1,0 +1,5 @@
+{
+  "name": "Direnç Gücü Hesaplama",
+  "desc": "Elektriksel bir direnç üzerinde harcanan gücü (Watt), gerilim, akım veya direnç değerlerine göre hesaplar.",
+  "shortcode": "[hc_direnc_gucu_hesaplama]"
+}

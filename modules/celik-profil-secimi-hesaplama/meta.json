@@ -1,0 +1,5 @@
+{
+  "name": "Çelik Profil Seçimi Hesaplama",
+  "desc": "Belirli bir yük ve açıklığa göre eğilme dayanımı için gerekli olan çelik profil mukavemet momentini (Wx) hesaplar.",
+  "shortcode": "[hc_celik_profil_secimi_hesaplama]"
+}

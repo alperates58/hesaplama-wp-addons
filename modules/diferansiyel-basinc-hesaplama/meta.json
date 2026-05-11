@@ -1,0 +1,5 @@
+{
+  "name": "Diferansiyel Basınç Hesaplama",
+  "desc": "İki nokta arasındaki basınç farkını (fark basıncı) hesaplar ve farklı birimlere dönüştürür.",
+  "shortcode": "[hc_diferansiyel_basinc_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Boru Çapı Hesaplama",
+  "desc": "Debi ve akış hızına bağlı olarak gerekli boru iç çapını hesaplar.",
+  "shortcode": "[hc_boru_capi_hesaplama]"
+}

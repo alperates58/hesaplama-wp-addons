@@ -1,0 +1,5 @@
+{
+  "name": "Carnot Verimi Hesaplama",
+  "desc": "Teorik olarak mümkün olan en yüksek ısı motoru verimliliğini (Carnot çevrimi) sıcaklık farkına göre hesaplar.",
+  "shortcode": "[hc_carnot_verimi_hesaplama]"
+}

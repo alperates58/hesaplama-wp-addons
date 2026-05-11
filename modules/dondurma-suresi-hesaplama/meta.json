@@ -1,0 +1,5 @@
+{
+  "name": "Dondurma Süresi Hesaplama",
+  "desc": "Gıdaların kalınlığı, su oranı ve dondurucu sıcaklığına bağlı olarak tahmini dondurulma süresini hesaplar.",
+  "shortcode": "[hc_dondurma_suresi_hesaplama]"
+}

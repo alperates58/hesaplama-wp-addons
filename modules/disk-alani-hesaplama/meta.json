@@ -1,0 +1,5 @@
+{
+  "name": "Disk Alanı Hesaplama",
+  "desc": "Veri depolama alanının kullanım oranını ve kalan alana ne kadar video/fotoğraf sığabileceğini hesaplar.",
+  "shortcode": "[hc_disk_alani_hesaplama]"
+}

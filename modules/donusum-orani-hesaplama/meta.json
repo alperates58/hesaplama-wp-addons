@@ -1,0 +1,5 @@
+{
+  "name": "Dönüşüm Oranı Hesaplama",
+  "desc": "Web siteleri ve pazarlama kampanyaları için toplam ziyaretçi sayısına göre hedeflenen eylemin (satış, kayıt vb.) gerçekleşme yüzdesini hesaplar.",
+  "shortcode": "[hc_donusum_orani_hesaplama]"
+}

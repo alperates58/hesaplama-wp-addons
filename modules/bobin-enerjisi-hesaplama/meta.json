@@ -1,0 +1,5 @@
+{
+  "name": "Bobin Enerjisi Hesaplama",
+  "desc": "Bir indüktörde (bobin) manyetik alan olarak depolanan enerjiyi hesaplar.",
+  "shortcode": "[hc_bobin_enerjisi_hesaplama]"
+}

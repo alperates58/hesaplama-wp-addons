@@ -1,0 +1,5 @@
+{
+  "name": "Darcy Yasası Hesaplama",
+  "desc": "Akışkanların gözenekli bir ortamdaki (toprak, kum vb.) akış debisini Darcy yasası ile hesaplar.",
+  "shortcode": "[hc_darcy_yasasi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "DC Kablo Kesiti Hesaplama",
+  "desc": "Doğru akım (DC) sistemlerinde, kablo uzunluğu ve akım değerine göre gerilim düşümünü minimize eden uygun kablo kesitini hesaplar.",
+  "shortcode": "[hc_dc_kablo_kesiti_hesaplama]"
+}

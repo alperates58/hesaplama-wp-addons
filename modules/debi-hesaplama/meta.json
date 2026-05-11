@@ -1,0 +1,5 @@
+{
+  "name": "Debi Hesaplama",
+  "desc": "Belirli bir kesitten birim zamanda geçen akışkan miktarını (hacimsel debi) hesaplar.",
+  "shortcode": "[hc_debi_hesaplama]"
+}
