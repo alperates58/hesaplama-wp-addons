@@ -1,0 +1,5 @@
+{
+  "name": "E-Ticaret Kar Hesaplama",
+  "desc": "Tüm maliyet kalemlerini (maliyet, komisyon, kargo, reklam, vergi) kapsayan detaylı e-ticaret kârlılık analizi yapar.",
+  "shortcode": "[hc_e_ticaret_kar_hesaplama]"
+}

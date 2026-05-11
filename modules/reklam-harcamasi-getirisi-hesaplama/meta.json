@@ -1,0 +1,5 @@
+{
+  "name": "Reklam Harcaması Getirisi Hesaplama",
+  "desc": "Reklam harcamalarınızın getirisini (ROAS) yüzde ve katsayı olarak hesaplayarak kampanya başarısını ölçer.",
+  "shortcode": "[hc_reklam_harcamasi_getirisi_hesaplama]"
+}

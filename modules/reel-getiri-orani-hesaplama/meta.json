@@ -1,0 +1,5 @@
+{
+  "name": "Reel Getiri Oranı Hesaplama",
+  "desc": "Yatırımınızın nominal getirisini enflasyondan arındırarak gerçek alım gücü artışını (Reel Getiri) hesaplar.",
+  "shortcode": "[hc_reel_getiri_orani_hesaplama]"
+}

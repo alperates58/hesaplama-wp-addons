@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Kartı Faizi Hesaplama",
+  "desc": "Kredi kartı alışveriş ve nakit avans faizlerini gün bazlı olarak KKDF ve BSMV dahil hesaplar.",
+  "shortcode": "[hc_kredi_karti_faizi_hesaplama]"
+}

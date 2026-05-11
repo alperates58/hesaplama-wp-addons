@@ -1,0 +1,5 @@
+{
+  "name": "Kira Stopajı Hesaplama",
+  "desc": "İşyeri kira ödemeleri için brütten nete veya netten brüte %20 oranında kira stopajını hesaplar.",
+  "shortcode": "[hc_kira_stopaji_hesaplama]"
+}

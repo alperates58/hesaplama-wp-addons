@@ -3,44 +3,36 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kurumlar_vergisi_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-kurumlar-vergi',
+        'hc-kurumlar-vergisi',
         HC_PLUGIN_URL . 'modules/kurumlar-vergisi-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-kurumlar-vergi-css',
+        'hc-kurumlar-vergisi-css',
         HC_PLUGIN_URL . 'modules/kurumlar-vergisi-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-kurumlar-vergisi-hesaplama">
+    <div class="hc-calculator" id="hc-kurumlar-vergi">
         <h3>Kurumlar Vergisi Hesaplama (2026)</h3>
-        
         <div class="hc-form-group">
-            <label for="hc-kv-profit">Kurum Kazancı (Ticari Kar) (TL)</label>
-            <input type="number" id="hc-kv-profit" placeholder="Vergi öncesi kar">
+            <label for="hc-kv-amount">Mali Kâr / Vergi Matrahı (₺)</label>
+            <input type="number" id="hc-kv-amount" placeholder="Örn: 1.000.000">
         </div>
-
         <div class="hc-form-group">
-            <label for="hc-kv-type">Şirket Türü</label>
-            <select id="hc-kv-type">
-                <option value="25">Genel Şirketler (%25)</option>
-                <option value="30">Finansal Kuruluşlar (%30)</option>
-                <option value="20">İhracat Yapan Şirketler (%20)</option>
-            </select>
+            <label for="hc-kv-rate">Kurumlar Vergisi Oranı (%)</label>
+            <input type="number" id="hc-kv-rate" value="25" step="0.1">
         </div>
-        
-        <button class="hc-btn" onclick="hcKurumlarVergisiHesapla()">Hesapla</button>
-        
-        <div class="hc-result" id="hc-kurumlar-vergi-result">
+        <button class="hc-btn" onclick="hcKurumlarVergisiHesapla()">Vergi Hesapla</button>
+        <div class="hc-result" id="hc-kv-result">
             <div class="hc-result-item">
-                <span>Vergi Oranı:</span>
-                <strong id="hc-kv-res-rate">-</strong>
+                <span>Ödenecek Kurumlar Vergisi:</span>
+                <strong class="hc-result-value" id="hc-kv-res-total">-</strong>
             </div>
-            <div class="hc-result-value" id="hc-kv-res-total">
-                -
+            <div class="hc-result-item">
+                <span>Net Kâr (Vergi Sonrası):</span>
+                <strong id="hc-kv-res-net">-</strong>
             </div>
-            <p style="text-align:center; font-size: 0.9em; color: #666;">Toplam Kurumlar Vergisi</p>
         </div>
     </div>
     <?php

@@ -1,0 +1,5 @@
+{
+  "name": "SaaS Metrikleri Hesaplama",
+  "desc": "Aylık Tekrarlayan Gelir (MRR), Kayıp Oranı (Churn Rate) ve ARPU gibi temel SaaS işletme metriklerini hesaplar.",
+  "shortcode": "[hc_saas_metrikleri_hesaplama]"
+}

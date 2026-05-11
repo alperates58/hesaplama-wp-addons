@@ -1,25 +1,28 @@
-function hcKDV_DH_Hesapla() {
-    const amount = parseFloat(document.getElementById('hc-kdh-amount').value) || 0;
-    const rate = parseFloat(document.getElementById('hc-kdh-rate').value) / 100;
-    const type = document.getElementById('hc-kdh-type').value;
+function hcKdvDhHesapla() {
+    const type = document.getElementById('hc-kd-type').value;
+    const amount = parseFloat(document.getElementById('hc-kd-amount').value);
+    const rate = parseFloat(document.getElementById('hc-kd-rate').value) / 100;
 
-    let net = 0;
-    let tax = 0;
-    let total = 0;
-
-    if (type === 'excl') {
-        net = amount;
-        tax = amount * rate;
-        total = amount + tax;
-    } else {
-        total = amount;
-        net = amount / (1 + rate);
-        tax = total - net;
+    if (isNaN(amount) || amount <= 0) {
+        alert('Lütfen geçerli bir tutar girin.');
+        return;
     }
 
-    document.getElementById('hc-kdh-res-net').innerText = net.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-kdh-res-tax').innerText = tax.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-kdh-res-total').innerText = total.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+    let excl, tax, incl;
 
-    document.getElementById('hc-kdv-dh-result').classList.add('visible');
+    if (type === 'hariç') {
+        excl = amount;
+        tax = excl * rate;
+        incl = excl + tax;
+    } else {
+        incl = amount;
+        excl = incl / (1 + rate);
+        tax = incl - excl;
+    }
+
+    document.getElementById('hc-kd-res-excl').innerText = excl.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-kd-res-tax').innerText = tax.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-kd-res-incl').innerText = incl.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+
+    document.getElementById('hc-kd-result').classList.add('visible');
 }

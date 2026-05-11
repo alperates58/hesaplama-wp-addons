@@ -1,0 +1,22 @@
+.hc-beta-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hc-beta-table th, .hc-beta-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.hc-beta-table input {
+    width: 80%;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+.hc-beta-table input:focus {
+    outline: none;
+    background: #f9f9f9;
+}

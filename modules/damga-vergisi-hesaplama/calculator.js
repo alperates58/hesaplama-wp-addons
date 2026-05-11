@@ -1,11 +1,18 @@
 function hcDamgaVergisiHesapla() {
-    const amount = parseFloat(document.getElementById('hc-dv-amount').value) || 0;
+    const amount = parseFloat(document.getElementById('hc-dv-amount').value);
     const rate = parseFloat(document.getElementById('hc-dv-type').value);
 
-    const total = amount * rate;
+    if (isNaN(amount) || amount < 0) {
+        alert('Lütfen geçerli bir tutar girin.');
+        return;
+    }
 
-    document.getElementById('hc-dv-res-rate').innerText = '%' + (rate * 100).toLocaleString('tr-TR', { maximumFractionDigits: 3 });
-    document.getElementById('hc-dv-res-total').innerText = total.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+    let tax = amount * rate;
+    
+    // 2026 Tahmini Üst Sınır (Örn: 28.000.000 TL)
+    const limit = 28000000; 
+    if (tax > limit) tax = limit;
 
-    document.getElementById('hc-damga-result').classList.add('visible');
+    document.getElementById('hc-dv-res-total').innerText = tax.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-dv-result').classList.add('visible');
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Web Sitesi Reklam Geliri Hesaplama",
+  "desc": "Web sitenizdeki toplam gösterim ve bin gösterim başı kazanç (RPM) verilerine göre toplam reklam gelirinizi hesaplar.",
+  "shortcode": "[hc_web_sitesi_reklam_geliri_hesaplama]"
+}

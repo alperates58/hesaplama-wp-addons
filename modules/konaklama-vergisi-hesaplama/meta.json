@@ -1,0 +1,5 @@
+{
+  "name": "Konaklama Vergisi Hesaplama",
+  "desc": "Otel, pansiyon ve tatil köylerinde uygulanan %2 oranındaki konaklama vergisini ve KDV dahil toplam tutarı hesaplar.",
+  "shortcode": "[hc_konaklama_vergisi_hesaplama]"
+}

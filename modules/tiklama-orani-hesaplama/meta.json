@@ -1,0 +1,5 @@
+{
+  "name": "Tıklama Oranı Hesaplama",
+  "desc": "Reklam veya bağlantılarınızın görüntülenme sayısına göre tıklanma yüzdesini (CTR) hesaplar.",
+  "shortcode": "[hc_tiklama_orani_hesaplama]"
+}

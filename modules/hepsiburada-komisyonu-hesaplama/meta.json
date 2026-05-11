@@ -1,0 +1,5 @@
+{
+  "name": "Hepsiburada Komisyonu Hesaplama",
+  "desc": "Hepsiburada satıcıları için kategori bazlı komisyon ve kargo maliyetlerini hesaplayarak net kazancı analiz eder.",
+  "shortcode": "[hc_hepsiburada_komisyonu_hesaplama]"
+}

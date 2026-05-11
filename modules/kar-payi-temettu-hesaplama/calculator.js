@@ -1,16 +1,19 @@
-function hcTemettuHesapla() {
-    const profit = parseFloat(document.getElementById('hc-tm-profit').value) || 0;
-    const ratio = parseFloat(document.getElementById('hc-tm-ratio').value) / 100;
-    const share = parseFloat(document.getElementById('hc-tm-share').value) / 100;
+function hcKarPayiHesapla() {
+    const totalDiv = parseFloat(document.getElementById('hc-kp-total').value);
+    const capital = parseFloat(document.getElementById('hc-kp-capital').value);
+    const myShares = parseFloat(document.getElementById('hc-kp-shares').value);
 
-    const totalDistributed = profit * ratio;
-    const gross = totalDistributed * share;
-    const tax = gross * 0.10;
-    const net = gross - tax;
+    if (isNaN(totalDiv) || isNaN(capital) || isNaN(myShares) || capital <= 0) {
+        alert('Lütfen tüm alanları doldurun.');
+        return;
+    }
 
-    document.getElementById('hc-tm-res-gross').innerText = gross.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-tm-res-tax').innerText = tax.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-tm-res-net').innerText = net.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    const perShareGross = totalDiv / capital; // 1 TL nominal değerli pay başına
+    const myGross = myShares * perShareGross;
+    const myNet = myGross * 0.90; // %10 stopaj düşülmüş
 
-    document.getElementById('hc-temettu-result').classList.add('visible');
+    document.getElementById('hc-kp-res-per-share').innerText = perShareGross.toLocaleString('tr-TR', { minimumFractionDigits: 4 }) + ' ₺';
+    document.getElementById('hc-kp-res-your-total').innerText = myNet.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+
+    document.getElementById('hc-kp-result').classList.add('visible');
 }

@@ -1,0 +1,5 @@
+{
+  "name": "POS Komisyonu Hesaplama",
+  "desc": "Banka ve ödeme kuruluşu POS cihazları üzerinden yapılan satışların komisyon ve net tutar hesaplamasını yapar.",
+  "shortcode": "[hc_pos_komisyonu_hesaplama]"
+}

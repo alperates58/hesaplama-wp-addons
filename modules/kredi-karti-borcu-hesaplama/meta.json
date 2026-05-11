@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Kartı Borcu Hesaplama",
+  "desc": "Kredi kartı ekstre borcu, yapılan ödeme ve güncel faiz oranlarına göre gelecek dönem borcunu ve faiz yükünü hesaplar.",
+  "shortcode": "[hc_kredi_karti_borcu_hesaplama]"
+}

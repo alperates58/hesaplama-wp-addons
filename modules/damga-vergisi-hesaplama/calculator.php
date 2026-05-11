@@ -3,45 +3,38 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_damga_vergisi_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-damga-vergi',
+        'hc-damga-vergisi',
         HC_PLUGIN_URL . 'modules/damga-vergisi-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-damga-vergi-css',
+        'hc-damga-vergisi-css',
         HC_PLUGIN_URL . 'modules/damga-vergisi-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-damga-vergisi-hesaplama">
-        <h3>Damga Vergisi Hesaplama</h3>
-        
+    <div class="hc-calculator" id="hc-damga-vergi">
+        <h3>Damga Vergisi Hesaplama (2026)</h3>
         <div class="hc-form-group">
-            <label for="hc-dv-amount">Tutar (TL)</label>
-            <input type="number" id="hc-dv-amount" placeholder="Matrah">
+            <label for="hc-dv-amount">Sözleşme / Kağıt Bedeli (₺)</label>
+            <input type="number" id="hc-dv-amount" placeholder="Örn: 100.000">
         </div>
-
         <div class="hc-form-group">
-            <label for="hc-dv-type">Belge Türü</label>
+            <label for="hc-dv-type">Kağıt Türü</label>
             <select id="hc-dv-type">
-                <option value="0.00948">Sözleşmeler (%0.948)</option>
-                <option value="0.00759">Maaş / Ücret Ödemeleri (%0.759)</option>
-                <option value="0.00189">Kira Sözleşmeleri (%0.189)</option>
-                <option value="0.00569">İhale Kararları (%0.569)</option>
+                <option value="0.00948">Belli Parayı İhtiva Eden Kağıtlar (Binde 9,48)</option>
+                <option value="0.00189">Kira Sözleşmeleri (Binde 1,89)</option>
+                <option value="0.00759">Tahkimnameler (Binde 7,59)</option>
+                <option value="0.000">Sadece Sabit Damga Vergisi</option>
             </select>
         </div>
-        
-        <button class="hc-btn" onclick="hcDamgaVergisiHesapla()">Hesapla</button>
-        
-        <div class="hc-result" id="hc-damga-result">
+        <button class="hc-btn" onclick="hcDamgaVergisiHesapla()">Vergi Hesapla</button>
+        <div class="hc-result" id="hc-dv-result">
             <div class="hc-result-item">
-                <span>Uygulanan Oran:</span>
-                <strong id="hc-dv-res-rate">-</strong>
+                <span>Hesaplanan Damga Vergisi:</span>
+                <strong class="hc-result-value" id="hc-dv-res-total">-</strong>
             </div>
-            <div class="hc-result-value" id="hc-dv-res-total">
-                -
-            </div>
-            <p style="text-align:center; font-size: 0.9em; color: #666;">Hesaplanan Damga Vergisi</p>
+            <p class="hc-small-text">Sözleşmelerde damga vergisi üst sınırı (2026) yaklaşık 25-30 Milyon TL civarındadır.</p>
         </div>
     </div>
     <?php

@@ -1,0 +1,5 @@
+{
+  "name": "Temettü Verimi Hesaplama",
+  "desc": "Hisse fiyatı ve dağıtılan temettü tutarına göre yatırımın yüzde kaç temettü getirisi sağladığını (Yield) hesaplar.",
+  "shortcode": "[hc_temettu_verimi_hesaplama]"
+}

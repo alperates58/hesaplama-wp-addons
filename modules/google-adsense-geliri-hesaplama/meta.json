@@ -1,0 +1,5 @@
+{
+  "name": "Google AdSense Geliri Hesaplama",
+  "desc": "Web sitenizin trafik verilerine (gösterim, CTR, CPC) dayanarak tahmini Google AdSense reklam gelirini hesaplar.",
+  "shortcode": "[hc_google_adsense_geliri_hesaplama]"
+}

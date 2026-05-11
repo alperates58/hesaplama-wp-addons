@@ -1,0 +1,5 @@
+{
+  "name": "Yıllıklandırılmış Getiri Oranı Hesaplama",
+  "desc": "Belirli bir sürede elde edilen getiriyi, farklı vadelerle kıyaslayabilmek için yıllık bazda (Annualized) hesaplar.",
+  "shortcode": "[hc_yilliklandirilmis_getiri_orani_hesaplama]"
+}

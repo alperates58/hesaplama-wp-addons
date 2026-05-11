@@ -1,0 +1,15 @@
+.hc-irr-row {
+    margin-bottom: 10px;
+}
+
+.hc-irr-row label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.hc-irr- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}

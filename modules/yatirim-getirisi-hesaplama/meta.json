@@ -1,0 +1,5 @@
+{
+  "name": "Yatırım Getirisi Hesaplama",
+  "desc": "Her türlü yatırımın (borsa, emlak, iş vb.) maliyet ve güncel değer farkına göre kâr/zarar oranını (ROI) hesaplar.",
+  "shortcode": "[hc_yatirim_getirisi_hesaplama]"
+}

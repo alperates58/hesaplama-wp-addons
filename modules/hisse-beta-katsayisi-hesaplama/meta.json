@@ -1,0 +1,5 @@
+{
+  "name": "Hisse Beta Katsayısı Hesaplama",
+  "desc": "Hisse senedi fiyat hareketlerinin pazar endeksine göre duyarlılığını (Beta) veriler üzerinden hesaplar.",
+  "shortcode": "[hc_hisse_beta_katsayisi_hesaplama]"
+}

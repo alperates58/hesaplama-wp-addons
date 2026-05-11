@@ -1,5 +1,5 @@
 {
   "name": "KDV Dahil Hariç Hesaplama",
-  "desc": "Brüt tutardan KDV ayırma veya net tutara KDV ekleme işlemlerini hızlıca yapar.",
+  "desc": "KDV dahil fiyattan hariç fiyatı veya KDV hariç fiyattan dahil fiyatı hızlıca hesaplar.",
   "shortcode": "[hc_kdv_dahil_haric_hesaplama]"
 }

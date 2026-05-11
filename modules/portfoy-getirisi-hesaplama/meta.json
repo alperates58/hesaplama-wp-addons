@@ -1,0 +1,5 @@
+{
+  "name": "Portföy Getirisi Hesaplama",
+  "desc": "Farklı varlıklardan oluşan yatırım portföyünüzün ağırlıklı ortalama getiri oranını hesaplar.",
+  "shortcode": "[hc_portfoy_getirisi_hesaplama]"
+}

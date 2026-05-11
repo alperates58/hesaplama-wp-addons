@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Yenileme Başabaş Noktası Hesaplama",
+  "desc": "Mevcut kredinizi yeni bir krediyle yapılandırmanın (refinansman) maliyetini ve ne kadar sürede kara geçeceğinizi hesaplar.",
+  "shortcode": "[hc_kredi_yenileme_basabas_noktasi_hesaplama]"
+}

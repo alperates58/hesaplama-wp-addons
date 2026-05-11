@@ -1,0 +1,5 @@
+{
+  "name": "Değer Artış Kazancı Vergisi Hesaplama",
+  "desc": "Gayrimenkul alım-satım kazancı üzerinden 5 yıllık süre sınırına ve enflasyon endekslemesine göre ödenmesi gereken vergiyi hesaplar.",
+  "shortcode": "[hc_deger_artis_kazanci_vergisi_hesaplama]"
+}

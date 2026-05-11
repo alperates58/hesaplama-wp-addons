@@ -1,0 +1,15 @@
+.hc-npv-row {
+    margin-bottom: 10px;
+}
+
+.hc-npv-row label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.hc-npv- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}

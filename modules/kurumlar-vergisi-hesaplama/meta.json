@@ -1,5 +1,5 @@
 {
   "name": "Kurumlar Vergisi Hesaplama",
-  "desc": "Sermaye şirketleri için dönem karı üzerinden ödenecek kurumlar vergisini hesaplar.",
+  "desc": "Şirketlerin mali kârı (matrah) üzerinden 2026 yılı güncel oranına göre ödenmesi gereken kurumlar vergisini hesaplar.",
   "shortcode": "[hc_kurumlar_vergisi_hesaplama]"
 }

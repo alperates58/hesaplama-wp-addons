@@ -1,14 +1,10 @@
-#hc-gelir-vergisi-hesaplama .hc-result-item {
+.hc-gelir-vergi- .hc-result-item {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
-#hc-gelir-vergisi-hesaplama .hc-result-value {
-    font-size: 2rem;
-    color: #e67e22;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
+.hc-gelir-vergi- .hc-result-item:last-child {
+    border-bottom: none;
 }

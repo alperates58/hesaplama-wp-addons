@@ -1,0 +1,5 @@
+{
+  "name": "Dolar Getirisi Hesaplama",
+  "desc": "Dolar alım-satım kurları arasındaki farka göre toplam kâr/zarar ve getiri oranını hesaplar.",
+  "shortcode": "[hc_dolar_getirisi_hesaplama]"
+}

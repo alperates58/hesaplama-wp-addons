@@ -1,0 +1,29 @@
+.hc-portfoy-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hc-portfoy-row input {
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .hc-portfoy-row {
+        flex-direction: column;
+    }
+}
+
+.hc-btn-secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.hc-btn-secondary:hover {
+    background: #5a6268;
+}

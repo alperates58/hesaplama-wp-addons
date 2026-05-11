@@ -1,0 +1,5 @@
+{
+  "name": "Sortino Oranı Hesaplama",
+  "desc": "Sharpe oranından farklı olarak sadece negatif riskleri (Downside Risk) hesaba katarak riskten arındırılmış getiriyi hesaplar.",
+  "shortcode": "[hc_sortino_orani_hesaplama]"
+}

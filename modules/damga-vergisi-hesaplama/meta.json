@@ -1,5 +1,5 @@
 {
   "name": "Damga Vergisi Hesaplama",
-  "desc": "Sözleşmeler, beyannameler ve ücret ödemeleri için geçerli damga vergisi oranlarını ve tutarlarını hesaplar.",
+  "desc": "Sözleşme bedeli üzerinden binde 9,48 oranında (2026 standart) damga vergisini hesaplar.",
   "shortcode": "[hc_damga_vergisi_hesaplama]"
 }

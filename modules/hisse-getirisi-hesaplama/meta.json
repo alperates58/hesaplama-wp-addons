@@ -1,0 +1,5 @@
+{
+  "name": "Hisse Getirisi Hesaplama",
+  "desc": "Hisse senedi alım-satım farkı ve varsa alınan temettüler dahil toplam yatırım getirisini hesaplar.",
+  "shortcode": "[hc_hisse_getirisi_hesaplama]"
+}

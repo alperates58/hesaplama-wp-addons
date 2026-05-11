@@ -1,14 +1,5 @@
-#hc-enflasyon-hesaplama .hc-result-item {
+.hc-enf- .hc-result-item {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
-
-#hc-enflasyon-hesaplama .hc-result-value {
-    font-size: 2rem;
-    color: #e74c3c;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
 }

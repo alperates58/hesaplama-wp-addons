@@ -1,0 +1,5 @@
+{
+  "name": "Trendyol Komisyonu Hesaplama",
+  "desc": "Trendyol satıcıları için ürün bazlı komisyon, hizmet bedeli ve kargo kesintileri sonrası net kazancı hesaplar.",
+  "shortcode": "[hc_trendyol_komisyonu_hesaplama]"
+}

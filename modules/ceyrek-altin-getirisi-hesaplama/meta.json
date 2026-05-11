@@ -1,0 +1,5 @@
+{
+  "name": "Çeyrek Altın Getirisi Hesaplama",
+  "desc": "Çeyrek altın alım-satım fiyatları arasındaki farka göre toplam kâr/zarar ve getiri oranını hesaplar.",
+  "shortcode": "[hc_ceyrek_altin_getirisi_hesaplama]"
+}

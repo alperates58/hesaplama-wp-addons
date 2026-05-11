@@ -1,5 +1,5 @@
 {
   "name": "Enflasyon Hesaplama",
-  "desc": "İki farklı dönem arasındaki fiyat değişimini ve satın alma gücü kaybını hesaplar.",
+  "desc": "TÜFE (Tüketici Fiyat Endeksi) verileri veya iki farklı dönemdeki fiyatlar üzerinden enflasyon oranını ve paranın değer kaybını hesaplar.",
   "shortcode": "[hc_enflasyon_hesaplama]"
 }

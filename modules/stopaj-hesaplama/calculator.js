@@ -1,13 +1,28 @@
 function hcStopajHesapla() {
-    const gross = parseFloat(document.getElementById('hc-st-amount').value) || 0;
+    const type = document.getElementById('hc-st-type').value;
+    const amount = parseFloat(document.getElementById('hc-st-amount').value);
     const rate = parseFloat(document.getElementById('hc-st-rate').value) / 100;
 
-    const tax = gross * rate;
-    const net = gross - tax;
+    if (isNaN(amount) || amount <= 0) {
+        alert('Lütfen geçerli bir tutar girin.');
+        return;
+    }
 
-    document.getElementById('hc-st-res-gross').innerText = gross.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-st-res-tax').innerText = tax.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-st-res-net').innerText = net.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ₺';
+    let gross, tax, net;
 
-    document.getElementById('hc-stopaj-result').classList.add('visible');
+    if (type === 'brüt') {
+        gross = amount;
+        tax = gross * rate;
+        net = gross - tax;
+    } else {
+        net = amount;
+        gross = net / (1 - rate);
+        tax = gross - net;
+    }
+
+    document.getElementById('hc-st-res-gross').innerText = gross.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-st-res-tax').innerText = tax.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+    document.getElementById('hc-st-res-net').innerText = net.toLocaleString('tr-TR', { minimumFractionDigits: 2 }) + ' ₺';
+
+    document.getElementById('hc-st-result').classList.add('visible');
 }

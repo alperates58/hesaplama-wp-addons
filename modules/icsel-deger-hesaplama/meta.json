@@ -1,0 +1,5 @@
+{
+  "name": "İçsel Değer Hesaplama",
+  "desc": "Benjamin Graham'ın formülünü kullanarak bir hisse senedinin finansal verilerine göre gerçek (içsel) değerini hesaplar.",
+  "shortcode": "[hc_icsel_deger_hesaplama]"
+}

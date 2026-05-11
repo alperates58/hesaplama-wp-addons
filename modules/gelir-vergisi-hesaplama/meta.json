@@ -1,5 +1,5 @@
 {
   "name": "Gelir Vergisi Hesaplama",
-  "desc": "2026 yılı gelir vergisi dilimleri üzerinden vergi matrahına göre toplam vergi yükünü hesaplar.",
+  "desc": "Yıllık toplam matrah üzerinden 2026 yılı güncel dilimlerine göre ödenmesi gereken gelir vergisini hesaplar.",
   "shortcode": "[hc_gelir_vergisi_hesaplama]"
 }

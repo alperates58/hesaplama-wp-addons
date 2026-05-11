@@ -1,0 +1,5 @@
+{
+  "name": "Temettü Getirisi Hesaplama",
+  "desc": "Elinizdeki hisse adedi ve hisse başı temettü miktarına göre alacağınız toplam temettü tutarını ve vergi kesintisini hesaplar.",
+  "shortcode": "[hc_temettu_getirisi_hesaplama]"
+}

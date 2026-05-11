@@ -1,0 +1,5 @@
+{
+  "name": "İndirgenmiş Nakit Akışı Hesaplama",
+  "desc": "Bir varlığın veya projenin değerini, gelecekte yaratacağı nakit akışlarını bugüne indirgeyerek (DCF) hesaplar.",
+  "shortcode": "[hc_indirgenmis_nakit_akisi_hesaplama]"
+}

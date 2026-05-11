@@ -1,14 +1,10 @@
-#hc-kdv-dahil-haric-hesaplama .hc-result-item {
+.hc-kdv-dh- .hc-result-item {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
-#hc-kdv-dahil-haric-hesaplama .hc-result-value {
-    font-size: 2rem;
-    color: #2c3e50;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
+.hc-kdv-dh- .hc-result-item:last-child {
+    border-bottom: none;
 }

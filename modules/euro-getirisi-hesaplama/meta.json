@@ -1,0 +1,5 @@
+{
+  "name": "Euro Getirisi Hesaplama",
+  "desc": "Euro alım-satım kurları arasındaki farka göre toplam kâr/zarar ve getiri oranını hesaplar.",
+  "shortcode": "[hc_euro_getirisi_hesaplama]"
+}

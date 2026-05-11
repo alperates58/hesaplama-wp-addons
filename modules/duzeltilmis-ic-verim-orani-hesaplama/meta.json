@@ -1,0 +1,5 @@
+{
+  "name": "Düzeltilmiş İç Verim Oranı Hesaplama",
+  "desc": "Yeniden yatırım oranı ve finansman maliyetini hesaba katarak daha gerçekçi bir iç verim oranı (MIRR) hesaplar.",
+  "shortcode": "[hc_duzeltilmis_ic_verim_orani_hesaplama]"
+}

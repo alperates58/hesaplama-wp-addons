@@ -1,0 +1,5 @@
+{
+  "name": "Satış Vergisi Hesaplama",
+  "desc": "Herhangi bir ürün veya hizmet satışı için belirlenen vergi oranı üzerinden toplam ödenecek tutarı hesaplar.",
+  "shortcode": "[hc_satis_vergisi_hesaplama]"
+}

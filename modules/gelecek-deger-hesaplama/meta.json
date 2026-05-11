@@ -1,0 +1,5 @@
+{
+  "name": "Gelecek Değer Hesaplama",
+  "desc": "Paranın zaman değerini kullanarak, belirli bir faiz oranıyla gelecekteki toplam değerini (FV) hesaplar.",
+  "shortcode": "[hc_gelecek_deger_hesaplama]"
+}

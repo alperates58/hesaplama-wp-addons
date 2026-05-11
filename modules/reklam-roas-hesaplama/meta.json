@@ -1,0 +1,5 @@
+{
+  "name": "Reklam ROAS Hesaplama",
+  "desc": "Reklam harcamalarınızın getirisini (Return on Ad Spend) hesaplayarak kampanyalarınızın kârlılığını ölçer.",
+  "shortcode": "[hc_reklam_roas_hesaplama]"
+}

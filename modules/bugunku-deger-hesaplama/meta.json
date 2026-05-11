@@ -1,0 +1,5 @@
+{
+  "name": "Bugünkü Değer Hesaplama",
+  "desc": "Gelecekteki bir tutarın, belirli bir iskonto oranıyla bugünkü ekonomik değerini (PV) hesaplar.",
+  "shortcode": "[hc_bugunku_deger_hesaplama]"
+}

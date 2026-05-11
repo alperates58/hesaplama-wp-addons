@@ -1,0 +1,17 @@
+.hc-kredi-yenileme- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hc-kredi-yenileme- .hc-result-item:last-child {
+    border-bottom: none;
+}
+
+.hc-kredi-yenileme- .hc-small-text {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}

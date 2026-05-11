@@ -1,0 +1,5 @@
+{
+  "name": "Portföy Beta Katsayısı Hesaplama",
+  "desc": "Farklı hisse senetlerinden oluşan portföyünüzün, pazar hareketlerine karşı genel duyarlılığını (Beta) hesaplar.",
+  "shortcode": "[hc_portfoy_beta_katsayisi_hesaplama]"
+}

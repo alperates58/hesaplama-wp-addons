@@ -1,0 +1,5 @@
+{
+  "name": "Müşteri Edinme Maliyeti Hesaplama",
+  "desc": "Yeni bir müşteri kazanmak için harcanan toplam pazarlama ve satış giderlerini (CAC) hesaplar.",
+  "shortcode": "[hc_musteri_edinme_maliyeti_hesaplama]"
+}

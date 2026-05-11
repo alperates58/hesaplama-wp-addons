@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde Getiri Hesaplama",
+  "desc": "Herhangi bir varlığın ilk ve son fiyatı arasındaki yüzdesel değişim (getiri/kayıp) oranını hesaplar.",
+  "shortcode": "[hc_yuzde_getiri_hesaplama]"
+}

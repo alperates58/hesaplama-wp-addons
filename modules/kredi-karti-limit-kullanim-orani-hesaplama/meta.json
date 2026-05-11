@@ -1,0 +1,5 @@
+{
+  "name": "Kredi Kartı Limit Kullanım Oranı Hesaplama",
+  "desc": "Kredi kartı limitlerinizin ne kadarını kullandığınızı hesaplar ve kredi skorunuz üzerindeki etkisini analiz eder.",
+  "shortcode": "[hc_kredi_karti_limit_kullanim_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Pazaryeri Komisyonu Hesaplama",
+  "desc": "Genel pazaryeri satışları için komisyon, kargo ve vergi sonrası elinize geçecek net kârı hesaplar.",
+  "shortcode": "[hc_pazaryeri_komisyonu_hesaplama]"
+}

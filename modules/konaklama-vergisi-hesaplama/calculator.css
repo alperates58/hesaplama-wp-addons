@@ -1,0 +1,5 @@
+.hc-konaklama- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}

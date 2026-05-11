@@ -1,0 +1,5 @@
+{
+  "name": "Gram Altın Getirisi Hesaplama",
+  "desc": "Gram altın alım-satım fiyatları arasındaki farka göre toplam kâr/zarar ve getiri oranını hesaplar.",
+  "shortcode": "[hc_gram_altin_getirisi_hesaplama]"
+}

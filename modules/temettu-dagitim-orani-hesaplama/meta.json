@@ -1,0 +1,5 @@
+{
+  "name": "Temettü Dağıtım Oranı Hesaplama",
+  "desc": "Şirketin elde ettiği net kârın yüzde kaçını ortaklarına temettü olarak dağıttığını (Payout Ratio) hesaplar.",
+  "shortcode": "[hc_temettu_dagitim_orani_hesaplama]"
+}

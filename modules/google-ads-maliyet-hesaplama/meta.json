@@ -1,0 +1,5 @@
+{
+  "name": "Google Ads Maliyet Hesaplama",
+  "desc": "Tıklama başına maliyet, hedef trafik ve vergileri hesaplayarak tahmini Google Ads kampanya bütçesini belirler.",
+  "shortcode": "[hc_google_ads_maliyet_hesaplama]"
+}

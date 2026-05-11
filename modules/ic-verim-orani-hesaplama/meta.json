@@ -1,0 +1,5 @@
+{
+  "name": "İç Verim Oranı Hesaplama",
+  "desc": "Bir yatırımın nakit akışlarını bugünkü değerine eşitleyen iskonto oranını (IRR) hesaplayarak getiriyi ölçer.",
+  "shortcode": "[hc_ic_verim_orani_hesaplama]"
+}

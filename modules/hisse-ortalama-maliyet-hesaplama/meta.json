@@ -1,0 +1,5 @@
+{
+  "name": "Hisse Ortalama Maliyet Hesaplama",
+  "desc": "Farklı zamanlarda ve fiyatlarda aldığınız hisse senetlerinin ortalama maliyetini (maliyet düşürme/artırma) hesaplar.",
+  "shortcode": "[hc_hisse_ortalama_maliyet_hesaplama]"
+}

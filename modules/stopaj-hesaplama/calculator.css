@@ -1,14 +1,10 @@
-#hc-stopaj-hesaplama .hc-result-item {
+.hc-stopaj-calc- .hc-result-item {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
-#hc-stopaj-hesaplama .hc-result-value {
-    font-size: 2rem;
-    color: #c0392b;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
+.hc-stopaj-calc- .hc-result-item:last-child {
+    border-bottom: none;
 }

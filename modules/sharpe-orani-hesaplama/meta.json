@@ -1,0 +1,5 @@
+{
+  "name": "Sharpe Oranı Hesaplama",
+  "desc": "Bir yatırımın veya portföyün riskten arındırılmış getirisini (Sharpe Ratio) ölçerek performans analizi yapar.",
+  "shortcode": "[hc_sharpe_orani_hesaplama]"
+}

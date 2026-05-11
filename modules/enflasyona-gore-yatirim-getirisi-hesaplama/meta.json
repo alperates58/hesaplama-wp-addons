@@ -1,0 +1,5 @@
+{
+  "name": "Enflasyona Göre Yatırım Getirisi Hesaplama",
+  "desc": "Yatırımınızın getirisini enflasyon ile kıyaslayarak, kârınızın ne kadarının alım gücü artışı olduğunu hesaplar.",
+  "shortcode": "[hc_enflasyona_gore_yatirim_getirisi_hesaplama]"
+}

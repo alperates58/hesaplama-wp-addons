@@ -1,0 +1,5 @@
+{
+  "name": "YouTube Geliri Hesaplama",
+  "desc": "İzlenme sayısı ve RPM verilerine göre tahmini YouTube reklam gelirinizi ve vergi sonrası net kazancınızı hesaplar.",
+  "shortcode": "[hc_youtube_geliri_hesaplama]"
+}

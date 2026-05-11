@@ -1,17 +1,17 @@
 function hcEnflasyonHesapla() {
-    const p1 = parseFloat(document.getElementById('hc-ef-p1').value) || 0;
-    const p2 = parseFloat(document.getElementById('hc-ef-p2').value) || 0;
+    const oldVal = parseFloat(document.getElementById('hc-e-old').value);
+    const newVal = parseFloat(document.getElementById('hc-e-new').value);
 
-    if (p1 <= 0 || p2 <= 0) {
-        alert('Lütfen geçerli fiyatlar giriniz.');
+    if (isNaN(oldVal) || isNaN(newVal) || oldVal === 0) {
+        alert('Lütfen geçerli değerler girin.');
         return;
     }
 
-    const rate = ((p2 / p1) - 1) * 100;
-    const loss = (1 - (p1 / p2)) * 100;
+    const inflation = ((newVal - oldVal) / oldVal) * 100;
+    const lossOfPower = (1 - (oldVal / newVal)) * 100;
 
-    document.getElementById('hc-ef-res-rate').innerText = '%' + rate.toLocaleString('tr-TR', { maximumFractionDigits: 2 });
-    document.getElementById('hc-ef-res-loss').innerText = '%' + loss.toLocaleString('tr-TR', { maximumFractionDigits: 2 });
+    document.getElementById('hc-e-res-ratio').innerText = '%' + inflation.toLocaleString('tr-TR', { minimumFractionDigits: 2 });
+    document.getElementById('hc-e-res-loss').innerText = '%' + lossOfPower.toLocaleString('tr-TR', { minimumFractionDigits: 2 });
 
-    document.getElementById('hc-enflasyon-result').classList.add('visible');
+    document.getElementById('hc-e-result').classList.add('visible');
 }

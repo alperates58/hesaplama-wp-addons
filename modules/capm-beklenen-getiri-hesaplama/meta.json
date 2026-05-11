@@ -1,0 +1,5 @@
+{
+  "name": "CAPM Beklenen Getiri Hesaplama",
+  "desc": "Sermaye Varlıklarını Fiyatlandırma Modeli (CAPM) kullanarak, bir varlığın riskine (Beta) göre beklenen getirisini hesaplar.",
+  "shortcode": "[hc_capm_beklenen_getiri_hesaplama]"
+}

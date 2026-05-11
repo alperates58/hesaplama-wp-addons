@@ -1,0 +1,5 @@
+{
+  "name": "BIST Hisse Getirisi Hesaplama",
+  "desc": "Borsa İstanbul'daki hisse senetleriniz için aracı kurum komisyonu dahil net kâr/zarar durumunuzu hesaplar.",
+  "shortcode": "[hc_bist_hisse_getirisi_hesaplama]"
+}

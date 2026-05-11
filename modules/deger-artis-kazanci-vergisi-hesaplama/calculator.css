@@ -1,0 +1,17 @@
+.hc-dak- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hc-dak- .hc-result-item:last-child {
+    border-bottom: none;
+}
+
+.hc-dak- .hc-small-text {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 15px;
+    line-height: 1.4;
+}

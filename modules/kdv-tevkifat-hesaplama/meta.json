@@ -1,0 +1,5 @@
+{
+  "name": "KDV Tevkifat Hesaplama",
+  "desc": "Belirlenen tevkifat oranlarına (2/10, 5/10, 7/10, 9/10 vb.) göre tevkif edilen ve ödenmesi gereken KDV tutarlarını hesaplar.",
+  "shortcode": "[hc_kdv_tevkifat_hesaplama]"
+}

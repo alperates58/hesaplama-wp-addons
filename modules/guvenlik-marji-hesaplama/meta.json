@@ -1,0 +1,5 @@
+{
+  "name": "Güvenlik Marjı Hesaplama",
+  "desc": "Bir varlığın içsel değeri ile piyasa fiyatı arasındaki farkı ölçerek yatırımın güvenlik sınırını (Margin of Safety) hesaplar.",
+  "shortcode": "[hc_guvenlik_marji_hesaplama]"
+}

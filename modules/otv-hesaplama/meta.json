@@ -1,5 +1,5 @@
 {
   "name": "ÖTV Hesaplama",
-  "desc": "Araç, beyaz eşya ve lüks tüketim ürünleri için özel tüketim vergisi (ÖTV) ve KDV dahil tutarları hesaplar.",
+  "desc": "Araçların vergisiz fiyatı üzerinden güncel matrah ve oranlara göre ÖTV ve KDV tutarlarını hesaplar.",
   "shortcode": "[hc_otv_hesaplama]"
 }

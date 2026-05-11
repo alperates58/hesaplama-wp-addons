@@ -1,14 +1,10 @@
-#hc-kdv-hesaplama .hc-result-item {
+.hc-kdv- .hc-result-item {
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
 
-#hc-kdv-hesaplama .hc-result-value {
-    font-size: 2rem;
-    color: #16a085;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: bold;
+.hc-kdv- .hc-result-item:last-child {
+    border-bottom: none;
 }

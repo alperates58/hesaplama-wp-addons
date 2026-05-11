@@ -1,0 +1,5 @@
+{
+  "name": "Kambiyo Vergisi Hesaplama",
+  "desc": "Döviz ve altın alımlarında uygulanan kambiyo muamele vergisi (BSMV) tutarını hesaplar.",
+  "shortcode": "[hc_kambiyo_vergisi_hesaplama]"
+}

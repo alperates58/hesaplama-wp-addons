@@ -1,0 +1,15 @@
+.hc-mirr-row {
+    margin-bottom: 10px;
+}
+
+.hc-mirr-row label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.hc-mirr- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}

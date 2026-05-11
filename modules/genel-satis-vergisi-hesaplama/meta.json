@@ -1,0 +1,5 @@
+{
+  "name": "Genel Satış Vergisi Hesaplama",
+  "desc": "Ticari faaliyetlerdeki genel satış işlemleri için vergi dahil ve hariç tutarları toplu olarak hesaplar.",
+  "shortcode": "[hc_genel_satis_vergisi_hesaplama]"
+}

@@ -1,0 +1,15 @@
+.hc-p-beta-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hc-p-beta-row input {
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .hc-p-beta-row {
+        flex-direction: column;
+    }
+}

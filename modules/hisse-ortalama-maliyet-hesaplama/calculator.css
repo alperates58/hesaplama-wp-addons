@@ -1,0 +1,20 @@
+.hc-maliyet-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hc-maliyet-row input {
+    flex: 1;
+}
+
+.hc-hisse-m- .hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hc-hisse-m- .hc-result-item:last-child {
+    border-bottom: none;
+}

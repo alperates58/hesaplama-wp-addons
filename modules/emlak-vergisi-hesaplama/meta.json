@@ -1,5 +1,5 @@
 {
   "name": "Emlak Vergisi Hesaplama",
-  "desc": "Konut, iş yeri, arsa ve araziler için belediye rayiç bedeli üzerinden yıllık emlak vergisini hesaplar.",
+  "desc": "Gayrimenkulün türü ve bulunduğu şehre göre belediyeye ödenmesi gereken yıllık emlak vergisini hesaplar.",
   "shortcode": "[hc_emlak_vergisi_hesaplama]"
 }

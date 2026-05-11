@@ -1,0 +1,5 @@
+{
+  "name": "Net Bugünkü Değer Hesaplama",
+  "desc": "Bir yatırım projesinin gelecekteki nakit akışlarının bugünkü değerini, yatırım maliyetinden düşerek projenin kârlılığını (NPV) ölçer.",
+  "shortcode": "[hc_net_bugunku_deger_hesaplama]"
+}

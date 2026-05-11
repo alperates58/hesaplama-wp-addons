@@ -1,0 +1,5 @@
+{
+  "name": "SaaS Müşteri Yaşam Boyu Değeri Hesaplama",
+  "desc": "Müşterilerinizin işletmenizle olan ilişkisi boyunca getireceği toplam tahmini değeri (LTV / CLV) hesaplar.",
+  "shortcode": "[hc_saas_musteri_yasam_boyu_degeri_hesaplama]"
+}
