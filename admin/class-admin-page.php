@@ -13,6 +13,7 @@ class HC_Module_Inventory {
     const CACHE_VERSION_OPTION = 'hc_module_inventory_cache_version';
     private static $module_index_cache = null;
     private static $module_usage_cache = null;
+    private static $post_usage_index_cache = null;
     private static $category_choices_cache = null;
 
     public static function get_publisher_name() {
@@ -22,6 +23,7 @@ class HC_Module_Inventory {
     public static function invalidate_caches() {
         self::$module_index_cache     = null;
         self::$module_usage_cache     = null;
+        self::$post_usage_index_cache = null;
         self::$category_choices_cache = null;
 
         wp_cache_delete( self::INDEX_TRANSIENT, self::CACHE_GROUP );
@@ -194,11 +196,12 @@ class HC_Module_Inventory {
             return self::$module_index_cache;
         }
 
-        $modules      = [];
-        $modules_dir  = HC_PLUGIN_DIR . 'modules/';
-        $usage_cache  = self::get_shortcode_usage_cache();
-        $seen_slugs   = [];
-        $seen_renders = [];
+        $modules          = [];
+        $modules_dir      = HC_PLUGIN_DIR . 'modules/';
+        $usage_cache      = self::get_shortcode_usage_cache();
+        $post_usage_index = self::get_post_usage_index();
+        $seen_slugs       = [];
+        $seen_renders     = [];
 
         if ( is_dir( $modules_dir ) ) {
             foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $path ) {
@@ -218,18 +221,20 @@ class HC_Module_Inventory {
                     continue;
                 }
 
-                $meta_file = $path . '/meta.json';
-                $meta      = file_exists( $meta_file ) ? json_decode( file_get_contents( $meta_file ), true ) : [];
-                $shortcode      = '[hc_' . str_replace( '-', '_', $slug ) . ']';
-                $module_codes   = self::get_module_shortcodes( $slug, $meta );
-                $usage_snapshot = self::get_usage_snapshot_for_shortcodes( $module_codes, $usage_cache );
-                $created        = file_exists( $meta_file ) ? filemtime( $meta_file ) : filemtime( $path );
+                $meta_file         = $path . '/meta.json';
+                $meta              = file_exists( $meta_file ) ? json_decode( file_get_contents( $meta_file ), true ) : [];
+                $shortcode         = self::normalize_shortcode_tag( '[hc_' . str_replace( '-', '_', $slug ) . ']' );
+                $usage_snapshot    = self::get_usage_snapshot_for_shortcodes( [ $shortcode ], $usage_cache );
+                $same_slug_posts   = $post_usage_index['posts_by_slug'][ sanitize_title( $slug ) ] ?? [];
+                $mismatch_data     = self::detect_shortcode_mismatch( $slug, $shortcode, $same_slug_posts, $post_usage_index );
+                $created           = file_exists( $meta_file ) ? filemtime( $meta_file ) : filemtime( $path );
                 $category_data = self::resolve_module_category_data(
                     $slug,
                     $shortcode,
                     $meta['name'] ?? '',
                     $usage_snapshot
                 );
+                $suggested_category = self::resolve_suggested_category_from_post( $category_data, $same_slug_posts, $post_usage_index );
 
                 $seen_slugs[ $slug_key ] = $slug;
                 if ( $render_name ) {
@@ -247,7 +252,7 @@ class HC_Module_Inventory {
                     'created_datetime'  => wp_date( 'd M Y H:i', $created ),
                     'updated_date'      => wp_date( 'd M Y', $created ),
                     'updated_datetime'  => wp_date( 'd M Y H:i', $created ),
-                    'post_count'        => (int) ( $usage_snapshot['count'] ?? 0 ),
+                    'post_count'        => (int) ( $usage_snapshot['published_count'] ?? 0 ),
                     'draft_count'       => (int) ( $usage_snapshot['draft_count'] ?? 0 ),
                     'published_count'   => (int) ( $usage_snapshot['published_count'] ?? 0 ),
                     'category'          => $category_data['label'] ?? '',
@@ -255,6 +260,22 @@ class HC_Module_Inventory {
                     'category_child'    => $category_data['child'] ?? '',
                     'category_source'   => $category_data['source'] ?? '',
                     'category_term_ids' => $category_data['term_ids'] ?? [],
+                    'expected_shortcode'         => $shortcode,
+                    'matched_post_id'            => (int) ( $mismatch_data['matched_post_id'] ?? 0 ),
+                    'matched_post_status'        => $mismatch_data['matched_post_status'] ?? '',
+                    'matched_post_title'         => $mismatch_data['matched_post_title'] ?? '',
+                    'matched_post_url'           => $mismatch_data['matched_post_url'] ?? '',
+                    'matched_post_categories'    => $mismatch_data['matched_post_categories'] ?? [],
+                    'matched_post_category_label'=> $mismatch_data['matched_post_category_label'] ?? '',
+                    'found_shortcodes'           => $mismatch_data['found_shortcodes'] ?? [],
+                    'has_same_slug_post'         => ! empty( $mismatch_data['has_same_slug_post'] ),
+                    'shortcode_mismatch'         => ! empty( $mismatch_data['shortcode_mismatch'] ),
+                    'same_slug_post_count'       => (int) ( $mismatch_data['same_slug_post_count'] ?? 0 ),
+                    'shortcode_mismatch_count'   => (int) ( $mismatch_data['shortcode_mismatch_count'] ?? 0 ),
+                    'suggested_category_parent'  => $suggested_category['parent'] ?? '',
+                    'suggested_category_child'   => $suggested_category['child'] ?? '',
+                    'suggested_category_label'   => $suggested_category['label'] ?? '',
+                    'suggested_category_source'  => $suggested_category['source'] ?? 'none',
                     'publisher'         => self::get_publisher_name(),
                     'status_label'      => 'Aktif',
                     'ai_enabled'        => true,
@@ -375,6 +396,50 @@ class HC_Module_Inventory {
             'term_ids' => [],
             'display'  => $inferred,
             'source'   => 'inferred',
+        ];
+    }
+
+    private static function resolve_suggested_category_from_post( $category_data, $same_slug_posts, $post_usage_index ) {
+        foreach ( self::sort_same_slug_posts( $same_slug_posts ) as $post ) {
+            $category = $post_usage_index['post_categories'][ (int) $post['ID'] ] ?? [];
+
+            if ( ! empty( $category['label'] ) ) {
+                return [
+                    'label'  => $category['label'],
+                    'parent' => $category['parent'] ?? $category['label'],
+                    'child'  => $category['child'] ?? '',
+                    'source' => 'post_categories',
+                ];
+            }
+        }
+
+        foreach ( self::sort_same_slug_posts( $same_slug_posts ) as $post ) {
+            $planner = $post_usage_index['planner_categories'][ (int) $post['ID'] ] ?? [];
+
+            if ( ! empty( $planner['label'] ) ) {
+                return [
+                    'label'  => $planner['label'],
+                    'parent' => $planner['parent'] ?? $planner['label'],
+                    'child'  => $planner['child'] ?? '',
+                    'source' => 'planner',
+                ];
+            }
+        }
+
+        if ( ! empty( $category_data['label'] ) && 'Genel' !== $category_data['label'] ) {
+            return [
+                'label'  => $category_data['label'],
+                'parent' => $category_data['parent'] ?? $category_data['label'],
+                'child'  => $category_data['child'] ?? '',
+                'source' => 'meta',
+            ];
+        }
+
+        return [
+            'label'  => '',
+            'parent' => '',
+            'child'  => '',
+            'source' => 'none',
         ];
     }
 
@@ -603,14 +668,29 @@ class HC_Module_Inventory {
             'name'            => $module['name'],
             'desc'            => $module['desc'],
             'shortcode'       => $module['shortcode'],
+            'expected_shortcode' => $module['expected_shortcode'],
             'category'        => $module['category'],
             'category_parent' => $module['category_parent'],
             'category_child'  => $module['category_child'],
+            'suggested_category_parent' => $module['suggested_category_parent'],
+            'suggested_category_child'  => $module['suggested_category_child'],
+            'suggested_category_label'  => $module['suggested_category_label'],
+            'suggested_category_source' => $module['suggested_category_source'],
             'status'          => $module['status_label'],
             'ai_enabled'      => ! empty( $module['ai_enabled'] ),
             'post_count'      => (int) $module['post_count'],
             'draft_count'     => (int) $module['draft_count'],
             'published_count' => (int) $module['published_count'],
+            'matched_post_id' => (int) $module['matched_post_id'],
+            'matched_post_status' => $module['matched_post_status'],
+            'matched_post_title' => $module['matched_post_title'],
+            'matched_post_url' => $module['matched_post_url'],
+            'matched_post_category_label' => $module['matched_post_category_label'],
+            'has_same_slug_post' => ! empty( $module['has_same_slug_post'] ),
+            'shortcode_mismatch' => ! empty( $module['shortcode_mismatch'] ),
+            'same_slug_post_count' => (int) $module['same_slug_post_count'],
+            'shortcode_mismatch_count' => (int) $module['shortcode_mismatch_count'],
+            'found_shortcodes' => array_values( $module['found_shortcodes'] ?? [] ),
             'updated'         => $module['updated_datetime'],
             'updated_date'    => $module['updated_date'],
             'posts_url'       => $module['posts_url'],
@@ -619,10 +699,11 @@ class HC_Module_Inventory {
 
     public static function map_module_detail_item( $module ) {
         return self::map_module_list_item( $module ) + [
-            'created'    => $module['created_datetime'],
-            'publisher'  => $module['publisher'],
-            'term_ids'   => $module['category_term_ids'],
-            'slug_label' => $module['slug'],
+            'created'                  => $module['created_datetime'],
+            'publisher'                => $module['publisher'],
+            'term_ids'                 => $module['category_term_ids'],
+            'slug_label'               => $module['slug'],
+            'matched_post_categories'  => array_values( $module['matched_post_categories'] ?? [] ),
         ];
     }
 
@@ -731,36 +812,53 @@ class HC_Module_Inventory {
     }
 
     private static function get_shortcode_usage_cache() {
+        $index = self::get_post_usage_index();
+
+        return $index['usage'] ?? [];
+    }
+
+    private static function get_post_usage_index() {
         global $wpdb;
 
-        if ( null !== self::$module_usage_cache ) {
-            return self::$module_usage_cache;
+        if ( null !== self::$post_usage_index_cache ) {
+            return self::$post_usage_index_cache;
         }
 
         $cached = self::get_cached_value( self::USAGE_TRANSIENT );
 
-        if ( is_array( $cached ) ) {
-            self::$module_usage_cache = $cached;
-            return self::$module_usage_cache;
+        if ( is_array( $cached ) && isset( $cached['usage'], $cached['posts_by_slug'] ) ) {
+            self::$post_usage_index_cache = $cached;
+            self::$module_usage_cache     = $cached['usage'];
+
+            return self::$post_usage_index_cache;
         }
 
+        self::$post_usage_index_cache = self::build_post_usage_index( $wpdb );
+        self::$module_usage_cache     = self::$post_usage_index_cache['usage'] ?? [];
+
+        self::set_cached_value( self::USAGE_TRANSIENT, self::$post_usage_index_cache, MINUTE_IN_SECONDS * 15 );
+
+        return self::$post_usage_index_cache;
+    }
+
+    private static function build_post_usage_index( $wpdb ) {
         $rows = $wpdb->get_results(
-            "SELECT ID, post_status, post_content
+            "SELECT ID, post_status, post_title, post_name, post_content, post_modified
              FROM {$wpdb->posts}
-             WHERE post_status NOT IN ('trash', 'auto-draft')
-               AND post_type = 'post'
-               AND post_content LIKE '%[hc_%'",
+             WHERE post_type = 'post'
+               AND post_status IN ('publish', 'draft', 'pending', 'private', 'future')",
             ARRAY_A
         );
 
-        $choices = self::get_wordpress_category_choices();
+        $choices    = self::get_wordpress_category_choices();
         $choice_map = [];
         foreach ( $choices as $choice ) {
             $choice_map[ $choice['term_id'] ] = $choice;
         }
 
-        $post_term_map = [];
         $post_ids      = array_values( array_filter( array_map( 'intval', wp_list_pluck( $rows, 'ID' ) ) ) );
+        $post_term_map = [];
+        $planner_meta  = [];
 
         if ( ! empty( $post_ids ) ) {
             $relationships = $wpdb->get_results(
@@ -787,43 +885,74 @@ class HC_Module_Inventory {
 
                 $post_term_map[ $object_id ][ $term_id ] = $term_id;
             }
+
+            $meta_rows = $wpdb->get_results(
+                "SELECT post_id, meta_value
+                 FROM {$wpdb->postmeta}
+                 WHERE meta_key = '_hc_planner_category_source'
+                   AND post_id IN (" . implode( ',', $post_ids ) . ')',
+                ARRAY_A
+            );
+
+            foreach ( $meta_rows as $meta_row ) {
+                $planner_meta[ (int) $meta_row['post_id'] ] = sanitize_text_field( $meta_row['meta_value'] );
+            }
         }
 
-        $usage = [];
+        $planner_categories = self::get_planner_post_category_index();
+        $usage              = [];
+        $posts_by_slug      = [];
+        $posts_by_id        = [];
+        $post_categories    = [];
 
         foreach ( $rows as $row ) {
-            preg_match_all( '/\[hc_[a-z0-9_]+\]/i', (string) $row['post_content'], $matches );
-            $shortcodes = array_values( array_unique( $matches[0] ?? [] ) );
+            $post_id     = (int) $row['ID'];
+            $slug        = sanitize_title( $row['post_name'] ?? '' );
+            $shortcodes  = self::extract_hc_shortcodes_from_content( (string) $row['post_content'] );
+            $paths       = self::extract_deep_category_paths( $post_term_map[ $post_id ] ?? [], $choice_map );
+            $post_record = [
+                'ID'                => $post_id,
+                'post_status'       => (string) $row['post_status'],
+                'post_title'        => (string) $row['post_title'],
+                'post_name'         => $slug,
+                'post_modified'     => (string) $row['post_modified'],
+                'post_content'      => (string) $row['post_content'],
+                'shortcodes'        => $shortcodes,
+                'edit_url'          => admin_url( 'post.php?post=' . $post_id . '&action=edit' ),
+                'planner_meta'      => $planner_meta[ $post_id ] ?? '',
+            ];
 
-            if ( empty( $shortcodes ) ) {
-                continue;
+            $posts_by_id[ $post_id ] = $post_record;
+
+            if ( $slug ) {
+                if ( empty( $posts_by_slug[ $slug ] ) ) {
+                    $posts_by_slug[ $slug ] = [];
+                }
+
+                $posts_by_slug[ $slug ][] = $post_record;
             }
 
-            $post_id = (int) $row['ID'];
-            $paths   = self::extract_deep_category_paths( $post_term_map[ $post_id ] ?? [], $choice_map );
+            $post_categories[ $post_id ] = self::summarize_category_paths( $paths );
 
             foreach ( $shortcodes as $shortcode ) {
                 if ( empty( $usage[ $shortcode ] ) ) {
                     $usage[ $shortcode ] = [
-                        'count'           => 0,
-                        'draft_count'     => 0,
-                        'published_count' => 0,
-                        'post_ids'        => [],
-                        'draft_post_ids'  => [],
+                        'count'              => 0,
+                        'draft_count'        => 0,
+                        'published_count'    => 0,
+                        'post_ids'           => [],
+                        'draft_post_ids'     => [],
                         'published_post_ids' => [],
-                        'path_counts'     => [],
-                        'path_post_ids'   => [],
+                        'path_counts'        => [],
+                        'path_post_ids'      => [],
                     ];
                 }
 
-                $usage[ $shortcode ]['count']++;
                 $usage[ $shortcode ]['post_ids'][ $post_id ] = $post_id;
 
-                if ( 'publish' === $row['post_status'] ) {
-                    $usage[ $shortcode ]['published_count']++;
+                if ( 'publish' === $post_record['post_status'] ) {
                     $usage[ $shortcode ]['published_post_ids'][ $post_id ] = $post_id;
                 } else {
-                    $usage[ $shortcode ]['draft_count']++;
                     $usage[ $shortcode ]['draft_post_ids'][ $post_id ] = $post_id;
                 }
 
@@ -832,18 +961,79 @@ class HC_Module_Inventory {
                         $usage[ $shortcode ]['path_counts'][ $path['path'] ] = $path + [ 'count' => 0 ];
                     }
 
-                    $usage[ $shortcode ]['path_counts'][ $path['path'] ]['count']++;
                     if ( empty( $usage[ $shortcode ]['path_post_ids'][ $path['path'] ] ) ) {
                         $usage[ $shortcode ]['path_post_ids'][ $path['path'] ] = [];
                     }
+
                     $usage[ $shortcode ]['path_post_ids'][ $path['path'] ][ $post_id ] = $post_id;
                 }
             }
         }
 
         foreach ( $usage as $shortcode => $snapshot ) {
-            if ( empty( $snapshot['path_counts'] ) ) {
-                continue;
+            $usage[ $shortcode ] = self::finalize_usage_snapshot( $snapshot );
+        }
+
+        return [
+            'usage'               => $usage,
+            'posts_by_slug'       => $posts_by_slug,
+            'posts_by_id'         => $posts_by_id,
+            'post_categories'     => $post_categories,
+            'planner_categories'  => $planner_categories,
+        ];
+    }
+
+    public static function extract_hc_shortcodes_from_content( $content ) {
+        preg_match_all( '/\[hc_[a-zA-Z0-9_\-]+[^\]]*\]/u', (string) $content, $matches );
+
+        return array_values(
+            array_unique(
+                array_filter(
+                    array_map( [ __CLASS__, 'normalize_shortcode_tag' ], $matches[0] ?? [] )
+                )
+            )
+        );
+    }
+
+    private static function summarize_category_paths( $paths ) {
+        if ( empty( $paths ) ) {
+            return [
+                'label'    => '',
+                'parent'   => '',
+                'child'    => '',
+                'term_ids' => [],
+            ];
+        }
+
+        usort(
+            $paths,
+            static function ( $a, $b ) {
+                if ( $a['depth'] === $b['depth'] ) {
+                    return strnatcasecmp( $a['path'], $b['path'] );
+                }
+
+                return $b['depth'] <=> $a['depth'];
+            }
+        );
+
+        $best = $paths[0];
+
+        return [
+            'label'    => $best['path'],
+            'parent'   => $best['parent'],
+            'child'    => $best['child'],
+            'term_ids' => self::resolve_term_ids_from_label( $best['path'] )['term_ids'] ?? [],
+        ];
+    }
+
+    private static function finalize_usage_snapshot( $snapshot ) {
+        $snapshot['count']           = count( $snapshot['post_ids'] ?? [] );
+        $snapshot['draft_count']     = count( $snapshot['draft_post_ids'] ?? [] );
+        $snapshot['published_count'] = count( $snapshot['published_post_ids'] ?? [] );
+
+        if ( ! empty( $snapshot['path_counts'] ) ) {
+            foreach ( array_keys( $snapshot['path_counts'] ) as $path_label ) {
+                $snapshot['path_counts'][ $path_label ]['count'] = count( $snapshot['path_post_ids'][ $path_label ] ?? [] );
             }
 
             uasort(
@@ -858,17 +1048,134 @@ class HC_Module_Inventory {
             );
 
             $best = reset( $snapshot['path_counts'] );
-            $usage[ $shortcode ]['label']    = $best['path'];
-            $usage[ $shortcode ]['parent']   = $best['parent'];
-            $usage[ $shortcode ]['child']    = $best['child'];
-            $usage[ $shortcode ]['display']  = $best['path'];
-            $usage[ $shortcode ]['term_ids'] = self::resolve_term_ids_from_label( $best['path'] )['term_ids'] ?? [];
+            $snapshot['label']    = $best['path'];
+            $snapshot['parent']   = $best['parent'];
+            $snapshot['child']    = $best['child'];
+            $snapshot['display']  = $best['path'];
+            $snapshot['term_ids'] = self::resolve_term_ids_from_label( $best['path'] )['term_ids'] ?? [];
         }
 
-        self::$module_usage_cache = $usage;
-        self::set_cached_value( self::USAGE_TRANSIENT, self::$module_usage_cache, MINUTE_IN_SECONDS * 15 );
+        return $snapshot;
+    }
 
-        return self::$module_usage_cache;
+    private static function get_planner_post_category_index() {
+        if ( ! class_exists( 'HC_Excel_Planner' ) || ! method_exists( 'HC_Excel_Planner', 'get_data' ) ) {
+            return [];
+        }
+
+        $data  = HC_Excel_Planner::get_data();
+        $index = [];
+
+        foreach ( (array) ( $data['topics'] ?? [] ) as $topic ) {
+            $post_id = (int) ( $topic['draft_post_id'] ?? 0 );
+            $parent  = self::sanitize_category( $topic['ana_kategori'] ?? '' );
+            $child   = self::sanitize_category( $topic['alt_kategori'] ?? '' );
+
+            if ( ! $post_id || ! $parent ) {
+                continue;
+            }
+
+            $index[ $post_id ] = [
+                'label'  => $child ? $parent . ' › ' . $child : $parent,
+                'parent' => $parent,
+                'child'  => $child,
+            ];
+        }
+
+        return $index;
+    }
+
+    private static function detect_shortcode_mismatch( $slug, $expected_shortcode, $same_slug_posts, $post_usage_index ) {
+        $same_slug_posts = self::sort_same_slug_posts( $same_slug_posts );
+        $matched_post    = $same_slug_posts[0] ?? null;
+        $found           = [];
+        $mismatch_count  = 0;
+
+        foreach ( $same_slug_posts as $post ) {
+            $post_shortcodes = array_values( array_unique( array_filter( $post['shortcodes'] ?? [] ) ) );
+            $found           = array_merge( $found, $post_shortcodes );
+
+            if ( ! in_array( $expected_shortcode, $post_shortcodes, true ) ) {
+                $mismatch_count++;
+            }
+        }
+
+        $found = array_values( array_unique( array_filter( array_map( [ __CLASS__, 'normalize_shortcode_tag' ], $found ) ) ) );
+
+        return [
+            'matched_post_id'             => $matched_post ? (int) $matched_post['ID'] : 0,
+            'matched_post_status'         => $matched_post['post_status'] ?? '',
+            'matched_post_title'          => $matched_post['post_title'] ?? '',
+            'matched_post_url'            => $matched_post['edit_url'] ?? '',
+            'matched_post_categories'     => self::build_matched_post_categories( $matched_post, $post_usage_index ),
+            'matched_post_category_label' => self::build_matched_post_category_label( $matched_post, $post_usage_index ),
+            'found_shortcodes'            => $found,
+            'has_same_slug_post'          => ! empty( $same_slug_posts ),
+            'shortcode_mismatch'          => ! empty( $same_slug_posts ) && ! in_array( $expected_shortcode, $found, true ),
+            'same_slug_post_count'        => count( $same_slug_posts ),
+            'shortcode_mismatch_count'    => $mismatch_count,
+        ];
+    }
+
+    private static function build_matched_post_categories( $matched_post, $post_usage_index ) {
+        if ( empty( $matched_post['ID'] ) ) {
+            return [];
+        }
+
+        $category = $post_usage_index['post_categories'][ (int) $matched_post['ID'] ] ?? [];
+
+        if ( empty( $category['label'] ) ) {
+            return [];
+        }
+
+        return [
+            [
+                'label'  => $category['label'],
+                'parent' => $category['parent'] ?? '',
+                'child'  => $category['child'] ?? '',
+            ],
+        ];
+    }
+
+    private static function build_matched_post_category_label( $matched_post, $post_usage_index ) {
+        if ( empty( $matched_post['ID'] ) ) {
+            return '';
+        }
+
+        $category = $post_usage_index['post_categories'][ (int) $matched_post['ID'] ] ?? [];
+
+        return $category['label'] ?? '';
+    }
+
+    private static function sort_same_slug_posts( $posts ) {
+        $posts = array_values( is_array( $posts ) ? $posts : [] );
+
+        usort(
+            $posts,
+            static function ( $a, $b ) {
+                $priority = self::get_post_status_priority( $b['post_status'] ?? '' ) <=> self::get_post_status_priority( $a['post_status'] ?? '' );
+
+                if ( 0 !== $priority ) {
+                    return $priority;
+                }
+
+                return strtotime( (string) ( $b['post_modified'] ?? '' ) ) <=> strtotime( (string) ( $a['post_modified'] ?? '' ) );
+            }
+        );
+
+        return $posts;
+    }
+
+    private static function get_post_status_priority( $status ) {
+        static $priorities = [
+            'publish' => 5,
+            'future'  => 4,
+            'private' => 3,
+            'pending' => 2,
+            'draft'   => 1,
+        ];
+
+        return (int) ( $priorities[ $status ] ?? 0 );
     }
 
     private static function extract_deep_category_paths( $term_ids, $choice_map ) {
@@ -1076,17 +1383,11 @@ class HC_Module_Inventory {
             return '';
         }
 
-        $shortcode = strtolower( $shortcode );
-
-        if ( '[' !== substr( $shortcode, 0, 1 ) ) {
-            $shortcode = '[' . $shortcode;
+        if ( preg_match( '/hc_[a-z0-9_\-]+/i', $shortcode, $matches ) ) {
+            return '[' . strtolower( $matches[0] ) . ']';
         }
 
-        if ( ']' !== substr( $shortcode, -1 ) ) {
-            $shortcode .= ']';
-        }
-
-        return preg_match( '/^\[hc_[a-z0-9_]+\]$/', $shortcode ) ? $shortcode : '';
+        return '';
     }
 
     private static function should_skip_module_directory( $path ) {
@@ -1149,7 +1450,7 @@ class HC_Module_Inventory {
         $post_status = $args['post_status'] ?? '';
 
         if ( $post_status === 'used' && $module['post_count'] == 0 ) return false;
-        if ( $post_status === 'unused' && $module['post_count'] > 0 ) return false;
+        if ( $post_status === 'unused' && ( $module['post_count'] > 0 || $module['draft_count'] > 0 || ! empty( $module['has_same_slug_post'] ) ) ) return false;
         if ( $post_status === 'duplicates' && $module['post_count'] <= 1 ) return false;
 
         if ( $category ) {
@@ -1226,6 +1527,7 @@ class HC_Admin_Page {
         add_action( 'wp_ajax_hc_explorer_module_detail', [ $this, 'ajax_explorer_module_detail' ] );
         add_action( 'wp_ajax_hc_save_module_categories', [ $this, 'ajax_save_module_categories' ] );
         add_action( 'wp_ajax_hc_save_module_catalog_state', [ $this, 'ajax_save_module_catalog_state' ] );
+        add_action( 'wp_ajax_hc_fix_shortcode_mismatch', [ $this, 'ajax_fix_shortcode_mismatch' ] );
         add_action( 'wp_ajax_hc_toggle_module_favorite', [ $this, 'ajax_toggle_module_favorite' ] );
         add_action( 'wp_ajax_hc_track_recent_module', [ $this, 'ajax_track_recent_module' ] );
     }
@@ -1287,6 +1589,10 @@ class HC_Admin_Page {
                 'savedCategories' => 'Kategori değişiklikleri kaydedildi.',
                 'explorerLoading' => 'Modüller yükleniyor...',
                 'explorerError' => 'Modül verisi yüklenemedi.',
+                'fixingShortcode' => 'Shortcode düzeltiliyor...',
+                'shortcodeFixed' => 'Shortcode başarıyla düzeltildi.',
+                'manualShortcodeCheck' => 'Birden fazla shortcode bulundu; manuel kontrol gerekli.',
+                'suggestedCategoryReady' => 'Önerilen kategori seçildi. Kaydet ile kalıcı hale getirin.',
                 'currentPage' => sanitize_text_field( wp_unslash( $_GET['page'] ?? '' ) ),
             ]
         );
@@ -1699,8 +2005,10 @@ class HC_Admin_Page {
                             return ! empty( $module['ai_enabled'] );
                         case 'drafts':
                             return (int) $module['draft_count'] > 0;
+                        case 'shortcode-mismatch':
+                            return ! empty( $module['shortcode_mismatch'] );
                         case 'unused':
-                            return (int) $module['post_count'] === 0;
+                            return (int) $module['post_count'] === 0 && (int) $module['draft_count'] === 0 && empty( $module['has_same_slug_post'] );
                         case 'archived':
                             return false;
                         case 'no-category':
@@ -1771,7 +2079,8 @@ class HC_Admin_Page {
             [ 'key' => 'recent', 'label' => 'Son Açılanlar', 'count' => count( array_intersect( array_keys( $recent_map ), wp_list_pluck( $modules, 'slug' ) ) ) ],
             [ 'key' => 'ai-generated', 'label' => 'AI Generated', 'count' => count( array_filter( $modules, static fn( $module ) => ! empty( $module['ai_enabled'] ) ) ) ],
             [ 'key' => 'drafts', 'label' => 'Taslaklar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['draft_count'] > 0 ) ) ],
-            [ 'key' => 'unused', 'label' => 'Kullanılmayanlar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] === 0 ) ) ],
+            [ 'key' => 'shortcode-mismatch', 'label' => 'Shortcode Uyuşmazlığı', 'count' => count( array_filter( $modules, static fn( $module ) => ! empty( $module['shortcode_mismatch'] ) ) ) ],
+            [ 'key' => 'unused', 'label' => 'Kullanılmayanlar', 'count' => count( array_filter( $modules, static fn( $module ) => (int) $module['post_count'] === 0 && (int) $module['draft_count'] === 0 && empty( $module['has_same_slug_post'] ) ) ) ],
             [ 'key' => 'no-category', 'label' => 'Kategorisiz', 'count' => count( array_filter( $modules, static fn( $module ) => empty( $module['category'] ) || 'Genel' === $module['category'] ) ) ],
             [ 'key' => 'archived', 'label' => 'Arşiv', 'count' => 0 ],
         ];
@@ -1890,6 +2199,101 @@ class HC_Admin_Page {
         HC_Module_Inventory::save_catalog_settings( $_POST );
 
         wp_send_json_success( [ 'message' => 'ModÃ¼l kataloÄŸu gÃ¼ncellendi.' ] );
+    }
+
+    public function ajax_fix_shortcode_mismatch() {
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( 'Yetkisiz istek.', 403 );
+        }
+
+        if ( ! check_ajax_referer( 'hc_ajax_nonce', 'nonce', false ) ) {
+            wp_send_json_error( 'Güvenlik doğrulaması başarısız oldu.', 400 );
+        }
+
+        $slug    = sanitize_key( wp_unslash( $_POST['slug'] ?? '' ) );
+        $post_id = (int) ( $_POST['post_id'] ?? 0 );
+        $module  = $this->get_module_by_slug( $slug );
+
+        if ( ! $module ) {
+            wp_send_json_error( 'Modül bulunamadı.', 404 );
+        }
+
+        if ( ! $post_id ) {
+            $post_id = (int) ( $module['matched_post_id'] ?? 0 );
+        }
+
+        if ( ! $post_id || $post_id !== (int) ( $module['matched_post_id'] ?? 0 ) ) {
+            wp_send_json_error( 'Düzeltilecek post doğrulanamadı.', 400 );
+        }
+
+        $post = get_post( $post_id );
+
+        if ( ! $post || 'post' !== $post->post_type || sanitize_title( $post->post_name ) !== sanitize_title( $slug ) ) {
+            wp_send_json_error( 'Post kaydı doğrulanamadı.', 400 );
+        }
+
+        preg_match_all( '/\[hc_[a-zA-Z0-9_\-]+[^\]]*\]/u', (string) $post->post_content, $matches );
+        $raw_shortcodes = array_values( array_unique( $matches[0] ?? [] ) );
+
+        if ( count( $raw_shortcodes ) > 1 ) {
+            wp_send_json_error( 'Birden fazla shortcode bulundu; manuel kontrol gerekli.', 400 );
+        }
+
+        if ( 0 === count( $raw_shortcodes ) ) {
+            wp_send_json_error( 'Düzeltilecek shortcode bulunamadı.', 400 );
+        }
+
+        $replacement = (string) ( $module['expected_shortcode'] ?? $module['shortcode'] ?? '' );
+
+        if ( ! $replacement ) {
+            wp_send_json_error( 'Beklenen shortcode belirlenemedi.', 400 );
+        }
+
+        $current_shortcode = HC_Module_Inventory::extract_hc_shortcodes_from_content( (string) $post->post_content );
+
+        if ( 1 === count( $current_shortcode ) && $current_shortcode[0] === $replacement ) {
+            wp_send_json_success(
+                [
+                    'post_id'   => $post_id,
+                    'edit_url'  => get_edit_post_link( $post_id, '' ),
+                    'shortcode' => $replacement,
+                    'message'   => 'Shortcode zaten doğru görünüyor.',
+                ]
+            );
+        }
+
+        $backup_key  = '_hc_shortcode_fix_backup_' . time();
+        $new_content = preg_replace( '/' . preg_quote( $raw_shortcodes[0], '/' ) . '/u', $replacement, (string) $post->post_content, 1 );
+
+        if ( null === $new_content ) {
+            wp_send_json_error( 'Shortcode değiştirilemedi.', 500 );
+        }
+
+        update_post_meta( $post_id, $backup_key, (string) $post->post_content );
+
+        $updated = wp_update_post(
+            [
+                'ID'           => $post_id,
+                'post_content' => $new_content,
+            ],
+            true
+        );
+
+        if ( is_wp_error( $updated ) ) {
+            wp_send_json_error( $updated->get_error_message(), 500 );
+        }
+
+        clean_post_cache( $post_id );
+        HC_Module_Inventory::invalidate_caches();
+
+        wp_send_json_success(
+            [
+                'post_id'   => $post_id,
+                'edit_url'  => get_edit_post_link( $post_id, '' ),
+                'shortcode' => $replacement,
+                'message'   => 'Shortcode başarıyla düzeltildi.',
+            ]
+        );
     }
 
     public function ajax_toggle_module_favorite() {

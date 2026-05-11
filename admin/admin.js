@@ -1,4 +1,4 @@
-jQuery(function ($) {
+﻿jQuery(function ($) {
     var hcModulePreviewPayload = null;
     var hcPreviewState = {
         name: '',
@@ -98,13 +98,13 @@ jQuery(function ($) {
             trigger: button
         };
 
-        title.textContent = hcPreviewState.name || 'Modül Önizleme';
+        title.textContent = hcPreviewState.name || 'ModÃ¼l \u00d6nizleme';
         shortcodeText.textContent = hcPreviewState.shortcode;
         shortcodeButton.setAttribute('data-shortcode', hcPreviewState.shortcode);
         standalone.href = hcPreviewState.standaloneUrl;
         content.innerHTML = '';
         loading.hidden = false;
-        hcSetPreviewStatus(hcAdmin.previewing || 'Önizleme hazırlanıyor...', 'loading');
+        hcSetPreviewStatus(hcAdmin.previewing || '\u00d6nizleme hazÄ±rlanÄ±yor...', 'loading');
 
         modal.hidden = false;
         modal.setAttribute('aria-hidden', 'false');
@@ -120,19 +120,19 @@ jQuery(function ($) {
                 loading.hidden = true;
 
                 if (!resp || !resp.success) {
-                    content.innerHTML = '<div class="hc-preview-error">' + ((resp && resp.data) ? resp.data : (hcAdmin.previewError || 'Önizleme yüklenemedi.')) + '</div>';
-                    hcSetPreviewStatus(hcAdmin.previewError || 'Önizleme yüklenemedi.', 'error');
+                    content.innerHTML = '<div class="hc-preview-error">' + ((resp && resp.data) ? resp.data : (hcAdmin.previewError || '\u00d6nizleme yÃ¼klenemedi.')) + '</div>';
+                    hcSetPreviewStatus(hcAdmin.previewError || '\u00d6nizleme yÃ¼klenemedi.', 'error');
                     return;
                 }
 
                 content.innerHTML = resp.data.html || '';
                 hcActivatePreviewScripts(content);
-                hcSetPreviewStatus('Önizleme hazır.', 'success');
+                hcSetPreviewStatus('\u00d6nizleme hazÄ±r.', 'success');
             })
             .fail(function (xhr) {
                 loading.hidden = true;
-                content.innerHTML = '<div class="hc-preview-error">Sunucu hatası: HTTP ' + xhr.status + '</div>';
-                hcSetPreviewStatus(hcAdmin.previewError || 'Önizleme yüklenemedi.', 'error');
+                content.innerHTML = '<div class="hc-preview-error">Sunucu hatasÄ±: HTTP ' + xhr.status + '</div>';
+                hcSetPreviewStatus(hcAdmin.previewError || '\u00d6nizleme yÃ¼klenemedi.', 'error');
             });
     }
 
@@ -185,11 +185,11 @@ jQuery(function ($) {
 
         hcCopyText(shortcode)
             .then(function () {
-                hcSetPreviewStatus(hcAdmin.copied || 'Shortcode kopyalandı.', 'success');
+                hcSetPreviewStatus(hcAdmin.copied || 'Shortcode kopyalandÄ±.', 'success');
             })
             .catch(function () {
-                hcSetPreviewStatus(hcAdmin.copyError || 'Shortcode kopyalanamadı.', 'error');
-                alert(hcAdmin.copyError || 'Shortcode kopyalanamadı.');
+                hcSetPreviewStatus(hcAdmin.copyError || 'Shortcode kopyalanamadÄ±.', 'error');
+                alert(hcAdmin.copyError || 'Shortcode kopyalanamadÄ±.');
             });
     });
 
@@ -199,8 +199,8 @@ jQuery(function ($) {
         }
 
         var $btn = $(this);
-        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluşturuluyor...');
-        hcSetPreviewStatus('Yazı taslağı hazırlanıyor...', 'loading');
+        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluÅŸturuluyor...');
+        hcSetPreviewStatus('YazÄ± taslaÄŸÄ± hazÄ±rlanÄ±yor...', 'loading');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_create_module_post',
@@ -208,7 +208,7 @@ jQuery(function ($) {
             name: hcPreviewState.name,
             shortcode: hcPreviewState.shortcode
         }, function (resp) {
-            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
+            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluÅŸtur');
 
             if (!resp.success) {
                 hcSetPreviewStatus('Hata: ' + resp.data, 'error');
@@ -216,17 +216,17 @@ jQuery(function ($) {
             }
 
             var message = resp.data.existing
-                ? 'Taslak zaten vardı; kategori ve shortcode güncellendi.'
-                : 'Taslak oluşturuldu ve kaydedildi.';
+                ? 'Taslak zaten vardÄ±; kategori ve shortcode gÃ¼ncellendi.'
+                : 'Taslak oluÅŸturuldu ve kaydedildi.';
 
             if (resp.data.reason) {
                 message += ' ' + resp.data.reason;
             }
 
-            hcSetPreviewStatus(message + ' <a href=\"' + resp.data.edit_url + '\">Düzenle</a>', 'success');
+            hcSetPreviewStatus(message + ' <a href=\"' + resp.data.edit_url + '\">DÃ¼zenle</a>', 'success');
         }).fail(function (xhr) {
-            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
-            hcSetPreviewStatus('Sunucu hatası: HTTP ' + xhr.status, 'error');
+            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluÅŸtur');
+            hcSetPreviewStatus('Sunucu hatasÄ±: HTTP ' + xhr.status, 'error');
         });
     });
 
@@ -237,7 +237,7 @@ jQuery(function ($) {
         var $button = $(button);
         var $card = $button.closest('[data-module-card]');
 
-        if (!slug || !window.confirm((hcAdmin.deleteConfirm || 'Bu modülü silmek istediğinize emin misiniz?') + '\n\n' + name)) {
+        if (!slug || !window.confirm((hcAdmin.deleteConfirm || 'Bu modÃ¼lÃ¼ silmek istediÄŸinize emin misiniz?') + '\n\n' + name)) {
             return;
         }
 
@@ -250,8 +250,8 @@ jQuery(function ($) {
         })
             .done(function (resp) {
                 if (!resp || !resp.success) {
-                    $button.prop('disabled', false).text('Modülü Sil');
-                    alert(((resp && resp.data) ? resp.data : (hcAdmin.deleteError || 'Modül silinemedi.')));
+                    $button.prop('disabled', false).text('ModÃ¼lÃ¼ Sil');
+                    alert(((resp && resp.data) ? resp.data : (hcAdmin.deleteError || 'ModÃ¼l silinemedi.')));
                     return;
                 }
 
@@ -260,13 +260,13 @@ jQuery(function ($) {
                     $card.remove();
                     $(document).trigger('hc:module-deleted', [slug]);
                     if (!$('[data-module-card]').length) {
-                        $('.hc-module-grid').replaceWith('<div class="hc-empty-state"><span class="dashicons dashicons-screenoptions" aria-hidden="true"></span><h3>Modül kalmadı</h3><p>Katalogda gösterilecek aktif modül bulunmuyor.</p></div>');
+                        $('.hc-module-grid').replaceWith('<div class="hc-empty-state"><span class="dashicons dashicons-screenoptions" aria-hidden="true"></span><h3>ModÃ¼l kalmadÄ±</h3><p>Katalogda gÃ¶sterilecek aktif modÃ¼l bulunmuyor.</p></div>');
                     }
                 }, 240);
             })
             .fail(function (xhr) {
-                $button.prop('disabled', false).text('Modülü Sil');
-                alert((hcAdmin.deleteError || 'Modül silinemedi.') + ' HTTP ' + xhr.status);
+                $button.prop('disabled', false).text('ModÃ¼lÃ¼ Sil');
+                alert((hcAdmin.deleteError || 'ModÃ¼l silinemedi.') + ' HTTP ' + xhr.status);
             });
     });
 
@@ -281,7 +281,7 @@ jQuery(function ($) {
             return;
         }
 
-        $versionResult.text((xhr.responseJSON && xhr.responseJSON.data) ? xhr.responseJSON.data : 'Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
+        $versionResult.text((xhr.responseJSON && xhr.responseJSON.data) ? xhr.responseJSON.data : 'Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638');
     });
 
     function hcNormalizeCategory(value) {
@@ -345,7 +345,7 @@ jQuery(function ($) {
         var categories = hcGetCategories();
 
         if (!category) {
-            alert('Lütfen kategori adı girin.');
+            alert('LÃ¼tfen kategori adÄ± girin.');
             return;
         }
 
@@ -388,7 +388,7 @@ jQuery(function ($) {
                 return;
             }
 
-            $result.text('Bağlantı kurulamadı. Repo bilgisini ve token alanını kontrol edin.').css('color', '#d63638');
+            $result.text('BaÄŸlantÄ± kurulamadÄ±. Repo bilgisini ve token alanÄ±nÄ± kontrol edin.').css('color', '#d63638');
         });
     });
 
@@ -407,7 +407,7 @@ jQuery(function ($) {
         var $msg = $card.find('.hc-yazi-ekle-msg').first();
         var desc = $btn.data('desc') || $.trim($card.find('.hc-module-card-main p').first().text()) || $.trim($card.find('[data-module-desc]').first().text());
 
-        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluşturuluyor...');
+        $btn.prop('disabled', true).text(hcAdmin.creatingDraft || 'Taslak oluÅŸturuluyor...');
         $msg.hide().text('');
 
         $.post(hcAdmin.ajaxurl, {
@@ -419,7 +419,7 @@ jQuery(function ($) {
             desc: desc,
             category: $select.val() || ''
         }, function (resp) {
-            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluştur');
+            $btn.prop('disabled', false).text(hcAdmin.createDraft || 'Taslak oluÅŸtur');
 
             if (!resp.success) {
                 $msg.text('Hata: ' + resp.data).css('color', '#d63638').show();
@@ -434,9 +434,9 @@ jQuery(function ($) {
             }
 
             if (resp.data.existing) {
-                $msg.html('Taslak zaten vardı; kategori ve shortcode güncellendi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#b45309').show();
+                $msg.html('Taslak zaten vardÄ±; kategori ve shortcode gÃ¼ncellendi. <a href="' + resp.data.edit_url + '">DÃ¼zenle</a>').css('color', '#b45309').show();
             } else {
-                $msg.html('Taslak oluşturuldu ve kaydedildi. <a href="' + resp.data.edit_url + '">Düzenle</a>').css('color', '#067647').show();
+                $msg.html('Taslak oluÅŸturuldu ve kaydedildi. <a href="' + resp.data.edit_url + '">DÃ¼zenle</a>').css('color', '#067647').show();
             }
 
             $(document).trigger('hc:draft-created');
@@ -449,7 +449,7 @@ jQuery(function ($) {
         var $select = $card.find('.hc-category-select');
         var $msg = $card.find('.hc-yazi-ekle-msg').first();
 
-        $btn.prop('disabled', true).text(hcAdmin.analyzingCategory || 'AI kategori analizi yapılıyor...');
+        $btn.prop('disabled', true).text(hcAdmin.analyzingCategory || 'AI kategori analizi yapÄ±lÄ±yor...');
         $msg.hide().text('');
 
         $.post(hcAdmin.ajaxurl, {
@@ -461,7 +461,7 @@ jQuery(function ($) {
             $btn.prop('disabled', false).text(hcAdmin.analyzeCategory || 'AI ile kategori analizi');
 
             if (!resp || !resp.success) {
-                $msg.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Kategori analizi yapılamadı.')).css('color', '#d63638').show();
+                $msg.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Kategori analizi yapÄ±lamadÄ±.')).css('color', '#d63638').show();
                 return;
             }
 
@@ -472,10 +472,10 @@ jQuery(function ($) {
                 $select.val(resp.data.category).trigger('change');
             }
 
-            $msg.text((resp.data && resp.data.reason) ? resp.data.reason : (hcAdmin.categoryAnalyzed || 'Kategori önerisi seçildi. Kaydetmeyi unutmayın.')).css('color', '#067647').show();
+            $msg.text((resp.data && resp.data.reason) ? resp.data.reason : (hcAdmin.categoryAnalyzed || 'Kategori Ã¶nerisi seÃ§ildi. Kaydetmeyi unutmayÄ±n.')).css('color', '#067647').show();
         }).fail(function (xhr) {
             $btn.prop('disabled', false).text(hcAdmin.analyzeCategory || 'AI ile kategori analizi');
-            $msg.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638').show();
+            $msg.text('Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638').show();
         });
     });
 
@@ -495,7 +495,7 @@ jQuery(function ($) {
                 var d;
                 var html = '<table style="width:100%;border-collapse:collapse;">';
 
-                $btn.prop('disabled', false).text('Kullanımı Kontrol Et');
+                $btn.prop('disabled', false).text('Kullan\u0131mÄ± Kontrol Et');
 
                 if (!resp.success) {
                     $content.html('<p style="color:#d63638;">Hata: ' + resp.data + '</p>');
@@ -524,8 +524,8 @@ jQuery(function ($) {
                 $card.show();
             })
             .fail(function () {
-                $btn.prop('disabled', false).text('Kullanımı Kontrol Et');
-                $content.html('<p style="color:#d63638;">Sunucu hatası.</p>');
+                $btn.prop('disabled', false).text('Kullan\u0131mÄ± Kontrol Et');
+                $content.html('<p style="color:#d63638;">Sunucu hatasÄ±.</p>');
                 $card.show();
             });
     });
@@ -534,14 +534,14 @@ jQuery(function ($) {
         var url = $('#hc-writer-url').val().trim();
 
         if (!url) {
-            alert('Lütfen bir URL girin.');
+            alert('LÃ¼tfen bir URL girin.');
             return;
         }
 
         $('#hc-writer-result').hide();
         $('#hc-writer-error').hide();
         $('#hc-writer-loading').show();
-        $('#hc-writer-btn').prop('disabled', true).text('Hazırlanıyor...');
+        $('#hc-writer-btn').prop('disabled', true).text('HazÄ±rlanÄ±yor...');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_generate_article',
@@ -553,13 +553,13 @@ jQuery(function ($) {
                 var d;
 
                 $('#hc-writer-loading').hide();
-                $('#hc-writer-btn').prop('disabled', false).text('Makale Oluştur');
+                $('#hc-writer-btn').prop('disabled', false).text('Makale OluÅŸtur');
 
                 if (typeof resp === 'string') {
                     try {
                         resp = JSON.parse(resp);
                     } catch (e) {
-                        $('#hc-writer-error').text('JSON parse hatası. Ham yanıt: ' + resp.substring(0, 200)).show();
+                        $('#hc-writer-error').text('JSON parse hatasÄ±. Ham yanÄ±t: ' + resp.substring(0, 200)).show();
                         return;
                     }
                 }
@@ -585,8 +585,8 @@ jQuery(function ($) {
             })
             .fail(function (xhr) {
                 $('#hc-writer-loading').hide();
-                $('#hc-writer-btn').prop('disabled', false).text('Makale Oluştur');
-                $('#hc-writer-error').text('Sunucu hatası: HTTP ' + xhr.status + ' — ' + xhr.responseText.substring(0, 150)).show();
+                $('#hc-writer-btn').prop('disabled', false).text('Makale OluÅŸtur');
+                $('#hc-writer-error').text('Sunucu hatasÄ±: HTTP ' + xhr.status + ' â€” ' + xhr.responseText.substring(0, 150)).show();
             });
     });
 
@@ -613,7 +613,7 @@ jQuery(function ($) {
             $('#hc-save-draft-btn').prop('disabled', false);
 
             if (resp.success) {
-                $('#hc-save-msg').html('Kaydedildi. <a href="' + resp.data.edit_url + '" target="_blank">Taslağı aç</a>').css('color', '#067647');
+                $('#hc-save-msg').html('Kaydedildi. <a href="' + resp.data.edit_url + '" target="_blank">TaslaÄŸÄ± aÃ§</a>').css('color', '#067647');
                 return;
             }
 
@@ -629,7 +629,7 @@ jQuery(function ($) {
         var notes = $('#hc-module-notes').val().trim();
 
         if (!topic && !url) {
-            alert('Lütfen konu veya URL girin.');
+            alert('LÃ¼tfen konu veya URL girin.');
             return;
         }
 
@@ -637,8 +637,8 @@ jQuery(function ($) {
         $('#hc-module-preview').hide();
         $('#hc-module-error').hide().text('');
         $('#hc-module-publish-btn').prop('disabled', true);
-        $btn.prop('disabled', true).text('Taslak hazırlanıyor...');
-        $status.text('GPT-5 mini modül dosyalarını hazırlıyor. Bu işlem 30-90 saniye sürebilir.').css('color', '#646970');
+        $btn.prop('disabled', true).text('Taslak hazÄ±rlanÄ±yor...');
+        $status.text('GPT-5 mini modÃ¼l dosyalarÄ±nÄ± hazÄ±rlÄ±yor. Bu iÅŸlem 30-90 saniye sÃ¼rebilir.').css('color', '#646970');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_generate_module_preview',
@@ -650,7 +650,7 @@ jQuery(function ($) {
             .done(function (resp) {
                 var d;
 
-                $btn.prop('disabled', false).text('Modül Taslağı Oluştur');
+                $btn.prop('disabled', false).text('ModÃ¼l TaslaÄŸÄ± OluÅŸtur');
 
                 if (!resp || !resp.success) {
                     $('#hc-module-error').text('Hata: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).show();
@@ -662,11 +662,11 @@ jQuery(function ($) {
                 hcModulePreviewPayload = d;
                 hcFillModulePreview(d);
                 $('#hc-module-preview').show();
-                $status.text('Taslak hazır. Kaydetmeden önce dosyaları hızlıca gözden geçirin.').css('color', '#067647');
+                $status.text('Taslak hazÄ±r. Kaydetmeden Ã¶nce dosyalarÄ± hÄ±zlÄ±ca gÃ¶zden geÃ§irin.').css('color', '#067647');
             })
             .fail(function (xhr) {
-                $btn.prop('disabled', false).text('Modül Taslağı Oluştur');
-                $('#hc-module-error').text('Sunucu hatası: HTTP ' + xhr.status + ' - ' + xhr.responseText.substring(0, 150)).show();
+                $btn.prop('disabled', false).text('ModÃ¼l TaslaÄŸÄ± OluÅŸtur');
+                $('#hc-module-error').text('Sunucu hatasÄ±: HTTP ' + xhr.status + ' - ' + xhr.responseText.substring(0, 150)).show();
                 $status.text('').css('color', '');
             });
     });
@@ -688,12 +688,12 @@ jQuery(function ($) {
         var $status = $('#hc-module-save-status');
 
         if (!hcModulePreviewPayload) {
-            alert('Önce modül taslağı oluşturun.');
+            alert('Ã–nce modÃ¼l taslaÄŸÄ± oluÅŸturun.');
             return;
         }
 
         $btn.prop('disabled', true).text('Kaydediliyor...');
-        $status.text('Dosyalar kontrol ediliyor ve yeni modül klasörü oluşturuluyor...').css('color', '#646970');
+        $status.text('Dosyalar kontrol ediliyor ve yeni modÃ¼l klasÃ¶rÃ¼ oluÅŸturuluyor...').css('color', '#646970');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_save_module_files',
@@ -701,7 +701,7 @@ jQuery(function ($) {
             payload: JSON.stringify(hcModulePreviewPayload)
         })
             .done(function (resp) {
-                $btn.prop('disabled', false).text('Modülü Eklentiye Kaydet');
+                $btn.prop('disabled', false).text('ModÃ¼lÃ¼ Eklentiye Kaydet');
 
                 if (!resp || !resp.success) {
                     $status.text('Hata: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
@@ -712,8 +712,8 @@ jQuery(function ($) {
                 $('#hc-module-publish-btn').prop('disabled', false);
             })
             .fail(function (xhr) {
-                $btn.prop('disabled', false).text('Modülü Eklentiye Kaydet');
-                $status.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
+                $btn.prop('disabled', false).text('ModÃ¼lÃ¼ Eklentiye Kaydet');
+                $status.text('Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638');
             });
     });
 
@@ -722,16 +722,16 @@ jQuery(function ($) {
         var $status = $('#hc-module-save-status');
 
         if (!hcModulePreviewPayload) {
-            alert('Önce modül taslağı oluşturun.');
+            alert('Ã–nce modÃ¼l taslaÄŸÄ± oluÅŸturun.');
             return;
         }
 
-        if (!window.confirm('Bu modülü GitHub ayarlarında seçili branch üzerine commit olarak göndermek istiyor musunuz?')) {
+        if (!window.confirm('Bu modÃ¼lÃ¼ GitHub ayarlarÄ±nda seÃ§ili branch Ã¼zerine commit olarak gÃ¶ndermek istiyor musunuz?')) {
             return;
         }
 
-        $btn.prop('disabled', true).text('GitHub’a gönderiliyor...');
-        $status.text('GitHub API üzerinden dosyalar oluşturuluyor...').css('color', '#646970');
+        $btn.prop('disabled', true).text('GitHubâ€™a gÃ¶nderiliyor...');
+        $status.text('GitHub API Ã¼zerinden dosyalar oluÅŸturuluyor...').css('color', '#646970');
 
         $.post(hcAdmin.ajaxurl, {
             action: 'hc_publish_module_github',
@@ -739,18 +739,18 @@ jQuery(function ($) {
             payload: JSON.stringify(hcModulePreviewPayload)
         })
             .done(function (resp) {
-                $btn.prop('disabled', false).text('GitHub\'a Gönder');
+                $btn.prop('disabled', false).text('GitHub\'a GÃ¶nder');
 
                 if (!resp || !resp.success) {
-                    $status.text('GitHub hatası: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
+                    $status.text('GitHub hatasÄ±: ' + ((resp && resp.data) ? resp.data : 'Bilinmeyen hata.')).css('color', '#d63638');
                     return;
                 }
 
-                $status.text('GitHub’a gönderildi: ' + resp.data.repo + ' / ' + resp.data.branch).css('color', '#067647');
+                $status.text('GitHubâ€™a gÃ¶nderildi: ' + resp.data.repo + ' / ' + resp.data.branch).css('color', '#067647');
             })
             .fail(function (xhr) {
-                $btn.prop('disabled', false).text('GitHub\'a Gönder');
-                $status.text('Sunucu hatası: HTTP ' + xhr.status).css('color', '#d63638');
+                $btn.prop('disabled', false).text('GitHub\'a GÃ¶nder');
+                $status.text('Sunucu hatasÄ±: HTTP ' + xhr.status).css('color', '#d63638');
             });
     });
 
@@ -770,7 +770,7 @@ jQuery(function ($) {
         $('#hc-file-css').val(files.calculator_css || '');
 
         if (module.needs_review || module.review_note) {
-            $('#hc-module-review-note').text(module.review_note || 'Formül için insan kontrolü önerilir.').show();
+            $('#hc-module-review-note').text(module.review_note || 'FormÃ¼l iÃ§in insan kontrolÃ¼ Ã¶nerilir.').show();
         } else {
             $('#hc-module-review-note').hide().text('');
         }
@@ -821,7 +821,8 @@ jQuery(function ($) {
             per_page: parseInt($root.data('per-page'), 10) || 50,
             view: 'gallery',
             favorites: [],
-            recent: []
+            recent: [],
+            activeSlug: ''
         };
 
         function setDrawerEmpty(isEmpty) {
@@ -886,10 +887,10 @@ jQuery(function ($) {
         function renderStats(stats) {
             var latest = stats.latest_post || {};
             var cards = [
-                { label: 'Toplam Modül', value: stats.total_modules || 0, foot: 'Canlı katalog' },
-                { label: 'Kategori', value: stats.total_categories || 0, foot: 'Gezgin ağacı' },
-                { label: 'Toplam Kullanım', value: stats.total_usage || 0, foot: 'Shortcode yerleşimi' },
-                { label: 'Mükerrer Kullanım', value: stats.duplicate_modules || 0, foot: (stats.duplicate_usage || 0) + ' ekstra kullanım' },
+                { label: 'Toplam ModÃ¼l', value: stats.total_modules || 0, foot: 'CanlÄ± katalog' },
+                { label: 'Kategori', value: stats.total_categories || 0, foot: 'Gezgin aÄŸacÄ±' },
+                { label: 'Toplam Kullan\u0131m', value: stats.total_usage || 0, foot: 'Shortcode yerleÅŸimi' },
+                { label: 'MÃ¼kerrer Kullan\u0131m', value: stats.duplicate_modules || 0, foot: (stats.duplicate_usage || 0) + ' ekstra kullanÄ±m' },
                 { label: 'Son Eklenen', value: latest.title || '-', foot: latest.date || '-', small: true }
             ];
             var html = '';
@@ -920,7 +921,7 @@ jQuery(function ($) {
         }
 
         function renderCategoryTree(categories) {
-            var html = '<button type="button" class="hc-explorer-tree-item' + (!state.category ? ' is-active' : '') + '" data-category="">Tüm kategoriler <strong></strong></button>';
+            var html = '<button type="button" class="hc-explorer-tree-item' + (!state.category ? ' is-active' : '') + '" data-category="">TÃ¼m kategoriler <strong></strong></button>';
 
             (categories || []).forEach(function (node) {
                 var parentActive = state.category === node.label ? ' is-active' : '';
@@ -936,7 +937,7 @@ jQuery(function ($) {
                 html += '<div class="hc-explorer-tree-parent">';
                 html += '<button type="button" class="hc-explorer-tree-item' + parentActive + '" data-category="' + hcEscapeHtml(node.label) + '"><span>' + hcEscapeHtml(node.label) + '</span><strong>' + hcEscapeHtml(String(node.count)) + '</strong></button>';
                 if (hasChildren) {
-                    html += '<button type="button" class="hc-tree-toggle" data-tree-toggle aria-label="Alt kategorileri aç/kapat">&#8250;</button>';
+                    html += '<button type="button" class="hc-tree-toggle" data-tree-toggle aria-label="Alt kategorileri aÃ§/kapat">&#8250;</button>';
                 }
                 html += '</div>';
 
@@ -957,14 +958,14 @@ jQuery(function ($) {
         }
 
         function renderPagination(list) {
-            $('#hc-explorer-page-label').text('Sayfa ' + list.page + ' / ' + list.pages + ' • ' + list.total + ' modül');
+            $('#hc-explorer-page-label').text('Sayfa ' + list.page + ' / ' + list.pages + ' â€¢ ' + list.total + ' modÃ¼l');
             $('#hc-explorer-prev').prop('disabled', list.page <= 1);
             $('#hc-explorer-next').prop('disabled', !list.has_more);
-            $('#hc-explorer-list-meta').text(list.total + ' sonuç bulundu');
+            $('#hc-explorer-list-meta').text(list.total + ' sonuÃ§ bulundu');
         }
 
         function buildCategorySelect(value) {
-            var html = '<select class="hc-category-select"><option value="">Seçiniz</option>';
+            var html = '<select class="hc-category-select"><option value="">SeÃ§iniz</option>';
             categoryOptions.forEach(function (category) {
                 html += '<option value="' + hcEscapeHtml(category) + '"' + (category === value ? ' selected' : '') + '>' + hcEscapeHtml(category) + '</option>';
             });
@@ -975,21 +976,117 @@ jQuery(function ($) {
             return html;
         }
 
+        function getSuggestedCategoryLabel(item) {
+            if (item.suggested_category_label) {
+                return item.suggested_category_label;
+            }
+            if (item.suggested_category_parent && item.suggested_category_child) {
+                return item.suggested_category_parent + ' \u203a ' + item.suggested_category_child;
+            }
+            return item.suggested_category_parent || '';
+        }
+
+        function hasSuggestedCategory(item) {
+            return !!getSuggestedCategoryLabel(item);
+        }
+
+        function buildUsageBadge(item) {
+            return '<span class="hc-usage-badge ' + (item.post_count > 0 ? 'is-used' : 'is-unused') + '">' + hcEscapeHtml(String(item.post_count)) + ' yay\u0131n / ' + hcEscapeHtml(String(item.draft_count)) + ' taslak</span>';
+        }
+
+        function buildModuleBadges(item) {
+            var badges = [];
+
+            badges.push('<span class="hc-inline-badge ' + (item.post_count > 0 ? 'is-used' : 'is-unused') + '">' + (item.post_count > 0 ? 'Kullan\u0131l\u0131yor' : 'Kullan\u0131lm\u0131yor') + '</span>');
+
+            if (item.shortcode_mismatch) {
+                badges.push('<span class="hc-inline-badge is-mismatch">Shortcode Uyu\u015fmazl\u0131\u011f\u0131</span>');
+            }
+            if (!item.category || item.category === 'Genel') {
+                badges.push('<span class="hc-inline-badge is-no-category">Kategorisiz</span>');
+            }
+            if (hasSuggestedCategory(item)) {
+                badges.push('<span class="hc-inline-badge is-suggested">\u00d6nerilen Kategori Var</span>');
+            }
+
+            return '<div class="hc-badge-stack">' + badges.join('') + '</div>';
+        }
+
+        function buildCategoryControl(item) {
+            var html = '<div class="hc-category-control">';
+            html += buildCategorySelect(item.category || '');
+
+            if (hasSuggestedCategory(item)) {
+                html += '<div class="hc-suggested-category-note">';
+                html += '<span>\u00d6nerilen: <strong>' + hcEscapeHtml(getSuggestedCategoryLabel(item)) + '</strong></span>';
+                html += '<button type="button" class="button button-small hc-button-ghost" data-hc-apply-suggested-category="' + hcEscapeHtml(item.slug) + '" data-category="' + hcEscapeHtml(getSuggestedCategoryLabel(item)) + '">\u00d6nerilen kategoriyi kaydet</button>';
+                html += '</div>';
+            }
+
+            html += '</div>';
+            return html;
+        }
+
+        function buildShortcodeTokens(shortcodes) {
+            var html = '';
+
+            (shortcodes || []).forEach(function (shortcode) {
+                html += '<span class="hc-shortcode-token"><code>' + hcEscapeHtml(shortcode) + '</code></span>';
+            });
+
+            return html || '<span class="hc-shortcode-token is-empty">Bulunamad\u0131</span>';
+        }
+
+        function buildShortcodeMismatchPanel(item) {
+            if (!item.shortcode_mismatch) {
+                return '';
+            }
+
+            var html = '<div class="hc-mismatch-panel">';
+            html += '<div class="hc-detail-block"><span>Beklenen shortcode</span><div class="hc-shortcode-token-list">' + buildShortcodeTokens([item.expected_shortcode || item.shortcode]) + '</div></div>';
+            html += '<div class="hc-detail-block"><span>Bulunan shortcode(lar)</span><div class="hc-shortcode-token-list">' + buildShortcodeTokens(item.found_shortcodes || []) + '</div></div>';
+
+            if (item.matched_post_id) {
+                html += '<div class="hc-detail-block"><span>Ba\u011fl\u0131 post</span><strong>#' + hcEscapeHtml(String(item.matched_post_id)) + ' &bull; ' + hcEscapeHtml(item.matched_post_status || '-') + '</strong></div>';
+            }
+            if (item.matched_post_title) {
+                html += '<div class="hc-detail-block"><span>Post ba\u015fl\u0131\u011f\u0131</span><strong>' + hcEscapeHtml(item.matched_post_title) + '</strong></div>';
+            }
+            if (item.matched_post_category_label) {
+                html += '<div class="hc-detail-block"><span>Post kategorileri</span><strong>' + hcEscapeHtml(item.matched_post_category_label) + '</strong></div>';
+            }
+            if (hasSuggestedCategory(item)) {
+                html += '<div class="hc-detail-block"><span>\u00d6nerilen kategori</span><strong>' + hcEscapeHtml(getSuggestedCategoryLabel(item)) + '</strong></div>';
+            }
+
+            html += '</div>';
+            return html;
+        }
+
         function buildRowActions(item) {
-            return [
-                '<button type="button" class="button button-small button-primary hc-preview-btn" data-hc-preview data-name="' + hcEscapeHtml(item.name) + '" data-shortcode="' + hcEscapeHtml(item.shortcode) + '" data-standalone-url="' + hcEscapeHtml(hcBuildStandaloneUrl(item.shortcode)) + '">Önizle</button>',
+            var actions = [
+                '<button type="button" class="button button-small button-primary hc-preview-btn" data-hc-preview data-name="' + hcEscapeHtml(item.name) + '" data-shortcode="' + hcEscapeHtml(item.shortcode) + '" data-standalone-url="' + hcEscapeHtml(hcBuildStandaloneUrl(item.shortcode)) + '">\u00d6nizle</button>',
                 '<button type="button" class="button button-small hc-ai-category-btn" data-name="' + hcEscapeHtml(item.name) + '" data-desc="' + hcEscapeHtml(item.desc || '') + '" data-nonce="' + hcEscapeHtml(hcAdmin.nonce) + '">AI kategori</button>',
                 '<button type="button" class="button button-small hc-yazi-ekle-btn" data-name="' + hcEscapeHtml(item.name) + '" data-shortcode="' + hcEscapeHtml(item.shortcode) + '" data-desc="' + hcEscapeHtml(item.desc || '') + '" data-nonce="' + hcEscapeHtml(hcAdmin.nonce) + '">Taslak</button>',
-                '<a class="button button-small hc-button-ghost" href="' + hcEscapeHtml(item.posts_url) + '">Kullanımlar</a>',
+                '<a class="button button-small hc-button-ghost" href="' + hcEscapeHtml(item.posts_url) + '">Kullan\u0131mlar</a>',
                 '<button type="button" class="button button-small hc-button-danger" data-hc-delete-module data-slug="' + hcEscapeHtml(item.slug) + '" data-name="' + hcEscapeHtml(item.name) + '">Sil</button>'
-            ].join('');
+            ];
+
+            if (item.matched_post_url) {
+                actions.push('<a class="button button-small hc-button-ghost" href="' + hcEscapeHtml(item.matched_post_url) + '">Postu D\u00fczenle</a>');
+            }
+            if (item.shortcode_mismatch) {
+                actions.push('<button type="button" class="button button-small hc-button-warning" data-hc-fix-shortcode="' + hcEscapeHtml(item.slug) + '" data-post-id="' + hcEscapeHtml(String(item.matched_post_id || 0)) + '">Shortcode\u2019u d\u00fczelt</button>');
+            }
+
+            return actions.join('');
         }
 
         function renderTable(list) {
             var html = '';
 
             if (!list.items.length) {
-                html = '<tr><td colspan="9"><div class="hc-empty-state"><span class="dashicons dashicons-search"></span><h3>Sonuç bulunamadı</h3><p>Arama veya filtreleri değiştirerek tekrar deneyin.</p></div></td></tr>';
+                html = '<tr><td colspan="9"><div class="hc-empty-state"><span class="dashicons dashicons-search"></span><h3>Sonu\u00e7 bulunamad\u0131</h3><p>Arama veya filtreleri de\u011fi\u015ftirerek tekrar deneyin.</p></div></td></tr>';
                 $('#hc-explorer-table-body').html(html);
                 return;
             }
@@ -1000,13 +1097,13 @@ jQuery(function ($) {
                 html += '<tr data-module-card data-slug="' + hcEscapeHtml(item.slug) + '" data-module-desc="' + hcEscapeHtml(item.desc || '') + '">';
                 html += '<td class="hc-cell-check"><input type="checkbox" class="hc-explorer-row-check" data-slug="' + hcEscapeHtml(item.slug) + '"' + checked + '></td>';
                 html += '<td><button type="button" class="hc-explorer-row-link" data-module-open="' + hcEscapeHtml(item.slug) + '"><strong>' + hcEscapeHtml(item.name) + '</strong><span>' + hcEscapeHtml(item.slug) + '</span></button></td>';
-                html += '<td>' + buildCategorySelect(item.category || '') + '</td>';
-                html += '<td><span class="hc-inline-badge">' + hcEscapeHtml(item.status) + '</span></td>';
-                html += '<td><button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="' + hcEscapeHtml(item.shortcode) + '"><code>' + hcEscapeHtml(item.shortcode) + '</code></button></td>';
+                html += '<td>' + buildCategoryControl(item) + '</td>';
+                html += '<td>' + buildModuleBadges(item) + '</td>';
+                html += '<td><button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="' + hcEscapeHtml(item.shortcode) + '"><code>' + hcEscapeHtml(item.shortcode) + '</code></button>' + buildShortcodeMismatchPanel(item) + '</td>';
                 html += '<td><span class="hc-ai-pill' + (item.ai_enabled ? ' is-active' : '') + '">' + (item.ai_enabled ? 'Aktif' : 'Pasif') + '</span></td>';
-                html += '<td><span class="hc-usage-badge ' + (item.post_count > 0 ? 'is-used' : 'is-unused') + '">' + hcEscapeHtml(String(item.post_count)) + ' kullanım</span></td>';
+                html += '<td>' + buildUsageBadge(item) + '</td>';
                 html += '<td>' + hcEscapeHtml(item.updated) + '</td>';
-                html += '<td><div class="hc-row-actions">' + buildRowActions(item) + '<button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(item.slug) + '" aria-label="Favori değiştir">★</button><span class="hc-yazi-ekle-msg"></span></div></td>';
+                html += '<td><div class="hc-row-actions">' + buildRowActions(item) + '<button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(item.slug) + '" aria-label="Favori de\u011fi\u015ftir">&#9733;</button><span class="hc-yazi-ekle-msg"></span></div></td>';
                 html += '</tr>';
             });
 
@@ -1019,11 +1116,13 @@ jQuery(function ($) {
             list.items.forEach(function (item) {
                 var favorite = state.favorites.indexOf(item.slug) > -1 ? ' is-active' : '';
                 html += '<article class="hc-module-card hc-module-card-compact" data-module-card data-slug="' + hcEscapeHtml(item.slug) + '" data-module-desc="' + hcEscapeHtml(item.desc || '') + '">';
-                html += '<div class="hc-module-card-top"><span class="hc-category-badge">' + hcEscapeHtml(item.category || 'Kategorisiz') + '</span><span class="hc-usage-badge ' + (item.post_count > 0 ? 'is-used' : 'is-unused') + '">' + hcEscapeHtml(String(item.post_count)) + ' kullanım</span></div>';
+                html += '<div class="hc-module-card-top"><span class="hc-category-badge">' + hcEscapeHtml(item.category || 'Kategorisiz') + '</span>' + buildUsageBadge(item) + '</div>';
                 html += '<div class="hc-module-card-main"><h3>' + hcEscapeHtml(item.name) + '</h3><p>' + hcEscapeHtml(item.desc || '') + '</p></div>';
+                html += buildModuleBadges(item);
+                html += buildShortcodeMismatchPanel(item);
                 html += '<div class="hc-module-meta-inline"><span>' + hcEscapeHtml(item.updated) + '</span><span>' + hcEscapeHtml(item.shortcode) + '</span></div>';
-                html += buildCategorySelect(item.category || '');
-                html += '<div class="hc-card-actions hc-card-actions-compact">' + buildRowActions(item) + '<button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(item.slug) + '" aria-label="Favori değiştir">★</button><span class="hc-yazi-ekle-msg"></span></div>';
+                html += buildCategoryControl(item);
+                html += '<div class="hc-card-actions hc-card-actions-compact">' + buildRowActions(item) + '<button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(item.slug) + '" aria-label="Favori de\u011fi\u015ftir">&#9733;</button><span class="hc-yazi-ekle-msg"></span></div>';
                 html += '</article>';
             });
 
@@ -1033,38 +1132,49 @@ jQuery(function ($) {
         function renderDrawer(module) {
             var favorite = state.favorites.indexOf(module.slug) > -1 ? ' is-active' : '';
             var html = '<div class="hc-explorer-drawer-body" data-module-card data-slug="' + hcEscapeHtml(module.slug) + '">';
-            html += '<div class="hc-explorer-drawer-head"><div><span class="hc-toolbar-kicker">Module Detail</span><h3>' + hcEscapeHtml(module.name) + '</h3><p data-module-desc>' + hcEscapeHtml(module.desc || '') + '</p></div><button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(module.slug) + '">★</button></div>';
+            html += '<div class="hc-explorer-drawer-head"><div><span class="hc-toolbar-kicker">Module Detail</span><h3>' + hcEscapeHtml(module.name) + '</h3><p data-module-desc>' + hcEscapeHtml(module.desc || '') + '</p></div><button type="button" class="hc-icon-star' + favorite + '" data-favorite-toggle="' + hcEscapeHtml(module.slug) + '">&#9733;</button></div>';
+            html += buildModuleBadges(module);
             html += '<div class="hc-module-meta-grid">';
             html += '<div><span>Kategori</span><strong>' + hcEscapeHtml(module.category || 'Kategorisiz') + '</strong></div>';
             html += '<div><span>Shortcode</span><code>' + hcEscapeHtml(module.shortcode) + '</code></div>';
-            html += '<div><span>Kullanım</span><strong>' + hcEscapeHtml(String(module.post_count)) + '</strong></div>';
+            html += '<div><span>Kullan\u0131m</span><strong>' + hcEscapeHtml(String(module.post_count)) + '</strong></div>';
             html += '<div><span>Draft</span><strong>' + hcEscapeHtml(String(module.draft_count)) + '</strong></div>';
-            html += '<div><span>Güncelleme</span><strong>' + hcEscapeHtml(module.updated) + '</strong></div>';
-            html += '<div><span>Yayıncı</span><strong>' + hcEscapeHtml(module.publisher || '-') + '</strong></div>';
+            html += '<div><span>G\u00fcncelleme</span><strong>' + hcEscapeHtml(module.updated) + '</strong></div>';
+            html += '<div><span>Yay\u0131nc\u0131</span><strong>' + hcEscapeHtml(module.publisher || '-') + '</strong></div>';
             html += '</div>';
-            html += '<label class="hc-card-select-label"><span>Kategori</span>' + buildCategorySelect(module.category || '') + '</label>';
+            html += buildShortcodeMismatchPanel(module);
+            html += '<div class="hc-module-meta-grid hc-module-meta-grid-secondary">';
+            html += '<div><span>Beklenen shortcode</span><code>' + hcEscapeHtml(module.expected_shortcode || module.shortcode) + '</code></div>';
+            html += '<div><span>Ba\u011fl\u0131 post</span><strong>' + (module.matched_post_id ? '#' + hcEscapeHtml(String(module.matched_post_id)) : '-') + '</strong></div>';
+            html += '<div><span>Post durumu</span><strong>' + hcEscapeHtml(module.matched_post_status || '-') + '</strong></div>';
+            html += '<div><span>Post kategorileri</span><strong>' + hcEscapeHtml(module.matched_post_category_label || '-') + '</strong></div>';
+            html += '<div><span>\u00d6nerilen kategori</span><strong>' + hcEscapeHtml(getSuggestedCategoryLabel(module) || '-') + '</strong></div>';
+            html += '<div><span>\u00d6neri kayna\u011f\u0131</span><strong>' + hcEscapeHtml(module.suggested_category_source || 'none') + '</strong></div>';
+            html += '</div>';
+            html += '<label class="hc-card-select-label"><span>Kategori</span>' + buildCategoryControl(module) + '</label>';
             html += '<button type="button" class="hc-shortcode-chip" data-hc-copy-shortcode data-shortcode="' + hcEscapeHtml(module.shortcode) + '"><code>' + hcEscapeHtml(module.shortcode) + '</code></button>';
             html += '<div class="hc-card-actions">' + buildRowActions(module) + '</div>';
             html += '<span class="hc-yazi-ekle-msg"></span>';
             html += '</div>';
 
             $('#hc-explorer-drawer').html(html);
+            state.activeSlug = module.slug;
             setDrawerEmpty(false);
         }
 
         function refreshSelectionBar() {
             var selected = Object.keys(selectedMap);
-            $('#hc-explorer-selection-count').text(selected.length + ' modül seçildi');
+            $('#hc-explorer-selection-count').text(selected.length + ' mod\u00fcl se\u00e7ildi');
             $('#hc-explorer-bulkbar').prop('hidden', !selected.length);
         }
 
         function fetchModules() {
-            setStatus(hcAdmin.explorerLoading || 'Modüller yükleniyor...', 'loading');
+            setStatus(hcAdmin.explorerLoading || 'Mod\u00fcller y\u00fckleniyor...', 'loading');
 
             $.post(hcAdmin.ajaxurl, $.extend({ action: 'hc_explorer_modules' }, getPayload()))
                 .done(function (resp) {
                     if (!resp || !resp.success) {
-                        setStatus(hcAdmin.explorerError || 'Modül verisi yüklenemedi.', 'error');
+                        setStatus(hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.', 'error');
                         return;
                     }
 
@@ -1075,7 +1185,7 @@ jQuery(function ($) {
                     setStatus('', '');
                 })
                 .fail(function (xhr) {
-                    setStatus((hcAdmin.explorerError || 'Modül verisi yüklenemedi.') + ' HTTP ' + xhr.status, 'error');
+                    setStatus((hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.') + ' HTTP ' + xhr.status, 'error');
                 });
         }
 
@@ -1083,7 +1193,7 @@ jQuery(function ($) {
             $.post(hcAdmin.ajaxurl, $.extend({ action: 'hc_explorer_bootstrap' }, getPayload()))
                 .done(function (resp) {
                     if (!resp || !resp.success) {
-                        setStatus(hcAdmin.explorerError || 'Modül verisi yüklenemedi.', 'error');
+                        setStatus(hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.', 'error');
                         return;
                     }
 
@@ -1099,7 +1209,7 @@ jQuery(function ($) {
                     setStatus('', '');
                 })
                 .fail(function (xhr) {
-                    setStatus((hcAdmin.explorerError || 'Modül verisi yüklenemedi.') + ' HTTP ' + xhr.status, 'error');
+                    setStatus((hcAdmin.explorerError || 'Mod\u00fcl verisi y\u00fcklenemedi.') + ' HTTP ' + xhr.status, 'error');
                 });
         }
 
@@ -1115,6 +1225,7 @@ jQuery(function ($) {
 
                 state.favorites = resp.data.favorites || state.favorites;
                 state.recent = resp.data.recent || state.recent;
+                state.activeSlug = slug;
                 renderDrawer(resp.data.module);
             });
         }
@@ -1206,13 +1317,75 @@ jQuery(function ($) {
             pendingAssignments[slug] = $(this).val() || '';
         });
 
+        $(document).on('click', '[data-hc-apply-suggested-category]', function () {
+            var slug = $(this).data('hc-apply-suggested-category');
+            var category = $(this).data('category') || '';
+            var $card = $('[data-module-card][data-slug="' + slug + '"]');
+            var $btn = $(this);
+            var assignments = {};
+
+            pendingAssignments[slug] = category;
+            assignments[slug] = category;
+            $card.find('.hc-category-select').val(category);
+            $btn.prop('disabled', true).text('Kaydediliyor...');
+
+            $.post(hcAdmin.ajaxurl, {
+                action: 'hc_save_module_catalog_state',
+                nonce: hcAdmin.nonce,
+                hc_categories: $('#hc-categories').val(),
+                assignments: assignments,
+                hc_module_category: assignments
+            }).done(function (resp) {
+                delete pendingAssignments[slug];
+                setStatus((resp && resp.success && resp.data && resp.data.message) ? resp.data.message : (hcAdmin.savedCategories || 'Kategori de\u011fi\u015fiklikleri kaydedildi.'), 'success');
+                fetchBootstrap();
+                fetchModules();
+                if (state.activeSlug === slug) {
+                    openModule(slug);
+                }
+            }).fail(function (xhr) {
+                setStatus('Sunucu hatas\u0131: HTTP ' + xhr.status, 'error');
+            }).always(function () {
+                $btn.prop('disabled', false).text('\u00d6nerilen kategoriyi kaydet');
+            });
+        });
+
+        $(document).on('click', '[data-hc-fix-shortcode]', function () {
+            var $btn = $(this);
+            var slug = $btn.data('hc-fix-shortcode');
+            var postId = $btn.data('post-id') || 0;
+
+            $btn.prop('disabled', true).text(hcAdmin.fixingShortcode || 'Shortcode d\u00fczeltiliyor...');
+
+            $.post(hcAdmin.ajaxurl, {
+                action: 'hc_fix_shortcode_mismatch',
+                nonce: hcAdmin.nonce,
+                slug: slug,
+                post_id: postId
+            }).done(function (resp) {
+                if (!resp || !resp.success) {
+                    setStatus((resp && resp.data) ? resp.data : (hcAdmin.manualShortcodeCheck || 'Manuel kontrol gerekli.'), 'error');
+                    return;
+                }
+
+                setStatus((resp.data && resp.data.message) ? resp.data.message : (hcAdmin.shortcodeFixed || 'Shortcode ba\u015far\u0131yla d\u00fczeltildi.'), 'success');
+                fetchBootstrap();
+                fetchModules();
+                openModule(slug);
+            }).fail(function (xhr) {
+                setStatus((hcAdmin.explorerError || '\u0130\u015flem ba\u015far\u0131s\u0131z.') + ' HTTP ' + xhr.status, 'error');
+            }).always(function () {
+                $btn.prop('disabled', false).text('Shortcode\u2019u d\u00fczelt');
+            });
+        });
+
         $(document).on('click', '#hc-explorer-bulk-apply', function () {
             var category = $('#hc-explorer-bulk-category').val();
             Object.keys(selectedMap).forEach(function (slug) {
                 pendingAssignments[slug] = category;
                 $('[data-module-card][data-slug="' + slug + '"]').find('.hc-category-select').val(category);
             });
-            setStatus('Toplu kategori seçimi hazır. Kaydet ile kalıcı hale getirin.', 'success');
+            setStatus('Toplu kategori se\u00e7imi haz\u0131r. Kaydet ile kal\u0131c\u0131 hale getirin.', 'success');
         });
 
         $(document).on('click', '#hc-explorer-bulk-draft', function () {
@@ -1238,13 +1411,13 @@ jQuery(function ($) {
                 assignments: assignments,
                 hc_module_category: assignments
             }).done(function (resp) {
-                $btn.prop('disabled', false).text('Kategori Değişikliklerini Kaydet');
-                $('#hc-explorer-category-status').text((resp && resp.success && resp.data && resp.data.message) ? resp.data.message : (hcAdmin.savedCategories || 'Kategori değişiklikleri kaydedildi.'));
+                $btn.prop('disabled', false).text('Kategori DeÄŸiÅŸikliklerini Kaydet');
+                $('#hc-explorer-category-status').text((resp && resp.success && resp.data && resp.data.message) ? resp.data.message : (hcAdmin.savedCategories || 'Kategori deÄŸiÅŸiklikleri kaydedildi.'));
                 pendingAssignments = {};
                 fetchBootstrap();
             }).fail(function (xhr) {
-                $btn.prop('disabled', false).text('Kategori Değişikliklerini Kaydet');
-                $('#hc-explorer-category-status').text('Sunucu hatası: HTTP ' + xhr.status);
+                $btn.prop('disabled', false).text('Kategori DeÄŸiÅŸikliklerini Kaydet');
+                $('#hc-explorer-category-status').text('Sunucu hatasÄ±: HTTP ' + xhr.status);
             });
         });
 
@@ -1280,10 +1453,10 @@ jQuery(function ($) {
     function formatYoastChecklist(data) {
         var lines = [];
         var map = {
-            anahtar_kelime_baslikta: 'Anahtar kelime başlıkta',
-            ilk_paragrafta: 'İlk paragrafta',
-            meta_aciklamada: 'Meta açıklamada',
-            alt_baslikta: 'Alt başlıkta',
+            anahtar_kelime_baslikta: 'Anahtar kelime baÅŸlÄ±kta',
+            ilk_paragrafta: 'Ä°lk paragrafta',
+            meta_aciklamada: 'Meta aÃ§Ä±klamada',
+            alt_baslikta: 'Alt baÅŸlÄ±kta',
             okunabilirlik: 'Okunabilirlik',
             seo_skoru: 'SEO skoru'
         };
@@ -1297,4 +1470,6 @@ jQuery(function ($) {
         return lines.join('\n');
     }
 });
+
+
 
