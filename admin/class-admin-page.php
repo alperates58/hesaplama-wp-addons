@@ -878,11 +878,11 @@ class HC_Module_Inventory {
             $choice_map[ $choice['term_id'] ] = $choice;
         }
 
-        $post_ids       = [];
-        $posts_by_slug  = [];
-        $posts_by_id    = [];
-        $post_term_map  = [];
-        $post_categories = [];
+        $post_ids              = [];
+        $posts_by_slug         = [];
+        $posts_by_id           = [];
+        $categories_by_post_id = [];
+        $post_categories       = [];
 
         foreach ( $rows as $row ) {
             $post_id     = (int) $row['ID'];
@@ -916,7 +916,7 @@ class HC_Module_Inventory {
                  INNER JOIN {$wpdb->term_taxonomy} tt
                     ON tt.term_taxonomy_id = tr.term_taxonomy_id
                  WHERE tt.taxonomy = 'category'
-                   AND tr.object_id IN (" . implode( ',', array_map( 'intval', $post_ids ) ) . ')',
+                   AND tr.object_id IN (" . implode( ',', $post_ids ) . ')',
                 ARRAY_A
             );
 
@@ -928,18 +928,18 @@ class HC_Module_Inventory {
                     continue;
                 }
 
-                if ( empty( $post_term_map[ $object_id ] ) ) {
-                    $post_term_map[ $object_id ] = [];
+                if ( empty( $categories_by_post_id[ $object_id ] ) ) {
+                    $categories_by_post_id[ $object_id ] = [];
                 }
 
-                $post_term_map[ $object_id ][ $term_id ] = $term_id;
+                $categories_by_post_id[ $object_id ][ $term_id ] = $term_id;
             }
 
             unset( $relationships );
         }
 
         foreach ( $post_ids as $post_id ) {
-            $paths                     = self::extract_deep_category_paths( $post_term_map[ $post_id ] ?? [], $choice_map );
+            $paths                       = self::extract_deep_category_paths( $categories_by_post_id[ $post_id ] ?? [], $choice_map );
             $post_categories[ $post_id ] = self::summarize_category_paths( $paths );
         }
 
@@ -975,7 +975,7 @@ class HC_Module_Inventory {
                 $post_id    = (int) $row['ID'];
                 $last_id    = $post_id;
                 $shortcodes = self::extract_hc_shortcodes_from_content( (string) $row['post_content'] );
-                $paths      = self::extract_deep_category_paths( $post_term_map[ $post_id ] ?? [], $choice_map );
+                $paths      = self::extract_deep_category_paths( $categories_by_post_id[ $post_id ] ?? [], $choice_map );
 
                 $found_shortcodes_by_post_id[ $post_id ] = array_values( array_unique( $shortcodes ) );
 
@@ -1023,11 +1023,13 @@ class HC_Module_Inventory {
         }
 
         return [
-            'usage'                   => $usage,
-            'posts_by_slug'           => $posts_by_slug,
-            'posts_by_id'             => $posts_by_id,
-            'post_categories'         => $post_categories,
-            'planner_categories'      => $planner_categories,
+            'usage'                      => $usage,
+            'posts_by_slug'              => $posts_by_slug,
+            'posts_by_id'                => $posts_by_id,
+            'categories_by_post_id'      => $categories_by_post_id,
+            'category_choice_map'        => $choice_map,
+            'post_categories'            => $post_categories,
+            'planner_categories'         => $planner_categories,
             'found_shortcodes_by_post_id' => $found_shortcodes_by_post_id,
         ];
     }
@@ -1187,9 +1189,24 @@ class HC_Module_Inventory {
             return [];
         }
 
-        $category = $post_usage_index['post_categories'][ (int) $matched_post['ID'] ] ?? [];
+        $post_id    = (int) $matched_post['ID'];
+        $term_ids   = $post_usage_index['categories_by_post_id'][ $post_id ] ?? [];
+        $choice_map = $post_usage_index['category_choice_map'] ?? [];
+        $paths      = self::extract_deep_category_paths( $term_ids, $choice_map );
+        $categories = [];
 
-        return array_values( $category['categories'] ?? [] );
+        foreach ( $paths as $path ) {
+            $categories[] = [
+                'term_id'     => (int) ( $path['term_id'] ?? 0 ),
+                'name'        => (string) ( $path['name'] ?? '' ),
+                'slug'        => (string) ( $path['slug'] ?? '' ),
+                'parent'      => (int) ( $path['parent_id'] ?? 0 ),
+                'parent_name' => (string) ( $path['parent_name'] ?? '' ),
+                'parent_slug' => (string) ( $path['parent_slug'] ?? '' ),
+            ];
+        }
+
+        return $categories;
     }
 
     private static function build_matched_post_category_label( $matched_post, $post_usage_index ) {
@@ -1197,9 +1214,18 @@ class HC_Module_Inventory {
             return '';
         }
 
-        $category = $post_usage_index['post_categories'][ (int) $matched_post['ID'] ] ?? [];
+        $post_id    = (int) $matched_post['ID'];
+        $term_ids   = $post_usage_index['categories_by_post_id'][ $post_id ] ?? [];
+        $choice_map = $post_usage_index['category_choice_map'] ?? [];
+        $paths      = self::extract_deep_category_paths( $term_ids, $choice_map );
 
-        return $category['label'] ?? '';
+        if ( empty( $paths ) ) {
+            return '';
+        }
+
+        $summary = self::summarize_category_paths( $paths );
+
+        return $summary['label'] ?? '';
     }
 
     private static function get_found_shortcodes_for_post( $post_id, $post_usage_index ) {
@@ -1258,8 +1284,36 @@ class HC_Module_Inventory {
             return [];
         }
 
-        $term_ids = array_values( array_unique( array_map( 'intval', (array) $term_ids ) ) );
-        $paths    = [];
+        if ( is_array( $term_ids ) && count( $term_ids ) > 20 ) {
+            error_log( 'HC_Module_Inventory: extract_deep_category_paths received oversized term_ids' );
+        }
+
+        $clean_term_ids = [];
+        foreach ( (array) $term_ids as $value ) {
+            if ( is_array( $value ) || is_object( $value ) ) {
+                continue;
+            }
+
+            $id = absint( $value );
+
+            if ( $id <= 0 ) {
+                continue;
+            }
+
+            $clean_term_ids[ $id ] = $id;
+
+            if ( count( $clean_term_ids ) >= 20 ) {
+                break;
+            }
+        }
+
+        $term_ids = array_values( $clean_term_ids );
+
+        if ( empty( $term_ids ) || empty( $choice_map ) || ! is_array( $choice_map ) ) {
+            return [];
+        }
+
+        $paths = [];
 
         foreach ( $term_ids as $term_id ) {
             if ( empty( $choice_map[ $term_id ] ) ) {
