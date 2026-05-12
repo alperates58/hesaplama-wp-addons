@@ -1,0 +1,5 @@
+{
+  "name": "Pirinç Su Oranı Hesaplama",
+  "desc": "Gram bazında pirinç miktarını ve gereken su ağırlığını pirinç türüne göre hesaplar.",
+  "shortcode": "[hc_pirinc_su_orani_hesaplama]"
+}

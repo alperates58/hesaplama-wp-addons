@@ -1,0 +1,5 @@
+{
+  "name": "Türk Kahvesi Ölçüsü Hesaplama",
+  "desc": "Fincan sayısına göre kahve ve su miktarını ideal oranlarla hesaplar.",
+  "shortcode": "[hc_turk_kahvesi_olcusu_hesaplama]"
+}

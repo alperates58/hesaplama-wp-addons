@@ -1,0 +1,5 @@
+{
+  "name": "Tarif Maliyeti Hesaplama",
+  "desc": "Malzemelerin birim fiyatları ve miktarlarına göre toplam tarif maliyetini hesaplar.",
+  "shortcode": "[hc_tarif_maliyeti_hesaplama]"
+}

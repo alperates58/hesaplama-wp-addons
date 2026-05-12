@@ -1,5 +1,5 @@
 {
   "name": "Hacmen Alkol Oranı Hesaplama",
-  "desc": "Bir karışımın içindeki alkol miktarını hacimsel yüzde (ABV) olarak hesaplar.",
+  "desc": "Bira, şarap ve diğer fermente içeceklerde ilk ve son yoğunluğa göre alkol oranını (ABV) hesaplar.",
   "shortcode": "[hc_hacmen_alkol_orani_hesaplama]"
 }

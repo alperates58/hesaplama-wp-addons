@@ -1,0 +1,5 @@
+{
+  "name": "Pizza Hamuru Su Oranı Hesaplama",
+  "desc": "Un miktarına ve istenen hidrasyona (su oranı) göre pizza hamuru malzemelerini hesaplar.",
+  "shortcode": "[hc_pizza_hamuru_su_orani_hesaplama]"
+}

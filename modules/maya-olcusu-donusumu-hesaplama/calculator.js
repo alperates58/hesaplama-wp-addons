@@ -1,26 +1,31 @@
-function hcYeastConvHesapla() {
-    const origType = parseFloat(document.getElementById('hc-yeast-orig-type').value);
-    const val = parseFloat(document.getElementById('hc-yeast-orig-val').value);
+function hcMayaDonustur() {
+    const amount = parseFloat(document.getElementById('hc-yc-amount').value);
+    const fromType = document.getElementById('hc-yc-from').value;
 
-    if (isNaN(val) || val <= 0) {
+    if (!amount || amount <= 0) {
         alert('Lütfen miktar giriniz.');
         return;
     }
 
-    // Tüm mayaları instant maya birimine normalize et
-    const instantBase = val / origType;
+    // Normalized to Instant yeast
+    let instant;
+    if (fromType === 'instant') {
+        instant = amount;
+    } else if (fromType === 'active') {
+        instant = amount / 1.25;
+    } else {
+        instant = amount / 3;
+    }
 
-    const instant = instantBase * 1;
-    const active = instantBase * 1.25;
-    const fresh = instantBase * 3;
+    const active = instant * 1.25;
+    const fresh = instant * 3;
 
-    document.getElementById('hc-yeast-conv-list').innerHTML = `
-        <ul style="text-align:left;">
-            <li><strong>Instant Maya:</strong> ${instant.toFixed(1)} g</li>
-            <li><strong>Aktif Kuru Maya:</strong> ${active.toFixed(1)} g</li>
-            <li><strong>Yaş Maya:</strong> ${fresh.toFixed(1)} g</li>
-        </ul>
+    const resList = document.getElementById('hc-yc-res-list');
+    resList.innerHTML = `
+        <div class="hc-result-item"><span>Instant Maya:</span> <strong>${instant.toLocaleString('tr-TR', { maximumFractionDigits: 1 })} g</strong></div>
+        <div class="hc-result-item"><span>Kuru Maya:</span> <strong>${active.toLocaleString('tr-TR', { maximumFractionDigits: 1 })} g</strong></div>
+        <div class="hc-result-item"><span>Yaş Maya:</span> <strong>${fresh.toLocaleString('tr-TR', { maximumFractionDigits: 1 })} g</strong></div>
     `;
-    
+
     document.getElementById('hc-yeast-conv-result').classList.add('visible');
 }

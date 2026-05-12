@@ -1,0 +1,5 @@
+{
+  "name": "Su Soğutma Süresi Hesaplama",
+  "desc": "Suyun mevcut sıcaklığından hedef sıcaklığa düşmesi için gereken tahmini süreyi hesaplar.",
+  "shortcode": "[hc_su_sogutma_suresi_hesaplama]"
+}

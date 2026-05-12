@@ -1,5 +1,5 @@
 {
   "name": "Yemek Maliyeti Hesaplama",
-  "desc": "Malzeme fiyatlarına göre yemeğin porsiyon ve toplam maliyetini hesaplar.",
+  "desc": "Porsiyon bazında yemeğin net maliyetini ve kar marjını hesaplar.",
   "shortcode": "[hc_yemek_maliyeti_hesaplama]"
 }

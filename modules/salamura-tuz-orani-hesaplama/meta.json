@@ -1,5 +1,5 @@
 {
   "name": "Salamura Tuz Oranı Hesaplama",
-  "desc": "Turşu, asma yaprağı veya peynir gibi gıdaları saklamak için gereken ideal salamura suyu (tuz/su) dengesini hesaplar.",
+  "desc": "Turşu, zeytin veya et salamurası için gereken su ve tuz miktarlarını hedef tuzluluk oranına göre hesaplar.",
   "shortcode": "[hc_salamura_tuz_orani_hesaplama]"
 }

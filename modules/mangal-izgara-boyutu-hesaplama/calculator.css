@@ -1,0 +1,21 @@
+.hc-calculator#hc-grill-size {
+    background: #fdfdfd;
+    border: 1px solid #37474f;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #263238;
+    font-size: 1.6em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #455a64;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #cfd8dc;
+    text-align: center;
+}

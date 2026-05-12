@@ -1,16 +1,20 @@
-function hcSaladPPHesapla() {
-    const count = parseInt(document.getElementById('hc-salad-count').value);
-    const multiplier = parseFloat(document.getElementById('hc-salad-type').value);
+function hcSalataMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-slp-count').value);
+    const perPerson = parseFloat(document.getElementById('hc-slp-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalKg = count * multiplier;
+    const totalGrams = count * perPerson;
 
-    document.getElementById('hc-salad-total').innerText = totalKg.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' kg';
-    document.getElementById('hc-salad-info').innerText = `Kişi başı ortalama ${(multiplier * 1000).toLocaleString('tr-TR')} g hazır salata üzerinden hesaplanmıştır.`;
+    const resultDiv = document.getElementById('hc-salad-per-person-result');
+    if (totalGrams >= 1000) {
+        document.getElementById('hc-slp-res-val').innerText = (totalGrams / 1000).toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
+    } else {
+        document.getElementById('hc-slp-res-val').innerText = totalGrams.toLocaleString('tr-TR') + ' g';
+    }
     
-    document.getElementById('hc-salad-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

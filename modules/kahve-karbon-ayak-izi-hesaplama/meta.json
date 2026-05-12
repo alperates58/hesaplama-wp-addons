@@ -1,5 +1,5 @@
 {
   "name": "Kahve Karbon Ayak İzi Hesaplama",
-  "desc": "Tükettiğiniz kahvenin türüne ve üretim aşamalarına göre oluşan CO2 emisyonunu hesaplar.",
+  "desc": "Bir fincan kahvenin türüne ve süt kullanımına göre karbon ayak izini (CO2 salınımı) hesaplar.",
   "shortcode": "[hc_kahve_karbon_ayak_izi_hesaplama]"
 }

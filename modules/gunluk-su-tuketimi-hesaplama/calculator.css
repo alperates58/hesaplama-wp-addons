@@ -1,1 +1,29 @@
-#hc-water-calc .hc-result-value { font-size: 2.2rem; color: #3498db; }
+.hc-calculator#hc-water-intake {
+    background: #e3f2fd;
+    border: 1px solid #90caf9;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #1565c0;
+    font-size: 2.2em;
+}
+
+.hc-water-cups {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #0d47a1;
+    text-align: center;
+    background: rgba(255,255,255,0.5);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.hc-result-note {
+    font-size: 0.8em;
+    color: #546e7a;
+    margin-top: 15px;
+    text-align: center;
+}

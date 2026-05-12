@@ -1,0 +1,5 @@
+{
+  "name": "Şarap SO₂ Miktarı Hesaplama",
+  "desc": "Şaraba eklenmesi gereken kükürt dioksit (SO₂) miktarını hacim ve hedef PPM değerine göre hesaplar.",
+  "shortcode": "[hc_sarap_so2_miktari_hesaplama]"
+}

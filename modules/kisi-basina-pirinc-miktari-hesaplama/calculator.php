@@ -3,31 +3,42 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kisi_basina_pirinc_miktari_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-rice-per-person',
+        'hc-rice-per-person-js',
         HC_PLUGIN_URL . 'modules/kisi-basina-pirinc-miktari-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-rice-per-person-css',
+        HC_PLUGIN_URL . 'modules/kisi-basina-pirinc-miktari-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-rice-pp-calc">
+    <div class="hc-calculator" id="hc-rice-per-person">
         <h3>Kişi Başına Pirinç Miktarı</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-rice-count">Kişi Sayısı:</label>
-            <input type="number" id="hc-rice-count" placeholder="4">
+            <label for="hc-rpp-count">Kişi Sayısı</label>
+            <input type="number" id="hc-rpp-count" value="4" min="1">
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-rice-dish">Yemek Türü:</label>
-            <select id="hc-rice-dish">
-                <option value="60">Sade Pilav (60g/kişi)</option>
-                <option value="40">Yemek Yanı Pilav (40g/kişi)</option>
-                <option value="25">Dolma / Sarma İçi (25g/kişi)</option>
-                <option value="15">Sütlaç / Çorba İçi (15g/kişi)</option>
+            <label for="hc-rpp-type">Öğün Türü</label>
+            <select id="hc-rpp-type">
+                <option value="65">Yan Yemek (Sade Pilav) - 65g</option>
+                <option value="110">Ana Öğün (Sebzeli/Etli Pilav) - 110g</option>
+                <option value="35">Sütlaç / Çorba İçi - 35g</option>
+                <option value="50">Dolma / Sarma İçi - 50g</option>
             </select>
         </div>
-        <button class="hc-btn" onclick="hcRicePPHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-rice-pp-result">
-            <strong>Toplam Kuru Pirinç:</strong>
-            <div id="hc-rice-total" class="hc-result-value">-</div>
-            <p id="hc-rice-info"></p>
+
+        <button class="hc-btn" onclick="hcPirincMiktariHesapla()">Hesapla</button>
+
+        <div class="hc-result" id="hc-rice-per-person-result">
+            <div class="hc-result-item">
+                <span>Gereken Toplam Pirinç:</span>
+                <strong class="hc-result-value" id="hc-rpp-res-val">-</strong>
+            </div>
+            <div class="hc-result-note">Hesaplama kuru pirinç ağırlığı baz alınarak yapılmıştır. 1 su bardağı pirinç yaklaşık 180-200 gramdır.</div>
         </div>
     </div>
     <?php

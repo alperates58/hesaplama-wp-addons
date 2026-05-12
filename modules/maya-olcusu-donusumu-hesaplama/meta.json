@@ -1,5 +1,5 @@
 {
   "name": "Maya Ölçüsü Dönüşümü Hesaplama",
-  "desc": "Yaş maya, aktif kuru maya ve instant maya arasındaki miktar dönüşümlerini hesaplar.",
+  "desc": "Tarifteki maya türünü (kuru, yaş, instant) elinizdeki türün miktarına dönüştürür.",
   "shortcode": "[hc_maya_olcusu_donusumu_hesaplama]"
 }

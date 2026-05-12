@@ -1,0 +1,26 @@
+.hc-calculator#hc-cake-planner {
+    background: #fdf2f8;
+    border: 1px solid #e91e63;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #c2185b;
+    font-size: 1.4em;
+}
+
+#hc-cpp-res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #880e4f;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #f8bbd0;
+}

@@ -1,5 +1,5 @@
 {
   "name": "Kahve Oranı Hesaplama",
-  "desc": "Arzu edilen kahve-su oranına göre (örn: 1:16) gereken kahve veya su miktarını hesaplar.",
+  "desc": "İstenen kahve miktarına ve demleme yöntemine göre gereken su ve kahve çekirdeği miktarını (oranını) hesaplar.",
   "shortcode": "[hc_kahve_orani_hesaplama]"
 }

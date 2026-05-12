@@ -1,16 +1,20 @@
-function hcChickenPPHesapla() {
-    const count = parseInt(document.getElementById('hc-chicken-count').value);
-    const multiplier = parseFloat(document.getElementById('hc-chicken-type').value);
+function hcTavukMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-tpp-count').value);
+    const perPerson = parseFloat(document.getElementById('hc-tpp-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalKg = count * multiplier;
+    const totalGrams = count * perPerson;
 
-    document.getElementById('hc-chicken-total').innerText = totalKg.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
-    document.getElementById('hc-chicken-info').innerText = `Kişi başı ortalama ${(multiplier * 1000).toLocaleString('tr-TR')} g üzerinden hesaplanmıştır.`;
+    const resultDiv = document.getElementById('hc-chicken-per-person-result');
+    if (totalGrams >= 1000) {
+        document.getElementById('hc-tpp-res-val').innerText = (totalGrams / 1000).toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
+    } else {
+        document.getElementById('hc-tpp-res-val').innerText = totalGrams.toLocaleString('tr-TR') + ' g';
+    }
     
-    document.getElementById('hc-chicken-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

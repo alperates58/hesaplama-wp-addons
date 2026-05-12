@@ -1,22 +1,24 @@
-#hc-yemek-maliyet .hc-ingredient-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+.hc-calculator#hc-dish-cost {
+    background: #fdfdfd;
+    border: 1px solid #4caf50;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
-#hc-yemek-maliyet .hc-ingredient-row input {
-    flex: 1;
-    min-width: 0;
+
+.hc-result-value {
+    color: #2e7d32;
+    font-size: 1.8em;
 }
-#hc-yemek-maliyet .hc-btn-secondary {
-    background: #f1f1f1;
-    border: 1px dashed #ccc;
-    color: #666;
-    padding: 8px;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 15px;
+
+#hc-dc-sell-val {
+    color: #1565c0;
+    font-size: 1.4em;
 }
-#hc-yemek-maliyet .hc-result-value {
-    color: #e67e22;
+
+.hc-calculator#hc-dish-cost small {
+    display: block;
+    margin-top: 5px;
+    color: #757575;
+    font-size: 0.85em;
 }

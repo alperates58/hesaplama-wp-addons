@@ -1,0 +1,5 @@
+{
+  "name": "Pizza Boyutu Karşılaştırma Hesaplama",
+  "desc": "İki farklı pizza boyutu arasındaki alan farkını ve birim fiyat avantajını hesaplar.",
+  "shortcode": "[hc_pizza_boyutu_karsilastirma_hesaplama]"
+}

@@ -1,22 +1,30 @@
-function hcDailyCaffHesapla() {
-    const filter = parseInt(document.getElementById('hc-caff-filter').value) || 0;
-    const espresso = parseInt(document.getElementById('hc-caff-espresso').value) || 0;
-    const turkish = parseInt(document.getElementById('hc-caff-turkish').value) || 0;
-    const tea = parseInt(document.getElementById('hc-caff-tea').value) || 0;
-    const energy = parseInt(document.getElementById('hc-caff-energy').value) || 0;
+function hcKafeinHesapla() {
+    const filter = parseInt(document.getElementById('hc-caf-filter').value) || 0;
+    const espresso = parseInt(document.getElementById('hc-caf-espresso').value) || 0;
+    const turkish = parseInt(document.getElementById('hc-caf-turkish').value) || 0;
+    const tea = parseInt(document.getElementById('hc-caf-tea').value) || 0;
+    const energy = parseInt(document.getElementById('hc-caf-energy').value) || 0;
+    const soda = parseInt(document.getElementById('hc-caf-soda').value) || 0;
 
-    // Ortalama kafein değerleri (mg)
-    const total = (filter * 95) + (espresso * 63) + (turkish * 60) + (tea * 25) + (energy * 80);
+    // 2026 Standard values (mg)
+    const total = (filter * 95) + (espresso * 63) + (turkish * 65) + (tea * 45) + (energy * 80) + (soda * 35);
+    const limit = 400;
 
-    document.getElementById('hc-caff-total').innerText = total + ' mg';
+    document.getElementById('hc-caf-total').innerText = total.toLocaleString('tr-TR') + ' mg';
+    
+    const statusDiv = document.getElementById('hc-caf-status');
+    const progressBar = document.getElementById('hc-caf-progress');
+    const percentage = Math.min((total / limit) * 100, 100);
 
-    let status = '';
-    if (total <= 400) {
-        status = 'Güvenli seviye. Yetişkinler için günlük sınır 400 mg\'dır.';
+    progressBar.style.width = percentage + '%';
+
+    if (total <= limit) {
+        statusDiv.innerHTML = '<span style="color: #27ae60;">✔ Güvenli Sınır İçindesiniz</span>';
+        progressBar.style.backgroundColor = '#2ecc71';
     } else {
-        status = 'Dikkat: Günlük önerilen kafein sınırını (400 mg) aştınız.';
+        statusDiv.innerHTML = '<span style="color: #e74c3c;">⚠ Güvenli Sınırı Aştınız!</span>';
+        progressBar.style.backgroundColor = '#e74c3c';
     }
 
-    document.getElementById('hc-caff-status').innerText = status;
-    document.getElementById('hc-daily-caff-result').classList.add('visible');
+    document.getElementById('hc-caffeine-result').classList.add('visible');
 }

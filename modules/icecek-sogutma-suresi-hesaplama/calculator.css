@@ -1,0 +1,20 @@
+.hc-calculator#hc-cooling-time {
+    background: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #00838f;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #546e7a;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #b2ebf2;
+}

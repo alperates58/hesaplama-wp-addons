@@ -1,18 +1,13 @@
-function hcJamSugarHesapla() {
-    const fruit = parseFloat(document.getElementById('hc-jam-fruit').value);
-    const ratio = parseFloat(document.getElementById('hc-jam-type').value);
+function hcRecelSekerHesapla() {
+    const fruit = parseFloat(document.getElementById('hc-rs-fruit').value);
+    const ratio = parseFloat(document.getElementById('hc-rs-type').value);
 
-    if (isNaN(fruit) || fruit <= 0) {
-        alert('Lütfen meyve miktarını giriniz.');
-        return;
-    }
+    if (!fruit || fruit <= 0) return;
 
-    const sugarKg = fruit * ratio;
-    // 1 su bardağı şeker ~170-200g (ortalama 185g)
-    const cups = (sugarKg * 1000) / 185;
+    const sugar = fruit * ratio;
 
-    document.getElementById('hc-jam-val').innerText = sugarKg.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
-    document.getElementById('hc-jam-info').innerText = `Yaklaşık ${Math.round(cups)} su bardağı şeker gereklidir.`;
+    const resultDiv = document.getElementById('hc-jam-sugar-result');
+    document.getElementById('hc-rs-res-val').innerText = Math.round(sugar).toLocaleString('tr-TR') + ' g';
     
-    document.getElementById('hc-jam-sugar-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

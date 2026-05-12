@@ -1,0 +1,20 @@
+.hc-calculator#hc-menu-pricing {
+    background: #f1f8e9;
+    border: 1px solid #43a047;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #2e7d32;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #388e3c;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #c8e6c9;
+}

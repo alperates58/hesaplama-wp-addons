@@ -1,0 +1,18 @@
+.hc-calculator#hc-butter-conv {
+    background: #fffde7;
+    border: 1px solid #fbc02d;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #f9a825;
+    font-size: 1.6em;
+}
+
+#hc-bc-res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

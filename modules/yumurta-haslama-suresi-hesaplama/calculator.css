@@ -1,0 +1,23 @@
+.hc-calculator#hc-egg-boil {
+    background: #fdfdfd;
+    border: 1px solid #ffeb3b;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #fbc02d;
+    font-size: 1.5em;
+}
+
+.hc-result-note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    background: #fffde7;
+    padding: 15px;
+    border-radius: 8px;
+    color: #5d4037;
+    border-left: 4px solid #fbc02d;
+    line-height: 1.5;
+}

@@ -1,0 +1,18 @@
+.hc-calculator#hc-liquid-conv {
+    background: #e0f7fa;
+    border: 1px solid #00bcd4;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #00838f;
+    font-size: 1.6em;
+}
+
+#hc-lc-res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

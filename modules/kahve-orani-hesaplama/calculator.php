@@ -3,31 +3,53 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kahve_orani_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-coffee-ratio',
+        'hc-coffee-ratio-js',
         HC_PLUGIN_URL . 'modules/kahve-orani-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-coffee-ratio-css',
+        HC_PLUGIN_URL . 'modules/kahve-orani-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-coffee-ratio-calc">
-        <h3>Kahve Oranı (Brew Ratio)</h3>
+    <div class="hc-calculator" id="hc-coffee-ratio">
+        <h3>Kahve Oranı Hesaplama</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-ratio-flour">Kahve Miktarı (g):</label>
-            <input type="number" id="hc-ratio-coffee" placeholder="15">
+            <label for="hc-cr-method">Demleme Yöntemi / Güç</label>
+            <select id="hc-cr-method">
+                <option value="15">Sert (1:15)</option>
+                <option value="17" selected>Standart (1:17)</option>
+                <option value="18">Yumuşak (1:18)</option>
+                <option value="2">Espresso (1:2)</option>
+                <option value="12">Cold Brew (1:12)</option>
+            </select>
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-ratio-water">Su Miktarı (ml):</label>
-            <input type="number" id="hc-ratio-water" placeholder="250">
+            <label for="hc-cr-target">Hedef Miktar</label>
+            <div style="display:flex; gap:10px;">
+                <input type="number" id="hc-cr-target-val" value="250" style="flex:1;">
+                <select id="hc-cr-target-unit" style="width:110px;">
+                    <option value="water">ml Su</option>
+                    <option value="coffee">g Kahve</option>
+                </select>
+            </div>
         </div>
-        <div class="hc-form-group">
-            <label for="hc-ratio-target">Hedef Oran (1:X):</label>
-            <input type="number" id="hc-ratio-target" placeholder="16" step="0.5">
-            <small>Filtre için genelde 1:15 - 1:17</small>
-        </div>
-        <button class="hc-btn" onclick="hcCoffeeRatioHesapla()">Hesapla</button>
+
+        <button class="hc-btn" onclick="hcKahveOraniHesapla()">Hesapla</button>
+
         <div class="hc-result" id="hc-coffee-ratio-result">
-            <strong>Önerilen Ayar:</strong>
-            <div id="hc-ratio-val" class="hc-result-value">-</div>
-            <p id="hc-ratio-desc"></p>
+            <div class="hc-result-item">
+                <span>Gereken Su:</span>
+                <strong id="hc-cr-res-water">-</strong>
+            </div>
+            <div class="hc-result-item">
+                <span>Gereken Kahve:</span>
+                <strong id="hc-cr-res-coffee">-</strong>
+            </div>
+            <div class="hc-result-note" id="hc-cr-note"></div>
         </div>
     </div>
     <?php

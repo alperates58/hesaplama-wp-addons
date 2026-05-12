@@ -1,0 +1,21 @@
+.hc-calculator#hc-wine-so2 {
+    background: #f3e5f5;
+    border: 1px solid #673ab7;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #4527a0;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #5e35b1;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #d1c4e9;
+    text-align: center;
+}

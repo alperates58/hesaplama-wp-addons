@@ -1,19 +1,21 @@
-function hcCoffeeCarbonHesapla() {
-    const cups = parseInt(document.getElementById('hc-carbon-cups').value);
-    const carbonPerCup = parseFloat(document.getElementById('hc-carbon-type').value);
+function hcKahveKarbonHesapla() {
+    const baseCO2 = parseFloat(document.getElementById('hc-cc-type').value);
+    const milkFactor = parseFloat(document.getElementById('hc-cc-milk').value);
+    const cups = parseInt(document.getElementById('hc-cc-cups').value) || 0;
 
-    if (isNaN(cups) || cups <= 0) {
-        alert('Lütfen fincan sayısını giriniz.');
+    if (cups <= 0) {
+        alert('Lütfen geçerli bir fincan sayısı giriniz.');
         return;
     }
 
-    // Yıllık emisyon (kg CO2)
-    const annual = cups * carbonPerCup * 365;
+    // Formula: Base * milkFactor * cups
+    const totalCO2 = baseCO2 * milkFactor * cups;
 
-    document.getElementById('hc-carbon-val').innerText = annual.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' kg CO2';
+    const resultDiv = document.getElementById('hc-coffee-carbon-result');
+    document.getElementById('hc-cc-val').innerText = Math.round(totalCO2).toLocaleString('tr-TR') + ' g CO₂e';
     
-    const treeCount = annual / 20; // 1 yetişkin ağaç yılda ~20kg CO2 emer
-    document.getElementById('hc-carbon-desc').innerText = `Bu emisyonu dengelemek için yılda yaklaşık ${Math.ceil(treeCount)} ağaç dikmeniz gerekir. Süt kullanımı emisyonu önemli ölçüde artırır.`;
+    const yearly = (totalCO2 * 365) / 1000;
+    document.getElementById('hc-cc-note').innerText = `Yıllık karbon ayak iziniz yaklaşık ${Math.round(yearly)} kg CO₂e'dir. Bu miktar yaklaşık ${Math.round(yearly/20)} ağacın bir yılda temizlediği karbona eşittir.`;
     
-    document.getElementById('hc-coffee-carbon-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

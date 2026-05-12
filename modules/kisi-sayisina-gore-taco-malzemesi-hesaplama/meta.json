@@ -1,5 +1,5 @@
 {
   "name": "Kişi Sayısına Göre Taco Malzemesi Hesaplama",
-  "desc": "Kişi sayısına göre taco yapmak için gereken et, tortilla, sos ve garnitür miktarlarını hesaplar.",
+  "desc": "Kişi sayısına göre gereken taco kabuğu, kıyma, peynir ve sos miktarlarını hesaplar.",
   "shortcode": "[hc_kisi_sayisina_gore_taco_malzemesi_hesaplama]"
 }

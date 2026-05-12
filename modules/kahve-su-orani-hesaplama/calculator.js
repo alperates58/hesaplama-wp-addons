@@ -1,18 +1,16 @@
-function hcCoffeeWaterRatioHesapla() {
-    const coffee = parseFloat(document.getElementById('hc-cw-coffee').value);
-    const water = parseFloat(document.getElementById('hc-cw-water').value);
+function hcKahveSuOraniHesapla() {
+    const coffee = parseFloat(document.getElementById('hc-csw-coffee').value);
+    const ratio = parseFloat(document.getElementById('hc-csw-ratio').value);
 
-    if (isNaN(coffee) || isNaN(water) || coffee <= 0) {
-        alert('Lütfen kahve ve su miktarlarını giriniz.');
+    if (!coffee || !ratio || coffee <= 0 || ratio <= 0) {
+        alert('Lütfen geçerli değerler giriniz.');
         return;
     }
 
-    const ratio = water / coffee;
-    // Kahve çekirdekleri ağırlığının yaklaşık 2 katı kadar su emer.
-    const expectedYield = water - (coffee * 2);
+    const water = coffee * ratio;
 
-    document.getElementById('hc-cw-val').innerText = '1 : ' + ratio.toLocaleString('tr-TR', { maximumFractionDigits: 1 });
-    document.getElementById('hc-cw-desc').innerText = `Tahmini elde edilecek kahve: ${Math.max(0, expectedYield).toLocaleString('tr-TR')} ml. (Kahvenin su emme payı düşülmüştür.)`;
+    const resultDiv = document.getElementById('hc-coffee-water-result');
+    document.getElementById('hc-csw-res-val').innerText = Math.round(water).toLocaleString('tr-TR') + ' ml';
     
-    document.getElementById('hc-coffee-water-ratio-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

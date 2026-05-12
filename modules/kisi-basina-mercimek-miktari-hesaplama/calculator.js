@@ -1,18 +1,20 @@
-function hcLentilPPHesapla() {
-    const count = parseInt(document.getElementById('hc-lentil-count').value);
-    const gramsPerPerson = parseFloat(document.getElementById('hc-lentil-dish').value);
+function hcMercimekMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-lpp-count').value);
+    const perPerson = parseFloat(document.getElementById('hc-lpp-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalGrams = count * gramsPerPerson;
-    // 1 su bardağı mercimek ~190-200g
-    const cups = totalGrams / 195;
+    const totalGrams = count * perPerson;
 
-    document.getElementById('hc-lentil-total').innerText = totalGrams.toLocaleString('tr-TR') + ' g';
-    document.getElementById('hc-lentil-info').innerText = `Yaklaşık ${cups.toLocaleString('tr-TR', { maximumFractionDigits: 1 })} su bardağı kuru mercimek.`;
+    const resultDiv = document.getElementById('hc-lentil-per-person-result');
+    if (totalGrams >= 1000) {
+        document.getElementById('hc-lpp-res-val').innerText = (totalGrams / 1000).toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
+    } else {
+        document.getElementById('hc-lpp-res-val').innerText = totalGrams.toLocaleString('tr-TR') + ' g';
+    }
     
-    document.getElementById('hc-lentil-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

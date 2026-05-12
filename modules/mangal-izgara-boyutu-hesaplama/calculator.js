@@ -1,20 +1,21 @@
-function hcGrillSizeHesapla() {
-    const count = parseInt(document.getElementById('hc-grill-count').value);
-    const areaPerPerson = parseFloat(document.getElementById('hc-grill-type').value);
+function hcGrillBoyutHesapla() {
+    const count = parseInt(document.getElementById('hc-gs-count').value);
+    const areaPerPerson = parseFloat(document.getElementById('hc-gs-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    // Kişi başı cm2 cinsinden alan
     const totalArea = count * areaPerPerson;
-    // Standart dikdörtgen ızgara için boyut tahmini (Altın oran ~1.5)
-    const width = Math.sqrt(totalArea / 1.5);
-    const length = width * 1.5;
-
-    document.getElementById('hc-grill-val').innerText = totalArea.toLocaleString('tr-TR') + ' cm²';
-    document.getElementById('hc-grill-info').innerText = `İdeal mangal boyutu yaklaşık: ${Math.round(length)} x ${Math.round(width)} cm olmalıdır.`;
     
-    document.getElementById('hc-grill-size-result').classList.add('visible');
+    // Suggest dimensions based on aspect ratio ~1.5:1
+    const width = Math.sqrt(totalArea * 1.5);
+    const height = totalArea / width;
+
+    const resultDiv = document.getElementById('hc-grill-size-result');
+    document.getElementById('hc-gs-res-area').innerText = totalArea + ' cm²';
+    document.getElementById('hc-gs-res-dim').innerText = Math.round(width) + ' x ' + Math.round(height) + ' cm';
+    
+    resultDiv.classList.add('visible');
 }

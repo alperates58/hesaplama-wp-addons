@@ -1,5 +1,5 @@
 {
   "name": "Kişi Sayısına Göre Mangal Miktarı Hesaplama",
-  "desc": "Kişi sayısına göre mangal için gereken et, tavuk, kömür ve ekmek miktarlarını hesaplar.",
+  "desc": "Kişi sayısına göre gereken toplam et, kömür ve yan ürün (ekmek, domates vb.) miktarlarını hesaplar.",
   "shortcode": "[hc_kisi_sayisina_gore_mangal_miktari_hesaplama]"
 }

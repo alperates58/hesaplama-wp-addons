@@ -1,0 +1,5 @@
+{
+  "name": "Tarif Ölçeklendirme Hesaplama",
+  "desc": "Tarifi istenen porsiyon sayısına veya çarpan değerine göre otomatik olarak ölçeklendirir.",
+  "shortcode": "[hc_tarif_olceklendirme_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Kişi Başına Çorba Miktarı Hesaplama",
-  "desc": "Davetli sayısına göre hazırlanması gereken toplam çorba miktarını litre ve porsiyon olarak hesaplar.",
+  "desc": "Kişi sayısına göre gereken toplam çorba hacmini (Litre) ve porsiyon sayısını hesaplar.",
   "shortcode": "[hc_kisi_basina_corba_miktari_hesaplama]"
 }

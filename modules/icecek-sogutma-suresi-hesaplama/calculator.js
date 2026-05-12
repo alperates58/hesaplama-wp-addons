@@ -1,32 +1,23 @@
-function hcDrinkCoolHesapla() {
-    const start = parseFloat(document.getElementById('hc-cool-start').value);
-    const target = parseFloat(document.getElementById('hc-cool-target').value);
-    const ambient = parseFloat(document.getElementById('hc-cool-method').value);
+function hcSogutmaSuresiHesapla() {
+    const t0 = parseFloat(document.getElementById('hc-ct-temp-start').value);
+    const tTarget = parseFloat(document.getElementById('hc-ct-temp-target').value);
+    const methodK = parseFloat(document.getElementById('hc-ct-method').value);
 
-    if (isNaN(start) || isNaN(target)) {
-        alert('Lütfen sıcaklık değerlerini giriniz.');
+    let tEnv = 4; // Default Refrigerator
+    if (methodK === 0.04) tEnv = -18;
+    if (methodK === 0.15) tEnv = 0;
+
+    if (isNaN(t0) || isNaN(tTarget) || t0 <= tTarget) {
+        alert('Hedef sıcaklık başlangıç sıcaklığından düşük olmalıdır.');
         return;
     }
 
-    if (target >= start) {
-        alert('Hedef sıcaklık mevcut sıcaklıktan düşük olmalıdır.');
-        return;
-    }
+    // Newton's Law of Cooling solved for t:
+    // T(t) = Tenv + (T0 - Tenv) * e^(-kt)
+    const t = -Math.log((tTarget - tEnv) / (t0 - tEnv)) / methodK;
 
-    // Newton'un Soğuma Yasası basitleştirilmiş modeli
-    // t = ln((T - Ta) / (T0 - Ta)) / -k
-    // k katsayısı: Buzdolabı için ~0.02, Dondurucu için ~0.04, Buzlu su için ~0.15
-    let k = 0.02;
-    if (ambient === -18) k = 0.05;
-    if (ambient === 0) k = 0.15;
-
-    // ln((target - ambient) / (start - ambient)) / -k
-    const time = Math.log((target - ambient) / (start - ambient)) / -k;
-
-    document.getElementById('hc-cool-time').innerText = Math.round(time) + ' Dakika';
+    const resultDiv = document.getElementById('hc-cooling-time-result');
+    document.getElementById('hc-ct-val').innerText = Math.round(t) + ' Dakika';
     
-    let tip = 'İpucu: İçeceği ıslak kağıt havluya sarıp dondurucuya koymak soğumayı hızlandırır.';
-    document.getElementById('hc-cool-tip').innerText = tip;
-    
-    document.getElementById('hc-drink-cool-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

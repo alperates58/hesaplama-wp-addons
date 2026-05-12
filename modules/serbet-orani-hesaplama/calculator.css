@@ -1,0 +1,21 @@
+.hc-calculator#hc-syrup-ratio {
+    background: #fff9c4;
+    border: 1px solid #fbc02d;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #f57f17;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #827717;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #fff176;
+    text-align: center;
+}

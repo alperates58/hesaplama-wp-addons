@@ -1,0 +1,20 @@
+.hc-calculator#hc-ml-to-g {
+    background: #e1f5fe;
+    border: 1px solid #0288d1;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #01579b;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #0277bd;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #b3e5fc;
+}

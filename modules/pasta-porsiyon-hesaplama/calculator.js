@@ -1,25 +1,31 @@
-function hcCakePortionHesapla() {
-    const shape = document.getElementById('hc-portion-shape').value;
-    const size = parseFloat(document.getElementById('hc-portion-size').value);
-    const heightFactor = parseFloat(document.getElementById('hc-portion-height').value);
+function hcCakeShapeChange() {
+    const shape = document.getElementById('hc-cp-shape').value;
+    document.getElementById('hc-cp-round-inputs').style.display = (shape === 'round') ? 'block' : 'none';
+    document.getElementById('hc-cp-square-inputs').style.display = (shape === 'square') ? 'block' : 'none';
+}
 
-    if (isNaN(size) || size <= 0) {
-        alert('Lütfen boyut giriniz.');
-        return;
-    }
-
+function hcPastaPorsiyonHesapla() {
+    const shape = document.getElementById('hc-cp-shape').value;
     let area = 0;
+
     if (shape === 'round') {
-        area = Math.PI * Math.pow(size / 2, 2);
+        const d = parseFloat(document.getElementById('hc-cp-diameter').value);
+        if (!d) return;
+        area = Math.PI * Math.pow(d/2, 2);
     } else {
-        area = size * size;
+        const l = parseFloat(document.getElementById('hc-cp-length').value);
+        const w = parseFloat(document.getElementById('hc-cp-width').value);
+        if (!l || !w) return;
+        area = l * w;
     }
 
-    // Standart dilim yüzey alanı yaklaşık 25-30 cm2'dir.
-    const portions = (area / 28) * heightFactor;
+    // Party portion: ~25 cm2 (wedding/event)
+    // Dessert portion: ~35-40 cm2 (cafe)
+    const party = area / 25;
+    const dessert = area / 40;
 
-    document.getElementById('hc-portion-val').innerText = Math.round(portions) + ' Kişilik';
-    document.getElementById('hc-portion-info').innerText = `Düğün porsiyonları (küçük) için bu sayı %25 artırılabilir. Ev porsiyonları için ideal değerdir.`;
+    const resultDiv = document.getElementById('hc-cake-portion-result');
+    document.getElementById('hc-cp-res-val').innerText = Math.round(dessert) + ' - ' + Math.round(party) + ' Kişilik';
     
-    document.getElementById('hc-cake-portion-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

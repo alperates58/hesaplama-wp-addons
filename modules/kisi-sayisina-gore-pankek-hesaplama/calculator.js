@@ -1,29 +1,23 @@
-function hcPancakePPHesapla() {
-    const count = parseInt(document.getElementById('hc-pancake-count').value);
+function hcPankekHesapla() {
+    const count = parseInt(document.getElementById('hc-ppp-count').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    // 2 kişilik baz tarif: 1 yumurta, 1 sb un (125g), 1 sb süt (200ml), 2 yk şeker
-    const factor = count / 2;
+    // Base for 1 person (approx 4-5 pancakes)
+    const flour = 95; // g
+    const milk = 150; // ml
+    const eggs = 0.5; // half egg
+    const sugar = 1; // tbsp
+    const butter = 1; // tbsp
 
-    const eggs = Math.max(1, Math.round(factor));
-    const flour = factor * 125;
-    const milk = factor * 200;
-    const sugar = factor * 2;
-
-    document.getElementById('hc-pancake-list').innerHTML = `
-        <ul style="text-align:left;">
-            <li><strong>Yumurta:</strong> ${eggs} adet</li>
-            <li><strong>Un:</strong> ${flour.toLocaleString('tr-TR')} g</li>
-            <li><strong>Süt:</strong> ${milk.toLocaleString('tr-TR')} ml</li>
-            <li><strong>Şeker:</strong> ${sugar.toLocaleString('tr-TR')} yemek kaşığı</li>
-            <li><strong>Kabartma Tozu/Vanilya:</strong> ${Math.ceil(factor * 0.5)} paket</li>
-        </ul>
-    `;
+    const resultDiv = document.getElementById('hc-pancake-per-person-result');
+    document.getElementById('hc-ppp-res-flour').innerText = Math.round(count * flour) + ' g';
+    document.getElementById('hc-ppp-res-milk').innerText = Math.round(count * milk) + ' ml';
+    document.getElementById('hc-ppp-res-egg').innerText = Math.ceil(count * eggs) + ' Adet';
+    document.getElementById('hc-ppp-res-other').innerText = (count * sugar) + ' Kaşık';
     
-    document.getElementById('hc-pancake-info').innerText = `Bu ölçülerle yaklaşık ${Math.round(count * 4)} - ${Math.round(count * 5)} adet orta boy pankek elde edersiniz.`;
-    document.getElementById('hc-pancake-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

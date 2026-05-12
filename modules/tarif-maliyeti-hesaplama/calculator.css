@@ -1,0 +1,57 @@
+.hc-calculator#hc-recipe-cost {
+    background: #fdfdfd;
+    border: 1px solid #607d8b;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+#hc-rc-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+#hc-rc-table th, #hc-rc-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eceff1;
+    text-align: left;
+}
+
+#hc-rc-table input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cfd8dc;
+    border-radius: 4px;
+}
+
+.hc-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hc-btn-alt {
+    padding: 10px 20px;
+    background: #90a4ae;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.hc-btn-alt:hover {
+    background: #78909c;
+}
+
+.hc-result-value {
+    color: #37474f;
+    font-size: 2em;
+}
+
+@media (max-width: 480px) {
+    #hc-rc-table th:nth-child(1), #hc-rc-table td:nth-child(1) { width: 40%; }
+    #hc-rc-table th, #hc-rc-table td { padding: 5px; font-size: 0.9em; }
+}

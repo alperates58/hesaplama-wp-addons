@@ -1,13 +1,19 @@
-function hcCoffeeMeasureHesapla() {
-    const ratio = parseFloat(document.getElementById('hc-measure-method').value);
-    const cups = parseInt(document.getElementById('hc-measure-cups').value) || 1;
-    const size = parseFloat(document.getElementById('hc-measure-size').value) || 250;
+function hcKahveOlcusuHesapla() {
+    const grams = parseFloat(document.getElementById('hc-cs-grams').value);
 
-    const totalWater = cups * size;
-    const totalCoffee = totalWater / ratio;
+    if (!grams || grams <= 0) {
+        alert('Lütfen geçerli bir gram miktarı giriniz.');
+        return;
+    }
 
-    document.getElementById('hc-measure-val').innerText = `${totalCoffee.toLocaleString('tr-TR', { maximumFractionDigits: 1 })} g Kahve`;
-    document.getElementById('hc-measure-desc').innerText = `${totalWater} ml su kullanılmalıdır. Seçilen yönteme göre ideal oran 1:${ratio} olarak hesaplanmıştır.`;
+    // 1 scoop ~ 10g
+    // 1 tbsp ~ 5g (ground)
+    const scoops = grams / 10;
+    const tbsp = grams / 5;
+
+    const resultDiv = document.getElementById('hc-coffee-scoop-result');
+    document.getElementById('hc-cs-res-scoop').innerText = scoops.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Ölçek';
+    document.getElementById('hc-cs-res-tbsp').innerText = tbsp.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Kaşık';
     
-    document.getElementById('hc-coffee-measure-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

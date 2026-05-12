@@ -1,26 +1,17 @@
-function hcSaladDressingHesapla() {
-    const total = parseFloat(document.getElementById('hc-dressing-total').value);
-    const oilRatio = parseFloat(document.getElementById('hc-dressing-type').value);
+function hcSosOraniHesapla() {
+    const total = parseFloat(document.getElementById('hc-sd-total').value);
+    const ratio = parseFloat(document.getElementById('hc-sd-ratio').value);
 
-    if (isNaN(total) || total <= 0) {
-        alert('Lütfen toplam sos miktarını giriniz.');
-        return;
-    }
+    if (!total || total <= 0) return;
 
-    // Toplam parça sayısı = Yağ oranı + 1 (asit için)
-    const totalParts = oilRatio + 1;
-    const onePart = total / totalParts;
-
-    const oil = onePart * oilRatio;
+    const parts = ratio + 1;
+    const onePart = total / parts;
+    const oil = onePart * ratio;
     const acid = onePart;
 
-    document.getElementById('hc-dressing-list').innerHTML = `
-        <ul style="text-align:left;">
-            <li><strong>Zeytinyağı:</strong> ${Math.round(oil)} ml</li>
-            <li><strong>Limon / Sirke:</strong> ${Math.round(acid)} ml</li>
-            <li><strong>Tuz / Baharat:</strong> Damak tadına göre</li>
-        </ul>
-    `;
+    const resultDiv = document.getElementById('hc-salad-dressing-result');
+    document.getElementById('hc-sd-res-oil').innerText = Math.round(oil).toLocaleString('tr-TR') + ' ml';
+    document.getElementById('hc-sd-res-acid').innerText = Math.round(acid).toLocaleString('tr-TR') + ' ml';
     
-    document.getElementById('hc-salad-dressing-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

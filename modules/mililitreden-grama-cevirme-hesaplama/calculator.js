@@ -1,14 +1,16 @@
-function hcMlToGHesapla() {
-    const density = parseFloat(document.getElementById('hc-mlg-type').value);
-    const ml = parseFloat(document.getElementById('hc-mlg-val').value);
+function hcMlToGram() {
+    const ml = parseFloat(document.getElementById('hc-mtg-ml').value);
+    const density = parseFloat(document.getElementById('hc-mtg-type').value);
 
-    if (isNaN(ml) || ml <= 0) {
-        alert('Lütfen miktar giriniz.');
+    if (!ml || ml <= 0) {
+        alert('Lütfen ml miktarını giriniz.');
         return;
     }
 
     const grams = ml * density;
 
-    document.getElementById('hc-mlg-res').innerText = grams.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' g';
-    document.getElementById('hc-ml-to-g-result').classList.add('visible');
+    const resultDiv = document.getElementById('hc-ml-to-g-result');
+    document.getElementById('hc-mtg-res-val').innerText = grams.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' g';
+    
+    resultDiv.classList.add('visible');
 }

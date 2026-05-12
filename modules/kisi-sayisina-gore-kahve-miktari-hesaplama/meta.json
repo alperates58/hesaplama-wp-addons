@@ -1,5 +1,5 @@
 {
   "name": "Kişi Sayısına Göre Kahve Miktarı Hesaplama",
-  "desc": "Kişi sayısına ve tercih edilen kahve türüne göre gereken toplam kahve ve su miktarını hesaplar.",
+  "desc": "Kişi sayısına ve kahve türüne (Türk kahvesi, filtre kahve, espresso) göre gereken toplam kahve ve su miktarını hesaplar.",
   "shortcode": "[hc_kisi_sayisina_gore_kahve_miktari_hesaplama]"
 }

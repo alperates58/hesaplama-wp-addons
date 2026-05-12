@@ -1,5 +1,5 @@
 {
   "name": "Kişi Başına Balık Miktarı Hesaplama",
-  "desc": "Davetli sayısına ve balığın servis şekline (bütün, fileto vb.) göre alınması gereken toplam balık miktarını hesaplar.",
+  "desc": "Kişi sayısına ve balık türüne (fileto, bütün, kabuklu) göre gereken toplam balık miktarını hesaplar.",
   "shortcode": "[hc_kisi_basina_balik_miktari_hesaplama]"
 }

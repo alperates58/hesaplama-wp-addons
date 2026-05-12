@@ -1,5 +1,5 @@
 {
   "name": "Kek Kalıbı Ölçüsü Hesaplama",
-  "desc": "Kek kalıbının hacmini (metreküp/litre) ve kaç kişilik kek için uygun olduğunu hesaplar.",
+  "desc": "Kullanılan malzemenin (un/yumurta sayısı) toplam hacmine göre en uygun kek kalıbı boyutunu önerir.",
   "shortcode": "[hc_kek_kalibi_olcusu_hesaplama]"
 }

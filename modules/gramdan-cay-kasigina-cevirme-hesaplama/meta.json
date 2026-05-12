@@ -1,5 +1,5 @@
 {
   "name": "Gramdan Çay Kaşığına Çevirme Hesaplama",
-  "desc": "Gram cinsinden verilen malzemenin (şeker, tuz, un vb.) yaklaşık çay kaşığı karşılığını hesaplar.",
+  "desc": "Gram cinsinden malzemelerin (şeker, tuz, un vb.) yaklaşık çay kaşığı karşılığını hesaplar.",
   "shortcode": "[hc_gramdan_cay_kasigina_cevirme_hesaplama]"
 }

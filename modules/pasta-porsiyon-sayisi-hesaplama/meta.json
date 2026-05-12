@@ -1,5 +1,5 @@
 {
   "name": "Pasta Porsiyon Sayısı Hesaplama",
-  "desc": "Kişi sayısına göre ihtiyaç duyulan pastanın ideal boyutlarını (çap ve yükseklik) hesaplar.",
+  "desc": "Belirli bir kişi sayısına göre pastanın kaç katlı ve hangi boyutlarda (çap/kenar) olması gerektiğini hesaplar.",
   "shortcode": "[hc_pasta_porsiyon_sayisi_hesaplama]"
 }

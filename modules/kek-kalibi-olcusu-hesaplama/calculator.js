@@ -1,26 +1,27 @@
-function hcCakePanSizeHesapla() {
-    const shape = document.getElementById('hc-pan-shape').value;
-    const height = parseFloat(document.getElementById('hc-pan-height').value);
-    
-    let volumeCm3 = 0;
+function hcKekBoyutOner() {
+    const eggs = parseInt(document.getElementById('hc-ps-eggs').value);
+    const flour = parseFloat(document.getElementById('hc-ps-flour').value);
 
-    if (shape === 'circle') {
-        const diam = parseFloat(document.getElementById('hc-pan-diam').value);
-        if (isNaN(diam) || isNaN(height)) { alert('Eksik bilgi girdiniz.'); return; }
-        volumeCm3 = Math.PI * Math.pow(diam / 2, 2) * height;
-    } else {
-        const w = parseFloat(document.getElementById('hc-pan-width').value);
-        const l = parseFloat(document.getElementById('hc-pan-length').value);
-        if (isNaN(w) || isNaN(l) || isNaN(height)) { alert('Eksik bilgi girdiniz.'); return; }
-        volumeCm3 = w * l * height;
+    if (!eggs || !flour) {
+        alert('Lütfen malzeme miktarlarını giriniz.');
+        return;
     }
 
-    const volumeLitre = volumeCm3 / 1000;
-    // Ortalama bir porsiyon kek ~150-200ml hacim kaplar
-    const servings = volumeCm3 / 180;
+    let size = "20-22 cm";
+    if (eggs <= 2 || flour <= 150) {
+        size = "18-20 cm";
+    } else if (eggs <= 4 || flour <= 350) {
+        size = "22-24 cm";
+    } else if (eggs <= 6 || flour <= 500) {
+        size = "26-28 cm";
+    } else {
+        size = "30+ cm veya Dikdörtgen Borcam";
+    }
 
-    document.getElementById('hc-pan-volume').innerText = volumeLitre.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' Litre';
-    document.getElementById('hc-pan-servings').innerText = `Tahmini ${Math.floor(servings)} - ${Math.ceil(servings)} kişilik porsiyon için uygundur.`;
+    const resultDiv = document.getElementById('hc-pan-size-result');
+    document.getElementById('hc-ps-res-val').innerText = size;
     
-    document.getElementById('hc-cake-pan-size-result').classList.add('visible');
+    document.getElementById('hc-ps-res-note').innerText = `Kekin ideal kabarması için kalıbın en az yarısının, en fazla 2/3'ünün dolması önerilir.`;
+    
+    resultDiv.classList.add('visible');
 }

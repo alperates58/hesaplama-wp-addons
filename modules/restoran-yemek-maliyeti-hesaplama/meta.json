@@ -1,0 +1,5 @@
+{
+  "name": "Restoran Yemek Maliyeti Hesaplama",
+  "desc": "Malzeme maliyeti, zayiat oranı ve porsiyon adedine göre tabağın net maliyetini hesaplar.",
+  "shortcode": "[hc_restoran_yemek_maliyeti_hesaplama]"
+}

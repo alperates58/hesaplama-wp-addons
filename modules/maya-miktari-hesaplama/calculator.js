@@ -1,16 +1,18 @@
-function hcYeastAmountHesapla() {
-    const flour = parseFloat(document.getElementById('hc-yeast-flour').value);
-    const pct = parseFloat(document.getElementById('hc-yeast-type').value);
+function hcMayaMiktariHesapla() {
+    const flour = parseFloat(document.getElementById('hc-yq-flour').value);
+    const ratio = parseFloat(document.getElementById('hc-yq-time').value);
 
-    if (isNaN(flour) || flour <= 0) {
+    if (!flour || flour <= 0) {
         alert('Lütfen un miktarını giriniz.');
         return;
     }
 
-    const yeast = (flour * pct) / 100;
+    const instantYeast = flour * ratio;
+    const freshYeast = instantYeast * 3; // Rule of thumb: fresh = 3x instant
 
-    document.getElementById('hc-yeast-val').innerText = yeast.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' g';
-    document.getElementById('hc-yeast-info').innerText = 'Not: Oda sıcaklığı ve mayalanma süresine göre miktar %25-50 oranında azaltılıp artırılabilir.';
+    const resultDiv = document.getElementById('hc-yeast-quantity-result');
+    document.getElementById('hc-yq-res-instant').innerText = instantYeast.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' g';
+    document.getElementById('hc-yq-res-fresh').innerText = freshYeast.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' g';
     
-    document.getElementById('hc-yeast-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

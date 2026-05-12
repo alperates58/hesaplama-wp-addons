@@ -1,18 +1,16 @@
-function hcPopcornAmountHesapla() {
-    const dry = parseFloat(document.getElementById('hc-pop-dry').value);
+function hcPopcornHesapla() {
+    const count = parseInt(document.getElementById('hc-pm-count').value);
+    const gramsPerPerson = parseFloat(document.getElementById('hc-pm-size').value);
 
-    if (isNaN(dry) || dry <= 0) {
-        alert('Lütfen kuru mısır miktarını giriniz.');
+    if (!count || count <= 0) {
+        alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    // Mısır patladığında hacmi yaklaşık 30-40 katına çıkar.
-    // 100g kuru mısır (~125ml) -> ~4-5 Litre patlamış mısır.
-    const volumeLitre = (dry / 100) * 4.5;
-    const servings = volumeLitre / 1.5; // Standart sinema boyu ~1.5 - 2 Litre
+    const totalGrams = count * gramsPerPerson;
 
-    document.getElementById('hc-pop-val').innerText = volumeLitre.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Litre';
-    document.getElementById('hc-pop-info').innerText = `Yaklaşık ${Math.ceil(servings)} porsiyon (kase) patlamış mısır elde edilir.`;
+    const resultDiv = document.getElementById('hc-popcorn-result');
+    document.getElementById('hc-pm-res-val').innerText = totalGrams.toLocaleString('tr-TR') + ' g (~' + (totalGrams / 150).toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Bardak)';
     
-    document.getElementById('hc-popcorn-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

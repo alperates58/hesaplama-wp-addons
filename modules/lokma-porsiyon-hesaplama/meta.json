@@ -1,5 +1,5 @@
 {
   "name": "Lokma Porsiyon Hesaplama",
-  "desc": "Kişi sayısına göre lokma tatlısı için gereken hamur malzemelerini ve porsiyon miktarını hesaplar.",
+  "desc": "Kişi sayısına göre dökülmesi gereken lokma hamuru miktarını ve porsiyon başına düşen lokma sayısını hesaplar.",
   "shortcode": "[hc_lokma_porsiyon_hesaplama]"
 }

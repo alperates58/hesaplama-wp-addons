@@ -1,0 +1,5 @@
+{
+  "name": "Şerbet Oranı Hesaplama",
+  "desc": "Tatlı türüne göre gereken şeker ve su miktarını ideal oranlarla hesaplar.",
+  "shortcode": "[hc_serbet_orani_hesaplama]"
+}

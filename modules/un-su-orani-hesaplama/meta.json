@@ -1,5 +1,5 @@
 {
-  "name": "Un Su Oranı Hesaplama (Hidrasyon)",
-  "desc": "Ekmek ve pizza hamurları için un ve su miktarını orantılayarak hidrasyon yüzdesini hesaplar.",
+  "name": "Un Su Oranı Hesaplama",
+  "desc": "Hamur işlerinde un ve su miktarını istenen hidrasyon oranına göre hesaplar.",
   "shortcode": "[hc_un_su_orani_hesaplama]"
 }

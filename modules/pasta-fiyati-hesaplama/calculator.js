@@ -1,20 +1,17 @@
-function hcCakePriceHesapla() {
-    const material = parseFloat(document.getElementById('hc-cp-material').value);
-    const laborTime = parseFloat(document.getElementById('hc-cp-labor').value);
-    const hourlyRate = parseFloat(document.getElementById('hc-cp-hourly').value);
+function hcPastaFiyatiHesapla() {
+    const count = parseInt(document.getElementById('hc-cp-count').value);
+    const baseCost = parseFloat(document.getElementById('hc-cp-base').value);
+    const designFactor = parseFloat(document.getElementById('hc-cp-design').value);
 
-    if (isNaN(material) || isNaN(laborTime) || isNaN(hourlyRate)) {
-        alert('Lütfen tüm alanları doldurunuz.');
+    if (!count || count <= 0) {
+        alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    // Toplam Maliyet = Malzeme + (Süre * Saatlik Ücret)
-    const directCost = material + (laborTime * hourlyRate);
-    // Genel giderler ve kar payı için katsayı (Genelde %30-%50 eklenir)
-    const totalPrice = directCost * 1.4;
+    const totalPrice = (count * baseCost) * designFactor;
 
-    document.getElementById('hc-cp-val').innerText = totalPrice.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' ₺';
-    document.getElementById('hc-cp-info').innerText = `Direkt maliyet (malzeme+işçilik): ${directCost.toLocaleString('tr-TR')} ₺. Satış fiyatına %40 genel gider ve kar marjı eklenmiştir.`;
+    const resultDiv = document.getElementById('hc-cake-pricing-result');
+    document.getElementById('hc-cp-res-val').innerText = totalPrice.toLocaleString('tr-TR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' ₺';
     
-    document.getElementById('hc-cake-price-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

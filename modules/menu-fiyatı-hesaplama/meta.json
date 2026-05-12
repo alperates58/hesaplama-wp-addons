@@ -1,0 +1,5 @@
+{
+  "name": "Menü Fiyatı Hesaplama",
+  "desc": "Maliyet, işçilik ve kar marjına göre bir yemeğin veya menünün ideal satış fiyatını hesaplar.",
+  "shortcode": "[hc_menu_fiyati_hesaplama]"
+}

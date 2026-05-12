@@ -1,17 +1,17 @@
 function hcGramYemekKasigiHesapla() {
-    const grams = parseFloat(document.getElementById('hc-tb-grams').value);
-    const density = parseFloat(document.getElementById('hc-tb-material').value);
+    const grams = parseFloat(document.getElementById('hc-grams-tbsp').value);
+    const density = parseFloat(document.getElementById('hc-material-tbsp').value);
 
     if (isNaN(grams) || grams <= 0) {
         alert('Lütfen geçerli bir gram miktarı giriniz.');
         return;
     }
 
-    // 1 yemek kaşığı yaklaşık 15ml'dir. 
-    // Gram üzerinden yaklaşık değerler density select box'ında tanımlı.
     const tbsp = grams / density;
 
+    const resultDiv = document.getElementById('hc-g-to-tbsp-result');
     document.getElementById('hc-tbsp-val').innerText = tbsp.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' Yemek Kaşığı';
-    document.getElementById('hc-tbsp-info').innerText = 'Not: Kaşığın doluluk oranı (silme/tepeleme) sonuca etki eder.';
-    document.getElementById('hc-g-to-tbsp-result').classList.add('visible');
+    document.getElementById('hc-tbsp-info').innerText = 'Not: Kaşık ölçüleri malzemenin yoğunluğuna ve kaşığın ne kadar dolu (silme/tepeleme) olduğuna göre değişebilir.';
+    
+    resultDiv.classList.add('visible');
 }

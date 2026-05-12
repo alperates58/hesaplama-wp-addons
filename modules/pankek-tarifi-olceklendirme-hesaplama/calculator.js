@@ -1,27 +1,26 @@
-function hcPancakeScalingHesapla() {
+function hcPankekOlçekle() {
     const eggs = parseInt(document.getElementById('hc-ps-eggs').value);
 
-    if (isNaN(eggs) || eggs <= 0) {
+    if (!eggs || eggs <= 0) {
         alert('Lütfen yumurta sayısını giriniz.');
         return;
     }
 
-    // Baz tarif (1 yumurta için): 125g un, 200ml süt, 2yk şeker
-    const factor = eggs;
+    // Base per 1 egg
+    const flour = 130; // g
+    const milk = 240; // ml
+    const sugar = 2; // tbsp
+    const butter = 2; // tbsp
+    const bakingPowder = 1; // tsp
 
-    const flour = factor * 125;
-    const milk = factor * 200;
-    const sugar = factor * 2;
-
-    document.getElementById('hc-ps-list').innerHTML = `
-        <ul style="text-align:left;">
-            <li><strong>Un:</strong> ${flour.toLocaleString('tr-TR')} g</li>
-            <li><strong>Süt:</strong> ${milk.toLocaleString('tr-TR')} ml</li>
-            <li><strong>Şeker:</strong> ${sugar} yemek kaşığı</li>
-            <li><strong>Kabartma Tozu/Vanilya:</strong> ${Math.ceil(factor * 0.5)} paket</li>
-        </ul>
+    const resList = document.getElementById('hc-ps-res-list');
+    resList.innerHTML = `
+        <div class="hc-result-item"><span>Un:</span> <strong>${(eggs * flour).toLocaleString('tr-TR')} g</strong></div>
+        <div class="hc-result-item"><span>Süt:</span> <strong>${(eggs * milk).toLocaleString('tr-TR')} ml</strong></div>
+        <div class="hc-result-item"><span>Şeker:</span> <strong>${(eggs * sugar)} Yemek Kaşığı</strong></div>
+        <div class="hc-result-item"><span>Erimiş Tereyağı:</span> <strong>${(eggs * butter)} Yemek Kaşığı</strong></div>
+        <div class="hc-result-item"><span>Kabartma Tozu:</span> <strong>${(eggs * bakingPowder)} Tatlı Kaşığı</strong></div>
     `;
-    
-    document.getElementById('hc-ps-info').innerText = `Bu ölçülerle yaklaşık ${eggs * 8} - ${eggs * 10} adet orta boy pankek elde edersiniz.`;
+
     document.getElementById('hc-pancake-scaling-result').classList.add('visible');
 }

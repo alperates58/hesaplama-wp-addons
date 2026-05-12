@@ -1,0 +1,20 @@
+.hc-calculator#hc-g-to-tsp {
+    background: #fdfdfd;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #e67e22;
+    font-size: 1.8em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    margin-top: 10px;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+}

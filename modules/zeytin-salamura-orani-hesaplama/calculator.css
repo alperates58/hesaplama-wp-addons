@@ -1,0 +1,23 @@
+.hc-calculator#hc-olive-brine {
+    background: #fdfdfd;
+    border: 1px solid #558b2f;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #33691e;
+    font-size: 1.5em;
+}
+
+.hc-result-note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    background: #f1f8e9;
+    padding: 15px;
+    border-radius: 8px;
+    color: #1b5e20;
+    border-left: 4px solid #558b2f;
+    line-height: 1.5;
+}

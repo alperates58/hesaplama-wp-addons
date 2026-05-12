@@ -3,52 +3,38 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kek_kalibi_olcusu_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-cake-pan-size',
+        'hc-pan-size-js',
         HC_PLUGIN_URL . 'modules/kek-kalibi-olcusu-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-pan-size-css',
+        HC_PLUGIN_URL . 'modules/kek-kalibi-olcusu-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-cake-pan-size-calc">
-        <h3>Kek Kalıbı Hacmi ve Porsiyon</h3>
+    <div class="hc-calculator" id="hc-pan-size">
+        <h3>Kek Kalıbı Boyutu Önerici</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-pan-shape">Kalıp Şekli:</label>
-            <select id="hc-pan-shape">
-                <option value="circle">Yuvarlak</option>
-                <option value="square">Kare / Dikdörtgen</option>
-            </select>
+            <label for="hc-ps-eggs">Kullanılan Yumurta Sayısı</label>
+            <input type="number" id="hc-ps-eggs" value="3" min="1">
         </div>
-        <div id="hc-pan-circle-inputs">
-            <div class="hc-form-group">
-                <label for="hc-pan-diam">Çap (cm):</label>
-                <input type="number" id="hc-pan-diam" placeholder="24">
-            </div>
-        </div>
-        <div id="hc-pan-rect-inputs" style="display:none;">
-            <div class="hc-form-group">
-                <label for="hc-pan-width">Genişlik (cm):</label>
-                <input type="number" id="hc-pan-width" placeholder="20">
-            </div>
-            <div class="hc-form-group">
-                <label for="hc-pan-length">Uzunluk (cm):</label>
-                <input type="number" id="hc-pan-length" placeholder="20">
-            </div>
-        </div>
+
         <div class="hc-form-group">
-            <label for="hc-pan-height">Yükseklik (cm):</label>
-            <input type="number" id="hc-pan-height" placeholder="7">
+            <label for="hc-ps-flour">Un Miktarı (Gram)</label>
+            <input type="number" id="hc-ps-flour" value="250" step="10">
         </div>
-        <button class="hc-btn" onclick="hcCakePanSizeHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-cake-pan-size-result">
-            <strong>Kalıp Bilgileri:</strong>
-            <div id="hc-pan-volume" class="hc-result-value">-</div>
-            <p id="hc-pan-servings"></p>
+
+        <button class="hc-btn" onclick="hcKekBoyutOner()">Kalıp Öner</button>
+
+        <div class="hc-result" id="hc-pan-size-result">
+            <div class="hc-result-item">
+                <span>Önerilen Kalıp Çapı:</span>
+                <strong class="hc-result-value" id="hc-ps-res-val">-</strong>
+            </div>
+            <div class="hc-result-note" id="hc-ps-res-note"></div>
         </div>
     </div>
-    <script>
-        document.getElementById('hc-pan-shape').addEventListener('change', function() {
-            document.getElementById('hc-pan-circle-inputs').style.display = this.value === 'circle' ? 'block' : 'none';
-            document.getElementById('hc-pan-rect-inputs').style.display = this.value === 'square' ? 'block' : 'none';
-        });
-    </script>
     <?php
 }

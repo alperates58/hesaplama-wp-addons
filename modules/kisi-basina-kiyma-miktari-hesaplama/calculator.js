@@ -1,16 +1,20 @@
-function hcMincePPHesapla() {
-    const count = parseInt(document.getElementById('hc-mince-count').value);
-    const multiplier = parseFloat(document.getElementById('hc-mince-dish').value);
+function hcKiymaMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-kpp-count').value);
+    const perPerson = parseFloat(document.getElementById('hc-kpp-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalKg = count * multiplier;
+    const totalGrams = count * perPerson;
 
-    document.getElementById('hc-mince-total').innerText = totalKg.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
-    document.getElementById('hc-mince-info').innerText = `Kişi başı ortalama ${(multiplier * 1000).toLocaleString('tr-TR')} g kıyma üzerinden hesaplanmıştır.`;
+    const resultDiv = document.getElementById('hc-mince-per-person-result');
+    if (totalGrams >= 1000) {
+        document.getElementById('hc-kpp-res-val').innerText = (totalGrams / 1000).toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
+    } else {
+        document.getElementById('hc-kpp-res-val').innerText = totalGrams.toLocaleString('tr-TR') + ' g';
+    }
     
-    document.getElementById('hc-mince-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

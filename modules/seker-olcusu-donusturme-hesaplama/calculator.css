@@ -1,0 +1,18 @@
+.hc-calculator#hc-sugar-conv {
+    background: #fdf2f8;
+    border: 1px solid #f8bbd0;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #c2185b;
+    font-size: 1.6em;
+}
+
+#hc-sc-res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -1,5 +1,5 @@
 {
   "name": "Pasta Porsiyon Hesaplama",
-  "desc": "Pastanın boyutuna (çapına) ve şekline göre kaç standart porsiyon çıkacağını hesaplar.",
+  "desc": "Pastanın boyutlarına (çap veya kenar) göre kaç kişilik (porsiyon) olduğunu hesaplar.",
   "shortcode": "[hc_pasta_porsiyon_hesaplama]"
 }

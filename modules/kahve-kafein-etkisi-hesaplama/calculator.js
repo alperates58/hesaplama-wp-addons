@@ -1,27 +1,31 @@
-function hcCaffEffectHesapla() {
-    const amount = parseFloat(document.getElementById('hc-effect-amount').value);
-    const hours = parseFloat(document.getElementById('hc-effect-time').value);
+function hcKafeinEtkisiHesapla() {
+    const amount = parseFloat(document.getElementById('hc-ce-amount').value);
+    const hours = parseFloat(document.getElementById('hc-ce-hours').value);
 
-    if (isNaN(amount) || isNaN(hours)) {
-        alert('Lütfen değerleri giriniz.');
+    if (isNaN(amount) || amount <= 0 || hours < 0) {
+        alert('Lütfen geçerli değerler giriniz.');
         return;
     }
 
-    // Kafeinin yarı ömrü ortalama 5 saattir.
-    // Mevcut = Başlangıç * (0.5 ^ (saat / 5))
-    const current = amount * Math.pow(0.5, hours / 5);
-
-    document.getElementById('hc-effect-val').innerText = Math.round(current) + ' mg';
+    // Average half-life of caffeine is ~5 hours
+    const halfLife = 5;
     
-    let info = '';
-    if (hours < 0.75) {
-        info = 'Kafein henüz tam olarak kana karışmadı. Etkisi 30-45 dk içinde pik yapacaktır.';
-    } else if (current > 50) {
-        info = 'Vücudunuzda hala belirgin miktarda kafein var. Uyku kalitenizi etkileyebilir.';
-    } else {
-        info = 'Kafein etkisi azalmaya başladı.';
-    }
+    // Remaining = Amount * 0.5 ^ (hours / halfLife)
+    const remaining = amount * Math.pow(0.5, hours / halfLife);
 
-    document.getElementById('hc-effect-info').innerText = info;
-    document.getElementById('hc-caff-effect-result').classList.add('visible');
+    const resultDiv = document.getElementById('hc-caffeine-effect-result');
+    document.getElementById('hc-ce-val').innerText = Math.round(remaining) + ' mg';
+    
+    const percentage = (remaining / amount) * 100;
+    document.getElementById('hc-ce-bar').style.width = percentage + '%';
+
+    let note = "Kafeinin zirve etkisi tüketimden 30-60 dakika sonra görülür.";
+    if (remaining > 50) {
+        note += " Şu an hala aktif kafein etkisindesiniz, uyku düzeninizi etkileyebilir.";
+    } else {
+        note += " Kafein etkisi azalmaya başlamış.";
+    }
+    
+    document.getElementById('hc-ce-note').innerText = note;
+    resultDiv.classList.add('visible');
 }

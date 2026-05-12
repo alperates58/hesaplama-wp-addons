@@ -1,0 +1,12 @@
+.hc-calculator#hc-portion-cal {
+    background: #e0f2f1;
+    border: 1px solid #4db6ac;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #00897b;
+    font-size: 2em;
+}

@@ -1,22 +1,25 @@
-function hcCoffeePPHesapla() {
-    const count = parseInt(document.getElementById('hc-coffee-pp-count').value);
-    const coffeePerPerson = parseFloat(document.getElementById('hc-coffee-pp-type').value);
+function hcKahveMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-cpp-count').value);
+    const typeVal = document.getElementById('hc-cpp-type').value.split('|');
+    const coffeePerPerson = parseFloat(typeVal[0]);
+    const waterPerPerson = parseFloat(typeVal[1]);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    let waterPerPerson = 0;
-    if (coffeePerPerson === 7) waterPerPerson = 65;
-    if (coffeePerPerson === 15) waterPerPerson = 250;
-    if (coffeePerPerson === 18) waterPerPerson = 40;
-
     const totalCoffee = count * coffeePerPerson;
     const totalWater = count * waterPerPerson;
 
-    document.getElementById('hc-coffee-pp-val').innerText = `${totalCoffee.toLocaleString('tr-TR')} g Kahve`;
-    document.getElementById('hc-coffee-pp-info').innerText = `${totalWater.toLocaleString('tr-TR')} ml su kullanılmalıdır.`;
+    const resultDiv = document.getElementById('hc-coffee-per-person-result');
+    document.getElementById('hc-cpp-res-coffee').innerText = totalCoffee.toLocaleString('tr-TR') + ' g';
     
-    document.getElementById('hc-coffee-pp-result').classList.add('visible');
+    if (totalWater >= 1000) {
+        document.getElementById('hc-cpp-res-water').innerText = (totalWater / 1000).toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' Litre';
+    } else {
+        document.getElementById('hc-cpp-res-water').innerText = totalWater.toLocaleString('tr-TR') + ' ml';
+    }
+    
+    resultDiv.classList.add('visible');
 }

@@ -1,5 +1,5 @@
 {
   "name": "Maya Miktarı Hesaplama",
-  "desc": "Un miktarına ve hamur türüne göre kullanılması gereken ideal maya miktarını hesaplar.",
+  "desc": "Un miktarına ve mayalanma süresine göre gereken ideal maya miktarını (kuru, yaş, instant) hesaplar.",
   "shortcode": "[hc_maya_miktari_hesaplama]"
 }

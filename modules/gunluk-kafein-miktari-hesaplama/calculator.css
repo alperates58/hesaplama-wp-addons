@@ -1,0 +1,40 @@
+.hc-calculator#hc-caffeine {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.hc-caffeine-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.hc-progress-container {
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.hc-progress-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+.hc-caf-status {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.hc-result-note {
+    font-size: 0.8em;
+    color: #95a5a6;
+    text-align: center;
+    margin-top: 15px;
+}

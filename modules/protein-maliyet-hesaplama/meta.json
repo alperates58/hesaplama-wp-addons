@@ -1,0 +1,5 @@
+{
+  "name": "Protein Maliyet Hesaplama",
+  "desc": "Farklı gıdaların (et, yumurta, baklagil) fiyatını protein miktarına bölerek 1 gram proteinin maliyetini karşılaştırır.",
+  "shortcode": "[hc_protein_maliyet_hesaplama]"
+}

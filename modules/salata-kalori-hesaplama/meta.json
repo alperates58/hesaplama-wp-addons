@@ -1,0 +1,5 @@
+{
+  "name": "Salata Kalori Hesaplama",
+  "desc": "Salata malzemelerine ve soslarına göre toplam kalori ve besin değerlerini hesaplar.",
+  "shortcode": "[hc_salata_kalori_hesaplama]"
+}

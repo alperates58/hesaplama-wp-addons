@@ -1,0 +1,5 @@
+{
+  "name": "Porsiyon Başına Kalori Hesaplama",
+  "desc": "Toplam yemeğin kalorisini porsiyon sayısına bölerek porsiyon başı enerji miktarını hesaplar.",
+  "shortcode": "[hc_porsiyon_basina_kalori_hesaplama]"
+}

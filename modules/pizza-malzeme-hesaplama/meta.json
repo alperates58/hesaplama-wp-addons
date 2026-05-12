@@ -1,0 +1,5 @@
+{
+  "name": "Pizza Malzeme Hesaplama",
+  "desc": "Pizza boyutuna ve adedine göre gereken toplam peynir (mozzarella), domates sosu ve diğer malzemeleri hesaplar.",
+  "shortcode": "[hc_pizza_malzeme_hesaplama]"
+}

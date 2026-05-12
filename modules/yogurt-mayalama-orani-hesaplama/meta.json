@@ -1,0 +1,5 @@
+{
+  "name": "Yoğurt Mayalama Oranı Hesaplama",
+  "desc": "Süt miktarına göre gereken maya miktarını ve ideal mayalama sıcaklığını hesaplar.",
+  "shortcode": "[hc_yogurt_mayalama_orani_hesaplama]"
+}

@@ -1,24 +1,20 @@
-function hcBbqPPHesapla() {
-    const count = parseInt(document.getElementById('hc-bbq-count').value);
-    const meatPP = parseFloat(document.getElementById('hc-bbq-hunger').value);
+function hcMangalMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-bpp-count').value);
+    const gramsPerPerson = parseFloat(document.getElementById('hc-bpp-intensity').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalMeat = count * meatPP;
-    const totalBread = count * 0.5; // Yarım ekmek/kişi
-    const totalCoal = 1.5 + (count * 0.2); // Baz + kişi başı ek
+    const totalMeatGrams = count * gramsPerPerson;
+    const coalKg = Math.ceil(totalMeatGrams / 2000); // 1kg coal per 2kg meat approx
+    const breadCount = Math.ceil(count * 0.5); // Half loaf per person
 
-    document.getElementById('hc-bbq-list').innerHTML = `
-        <ul style="text-align:left;">
-            <li><strong>Et/Tavuk/Köfte Toplam:</strong> ${totalMeat.toLocaleString('tr-TR', {maximumFractionDigits:1})} kg</li>
-            <li><strong>Ekmek (Yarım):</strong> ${Math.ceil(totalBread)} adet</li>
-            <li><strong>Mangal Kömürü:</strong> ~${Math.ceil(totalCoal)} kg</li>
-            <li><strong>Domates/Biber:</strong> ~${Math.ceil(count * 0.15)} kg</li>
-        </ul>
-    `;
+    const resultDiv = document.getElementById('hc-bbq-per-person-result');
+    document.getElementById('hc-bpp-res-meat').innerText = (totalMeatGrams / 1000).toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' kg';
+    document.getElementById('hc-bpp-res-coal').innerText = coalKg + ' kg';
+    document.getElementById('hc-bpp-res-bread').innerText = breadCount + ' Adet';
     
-    document.getElementById('hc-bbq-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

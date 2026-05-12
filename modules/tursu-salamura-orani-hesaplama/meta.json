@@ -1,0 +1,5 @@
+{
+  "name": "Turşu Salamura Oranı Hesaplama",
+  "desc": "Turşu türüne göre su, tuz ve asit oranlarını ideal dengede hesaplar.",
+  "shortcode": "[hc_tursu_salamura_orani_hesaplama]"
+}

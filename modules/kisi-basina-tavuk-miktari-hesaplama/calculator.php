@@ -3,31 +3,42 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kisi_basina_tavuk_miktari_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-chicken-per-person',
+        'hc-chicken-per-person-js',
         HC_PLUGIN_URL . 'modules/kisi-basina-tavuk-miktari-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-chicken-per-person-css',
+        HC_PLUGIN_URL . 'modules/kisi-basina-tavuk-miktari-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-chicken-pp-calc">
+    <div class="hc-calculator" id="hc-chicken-per-person">
         <h3>Kişi Başına Tavuk Miktarı</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-chicken-count">Kişi Sayısı:</label>
-            <input type="number" id="hc-chicken-count" placeholder="4">
+            <label for="hc-tpp-count">Kişi Sayısı</label>
+            <input type="number" id="hc-tpp-count" value="4" min="1">
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-chicken-type">Tavuk Parçası:</label>
-            <select id="hc-chicken-type">
-                <option value="0.2">Tavuk Göğsü / Fileto (Kemiksiz)</option>
-                <option value="0.3">Tavuk But (Kemikli)</option>
-                <option value="0.4">Tavuk Kanat</option>
-                <option value="0.5">Bütün Tavuk (Brüt)</option>
+            <label for="hc-tpp-type">Tavuk Türü</label>
+            <select id="hc-tpp-type">
+                <option value="175">Tavuk Göğsü (175g)</option>
+                <option value="225">Tavuk But (Kemikli) (225g)</option>
+                <option value="400">Bütün Tavuk (400g)</option>
+                <option value="150">Tavuk Kanat (150g)</option>
             </select>
         </div>
-        <button class="hc-btn" onclick="hcChickenPPHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-chicken-pp-result">
-            <strong>Toplam İhtiyaç:</strong>
-            <div id="hc-chicken-total" class="hc-result-value">-</div>
-            <p id="hc-chicken-info"></p>
+
+        <button class="hc-btn" onclick="hcTavukMiktariHesapla()">Hesapla</button>
+
+        <div class="hc-result" id="hc-chicken-per-person-result">
+            <div class="hc-result-item">
+                <span>Gereken Toplam Tavuk:</span>
+                <strong class="hc-result-value" id="hc-tpp-res-val">-</strong>
+            </div>
+            <div class="hc-result-note">Hesaplama çiğ ağırlık baz alınarak yapılmıştır.</div>
         </div>
     </div>
     <?php

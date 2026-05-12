@@ -1,0 +1,22 @@
+.hc-calculator#hc-egg-qty {
+    background: #fdfdfd;
+    border: 1px solid #ff9800;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #ef6c00;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #795548;
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ff9800;
+}

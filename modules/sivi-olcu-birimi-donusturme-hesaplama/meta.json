@@ -1,0 +1,5 @@
+{
+  "name": "Sıvı Ölçü Birimi Dönüştürme Hesaplama",
+  "desc": "Litre, mililitre, bardak ve sıvı ons (oz) gibi sıvı ölçü birimleri arasında dönüşüm yapar.",
+  "shortcode": "[hc_sivi_olcu_birimi_donusturme_hesaplama]"
+}

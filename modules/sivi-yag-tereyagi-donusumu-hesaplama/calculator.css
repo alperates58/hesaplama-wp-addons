@@ -1,0 +1,20 @@
+.hc-calculator#hc-oil-butter-conv {
+    background: #fffde7;
+    border: 1px solid #fbc02d;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #f57f17;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.9em;
+    color: #827717;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}

@@ -1,5 +1,5 @@
 {
   "name": "Reçel Şeker Oranı Hesaplama",
-  "desc": "Kullanılan meyve miktarına ve meyvenin tatlılık seviyesine göre eklenmesi gereken ideal şeker miktarını hesaplar.",
+  "desc": "Meyve miktarına ve meyvenin tatlılık derecesine göre gereken şeker miktarını hesaplar.",
   "shortcode": "[hc_recel_seker_orani_hesaplama]"
 }

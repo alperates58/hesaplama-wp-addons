@@ -1,22 +1,22 @@
-function hcTeaCountHesapla() {
-    const guests = parseFloat(document.getElementById('hc-tc-guests').value);
-    const strength = document.getElementById('hc-tc-strength').value;
+function hcCayMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-tpp-count').value);
+    const rounds = parseInt(document.getElementById('hc-tpp-rounds').value);
 
-    if (isNaN(guests) || guests <= 0) {
-        alert('Lütfen kişi sayısını giriniz.');
+    if (!count || count <= 0 || !rounds || rounds <= 0) {
+        alert('Lütfen geçerli değerler giriniz.');
         return;
     }
 
-    // Kişi başı ortalama 2 bardak çay, 1 bardak için ~2-3g kuru çay
-    let teaPerPerson = 5; // gram
-    if (strength === 'light') teaPerPerson = 3;
-    else if (strength === 'strong') teaPerPerson = 7;
+    const totalGlasses = count * rounds;
+    const totalMl = totalGlasses * 110; // 110ml per tea glass
+    const totalLiters = totalMl / 1000;
 
-    const totalTea = guests * teaPerPerson;
-    const totalWater = guests * 0.3; // litre
+    // ~28g dry tea per liter of water in teapot
+    const dryTeaGrams = totalLiters * 28;
 
-    document.getElementById('hc-tc-res').innerText = totalTea.toLocaleString('tr-TR') + ' g Çay';
-    document.getElementById('hc-tc-info').innerText = `Yaklaşık ${totalWater.toLocaleString('tr-TR')} litre su ile demlemeniz önerilir.`;
+    const resultDiv = document.getElementById('hc-tea-per-person-result');
+    document.getElementById('hc-tpp-res-tea').innerText = Math.round(dryTeaGrams) + ' g (~' + Math.round(dryTeaGrams/5) + ' Kaşık)';
+    document.getElementById('hc-tpp-res-water').innerText = totalLiters.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Litre';
     
-    document.getElementById('hc-tea-count-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

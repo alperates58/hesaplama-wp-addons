@@ -1,0 +1,21 @@
+.hc-calculator#hc-turkish-coffee {
+    background: #fdfaf8;
+    border: 1px solid #795548;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #5d4037;
+    font-size: 1.5em;
+}
+
+.hc-result-note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #8d6e63;
+    border-top: 1px dashed #d7ccc8;
+    padding-top: 15px;
+    font-style: italic;
+}

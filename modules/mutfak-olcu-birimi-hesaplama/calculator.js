@@ -1,23 +1,21 @@
-function hcKitchenUnitsHesapla() {
-    const fromVal = parseFloat(document.getElementById('hc-unit-from').value);
-    const val = parseFloat(document.getElementById('hc-unit-val').value);
+function hcMutfakOlcuDonustur() {
+    const amount = parseFloat(document.getElementById('hc-ku-amount').value);
+    const fromMl = parseFloat(document.getElementById('hc-ku-from').value);
 
-    if (isNaN(val) || val <= 0) {
+    if (!amount || amount <= 0) {
         alert('Lütfen miktar giriniz.');
         return;
     }
 
-    const baseMl = val * fromVal;
+    const totalMl = amount * fromMl;
 
-    document.getElementById('hc-unit-res-list').innerHTML = `
-        <ul style="text-align:left;">
-            <li><strong>Mililitre:</strong> ${baseMl.toLocaleString('tr-TR')} ml</li>
-            <li><strong>Su Bardağı:</strong> ${(baseMl / 200).toLocaleString('tr-TR', {maximumFractionDigits:2})} adet</li>
-            <li><strong>Çay Bardağı:</strong> ${(baseMl / 100).toLocaleString('tr-TR', {maximumFractionDigits:2})} adet</li>
-            <li><strong>Yemek Kaşığı:</strong> ${(baseMl / 15).toLocaleString('tr-TR', {maximumFractionDigits:1})} adet</li>
-            <li><strong>Çay Kaşığı:</strong> ${(baseMl / 5).toLocaleString('tr-TR', {maximumFractionDigits:1})} adet</li>
-        </ul>
+    const resList = document.getElementById('hc-ku-res-list');
+    resList.innerHTML = `
+        <div class="hc-result-item"><span>Mililitre:</span> <strong>${totalMl.toLocaleString('tr-TR')} ml</strong></div>
+        <div class="hc-result-item"><span>Su Bardağı:</span> <strong>${(totalMl / 200).toLocaleString('tr-TR', { maximumFractionDigits: 2 })} Adet</strong></div>
+        <div class="hc-result-item"><span>Yemek Kaşığı:</span> <strong>${(totalMl / 15).toLocaleString('tr-TR', { maximumFractionDigits: 1 })} Adet</strong></div>
+        <div class="hc-result-item"><span>Çay Kaşığı:</span> <strong>${(totalMl / 5).toLocaleString('tr-TR', { maximumFractionDigits: 1 })} Adet</strong></div>
     `;
-    
+
     document.getElementById('hc-kitchen-units-result').classList.add('visible');
 }

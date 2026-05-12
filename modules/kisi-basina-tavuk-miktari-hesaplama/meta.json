@@ -1,5 +1,5 @@
 {
   "name": "Kişi Başına Tavuk Miktarı Hesaplama",
-  "desc": "Davetli sayısına ve tavuğun parçalarına (bütün, göğüs, kanat vb.) göre alınması gereken toplam tavuk miktarını hesaplar.",
+  "desc": "Kişi sayısına ve tavuk türüne (göğüs, but, bütün) göre gereken toplam tavuk miktarını hesaplar.",
   "shortcode": "[hc_kisi_basina_tavuk_miktari_hesaplama]"
 }

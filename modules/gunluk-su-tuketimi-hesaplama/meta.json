@@ -1,5 +1,5 @@
 {
   "name": "Günlük Su Tüketimi Hesaplama",
-  "desc": "Kilo ve aktivite seviyesine göre vücudun günlük ihtiyaç duyduğu su miktarını hesaplar.",
+  "desc": "Yaş, kilo ve aktivite düzeyine göre günlük içmeniz gereken su miktarını hesaplar.",
   "shortcode": "[hc_gunluk_su_tuketimi_hesaplama]"
 }

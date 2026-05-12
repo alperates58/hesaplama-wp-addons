@@ -1,20 +1,35 @@
-function hcCakeSizeNeededHesapla() {
-    const count = parseInt(document.getElementById('hc-cs-count').value);
+function hcPastaPlanla() {
+    const count = parseInt(document.getElementById('hc-cpp-count').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    let recommendation = '';
-    if (count <= 6) recommendation = '16-18 cm Yuvarlak Kalıp';
-    else if (count <= 12) recommendation = '20-22 cm Yuvarlak Kalıp';
-    else if (count <= 20) recommendation = '24-26 cm Yuvarlak Kalıp';
-    else if (count <= 35) recommendation = '30 cm Yuvarlak veya 28 cm Kare Kalıp';
-    else recommendation = 'Katlı pasta veya birden fazla kalıp önerilir.';
+    const resList = document.getElementById('hc-cpp-res-list');
+    let suggestions = '';
 
-    document.getElementById('hc-cs-val').innerText = recommendation;
-    document.getElementById('hc-cs-info').innerText = `${count} kişi için standart dilim ölçüleri baz alınmıştır. Kalıp yüksekliğinin en az 7-8 cm olması önerilir.`;
-    
-    document.getElementById('hc-cake-size-result').classList.add('visible');
+    if (count <= 12) {
+        suggestions = `<div class="hc-result-item"><span>Tek Kat:</span> <strong>18-20 cm Çap</strong></div>`;
+    } else if (count <= 25) {
+        suggestions = `<div class="hc-result-item"><span>Tek Kat:</span> <strong>24-26 cm Çap</strong></div>`;
+    } else if (count <= 45) {
+        suggestions = `
+            <div class="hc-result-item"><span>Tek Kat:</span> <strong>32-35 cm Çap</strong></div>
+            <div class="hc-result-item"><span>2 Katlı:</span> <strong>24 cm + 16 cm</strong></div>
+        `;
+    } else if (count <= 80) {
+        suggestions = `
+            <div class="hc-result-item"><span>2 Katlı:</span> <strong>28 cm + 18 cm</strong></div>
+            <div class="hc-result-item"><span>3 Katlı:</span> <strong>25 cm + 18 cm + 12 cm</strong></div>
+        `;
+    } else {
+         suggestions = `
+            <div class="hc-result-item"><span>3 Katlı:</span> <strong>30 cm + 22 cm + 15 cm</strong></div>
+            <div class="hc-result-item"><span>4 Katlı:</span> <strong>32 cm + 25 cm + 18 cm + 12 cm</strong></div>
+        `;
+    }
+
+    resList.innerHTML = suggestions;
+    document.getElementById('hc-cake-planner-result').classList.add('visible');
 }

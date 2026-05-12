@@ -1,0 +1,5 @@
+{
+  "name": "Pizza Kenarı Kalori Hesaplama",
+  "desc": "Pizzanın kenar tipine (standart, peynir dolgulu, ince) göre sadece kenar kısmının kalorisini hesaplar.",
+  "shortcode": "[hc_pizza_kenari_kalori_hesaplama]"
+}

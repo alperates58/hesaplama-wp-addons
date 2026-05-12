@@ -1,0 +1,21 @@
+.hc-calculator#hc-water-cool {
+    background: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #1565c0;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #1976d2;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #bbdefb;
+    text-align: center;
+}

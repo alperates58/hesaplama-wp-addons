@@ -1,0 +1,20 @@
+.hc-calculator#hc-coffee-per-person {
+    background: #fff;
+    border: 1px solid #5d4037;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #4e342e;
+    font-size: 1.6em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #3e2723;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #d7ccc8;
+}

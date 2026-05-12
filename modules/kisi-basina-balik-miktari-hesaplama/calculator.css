@@ -1,0 +1,20 @@
+.hc-calculator#hc-fish-per-person {
+    background: #e0f2f1;
+    border: 1px solid #80cbc4;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #00796b;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #004d40;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #b2dfdb;
+}

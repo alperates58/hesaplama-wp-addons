@@ -1,0 +1,5 @@
+{
+  "name": "Pizza Hamuru Ölçüsü Hesaplama",
+  "desc": "Pizza boyutuna ve hamur kalınlığına göre gereken hamur ağırlığını (gram) hesaplar.",
+  "shortcode": "[hc_pizza_hamuru_olcusu_hesaplama]"
+}

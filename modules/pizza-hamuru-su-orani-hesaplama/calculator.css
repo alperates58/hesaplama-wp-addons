@@ -1,0 +1,21 @@
+.hc-calculator#hc-pizza-hydro {
+    background: #fffbe6;
+    border: 1px solid #ff5722;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #e64a19;
+    font-size: 1.6em;
+}
+
+.hc-result-note {
+    font-size: 0.85em;
+    color: #795548;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ffccbc;
+    text-align: center;
+}

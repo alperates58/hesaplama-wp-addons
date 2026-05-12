@@ -1,16 +1,17 @@
-function hcFishPPHesapla() {
-    const count = parseInt(document.getElementById('hc-fish-count').value);
-    const multiplier = parseFloat(document.getElementById('hc-fish-type').value);
+function hcBalikMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-fpp-count').value);
+    const perPerson = parseFloat(document.getElementById('hc-fpp-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalKg = count * multiplier;
+    const totalGrams = count * perPerson;
+    const totalKg = totalGrams / 1000;
 
-    document.getElementById('hc-fish-total').innerText = totalKg.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
-    document.getElementById('hc-fish-info').innerText = `Kişi başı ortalama ${(multiplier * 1000).toLocaleString('tr-TR')} g (brüt) balık üzerinden hesaplanmıştır.`;
+    const resultDiv = document.getElementById('hc-fish-per-person-result');
+    document.getElementById('hc-fpp-res-val').innerText = totalKg.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' kg';
     
-    document.getElementById('hc-fish-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

@@ -1,17 +1,16 @@
-function hcCheeseBrineHesapla() {
-    const water = parseFloat(document.getElementById('hc-brine-water').value);
-    const pct = parseFloat(document.getElementById('hc-brine-pct').value);
+function hcSalamuraHesapla() {
+    const water = parseFloat(document.getElementById('hc-br-water').value);
+    const ratio = parseFloat(document.getElementById('hc-br-intensity').value);
 
-    if (isNaN(water) || isNaN(pct) || water <= 0) {
-        alert('Lütfen değerleri giriniz.');
+    if (!water || water <= 0) {
+        alert('Lütfen su miktarını giriniz.');
         return;
     }
 
-    // %10 luk salamura için 1L suya 100g tuz (yaklaşık)
-    const saltGrams = water * 1000 * (pct / 100);
+    const saltGrams = water * 1000 * ratio;
 
-    document.getElementById('hc-brine-salt').innerText = saltGrams.toLocaleString('tr-TR') + ' g';
-    document.getElementById('hc-brine-info').innerText = `Kaya tuzu (turşuluk tuz) kullanmanız ve suyun kaynatılıp soğutulmuş olması önerilir.`;
+    const resultDiv = document.getElementById('hc-brine-ratio-result');
+    document.getElementById('hc-br-res-val').innerText = saltGrams.toLocaleString('tr-TR', { maximumFractionDigits: 0 }) + ' g';
     
-    document.getElementById('hc-cheese-brine-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

@@ -1,5 +1,5 @@
 {
   "name": "Mutfak Ölçü Birimi Hesaplama",
-  "desc": "Mutfakta sık kullanılan bardak, kaşık, mililitre ve gram birimleri arasında hızlı dönüşüm sağlar.",
+  "desc": "Bardak, kaşık ve mililitre gibi mutfak ölçü birimleri arasında hızlı dönüşüm yapar.",
   "shortcode": "[hc_mutfak_olcu_birimi_hesaplama]"
 }

@@ -3,27 +3,37 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_yumurta_haslama_suresi_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-egg-boil',
+        'hc-egg-boil-js',
         HC_PLUGIN_URL . 'modules/yumurta-haslama-suresi-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-egg-boil-css',
+        HC_PLUGIN_URL . 'modules/yumurta-haslama-suresi-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-egg-boil-calc">
-        <h3>Mükemmel Yumurta Zamanlayıcı</h3>
+    <div class="hc-calculator" id="hc-egg-boil">
+        <h3>Yumurta Haşlama Süreleri</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-eb-style">İstediğiniz Kıvam:</label>
-            <select id="hc-eb-style">
-                <option value="4">Rafadan (Akı pişmiş, sarısı sıvı - 4 dk)</option>
-                <option value="6">Kayısı (Sarısı kremsi - 6 dk)</option>
-                <option value="10">Katı (Tam pişmiş - 10 dk)</option>
-                <option value="12">Çok Katı (12 dk)</option>
+            <label for="hc-eb-style">İstediğiniz Kıvam</label>
+            <select id="hc-eb-style" onchange="hcYumurtaSuresiGoster()">
+                <option value="">Seçiniz...</option>
+                <option value="3">Rafadan (Çok Yumuşak - 3 dk)</option>
+                <option value="5">Kayısı (Orta - 5-6 dk)</option>
+                <option value="8">Tam Pişmiş (8 dk)</option>
+                <option value="12">Katı (12 dk)</option>
             </select>
         </div>
-        <button class="hc-btn" onclick="hcEggBoilHesapla()">Süreyi Gör</button>
+
         <div class="hc-result" id="hc-egg-boil-result">
-            <strong>İdeal Süre:</strong>
-            <div id="hc-eb-val" class="hc-result-value">-</div>
-            <p id="hc-eb-info"></p>
+            <div id="hc-eb-res-list">
+                <!-- JS populated -->
+            </div>
+            <div class="hc-result-note">
+                <strong>Önemli:</strong> Süreler su kaynamaya başladıktan sonra tutulmalıdır. Yumurtaları oda sıcaklığında kullanmak çatlamayı önler.
+            </div>
         </div>
     </div>
     <?php

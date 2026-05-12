@@ -1,0 +1,18 @@
+.hc-calculator#hc-flour-conv {
+    background: #fff;
+    border: 1px solid #ffccbc;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #e64a19;
+    font-size: 1.6em;
+}
+
+#hc-fc-res-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

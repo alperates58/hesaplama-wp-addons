@@ -1,0 +1,5 @@
+{
+  "name": "Yumurta Miktarı Hesaplama",
+  "desc": "Tariflerdeki yumurta sayısını gramaja veya farklı boyutlardaki yumurtalara göre dönüştürür.",
+  "shortcode": "[hc_yumurta_miktari_hesaplama]"
+}

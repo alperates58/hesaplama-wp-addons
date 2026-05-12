@@ -1,0 +1,38 @@
+.hc-calculator#hc-caffeine-effect {
+    background: #fff;
+    border: 1px solid #4e342e;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hc-ce-chart {
+    height: 12px;
+    background: #efebe9;
+    border-radius: 6px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 1px solid #d7ccc8;
+}
+
+.hc-ce-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #8d6e63, #4e342e);
+    width: 0;
+    transition: width 0.8s ease-out;
+}
+
+.hc-result-value {
+    color: #3e2723;
+    font-size: 2em;
+}
+
+.hc-result-note {
+    font-size: 0.9em;
+    color: #5d4037;
+    margin-top: 15px;
+    background: #fdf5e6;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #6d4c41;
+}

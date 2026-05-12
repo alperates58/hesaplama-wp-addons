@@ -1,0 +1,24 @@
+.hc-calculator#hc-flour-water {
+    background: #fdfdfd;
+    border: 1px solid #795548;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #2196f3;
+    font-size: 2em;
+}
+
+.hc-calculator#hc-flour-water small {
+    display: block;
+    margin-top: 5px;
+    color: #757575;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+.hc-result-item strong {
+    font-size: 1.3em;
+}

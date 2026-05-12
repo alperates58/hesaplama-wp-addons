@@ -1,5 +1,5 @@
 {
   "name": "Peynir Salamura Oranı Hesaplama",
-  "desc": "Peynirleri saklamak için gereken ideal salamura suyu (tuz ve su) oranını hesaplar.",
+  "desc": "Peynir saklamak için gereken ideal su ve tuz (salamura) oranlarını hesaplar.",
   "shortcode": "[hc_peynir_salamura_orani_hesaplama]"
 }

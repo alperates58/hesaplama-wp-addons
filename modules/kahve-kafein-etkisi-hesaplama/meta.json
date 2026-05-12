@@ -1,5 +1,5 @@
 {
   "name": "Kahve Kafein Etkisi Hesaplama",
-  "desc": "Tüketilen kahveden sonra kafeinin vücuttaki pik yapma ve atılım (yarılanma) süresini hesaplar.",
+  "desc": "Tüketilen kahveden sonra kafeinin kanda ne kadar süre etkili kalacağını ve yarı ömrünü hesaplar.",
   "shortcode": "[hc_kahve_kafein_etkisi_hesaplama]"
 }

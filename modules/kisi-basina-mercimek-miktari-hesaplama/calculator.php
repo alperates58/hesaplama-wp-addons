@@ -3,31 +3,41 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kisi_basina_mercimek_miktari_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-lentil-per-person',
+        'hc-lentil-per-person-js',
         HC_PLUGIN_URL . 'modules/kisi-basina-mercimek-miktari-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-lentil-per-person-css',
+        HC_PLUGIN_URL . 'modules/kisi-basina-mercimek-miktari-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-lentil-pp-calc">
+    <div class="hc-calculator" id="hc-lentil-per-person">
         <h3>Kişi Başına Mercimek Miktarı</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-lentil-count">Kişi Sayısı:</label>
-            <input type="number" id="hc-lentil-count" placeholder="4">
+            <label for="hc-lpp-count">Kişi Sayısı</label>
+            <input type="number" id="hc-lpp-count" value="4" min="1">
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-lentil-dish">Yemek Türü:</label>
-            <select id="hc-lentil-dish">
-                <option value="40">Mercimek Çorbası (40g/kişi)</option>
-                <option value="60">Mercimek Köftesi (60g/kişi)</option>
-                <option value="75">Mercimek Yemeği (75g/kişi)</option>
-                <option value="30">Salata / Pilav İçi (30g/kişi)</option>
+            <label for="hc-lpp-type">Yemek Türü</label>
+            <select id="hc-lpp-type">
+                <option value="55">Mercimek Çorbası (55g)</option>
+                <option value="80">Mercimek Köftesi (80g)</option>
+                <option value="75">Yeşil Mercimek Yemeği (75g)</option>
             </select>
         </div>
-        <button class="hc-btn" onclick="hcLentilPPHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-lentil-pp-result">
-            <strong>Toplam Kuru Mercimek:</strong>
-            <div id="hc-lentil-total" class="hc-result-value">-</div>
-            <p id="hc-lentil-info"></p>
+
+        <button class="hc-btn" onclick="hcMercimekMiktariHesapla()">Hesapla</button>
+
+        <div class="hc-result" id="hc-lentil-per-person-result">
+            <div class="hc-result-item">
+                <span>Gereken Toplam Mercimek:</span>
+                <strong class="hc-result-value" id="hc-lpp-res-val">-</strong>
+            </div>
+            <div class="hc-result-note">Hesaplama kuru ağırlık baz alınarak yapılmıştır.</div>
         </div>
     </div>
     <?php

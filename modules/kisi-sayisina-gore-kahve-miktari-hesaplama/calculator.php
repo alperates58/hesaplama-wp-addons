@@ -3,30 +3,44 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kisi_sayisina_gore_kahve_miktari_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-coffee-pp',
+        'hc-coffee-per-person-js',
         HC_PLUGIN_URL . 'modules/kisi-sayisina-gore-kahve-miktari-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-coffee-per-person-css',
+        HC_PLUGIN_URL . 'modules/kisi-sayisina-gore-kahve-miktari-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-coffee-pp-calc">
-        <h3>Kişi Sayısına Göre Kahve Ölçüsü</h3>
+    <div class="hc-calculator" id="hc-coffee-per-person">
+        <h3>Kahve Miktarı Hesaplama</h3>
+        
         <div class="hc-form-group">
-            <label for="hc-coffee-pp-count">Kişi Sayısı:</label>
-            <input type="number" id="hc-coffee-pp-count" placeholder="4">
+            <label for="hc-cpp-count">Kişi Sayısı</label>
+            <input type="number" id="hc-cpp-count" value="4" min="1">
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-coffee-pp-type">Kahve Türü:</label>
-            <select id="hc-coffee-pp-type">
-                <option value="7">Türk Kahvesi (7g / 65ml)</option>
-                <option value="15">Filtre Kahve (15g / 250ml)</option>
-                <option value="18">Espresso Double (18g / 40ml)</option>
+            <label for="hc-cpp-type">Kahve Türü</label>
+            <select id="hc-cpp-type">
+                <option value="7|65">Türk Kahvesi (7g Kahve / 65ml Su)</option>
+                <option value="15|250">Filtre Kahve (15g Kahve / 250ml Su)</option>
+                <option value="18|60">Espresso - Double (18g Kahve / 60ml Su)</option>
             </select>
         </div>
-        <button class="hc-btn" onclick="hcCoffeePPHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-coffee-pp-result">
-            <strong>Gereken Malzemeler:</strong>
-            <div id="hc-coffee-pp-val" class="hc-result-value">-</div>
-            <p id="hc-coffee-pp-info"></p>
+
+        <button class="hc-btn" onclick="hcKahveMiktariHesapla()">Hesapla</button>
+
+        <div class="hc-result" id="hc-coffee-per-person-result">
+            <div class="hc-result-item">
+                <span>Gereken Kahve:</span>
+                <strong id="hc-cpp-res-coffee">-</strong>
+            </div>
+            <div class="hc-result-item">
+                <span>Gereken Su:</span>
+                <strong id="hc-cpp-res-water">-</strong>
+            </div>
         </div>
     </div>
     <?php

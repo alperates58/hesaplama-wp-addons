@@ -7,11 +7,12 @@ function hcGramCayKasigiHesapla() {
         return;
     }
 
-    // 1 çay kaşığı yaklaşık 5ml'dir. 
-    // Gram / density = ml. ml / 5 = çay kaşığı
+    // density is grams per tsp
     const tsp = grams / density;
 
+    const resultDiv = document.getElementById('hc-g-to-tsp-result');
     document.getElementById('hc-tsp-val').innerText = tsp.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' Çay Kaşığı';
-    document.getElementById('hc-tsp-info').innerText = 'Not: Mutfak ölçüleri malzemenin yoğunluğuna ve kaşığın doluluk oranına göre değişebilir.';
-    document.getElementById('hc-g-to-tsp-result').classList.add('visible');
+    document.getElementById('hc-tsp-info').innerText = 'Not: Mutfak ölçüleri malzemenin yoğunluğuna ve kaşığın doluluk oranına göre (tepeleme/silme) değişebilir.';
+    
+    resultDiv.classList.add('visible');
 }

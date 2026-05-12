@@ -1,0 +1,29 @@
+.hc-calculator#hc-abv {
+    background: #fff;
+    border: 1px solid #ffca28;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.hc-result-value {
+    color: #f57c00;
+    font-size: 2.2em;
+}
+
+.hc-abv-stats {
+    margin-top: 15px;
+    font-size: 0.95em;
+    color: #5d4037;
+    background: #fff8e1;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.hc-result-note {
+    font-size: 0.8em;
+    color: #795548;
+    margin-top: 15px;
+    text-align: center;
+    font-style: italic;
+}

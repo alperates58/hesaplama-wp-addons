@@ -1,0 +1,23 @@
+.hc-calculator#hc-pickle-ratio {
+    background: #fdfdfd;
+    border: 1px solid #cddc39;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.hc-result-item strong {
+    color: #827717;
+    font-size: 1.4em;
+}
+
+.hc-result-note {
+    margin-top: 20px;
+    font-size: 0.9em;
+    background: #f9fbe7;
+    padding: 15px;
+    border-radius: 8px;
+    color: #33691e;
+    line-height: 1.5;
+    border-left: 4px solid #cddc39;
+}

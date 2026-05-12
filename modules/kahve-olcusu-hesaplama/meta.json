@@ -1,5 +1,5 @@
 {
   "name": "Kahve Ölçüsü Hesaplama",
-  "desc": "Farklı kahve demleme yöntemleri (V60, French Press, Chemex vb.) için ideal kahve ve su miktarını hesaplar.",
+  "desc": "Kahve kaşığı (scoop) ve standart mutfak gereçlerine göre gereken kahve miktarını hesaplar.",
   "shortcode": "[hc_kahve_olcusu_hesaplama]"
 }

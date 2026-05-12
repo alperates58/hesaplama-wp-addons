@@ -1,20 +1,22 @@
-function hcDailyWaterHesapla() {
+function hcSuTuketimiHesapla() {
     const weight = parseFloat(document.getElementById('hc-water-weight').value);
     const activity = parseFloat(document.getElementById('hc-water-activity').value);
+    const climate = parseFloat(document.getElementById('hc-water-climate').value);
 
-    if (isNaN(weight) || weight <= 0) {
+    if (!weight || weight <= 0) {
         alert('Lütfen kilonuzu giriniz.');
         return;
     }
 
-    // Temel formül: Kilo x 0.033 litre. 
-    // Ekstra aktivite için +0.5 veya +1.0 litre eklenebilir.
-    let water = weight * 0.033 + activity;
+    // Base requirement: 35ml per kg body weight
+    let totalMl = (weight * 35) + activity + climate;
+    
+    const totalLiters = totalMl / 1000;
+    const cups = totalMl / 250; // Standard 250ml glass
 
-    document.getElementById('hc-water-val').innerText = water.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Litre';
+    const resultDiv = document.getElementById('hc-water-intake-result');
+    document.getElementById('hc-water-val').innerText = totalLiters.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' Litre';
+    document.getElementById('hc-water-cups').innerHTML = `Yaklaşık <strong>${Math.ceil(cups)}</strong> standart bardak (250ml).`;
     
-    const glasses = Math.ceil(water / 0.2); // 200ml bardak
-    document.getElementById('hc-water-glasses').innerText = `Yaklaşık ${glasses} standart (200ml) bardak.`;
-    
-    document.getElementById('hc-daily-water-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }

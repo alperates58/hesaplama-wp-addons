@@ -1,18 +1,17 @@
-function hcSoupPPHesapla() {
-    const count = parseInt(document.getElementById('hc-soup-count').value);
-    const perPerson = parseFloat(document.getElementById('hc-soup-role').value);
+function hcCorbaMiktariHesapla() {
+    const count = parseInt(document.getElementById('hc-spp-count').value);
+    const mlPerPerson = parseFloat(document.getElementById('hc-spp-type').value);
 
-    if (isNaN(count) || count <= 0) {
+    if (!count || count <= 0) {
         alert('Lütfen kişi sayısını giriniz.');
         return;
     }
 
-    const totalLitre = count * perPerson;
-    // Standart kepçe ~100-125ml
-    const ladles = totalLitre / 0.125;
+    const totalMl = count * mlPerPerson;
+    const totalLiters = totalMl / 1000;
 
-    document.getElementById('hc-soup-total').innerText = totalLitre.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Litre';
-    document.getElementById('hc-soup-info').innerText = `Yaklaşık ${Math.ceil(ladles)} kepçe servis çıkar.`;
+    const resultDiv = document.getElementById('hc-soup-per-person-result');
+    document.getElementById('hc-spp-res-val').innerText = totalLiters.toLocaleString('tr-TR', { maximumFractionDigits: 2 }) + ' Litre';
     
-    document.getElementById('hc-soup-pp-result').classList.add('visible');
+    resultDiv.classList.add('visible');
 }
