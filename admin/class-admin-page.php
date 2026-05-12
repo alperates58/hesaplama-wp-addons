@@ -2045,11 +2045,16 @@ class HC_Admin_Page {
         $updater  = new HC_Github_Updater();
         $settings = $updater->get_settings();
         $saved    = isset( $_GET['saved'] );
-        $update   = sanitize_text_field( wp_unslash( $_GET['update'] ?? '' ) );
+        $update   = '';
         $last     = get_option( 'hc_last_update', '-' );
+        $notice   = $updater->get_update_notice();
         ?>
         <?php if ( $saved ) : ?>
             <div class="notice notice-success is-dismissible"><p>Ayarlar kaydedildi.</p></div>
+        <?php endif; ?>
+
+        <?php if ( $notice && ! empty( $notice['message'] ) ) : ?>
+            <div class="notice notice-<?php echo 'success' === ( $notice['type'] ?? '' ) ? 'success' : 'error'; ?> is-dismissible"><p><?php echo esc_html( $notice['message'] ); ?></p></div>
         <?php endif; ?>
 
         <?php if ( 'success' === $update ) : ?>

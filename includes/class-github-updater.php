@@ -3,7 +3,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class HC_Github_Updater {
 
-    private $option_key = 'hc_github_settings';
+    private $option_key            = 'hc_github_settings';
+    private $notice_transient_key  = 'hc_github_update_notice';
+    private $debug_option_key      = 'hc_github_update_last_debug';
+    private $error_option_key      = 'hc_github_update_last_error';
+    private $last_zip_http_code    = 0;
 
     public function __construct() {
         add_action( 'admin_post_hc_update_from_github', [ $this, 'handle_update' ] );
@@ -79,11 +83,22 @@ class HC_Github_Updater {
             wp_die( esc_html__( 'Güvenlik doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.', 'hesaplama-suite' ), esc_html__( 'Geçersiz istek', 'hesaplama-suite' ), [ 'response' => 400 ] );
         }
 
+        $this->reset_update_state();
+
         $s      = $this->get_settings();
         $result = $this->download_and_install( $s );
 
-        $status = true === $result ? 'success' : urlencode( $result );
-        wp_safe_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=github&update=' . $status ) );
+        if ( true === $result ) {
+            $this->set_update_notice( 'success', 'Eklenti GitHub üzerinden başarıyla güncellendi.' );
+            wp_safe_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=github&update=success' ) );
+            exit;
+        }
+
+        $message = $result instanceof WP_Error ? $result->get_error_message() : (string) $result;
+        $this->save_update_error( $message );
+        $this->set_update_notice( 'error', $message );
+
+        wp_safe_redirect( admin_url( 'admin.php?page=hesaplama-suite&tab=github&update=error' ) );
         exit;
     }
 
@@ -105,9 +120,32 @@ class HC_Github_Updater {
         wp_send_json_success( [ 'sha' => substr( $sha, 0, 7 ) ] );
     }
 
+    public function get_update_notice( $delete = true ) {
+        $notice = get_transient( $this->notice_transient_key );
+
+        if ( $delete ) {
+            delete_transient( $this->notice_transient_key );
+        }
+
+        return is_array( $notice ) ? $notice : null;
+    }
+
+    public function get_last_update_error() {
+        return get_option( $this->error_option_key, '' );
+    }
+
+    public function get_last_update_debug() {
+        return get_option( $this->debug_option_key, [] );
+    }
+
     private function download_and_install( $s ) {
-        if ( empty( $s['repo'] ) ) return 'GitHub repo ayarı eksik.';
-        if ( ! $this->is_valid_repo( $s['repo'] ) ) return 'GitHub repo formatı geçersiz. Örnek: kullanici/repo';
+        if ( empty( $s['repo'] ) ) {
+            return new WP_Error( 'missing_repo', 'GitHub repo ayarı eksik.' );
+        }
+
+        if ( ! $this->is_valid_repo( $s['repo'] ) ) {
+            return new WP_Error( 'invalid_repo', 'GitHub repo formatı geçersiz. Örnek: kullanici/repo' );
+        }
 
         if ( ! function_exists( 'download_url' ) || ! function_exists( 'unzip_file' ) || ! function_exists( 'copy_dir' ) ) {
             require_once ABSPATH . 'wp-admin/includes/file.php';
@@ -126,38 +164,92 @@ class HC_Github_Updater {
             $args['headers']['Authorization'] = 'token ' . $s['token'];
         }
 
-        $tmp = $this->download_zip( $zip_url, $args );
-        if ( is_wp_error( $tmp ) ) return $tmp->get_error_message();
+        $plugin_base       = dirname( HC_PLUGIN_DIR );
+        $dest              = HC_PLUGIN_DIR;
+        $filesystem_method = function_exists( 'get_filesystem_method' ) ? get_filesystem_method() : 'unknown';
 
-        $plugin_base = dirname( HC_PLUGIN_DIR );
-        $dest        = HC_PLUGIN_DIR;
+        $this->log_update_debug(
+            [
+                'repo'              => $s['repo'],
+                'branch'            => $s['branch'],
+                'zip_url'           => $zip_url,
+                'filesystem_method' => $filesystem_method,
+                'dest_writable'     => is_writable( $dest ) ? 'yes' : 'no',
+                'plugin_base'       => $plugin_base,
+            ]
+        );
+
+        $tmp = $this->download_zip( $zip_url, $args );
+        $this->log_update_debug(
+            [
+                'tmp_created'       => ! is_wp_error( $tmp ) && ! empty( $tmp ) ? 'yes' : 'no',
+                'zip_download_http' => (string) $this->last_zip_http_code,
+            ]
+        );
+
+        if ( is_wp_error( $tmp ) ) {
+            return $tmp;
+        }
 
         global $wp_filesystem;
         WP_Filesystem();
 
+        $this->log_update_debug(
+            [
+                'wp_filesystem_class' => is_object( $wp_filesystem ) ? get_class( $wp_filesystem ) : 'unavailable',
+            ]
+        );
+
         $unzip = unzip_file( $tmp, $plugin_base );
         @unlink( $tmp );
 
-        if ( is_wp_error( $unzip ) ) return $unzip->get_error_message();
+        $this->log_update_debug( [ 'unzip_result' => is_wp_error( $unzip ) ? $unzip->get_error_code() : 'success' ] );
+
+        if ( is_wp_error( $unzip ) ) {
+            return $this->wrap_error( 'github_unzip_failed', 'ZIP arşivi açılamadı: ' . $unzip->get_error_message() );
+        }
 
         $repo_name     = basename( $s['repo'] );
         $extracted_dir = $plugin_base . '/' . $repo_name . '-' . $s['branch'];
+        $package_root  = $this->locate_package_root( $extracted_dir );
+
+        $this->log_update_debug(
+            [
+                'extracted_dir'        => $extracted_dir,
+                'extracted_dir_exists' => is_dir( $extracted_dir ) ? 'yes' : 'no',
+                'package_root'         => $package_root ? $package_root : '',
+            ]
+        );
 
         if ( ! is_dir( $extracted_dir ) ) {
-            return 'İndirilen paket açılamadı veya beklenen klasör bulunamadı.';
+            return $this->wrap_error( 'github_extracted_dir_missing', 'İndirilen paket açılamadı veya beklenen klasör bulunamadı.' );
         }
 
-        $validation = $this->prepare_extracted_modules_for_install( $extracted_dir );
+        if ( ! $package_root ) {
+            $this->cleanup_directory( $extracted_dir );
+            return $this->wrap_error( 'github_package_root_missing', 'İndirilen pakette eklenti kökü bulunamadı. ZIP içeriğinde hesaplama-suite.php ve modules dizini doğrulanamadı.' );
+        }
+
+        $validation = $this->prepare_extracted_modules_for_install( $package_root );
+        $this->log_update_debug( [ 'validation_result' => is_wp_error( $validation ) ? $validation->get_error_code() : 'success' ] );
+
         if ( is_wp_error( $validation ) ) {
-            $wp_filesystem->delete( $extracted_dir, true );
-            return $validation->get_error_message();
+            $this->cleanup_directory( $extracted_dir );
+            return $validation;
         }
 
-        $copied = copy_dir( $extracted_dir, $dest );
-        $wp_filesystem->delete( $extracted_dir, true );
+        $copied = copy_dir( $package_root, $dest );
+        $this->log_update_debug( [ 'copy_dir_result' => is_wp_error( $copied ) ? $copied->get_error_code() : 'success' ] );
+
+        if ( is_wp_error( $copied ) && $this->should_use_native_copy_fallback( $filesystem_method, $dest ) ) {
+            $copied = $this->native_recursive_copy( $package_root, $dest );
+            $this->log_update_debug( [ 'native_copy_fallback' => is_wp_error( $copied ) ? $copied->get_error_code() : 'success' ] );
+        }
+
+        $this->cleanup_directory( $extracted_dir );
 
         if ( is_wp_error( $copied ) ) {
-            return 'Yeni eklenti dosyaları kopyalanamadı: ' . $copied->get_error_message();
+            return $this->wrap_error( 'github_copy_failed', 'Yeni eklenti dosyaları kopyalanamadı: ' . $copied->get_error_message() );
         }
 
         $remote_sha = $this->get_remote_version();
@@ -206,11 +298,13 @@ class HC_Github_Updater {
         $resp = wp_remote_get( $url, $args );
 
         if ( is_wp_error( $resp ) ) {
+            $this->last_zip_http_code = 0;
             @unlink( $tmp );
             return $resp;
         }
 
         $code = wp_remote_retrieve_response_code( $resp );
+        $this->last_zip_http_code = (int) $code;
 
         if ( $code < 200 || $code >= 300 ) {
             @unlink( $tmp );
@@ -225,8 +319,6 @@ class HC_Github_Updater {
     }
 
     private function prepare_extracted_modules_for_install( $extracted_dir ) {
-        global $wp_filesystem;
-
         $modules_dir = trailingslashit( $extracted_dir ) . 'modules';
 
         if ( ! is_dir( $modules_dir ) ) {
@@ -242,7 +334,7 @@ class HC_Github_Updater {
             $module_file = trailingslashit( $module_path ) . 'calculator.php';
 
             if ( $this->should_skip_module_directory( $slug ) ) {
-                $wp_filesystem->delete( $module_path, true );
+                $this->cleanup_directory( $module_path );
                 continue;
             }
 
@@ -268,6 +360,8 @@ class HC_Github_Updater {
         if ( empty( $duplicates ) ) {
             return true;
         }
+
+        $this->log_update_debug( [ 'duplicate_modules' => $duplicates ] );
 
         return new WP_Error(
             'hc_duplicate_modules_detected',
@@ -305,5 +399,157 @@ class HC_Github_Updater {
         }
 
         return strtolower( $matches[1] );
+    }
+
+    private function locate_package_root( $extracted_dir ) {
+        $required_file = trailingslashit( $extracted_dir ) . 'hesaplama-suite.php';
+        $modules_dir   = trailingslashit( $extracted_dir ) . 'modules';
+
+        if ( is_file( $required_file ) && is_dir( $modules_dir ) ) {
+            return $extracted_dir;
+        }
+
+        foreach ( glob( trailingslashit( $extracted_dir ) . '*', GLOB_ONLYDIR ) as $candidate ) {
+            if (
+                is_file( trailingslashit( $candidate ) . 'hesaplama-suite.php' ) &&
+                is_dir( trailingslashit( $candidate ) . 'modules' )
+            ) {
+                return $candidate;
+            }
+        }
+
+        return '';
+    }
+
+    private function should_use_native_copy_fallback( $filesystem_method, $dest ) {
+        return 'ftpsockets' === $filesystem_method && is_dir( $dest ) && is_writable( $dest );
+    }
+
+    private function native_recursive_copy( $source, $destination ) {
+        if ( ! is_dir( $source ) ) {
+            return new WP_Error( 'native_copy_source_missing', 'Kopyalama kaynağı bulunamadı.' );
+        }
+
+        if ( ! is_dir( $destination ) || ! is_writable( $destination ) ) {
+            return new WP_Error( 'native_copy_destination_unwritable', 'Hedef eklenti klasörü PHP tarafından yazılabilir değil.' );
+        }
+
+        $items = scandir( $source );
+        if ( false === $items ) {
+            return new WP_Error( 'native_copy_scandir_failed', 'Kaynak klasör okunamadı.' );
+        }
+
+        foreach ( $items as $item ) {
+            if ( '.' === $item || '..' === $item ) {
+                continue;
+            }
+
+            $from = trailingslashit( $source ) . $item;
+            $to   = trailingslashit( $destination ) . $item;
+
+            if ( is_dir( $from ) ) {
+                if ( ! is_dir( $to ) && ! wp_mkdir_p( $to ) ) {
+                    return new WP_Error( 'native_copy_mkdir_failed', 'Hedef klasör oluşturulamadı: ' . $item );
+                }
+
+                $copied = $this->native_recursive_copy( $from, $to );
+                if ( is_wp_error( $copied ) ) {
+                    return $copied;
+                }
+
+                continue;
+            }
+
+            if ( ! @copy( $from, $to ) ) {
+                return new WP_Error( 'native_copy_file_failed', 'Dosya kopyalanamadı: ' . $item );
+            }
+        }
+
+        return true;
+    }
+
+    private function cleanup_directory( $path ) {
+        global $wp_filesystem;
+
+        if ( is_object( $wp_filesystem ) && method_exists( $wp_filesystem, 'delete' ) ) {
+            $deleted = $wp_filesystem->delete( $path, true );
+            if ( $deleted ) {
+                return true;
+            }
+        }
+
+        return $this->native_recursive_delete( $path );
+    }
+
+    private function native_recursive_delete( $path ) {
+        if ( ! file_exists( $path ) ) {
+            return true;
+        }
+
+        if ( is_file( $path ) || is_link( $path ) ) {
+            return @unlink( $path );
+        }
+
+        $items = scandir( $path );
+        if ( false === $items ) {
+            return false;
+        }
+
+        foreach ( $items as $item ) {
+            if ( '.' === $item || '..' === $item ) {
+                continue;
+            }
+
+            if ( ! $this->native_recursive_delete( trailingslashit( $path ) . $item ) ) {
+                return false;
+            }
+        }
+
+        return @rmdir( $path );
+    }
+
+    private function reset_update_state() {
+        delete_transient( $this->notice_transient_key );
+        delete_option( $this->debug_option_key );
+        delete_option( $this->error_option_key );
+        $this->last_zip_http_code = 0;
+    }
+
+    private function set_update_notice( $type, $message ) {
+        set_transient(
+            $this->notice_transient_key,
+            [
+                'type'    => $type,
+                'message' => wp_strip_all_tags( (string) $message ),
+                'time'    => current_time( 'mysql' ),
+            ],
+            10 * MINUTE_IN_SECONDS
+        );
+    }
+
+    private function save_update_error( $message ) {
+        update_option( $this->error_option_key, wp_strip_all_tags( (string) $message ), false );
+    }
+
+    private function log_update_debug( $data ) {
+        $debug = get_option( $this->debug_option_key, [] );
+
+        if ( ! is_array( $debug ) ) {
+            $debug = [];
+        }
+
+        foreach ( (array) $data as $key => $value ) {
+            $debug[ $key ] = is_scalar( $value ) ? (string) $value : wp_json_encode( $value );
+        }
+
+        update_option( $this->debug_option_key, $debug, false );
+        error_log( 'HC_Github_Updater: ' . wp_json_encode( $debug ) );
+    }
+
+    private function wrap_error( $code, $message ) {
+        $sanitized = wp_strip_all_tags( (string) $message );
+        $this->save_update_error( $sanitized );
+
+        return new WP_Error( $code, $sanitized );
     }
 }
