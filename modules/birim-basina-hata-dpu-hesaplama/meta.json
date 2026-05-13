@@ -1,0 +1,5 @@
+{
+  "name": "Birim Başına Hata DPU Hesaplama",
+  "desc": "Kalite kontrol süreçlerinde toplam hata sayısını toplam ürün sayısına bölerek DPU (Defects Per Unit) değerini hesaplar.",
+  "shortcode": "[hc_birim_basina_hata_dpu_hesaplama]"
+}

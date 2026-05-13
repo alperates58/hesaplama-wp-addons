@@ -1,0 +1,5 @@
+{
+  "name": "Binom Dağılımı Hesaplama",
+  "desc": "Sabit sayıda deneme yapılan ve her denemenin iki olası sonucu (başarı/başarısızlık) olduğu durumlarda olasılık hesaplar.",
+  "shortcode": "[hc_binom_dagilimi_hesaplama]"
+}

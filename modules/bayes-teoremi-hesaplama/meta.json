@@ -1,0 +1,5 @@
+{
+  "name": "Bayes Teoremi Hesaplama",
+  "desc": "Yeni kanıtlar ışığında bir olayın gerçekleşme olasılığını (koşullu olasılık) Bayes Teoremi ile hesaplar.",
+  "shortcode": "[hc_bayes_teoremi_hesaplama]"
+}

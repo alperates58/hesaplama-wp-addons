@@ -1,0 +1,14 @@
+#hc-cpk-calc .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+#hc-cpk-calc .hc-result-item strong {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+@media (max-width: 480px) {
+    #hc-cpk-calc .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

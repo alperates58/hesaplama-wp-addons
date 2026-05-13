@@ -1,0 +1,18 @@
+#hc-outlier-detect textarea {
+    min-height: 80px;
+}
+#hc-outlier-detect .hc-result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+#hc-outlier-detect .hc-result-item strong {
+    font-size: 1.2rem;
+    color: #c0392b;
+    word-break: break-all;
+}
+@media (max-width: 480px) {
+    #hc-outlier-detect .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

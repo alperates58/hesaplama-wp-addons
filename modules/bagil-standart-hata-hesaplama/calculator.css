@@ -1,0 +1,14 @@
+#hc-rse-calc .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+#hc-rse-calc .hc-result-item strong {
+    font-size: 1.2rem;
+    color: #16a085;
+}
+@media (max-width: 480px) {
+    #hc-rse-calc .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

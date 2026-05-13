@@ -1,0 +1,5 @@
+{
+  "name": "Beta Dağılımı Hesaplama",
+  "desc": "Belirli bir aralıkta (genellikle 0-1) tanımlı sürekli olasılık dağılımı olan Beta dağılımı değerlerini hesaplar.",
+  "shortcode": "[hc_beta_dagilimi_hesaplama]"
+}

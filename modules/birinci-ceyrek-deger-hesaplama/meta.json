@@ -1,0 +1,5 @@
+{
+  "name": "Birinci Çeyrek Değer Hesaplama",
+  "desc": "Veri setini küçükten büyüğe sıraladığında %25'lik dilimde kalan birinci çeyrek (Q1) değerini hesaplar.",
+  "shortcode": "[hc_birinci_ceyrek_deger_hesaplama]"
+}

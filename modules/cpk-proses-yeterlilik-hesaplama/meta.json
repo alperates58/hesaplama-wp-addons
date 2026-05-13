@@ -1,0 +1,5 @@
+{
+  "name": "Cpk Proses Yeterlilik Hesaplama",
+  "desc": "Prosesin merkezlenmesini ve dağılımını dikkate alarak gerçek yeterliliği (Cpk) hesaplar.",
+  "shortcode": "[hc_cpk_proses_yeterlilik_hesaplama]"
+}

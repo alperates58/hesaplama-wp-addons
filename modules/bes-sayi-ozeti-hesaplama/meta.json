@@ -1,0 +1,5 @@
+{
+  "name": "Beş Sayı Özeti Hesaplama",
+  "desc": "Veri setini Min, Q1, Medyan, Q3 ve Max değerleri ile özetleyen beş sayı özetini hesaplar.",
+  "shortcode": "[hc_bes_sayi_ozeti_hesaplama]"
+}

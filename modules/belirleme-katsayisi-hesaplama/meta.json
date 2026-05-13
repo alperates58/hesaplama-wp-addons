@@ -1,0 +1,5 @@
+{
+  "name": "Belirleme Katsayısı Hesaplama",
+  "desc": "Regresyon modelinin bağımlı değişkendeki değişkenliği ne kadar iyi açıkladığını belirleyen R-kare (R²) değerini hesaplar.",
+  "shortcode": "[hc_belirleme_katsayisi_hesaplama]"
+}

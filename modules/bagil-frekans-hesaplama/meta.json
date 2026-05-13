@@ -1,0 +1,5 @@
+{
+  "name": "Bağıl Frekans Hesaplama",
+  "desc": "Belirli bir olayın frekansını toplam gözlem sayısına bölerek bağıl frekansını (yüzde veya ondalık) hesaplar.",
+  "shortcode": "[hc_bagil_frekans_hesaplama]"
+}

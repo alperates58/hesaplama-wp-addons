@@ -1,0 +1,5 @@
+{
+  "name": "ANOVA Hesaplama",
+  "desc": "Üç veya daha fazla grup ortalaması arasındaki istatistiksel farkı Varyans Analizi (ANOVA) yöntemiyle test eder.",
+  "shortcode": "[hc_anova_hesaplama]"
+}

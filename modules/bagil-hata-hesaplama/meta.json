@@ -1,0 +1,5 @@
+{
+  "name": "Bağıl Hata Hesaplama",
+  "desc": "Ölçülen değerin gerçek değerden sapmasını yüzde olarak ifade eden bağıl hatayı hesaplar.",
+  "shortcode": "[hc_bagil_hata_hesaplama]"
+}

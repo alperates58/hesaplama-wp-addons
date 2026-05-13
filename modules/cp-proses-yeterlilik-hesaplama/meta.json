@@ -1,0 +1,5 @@
+{
+  "name": "Cp Proses Yeterlilik Hesaplama",
+  "desc": "Prosesin sadece dağılım genişliğini tolerans aralığı ile karşılaştırarak potansiyel yeterliliği (Cp) hesaplar.",
+  "shortcode": "[hc_cp_proses_yeterlilik_hesaplama]"
+}

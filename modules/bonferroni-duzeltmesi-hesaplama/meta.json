@@ -1,0 +1,5 @@
+{
+  "name": "Bonferroni Düzeltmesi Hesaplama",
+  "desc": "Çoklu karşılaştırmalarda Tip I hata riskini azaltmak için anlamlılık düzeyini (alfa) ayarlar.",
+  "shortcode": "[hc_bonferroni_duzeltmesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Anket Hata Payı Hesaplama",
+  "desc": "Belirli bir örneklem büyüklüğü ve güven düzeyi için anket sonuçlarındaki olası hata payını (margin of error) hesaplar.",
+  "shortcode": "[hc_anket_hata_payi_hesaplama]"
+}

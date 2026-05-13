@@ -1,0 +1,5 @@
+{
+  "name": "A-B Testi Hesaplama",
+  "desc": "İki farklı versiyon (A ve B) arasındaki dönüşüm oranı farkının istatistiksel olarak anlamlı olup olmadığını hesaplar.",
+  "shortcode": "[hc_a_b_testi_hesaplama]"
+}

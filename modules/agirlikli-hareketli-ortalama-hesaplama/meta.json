@@ -1,0 +1,5 @@
+{
+  "name": "Ağırlıklı Hareketli Ortalama Hesaplama",
+  "desc": "Zaman serisi verilerinde son verilere daha fazla ağırlık vererek ağırlıklı hareketli ortalamayı (WMA) hesaplar.",
+  "shortcode": "[hc_agirlikli_hareketli_ortalama_hesaplama]"
+}

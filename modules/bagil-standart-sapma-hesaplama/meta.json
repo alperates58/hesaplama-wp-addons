@@ -1,0 +1,5 @@
+{
+  "name": "Bağıl Standart Sapma Hesaplama",
+  "desc": "Verilerin yayılımını ortalamaya göre yüzde olarak ifade eden bağıl standart sapmayı (RSD/CV) hesaplar.",
+  "shortcode": "[hc_bagil_standart_sapma_hesaplama]"
+}

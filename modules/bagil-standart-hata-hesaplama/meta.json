@@ -1,0 +1,5 @@
+{
+  "name": "Bağıl Standart Hata Hesaplama",
+  "desc": "Standart hatanın ortalamaya oranını yüzde olarak ifade eden bağıl standart hatayı (RSE) hesaplar.",
+  "shortcode": "[hc_bagil_standart_hata_hesaplama]"
+}

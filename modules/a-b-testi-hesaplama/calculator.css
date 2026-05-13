@@ -1,0 +1,34 @@
+.hc-ab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.hc-ab-col {
+    background: #fcfcfc;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+.hc-ab-col h4 {
+    margin-top: 0;
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+.hc-ab-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f1f4f9;
+    border-radius: 8px;
+    text-align: center;
+}
+.hc-ab-lift strong, .hc-ab-sig strong {
+    font-size: 1.5rem;
+    color: #2980b9;
+}
+@media (max-width: 480px) {
+    .hc-ab-grid {
+        grid-template-columns: 1fr;
+    }
+}

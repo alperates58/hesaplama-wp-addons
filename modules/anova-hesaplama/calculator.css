@@ -1,0 +1,14 @@
+#hc-anova-calc textarea {
+    min-height: 60px;
+}
+#hc-anova-calc .hc-table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#hc-anova-calc .hc-table th, #hc-anova-calc .hc-table td {
+    padding: 8px;
+    border: 1px solid #eee;
+}
+#hc-anova-calc .hc-table th {
+    background-color: #f1f4f9;
+}

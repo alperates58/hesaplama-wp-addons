@@ -1,0 +1,5 @@
+{
+  "name": "Betimsel İstatistik Hesaplama",
+  "desc": "Veri setinin temel özelliklerini (ortalama, medyan, mod, standart sapma vb.) tek bir tabloda özetler.",
+  "shortcode": "[hc_betimsel_istatistik_hesaplama]"
+}

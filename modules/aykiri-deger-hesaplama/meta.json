@@ -1,0 +1,5 @@
+{
+  "name": "Aykırı Değer Hesaplama",
+  "desc": "Veri setindeki alt ve üst sınırların dışında kalan aykırı (outlier) değerleri tespit eder ve listeler.",
+  "shortcode": "[hc_aykiri_deger_hesaplama]"
+}

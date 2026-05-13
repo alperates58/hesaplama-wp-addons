@@ -1,0 +1,5 @@
+{
+  "name": "Büyükten Küçüğe Sıralama Hesaplama",
+  "desc": "Verilen sayı listesini en büyükten en küçüğe doğru (azalan sırada) sıralar.",
+  "shortcode": "[hc_buyukten_kucuge_siralama_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Alt Aykırı Değer Sınırı Hesaplama",
+  "desc": "Veri setindeki düşük uçlu aykırı değerleri belirlemek için kullanılan alt sınırı (Lower Outlier Boundary) hesaplar.",
+  "shortcode": "[hc_alt_aykiri_deger_siniri_hesaplama]"
+}

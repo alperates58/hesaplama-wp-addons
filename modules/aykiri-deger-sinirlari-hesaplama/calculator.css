@@ -1,0 +1,26 @@
+#hc-outlier-bounds textarea {
+    min-height: 80px;
+}
+#hc-outlier-bounds .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: center;
+}
+#hc-outlier-bounds .hc-result-item {
+    background: #fffafa;
+    padding: 10px;
+    border: 1px solid #f5e6e6;
+    border-radius: 5px;
+}
+#hc-outlier-bounds .hc-result-item strong {
+    display: block;
+    font-size: 1.4rem;
+    color: #e74c3c;
+    margin-top: 5px;
+}
+@media (max-width: 480px) {
+    #hc-outlier-bounds .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

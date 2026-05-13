@@ -1,0 +1,5 @@
+{
+  "name": "Yüzde 95 Güven Aralığı Hesaplama",
+  "desc": "%95 güven düzeyi için popülasyon ortalamasının içinde bulunduğu aralığı hesaplar.",
+  "shortcode": "[hc_yuzde_95_guven_araligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Altı Yüzlü Zar Olasılığı Hesaplama",
+  "desc": "Bir veya daha fazla altı yüzlü zar atıldığında belirli bir sonucun (veya toplamın) gelme olasılığını hesaplar.",
+  "shortcode": "[hc_alti_yuzlu_zar_olasiligi_hesaplama]"
+}

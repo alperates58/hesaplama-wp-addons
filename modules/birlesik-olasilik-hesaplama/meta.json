@@ -1,0 +1,5 @@
+{
+  "name": "Birleşik Olasılık Hesaplama",
+  "desc": "İki veya daha fazla bağımsız olayın aynı anda gerçekleşme olasılığını hesaplar.",
+  "shortcode": "[hc_birlesik_olasilik_hesaplama]"
+}

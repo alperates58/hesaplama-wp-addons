@@ -1,0 +1,8 @@
+#hc-r2-calc textarea {
+    min-height: 80px;
+}
+#hc-r2-calc .hc-result-value {
+    color: #34495e;
+    font-size: 2.5rem;
+    font-weight: bold;
+}

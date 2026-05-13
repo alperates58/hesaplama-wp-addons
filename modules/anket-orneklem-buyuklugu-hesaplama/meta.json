@@ -1,0 +1,5 @@
+{
+  "name": "Anket Örneklem Büyüklüğü Hesaplama",
+  "desc": "Belirli bir güven düzeyi ve hata payı için anket çalışmasında gerekli olan minimum katılımcı sayısını hesaplar.",
+  "shortcode": "[hc_anket_orneklem_buyuklugu_hesaplama]"
+}

@@ -1,0 +1,17 @@
+#hc-desc-stats textarea {
+    min-height: 80px;
+}
+#hc-desc-stats .hc-table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#hc-desc-stats .hc-table th, #hc-desc-stats .hc-table td {
+    padding: 10px;
+    border: 1px solid #eee;
+}
+#hc-desc-stats .hc-table th {
+    background-color: #f1f4f9;
+}
+#hc-desc-stats .hc-table tr:hover {
+    background-color: #fafafa;
+}

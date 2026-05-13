@@ -1,0 +1,5 @@
+{
+  "name": "Başarı Oranı Hesaplama",
+  "desc": "Belirli bir işlem veya sınavdaki başarılı sonuçların toplam sonuca oranını yüzde olarak hesaplar.",
+  "shortcode": "[hc_basari_orani_hesaplama]"
+}

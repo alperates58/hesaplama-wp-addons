@@ -1,0 +1,5 @@
+{
+  "name": "Artık Değer Hesaplama",
+  "desc": "Gözlemlenen gerçek değer ile tahmin edilen değer arasındaki farkı (artık değer/residual) her bir gözlem için hesaplar.",
+  "shortcode": "[hc_artik_deger_hesaplama]"
+}

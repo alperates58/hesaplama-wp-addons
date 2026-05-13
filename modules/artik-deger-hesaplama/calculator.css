@@ -1,0 +1,14 @@
+#hc-residual-calc textarea {
+    min-height: 80px;
+}
+#hc-residual-calc .hc-table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#hc-residual-calc .hc-table th, #hc-residual-calc .hc-table td {
+    padding: 8px;
+    border: 1px solid #eee;
+}
+#hc-residual-calc .hc-table th {
+    background-color: #f1f4f9;
+}

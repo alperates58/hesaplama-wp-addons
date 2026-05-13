@@ -1,0 +1,5 @@
+{
+  "name": "Birleştirilmiş Standart Sapma Hesaplama",
+  "desc": "İki bağımsız grubun varyanslarını birleştirerek ortak bir standart sapma (Pooled Standard Deviation) hesaplar.",
+  "shortcode": "[hc_birlestirilmis_standart_sapma_hesaplama]"
+}

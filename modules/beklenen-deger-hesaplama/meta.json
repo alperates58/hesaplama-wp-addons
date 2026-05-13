@@ -1,0 +1,5 @@
+{
+  "name": "Beklenen Değer Hesaplama",
+  "desc": "Bir olasılık dağılımının uzun vadeli ortalaması olan beklenen değeri (Expected Value) hesaplar.",
+  "shortcode": "[hc_beklenen_deger_hesaplama]"
+}

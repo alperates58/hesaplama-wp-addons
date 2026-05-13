@@ -1,0 +1,29 @@
+#hc-5num-summary textarea {
+    min-height: 80px;
+}
+#hc-5num-summary .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: center;
+}
+#hc-5num-summary .hc-result-item {
+    background: #fdfdfd;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+#hc-5num-summary .hc-result-item strong {
+    display: block;
+    font-size: 1.4rem;
+    color: #2980b9;
+    margin-top: 5px;
+}
+@media (max-width: 480px) {
+    #hc-5num-summary .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+    #hc-5num-summary .hc-result-item {
+        grid-column: span 1 !important;
+    }
+}
