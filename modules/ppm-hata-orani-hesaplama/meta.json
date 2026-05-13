@@ -1,0 +1,5 @@
+{
+  "name": "PPM Hata Oranı Hesaplama",
+  "desc": "Milyonda bir (Parts Per Million) cinsinden hata oranını hesaplar.",
+  "shortcode": "[hc_ppm_hata_orani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Polinom Regresyon Hesaplama",
+  "desc": "Verilen veri setine göre 2. dereceden (kuadratik) polinom regresyonu tahmini yapar.",
+  "shortcode": "[hc_polinom_regresyon_hesaplama]"
+}

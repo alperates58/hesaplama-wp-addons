@@ -1,0 +1,26 @@
+#hc-orneklem-orani-dagilimi-hesaplama .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#hc-orneklem-orani-dagilimi-hesaplama .hc-res-item {
+    background: #fdfdfd;
+    padding: 12px;
+    border-radius: 8px;
+    border-top: 3px solid #3498db;
+    text-align: center;
+}
+
+#hc-orneklem-orani-dagilimi-hesaplama .hc-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+#hc-orneklem-orani-dagilimi-hesaplama .hc-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}

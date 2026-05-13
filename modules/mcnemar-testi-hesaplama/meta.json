@@ -1,0 +1,5 @@
+{
+  "name": "McNemar Testi Hesaplama",
+  "desc": "Eşleştirilmiş nominal veriler arasındaki değişimlerin istatistiksel anlamlılığını (McNemar Testi) hesaplar.",
+  "shortcode": "[hc_mcnemar_testi_hesaplama]"
+}

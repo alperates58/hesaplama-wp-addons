@@ -1,0 +1,5 @@
+{
+  "name": "Popülasyon Varyansı Hesaplama",
+  "desc": "Bir popülasyonun varyansını ve standart sapmasını hesaplar.",
+  "shortcode": "[hc_populasyon_varyansi_hesaplama]"
+}

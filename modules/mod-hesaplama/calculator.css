@@ -1,0 +1,11 @@
+#hc-mod-hesaplama textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#hc-mod-hesaplama-result .hc-result-value {
+    color: #e67e22;
+}

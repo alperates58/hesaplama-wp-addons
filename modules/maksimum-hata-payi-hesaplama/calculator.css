@@ -1,0 +1,10 @@
+#hc-maksimum-hata-payi-hesaplama select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#hc-maksimum-hata-payi-hesaplama-result .hc-result-value {
+    color: #e74c3c;
+}

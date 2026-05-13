@@ -1,0 +1,5 @@
+{
+  "name": "Olasılık Hesaplama",
+  "desc": "Temel olasılık kurallarına göre (İstenen Durumlar / Tüm Durumlar) olasılık hesaplar.",
+  "shortcode": "[hc_olasilik_hesaplama]"
+}

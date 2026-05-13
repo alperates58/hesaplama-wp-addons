@@ -1,0 +1,5 @@
+{
+  "name": "Maksimum Hata Payı Hesaplama",
+  "desc": "Belirli bir güven düzeyi ve standart sapma için maksimum hata payını (Margin of Error) hesaplar.",
+  "shortcode": "[hc_maksimum_hata_payi_hesaplama]"
+}

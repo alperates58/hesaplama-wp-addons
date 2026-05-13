@@ -1,0 +1,5 @@
+{
+  "name": "Performans Matrisi Hesaplama",
+  "desc": "Sınıflandırma modellerinin başarısını ölçmek için konfüzyon matrisi metriklerini (Doğruluk, Keskinlik, Duyarlılık, F1 Skoru) hesaplar.",
+  "shortcode": "[hc_performans_matrisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Lineer Regresyon Hesaplama",
+  "desc": "Verilen veri seti için en küçük kareler yöntemi ile basit doğrusal regresyon (y = a + bx) hesaplar.",
+  "shortcode": "[hc_lineer_regresyon_hesaplama]"
+}

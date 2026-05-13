@@ -1,0 +1,5 @@
+{
+  "name": "Ondalık Sayı Sıralama Hesaplama",
+  "desc": "Verilen ondalık sayıları artan veya azalan şekilde sıralar.",
+  "shortcode": "[hc_ondalik_sayi_siralama_hesaplama]"
+}

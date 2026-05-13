@@ -1,0 +1,5 @@
+{
+  "name": "Mutlak Belirsizlik Hesaplama",
+  "desc": "Ölçüm değerlerindeki dalgalanmaya göre mutlak belirsizlik değerini hesaplar.",
+  "shortcode": "[hc_mutlak_belirsizlik_hesaplama]"
+}

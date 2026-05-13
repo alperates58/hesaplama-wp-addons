@@ -1,0 +1,11 @@
+#hc-matthews-korelasyon-katsayisi-hesaplama .hc-mcc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-matthews-korelasyon-katsayisi-hesaplama-result .hc-result-value {
+    color: #27ae60;
+    font-size: 2.2rem;
+}

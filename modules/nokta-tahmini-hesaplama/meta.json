@@ -1,0 +1,5 @@
+{
+  "name": "Nokta Tahmini Hesaplama",
+  "desc": "Örneklem verilerinden hareketle popülasyon parametreleri (ortalama, oran) için en iyi nokta tahminlerini hesaplar.",
+  "shortcode": "[hc_nokta_tahmini_hesaplama]"
+}

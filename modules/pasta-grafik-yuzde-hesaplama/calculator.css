@@ -1,0 +1,25 @@
+#hc-pasta-grafik-yuzde-hesaplama textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#hc-pasta-grafik-yuzde-hesaplama .hc-result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#hc-pasta-grafik-yuzde-hesaplama .hc-result-table th, 
+#hc-pasta-grafik-yuzde-hesaplama .hc-result-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+#hc-pasta-grafik-yuzde-hesaplama .hc-result-table th {
+    background: #f4f4f4;
+    color: #333;
+}

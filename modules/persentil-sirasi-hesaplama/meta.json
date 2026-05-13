@@ -1,0 +1,5 @@
+{
+  "name": "Persentil Sırası Hesaplama",
+  "desc": "Belirli bir değerin veri seti içindeki persentil (yüzdelik) sırasını hesaplar.",
+  "shortcode": "[hc_persentil_sirasi_hesaplama]"
+}

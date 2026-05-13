@@ -1,0 +1,5 @@
+{
+  "name": "Persentil Hesaplama",
+  "desc": "Bir veri seti içindeki belirli bir yüzdelik (persentil) dilimine denk gelen değeri hesaplar.",
+  "shortcode": "[hc_persentil_hesaplama]"
+}

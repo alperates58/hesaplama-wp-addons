@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Mutlak Sapma Hesaplama",
+  "desc": "Bir veri setindeki her bir değerin ortalamadan ne kadar saptığının mutlak ortalamasını (MAD) hesaplar.",
+  "shortcode": "[hc_ortalama_mutlak_sapma_hesaplama]"
+}

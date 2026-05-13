@@ -1,0 +1,5 @@
+{
+  "name": "Matthews Korelasyon Katsayısı Hesaplama",
+  "desc": "İkili sınıflandırma modellerinin kalitesini ölçen Matthews Korelasyon Katsayısını (MCC) hesaplar.",
+  "shortcode": "[hc_matthews_korelasyon_katsayisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Örneklem Büyüklüğü Hesaplama",
+  "desc": "Belirli bir güven düzeyi ve hata payı için gerekli olan minimum örneklem büyüklüğünü hesaplar.",
+  "shortcode": "[hc_orneklem_buyuklugu_hesaplama]"
+}

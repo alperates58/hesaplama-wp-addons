@@ -1,0 +1,40 @@
+#hc-populasyon-varyansi-hesaplama textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#hc-populasyon-varyansi-hesaplama .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#hc-populasyon-varyansi-hesaplama .hc-res-item {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    border-bottom: 3px solid #e67e22;
+}
+
+#hc-populasyon-varyansi-hesaplama .hc-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+#hc-populasyon-varyansi-hesaplama .hc-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+@media (max-width: 480px) {
+    #hc-populasyon-varyansi-hesaplama .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

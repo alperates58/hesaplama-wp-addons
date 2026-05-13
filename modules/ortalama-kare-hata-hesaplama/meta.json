@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Kare Hata Hesaplama",
+  "desc": "Gerçek değerler ile tahmin edilen değerler arasındaki ortalama kare hatayı (MSE) hesaplar.",
+  "shortcode": "[hc_ortalama_kare_hata_hesaplama]"
+}

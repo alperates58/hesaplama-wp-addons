@@ -1,0 +1,5 @@
+{
+  "name": "Rayleigh Dağılımı Hesaplama",
+  "desc": "Rayleigh dağılımı için olasılık yoğunluk ve birikimli dağılım fonksiyonlarını hesaplar.",
+  "shortcode": "[hc_rayleigh_dagilimi_hesaplama]"
+}

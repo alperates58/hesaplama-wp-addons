@@ -1,0 +1,5 @@
+{
+  "name": "Regresyon Tahmini Hesaplama",
+  "desc": "Verilen veri setine göre doğrusal regresyon tahmini yapar.",
+  "shortcode": "[hc_regresyon_tahmini_hesaplama]"
+}

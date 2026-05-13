@@ -1,0 +1,5 @@
+{
+  "name": "NPS Skoru Hesaplama",
+  "desc": "Net Promoter Score (Müşteri Memnuniyet Skoru) hesaplayarak sadakat düzeyini ölçer.",
+  "shortcode": "[hc_nps_skoru_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Normal Dağılım Hesaplama",
+  "desc": "Verilen ortalama ve standart sapmaya göre normal dağılım olasılıklarını (Z-skoru ve P-değeri) hesaplar.",
+  "shortcode": "[hc_normal_dagilim_hesaplama]"
+}

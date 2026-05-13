@@ -1,0 +1,5 @@
+{
+  "name": "Lojistik Regresyon Hesaplama",
+  "desc": "Lojistik regresyon modeline göre bağımsız değişken ve katsayıları kullanarak olasılık değerini hesaplar.",
+  "shortcode": "[hc_lojistik_regresyon_hesaplama]"
+}

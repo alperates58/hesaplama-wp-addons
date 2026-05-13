@@ -1,0 +1,5 @@
+{
+  "name": "Poisson Dağılımı Hesaplama",
+  "desc": "Belirli bir zaman veya mekan aralığında meydana gelen olayların olasılığını Poisson dağılımı ile hesaplar.",
+  "shortcode": "[hc_poisson_dagilimi_hesaplama]"
+}

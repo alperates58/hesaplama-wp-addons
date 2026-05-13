@@ -1,0 +1,5 @@
+{
+  "name": "Mod Hesaplama",
+  "desc": "Bir veri setinde en sık tekrar eden değeri veya değerleri (Mod) tespit eder.",
+  "shortcode": "[hc_mod_hesaplama]"
+}

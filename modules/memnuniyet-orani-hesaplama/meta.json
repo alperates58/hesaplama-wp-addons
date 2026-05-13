@@ -1,0 +1,5 @@
+{
+  "name": "Memnuniyet Oranı Hesaplama",
+  "desc": "Belirli bir müşteri veya kullanıcı grubundaki memnuniyet oranını yüzde olarak hesaplar.",
+  "shortcode": "[hc_memnuniyet_orani_hesaplama]"
+}

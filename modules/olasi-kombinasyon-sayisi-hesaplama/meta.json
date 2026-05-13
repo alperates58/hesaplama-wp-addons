@@ -1,0 +1,5 @@
+{
+  "name": "Olası Kombinasyon Sayısı Hesaplama",
+  "desc": "Belirli bir kümeden seçilecek alt küme kombinasyonlarının sayısını hesaplar.",
+  "shortcode": "[hc_olasi_kombinasyon_sayisi_hesaplama]"
+}

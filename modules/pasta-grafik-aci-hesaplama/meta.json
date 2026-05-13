@@ -1,0 +1,5 @@
+{
+  "name": "Pasta Grafik Açı Hesaplama",
+  "desc": "Verilen değerlerin pasta grafik üzerindeki yay derecelerini (açılarını) hesaplar.",
+  "shortcode": "[hc_pasta_grafik_aci_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Minimum Maksimum Hesaplama",
+  "desc": "Bir veri seti içerisindeki en küçük (minimum) ve en büyük (maksimum) değerleri bulur.",
+  "shortcode": "[hc_minimum_maksimum_hesaplama]"
+}

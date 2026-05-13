@@ -1,0 +1,5 @@
+{
+  "name": "Negatif Binom Dağılımı Hesaplama",
+  "desc": "Belirli bir sayıda başarı elde etmek için gereken deneme sayısı olasılıklarını hesaplar.",
+  "shortcode": "[hc_negatif_binom_dagilimi_hesaplama]"
+}

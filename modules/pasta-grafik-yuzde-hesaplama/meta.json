@@ -1,0 +1,5 @@
+{
+  "name": "Pasta Grafik Yüzde Hesaplama",
+  "desc": "Verilen değerlerin bir pasta grafikteki yüzde paylarını hesaplar.",
+  "shortcode": "[hc_pasta_grafik_yuzde_hesaplama]"
+}

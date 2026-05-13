@@ -1,0 +1,20 @@
+#hc-regresyon-tahmini-hesaplama textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+    resize: vertical;
+}
+
+#hc-regresyon-tahmini-hesaplama #hc-reg-formula-display {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+@media (max-width: 480px) {
+    #hc-regresyon-tahmini-hesaplama textarea {
+        font-size: 14px;
+    }
+}

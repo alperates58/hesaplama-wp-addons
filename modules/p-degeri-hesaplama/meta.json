@@ -1,0 +1,5 @@
+{
+  "name": "P Değeri Hesaplama",
+  "desc": "Z-skoru veya t-istatistiği üzerinden istatistiksel anlamlılık için p-değerini hesaplar.",
+  "shortcode": "[hc_p_degeri_hesaplama]"
+}

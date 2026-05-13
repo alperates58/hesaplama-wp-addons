@@ -1,0 +1,5 @@
+{
+  "name": "Normal Yaklaşım Hesaplama",
+  "desc": "Binom dağılımının normal dağılıma yaklaştırılması (Normal Approximation to Binomial) ile olasılık hesaplar.",
+  "shortcode": "[hc_normal_yaklasim_hesaplama]"
+}

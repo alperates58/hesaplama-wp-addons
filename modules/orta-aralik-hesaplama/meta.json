@@ -1,0 +1,5 @@
+{
+  "name": "Orta Aralık Hesaplama",
+  "desc": "Bir veri setindeki en küçük ve en büyük değerlerin aritmetik ortalamasını (Midrange) hesaplar.",
+  "shortcode": "[hc_orta_aralik_hesaplama]"
+}

@@ -1,0 +1,39 @@
+#hc-performans-matrisi-hesaplama .hc-matrix-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-performans-matrisi-hesaplama .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+#hc-performans-matrisi-hesaplama .hc-res-item {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #1abc9c;
+}
+
+#hc-performans-matrisi-hesaplama .hc-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+#hc-performans-matrisi-hesaplama .hc-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+@media (max-width: 480px) {
+    #hc-performans-matrisi-hesaplama .hc-matrix-container,
+    #hc-performans-matrisi-hesaplama .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

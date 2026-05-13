@@ -1,0 +1,5 @@
+{
+  "name": "Özgüllük Hesaplama",
+  "desc": "Bir testin gerçek negatifleri (hastalık/durum yokken yok deme başarısı) belirleme yeteneğini hesaplar.",
+  "shortcode": "[hc_ozgulluk_hesaplama]"
+}

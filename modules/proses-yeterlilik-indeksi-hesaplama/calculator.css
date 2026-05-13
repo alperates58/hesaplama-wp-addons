@@ -1,0 +1,32 @@
+#hc-proses-yeterlilik-indeksi-hesaplama .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#hc-proses-yeterlilik-indeksi-hesaplama .hc-res-item {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    border-left: 4px solid #3498db;
+}
+
+#hc-proses-yeterlilik-indeksi-hesaplama .hc-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#hc-proses-yeterlilik-indeksi-hesaplama .hc-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+@media (max-width: 480px) {
+    #hc-proses-yeterlilik-indeksi-hesaplama .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

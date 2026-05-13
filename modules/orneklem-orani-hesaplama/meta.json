@@ -1,0 +1,5 @@
+{
+  "name": "Örneklem Oranı Hesaplama",
+  "desc": "Belirli bir olay sayısının toplam örneklem büyüklüğüne oranını hesaplar.",
+  "shortcode": "[hc_orneklem_orani_hesaplama]"
+}

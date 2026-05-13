@@ -1,0 +1,33 @@
+#hc-ortalama-medyan-mod-hesaplama textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#hc-ortalama-medyan-mod-hesaplama .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#hc-ortalama-medyan-mod-hesaplama .hc-res-item {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #34495e;
+}
+
+#hc-ortalama-medyan-mod-hesaplama .hc-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+#hc-ortalama-medyan-mod-hesaplama .hc-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}

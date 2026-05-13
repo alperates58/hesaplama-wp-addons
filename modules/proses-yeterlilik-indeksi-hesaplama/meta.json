@@ -1,0 +1,5 @@
+{
+  "name": "Proses Yeterlilik İndeksi Hesaplama",
+  "desc": "Proses yeterliliğini (Cp ve Cpk) hesaplayarak üretimin spesifikasyon limitleri içindeki performansını değerlendirir.",
+  "shortcode": "[hc_proses_yeterlilik_indeksi_hesaplama]"
+}

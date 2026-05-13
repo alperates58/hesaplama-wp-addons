@@ -1,0 +1,44 @@
+#hc-nokta-grafigi-hesaplama textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#hc-nokta-grafigi-hesaplama .hc-dp-plot {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #333;
+    overflow-x: auto;
+}
+
+#hc-nokta-grafigi-hesaplama .hc-dp-col {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    min-width: 20px;
+    align-items: center;
+}
+
+#hc-nokta-grafigi-hesaplama .hc-dp-dot {
+    width: 12px;
+    height: 12px;
+    background: #3498db;
+    border-radius: 50%;
+}
+
+#hc-nokta-grafigi-hesaplama .hc-dp-axis {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+#hc-nokta-grafigi-hesaplama .hc-dp-label {
+    min-width: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}

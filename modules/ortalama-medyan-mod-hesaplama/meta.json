@@ -1,0 +1,5 @@
+{
+  "name": "Ortalama Medyan Mod Hesaplama",
+  "desc": "Bir veri seti için merkezi eğilim ölçülerini (Aritmetik Ortalama, Medyan ve Mod) hesaplar.",
+  "shortcode": "[hc_ortalama_medyan_mod_hesaplama]"
+}

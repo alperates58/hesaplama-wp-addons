@@ -1,0 +1,5 @@
+{
+  "name": "Nokta Grafiği Hesaplama",
+  "desc": "Verilen sayısal veriler için frekans bazlı bir nokta grafiği (Dot Plot) oluşturur.",
+  "shortcode": "[hc_nokta_grafigi_hesaplama]"
+}

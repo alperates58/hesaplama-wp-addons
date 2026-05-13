@@ -1,0 +1,5 @@
+{
+  "name": "Örneklem Oranı Dağılımı Hesaplama",
+  "desc": "Bir örneklem oranının dağılım parametrelerini (ortalama ve standart hata) hesaplar.",
+  "shortcode": "[hc_orneklem_orani_dagilimi_hesaplama]"
+}

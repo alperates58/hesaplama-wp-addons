@@ -1,0 +1,5 @@
+{
+  "name": "Örnekleme Hatası Hesaplama",
+  "desc": "Belirli bir güven düzeyi ve örneklem büyüklüğü için örnekleme hata payını (Margin of Error) hesaplar.",
+  "shortcode": "[hc_ornekleme_hatasi_hesaplama]"
+}

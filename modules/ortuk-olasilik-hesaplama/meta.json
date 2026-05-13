@@ -1,0 +1,5 @@
+{
+  "name": "Örtük Olasılık Hesaplama",
+  "desc": "Bahis oranlarını (Decimal Odds) yüzde cinsinden örtük olasılığa dönüştürür.",
+  "shortcode": "[hc_ortuk_olasilik_hesaplama]"
+}

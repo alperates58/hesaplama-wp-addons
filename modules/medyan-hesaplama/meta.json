@@ -1,0 +1,5 @@
+{
+  "name": "Medyan Hesaplama",
+  "desc": "Bir veri setini küçükten büyüğe sıralayarak orta değerini (Medyan) hesaplar.",
+  "shortcode": "[hc_medyan_hesaplama]"
+}

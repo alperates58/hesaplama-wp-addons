@@ -1,0 +1,5 @@
+{
+  "name": "Pasta Grafik Hesaplama",
+  "desc": "Veri setini analiz eder ve pasta grafik oluşturmak için gerekli oranları hesaplar.",
+  "shortcode": "[hc_pasta_grafik_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Normal Örnekleme Dağılımı Hesaplama",
+  "desc": "Merkezi Limit Teoremi'ne göre örneklem ortalamasının normal dağılım parametrelerini hesaplar.",
+  "shortcode": "[hc_normal_ornekleme_dagilimi_hesaplama]"
+}

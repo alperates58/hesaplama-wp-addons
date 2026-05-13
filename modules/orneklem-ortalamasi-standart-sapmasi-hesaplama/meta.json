@@ -1,0 +1,5 @@
+{
+  "name": "Örneklem Ortalaması Standart Sapması Hesaplama",
+  "desc": "Örneklem ortalamasının standart hatasını (Standard Error) hesaplar.",
+  "shortcode": "[hc_orneklem_ortalamasi_standart_sapmasi_hesaplama]"
+}
