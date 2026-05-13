@@ -1,0 +1,5 @@
+{
+  "name": "Göreceli Risk Hesaplama",
+  "desc": "Maruz kalan ve kalmayan gruplar arasındaki hastalık/olay risk oranını (Relative Risk) hesaplar.",
+  "shortcode": "[hc_goreceli_risk_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Karmaşıklık Matrisi Hesaplama",
+  "desc": "Sınıflandırma modellerinin performansını TP, TN, FP, FN değerleri üzerinden analiz eder.",
+  "shortcode": "[hc_karmasiklik_matrisi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kabul Oranı Hesaplama",
+  "desc": "Başvurular veya üretim partileri için kabul edilme yüzdesini hesaplar.",
+  "shortcode": "[hc_kabul_orani_hesaplama]"
+}

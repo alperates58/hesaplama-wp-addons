@@ -1,0 +1,5 @@
+{
+  "name": "Güç Analizi Hesaplama",
+  "desc": "Belirli bir örneklem büyüklüğü ve etki büyüklüğü için istatistiksel testin gücünü (1-Beta) hesaplar.",
+  "shortcode": "[hc_guc_analizi_hesaplama]"
+}

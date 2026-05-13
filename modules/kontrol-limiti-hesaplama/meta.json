@@ -1,0 +1,5 @@
+{
+  "name": "Kontrol Limiti Hesaplama",
+  "desc": "Süreç kontrolü için Üst Kontrol Limiti (UCL) ve Alt Kontrol Limiti (LCL) değerlerini hesaplar.",
+  "shortcode": "[hc_kontrol_limiti_hesaplama]"
+}

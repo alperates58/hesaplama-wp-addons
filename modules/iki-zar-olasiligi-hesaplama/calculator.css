@@ -1,0 +1,12 @@
+#hc-iki-zar .hc-table {
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+#hc-iki-zar .hc-table th, #hc-iki-zar .hc-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+#hc-iki-zar .hc-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}

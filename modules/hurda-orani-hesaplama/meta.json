@@ -1,0 +1,5 @@
+{
+  "name": "Hurda Oranı Hesaplama",
+  "desc": "Üretim sürecindeki hurda (scrap) miktarının toplam üretime oranını hesaplar.",
+  "shortcode": "[hc_hurda_orani_hesaplama]"
+}

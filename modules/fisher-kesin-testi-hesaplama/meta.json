@@ -1,0 +1,5 @@
+{
+  "name": "Fisher Kesin Testi Hesaplama",
+  "desc": "Küçük örneklemli 2x2 kontenjans tablolarında değişkenler arasındaki ilişkiyi analiz eder.",
+  "shortcode": "[hc_fisher_kesin_testi_hesaplama]"
+}

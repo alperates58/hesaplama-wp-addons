@@ -1,0 +1,5 @@
+{
+  "name": "Korelasyon Analizi Hesaplama",
+  "desc": "Pearson r katsayısını ve ilişkinin anlamlılığını (P-değeri) hesaplar.",
+  "shortcode": "[hc_korelasyon_analizi_hesaplama]"
+}

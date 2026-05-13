@@ -1,0 +1,5 @@
+{
+  "name": "Kareler Toplamı Hesaplama",
+  "desc": "Veri setindeki her bir değerin ortalamadan farklarının karelerinin toplamını (SS) hesaplar.",
+  "shortcode": "[hc_kareler_toplami_hesaplama]"
+}

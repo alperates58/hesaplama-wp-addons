@@ -1,0 +1,16 @@
+#hc-rel-risk .hc-table {
+    border-collapse: collapse;
+}
+#hc-rel-risk .hc-table th, #hc-rel-risk .hc-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+#hc-rel-risk .hc-table th {
+    background: #f8f9fa;
+}
+#hc-rel-risk .hc-result-value {
+    color: #e67e22;
+    font-size: 2.5rem;
+    font-weight: bold;
+}

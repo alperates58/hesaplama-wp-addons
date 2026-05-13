@@ -1,0 +1,5 @@
+{
+  "name": "Hata Oranı Hesaplama",
+  "desc": "Belirli bir işlem veya üretimdeki toplam hata yüzdesini hesaplar.",
+  "shortcode": "[hc_hata_orani_hesaplama]"
+}

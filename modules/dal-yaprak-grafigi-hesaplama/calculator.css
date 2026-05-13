@@ -1,0 +1,27 @@
+#hc-stem-leaf textarea {
+    min-height: 80px;
+}
+.hc-sl-box {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+.hc-sl-row {
+    display: flex;
+}
+.hc-sl-stem {
+    width: 40px;
+    text-align: right;
+    padding-right: 15px;
+    border-right: 2px solid #34495e;
+    font-weight: bold;
+    color: #34495e;
+}
+.hc-sl-leaf {
+    padding-left: 15px;
+    color: #2c3e50;
+}

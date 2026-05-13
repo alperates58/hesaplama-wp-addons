@@ -1,0 +1,5 @@
+{
+  "name": "Duyarlılık ve Özgüllük Hesaplama",
+  "desc": "Tanı testlerinin performansını Duyarlılık (Sensitivity) ve Özgüllük (Specificity) değerleri üzerinden hesaplar.",
+  "shortcode": "[hc_duyarlilik_ve_ozgulluk_hesaplama]"
+}

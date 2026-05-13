@@ -1,0 +1,5 @@
+{
+  "name": "Desil Hesaplama",
+  "desc": "Veri setini 10 eşit parçaya bölen desil (D1-D9) değerlerini hesaplar.",
+  "shortcode": "[hc_desil_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ham Puan Hesaplama",
+  "desc": "Sınavlarda doğru ve yanlış sayılarına göre net (ham) puanı hesaplar.",
+  "shortcode": "[hc_ham_puan_hesaplama]"
+}

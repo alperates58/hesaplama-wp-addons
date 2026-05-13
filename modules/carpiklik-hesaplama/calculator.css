@@ -1,0 +1,8 @@
+#hc-skewness textarea {
+    min-height: 80px;
+}
+#hc-skewness .hc-result-value {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: bold;
+}

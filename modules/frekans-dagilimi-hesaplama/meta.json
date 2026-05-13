@@ -1,0 +1,5 @@
+{
+  "name": "Frekans Dağılımı Hesaplama",
+  "desc": "Veri setindeki her bir benzersiz değerin kaç kez tekrarlandığını (frekansını) hesaplar.",
+  "shortcode": "[hc_frekans_dagilimi_hesaplama]"
+}

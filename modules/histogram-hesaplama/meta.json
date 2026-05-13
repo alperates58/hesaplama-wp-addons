@@ -1,0 +1,5 @@
+{
+  "name": "Histogram Hesaplama",
+  "desc": "Veri setindeki değerlerin frekans dağılımını (bin counts) hesaplar.",
+  "shortcode": "[hc_histogram_hesaplama]"
+}

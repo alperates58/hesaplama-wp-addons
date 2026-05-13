@@ -1,0 +1,8 @@
+#hc-korelasyon textarea {
+    min-height: 100px;
+}
+#hc-korelasyon .hc-result-value {
+    color: #2980b9;
+    font-size: 2.5rem;
+    font-weight: bold;
+}

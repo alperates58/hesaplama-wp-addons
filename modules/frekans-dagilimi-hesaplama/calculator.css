@@ -1,0 +1,13 @@
+#hc-freq-dist textarea {
+    min-height: 80px;
+}
+#hc-freq-dist .hc-table {
+    border-collapse: collapse;
+}
+#hc-freq-dist .hc-table th, #hc-freq-dist .hc-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+#hc-freq-dist .hc-table th {
+    background-color: #f1f4f9;
+}

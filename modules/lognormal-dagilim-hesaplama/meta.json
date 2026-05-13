@@ -1,0 +1,5 @@
+{
+  "name": "Lognormal Dağılım Hesaplama",
+  "desc": "Belirli bir x değeri için lognormal olasılık yoğunluk fonksiyonunu (PDF) hesaplar.",
+  "shortcode": "[hc_lognormal_dagilim_hesaplama]"
+}

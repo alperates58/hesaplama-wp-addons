@@ -1,0 +1,5 @@
+{
+  "name": "Doğruluk Oranı Hesaplama",
+  "desc": "Sınıflandırma modelinin toplam tahminleri içindeki doğru tahminlerin yüzdesini (Accuracy) hesaplar.",
+  "shortcode": "[hc_dogruluk_orani_hesaplama]"
+}

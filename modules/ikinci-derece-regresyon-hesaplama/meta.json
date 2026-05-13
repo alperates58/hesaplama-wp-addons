@@ -1,0 +1,5 @@
+{
+  "name": "İkinci Derece Regresyon Hesaplama",
+  "desc": "Veri setine en uygun ikinci derece (parabolik) regresyon denklemini (y = ax² + bx + c) hesaplar.",
+  "shortcode": "[hc_ikinci_derece_regresyon_hesaplama]"
+}

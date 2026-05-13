@@ -1,0 +1,5 @@
+{
+  "name": "Gruplandırılmış Veri Standart Sapması Hesaplama",
+  "desc": "Frekans tabloları şeklinde verilmiş gruplandırılmış verilerin standart sapmasını hesaplar.",
+  "shortcode": "[hc_gruplandirilmis_veri_standart_sapmasi_hesaplama]"
+}

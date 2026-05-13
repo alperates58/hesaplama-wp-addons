@@ -1,0 +1,5 @@
+{
+  "name": "Kutu Grafiği Hesaplama",
+  "desc": "Veri setinin 5 sayılık özetini (Min, Q1, Medyan, Q3, Maks) ve aykırı değerleri hesaplar.",
+  "shortcode": "[hc_kutu_grafigi_hesaplama]"
+}

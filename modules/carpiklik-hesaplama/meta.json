@@ -1,0 +1,5 @@
+{
+  "name": "Çarpıklık Hesaplama",
+  "desc": "Veri setindeki dağılımın simetrisini (Skewness) hesaplayarak çarpıklık yönünü belirler.",
+  "shortcode": "[hc_carpiklik_hesaplama]"
+}

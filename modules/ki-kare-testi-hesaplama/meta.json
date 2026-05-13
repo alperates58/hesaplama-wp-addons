@@ -1,0 +1,5 @@
+{
+  "name": "Ki-Kare Testi Hesaplama",
+  "desc": "Gözlemlenen ve beklenen değerler arasındaki uyum iyiliğini (Goodness of Fit) test eder.",
+  "shortcode": "[hc_ki_kare_testi_hesaplama]"
+}

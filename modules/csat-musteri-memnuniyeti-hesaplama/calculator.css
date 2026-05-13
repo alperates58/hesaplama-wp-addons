@@ -1,0 +1,16 @@
+#hc-csat .hc-csat-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+@media (max-width: 480px) {
+    #hc-csat .hc-csat-inputs {
+        grid-template-columns: 1fr;
+    }
+}
+#hc-csat .hc-result-value {
+    color: #27ae60;
+    font-size: 2.8rem;
+    font-weight: bold;
+}

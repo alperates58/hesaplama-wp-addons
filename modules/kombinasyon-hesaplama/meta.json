@@ -1,0 +1,5 @@
+{
+  "name": "Kombinasyon Hesaplama",
+  "desc": "n elemanlı bir kümeden r elemanlı seçimlerin sayısını (sırasız) hesaplar.",
+  "shortcode": "[hc_kombinasyon_hesaplama]"
+}

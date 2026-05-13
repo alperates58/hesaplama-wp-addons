@@ -1,0 +1,5 @@
+{
+  "name": "CSAT Müşteri Memnuniyeti Hesaplama",
+  "desc": "Müşterilerin belirli bir hizmet veya üründen memnuniyet düzeyini (Customer Satisfaction Score) hesaplar.",
+  "shortcode": "[hc_csat_musteri_memnuniyeti_hesaplama]"
+}

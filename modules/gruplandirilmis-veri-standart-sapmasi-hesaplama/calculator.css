@@ -1,0 +1,18 @@
+.hc-grouped-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.hc-grouped-row input {
+    flex: 1;
+}
+#hc-grouped-std .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+@media (max-width: 480px) {
+    #hc-grouped-std .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

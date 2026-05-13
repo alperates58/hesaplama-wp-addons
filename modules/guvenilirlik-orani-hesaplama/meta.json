@@ -1,0 +1,5 @@
+{
+  "name": "Güvenilirlik Oranı Hesaplama",
+  "desc": "Bir sistemin veya ürünün belirli bir süre boyunca arızasız çalışma olasılığını (Reliability) hesaplar.",
+  "shortcode": "[hc_guvenilirlik_orani_hesaplama]"
+}

@@ -1,0 +1,17 @@
+#hc-conf-interval .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+@media (max-width: 480px) {
+    #hc-conf-interval .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+#hc-res-ci-range {
+    color: #2c3e50;
+    text-align: center;
+    background: #f1f4f9;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hata Yayılımı Hesaplama",
+  "desc": "Ölçüm hatalarının matematiksel işlemlerde nasıl birleştiğini (error propagation) hesaplar.",
+  "shortcode": "[hc_hata_yayilimi_hesaplama]"
+}

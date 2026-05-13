@@ -1,0 +1,5 @@
+{
+  "name": "Hareketli Ortalama Hesaplama",
+  "desc": "Zaman serisi verileri için belirli bir pencere aralığında basit hareketli ortalamayı (SMA) hesaplar.",
+  "shortcode": "[hc_hareketli_ortalama_hesaplama]"
+}

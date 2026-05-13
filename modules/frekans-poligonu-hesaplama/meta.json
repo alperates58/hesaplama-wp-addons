@@ -1,0 +1,5 @@
+{
+  "name": "Frekans Poligonu Hesaplama",
+  "desc": "Veri setindeki grupların orta noktalarını ve frekanslarını birleştiren poligon koordinatlarını hesaplar.",
+  "shortcode": "[hc_frekans_poligonu_hesaplama]"
+}

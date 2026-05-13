@@ -1,0 +1,13 @@
+#hc-histogram textarea {
+    min-height: 80px;
+}
+#hc-histogram .hc-table {
+    border-collapse: collapse;
+}
+#hc-histogram .hc-table th, #hc-histogram .hc-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+#hc-histogram .hc-table th {
+    background-color: #f1f4f9;
+}

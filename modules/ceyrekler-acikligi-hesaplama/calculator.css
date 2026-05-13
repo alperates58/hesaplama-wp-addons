@@ -1,0 +1,13 @@
+#hc-iqr textarea {
+    min-height: 80px;
+}
+#hc-iqr .hc-result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+#hc-iqr .hc-result-value {
+    color: #c0392b;
+    font-size: 2.5rem;
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+#hc-moving-avg textarea {
+    min-height: 80px;
+}
+#hc-moving-avg .hc-table {
+    border-collapse: collapse;
+}
+#hc-moving-avg .hc-table th, #hc-moving-avg .hc-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+#hc-moving-avg .hc-table th {
+    background-color: #f8f9fa;
+}
+#hc-moving-avg .hc-result-value {
+    color: #2980b9;
+    font-size: 2.2rem;
+}

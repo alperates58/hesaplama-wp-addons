@@ -1,0 +1,5 @@
+{
+  "name": "Korelasyon Hesaplama",
+  "desc": "İki değişken arasındaki doğrusal ilişkinin gücünü ve yönünü (Pearson r) hesaplar.",
+  "shortcode": "[hc_korelasyon_hesaplama]"
+}

@@ -1,0 +1,16 @@
+.hc-matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+#hc-karmasiklik-matrisi .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+@media (max-width: 480px) {
+    #hc-karmasiklik-matrisi .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}

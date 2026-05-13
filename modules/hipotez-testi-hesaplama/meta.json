@@ -1,0 +1,5 @@
+{
+  "name": "Hipotez Testi Hesaplama",
+  "desc": "Örneklem ortalamasının hipotez edilen popülasyon ortalamasından anlamlı farkını (Z-testi) hesaplar.",
+  "shortcode": "[hc_hipotez_testi_hesaplama]"
+}

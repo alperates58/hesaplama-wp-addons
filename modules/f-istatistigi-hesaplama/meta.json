@@ -1,0 +1,5 @@
+{
+  "name": "F İstatistiği Hesaplama",
+  "desc": "İki bağımsız örneklemin varyanslarını karşılaştırarak F-değerini (Varyans Analizi) hesaplar.",
+  "shortcode": "[hc_f_istatistigi_hesaplama]"
+}

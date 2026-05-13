@@ -1,0 +1,13 @@
+#hc-decile textarea {
+    min-height: 80px;
+}
+#hc-decile .hc-table {
+    border-collapse: collapse;
+}
+#hc-decile .hc-table th, #hc-decile .hc-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+#hc-decile .hc-table th {
+    background-color: #f8f9fa;
+}

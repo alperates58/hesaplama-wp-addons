@@ -1,0 +1,5 @@
+{
+  "name": "Güven Aralığı Hesaplama",
+  "desc": "Belirli bir güven düzeyinde (%90, %95, %99) örneklem ortalaması için güven aralığını hesaplar.",
+  "shortcode": "[hc_guven_araligi_hesaplama]"
+}

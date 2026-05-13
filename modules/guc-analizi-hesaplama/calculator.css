@@ -1,0 +1,9 @@
+#hc-power-analysis .hc-result-value {
+    color: #e67e22;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+#hc-power-analysis small {
+    display: block;
+    margin-top: 5px;
+}

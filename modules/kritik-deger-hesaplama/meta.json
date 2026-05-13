@@ -1,0 +1,5 @@
+{
+  "name": "Kritik Değer Hesaplama",
+  "desc": "Güven düzeyine (Alpha) göre Z ve T tabloları için kritik değerleri hesaplar.",
+  "shortcode": "[hc_kritik_deger_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kusur Oranı Hesaplama",
+  "desc": "Toplam üretim içindeki hatalı ürün yüzdesini hesaplar.",
+  "shortcode": "[hc_kusur_orani_hesaplama]"
+}

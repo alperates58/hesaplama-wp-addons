@@ -1,0 +1,5 @@
+{
+  "name": "Dal Yaprak Grafiği Hesaplama",
+  "desc": "Veri setindeki sayıları basamaklarına göre gruplayarak dal-yaprak (stem-and-leaf) gösterimini oluşturur.",
+  "shortcode": "[hc_dal_yaprak_grafigi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hipergeometrik Dağılım Hesaplama",
+  "desc": "Sonlu bir popülasyondan yerine koymadan yapılan seçimlerdeki başarı olasılığını hesaplar.",
+  "shortcode": "[hc_hipergeometrik_dagilim_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Mann Whitney U Testi Hesaplama",
+  "desc": "İki bağımsız grubun medyanlarını karşılaştıran non-parametrik test.",
+  "shortcode": "[hc_mann_whitney_u_testi_hesaplama]"
+}

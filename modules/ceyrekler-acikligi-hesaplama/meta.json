@@ -1,0 +1,5 @@
+{
+  "name": "Çeyrekler Açıklığı Hesaplama",
+  "desc": "Veri setinin yayılımını ölçen çeyrekler arası açıklığı (IQR = Q3 - Q1) hesaplar.",
+  "shortcode": "[hc_ceyrekler_acikligi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Makine Kullanılabilirlik Oranı Hesaplama",
+  "desc": "OEE'nin bir bileşeni olan makine kullanılabilirlik (Availability) oranını hesaplar.",
+  "shortcode": "[hc_makine_kullanilabilirlik_orani_hesaplama]"
+}

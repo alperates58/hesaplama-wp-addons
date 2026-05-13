@@ -1,0 +1,5 @@
+{
+  "name": "Koşullu Olasılık Hesaplama",
+  "desc": "B olayının gerçekleştiği bilindiğinde A olayının gerçekleşme olasılığını P(A|B) hesaplar.",
+  "shortcode": "[hc_kosullu_olasilik_hesaplama]"
+}

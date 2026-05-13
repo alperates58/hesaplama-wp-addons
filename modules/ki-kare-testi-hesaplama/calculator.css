@@ -1,0 +1,14 @@
+#hc-ki-kare textarea {
+    min-height: 80px;
+}
+#hc-ki-kare .hc-result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+@media (max-width: 480px) {
+    #hc-ki-kare .hc-result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+#hc-res-chi-val { color: #d35400; }

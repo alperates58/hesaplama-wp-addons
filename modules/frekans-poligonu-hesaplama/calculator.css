@@ -1,0 +1,16 @@
+#hc-freq-polygon textarea {
+    min-height: 80px;
+}
+#hc-freq-polygon .hc-table {
+    border-collapse: collapse;
+}
+#hc-freq-polygon .hc-table th, #hc-freq-polygon .hc-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+#hc-freq-polygon .hc-table th {
+    background-color: #f1f4f9;
+}
+#hc-freq-polygon .hc-table tr:hover {
+    background-color: #fcfcfc;
+}

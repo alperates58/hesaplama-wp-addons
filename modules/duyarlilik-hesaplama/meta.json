@@ -1,0 +1,5 @@
+{
+  "name": "Duyarlılık Hesaplama",
+  "desc": "Gerçek pozitiflerin ne kadarının doğru tespit edildiğini (Sensitivity/Recall) hesaplar.",
+  "shortcode": "[hc_duyarlilik_hesaplama]"
+}

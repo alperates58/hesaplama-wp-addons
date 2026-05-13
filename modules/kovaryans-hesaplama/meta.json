@@ -1,0 +1,5 @@
+{
+  "name": "Kovaryans Hesaplama",
+  "desc": "İki değişken arasındaki ilişkinin yönünü belirleyen kovaryans değerini hesaplar.",
+  "shortcode": "[hc_kovaryans_hesaplama]"
+}

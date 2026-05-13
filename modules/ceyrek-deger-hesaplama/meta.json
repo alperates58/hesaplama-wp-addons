@@ -1,0 +1,5 @@
+{
+  "name": "Çeyrek Değer Hesaplama",
+  "desc": "Veri setini dört eşit parçaya bölen çeyrek değerleri (Q1, Q2, Q3) hesaplar.",
+  "shortcode": "[hc_ceyrek_deger_hesaplama]"
+}

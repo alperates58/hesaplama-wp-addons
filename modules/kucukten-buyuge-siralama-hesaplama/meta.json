@@ -1,0 +1,5 @@
+{
+  "name": "Küçükten Büyüğe Sıralama Hesaplama",
+  "desc": "Girilen sayıları küçükten büyüğe sıralar, toplam ve adet bilgisi verir.",
+  "shortcode": "[hc_kucukten_buyuge_siralama_hesaplama]"
+}
