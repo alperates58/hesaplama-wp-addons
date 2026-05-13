@@ -1,0 +1,48 @@
+#hc-sabit-yildiz {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #000428;
+    background: linear-gradient(to right, #004e92, #000428);
+    color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-sabit-yildiz .hc-header h3 {
+    color: #f1c40f;
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+#hc-sabit-yildiz .hc-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #3498db;
+    color: white;
+}
+
+#hc-sabit-yildiz .hc-btn {
+    background: #f1c40f;
+    color: #000428;
+    font-weight: 800;
+}
+
+#hc-sabit-yildiz .hc-btn:hover {
+    background: #f39c12;
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+}
+
+#hc-sabit-yildiz .hc-result {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #f1c40f;
+}
+
+#hc-sabit-yildiz .hc-result-value {
+    color: #f1c40f;
+}
+
+@media (max-width: 480px) {
+    #hc-sabit-yildiz .hc-form-row {
+        flex-direction: column;
+    }
+}

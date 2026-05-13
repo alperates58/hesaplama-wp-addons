@@ -1,0 +1,50 @@
+#hc-baskin-element {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-top: 5px solid #27ae60;
+}
+
+#hc-baskin-element .hc-header h3 {
+    color: #2c3e50;
+    font-size: 26px;
+}
+
+#hc-baskin-element .hc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#hc-baskin-element .hc-btn {
+    background: linear-gradient(135deg, #e67e22 0%, #27ae60 33%, #2980b9 66%, #8e44ad 100%);
+    width: 100%;
+    margin-top: 25px;
+    border: none;
+    color: white;
+}
+
+#hc-baskin-element .hc-btn:hover {
+    transform: scale(1.02);
+}
+
+#hc-baskin-element .hc-result {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+}
+
+#hc-baskin-element .hc-result-value {
+    color: #2c3e50;
+    font-weight: 900;
+}
+
+@media (max-width: 500px) {
+    #hc-baskin-element .hc-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

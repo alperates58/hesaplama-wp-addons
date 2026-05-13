@@ -1,0 +1,40 @@
+#hc-merkur-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 206, 201, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-bottom: 6px solid #00cec9;
+}
+
+#hc-merkur-uyum .hc-header h3 {
+    color: #00cec9;
+    font-size: 26px;
+    text-transform: lowercase;
+    font-variant: small-caps;
+}
+
+#hc-merkur-uyum .hc-btn {
+    background: #00cec9;
+}
+
+#hc-merkur-uyum .hc-btn:hover {
+    background: #00b894;
+}
+
+#hc-merkur-uyum .hc-result {
+    background: #f0fffe;
+    border: 1px solid #00cec9;
+}
+
+#hc-merkur-uyum .hc-result-value {
+    color: #00cec9;
+}
+
+@media (max-width: 480px) {
+    #hc-merkur-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

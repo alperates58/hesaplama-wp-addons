@@ -1,0 +1,41 @@
+#hc-yukselen-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-left: 6px solid #e84393;
+}
+
+#hc-yukselen-uyum .hc-header h3 {
+    color: #e84393;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+#hc-yukselen-uyum .hc-btn {
+    background: #e84393;
+    border-radius: 50px;
+}
+
+#hc-yukselen-uyum .hc-btn:hover {
+    background: #d63031;
+    transform: scale(1.02);
+}
+
+#hc-yukselen-uyum .hc-result {
+    background: #fff5f7;
+    border: 1px solid #fab1a0;
+}
+
+#hc-yukselen-uyum .hc-result-value {
+    color: #e84393;
+}
+
+@media (max-width: 480px) {
+    #hc-yukselen-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,39 @@
+#hc-burc-polarite {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-burc-polarite .hc-header h3 {
+    color: #1e272e;
+    font-weight: 700;
+}
+
+#hc-burc-polarite .hc-btn {
+    background: #ffa801;
+    color: #1e272e;
+}
+
+#hc-burc-polarite .hc-btn:hover {
+    background: #ffc048;
+}
+
+#hc-burc-polarite .hc-result {
+    border-top: 4px solid #ffa801;
+    background: #fffcf5;
+}
+
+#hc-burc-polarite .hc-result-value {
+    color: #ffa801;
+    font-weight: 900;
+}
+
+#hc-burc-polarite .hc-result-content {
+    color: #485460;
+    font-size: 15px;
+    line-height: 1.6;
+}

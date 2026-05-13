@@ -1,0 +1,45 @@
+#hc-ay-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(15, 52, 96, 0.4);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #16213e;
+}
+
+#hc-ay-uyum .hc-header h3 {
+    color: #f1c40f;
+}
+
+#hc-ay-uyum .hc-input {
+    background: #16213e;
+    border: 1px solid #0f3460;
+    color: #e0e0e0;
+}
+
+#hc-ay-uyum .hc-btn {
+    background: #f1c40f;
+    color: #1a1a2e;
+}
+
+#hc-ay-uyum .hc-btn:hover {
+    background: #d4af37;
+}
+
+#hc-ay-uyum .hc-result {
+    border: 1px solid #0f3460;
+    background: rgba(22, 33, 62, 0.7);
+}
+
+#hc-ay-uyum .hc-result-value {
+    color: #f1c40f;
+}
+
+@media (max-width: 480px) {
+    #hc-ay-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,31 @@
+#hc-burc-tropikal {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #d1d8e0;
+}
+
+#hc-burc-tropikal .hc-header h3 {
+    color: #4b6584;
+}
+
+#hc-burc-tropikal .hc-btn {
+    background: #4b6584;
+}
+
+#hc-burc-tropikal .hc-btn:hover {
+    background: #2f3542;
+}
+
+#hc-burc-tropikal .hc-result {
+    border-top: 4px solid #4b6584;
+    background: #f1f2f6;
+}
+
+#hc-burc-tropikal .hc-result-value {
+    color: #4b6584;
+}

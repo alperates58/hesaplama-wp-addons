@@ -1,0 +1,44 @@
+#hc-baskin-nitelik {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-right: 5px solid #f39c12;
+}
+
+#hc-baskin-nitelik .hc-header h3 {
+    color: #d35400;
+}
+
+#hc-baskin-nitelik .hc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+#hc-baskin-nitelik .hc-btn {
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+#hc-baskin-nitelik .hc-btn:hover {
+    background: #e67e22;
+}
+
+#hc-baskin-nitelik .hc-result {
+    background: #fffcf5;
+    border: 1px solid #f39c12;
+}
+
+#hc-baskin-nitelik .hc-result-value {
+    color: #d35400;
+}
+
+@media (max-width: 500px) {
+    #hc-baskin-nitelik .hc-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

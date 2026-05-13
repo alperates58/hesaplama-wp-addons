@@ -1,0 +1,5 @@
+{
+  "name": "Genel Gezegensel Uyum Skoru Hesaplama",
+  "desc": "Güneş, Ay ve Yükselen burçlarınızın kombinasyonunu analiz ederek, partnerinizle olan genel uyum skorunuzu kapsamlı bir şekilde hesaplar.",
+  "shortcode": "[hc_burc_gezegensel_uyum_skoru_hesaplama]"
+}

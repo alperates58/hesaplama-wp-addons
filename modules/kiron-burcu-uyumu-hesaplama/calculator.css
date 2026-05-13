@@ -1,0 +1,39 @@
+#hc-kiron-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #f0fdf4;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #dcfce7;
+}
+
+#hc-kiron-uyum .hc-header h3 {
+    color: #16a34a;
+    font-size: 26px;
+    text-align: center;
+}
+
+#hc-kiron-uyum .hc-btn {
+    background: #16a34a;
+}
+
+#hc-kiron-uyum .hc-btn:hover {
+    background: #15803d;
+}
+
+#hc-kiron-uyum .hc-result {
+    background: #ffffff;
+    border: 2px solid #bbf7d0;
+}
+
+#hc-kiron-uyum .hc-result-value {
+    color: #16a34a;
+}
+
+@media (max-width: 480px) {
+    #hc-kiron-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Sidereal (Yıldızıl) Burç Hesaplama",
+  "desc": "Takımyıldızların gökyüzündeki gerçek konumlarına dayanan Yıldızıl Zodyak sistemine göre burcunuzu hesaplar.",
+  "shortcode": "[hc_sidereal_burc_hesaplama]"
+}

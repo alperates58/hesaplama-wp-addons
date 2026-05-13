@@ -1,0 +1,31 @@
+#hc-burc-sansli-gun {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-burc-sansli-gun .hc-header h3 {
+    color: #34495e;
+}
+
+#hc-burc-sansli-gun .hc-btn {
+    background: #3498db;
+}
+
+#hc-burc-sansli-gun .hc-btn:hover {
+    background: #2980b9;
+}
+
+#hc-burc-sansli-gun .hc-result {
+    border-top: 4px solid #3498db;
+    background: #f7fbfe;
+}
+
+#hc-burc-sansli-gun .hc-result-value {
+    color: #3498db;
+    font-weight: 700;
+}

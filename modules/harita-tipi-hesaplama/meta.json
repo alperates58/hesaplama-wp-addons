@@ -1,0 +1,5 @@
+{
+  "name": "Astrolojik Harita Tipi (Model) Hesaplama",
+  "desc": "Gezegenlerinizin haritadaki dağılım modelini (Kova, Çanak, Yay vb.) analiz ederek, hayat enerjinizi nasıl kullandığınızı ve karakter yapınızı hesaplar.",
+  "shortcode": "[hc_harita_tipi_hesaplama]"
+}

@@ -1,0 +1,39 @@
+#hc-venus-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 121, 121, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #ffcccc;
+}
+
+#hc-venus-uyum .hc-header h3 {
+    color: #ff4d4d;
+    font-size: 26px;
+    text-align: center;
+}
+
+#hc-venus-uyum .hc-btn {
+    background: linear-gradient(135deg, #ff4d4d 0%, #ff8c8c 100%);
+}
+
+#hc-venus-uyum .hc-btn:hover {
+    background: #ff4d4d;
+}
+
+#hc-venus-uyum .hc-result {
+    background: #fff5f5;
+    border: 1px solid #ffcccc;
+}
+
+#hc-venus-uyum .hc-result-value {
+    color: #ff4d4d;
+}
+
+@media (max-width: 480px) {
+    #hc-venus-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

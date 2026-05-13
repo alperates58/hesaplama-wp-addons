@@ -1,0 +1,5 @@
+{
+  "name": "Burç Derecesi Hesaplama",
+  "desc": "Doğum tarihinize göre güneşinizin burçtaki tam derecesini (0-29°) hesaplar.",
+  "shortcode": "[hc_burc_derecesi_hesaplama]"
+}

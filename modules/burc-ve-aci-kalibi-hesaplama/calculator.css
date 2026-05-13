@@ -1,0 +1,40 @@
+#hc-aci-kalip {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #3498db;
+}
+
+#hc-aci-kalip .hc-header h3 {
+    color: #2980b9;
+    letter-spacing: 1px;
+}
+
+#hc-aci-kalip .hc-btn {
+    background: #3498db;
+}
+
+#hc-aci-kalip .hc-btn:hover {
+    background: #2980b9;
+}
+
+#hc-aci-kalip .hc-result {
+    background: #f0f7ff;
+    border: 1px dashed #3498db;
+}
+
+#hc-aci-kalip .hc-result-value {
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    #hc-aci-kalip .hc-form-row {
+        flex-direction: column;
+    }
+}

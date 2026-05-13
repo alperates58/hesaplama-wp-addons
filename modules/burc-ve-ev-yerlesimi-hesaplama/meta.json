@@ -1,0 +1,5 @@
+{
+  "name": "Burç ve Ev Yerleşimi Hesaplama",
+  "desc": "Belirli bir burcun haritanızdaki hangi evde (hayat alanında) olduğunu analiz ederek, o burcun enerjisinin hayatınıza nasıl yansıdığını hesaplar.",
+  "shortcode": "[hc_burc_ve_ev_yerlesimi_hesaplama]"
+}

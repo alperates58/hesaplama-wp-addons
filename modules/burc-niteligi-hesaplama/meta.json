@@ -1,0 +1,5 @@
+{
+  "name": "Burç Niteliği Hesaplama",
+  "desc": "Burcunuzun hangi niteliğe (Öncü, Sabit, Değişken) sahip olduğunu ve bunun hayata yaklaşımınızı nasıl etkilediğini hesaplar.",
+  "shortcode": "[hc_burc_niteligi_hesaplama]"
+}

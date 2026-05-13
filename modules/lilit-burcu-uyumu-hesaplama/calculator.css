@@ -1,0 +1,50 @@
+#hc-lilit-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #0a0a0a;
+    color: #f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #330000;
+}
+
+#hc-lilit-uyum .hc-header h3 {
+    color: #ff0000;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#hc-lilit-uyum .hc-input {
+    background: #1a1a1a;
+    border: 1px solid #440000;
+    color: #f5f5f5;
+}
+
+#hc-lilit-uyum .hc-btn {
+    background: #880000;
+    color: white;
+}
+
+#hc-lilit-uyum .hc-btn:hover {
+    background: #aa0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+#hc-lilit-uyum .hc-result {
+    background: rgba(26, 0, 0, 0.8);
+    border: 1px solid #880000;
+}
+
+#hc-lilit-uyum .hc-result-value {
+    color: #ff0000;
+    font-weight: 900;
+}
+
+@media (max-width: 480px) {
+    #hc-lilit-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

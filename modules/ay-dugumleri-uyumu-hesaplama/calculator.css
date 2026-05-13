@@ -1,0 +1,48 @@
+#hc-ay-dugum-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #1a0033;
+    color: #f3e5f5;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(74, 20, 140, 0.4);
+    font-family: 'Inter', sans-serif;
+    border-bottom: 6px solid #9c27b0;
+}
+
+#hc-ay-dugum-uyum .hc-header h3 {
+    color: #e1bee7;
+    font-size: 26px;
+    text-align: center;
+}
+
+#hc-ay-dugum-uyum .hc-input {
+    background: #4a148c;
+    border: 1px solid #7b1fa2;
+    color: #f3e5f5;
+}
+
+#hc-ay-dugum-uyum .hc-btn {
+    background: #9c27b0;
+    color: white;
+}
+
+#hc-ay-dugum-uyum .hc-btn:hover {
+    background: #ab47bc;
+}
+
+#hc-ay-dugum-uyum .hc-result {
+    background: rgba(74, 20, 140, 0.6);
+    border: 1px solid #9c27b0;
+}
+
+#hc-ay-dugum-uyum .hc-result-value {
+    color: #f3e5f5;
+    text-shadow: 0 0 10px #e1bee7;
+}
+
+@media (max-width: 480px) {
+    #hc-ay-dugum-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

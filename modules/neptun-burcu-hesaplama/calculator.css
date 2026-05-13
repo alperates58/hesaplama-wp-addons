@@ -1,0 +1,57 @@
+#hc-neptun-burcu {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(108, 92, 231, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #f0f0f0;
+}
+
+#hc-neptun-burcu .hc-header h3 {
+    color: #6c5ce7;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+#hc-neptun-burcu .hc-header p {
+    color: #a29bfe;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+#hc-neptun-burcu .hc-input {
+    border: 2px solid #efeffe;
+    background: #fcfcff;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+#hc-neptun-burcu .hc-input:focus {
+    border-color: #6c5ce7;
+    background: #fff;
+}
+
+#hc-neptun-burcu .hc-btn {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+#hc-neptun-burcu .hc-btn:hover {
+    filter: brightness(1.1);
+}
+
+#hc-neptun-burcu .hc-result {
+    border-left: 5px solid #a29bfe;
+    background: #fbfbff;
+}
+
+#hc-neptun-burcu .hc-result-value {
+    color: #6c5ce7;
+}
+
+#hc-neptun-burcu .hc-result-content {
+    font-style: italic;
+    color: #4834d4;
+}

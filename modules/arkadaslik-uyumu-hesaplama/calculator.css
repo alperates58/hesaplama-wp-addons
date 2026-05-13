@@ -1,0 +1,58 @@
+#hc-arkadaslik-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-bottom: 6px solid #3498db;
+}
+
+#hc-arkadaslik-uyum .hc-header h3 {
+    color: #3498db;
+    font-size: 26px;
+    text-align: center;
+}
+
+#hc-arkadaslik-uyum .hc-form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-arkadaslik-uyum .hc-au-separator {
+    font-size: 32px;
+    margin-top: 25px;
+}
+
+#hc-arkadaslik-uyum .hc-form-group {
+    flex: 1;
+}
+
+#hc-arkadaslik-uyum .hc-btn {
+    background: #3498db;
+}
+
+#hc-arkadaslik-uyum .hc-btn:hover {
+    background: #2980b9;
+}
+
+#hc-arkadaslik-uyum .hc-result {
+    border-radius: 15px;
+    background: #f0f7ff;
+}
+
+#hc-arkadaslik-uyum .hc-result-value {
+    color: #3498db;
+}
+
+@media (max-width: 480px) {
+    #hc-arkadaslik-uyum .hc-form-row {
+        flex-direction: column;
+    }
+    #hc-arkadaslik-uyum .hc-au-separator {
+        display: none;
+    }
+}

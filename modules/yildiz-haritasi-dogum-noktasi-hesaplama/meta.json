@@ -1,0 +1,5 @@
+{
+  "name": "Şans Noktası (Pars Fortunae) Hesaplama",
+  "desc": "Güneş, Ay ve Yükselen burcunuzun koordinatlarını kullanarak, haritanızdaki en bereketli ve şanslı noktayı (Şans Noktası) hesaplar.",
+  "shortcode": "[hc_yildiz_haritasi_dogum_noktasi_hesaplama]"
+}

@@ -1,0 +1,49 @@
+#hc-stelyum {
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #e2e8f0;
+}
+
+#hc-stelyum .hc-header h3 {
+    color: #1e293b;
+    font-weight: 800;
+}
+
+#hc-stelyum .hc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#hc-stelyum .hc-btn {
+    background: #1e293b;
+    color: white;
+    margin-top: 25px;
+}
+
+#hc-stelyum .hc-btn:hover {
+    background: #334155;
+}
+
+#hc-stelyum .hc-result {
+    background: #f8fafc;
+    border: 2px solid #1e293b;
+}
+
+#hc-stelyum .hc-result-value {
+    color: #2563eb;
+    font-size: 40px;
+    text-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 600px) {
+    #hc-stelyum .hc-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

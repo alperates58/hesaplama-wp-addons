@@ -1,0 +1,37 @@
+#hc-burc-ev {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-top: 5px solid #16a085;
+}
+
+#hc-burc-ev .hc-header h3 {
+    color: #16a085;
+}
+
+#hc-burc-ev .hc-btn {
+    background: #16a085;
+}
+
+#hc-burc-ev .hc-btn:hover {
+    background: #1abc9c;
+}
+
+#hc-burc-ev .hc-result {
+    background: #f0fdfa;
+    border: 1px solid #16a085;
+}
+
+#hc-burc-ev .hc-result-value {
+    color: #16a085;
+}
+
+@media (max-width: 480px) {
+    #hc-burc-ev .hc-form-row {
+        flex-direction: column;
+    }
+}

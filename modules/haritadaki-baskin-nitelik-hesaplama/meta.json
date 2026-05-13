@@ -1,0 +1,5 @@
+{
+  "name": "Haritadaki Baskın Nitelik Hesaplama",
+  "desc": "Doğum haritanızdaki gezegen dağılımına göre Öncü, Sabit veya Değişken niteliklerden hangisinin davranışlarınızı daha çok etkilediğini hesaplar.",
+  "shortcode": "[hc_haritadaki_baskin_nitelik_hesaplama]"
+}

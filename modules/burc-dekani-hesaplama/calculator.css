@@ -1,0 +1,39 @@
+#hc-burc-dekan {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(45, 52, 54, 0.08);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-burc-dekan .hc-header h3 {
+    color: #2d3436;
+    border-bottom: 3px solid #0984e3;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+#hc-burc-dekan .hc-btn {
+    background: #0984e3;
+}
+
+#hc-burc-dekan .hc-btn:hover {
+    background: #0873c4;
+}
+
+#hc-burc-dekan .hc-result {
+    border: 1px solid #dff9fb;
+    background: #f1f9ff;
+}
+
+#hc-burc-dekan .hc-result-value {
+    color: #0984e3;
+}
+
+#hc-burc-dekan .hc-result-content p strong {
+    color: #2d3436;
+    display: block;
+    margin-top: 10px;
+}

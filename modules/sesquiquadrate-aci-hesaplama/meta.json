@@ -1,0 +1,5 @@
+{
+  "name": "Sesquiquadrate (135 Derece) Açı Analizi",
+  "desc": "Haritanızdaki iki gezegen arasındaki 135 derecelik Sesquiquadrate açısını analiz ederek, dışsal engellerinizi ve sabır gerektiren alanları hesaplar.",
+  "shortcode": "[hc_sesquiquadrate_aci_hesaplama]"
+}

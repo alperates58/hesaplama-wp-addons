@@ -1,0 +1,40 @@
+#hc-sesquiquadrate {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Inter', sans-serif;
+    border-right: 8px solid #8e44ad;
+}
+
+#hc-sesquiquadrate .hc-header h3 {
+    color: #2c3e50;
+    text-transform: uppercase;
+}
+
+#hc-sesquiquadrate .hc-btn {
+    background: #8e44ad;
+    border-radius: 0;
+}
+
+#hc-sesquiquadrate .hc-btn:hover {
+    background: #2c3e50;
+}
+
+#hc-sesquiquadrate .hc-result {
+    background: #fdfaff;
+    border: 2px dashed #8e44ad;
+}
+
+#hc-sesquiquadrate .hc-result-value {
+    color: #8e44ad;
+    font-weight: 800;
+}
+
+@media (max-width: 480px) {
+    #hc-sesquiquadrate .hc-form-row {
+        flex-direction: column;
+    }
+}

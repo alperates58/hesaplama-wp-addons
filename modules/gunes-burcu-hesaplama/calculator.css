@@ -1,0 +1,119 @@
+#hc-gunes-burcu {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9ff 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-gunes-burcu .hc-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#hc-gunes-burcu h3 {
+    color: #2d3436;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#hc-gunes-burcu .hc-form-group {
+    margin-bottom: 20px;
+}
+
+#hc-gunes-burcu label {
+    display: block;
+    margin-bottom: 8px;
+    color: #636e72;
+    font-weight: 500;
+}
+
+#hc-gunes-burcu .hc-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #dfe6e9;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#hc-gunes-burcu .hc-input:focus {
+    border-color: #6c5ce7;
+    outline: none;
+}
+
+#hc-gunes-burcu .hc-btn {
+    width: 100%;
+    padding: 15px;
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#hc-gunes-burcu .hc-btn:hover {
+    background: #5b4bc4;
+    transform: translateY(-2px);
+}
+
+#hc-gunes-burcu .hc-result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f1f2f6;
+    border-radius: 15px;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+#hc-gunes-burcu .hc-result.visible {
+    display: block;
+}
+
+#hc-gunes-burcu .hc-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #dfe6e9;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+#hc-gunes-burcu .hc-result-label {
+    font-size: 18px;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+#hc-gunes-burcu .hc-result-value {
+    font-size: 24px;
+    color: #6c5ce7;
+    font-weight: 800;
+}
+
+#hc-gunes-burcu .hc-result-content {
+    line-height: 1.6;
+    color: #2d3436;
+    font-size: 15px;
+}
+
+#hc-gunes-burcu .hc-result-content p {
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    #hc-gunes-burcu {
+        padding: 20px;
+    }
+}

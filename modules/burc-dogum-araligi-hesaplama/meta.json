@@ -1,0 +1,5 @@
+{
+  "name": "Burç Doğum Aralığı Hesaplama",
+  "desc": "Tüm burçların doğum günü aralıklarını listeler ve girdiğiniz tarihin hangi aralığa düştüğünü hesaplar.",
+  "shortcode": "[hc_burc_dogum_araligi_hesaplama]"
+}

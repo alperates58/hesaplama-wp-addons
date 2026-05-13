@@ -1,0 +1,5 @@
+{
+  "name": "Semi-Sextile (30 Derece) Açı Analizi",
+  "desc": "Haritanızdaki iki gezegen arasındaki 30 derecelik Semi-Sextile açısını analiz ederek, gizli destekleri ve küçük gelişim fırsatlarını hesaplar.",
+  "shortcode": "[hc_semi_sextile_aci_hesaplama]"
+}

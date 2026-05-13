@@ -1,0 +1,40 @@
+#hc-burc-niteligi {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-burc-niteligi .hc-header h3 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#hc-burc-niteligi .hc-form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+#hc-burc-niteligi .hc-btn {
+    background: #27ae60;
+}
+
+#hc-burc-niteligi .hc-btn:hover {
+    background: #219150;
+}
+
+#hc-burc-niteligi .hc-result {
+    border-top: 4px solid #27ae60;
+    background: #f9fffb;
+}
+
+#hc-burc-niteligi .hc-result-value {
+    color: #27ae60;
+}

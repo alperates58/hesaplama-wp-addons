@@ -1,0 +1,32 @@
+#hc-burc-yas {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-right: 5px solid #9b59b6;
+}
+
+#hc-burc-yas .hc-header h3 {
+    color: #8e44ad;
+}
+
+#hc-burc-yas .hc-btn {
+    background: #9b59b6;
+}
+
+#hc-burc-yas .hc-btn:hover {
+    background: #8e44ad;
+}
+
+#hc-burc-yas .hc-result {
+    border-left: 4px solid #9b59b6;
+    background: #fdfaff;
+}
+
+#hc-burc-yas .hc-result-value {
+    color: #8e44ad;
+    font-size: 26px;
+}

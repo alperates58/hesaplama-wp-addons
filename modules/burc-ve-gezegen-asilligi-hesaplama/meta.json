@@ -1,0 +1,5 @@
+{
+  "name": "Gezegen Asaletleri (Dignities) Hesaplama",
+  "desc": "Gezegenlerinizin bulundukları burçlardaki güçlerini (Yönetici, Yücelim, Zarar, Düşüş) analiz ederek, karakterinizdeki en güçlü ve zayıf yanları hesaplar.",
+  "shortcode": "[hc_burc_ve_gezegen_asilligi_hesaplama]"
+}

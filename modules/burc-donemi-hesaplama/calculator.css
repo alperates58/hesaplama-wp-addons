@@ -1,0 +1,33 @@
+#hc-burc-donem {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-bottom: 5px solid #2ecc71;
+}
+
+#hc-burc-donem .hc-header h3 {
+    color: #27ae60;
+    font-size: 24px;
+}
+
+#hc-burc-donem .hc-btn {
+    background: #2ecc71;
+}
+
+#hc-burc-donem .hc-btn:hover {
+    background: #27ae60;
+}
+
+#hc-burc-donem .hc-result {
+    background: #f0fff4;
+    border: 1px solid #c2fbd7;
+}
+
+#hc-burc-donem .hc-result-value {
+    color: #27ae60;
+    font-weight: 800;
+}

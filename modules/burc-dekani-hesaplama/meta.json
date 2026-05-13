@@ -1,0 +1,5 @@
+{
+  "name": "Burç Dekanı Hesaplama",
+  "desc": "Doğum tarihinize göre burcunuzun hangi dekanına (10 derecelik bölüm) ait olduğunuzu ve alt yöneticinizi hesaplar.",
+  "shortcode": "[hc_burc_dekani_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Burç Yönetici Element Hesaplama",
+  "desc": "Burcunuzun temel taşını oluşturan elementi (Ateş, Toprak, Hava, Su) ve bunun mizacınıza etkisini hesaplar.",
+  "shortcode": "[hc_burc_yonetici_element_hesaplama]"
+}

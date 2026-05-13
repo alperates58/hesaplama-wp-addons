@@ -1,0 +1,41 @@
+#hc-mars-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(192, 57, 43, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-right: 6px solid #c0392b;
+}
+
+#hc-mars-uyum .hc-header h3 {
+    color: #c0392b;
+    font-size: 26px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+#hc-mars-uyum .hc-btn {
+    background: #c0392b;
+}
+
+#hc-mars-uyum .hc-btn:hover {
+    background: #e74c3c;
+    box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+}
+
+#hc-mars-uyum .hc-result {
+    background: #fffafa;
+    border: 1px solid #ffcccc;
+}
+
+#hc-mars-uyum .hc-result-value {
+    color: #c0392b;
+}
+
+@media (max-width: 480px) {
+    #hc-mars-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

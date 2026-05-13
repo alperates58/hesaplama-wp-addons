@@ -1,0 +1,45 @@
+#hc-sans-noktasi {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(16, 172, 132, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #d1f2eb;
+}
+
+#hc-sans-noktasi .hc-header h3 {
+    color: #10ac84;
+}
+
+#hc-sans-noktasi .hc-input {
+    border-color: #1dd1a1;
+}
+
+#hc-sans-noktasi .hc-btn {
+    background: #10ac84;
+    color: white;
+    font-weight: 700;
+}
+
+#hc-sans-noktasi .hc-btn:hover {
+    background: #1dd1a1;
+}
+
+#hc-sans-noktasi .hc-result {
+    background: #eefdf9;
+    border: 2px solid #10ac84;
+}
+
+#hc-sans-noktasi .hc-result-value {
+    color: #ee5253;
+    font-size: 36px;
+    font-weight: 900;
+}
+
+@media (max-width: 480px) {
+    #hc-sans-noktasi .hc-form-row {
+        flex-direction: column;
+    }
+}

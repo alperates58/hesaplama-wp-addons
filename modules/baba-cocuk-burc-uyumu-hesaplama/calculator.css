@@ -1,0 +1,38 @@
+#hc-baba-cocuk {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-top: 6px solid #2c3e50;
+}
+
+#hc-baba-cocuk .hc-header h3 {
+    color: #2c3e50;
+    font-size: 26px;
+}
+
+#hc-baba-cocuk .hc-btn {
+    background: #2c3e50;
+}
+
+#hc-baba-cocuk .hc-btn:hover {
+    background: #1a252f;
+}
+
+#hc-baba-cocuk .hc-result {
+    background: #f4f7f9;
+    border: 1px solid #d1d8e0;
+}
+
+#hc-baba-cocuk .hc-result-value {
+    color: #2c3e50;
+}
+
+@media (max-width: 480px) {
+    #hc-baba-cocuk .hc-form-row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,37 @@
+#hc-burc-sansli-renk {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #eee;
+}
+
+#hc-burc-sansli-renk .hc-header h3 {
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+#hc-burc-sansli-renk .hc-btn {
+    background: #2d3436;
+    color: white;
+}
+
+#hc-burc-sansli-renk .hc-btn:hover {
+    background: #000;
+}
+
+#hc-burc-sansli-renk .hc-result {
+    border-radius: 15px;
+    background: #fdfdfd;
+    border: 1px dashed #ccc;
+}
+
+#hc-burc-sansli-renk .hc-result-value {
+    color: #2d3436;
+}

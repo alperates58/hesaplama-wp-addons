@@ -1,0 +1,48 @@
+#hc-burc-derece {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #0f172a;
+    color: #f8fafc;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-burc-derece .hc-header h3 {
+    color: #38bdf8;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+#hc-burc-derece .hc-header p {
+    color: #94a3b8;
+}
+
+#hc-burc-derece .hc-input {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: white;
+}
+
+#hc-burc-derece .hc-btn {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+#hc-burc-derece .hc-btn:hover {
+    background: #7dd3fc;
+}
+
+#hc-burc-derece .hc-result {
+    border-left: 4px solid #38bdf8;
+    background: #1e293b;
+}
+
+#hc-burc-derece .hc-result-value {
+    color: #38bdf8;
+}
+
+#hc-burc-derece .hc-result-content {
+    color: #cbd5e1;
+}

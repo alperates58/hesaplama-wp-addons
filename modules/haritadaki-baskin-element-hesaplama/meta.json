@@ -1,0 +1,5 @@
+{
+  "name": "Haritadaki Baskın Element Hesaplama",
+  "desc": "Doğum haritanızdaki gezegen dağılımına göre Ateş, Toprak, Hava ve Su elementlerinden hangisinin karakterinizde daha baskın olduğunu hesaplar.",
+  "shortcode": "[hc_haritadaki_baskin_element_hesaplama]"
+}

@@ -1,0 +1,44 @@
+#hc-anne-cocuk {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 159, 67, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-top: 6px solid #ff9f43;
+}
+
+#hc-anne-cocuk .hc-header h3 {
+    color: #ee5253;
+    font-size: 26px;
+}
+
+#hc-anne-cocuk .hc-form-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#hc-anne-cocuk .hc-btn {
+    background: #ff9f43;
+}
+
+#hc-anne-cocuk .hc-btn:hover {
+    background: #ee5253;
+}
+
+#hc-anne-cocuk .hc-result {
+    background: #fffaf0;
+    border: 1px solid #ff9f43;
+}
+
+#hc-anne-cocuk .hc-result-value {
+    color: #ee5253;
+}
+
+@media (max-width: 480px) {
+    #hc-anne-cocuk .hc-form-row {
+        flex-direction: column;
+    }
+}

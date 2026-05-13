@@ -1,0 +1,35 @@
+#hc-burc-modalite {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #e9ecef;
+}
+
+#hc-burc-modalite .hc-header h3 {
+    color: #495057;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#hc-burc-modalite .hc-btn {
+    background: #495057;
+}
+
+#hc-burc-modalite .hc-btn:hover {
+    background: #343a40;
+}
+
+#hc-burc-modalite .hc-result {
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+#hc-burc-modalite .hc-result-value {
+    color: #495057;
+    font-family: 'Courier New', Courier, monospace;
+}

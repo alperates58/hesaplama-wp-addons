@@ -1,0 +1,42 @@
+#hc-jupiter-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(155, 89, 182, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #e0c3fc;
+}
+
+#hc-jupiter-uyum .hc-header h3 {
+    color: #8e44ad;
+    font-size: 28px;
+    text-align: center;
+}
+
+#hc-jupiter-uyum .hc-btn {
+    background: linear-gradient(135deg, #f1c40f 0%, #8e44ad 100%);
+    color: white;
+    font-weight: 700;
+}
+
+#hc-jupiter-uyum .hc-btn:hover {
+    box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
+}
+
+#hc-jupiter-uyum .hc-result {
+    background: #fdfaff;
+    border: 2px solid #8e44ad;
+}
+
+#hc-jupiter-uyum .hc-result-value {
+    color: #f39c12;
+    font-size: 40px;
+}
+
+@media (max-width: 480px) {
+    #hc-jupiter-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,39 @@
+#hc-parallel {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #bdc3c7;
+}
+
+#hc-parallel .hc-header h3 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+#hc-parallel .hc-btn {
+    background: #2c3e50;
+    color: white;
+}
+
+#hc-parallel .hc-btn:hover {
+    background: #34495e;
+}
+
+#hc-parallel .hc-result {
+    background: #f8f9fa;
+    border-top: 5px solid #2c3e50;
+}
+
+#hc-parallel .hc-result-value {
+    color: #2c3e50;
+}
+
+@media (max-width: 480px) {
+    #hc-parallel .hc-form-row {
+        flex-direction: column;
+    }
+}

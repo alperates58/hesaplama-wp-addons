@@ -1,0 +1,45 @@
+#hc-harita-tipi {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-left: 6px solid #8e44ad;
+}
+
+#hc-harita-tipi .hc-header h3 {
+    color: #8e44ad;
+    text-align: center;
+}
+
+#hc-harita-tipi .hc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+#hc-harita-tipi .hc-btn {
+    background: #8e44ad;
+    margin-top: 30px;
+}
+
+#hc-harita-tipi .hc-btn:hover {
+    background: #9b59b6;
+}
+
+#hc-harita-tipi .hc-result {
+    background: #fdfaff;
+    border: 1px solid #8e44ad;
+}
+
+#hc-harita-tipi .hc-result-value {
+    color: #8e44ad;
+}
+
+@media (max-width: 600px) {
+    #hc-harita-tipi .hc-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

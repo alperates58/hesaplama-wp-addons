@@ -1,0 +1,36 @@
+#hc-burc-sansli-sayi {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(241, 196, 15, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #f1c40f;
+}
+
+#hc-burc-sansli-sayi .hc-header h3 {
+    color: #d4af37;
+    font-size: 26px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+#hc-burc-sansli-sayi .hc-btn {
+    background: linear-gradient(135deg, #d4af37 0%, #f1c40f 100%);
+    color: #1a1a1a;
+}
+
+#hc-burc-sansli-sayi .hc-btn:hover {
+    filter: brightness(1.1);
+}
+
+#hc-burc-sansli-sayi .hc-result {
+    border-top: 5px solid #d4af37;
+    background: #fffdf2;
+}
+
+#hc-burc-sansli-sayi .hc-result-value {
+    color: #d4af37;
+    font-size: 32px;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Burç Dönemi Hesaplama",
+  "desc": "Seçtiğiniz burcun hangi tarihler arasında hüküm sürdüğünü ve bu dönemin genel enerjisini hesaplar.",
+  "shortcode": "[hc_burc_donemi_hesaplama]"
+}

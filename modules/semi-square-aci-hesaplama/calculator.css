@@ -1,0 +1,37 @@
+#hc-semi-square {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #e74c3c;
+}
+
+#hc-semi-square .hc-header h3 {
+    color: #c0392b;
+}
+
+#hc-semi-square .hc-btn {
+    background: #e74c3c;
+}
+
+#hc-semi-square .hc-btn:hover {
+    background: #c0392b;
+}
+
+#hc-semi-square .hc-result {
+    background: #fff5f5;
+    border-left: 10px solid #e74c3c;
+}
+
+#hc-semi-square .hc-result-value {
+    color: #c0392b;
+}
+
+@media (max-width: 480px) {
+    #hc-semi-square .hc-form-row {
+        flex-direction: column;
+    }
+}

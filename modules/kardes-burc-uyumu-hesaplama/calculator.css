@@ -1,0 +1,40 @@
+#hc-kardes-uyum {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #f1f2f6;
+}
+
+#hc-kardes-uyum .hc-header h3 {
+    color: #fdcb6e;
+    font-size: 26px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.02);
+}
+
+#hc-kardes-uyum .hc-btn {
+    background: #fdcb6e;
+    color: #2d3436;
+}
+
+#hc-kardes-uyum .hc-btn:hover {
+    background: #ffeaa7;
+}
+
+#hc-kardes-uyum .hc-result {
+    background: #fffdf5;
+    border: 1px dashed #fdcb6e;
+}
+
+#hc-kardes-uyum .hc-result-value {
+    color: #e67e22;
+}
+
+@media (max-width: 480px) {
+    #hc-kardes-uyum .hc-form-row {
+        flex-direction: column;
+    }
+}

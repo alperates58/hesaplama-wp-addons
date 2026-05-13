@@ -1,0 +1,62 @@
+#hc-uranus-burcu {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 15px 35px rgba(0, 168, 255, 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+#hc-uranus-burcu .hc-header h3 {
+    color: #00a8ff;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+#hc-uranus-burcu .hc-header p {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+#hc-uranus-burcu .hc-form-group label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+#hc-uranus-burcu .hc-input {
+    border: 2px solid #f1f2f6;
+    background: #f1f2f6;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+#hc-uranus-burcu .hc-input:focus {
+    border-color: #00a8ff;
+    background: #fff;
+}
+
+#hc-uranus-burcu .hc-btn {
+    background: #00a8ff;
+    box-shadow: 0 5px 15px rgba(0, 168, 255, 0.3);
+}
+
+#hc-uranus-burcu .hc-btn:hover {
+    background: #0097e6;
+}
+
+#hc-uranus-burcu .hc-result {
+    border-left: 5px solid #00a8ff;
+    background: #f8fbff;
+}
+
+#hc-uranus-burcu .hc-result-value {
+    color: #00a8ff;
+}
+
+#hc-uranus-burcu .hc-result-content {
+    font-size: 15px;
+    line-height: 1.7;
+}

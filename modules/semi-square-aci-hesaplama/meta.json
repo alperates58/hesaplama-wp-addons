@@ -1,0 +1,5 @@
+{
+  "name": "Semi-Square (45 Derece) Açı Analizi",
+  "desc": "Haritanızdaki iki gezegen arasındaki 45 derecelik Semi-Square açısını analiz ederek, içsel stres noktalarınızı ve aşılması gereken küçük engelleri hesaplar.",
+  "shortcode": "[hc_semi_square_aci_hesaplama]"
+}

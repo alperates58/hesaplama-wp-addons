@@ -1,0 +1,43 @@
+#hc-quintile {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(155, 89, 182, 0.1);
+    font-family: 'Inter', sans-serif;
+    border-bottom: 6px solid #9b59b6;
+}
+
+#hc-quintile .hc-header h3 {
+    background: linear-gradient(to right, #8e44ad, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    text-align: center;
+}
+
+#hc-quintile .hc-btn {
+    background: linear-gradient(135deg, #9b59b6 0%, #3498db 100%);
+    border-radius: 50px;
+}
+
+#hc-quintile .hc-btn:hover {
+    transform: scale(1.05);
+}
+
+#hc-quintile .hc-result {
+    background: #fdfaff;
+    border: 1px solid #9b59b6;
+}
+
+#hc-quintile .hc-result-value {
+    color: #8e44ad;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #hc-quintile .hc-form-row {
+        flex-direction: column;
+    }
+}

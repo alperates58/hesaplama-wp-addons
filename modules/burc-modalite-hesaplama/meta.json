@@ -1,0 +1,5 @@
+{
+  "name": "Burç Modalite Hesaplama",
+  "desc": "Burcunuzun çalışma ve eylem stratejisini belirleyen modalitesini (Başlatıcı, Sürdürücü, Uyarlayıcı) hesaplar.",
+  "shortcode": "[hc_burc_modalite_hesaplama]"
+}

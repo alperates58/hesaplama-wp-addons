@@ -1,0 +1,49 @@
+#hc-baskin-burc {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+    border-top: 5px solid #2980b9;
+}
+
+#hc-baskin-burc .hc-header h3 {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+#hc-baskin-burc .hc-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#hc-baskin-burc .hc-btn {
+    background: #2980b9;
+    width: 100%;
+    margin-top: 25px;
+}
+
+#hc-baskin-burc .hc-btn:hover {
+    background: #3498db;
+}
+
+#hc-baskin-burc .hc-result {
+    background: #f8f9fa;
+    border: 1px solid #e1e8ed;
+}
+
+#hc-baskin-burc .hc-result-value {
+    color: #2980b9;
+    font-weight: 800;
+}
+
+@media (max-width: 500px) {
+    #hc-baskin-burc .hc-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
