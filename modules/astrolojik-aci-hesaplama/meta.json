@@ -1,0 +1,5 @@
+{
+  "name": "Astrolojik Açı Hesaplama",
+  "desc": "Herhangi iki gezegen arasındaki açıyı (enlem farkını) ve astrolojik etkisini hesaplar.",
+  "shortcode": "[hc_astrolojik_aci_hesaplama]"
+}

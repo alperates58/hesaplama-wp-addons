@@ -1,0 +1,26 @@
+#hc-kavusum-acisi .hc-aspect-list {
+    text-align: left;
+    margin-top: 15px;
+}
+
+#hc-kavusum-acisi .hc-aspect-item {
+    background: rgba(255, 215, 0, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+#hc-kavusum-acisi .hc-aspect-item strong {
+    color: #ffd700;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+#hc-kavusum-acisi .hc-aspect-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.9;
+}

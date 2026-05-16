@@ -1,0 +1,5 @@
+{
+  "name": "Kare Açı Hesaplama",
+  "desc": "Doğum haritanızdaki tüm kare (90°) açılarını bulur ve bu dinamik gerilimlerin anlamlarını açıklar.",
+  "shortcode": "[hc_kare_aci_hesaplama]"
+}

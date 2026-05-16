@@ -1,0 +1,5 @@
+{
+  "name": "İlişki Numerolojisi Hesaplama",
+  "desc": "İsim ve doğum tarihlerinizi kullanarak ilişkinizin numerolojik haritasını ve uyumunu çıkartır.",
+  "shortcode": "[hc_iliski_numerolojisi_hesaplama]"
+}

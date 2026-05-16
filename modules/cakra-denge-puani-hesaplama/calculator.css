@@ -1,0 +1,25 @@
+.hc-calculator#hc-chakra-calc .hc-range {
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.hc-calculator#hc-chakra-calc .hc-form-group {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.hc-calculator#hc-chakra-calc .hc-result-value {
+    color: #673ab7;
+    font-size: 2rem;
+}
+
+.hc-calculator#hc-chakra-calc .hc-result-content ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.hc-calculator#hc-chakra-calc .hc-result-content li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}

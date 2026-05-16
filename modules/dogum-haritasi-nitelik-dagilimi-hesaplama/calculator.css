@@ -1,0 +1,35 @@
+#hc-nitelik-dagilimi .hc-nit-row {
+    margin-bottom: 15px;
+}
+
+#hc-nitelik-dagilimi .hc-nit-label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#hc-nitelik-dagilimi .hc-nit-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#hc-nitelik-dagilimi .hc-nit-bar-fill {
+    height: 100%;
+    transition: width 1s ease-out;
+}
+
+#hc-nitelik-dagilimi .hc-nit-desc {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border-top: 2px solid #ffd700;
+}
+
+#hc-nitelik-dagilimi h4 {
+    margin-top: 0;
+    color: #ffd700;
+}

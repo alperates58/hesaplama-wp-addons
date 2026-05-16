@@ -1,0 +1,5 @@
+{
+  "name": "Karşıt Açı Hesaplama",
+  "desc": "Doğum haritanızdaki tüm karşıt (180°) açıları bulur ve bu denge arayışlarının anlamlarını açıklar.",
+  "shortcode": "[hc_karsit_acisi_hesaplama]"
+}

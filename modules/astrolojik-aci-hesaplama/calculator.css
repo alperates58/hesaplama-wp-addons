@@ -1,0 +1,32 @@
+#hc-astrolojik-aci .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-astrolojik-aci .hc-asp-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#hc-astrolojik-aci .hc-asp-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+#hc-astrolojik-aci .hc-asp-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+    #hc-astrolojik-aci .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

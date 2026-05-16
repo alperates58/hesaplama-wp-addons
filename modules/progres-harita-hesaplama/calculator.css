@@ -1,0 +1,47 @@
+#hc-progres-harita .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-progres-harita .hc-prog-summary {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    border-left: 4px solid #ffd700;
+}
+
+#hc-progres-harita .hc-prog-planets {
+    text-align: left;
+}
+
+#hc-progres-harita .hc-prog-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#hc-progres-harita .hc-prog-item.highlight {
+    background: rgba(255, 215, 0, 0.05);
+}
+
+#hc-progres-harita .hc-prog-planet {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+#hc-progres-harita .hc-prog-change {
+    font-size: 0.75rem;
+    color: #2ed573;
+    font-style: italic;
+}
+
+@media (max-width: 480px) {
+    #hc-progres-harita .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

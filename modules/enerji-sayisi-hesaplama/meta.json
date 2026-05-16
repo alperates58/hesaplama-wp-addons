@@ -1,0 +1,5 @@
+{
+  "name": "Enerji Sayısı Hesaplama",
+  "desc": "Doğum tarihinizden gelen temel enerji sayınızı hesaplayın ve bu sayının yaşam kalitenize etkisini öğrenin.",
+  "shortcode": "[hc_enerji_sayisi_hesaplama]"
+}

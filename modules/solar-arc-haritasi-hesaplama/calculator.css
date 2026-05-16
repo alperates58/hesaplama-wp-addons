@@ -1,0 +1,51 @@
+#hc-solar-arc .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-solar-arc .hc-sa-arc-value {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+#hc-solar-arc .hc-sa-arc-value .hc-label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+#hc-solar-arc .hc-sa-arc-value .hc-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+#hc-solar-arc .hc-sa-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: left;
+}
+
+#hc-solar-arc .hc-sa-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#hc-solar-arc .hc-sa-item strong {
+    color: #ffd700;
+}
+
+@media (max-width: 480px) {
+    #hc-solar-arc .hc-form-grid,
+    #hc-solar-arc .hc-sa-list {
+        grid-template-columns: 1fr;
+    }
+}

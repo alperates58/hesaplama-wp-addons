@@ -1,0 +1,28 @@
+#hc-lunar-return .hc-lr-details {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#hc-lunar-return .hc-lr-box {
+    background: rgba(173, 216, 230, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(173, 216, 230, 0.2);
+}
+
+#hc-lunar-return .hc-lr-interpretation {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.6;
+}
+
+#hc-lunar-return .hc-lr-interpretation h4 {
+    margin-top: 0;
+    color: #ffd700;
+}
+
+#hc-lunar-return p {
+    margin-bottom: 10px;
+}

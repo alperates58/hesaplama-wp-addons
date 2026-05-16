@@ -1,0 +1,26 @@
+#hc-ucgen-aci .hc-aspect-list {
+    text-align: left;
+    margin-top: 15px;
+}
+
+#hc-ucgen-aci .hc-aspect-item.trine {
+    background: rgba(46, 213, 115, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(46, 213, 115, 0.2);
+}
+
+#hc-ucgen-aci .hc-aspect-item strong {
+    color: #2ed573;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+#hc-ucgen-aci .hc-aspect-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.9;
+}

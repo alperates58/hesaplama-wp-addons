@@ -1,0 +1,36 @@
+#hc-kompozit-harita .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-kompozit-harita .hc-comp-list {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#hc-kompozit-harita .hc-comp-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#hc-kompozit-harita .hc-comp-item strong {
+    color: #ffd700;
+    margin-right: 5px;
+}
+
+#hc-kompozit-harita .hc-comp-item span {
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    #hc-kompozit-harita .hc-form-grid,
+    #hc-kompozit-harita .hc-comp-list {
+        grid-template-columns: 1fr;
+    }
+}

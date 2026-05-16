@@ -1,0 +1,19 @@
+.hc-calculator#hc-cin-element-uyum .hc-result-header {
+    background: #fdf2f2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #d32f2f;
+}
+
+.hc-calculator#hc-cin-element-uyum hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.hc-calculator#hc-cin-element-uyum #hc-ceu-content p {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}

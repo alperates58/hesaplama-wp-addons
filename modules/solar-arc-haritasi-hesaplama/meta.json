@@ -1,0 +1,5 @@
+{
+  "name": "Solar Arc Haritası Hesaplama",
+  "desc": "Güneş'in ilerleme hızını tüm gezegenlere uygulayarak önemli yaşam dönemeçlerini analiz eder.",
+  "shortcode": "[hc_solar_arc_haritasi_hesaplama]"
+}

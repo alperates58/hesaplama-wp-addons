@@ -1,0 +1,5 @@
+{
+  "name": "Evlilik Tarihi Uyumu Hesaplama",
+  "desc": "Belirlenen evlilik tarihinin çiftin doğum haritaları ve numerolojisi ile uyumunu analiz eder.",
+  "shortcode": "[hc_evlilik_tarihi_uyumu_hesaplama]"
+}
