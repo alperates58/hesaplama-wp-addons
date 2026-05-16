@@ -3,13 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 class HC_Calculator_Loader {
 
+    // shortcode_tag => dosya yolu — init'te doldurulur, render sırasında require edilir
+    private $module_files = [];
+
     public function __construct() {
-        add_action( 'init',          [ $this, 'register_shortcodes' ] );
+        add_action( 'init',               [ $this, 'register_shortcodes' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
     }
 
     public function register_shortcodes() {
-        // modules/ klasöründeki her alt klasör bir hesap makinesidir
         $modules_dir = HC_PLUGIN_DIR . 'modules/';
         if ( ! is_dir( $modules_dir ) ) return;
 
@@ -37,35 +39,61 @@ class HC_Calculator_Loader {
             }
 
             if ( file_exists( $file ) ) {
-                // Güvenlik kontrolü: Dosya <?php içeriyor mu? (Yapay zeka hatalı ham metin yazarsa siteyi bozmasın)
+                // Güvenlik kontrolü: Dosya <?php içeriyor mu?
                 $first_bytes = file_get_contents( $file, false, null, 0, 100 );
                 if ( false !== strpos( $first_bytes, '<?php' ) ) {
                     $loaded_module_keys[ $normalized_key ] = $slug;
                     if ( $render_name ) {
                         $loaded_render_names[ $render_name ] = $slug;
                     }
-                    require_once $file;
-                    add_shortcode( 'hc_' . str_replace( '-', '_', $slug ), [ $this, 'render_shortcode' ] );
+                    // Lazy loader: dosya yolunu sakla, require_once render sırasında yapılır
+                    $tag = 'hc_' . str_replace( '-', '_', $slug );
+                    $this->module_files[ $tag ] = $file;
+                    add_shortcode( $tag, [ $this, 'render_shortcode' ] );
                 }
             }
         }
     }
 
     public function render_shortcode( $atts, $content, $tag ) {
-        // [hc_kilo_kaybi] → modules/kilo-kaybi/calculator.php içindeki render fonksiyonu
+        // Lazy load: calculator.php sadece bu shortcode render edilirken yüklenir
+        if ( isset( $this->module_files[ $tag ] ) ) {
+            $level = ob_get_level();
+            try {
+                require_once $this->module_files[ $tag ];
+            } catch ( Throwable $e ) {
+                while ( ob_get_level() > $level ) {
+                    ob_end_clean();
+                }
+                error_log( 'HC loader error [' . $tag . ']: ' . $e->getMessage() );
+                return '<!-- HC modül yüklenemedi: ' . esc_html( $tag ) . ' -->';
+            }
+        }
+
         $slug     = str_replace( [ 'hc_', '_' ], [ '', '-' ], $tag );
         $function = 'hc_render_' . str_replace( '-', '_', $slug );
+
         if ( function_exists( $function ) ) {
-            ob_start();
-            $result = $function( $atts );
-            $output = ob_get_clean();
+            $level = ob_get_level();
+            try {
+                ob_start();
+                $result = $function( $atts );
+                $output = ob_get_clean();
 
-            if ( is_string( $result ) && '' !== $result ) {
-                return $output . $result;
+                if ( is_string( $result ) && '' !== $result ) {
+                    return $output . $result;
+                }
+
+                return $output;
+            } catch ( Throwable $e ) {
+                while ( ob_get_level() > $level ) {
+                    ob_end_clean();
+                }
+                error_log( 'HC render error [' . $tag . ']: ' . $e->getMessage() );
+                return '<!-- HC render hatası: ' . esc_html( $tag ) . ' -->';
             }
-
-            return $output;
         }
+
         return '<!-- Hesap makinesi bulunamadı: ' . esc_html( $slug ) . ' -->';
     }
 
