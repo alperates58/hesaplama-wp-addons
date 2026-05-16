@@ -3,7 +3,7 @@
  * Plugin Name: Hesaplama Suite
  * Plugin URI:  https://github.com/YOUR_USERNAME/hesaplama-wp-addons
  * Description: Modüler hesap makineleri koleksiyonu. GitHub üzerinden güncellenir.
- * Version:     1.0.19
+ * Version:     1.0.20
  * Author:      Alper ATEŞ
  * Text Domain: hesaplama-suite
  */
@@ -21,6 +21,10 @@ define( 'HC_PLUGIN_FILE', __FILE__ );
 // Her bağlamda: sadece hesap makinesi yükleyici
 require_once HC_PLUGIN_DIR . 'includes/class-calculator-loader.php';
 new HC_Calculator_Loader();
+
+// Hesaplama API — profil eklentisi ve diğer eklentiler için backend hesaplama motoru.
+require_once HC_PLUGIN_DIR . 'includes/class-hc-calculation-api.php';
+HC_Calculation_API::init();
 
 // Admin / AJAX / Cron bağlamında: yönetim ve AI sınıfları
 if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
