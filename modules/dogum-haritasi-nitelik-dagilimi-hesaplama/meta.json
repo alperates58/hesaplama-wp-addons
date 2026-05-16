@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Haritası Nitelik Dağılımı Hesaplama",
+  "desc": "Haritanızdaki Öncü, Sabit ve Değişken niteliklerin dengesini hesaplayarak ana karakter yapınızı analiz eder.",
+  "shortcode": "[hc_dogum_haritasi_nitelik_dagilimi_hesaplama]"
+}

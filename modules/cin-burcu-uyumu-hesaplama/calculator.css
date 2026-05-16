@@ -1,0 +1,46 @@
+#hc-cin-burcu-uyumu .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-cin-burcu-uyumu .hc-animal-pair {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#hc-cin-burcu-uyumu .hc-animal-pair span:not(.hc-vs) {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+#hc-cin-burcu-uyumu .hc-vs {
+    font-size: 0.8rem;
+    background: #ff4757;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+#hc-cin-burcu-uyumu .hc-cin-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ffd700;
+}
+
+@media (max-width: 480px) {
+    #hc-cin-burcu-uyumu .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

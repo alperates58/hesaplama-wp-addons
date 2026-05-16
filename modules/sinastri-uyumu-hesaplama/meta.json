@@ -1,0 +1,5 @@
+{
+  "name": "Sinastri Uyumu Hesaplama",
+  "desc": "İki harita arasındaki tüm gezegen etkileşimlerini analiz ederek derinlemesine ilişki uyumu hesaplar.",
+  "shortcode": "[hc_sinastri_uyumu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Haritası Element Dağılımı Hesaplama",
+  "desc": "Haritanızdaki Ateş, Toprak, Hava ve Su dengesini hesaplayarak baskın elementinizi belirler.",
+  "shortcode": "[hc_dogum_haritasi_element_dagilimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Solar Return Haritası Hesaplama",
+  "desc": "Güneş'in doğum anındaki konumuna geri döndüğü anı hesaplayarak yıllık öngörü haritanızı oluşturur.",
+  "shortcode": "[hc_solar_return_haritasi_hesaplama]"
+}

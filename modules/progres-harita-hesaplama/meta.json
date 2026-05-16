@@ -1,0 +1,5 @@
+{
+  "name": "Progres Harita Hesaplama",
+  "desc": "İkincil ilerletim (Secondary Progressions) yöntemiyle haritanızın bugünkü durumunu analiz eder.",
+  "shortcode": "[hc_progres_harita_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Kavuşum Açısı Hesaplama",
+  "desc": "Doğum haritanızdaki tüm kavuşum (0°) açılarını bulur ve anlamlarını açıklar.",
+  "shortcode": "[hc_kavusum_acisi_hesaplama]"
+}

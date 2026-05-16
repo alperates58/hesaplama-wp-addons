@@ -1,0 +1,5 @@
+{
+  "name": "Üçgen Açı Hesaplama",
+  "desc": "Doğum haritanızdaki tüm üçgen (120°) açılarını bulur ve bu olumlu akışların anlamlarını açıklar.",
+  "shortcode": "[hc_ucgen_aci_hesaplama]"
+}

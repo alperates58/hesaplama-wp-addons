@@ -1,0 +1,40 @@
+#hc-evlilik-tarihi-uyumu .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#hc-evlilik-tarihi-uyumu .hc-wedding-analysis {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#hc-evlilik-tarihi-uyumu ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#hc-evlilik-tarihi-uyumu li {
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+#hc-evlilik-tarihi-uyumu .hc-wedding-tip {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #2ed573;
+    font-size: 0.9rem;
+}
+
+#hc-evlilik-tarihi-uyumu h4 {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+@media (max-width: 480px) {
+    #hc-evlilik-tarihi-uyumu .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

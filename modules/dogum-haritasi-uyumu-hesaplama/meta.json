@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Haritası Uyumu Hesaplama",
+  "desc": "İki kişinin doğum tarihlerini karşılaştırarak astrolojik uyum analizi yapar.",
+  "shortcode": "[hc_dogum_haritasi_uyumu_hesaplama]"
+}

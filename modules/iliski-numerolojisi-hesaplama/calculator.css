@@ -1,0 +1,64 @@
+#hc-iliski-numerolojisi .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+#hc-iliski-numerolojisi .hc-person-form {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#hc-iliski-numerolojisi .hc-num-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#hc-iliski-numerolojisi .hc-num-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#hc-iliski-numerolojisi .hc-num-box strong {
+    display: block;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+#hc-iliski-numerolojisi .hc-num-box span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+#hc-iliski-numerolojisi .hc-num-interpretation {
+    background: rgba(255, 215, 0, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+#hc-iliski-numerolojisi .hc-num-interpretation h4 {
+    margin-top: 0;
+    color: #ffd700;
+}
+
+#hc-iliski-numerolojisi .hc-num-interpretation p {
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+    #hc-iliski-numerolojisi .hc-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

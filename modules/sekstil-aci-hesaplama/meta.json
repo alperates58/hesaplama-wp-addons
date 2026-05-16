@@ -1,0 +1,5 @@
+{
+  "name": "Sekstil Açı Hesaplama",
+  "desc": "Doğum haritanızdaki tüm sekstil (60°) açılarını bulur ve bu destekleyici fırsatların anlamlarını açıklar.",
+  "shortcode": "[hc_sekstil_aci_hesaplama]"
+}

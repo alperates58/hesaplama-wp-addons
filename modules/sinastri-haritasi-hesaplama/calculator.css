@@ -1,0 +1,49 @@
+#hc-sinastri-haritasi .hc-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#hc-sinastri-haritasi .hc-table-wrapper {
+    overflow-x: auto;
+}
+
+#hc-sinastri-haritasi .hc-aspect-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#hc-sinastri-haritasi .hc-aspect-table th, 
+#hc-sinastri-haritasi .hc-aspect-table td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    text-align: center;
+    min-width: 60px;
+}
+
+#hc-sinastri-haritasi .hc-aspect-table th {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffd700;
+}
+
+#hc-sinastri-haritasi .hc-asp-good {
+    color: #2ed573;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#hc-sinastri-haritasi .hc-asp-hard {
+    color: #ff4757;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+    #hc-sinastri-haritasi .hc-aspect-table {
+        font-size: 0.75rem;
+    }
+}

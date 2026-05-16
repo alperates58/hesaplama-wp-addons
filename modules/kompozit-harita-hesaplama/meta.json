@@ -1,0 +1,5 @@
+{
+  "name": "Kompozit Harita Hesaplama",
+  "desc": "İki kişinin doğum haritalarının orta noktalarını hesaplayarak ilişkinin kendi haritasını oluşturur.",
+  "shortcode": "[hc_kompozit_harita_hesaplama]"
+}
