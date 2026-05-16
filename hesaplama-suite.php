@@ -18,21 +18,26 @@ define( 'HC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'HC_PLUGIN_FILE', __FILE__ );
 
-require_once HC_PLUGIN_DIR . 'includes/class-github-updater.php';
+// Her bağlamda: sadece hesap makinesi yükleyici
 require_once HC_PLUGIN_DIR . 'includes/class-calculator-loader.php';
-require_once HC_PLUGIN_DIR . 'includes/class-ai-provider.php';
-require_once HC_PLUGIN_DIR . 'admin/class-admin-page.php';
-require_once HC_PLUGIN_DIR . 'admin/class-ai-writer.php';
-require_once HC_PLUGIN_DIR . 'admin/class-ai-module-generator.php';
-require_once HC_PLUGIN_DIR . 'admin/class-ai-bulk-generator.php';
-require_once HC_PLUGIN_DIR . 'admin/class-post-metabox.php';
-require_once HC_PLUGIN_DIR . 'admin/class-excel-planner.php';
-
-new HC_Github_Updater();
 new HC_Calculator_Loader();
-new HC_Admin_Page();
-new HC_AI_Writer();
-new HC_AI_Module_Generator();
-new HC_AI_Bulk_Generator();
-new HC_Post_Metabox();
-new HC_Excel_Planner();
+
+// Admin / AJAX / Cron bağlamında: yönetim ve AI sınıfları
+if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
+    require_once HC_PLUGIN_DIR . 'includes/class-github-updater.php';
+    require_once HC_PLUGIN_DIR . 'includes/class-ai-provider.php';
+    require_once HC_PLUGIN_DIR . 'admin/class-admin-page.php';
+    require_once HC_PLUGIN_DIR . 'admin/class-ai-writer.php';
+    require_once HC_PLUGIN_DIR . 'admin/class-ai-module-generator.php';
+    require_once HC_PLUGIN_DIR . 'admin/class-ai-bulk-generator.php';
+    require_once HC_PLUGIN_DIR . 'admin/class-post-metabox.php';
+    require_once HC_PLUGIN_DIR . 'admin/class-excel-planner.php';
+
+    new HC_Github_Updater();
+    new HC_Admin_Page();
+    new HC_AI_Writer();
+    new HC_AI_Module_Generator();
+    new HC_AI_Bulk_Generator();
+    new HC_Post_Metabox();
+    new HC_Excel_Planner();
+}

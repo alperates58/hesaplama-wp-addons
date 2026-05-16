@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class HC_Calculator_Loader {
 
     // shortcode_tag => dosya yolu — init'te doldurulur, render sırasında require edilir
-    private $module_files = [];
+    private $shortcode_map = [];
 
     public function __construct() {
         add_action( 'init',               [ $this, 'register_shortcodes' ] );
@@ -48,7 +48,7 @@ class HC_Calculator_Loader {
                     }
                     // Lazy loader: dosya yolunu sakla, require_once render sırasında yapılır
                     $tag = 'hc_' . str_replace( '-', '_', $slug );
-                    $this->module_files[ $tag ] = $file;
+                    $this->shortcode_map[ $tag ] = $file;
                     add_shortcode( $tag, [ $this, 'render_shortcode' ] );
                 }
             }
@@ -57,10 +57,10 @@ class HC_Calculator_Loader {
 
     public function render_shortcode( $atts, $content, $tag ) {
         // Lazy load: calculator.php sadece bu shortcode render edilirken yüklenir
-        if ( isset( $this->module_files[ $tag ] ) ) {
+        if ( isset( $this->shortcode_map[ $tag ] ) ) {
             $level = ob_get_level();
             try {
-                require_once $this->module_files[ $tag ];
+                require_once $this->shortcode_map[ $tag ];
             } catch ( Throwable $e ) {
                 while ( ob_get_level() > $level ) {
                     ob_end_clean();
