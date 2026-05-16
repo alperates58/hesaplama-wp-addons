@@ -1,0 +1,27 @@
+.hc-ec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.hc-ec-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+.hc-ec-date {
+    font-weight: 600;
+    color: #34495e;
+}
+.hc-ec-type {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.hc-ec-type.lunar { background: #ebf5fb; color: #2980b9; }
+.hc-ec-type.solar { background: #fff9db; color: #f08c00; }

@@ -1,49 +1,45 @@
 function hcKisiselYilHesapla() {
     const birthStr = document.getElementById('hc-py-birth').value;
-    const targetYear = parseInt(document.getElementById('hc-py-target').value);
-
-    if (!birthStr || isNaN(targetYear)) {
-        alert('Lütfen tüm alanları doldurun.');
-        return;
-    }
+    const yearStr = document.getElementById('hc-py-year').value;
+    if (!birthStr || !yearStr) { alert('Lütfen tüm alanları doldurun.'); return; }
 
     const birthDate = new Date(birthStr);
-    const day = birthDate.getDate();
-    const month = birthDate.getMonth() + 1;
-
-    function sumDigits(num) {
-        let sum = 0;
-        while (num > 0 || sum > 9) {
-            if (num === 0) {
-                num = sum;
-                sum = 0;
-            }
-            sum += num % 10;
-            num = Math.floor(num / 10);
+    const targetYear = parseInt(yearStr);
+    
+    function reduce(num) {
+        let s = num.toString();
+        while (s.length > 1) {
+            let sum = 0;
+            for (let char of s) sum += parseInt(char);
+            s = sum.toString();
         }
-        return sum;
+        return parseInt(s);
     }
 
-    // Formula: (Sum of Day) + (Sum of Month) + (Sum of Target Year)
-    const dSum = sumDigits(day);
-    const mSum = sumDigits(month);
-    const ySum = sumDigits(targetYear);
+    const day = birthDate.getDate();
+    const month = birthDate.getMonth() + 1;
+    
+    // Personal Year = Day + Month + Target Year
+    let sum = day + month;
+    let yearS = targetYear.toString();
+    for (let char of yearS) sum += parseInt(char);
+    
+    const result = reduce(sum);
 
-    let personalYear = sumDigits(dSum + mSum + ySum);
-
-    const descriptions = {
-        1: "Başlangıçlar ve yeni fırsatlar yılı. Tohum ekme zamanı.",
-        2: "İş birliği, sabır ve denge yılı. İlişkiler ön planda.",
-        3: "Kendini ifade etme, sosyal genişleme ve yaratıcılık yılı.",
-        4: "Çalışma, düzen ve temel oluşturma yılı. Disiplin zamanı.",
-        5: "Değişim, özgürlük ve macera yılı. Esneklik gerektirir.",
-        6: "Sorumluluk, aile ve hizmet yılı. Uyum arayışı.",
-        7: "İçe dönüş, analiz ve ruhsal gelişim yılı. Dinlenme zamanı.",
-        8: "Güç, bolluk ve maddi başarı yılı. Hasat zamanı.",
-        9: "Tamamlanma, bırakma ve dönüşüm yılı. Temizlik zamanı."
+    const interpretations = {
+        1: "Yeni başlangıçlar, bağımsızlık ve eylem yılı. Yeni projelere başlamak için mükemmel zaman.",
+        2: "İşbirliği, denge ve sabır yılı. İlişkilere odaklanma ve diplomasi zamanı.",
+        3: "Yaratıcılık, sosyal etkileşim ve kendini ifade etme yılı. Neşe ve büyüme dönemi.",
+        4: "Disiplin, çalışma ve temel atma yılı. Düzen kurmak ve sorumluluk almak gerek.",
+        5: "Değişim, özgürlük ve macera yılı. Esnek olma ve yeni fırsatları değerlendirme zamanı.",
+        6: "Sorumluluk, aile ve hizmet yılı. Ev yaşamı ve sevdiklerinize odaklanma dönemi.",
+        7: "İçe dönüş, analiz ve ruhsal gelişim yılı. Dinlenme, öğrenme ve meditasyon zamanı.",
+        8: "Güç, başarı ve maddi kazanç yılı. Kariyerde ilerleme ve emeklerin karşılığını alma dönemi.",
+        9: "Tamamlanma, bırakma ve dönüşüm yılı. Eski olanı bitirme ve yeni döngüye hazırlanma zamanı."
     };
 
-    document.getElementById('hc-res-py-val').innerText = personalYear;
-    document.getElementById('hc-res-py-desc').innerText = descriptions[personalYear] || "";
-    document.getElementById('hc-kisisel-yil-sayisi-hesaplama-result').classList.add('visible');
+    document.getElementById('hc-py-val').innerText = result;
+    document.getElementById('hc-py-desc').innerText = interpretations[result];
+
+    document.getElementById('hc-personal-year-result').classList.add('visible');
 }

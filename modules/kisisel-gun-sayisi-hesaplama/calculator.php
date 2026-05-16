@@ -15,19 +15,20 @@ function hc_render_kisisel_gun_sayisi_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-personal-day">
         <h3>Kişisel Gün Sayısı Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-pd-birth">Doğum Tarihiniz:</label>
-            <input type="date" id="hc-pd-birth" class="hc-input">
+        <div class="hc-form-row" style="display:flex; gap:10px; margin-bottom:15px;">
+            <div class="hc-form-group" style="flex:1;">
+                <label for="hc-pd-birth">Doğum Tarihi:</label>
+                <input type="date" id="hc-pd-birth" class="hc-input" value="1990-01-01">
+            </div>
+            <div class="hc-form-group" style="flex:1;">
+                <label for="hc-pd-target">Hesaplanacak Gün:</label>
+                <input type="date" id="hc-pd-target" class="hc-input" value="<?php echo date('Y-m-d'); ?>">
+            </div>
         </div>
-        <div class="hc-form-group">
-            <label for="hc-pd-target">Hesaplanacak Gün:</label>
-            <input type="date" id="hc-pd-target" class="hc-input" value="2026-01-01">
-        </div>
-        <button class="hc-btn" onclick="hcKisiselGunHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-kisisel-gun-sayisi-hesaplama-result">
-            <div class="hc-result-label">Kişisel Gün Sayınız:</div>
-            <div class="hc-result-value" id="hc-res-pd-val">-</div>
-            <div id="hc-res-pd-desc" class="hc-res-desc"></div>
+        <button class="hc-btn" onclick="hcKisiselGunHesapla()">Kişisel Günü Hesapla</button>
+        <div class="hc-result" id="hc-personal-day-result">
+            <div class="hc-pd-val" id="hc-pd-val">-</div>
+            <div id="hc-pd-desc" class="hc-pd-desc"></div>
         </div>
     </div>
     <?php

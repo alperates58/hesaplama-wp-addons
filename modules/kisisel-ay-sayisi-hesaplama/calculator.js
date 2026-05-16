@@ -1,49 +1,49 @@
 function hcKisiselAyHesapla() {
     const birthStr = document.getElementById('hc-pm-birth').value;
-    const targetMonth = parseInt(document.getElementById('hc-pm-month').value);
-    const targetYear = parseInt(document.getElementById('hc-pm-year').value);
-
-    if (!birthStr || isNaN(targetMonth) || isNaN(targetYear)) {
-        alert('Lütfen tüm alanları doldurun.');
-        return;
-    }
+    const targetStr = document.getElementById('hc-pm-target').value;
+    if (!birthStr || !targetStr) { alert('Lütfen tüm alanları doldurun.'); return; }
 
     const birthDate = new Date(birthStr);
-    const day = birthDate.getDate();
-    const month = birthDate.getMonth() + 1;
-
-    function sumDigits(num) {
-        let sum = 0;
-        while (num > 0 || sum > 9) {
-            if (num === 0) {
-                num = sum;
-                sum = 0;
-            }
-            sum += num % 10;
-            num = Math.floor(num / 10);
+    const targetDate = new Date(targetStr + "-01");
+    
+    function reduce(num) {
+        let s = num.toString();
+        while (s.length > 1) {
+            let sum = 0;
+            for (let char of s) sum += parseInt(char);
+            s = sum.toString();
         }
-        return sum;
+        return parseInt(s);
     }
 
-    // Kişisel Yıl = Doğum Günü + Doğum Ayı + Hesaplanan Yıl
-    const py = sumDigits(sumDigits(day) + sumDigits(month) + sumDigits(targetYear));
+    const bDay = birthDate.getDate();
+    const bMonth = birthDate.getMonth() + 1;
+    const tYear = targetDate.getFullYear();
+    const tMonth = targetDate.getMonth() + 1;
     
-    // Kişisel Ay = Kişisel Yıl + Hesaplanan Ay
-    let personalMonth = sumDigits(py + sumDigits(targetMonth));
+    // Personal Year first
+    let pySum = bDay + bMonth;
+    let yearS = tYear.toString();
+    for (let char of yearS) pySum += parseInt(char);
+    const py = reduce(pySum);
+    
+    // Personal Month = Personal Year + Target Month
+    const result = reduce(py + tMonth);
 
-    const descriptions = {
-        1: "Eyleme geçme, yeni fikirler ve cesaret ayı.",
-        2: "Denge arayışı, duygusallık ve diplomasi ayı.",
-        3: "Yaratıcılık, iletişim ve sosyal etkileşim ayı.",
-        4: "Pratik işler, düzenleme ve sıkı çalışma ayı.",
-        5: "Hareket, seyahat ve beklenmedik değişimler ayı.",
-        6: "Sevgi, aile sorumlulukları ve şifa ayı.",
-        7: "Derin düşünce, yalnızlık ve analiz ayı.",
-        8: "Organizasyon, verimlilik ve finansal odak ayı.",
-        9: "Bitirme, bağışlama ve insani duygular ayı."
+    const interpretations = {
+        1: "Harekete geçme ve liderlik ayı. Yeni fikirleri hayata geçirmek için harika.",
+        2: "Bekleme ve gözlem ayı. Detaylara dikkat etmek ve sabırlı olmak kazandırır.",
+        3: "Sosyal genişleme ve yaratıcılık ayı. Kendinizi ifade etmekten çekinmeyin.",
+        4: "Pratik işler ve organizasyon ayı. Yarım kalmış işleri bitirmek için ideal.",
+        5: "Hareketlilik ve sürprizler ayı. Rutinin dışına çıkmak iyi gelebilir.",
+        6: "Huzur ve sorumluluk ayı. Sevdiklerinizle vakit geçirmek önceliğiniz olmalı.",
+        7: "Düşünme ve analiz ayı. Kalabalıklardan uzaklaşıp kendinizi dinleyin.",
+        8: "Verim ve güç ayı. Maddi konularda kararlı adımlar atma zamanı.",
+        9: "Bitiş ve arınma ayı. Size yük olan her şeyi serbest bırakın."
     };
 
-    document.getElementById('hc-res-pm-val').innerText = personalMonth;
-    document.getElementById('hc-res-pm-desc').innerText = descriptions[personalMonth] || "";
-    document.getElementById('hc-kisisel-ay-sayisi-hesaplama-result').classList.add('visible');
+    document.getElementById('hc-pm-val').innerText = result;
+    document.getElementById('hc-pm-desc').innerText = interpretations[result];
+
+    document.getElementById('hc-personal-month-result').classList.add('visible');
 }

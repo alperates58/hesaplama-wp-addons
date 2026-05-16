@@ -17,13 +17,12 @@ function hc_render_dogum_gunu_sayisi_hesaplama( $atts ) {
         <h3>Doğum Günü Sayısı Hesaplama</h3>
         <div class="hc-form-group">
             <label for="hc-bn-date">Doğum Tarihiniz:</label>
-            <input type="date" id="hc-bn-date" class="hc-input">
+            <input type="date" id="hc-bn-date" class="hc-input" value="1990-01-01">
         </div>
-        <button class="hc-btn" onclick="hcBirthdayNumberHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-dogum-gunu-sayisi-hesaplama-result">
-            <div class="hc-result-label">Doğum Günü Sayınız:</div>
-            <div class="hc-result-value" id="hc-res-bn-val">-</div>
-            <div id="hc-res-bn-desc" class="hc-res-desc"></div>
+        <button class="hc-btn" onclick="hcDogumGunuSayisiHesapla()">Sayımı Hesapla</button>
+        <div class="hc-result" id="hc-birthday-number-result">
+            <div class="hc-bn-val" id="hc-bn-val">-</div>
+            <div id="hc-bn-desc" class="hc-bn-desc"></div>
         </div>
     </div>
     <?php

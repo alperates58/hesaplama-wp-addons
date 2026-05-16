@@ -1,0 +1,29 @@
+.hc-asc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+}
+.hc-asc-day {
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.hc-asc-day-num {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 5px;
+}
+.hc-asc-sign {
+    font-weight: 700;
+    color: #334155;
+    font-size: 0.9rem;
+}
+@media (max-width: 480px) {
+    .hc-asc-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

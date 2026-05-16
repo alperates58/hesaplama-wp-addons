@@ -1,0 +1,5 @@
+{
+  "name": "Ay Burcu Takvimi Hesaplama",
+  "desc": "Belirli bir ay için Ay'ın her gün hangi burçta olduğunu gösteren bir takvim oluşturur.",
+  "shortcode": "[hc_ay_burcu_takvimi_hesaplama]"
+}

@@ -1,0 +1,22 @@
+.hc-mc-progress-container {
+    background: #e2e8f0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+.hc-mc-progress-bar {
+    background: linear-gradient(90deg, #34495e, #3498db);
+    height: 100%;
+    transition: width 0.5s ease;
+}
+.hc-mc-stats {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+.hc-mc-stats p {
+    margin: 5px 0;
+    color: #2d3748;
+}

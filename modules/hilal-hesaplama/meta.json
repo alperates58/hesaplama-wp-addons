@@ -1,0 +1,5 @@
+{
+  "name": "Hilal Hesaplama",
+  "desc": "Yeni Ay sonrası ilk Hilal'in ne zaman görülebileceğini ve görünürlük şartlarını hesaplar.",
+  "shortcode": "[hc_hilal_hesaplama]"
+}

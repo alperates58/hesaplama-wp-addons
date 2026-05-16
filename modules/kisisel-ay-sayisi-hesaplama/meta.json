@@ -1,5 +1,5 @@
 {
   "name": "Kişisel Ay Sayısı Hesaplama",
-  "desc": "Bulunduğunuz ayın enerjisini ve kişisel ay sayınızı numerolojik olarak hesaplar.",
+  "desc": "Kişisel yıl sayınız ve içinde bulunduğunuz aya göre o ayın size getireceği fırsatları hesaplar.",
   "shortcode": "[hc_kisisel_ay_sayisi_hesaplama]"
 }

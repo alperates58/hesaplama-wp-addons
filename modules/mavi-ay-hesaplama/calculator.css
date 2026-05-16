@@ -1,0 +1,28 @@
+.hc-bm-status {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.hc-bm-status.blue {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+}
+.hc-bm-status.normal {
+    background: #f1f5f9;
+    color: #475569;
+}
+.hc-bm-info {
+    line-height: 1.6;
+    color: #334155;
+    padding: 10px;
+}
+.hc-note {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-style: italic;
+    margin-top: 15px !important;
+}

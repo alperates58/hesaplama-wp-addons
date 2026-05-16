@@ -15,19 +15,20 @@ function hc_render_kisisel_yil_sayisi_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-personal-year">
         <h3>Kişisel Yıl Sayısı Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-py-birth">Doğum Tarihiniz:</label>
-            <input type="date" id="hc-py-birth" class="hc-input">
+        <div class="hc-form-row" style="display:flex; gap:10px; margin-bottom:15px;">
+            <div class="hc-form-group" style="flex:1;">
+                <label for="hc-py-birth">Doğum Tarihi:</label>
+                <input type="date" id="hc-py-birth" class="hc-input" value="1990-01-01">
+            </div>
+            <div class="hc-form-group" style="flex:1;">
+                <label for="hc-py-year">Hesaplanacak Yıl:</label>
+                <input type="number" id="hc-py-year" class="hc-input" value="<?php echo date('Y'); ?>">
+            </div>
         </div>
-        <div class="hc-form-group">
-            <label for="hc-py-target">Hesaplanacak Yıl:</label>
-            <input type="number" id="hc-py-target" class="hc-input" value="2026">
-        </div>
-        <button class="hc-btn" onclick="hcKisiselYilHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-kisisel-yil-sayisi-hesaplama-result">
-            <div class="hc-result-label">Kişisel Yıl Sayınız (2026):</div>
-            <div class="hc-result-value" id="hc-res-py-val">-</div>
-            <div id="hc-res-py-desc" class="hc-res-desc"></div>
+        <button class="hc-btn" onclick="hcKisiselYilHesapla()">Kişisel Yılı Hesapla</button>
+        <div class="hc-result" id="hc-personal-year-result">
+            <div class="hc-py-val" id="hc-py-val">-</div>
+            <div id="hc-py-desc" class="hc-py-desc"></div>
         </div>
     </div>
     <?php

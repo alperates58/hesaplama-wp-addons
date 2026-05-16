@@ -1,5 +1,5 @@
 {
   "name": "Kişisel Gün Sayısı Hesaplama",
-  "desc": "Belirli bir günün numerolojik enerjisini ve kişisel gün sayınızı hesaplar.",
+  "desc": "Kişisel ay sayınız ve seçilen güne göre o günün size hangi enerjileri sunacağını hesaplar.",
   "shortcode": "[hc_kisisel_gun_sayisi_hesaplama]"
 }

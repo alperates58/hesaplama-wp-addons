@@ -16,18 +16,17 @@ function hc_render_olgunluk_sayisi_hesaplama( $atts ) {
     <div class="hc-calculator" id="hc-maturity-number">
         <h3>Olgunluk Sayısı Hesaplama</h3>
         <div class="hc-form-group">
-            <label for="hc-mn-name">Tam Adınız (Kimlikteki gibi):</label>
-            <input type="text" id="hc-mn-name" class="hc-input" placeholder="Örn: Ahmet Yılmaz">
+            <label for="hc-mn-name">Tam Adınız (Kimlikteki):</label>
+            <input type="text" id="hc-mn-name" class="hc-input" placeholder="Ad Soyad">
         </div>
         <div class="hc-form-group">
-            <label for="hc-mn-birth">Doğum Tarihiniz:</label>
-            <input type="date" id="hc-mn-birth" class="hc-input">
+            <label for="hc-mn-date">Doğum Tarihiniz:</label>
+            <input type="date" id="hc-mn-date" class="hc-input" value="1990-01-01">
         </div>
-        <button class="hc-btn" onclick="hcMaturityNumberHesapla()">Hesapla</button>
-        <div class="hc-result" id="hc-olgunluk-sayisi-hesaplama-result">
-            <div class="hc-result-label">Olgunluk Sayınız:</div>
-            <div class="hc-result-value" id="hc-res-mn-val">-</div>
-            <div id="hc-res-mn-desc" class="hc-res-desc"></div>
+        <button class="hc-btn" onclick="hcOlgunlukSayisiHesapla()">Olgunluk Sayısını Hesapla</button>
+        <div class="hc-result" id="hc-maturity-number-result">
+            <div class="hc-mn-val" id="hc-mn-val">-</div>
+            <div id="hc-mn-desc" class="hc-mn-desc"></div>
         </div>
     </div>
     <?php

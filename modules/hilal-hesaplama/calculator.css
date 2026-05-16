@@ -1,0 +1,22 @@
+.hc-hil-status {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #bdc3c7;
+}
+.hc-hil-info {
+    line-height: 1.6;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+.hc-hil-info p { margin: 10px 0; }
+.hc-note {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 15px !important;
+}

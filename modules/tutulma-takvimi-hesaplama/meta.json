@@ -1,0 +1,5 @@
+{
+  "name": "Tutulma Takvimi Hesaplama",
+  "desc": "Önümüzdeki iki yıl içinde gerçekleşecek tüm Güneş ve Ay tutulmalarını tarihleriyle birlikte listeler.",
+  "shortcode": "[hc_tutulma_takvimi_hesaplama]"
+}

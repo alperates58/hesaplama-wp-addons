@@ -1,0 +1,5 @@
+{
+  "name": "Ay Düğümü Hesaplama",
+  "desc": "Doğum anınızdaki veya seçilen tarihteki Kuzey ve Güney Ay Düğümü (Rahu ve Ketu) konumlarını hesaplar.",
+  "shortcode": "[hc_ay_dugumu_hesaplama]"
+}

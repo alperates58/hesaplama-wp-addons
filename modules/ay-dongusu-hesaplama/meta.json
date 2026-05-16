@@ -1,0 +1,5 @@
+{
+  "name": "Ay Döngüsü Hesaplama",
+  "desc": "Mevcut ay döngüsünün hangi aşamasında olduğunuzu, bir sonraki evreye kaç gün kaldığını hesaplar.",
+  "shortcode": "[hc_ay_dongusu_hesaplama]"
+}

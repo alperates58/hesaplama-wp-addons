@@ -1,5 +1,5 @@
 {
   "name": "Doğum Günü Sayısı Hesaplama",
-  "desc": "Doğduğunuz günün numerolojik anlamını ve karakterinize etkisini hesaplar.",
+  "desc": "Sadece doğduğunuz günün sayısına göre karakterinizin temel özelliklerini ve yeteneklerinizi analiz eder.",
   "shortcode": "[hc_dogum_gunu_sayisi_hesaplama]"
 }
