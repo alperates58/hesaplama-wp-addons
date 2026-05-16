@@ -1,0 +1,17 @@
+.hc-calculator#hc-cin-burcu-yili .hc-result-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--hc-primary, #d32f2f);
+}
+
+.hc-calculator#hc-cin-burcu-yili .hc-result-content p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+    .hc-calculator#hc-cin-burcu-yili h3 {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Çakra Denge Puanı Hesaplama",
+  "desc": "Yedi ana çakranızın enerji durumunu analiz edin ve hangi çakranızın dengeye ihtiyacı olduğunu öğrenin.",
+  "shortcode": "[hc_cakra_denge_puani_hesaplama]"
+}

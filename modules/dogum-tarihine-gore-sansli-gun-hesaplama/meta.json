@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Tarihine Göre Şanslı Gün Hesaplama",
+  "desc": "Doğduğunuz günün gezegensel etkilerine dayanarak haftanın hangi gününün size en çok şans getirdiğini öğrenin.",
+  "shortcode": "[hc_dogum_tarihine_gore_sansli_gun_hesaplama]"
+}
