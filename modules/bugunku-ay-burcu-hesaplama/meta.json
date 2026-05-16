@@ -1,0 +1,5 @@
+{
+  "name": "Bugünkü Ay Burcu Hesaplama",
+  "desc": "Şu an veya seçilen bir tarihte Ay'ın hangi burçta olduğunu ve günün enerjisini hesaplar.",
+  "shortcode": "[hc_bugunku_ay_burcu_hesaplama]"
+}

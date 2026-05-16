@@ -1,0 +1,5 @@
+{
+  "name": "Kişilik Sayısı Hesaplama",
+  "desc": "Tam adınızdaki sessiz harflerden elde edilen, dış dünyaya yansıttığınız imajı ve ilk izlenimi gösteren sayıyı hesaplar.",
+  "shortcode": "[hc_kisilik_sayisi_hesaplama]"
+}

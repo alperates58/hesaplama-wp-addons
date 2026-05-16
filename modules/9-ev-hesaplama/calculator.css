@@ -1,0 +1,14 @@
+#hc-house-9 .hc-result-value {
+    font-size: 3rem;
+    color: #2980b9;
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    background: #f0f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #2980b9;
+}

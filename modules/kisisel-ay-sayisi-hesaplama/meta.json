@@ -1,0 +1,5 @@
+{
+  "name": "Kişisel Ay Sayısı Hesaplama",
+  "desc": "Bulunduğunuz ayın enerjisini ve kişisel ay sayınızı numerolojik olarak hesaplar.",
+  "shortcode": "[hc_kisisel_ay_sayisi_hesaplama]"
+}

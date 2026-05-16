@@ -1,0 +1,13 @@
+#hc-karmic-debt .hc-result-value {
+    font-size: 2.8rem;
+    color: #e74c3c;
+}
+#hc-karmic-debt ul {
+    text-align: left;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+#hc-karmic-debt li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}

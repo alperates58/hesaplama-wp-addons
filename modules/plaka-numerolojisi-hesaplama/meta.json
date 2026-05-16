@@ -1,0 +1,5 @@
+{
+  "name": "Plaka Numerolojisi Hesaplama",
+  "desc": "Aracınızın plakasındaki harf ve rakamların numerolojik değerini ve aracınızın enerjisini hesaplar.",
+  "shortcode": "[hc_plaka_numerolojisi_hesaplama]"
+}

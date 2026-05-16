@@ -1,0 +1,15 @@
+#hc-ay-pos .hc-result-value {
+    font-size: 2.5rem;
+    color: #bdc3c7;
+    text-shadow: 0 0 10px rgba(189, 195, 199, 0.3);
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    background: #f4f6f7;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #bdc3c7;
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Karmik Borç Sayısı Hesaplama",
+  "desc": "Doğum tarihiniz ve adınızdaki numerolojik verilere dayanarak, bu hayata taşıdığınız karmik borç sayılarını (13, 14, 16, 19) tespit eder.",
+  "shortcode": "[hc_karmik_borc_sayisi_hesaplama]"
+}

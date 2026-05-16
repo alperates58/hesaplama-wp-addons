@@ -1,0 +1,5 @@
+{
+  "name": "Plüton Retrosu Hesaplama",
+  "desc": "Belirli bir tarihte Plüton'un retro olup olmadığını ve Plüton retrosunun etkilerini hesaplar.",
+  "shortcode": "[hc_pluton_retrosu_hesaplama]"
+}

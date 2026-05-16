@@ -1,0 +1,5 @@
+{
+  "name": "Ay Evreleri Hesaplama",
+  "desc": "Belirli bir ay içindeki tüm ana Ay evrelerinin (Yeni Ay, İlk Dördün, Dolunay, Son Dördün) tarihlerini hesaplar.",
+  "shortcode": "[hc_ay_evreleri_hesaplama]"
+}

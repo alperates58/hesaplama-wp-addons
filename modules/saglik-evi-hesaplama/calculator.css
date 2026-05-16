@@ -1,0 +1,14 @@
+#hc-saglik-evi .hc-result-value {
+    font-size: 3rem;
+    color: #16a085;
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    background: #e8f6f3;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #16a085;
+}

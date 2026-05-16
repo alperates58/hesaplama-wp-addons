@@ -1,0 +1,5 @@
+{
+  "name": "Jüpiter Retrosu Hesaplama",
+  "desc": "Belirli bir tarihte Jüpiter'in retro olup olmadığını ve Jüpiter retrosunun etkilerini hesaplar.",
+  "shortcode": "[hc_jupiter_retrosu_hesaplama]"
+}

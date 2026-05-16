@@ -1,0 +1,5 @@
+{
+  "name": "Plüton Konumu Hesaplama",
+  "desc": "Doğum anınızdaki Plüton'un burcunu ve derecesini (Dönüşüm, Güç ve Rejenerasyon Burcunuz) hesaplar.",
+  "shortcode": "[hc_pluton_konumu_hesaplama]"
+}

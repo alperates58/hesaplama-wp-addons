@@ -1,0 +1,5 @@
+{
+  "name": "Mars Konumu Hesaplama",
+  "desc": "Doğum anınızdaki Mars'ın burcunu ve derecesini (Enerji, Mücadele ve Arzu Burcunuz) hesaplar.",
+  "shortcode": "[hc_mars_konumu_hesaplama]"
+}

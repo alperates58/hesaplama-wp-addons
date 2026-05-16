@@ -1,0 +1,5 @@
+{
+  "name": "Retro Gezegen Hesaplama",
+  "desc": "Şu an veya seçilen tarihte hangi gezegenlerin retro (gerileme) hareketinde olduğunu hesaplar.",
+  "shortcode": "[hc_retro_gezegen_hesaplama]"
+}

@@ -1,0 +1,14 @@
+#hc-aile-evi .hc-result-value {
+    font-size: 3rem;
+    color: #3498db;
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    background: #ebf5fb;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}

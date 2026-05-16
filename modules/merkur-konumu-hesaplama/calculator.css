@@ -1,0 +1,14 @@
+#hc-merkur-pos .hc-result-value {
+    font-size: 2.5rem;
+    color: #e67e22;
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    background: #fdf5e6;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #e67e22;
+}

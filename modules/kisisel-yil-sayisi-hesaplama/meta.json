@@ -1,0 +1,5 @@
+{
+  "name": "Kişisel Yıl Sayısı Hesaplama",
+  "desc": "Doğum tarihiniz ve mevcut yıla göre 2026 yılındaki kişisel yıl sayınızı ve enerjinizi hesaplar.",
+  "shortcode": "[hc_kisisel_yil_sayisi_hesaplama]"
+}

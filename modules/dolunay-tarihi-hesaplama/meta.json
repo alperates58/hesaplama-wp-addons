@@ -1,0 +1,5 @@
+{
+  "name": "Dolunay Tarihi Hesaplama",
+  "desc": "Seçilen tarihten sonraki ilk Dolunay'ın ne zaman gerçekleşeceğini hesaplar.",
+  "shortcode": "[hc_dolunay_tarihi_hesaplama]"
+}

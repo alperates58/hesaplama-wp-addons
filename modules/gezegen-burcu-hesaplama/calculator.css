@@ -1,0 +1,31 @@
+.hc-ps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.hc-ps-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #eee;
+}
+.hc-ps-name {
+    display: block;
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.hc-ps-sign {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+@media (max-width: 480px) {
+    .hc-ps-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

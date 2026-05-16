@@ -1,0 +1,5 @@
+{
+  "name": "Mars Retrosu Hesaplama",
+  "desc": "Belirli bir tarihte Mars'ın retro olup olmadığını ve Mars retrosunun etkilerini hesaplar.",
+  "shortcode": "[hc_mars_retrosu_hesaplama]"
+}

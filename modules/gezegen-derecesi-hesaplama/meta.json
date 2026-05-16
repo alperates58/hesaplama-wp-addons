@@ -1,0 +1,5 @@
+{
+  "name": "Gezegen Derecesi Hesaplama",
+  "desc": "Tüm ana gezegenlerin (Güneş'ten Plüton'a) burçlar içindeki tam derecelerini hesaplar.",
+  "shortcode": "[hc_gezegen_derecesi_hesaplama]"
+}

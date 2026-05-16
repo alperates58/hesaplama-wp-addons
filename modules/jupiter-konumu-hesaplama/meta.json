@@ -1,0 +1,5 @@
+{
+  "name": "Jüpiter Konumu Hesaplama",
+  "desc": "Doğum anınızdaki Jüpiter'ün burcunu ve derecesini (Şans, Bolluk ve Bilgelik Burcunuz) hesaplar.",
+  "shortcode": "[hc_jupiter_konumu_hesaplama]"
+}

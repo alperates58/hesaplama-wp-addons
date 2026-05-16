@@ -1,0 +1,5 @@
+{
+  "name": "Ay Konumu Hesaplama",
+  "desc": "Doğum anınızdaki Ay'ın burcunu ve derecesini (Duygusal Burcunuz) hesaplar.",
+  "shortcode": "[hc_ay_konumu_hesaplama]"
+}

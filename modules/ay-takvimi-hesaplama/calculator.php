@@ -3,25 +3,40 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_ay_takvimi_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-moon-cal',
+        'hc-ay-takvimi-hesaplama',
         HC_PLUGIN_URL . 'modules/ay-takvimi-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-moon-cal-css',
+        'hc-ay-takvimi-hesaplama-css',
         HC_PLUGIN_URL . 'modules/ay-takvimi-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-ay-takvimi-hesaplama">
-        <h3 id="hc-cal-title">Ay Takvimi</h3>
-        <div id="hc-cal-container"></div>
-        <div class="hc-result" id="hc-cal-result">
-            <div class="hc-cal-legend">
-                <span>🌑 Yeni Ay</span>
-                <span>🌓 İlk Dördün</span>
-                <span>🌕 Dolunay</span>
-                <span>🌗 Son Dördün</span>
+    <div class="hc-calculator" id="hc-moon-calendar">
+        <h3>Ay Takvimi Hesaplama</h3>
+        <div class="hc-form-row" style="display:flex; gap:10px; margin-bottom:15px;">
+            <div class="hc-form-group" style="flex:1;">
+                <label for="hc-ac-month">Ay:</label>
+                <select id="hc-ac-month" class="hc-input">
+                    <?php
+                    $months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+                    foreach($months as $k => $m) {
+                        $sel = (date('n') == $k+1) ? 'selected' : '';
+                        echo "<option value='".($k+1)."' $sel>$m</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="hc-form-group" style="flex:1;">
+                <label for="hc-ac-year">Yıl:</label>
+                <input type="number" id="hc-ac-year" class="hc-input" value="<?php echo date('Y'); ?>">
+            </div>
+        </div>
+        <button class="hc-btn" onclick="hcAyTakvimiHesapla()">Takvimi Göster</button>
+        <div class="hc-result" id="hc-moon-calendar-result">
+            <div id="hc-ac-grid" class="hc-ac-grid">
+                <!-- Takvim buraya -->
             </div>
         </div>
     </div>

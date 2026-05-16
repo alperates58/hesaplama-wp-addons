@@ -1,0 +1,29 @@
+.hc-rp-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.hc-rp-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+.hc-rp-item.retro {
+    background: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #feb2b2;
+}
+.hc-rp-item.direct {
+    background: #f0fff4;
+    color: #38a169;
+    border: 1px solid #9ae6b4;
+}
+.hc-rp-note {
+    font-size: 0.8rem;
+    color: #718096;
+    font-style: italic;
+    text-align: center;
+}

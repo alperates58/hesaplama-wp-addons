@@ -1,5 +1,5 @@
 {
   "name": "Ay Takvimi Hesaplama",
-  "desc": "Bulunduğunuz ayın Ay evrelerini gün gün takip edin ve enerjinizi Ay'ın döngüsüne göre planlayın.",
+  "desc": "Belirli bir ay için Ay'ın günlük evrelerini ve görünümünü gösteren bir takvim oluşturur.",
   "shortcode": "[hc_ay_takvimi_hesaplama]"
 }

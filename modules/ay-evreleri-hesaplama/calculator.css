@@ -1,0 +1,27 @@
+.hc-ap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hc-ap-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+.hc-ap-date {
+    font-weight: 600;
+    color: #34495e;
+}
+.hc-ap-type {
+    font-weight: 700;
+    color: #2980b9;
+    background: #ebf5fb;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}

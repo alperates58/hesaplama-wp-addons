@@ -1,0 +1,5 @@
+{
+  "name": "Doğum Günündeki Ay Evresi Hesaplama",
+  "desc": "Doğduğunuz gün Ay'ın hangi evrede (Yeni Ay, Dolunay vb.) olduğunu ve bunun karakterinize etkisini hesaplar.",
+  "shortcode": "[hc_dogum_gunundeki_ay_evresi_hesaplama]"
+}

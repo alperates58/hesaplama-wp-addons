@@ -1,0 +1,5 @@
+{
+  "name": "Ruhsal Yol Sayısı Hesaplama",
+  "desc": "Doğum tarihinizden elde edilen, bu hayattaki ana rotanızı ve ruhsal yolculuğunuzu gösteren sayıyı hesaplar.",
+  "shortcode": "[hc_ruhsal_yol_sayisi_hesaplama]"
+}

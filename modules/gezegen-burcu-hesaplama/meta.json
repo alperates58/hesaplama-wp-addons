@@ -1,0 +1,5 @@
+{
+  "name": "Gezegen Burcu Hesaplama",
+  "desc": "Tüm ana gezegenlerin (Güneş'ten Plüton'a) hangi burçlarda olduğunu tek seferde hesaplar.",
+  "shortcode": "[hc_gezegen_burcu_hesaplama]"
+}

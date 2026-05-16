@@ -1,0 +1,11 @@
+#hc-personal-year .hc-result-value {
+    font-size: 3.5rem;
+    color: #8e44ad;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    line-height: 1.5;
+}

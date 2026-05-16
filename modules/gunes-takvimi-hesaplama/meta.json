@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Takvimi Hesaplama",
+  "desc": "Belirli bir şehir ve ay için günlük doğuş ve batış saatlerini gösteren bir güneş takvimi oluşturur.",
+  "shortcode": "[hc_gunes_takvimi_hesaplama]"
+}

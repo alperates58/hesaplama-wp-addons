@@ -1,0 +1,5 @@
+{
+  "name": "Merkür Konumu Hesaplama",
+  "desc": "Doğum anınızdaki Merkür'ün burcunu ve derecesini (Zihinsel ve İletişim Burcunuz) hesaplar.",
+  "shortcode": "[hc_merkur_konumu_hesaplama]"
+}

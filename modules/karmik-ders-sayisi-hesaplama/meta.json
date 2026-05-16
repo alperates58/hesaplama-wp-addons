@@ -1,0 +1,5 @@
+{
+  "name": "Karmik Ders Sayısı Hesaplama",
+  "desc": "Tam adınızda bulunmayan numerolojik değerleri tespit ederek, bu hayatta öğrenmeniz gereken temel dersleri ve eksik yönleri hesaplar.",
+  "shortcode": "[hc_karmik_ders_sayisi_hesaplama]"
+}

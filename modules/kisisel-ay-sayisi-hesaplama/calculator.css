@@ -1,0 +1,17 @@
+#hc-personal-month .hc-result-value {
+    font-size: 3.5rem;
+    color: #2980b9;
+}
+.hc-form-row {
+    display: flex;
+    gap: 15px;
+}
+.hc-form-row .hc-form-group {
+    flex: 1;
+}
+@media (max-width: 480px) {
+    .hc-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

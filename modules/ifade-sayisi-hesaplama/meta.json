@@ -1,0 +1,5 @@
+{
+  "name": "İfade Sayısı Hesaplama",
+  "desc": "Tam adınızdaki harflerin numerolojik değerinden elde edilen, yeteneklerinizi ve hayattaki amacınızı gösteren sayıyı hesaplar.",
+  "shortcode": "[hc_ifade_sayisi_hesaplama]"
+}

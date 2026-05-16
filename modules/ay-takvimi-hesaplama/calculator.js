@@ -1,45 +1,34 @@
 function hcAyTakvimiHesapla() {
-    const now = new Date();
-    const month = now.getMonth();
-    const year = now.getFullYear();
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
+    const month = parseInt(document.getElementById('hc-ac-month').value);
+    const year = parseInt(document.getElementById('hc-ac-year').value);
+
+    function getIllumination(d) {
+        function getJD(date) { return (date.getTime() / 86400000) - (date.getTimezoneOffset() / 1440) + 2440587.5; }
+        const n = getJD(d) - 2451545.0;
+        let Ls = (280.460 + 0.9856474 * n) % 360;
+        let gs = (357.528 + 0.9856003 * n) % 360;
+        let sunL = (Ls + 1.915 * Math.sin(gs * Math.PI / 180) + 360) % 360;
+        let Lm = (218.316 + 13.176396 * n) % 360;
+        let Mm = (134.963 + 13.064993 * n) % 360;
+        let moonL = (Lm + 6.289 * Math.sin(Mm * Math.PI / 180) + 360) % 360;
+        let elongation = (moonL - sunL + 360) % 360;
+        return 50 * (1 - Math.cos(elongation * Math.PI / 180));
+    }
+
+    let daysInMonth = new Date(year, month, 0).getDate();
+    let html = "";
     
-    const lp = 2551443;
-    const new_moon_ref = 592500;
-
-    const monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
-    document.getElementById('hc-cal-title').innerText = monthNames[month] + " " + year + " Ay Takvimi";
-
-    let html = "<div class='hc-cal-grid'>";
-    for (let d = 1; d <= lastDay.getDate(); d++) {
-        const date = new Date(year, month, d);
-        const ts = Math.floor(date.getTime() / 1000);
-        let phase = ((ts - new_moon_ref) % lp) / lp;
-        if (phase < 0) phase += 1;
-
-        let icon = "";
-        if (phase < 0.03 || phase > 0.97) icon = "🌑";
-        else if (phase < 0.22) icon = "🌒";
-        else if (phase < 0.28) icon = "🌓";
-        else if (phase < 0.47) icon = "🌔";
-        else if (phase < 0.53) icon = "🌕";
-        else if (phase < 0.72) icon = "🌖";
-        else if (phase < 0.78) icon = "🌗";
-        else icon = "🌘";
-
-        html += `<div class='hc-cal-day'>
-            <span class='hc-cal-num'>${d}</span>
-            <span class='hc-cal-icon'>${icon}</span>
+    for (let d = 1; d <= daysInMonth; d++) {
+        let date = new Date(year, month - 1, d, 12, 0, 0);
+        let illum = getIllumination(date).toFixed(0);
+        
+        html += `<div class="hc-ac-day">
+            <span class="hc-ac-day-num">${d}</span>
+            <div class="hc-ac-moon-icon" style="opacity: ${Math.max(0.2, illum/100)}">🌑</div>
+            <span class="hc-ac-illum">%${illum}</span>
         </div>`;
     }
-    html += "</div>";
 
-    document.getElementById('hc-cal-container').innerHTML = html;
-    document.getElementById('hc-cal-result').classList.add('visible');
+    document.getElementById('hc-ac-grid').innerHTML = html;
+    document.getElementById('hc-moon-calendar-result').classList.add('visible');
 }
-
-// Auto run on load if visible
-document.addEventListener('DOMContentLoaded', () => {
-    if(document.getElementById('hc-cal-container')) hcAyTakvimiHesapla();
-});

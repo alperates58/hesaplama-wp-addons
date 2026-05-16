@@ -1,0 +1,14 @@
+#hc-arkadaslik-evi .hc-result-value {
+    font-size: 3rem;
+    color: #f39c12;
+}
+.hc-res-desc {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    background: #fef5e7;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #f39c12;
+}

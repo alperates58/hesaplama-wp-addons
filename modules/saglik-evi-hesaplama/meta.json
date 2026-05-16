@@ -1,0 +1,5 @@
+{
+  "name": "Sağlık Evi Hesaplama",
+  "desc": "Doğum haritanızdaki 6. evi (Sağlık ve Rutinler Evi) analiz ederek genel sağlık eğilimlerinizi keşfeder.",
+  "shortcode": "[hc_saglik_evi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Venüs Retrosu Hesaplama",
+  "desc": "Belirli bir tarihte Venüs'ün retro olup olmadığını ve Venüs retrosunun etkilerini hesaplar.",
+  "shortcode": "[hc_venus_retrosu_hesaplama]"
+}

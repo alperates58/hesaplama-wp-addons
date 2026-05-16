@@ -1,0 +1,5 @@
+{
+  "name": "Telefon Numarası Numerolojisi Hesaplama",
+  "desc": "Telefon numaranızın numerolojik değerini ve bu numaranın iletişim tarzınıza etkisini hesaplar.",
+  "shortcode": "[hc_telefon_numarasi_numerolojisi_hesaplama]"
+}

@@ -1,5 +1,5 @@
 {
   "name": "Güneş Tutulması Hesaplama",
-  "desc": "2026 yılındaki güneş tutulmalarını, tarihlerini ve görünürlük bölgelerini inceleyin.",
+  "desc": "Seçilen tarihten sonraki ilk Güneş Tutulması'nın ne zaman gerçekleşeceğini hesaplar.",
   "shortcode": "[hc_gunes_tutulmasi_hesaplama]"
 }

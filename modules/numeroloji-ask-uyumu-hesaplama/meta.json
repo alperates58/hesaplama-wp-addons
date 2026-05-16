@@ -1,0 +1,5 @@
+{
+  "name": "Numeroloji Aşk Uyumu Hesaplama",
+  "desc": "İki kişinin doğum tarihlerine göre yaşam yolu sayılarını hesaplar ve aralarındaki numerolojik uyumu analiz eder.",
+  "shortcode": "[hc_numeroloji_ask_uyumu_hesaplama]"
+}

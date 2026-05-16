@@ -1,5 +1,5 @@
 {
   "name": "Ay Tutulması Hesaplama",
-  "desc": "2026 yılındaki ay tutulmalarını, tarihlerini ve hangi bölgelerden görülebileceğini hesaplayın.",
+  "desc": "Seçilen tarihten sonraki ilk Ay Tutulması'nın ne zaman gerçekleşeceğini hesaplar.",
   "shortcode": "[hc_ay_tutulmasi_hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Konumu Hesaplama",
+  "desc": "Doğum anınızdaki Güneş'in burcunu ve derecesini (Öz Burcunuz) hesaplar.",
+  "shortcode": "[hc_gunes_konumu_hesaplama]"
+}
