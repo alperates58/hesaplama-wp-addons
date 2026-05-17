@@ -1853,6 +1853,330 @@ class HC_Module_Inventory {
     }
 }
 
+class HC_Module_Analysis {
+
+    const CACHE_TRANSIENT = 'hc_module_analysis_rows_v1';
+    private static $rows_cache = null;
+
+    public static function get_module_rows() {
+        if ( null !== self::$rows_cache ) {
+            return self::$rows_cache;
+        }
+
+        $signature = self::get_signature();
+        $cached    = get_transient( self::CACHE_TRANSIENT );
+
+        if ( is_array( $cached ) && ( $cached['signature'] ?? '' ) === $signature && ! empty( $cached['rows'] ) ) {
+            self::$rows_cache = $cached['rows'];
+            return self::$rows_cache;
+        }
+
+        $rows = [];
+        foreach ( HC_Module_Inventory::get_modules() as $module ) {
+            $category = trim( (string) ( $module['category'] ?? '' ) );
+
+            if ( '' === $category ) {
+                $category = self::infer_category( $module['slug'] ?? '', $module['name'] ?? '' );
+            }
+
+            $rows[] = [
+                'slug'      => (string) ( $module['slug'] ?? '' ),
+                'name'      => (string) ( $module['name'] ?? '' ),
+                'shortcode' => (string) ( $module['shortcode'] ?? '' ),
+                'desc'      => (string) ( $module['desc'] ?? '' ),
+                'category'  => $category ?: 'Genel',
+                'inputs'    => self::extract_fields_from_php( HC_PLUGIN_DIR . 'modules/' . ( $module['slug'] ?? '' ) . '/calculator.php' ),
+            ];
+        }
+
+        usort(
+            $rows,
+            static function ( $a, $b ) {
+                return strnatcasecmp( $a['name'], $b['name'] );
+            }
+        );
+
+        self::$rows_cache = $rows;
+        set_transient(
+            self::CACHE_TRANSIENT,
+            [
+                'signature' => $signature,
+                'rows'      => $rows,
+            ],
+            HOUR_IN_SECONDS
+        );
+
+        return self::$rows_cache;
+    }
+
+    public static function get_analysis_categories( $rows ) {
+        $categories = array_values(
+            array_unique(
+                array_filter(
+                    array_map(
+                        static function ( $row ) {
+                            return trim( (string) ( $row['category'] ?? '' ) );
+                        },
+                        $rows
+                    )
+                )
+            )
+        );
+
+        natcasesort( $categories );
+
+        return array_values( $categories );
+    }
+
+    private static function get_signature() {
+        $parts       = [];
+        $modules_dir = HC_PLUGIN_DIR . 'modules/';
+
+        if ( ! is_dir( $modules_dir ) ) {
+            return 'missing-modules-dir';
+        }
+
+        foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $path ) {
+            $calculator_file = trailingslashit( $path ) . 'calculator.php';
+            $meta_file       = trailingslashit( $path ) . 'meta.json';
+
+            $parts[] = basename( $path ) . ':' .
+                ( file_exists( $calculator_file ) ? (string) filemtime( $calculator_file ) : '0' ) . ':' .
+                ( file_exists( $meta_file ) ? (string) filemtime( $meta_file ) : '0' );
+        }
+
+        sort( $parts, SORT_NATURAL | SORT_FLAG_CASE );
+
+        return md5( implode( '|', $parts ) );
+    }
+
+    private static function extract_fields_from_php( $file_path ) {
+        if ( ! file_exists( $file_path ) ) {
+            return [];
+        }
+
+        $content = file_get_contents( $file_path );
+
+        if ( false === $content || '' === trim( $content ) ) {
+            return [];
+        }
+
+        $content = preg_replace( '/<\?(?:php|=)[\s\S]*?\?>/u', ' ', $content );
+        $content = preg_replace( '/<!--[\s\S]*?-->/u', ' ', $content );
+
+        if ( ! class_exists( 'DOMDocument' ) ) {
+            return self::extract_fields_with_regex( $content );
+        }
+
+        $internal_errors = libxml_use_internal_errors( true );
+        $dom             = new DOMDocument();
+        $loaded          = $dom->loadHTML(
+            '<?xml encoding="utf-8" ?><div id="hc-analysis-root">' . $content . '</div>',
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+        );
+        libxml_clear_errors();
+        libxml_use_internal_errors( $internal_errors );
+
+        if ( ! $loaded ) {
+            return self::extract_fields_with_regex( $content );
+        }
+
+        $xpath = new DOMXPath( $dom );
+        $nodes = $xpath->query(
+            '//*[@id="hc-analysis-root"]//*[self::input or self::select or self::textarea]'
+        );
+
+        if ( ! $nodes || 0 === $nodes->length ) {
+            return self::extract_fields_with_regex( $content );
+        }
+
+        $fields = [];
+        foreach ( $nodes as $node ) {
+            $type = 'input' === $node->nodeName ? strtolower( $node->getAttribute( 'type' ) ?: 'text' ) : strtolower( $node->nodeName );
+
+            if ( in_array( $type, [ 'hidden', 'submit', 'button', 'reset' ], true ) ) {
+                continue;
+            }
+
+            $label = self::resolve_control_label( $node, $xpath );
+            $field = self::format_field_label( $node, $label, $type );
+
+            if ( ! $field ) {
+                continue;
+            }
+
+            $group_key = strtolower(
+                trim(
+                    implode(
+                        '|',
+                        [
+                            $node->nodeName,
+                            $node->getAttribute( 'name' ) ?: $node->getAttribute( 'id' ),
+                            $label,
+                        ]
+                    )
+                )
+            );
+
+            if ( isset( $fields[ $group_key ] ) ) {
+                continue;
+            }
+
+            $fields[ $group_key ] = $field;
+        }
+
+        return array_values( $fields );
+    }
+
+    private static function extract_fields_with_regex( $content ) {
+        $fields = [];
+
+        if ( preg_match_all( '/<label\b[^>]*>(.*?)<\/label>/isu', $content, $matches ) ) {
+            foreach ( $matches[1] as $label_html ) {
+                $label = self::clean_text( $label_html );
+
+                if ( $label ) {
+                    $fields[] = $label;
+                }
+            }
+        }
+
+        $fields = array_values( array_unique( array_filter( $fields ) ) );
+
+        return $fields;
+    }
+
+    private static function resolve_control_label( DOMNode $node, DOMXPath $xpath ) {
+        $id = trim( $node->attributes && $node->attributes->getNamedItem( 'id' ) ? $node->attributes->getNamedItem( 'id' )->nodeValue : '' );
+
+        if ( $id ) {
+            $safe_id     = str_replace( [ '"', "'" ], '', $id );
+            $label_nodes = $xpath->query( '//label[@for="' . $safe_id . '"]' );
+
+            if ( $label_nodes && $label_nodes->length > 0 ) {
+                $label = self::clean_text( $label_nodes->item( 0 )->textContent );
+
+                if ( $label ) {
+                    return $label;
+                }
+            }
+        }
+
+        $current = $node;
+        while ( $current instanceof DOMNode && $current->parentNode ) {
+            $current = $current->parentNode;
+
+            if ( $current instanceof DOMElement ) {
+                $class_name = ' ' . $current->getAttribute( 'class' ) . ' ';
+
+                if ( false !== strpos( $class_name, ' hc-form-group ' ) || 'fieldset' === strtolower( $current->nodeName ) ) {
+                    $label_nodes = $xpath->query( './/label', $current );
+
+                    if ( $label_nodes && $label_nodes->length > 0 ) {
+                        $label = self::clean_text( $label_nodes->item( 0 )->textContent );
+
+                        if ( $label ) {
+                            return $label;
+                        }
+                    }
+                }
+            }
+        }
+
+        $preceding = $xpath->query( 'preceding::label[1]', $node );
+        if ( $preceding && $preceding->length > 0 ) {
+            return self::clean_text( $preceding->item( 0 )->textContent );
+        }
+
+        return '';
+    }
+
+    private static function format_field_label( DOMNode $node, $label, $type ) {
+        $label       = $label ?: self::clean_text( $node->getAttribute( 'placeholder' ) );
+        $placeholder = self::clean_text( $node->getAttribute( 'placeholder' ) );
+
+        if ( ! $label ) {
+            $label = self::clean_text( $node->getAttribute( 'name' ) ?: $node->getAttribute( 'id' ) );
+        }
+
+        if ( ! $label ) {
+            return '';
+        }
+
+        $parts = [ $label ];
+
+        if ( 'select' === $type ) {
+            $options = [];
+            foreach ( $node->childNodes as $child ) {
+                if ( $child instanceof DOMElement && 'option' === strtolower( $child->nodeName ) ) {
+                    $option_label = self::clean_text( $child->textContent );
+
+                    if ( $option_label ) {
+                        $options[] = $option_label;
+                    }
+                }
+            }
+
+            if ( ! empty( $options ) ) {
+                $parts[] = 'secenekler: ' . implode( ', ', array_slice( array_unique( $options ), 0, 6 ) );
+            }
+        } elseif ( in_array( $type, [ 'date', 'number', 'email', 'tel', 'time' ], true ) ) {
+            $parts[] = 'tur: ' . $type;
+        }
+
+        if ( $placeholder && strcasecmp( $placeholder, $label ) !== 0 ) {
+            $parts[] = 'ornek: ' . $placeholder;
+        }
+
+        return implode( ' | ', $parts );
+    }
+
+    private static function clean_text( $text ) {
+        $text = wp_strip_all_tags( html_entity_decode( (string) $text, ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+        $text = preg_replace( '/\s+/u', ' ', $text );
+
+        return trim( (string) $text );
+    }
+
+    private static function infer_category( $slug, $name ) {
+        $source = function_exists( 'mb_strtolower' )
+            ? mb_strtolower( $slug . ' ' . $name, 'UTF-8' )
+            : strtolower( $slug . ' ' . $name );
+
+        $map = [
+            'Astroloji'            => [ 'burc', 'yukselen', 'dogum-haritasi', 'gezegen', 'ev-hesaplama', 'astro', 'tarot', 'ay-burcu' ],
+            'Numeroloji'           => [ 'numeroloji', 'yasam-yolu', 'ruh', 'sansli', 'melek-sayisi', 'cakra' ],
+            'Gebelik ve Bebek'     => [ 'gebelik', 'bebek', 'dogum', 'adet-dongusu', 'yumurtlama', 'hcg', 'persentil' ],
+            'Saglik'               => [ 'vucut', 'bmi', 'yas', 'kalori', 'protein', 'tansiyon', 'kolesterol', 'diyabet', 'nabiz', 'metabolizma' ],
+            'Spor'                 => [ 'kosu', 'antrenman', 'bisiklet', 'yuruyus', 'yuzme', 'deadlift', 'bench', 'squat', 'tempo' ],
+            'Finans'               => [ 'kredi', 'faiz', 'mevduat', 'vergi', 'maas', 'butce', 'sigorta', 'komisyon', 'yatirim', 'temettu', 'getiri' ],
+            'Egitim'               => [ 'puan', 'sinav', 'tyt', 'ayt', 'ales', 'dgs', 'yds', 'not', 'agno', 'akts', 'ortalama' ],
+            'Matematik ve Istatistik' => [ 'logaritma', 'yuzde', 'ortalama', 'varyans', 'standart-sapma', 'olasilik', 'dagilim', 'regresyon', 'matris', 'kesir' ],
+            'Fizik ve Muhendislik' => [ 'kuvvet', 'hiz', 'ivme', 'enerji', 'basinc', 'gerilim', 'frekans', 'momentum', 'tork', 'direnc', 'empedans' ],
+            'Elektrik ve Elektronik' => [ 'kablo', 'volt', 'akim', 'watt', 'batarya', 'trafo', 'motor', 'filtre', 'devresi', 'rf-' ],
+            'Insaat ve Yapi'       => [ 'beton', 'duvar', 'cati', 'boru', 'boya', 'alcipan', 'doseme', 'kolon', 'cit', 'zemin' ],
+            'Kimya ve Biyoloji'    => [ 'mol', 'ph', 'cozelti', 'seyreltme', 'enzim', 'protein', 'dna', 'rna', 'asit', 'baz', 'reaksiyon' ],
+            'Teknoloji'            => [ 'byte', 'bit', 'sunucu', 'veri', 'ag-', 'ag-bant', 'cpu', 'ram', 'youtube', 'adsense', 'web-sitesi' ],
+            'Ev ve Yasam'          => [ 'elektrik-faturasi', 'su-', 'uyku', 'mutfak', 'tarif', 'yemek', 'kahve', 'evi', 'ev-hesaplama', 'aidat' ],
+            'Cevre'                => [ 'karbon', 'atik', 'geri-donusum', 'su-ayak-izi', 'emisyon', 'agac', 'surdurulebilirlik' ],
+        ];
+
+        foreach ( $map as $category => $keywords ) {
+            foreach ( $keywords as $keyword ) {
+                $matched = function_exists( 'mb_stripos' )
+                    ? false !== mb_stripos( $source, $keyword, 0, 'UTF-8' )
+                    : false !== stripos( $source, $keyword );
+
+                if ( $matched ) {
+                    return $category;
+                }
+            }
+        }
+
+        return 'Genel';
+    }
+}
+
 class HC_Admin_Page {
 
     public function __construct() {
@@ -1883,6 +2207,7 @@ class HC_Admin_Page {
         );
 
         add_submenu_page( 'hesaplama-suite', 'Dashboard', 'Dashboard', 'manage_options', 'hesaplama-suite', [ $this, 'render_modules_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'ModÃ¼l Analiz', 'ModÃ¼l Analiz', 'manage_options', 'hesaplama-suite-analysis', [ $this, 'render_analysis_page' ] );
         add_submenu_page( 'hesaplama-suite', 'Yazı Oluştur', 'Yazı Oluştur', 'manage_options', 'hesaplama-suite-writer', [ $this, 'render_writer_page' ] );
         add_submenu_page( 'hesaplama-suite', 'Modül Oluştur', 'Modül Oluştur', 'manage_options', 'hesaplama-suite-generator', [ $this, 'render_generator_page' ] );
         add_submenu_page( 'hesaplama-suite', 'Toplu Üretici (DeepSeek/Gemini)', 'Toplu Üretici', 'manage_options', 'hesaplama-suite-bulk', [ $this, 'render_bulk_page' ] );
@@ -2012,6 +2337,12 @@ class HC_Admin_Page {
         $this->render_footer();
     }
 
+    public function render_analysis_page() {
+        $this->render_header('ModÃ¼l Analiz');
+        $this->render_analysis_tab();
+        $this->render_footer();
+    }
+
     public function render_bulk_page() {
         $this->render_header('Toplu AI Üretici (Gemini)');
         if (class_exists('HC_AI_Bulk_Generator')) {
@@ -2039,6 +2370,178 @@ class HC_Admin_Page {
         $this->render_header('İçerik Planı');
         HC_Excel_Planner::render_planner_tab();
         $this->render_footer();
+    }
+
+    private function render_analysis_tab() {
+        $search        = sanitize_text_field( wp_unslash( $_GET['analysis_search'] ?? '' ) );
+        $category      = sanitize_text_field( wp_unslash( $_GET['analysis_category'] ?? '' ) );
+        $selected_slug = sanitize_key( wp_unslash( $_GET['analysis_module'] ?? '' ) );
+        $rows          = HC_Module_Analysis::get_module_rows();
+        $categories    = HC_Module_Analysis::get_analysis_categories( $rows );
+
+        if ( $search || $category ) {
+            $rows = array_values(
+                array_filter(
+                    $rows,
+                    static function ( $row ) use ( $search, $category ) {
+                        if ( $category && $category !== ( $row['category'] ?? '' ) ) {
+                            return false;
+                        }
+
+                        if ( ! $search ) {
+                            return true;
+                        }
+
+                        $haystack = implode(
+                            ' ',
+                            array_filter(
+                                [
+                                    $row['slug'] ?? '',
+                                    $row['name'] ?? '',
+                                    $row['category'] ?? '',
+                                    implode( ' ', $row['inputs'] ?? [] ),
+                                ]
+                            )
+                        );
+
+                        return false !== stripos( $haystack, $search );
+                    }
+                )
+            );
+        }
+
+        if ( ! $selected_slug && ! empty( $rows[0]['slug'] ) ) {
+            $selected_slug = $rows[0]['slug'];
+        }
+
+        $selected_row = null;
+        foreach ( $rows as $row ) {
+            if ( $selected_slug === ( $row['slug'] ?? '' ) ) {
+                $selected_row = $row;
+                break;
+            }
+        }
+
+        if ( ! $selected_row && ! empty( $rows[0] ) ) {
+            $selected_row = $rows[0];
+        }
+        ?>
+        <div class="hc-card hc-module-analysis-card">
+            <div class="hc-module-analysis-head">
+                <div>
+                    <h2>ModÃ¼l Analizi</h2>
+                    <p>Solda modÃ¼ller ve kategorileri, saÄŸda ise seÃ§ilen modÃ¼lÃ¼n istediÄŸi bilgiler otomatik olarak listelenir.</p>
+                </div>
+                <div class="hc-module-analysis-stats">
+                    <span><strong><?php echo esc_html( number_format_i18n( count( $rows ) ) ); ?></strong> modÃ¼l gÃ¶steriliyor</span>
+                    <span><strong><?php echo esc_html( number_format_i18n( count( $categories ) ) ); ?></strong> kategori</span>
+                </div>
+            </div>
+
+            <form method="get" class="hc-module-analysis-filters">
+                <input type="hidden" name="page" value="hesaplama-suite-analysis" />
+                <label>
+                    <span>ModÃ¼l ara</span>
+                    <input type="search" name="analysis_search" value="<?php echo esc_attr( $search ); ?>" placeholder="ModÃ¼l adÄ±, slug veya alan ara" />
+                </label>
+                <label>
+                    <span>Kategori</span>
+                    <select name="analysis_category">
+                        <option value="">TÃ¼m kategoriler</option>
+                        <?php foreach ( $categories as $category_name ) : ?>
+                            <option value="<?php echo esc_attr( $category_name ); ?>" <?php selected( $category, $category_name ); ?>><?php echo esc_html( $category_name ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+                <div class="hc-module-analysis-actions">
+                    <button type="submit" class="button button-primary">Filtrele</button>
+                    <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-analysis' ) ); ?>">SÄ±fÄ±rla</a>
+                </div>
+            </form>
+
+            <div class="hc-module-analysis-layout">
+                <aside class="hc-module-analysis-sidebar">
+                    <div class="hc-module-analysis-sidebar-head">ModÃ¼ller</div>
+                    <div class="hc-module-analysis-list">
+                        <?php if ( empty( $rows ) ) : ?>
+                            <p class="hc-module-analysis-empty">Bu filtreyle eÅŸleÅŸen modÃ¼l bulunamadÄ±.</p>
+                        <?php else : ?>
+                            <?php foreach ( $rows as $row ) : ?>
+                                <?php
+                                $item_url = add_query_arg(
+                                    [
+                                        'page'              => 'hesaplama-suite-analysis',
+                                        'analysis_module'   => $row['slug'],
+                                        'analysis_search'   => $search,
+                                        'analysis_category' => $category,
+                                    ],
+                                    admin_url( 'admin.php' )
+                                );
+                                $is_active = ! empty( $selected_row['slug'] ) && $selected_row['slug'] === $row['slug'];
+                                ?>
+                                <a class="hc-module-analysis-item<?php echo $is_active ? ' is-active' : ''; ?>" href="<?php echo esc_url( $item_url ); ?>">
+                                    <strong><?php echo esc_html( $row['name'] ); ?></strong>
+                                    <span><?php echo esc_html( $row['category'] ); ?></span>
+                                </a>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                </aside>
+
+                <section class="hc-module-analysis-detail">
+                    <?php if ( empty( $selected_row ) ) : ?>
+                        <div class="hc-module-analysis-placeholder">
+                            <h3>ModÃ¼l seÃ§ilmedi</h3>
+                            <p>Soldaki listeden bir modÃ¼l seÃ§erek hangi bilgilere ihtiyaÃ§ duyduÄŸunu gÃ¶rebilirsiniz.</p>
+                        </div>
+                    <?php else : ?>
+                        <div class="hc-module-analysis-detail-head">
+                            <div>
+                                <h3><?php echo esc_html( $selected_row['name'] ); ?></h3>
+                                <p><?php echo esc_html( $selected_row['category'] ); ?> kategorisinde yer alÄ±yor.</p>
+                            </div>
+                            <code><?php echo esc_html( $selected_row['shortcode'] ); ?></code>
+                        </div>
+
+                        <div class="hc-module-analysis-meta">
+                            <div>
+                                <span>Slug</span>
+                                <strong><?php echo esc_html( $selected_row['slug'] ); ?></strong>
+                            </div>
+                            <div>
+                                <span>Alan sayÄ±sÄ±</span>
+                                <strong><?php echo esc_html( number_format_i18n( count( $selected_row['inputs'] ) ) ); ?></strong>
+                            </div>
+                            <div>
+                                <span>Analiz kaynaÄŸÄ±</span>
+                                <strong>calculator.php</strong>
+                            </div>
+                        </div>
+
+                        <div class="hc-module-analysis-section">
+                            <h4>Ä°htiyaÃ§ duyduÄŸu bilgiler</h4>
+                            <?php if ( empty( $selected_row['inputs'] ) ) : ?>
+                                <p class="hc-module-analysis-empty">Belirgin bir giriÅŸ alanÄ± bulunamadÄ±. Bu modÃ¼lÃ¼n iÃ§eriÄŸi manuel kontrol gerektirebilir.</p>
+                            <?php else : ?>
+                                <ul class="hc-module-analysis-fields">
+                                    <?php foreach ( $selected_row['inputs'] as $input_label ) : ?>
+                                        <li><?php echo esc_html( $input_label ); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if ( ! empty( $selected_row['desc'] ) ) : ?>
+                            <div class="hc-module-analysis-section">
+                                <h4>ModÃ¼l aÃ§Ä±klamasÄ±</h4>
+                                <p><?php echo esc_html( $selected_row['desc'] ); ?></p>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </section>
+            </div>
+        </div>
+        <?php
     }
 
     private function render_github_tab() {
