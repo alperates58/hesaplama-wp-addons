@@ -172,7 +172,7 @@ class HC_Profile_Field_Dictionary {
 			'career_goal'        => array(
 				'label'     => 'Kariyer Hedefi',
 				'type'      => 'text',
-				'aliases'   => array( 'kariyer', 'meslek', 'hedef', 'career_goal' ),
+				'aliases'   => array( 'kariyer', 'meslek', 'hedef', 'career', 'goal', 'career_goal' ),
 				'unit'      => '',
 				'sensitive' => false,
 				'ai_useful' => true,
@@ -202,6 +202,35 @@ class HC_Profile_Field_Dictionary {
 	public static function normalize_input_name( $name ) {
 		$name = (string) $name;
 		$name = function_exists( 'remove_accents' ) ? remove_accents( $name ) : $name;
+		$name = strtr(
+			$name,
+			array(
+				'ç'  => 'c',
+				'Ç'  => 'c',
+				'ğ'  => 'g',
+				'Ğ'  => 'g',
+				'ı'  => 'i',
+				'İ'  => 'i',
+				'ö'  => 'o',
+				'Ö'  => 'o',
+				'ş'  => 's',
+				'Ş'  => 's',
+				'ü'  => 'u',
+				'Ü'  => 'u',
+				'Ä±' => 'i',
+				'Ä°' => 'i',
+				'ÄŸ' => 'g',
+				'Äž' => 'g',
+				'ÅŸ' => 's',
+				'Åž' => 's',
+				'Ã§' => 'c',
+				'Ã‡' => 'c',
+				'Ã¶' => 'o',
+				'Ã–' => 'o',
+				'Ã¼' => 'u',
+				'Ãœ' => 'u',
+			)
+		);
 		$name = strtolower( $name );
 		$name = preg_replace( '/[^a-z0-9]+/i', '_', $name );
 		$name = trim( (string) $name, '_' );
@@ -243,56 +272,56 @@ class HC_Profile_Field_Dictionary {
 				}
 
 				if ( $input_name && $input_name === $alias ) {
-					return array(
+					$exact_match = array(
 						'profile_field' => $field_key,
 						'confidence'    => 0.99,
 						'matched_alias' => $alias,
 						'match_source'  => 'exact_input',
 					);
+
+					if ( self::is_match_allowed( $exact_match, $input_name, $label, $context ) ) {
+						return self::finalize_match( $exact_match, $input_name, $label, $context );
+					}
 				}
 
-				if ( $label && $label === $alias ) {
+				if ( $label && $label === $alias && self::is_match_allowed( array( 'profile_field' => $field_key, 'matched_alias' => $alias, 'confidence' => 0.95, 'match_source' => 'exact_label' ), $input_name, $label, $context ) ) {
 					$best = self::pick_better_match( $best, $field_key, 0.95, $alias, 'exact_label' );
 					continue;
 				}
 
-				if ( $label && preg_match( '/(^|_)' . preg_quote( $alias, '/' ) . '(_|$)/', $label ) ) {
+				if ( $label && preg_match( '/(^|_)' . preg_quote( $alias, '/' ) . '(_|$)/', $label ) && self::is_match_allowed( array( 'profile_field' => $field_key, 'matched_alias' => $alias, 'confidence' => 0.91, 'match_source' => 'label_boundary' ), $input_name, $label, $context ) ) {
 					$best = self::pick_better_match( $best, $field_key, 0.91, $alias, 'label_boundary' );
 					continue;
 				}
 
-				if ( $label && false !== strpos( $label, $alias ) ) {
+				if ( $label && strlen( $alias ) >= 4 && false !== strpos( $label, $alias ) && self::is_match_allowed( array( 'profile_field' => $field_key, 'matched_alias' => $alias, 'confidence' => 0.88, 'match_source' => 'label_contains' ), $input_name, $label, $context ) ) {
 					$best = self::pick_better_match( $best, $field_key, 0.88, $alias, 'label_contains' );
 					continue;
 				}
 
-				if ( $haystack && preg_match( '/(^|_)' . preg_quote( $alias, '/' ) . '(_|$)/', $haystack ) ) {
+				if ( $haystack && preg_match( '/(^|_)' . preg_quote( $alias, '/' ) . '(_|$)/', $haystack ) && self::is_match_allowed( array( 'profile_field' => $field_key, 'matched_alias' => $alias, 'confidence' => 0.82, 'match_source' => 'word_boundary' ), $input_name, $label, $context ) ) {
 					$best = self::pick_better_match( $best, $field_key, 0.82, $alias, 'word_boundary' );
 					continue;
 				}
 
-				if ( $haystack && false !== strpos( $haystack, $alias ) ) {
+				if ( $haystack && strlen( $alias ) >= 4 && false !== strpos( $haystack, $alias ) && self::is_match_allowed( array( 'profile_field' => $field_key, 'matched_alias' => $alias, 'confidence' => 0.64, 'match_source' => 'contains' ), $input_name, $label, $context ) ) {
 					$best = self::pick_better_match( $best, $field_key, 0.64, $alias, 'contains' );
 				}
 			}
 		}
 
 		if ( 'unknown' === $best['profile_field'] ) {
-			$suggested_key = self::suggest_field_key( $input_name, $label, $context );
-			$group         = self::suggest_field_group( $suggested_key, $context );
-
-			return array(
-				'profile_field'      => $suggested_key,
-				'confidence'         => 0.55,
-				'matched_alias'      => '',
-				'match_source'       => 'suggested',
-				'is_custom_field'    => 1,
-				'detected_field_key' => $suggested_key,
-				'field_group'        => $group,
-				'admin_review_status'=> 'auto',
-			);
+			return self::build_suggested_match( $input_name, $label, $context );
 		}
 
+		if ( ! self::is_match_allowed( $best, $input_name, $label, $context ) ) {
+			return self::build_suggested_match( $input_name, $label, $context, max( 0.55, min( 0.74, (float) $best['confidence'] - 0.20 ) ) );
+		}
+
+		return self::finalize_match( $best, $input_name, $label, $context );
+	}
+
+	private static function finalize_match( $best, $input_name, $label, $context ) {
 		$custom_fields = self::get_custom_fields();
 		$is_custom     = isset( $custom_fields[ $best['profile_field'] ] );
 		$field_group   = '';
@@ -309,6 +338,22 @@ class HC_Profile_Field_Dictionary {
 		$best['admin_review_status'] = $is_custom ? $review_status : 'reviewed';
 
 		return $best;
+	}
+
+	private static function build_suggested_match( $input_name, $label, $context, $confidence = 0.55 ) {
+		$suggested_key = self::suggest_field_key( $input_name, $label, $context );
+		$group         = self::suggest_field_group( $suggested_key, $context );
+
+		return array(
+			'profile_field'       => $suggested_key,
+			'confidence'          => (float) $confidence,
+			'matched_alias'       => '',
+			'match_source'        => 'suggested',
+			'is_custom_field'     => 1,
+			'detected_field_key'  => $suggested_key,
+			'field_group'         => $group,
+			'admin_review_status' => 'auto',
+		);
 	}
 
 	public static function suggest_field_key( $input_name, $label = '', $context = '' ) {
@@ -332,6 +377,26 @@ class HC_Profile_Field_Dictionary {
 			'anne_adi'          => 'mother_name',
 			'baba_adi'          => 'father_name',
 		);
+
+		if ( self::contains_any( $haystack, array( 'son_adet_tarihi', 'adet_tarihi', 'menstrual', 'regl', 'sat' ) ) ) {
+			return 'last_period_date';
+		}
+
+		if ( self::contains_any( $haystack, array( 'arac_agirligi', 'vehicle_weight', 'tasit_agirligi' ) ) || ( self::contains_any( $haystack, array( 'arac', 'otomotiv', 'motor', 'cekis', 'drivetrain' ) ) && self::contains_any( $haystack, array( 'agirlik', 'weight', 'kg' ) ) ) ) {
+			return 'vehicle_weight';
+		}
+
+		if ( self::contains_any( $haystack, array( 'hedef_bitirme_suresi', 'bitirme_suresi', 'target_finish_time', 'hedef_sure' ) ) && self::contains_any( $haystack, array( 'kosu', 'pace', 'tempo', '5k', '10k', 'yaris', 'maraton' ) ) ) {
+			return 'target_finish_time';
+		}
+
+		if ( self::contains_any( $haystack, array( 'ozel_durum', 'special_condition', 'female_condition' ) ) && self::contains_any( $haystack, array( 'kadin', 'hamilelik', 'emzirme', 'vitamin', 'gebelik' ) ) ) {
+			return 'female_condition';
+		}
+
+		if ( self::contains_any( $haystack, array( 'gelir', 'income', 'maas', 'ucret' ) ) ) {
+			return 'income_amount';
+		}
 
 		foreach ( $special_map as $keyword => $field_key ) {
 			if ( false !== strpos( $haystack, $keyword ) ) {
@@ -368,10 +433,14 @@ class HC_Profile_Field_Dictionary {
 		$map    = array(
 			'basic_profile'     => array( 'name', 'ad', 'soyad', 'city', 'sehir', 'nickname' ),
 			'health_lifestyle'  => array( 'weight', 'kilo', 'boy', 'height', 'waist', 'hip', 'fat', 'sleep', 'steps', 'adim' ),
+			'sport_activity'    => array( 'pace', 'tempo', 'running', 'kosu', 'finish_time', 'bitirme_suresi', 'target_finish_time', 'daily_steps' ),
+			'automotive'        => array( 'vehicle', 'arac', 'motor', 'hp', 'beygir', 'drivetrain', 'cekis', 'tork' ),
+			'finance'           => array( 'income', 'gelir', 'maas', 'ucret', 'kredi', 'faiz', 'vergi', 'yatirim', 'borsa', 'butce' ),
 			'astrology_details' => array( 'birth', 'dogum', 'moon', 'yukselen', 'gezegen', 'house', 'ev' ),
 			'numerology'        => array( 'numerology', 'yasam', 'kisisel', 'sayi' ),
 			'relationship'      => array( 'partner', 'iliski', 'uyum', 'es', 'sevgili' ),
 			'optional_details'  => array( 'career', 'meslek', 'goal', 'company', 'plate', 'phone' ),
+			'overview'          => array( 'technical', 'teknik', 'target', 'sure', 'donusturucu', 'converter', 'dosya' ),
 		);
 
 		foreach ( $map as $group => $keywords ) {
@@ -383,6 +452,177 @@ class HC_Profile_Field_Dictionary {
 		}
 
 		return 'custom';
+	}
+
+	private static function is_match_allowed( $match, $input_name, $label, $context ) {
+		$field_key = (string) ( $match['profile_field'] ?? '' );
+		$alias     = (string) ( $match['matched_alias'] ?? '' );
+		$haystack  = self::normalize_input_name( implode( '_', array_filter( array( $input_name, $label, $context ) ) ) );
+
+		if ( in_array( $field_key, array( 'first_name', 'last_name' ), true ) ) {
+			return self::is_person_name_match( $field_key, $input_name, $label, $context, $alias );
+		}
+
+		if ( 'career_goal' === $field_key ) {
+			return self::is_career_goal_match( $input_name, $label, $context, $alias );
+		}
+
+		if ( 'activity_level' === $field_key ) {
+			$source_haystack = self::normalize_input_name( implode( '_', array_filter( array( $input_name, $label ) ) ) );
+
+			if ( ! self::contains_any( $source_haystack, array( 'aktivite', 'aktivite_duzeyi', 'hareket', 'activity_level', 'activity' ) ) ) {
+				return false;
+			}
+
+			if ( self::contains_any( $haystack, array( 'hedef', 'goal', 'bitirme_suresi', 'finish_time', 'tempo', 'pace' ) ) && ! self::contains_any( $haystack, array( 'aktivite', 'hareket', 'activity_level' ) ) ) {
+				return false;
+			}
+		}
+
+		if ( 'birth_date' === $field_key ) {
+			if ( self::contains_any( $haystack, array( 'adet', 'regl', 'sat', 'period' ) ) ) {
+				return false;
+			}
+
+			if ( self::contains_any( $haystack, array( 'dogum', 'birth', 'burc', 'astro', 'ay_burcu', 'yukselen', 'partner_birth' ) ) ) {
+				return true;
+			}
+
+			return ! self::is_tool_context( $context );
+		}
+
+		if ( 'birth_time' === $field_key ) {
+			if ( self::contains_any( $haystack, array( 'dogum_saati', 'birth_time', 'dogum' ) ) ) {
+				return true;
+			}
+
+			return false;
+		}
+
+		if ( 'birth_place' === $field_key ) {
+			if ( self::contains_any( $haystack, array( 'dogum_yeri', 'birth_place', 'dogum_ili' ) ) ) {
+				return true;
+			}
+
+			return false;
+		}
+
+		if ( 'height' === $field_key ) {
+			if ( self::contains_any( $haystack, array( 'boy', 'boyunuz', 'height', 'boy_cm' ) ) && ! self::contains_any( $haystack, array( 'arac', 'motor', 'teknik', 'boru', 'kablo', 'panel' ) ) ) {
+				return true;
+			}
+
+			return false;
+		}
+
+		if ( 'weight' === $field_key ) {
+			if ( self::contains_any( $haystack, array( 'arac', 'otomotiv', 'motor', 'tasit', 'drivetrain', 'cekis', 'beygir', 'hp' ) ) ) {
+				return false;
+			}
+
+			if ( self::contains_any( $haystack, array( 'kilo', 'kilonuz', 'weight', 'vucut_agirligi', 'bmi', 'vki', 'bel_kalca', 'kalori', 'protein', 'spor', 'adim', 'yuruyus' ) ) ) {
+				return true;
+			}
+
+			return ! self::is_tool_context( $context );
+		}
+
+		if ( in_array( $field_key, array( 'height', 'weight', 'birth_time', 'birth_place', 'career_goal' ), true ) && self::is_tool_context( $context ) ) {
+			return false;
+		}
+
+		return true;
+	}
+
+	private static function is_person_name_match( $field_key, $input_name, $label, $context, $alias ) {
+		$haystack = self::normalize_input_name( implode( '_', array_filter( array( $input_name, $label, $context ) ) ) );
+		$tokens   = self::get_tokens( $input_name . '_' . $label );
+		$allowed  = 'first_name' === $field_key ? array( 'ad', 'isim', 'first_name', 'name' ) : array( 'soyad', 'soyisim', 'last_name', 'surname' );
+
+		if ( self::contains_any( $haystack, array( 'adet', 'sat', 'durum', 'hamilelik', 'emzirme', 'arac', 'otomotiv', 'teknik', 'finans' ) ) ) {
+			return false;
+		}
+
+		if ( in_array( $alias, $allowed, true ) && array_intersect( $allowed, $tokens ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	private static function is_career_goal_match( $input_name, $label, $context, $alias ) {
+		$haystack = self::normalize_input_name( implode( '_', array_filter( array( $input_name, $label, $context ) ) ) );
+
+		if ( self::contains_any( $haystack, array( 'bitirme_suresi', 'hedef_sure', 'tempo', 'kosu', '5k', '10k', 'yaris', 'maraton', 'finans', 'gelir', 'yatirim', 'borsa', 'teknik', 'otomotiv', 'arac' ) ) ) {
+			return false;
+		}
+
+		if ( in_array( $alias, array( 'kariyer', 'meslek', 'career', 'career_goal' ), true ) ) {
+			return true;
+		}
+
+		if ( in_array( $alias, array( 'hedef', 'goal' ), true ) ) {
+			if ( self::contains_any( $haystack, array( 'kariyer', 'meslek', 'career', 'profesyonel', 'is_hayati', 'kariyer_hedefi' ) ) ) {
+				return true;
+			}
+
+			return '' === self::normalize_input_name( $context );
+		}
+
+		return ! self::is_tool_context( $context );
+	}
+
+	private static function is_tool_context( $context ) {
+		$context = self::normalize_input_name( $context );
+
+		return self::contains_any(
+			$context,
+			array(
+				'automotive',
+				'arac',
+				'otomotiv',
+				'motor',
+				'teknik',
+				'muhendislik',
+				'finans',
+				'kredi',
+				'faiz',
+				'vergi',
+				'borsa',
+				'gelir',
+				'butce',
+				'egitim',
+				'sinav',
+				'puan',
+				'dosya',
+				'pdf',
+				'excel',
+				'donusturucu',
+				'converter',
+				'yemek',
+				'tarif',
+				'porsiyon',
+			)
+		);
+	}
+
+	private static function contains_any( $haystack, $keywords ) {
+		foreach ( $keywords as $keyword ) {
+			if ( '' !== $keyword && false !== strpos( $haystack, self::normalize_input_name( $keyword ) ) ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private static function get_tokens( $value ) {
+		$value = self::normalize_input_name( $value );
+		if ( '' === $value ) {
+			return array();
+		}
+
+		return array_values( array_filter( explode( '_', $value ) ) );
 	}
 
 	public static function save_custom_fields( $fields ) {

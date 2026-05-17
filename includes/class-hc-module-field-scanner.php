@@ -16,6 +16,7 @@ class HC_Module_Field_Scanner {
 	const DEFAULT_BATCH_LIMIT  = 100;
 
 	private static $current_scan_slug = '';
+	private static $current_scan_context = '';
 
 	public static function init() {
 		add_action( 'admin_init', array( __CLASS__, 'maybe_upgrade_table' ) );
@@ -337,6 +338,19 @@ class HC_Module_Field_Scanner {
 		$category    = self::detect_category( $slug, $title, $meta );
 		$section     = self::infer_section( $slug, $title, $category );
 		$backend     = self::detect_backend_supported( $slug );
+		$context     = implode(
+			' ',
+			array_filter(
+				array(
+					$slug,
+					$title,
+					(string) ( $meta['desc'] ?? '' ),
+					$category,
+					$section,
+				)
+			)
+		);
+		self::$current_scan_context = $context;
 
 		$meta_inputs = self::extract_inputs_from_meta( $meta );
 		$php_inputs  = self::extract_inputs_from_calculator_php( $php_content );
@@ -359,7 +373,7 @@ class HC_Module_Field_Scanner {
 			);
 		}
 
-		$field_rows = self::prepare_field_rows( $slug, $inputs );
+		$field_rows = self::prepare_field_rows( $slug, $inputs, $context );
 		$relevance  = self::infer_profile_relevance( $slug, $title, $field_rows );
 
 		foreach ( $field_rows as &$field_row ) {
@@ -626,11 +640,12 @@ class HC_Module_Field_Scanner {
 		return '[hc_' . str_replace( '-', '_', $slug ) . ']';
 	}
 
-	public static function map_input_to_profile_field( $input ) {
+	public static function map_input_to_profile_field( $input, $context = '' ) {
+		$context = $context ? $context : self::$current_scan_context;
 		$match = HC_Profile_Field_Dictionary::match_profile_field(
 			(string) ( $input['module_input_name'] ?? '' ),
 			(string) ( $input['field_label'] ?? '' ),
-			self::$current_scan_slug
+			$context
 		);
 
 		$field_info = HC_Profile_Field_Dictionary::get_field( $match['profile_field'] );
@@ -659,6 +674,7 @@ class HC_Module_Field_Scanner {
 			'numerology'       => array( 'numeroloji', 'yasam-yolu', 'kisisel-yil', 'ifade', 'kalp-arzusu' ),
 			'health_lifestyle' => array( 'vucut', 'kilo', 'su-ihtiyaci', 'kalori-ihtiyaci', 'bmi', 'ideal-kilo' ),
 			'sport_activity'   => array( 'adim', 'kosu', 'yuruyus', 'bisiklet', 'protein', 'spor' ),
+			'automotive'       => array( 'arac', 'otomotiv', '0-100', 'beygir', 'cekis', 'drivetrain', 'motor', 'tork' ),
 			'tarot'            => array( 'tarot' ),
 			'chinese_astrology'=> array( 'cin-burcu', 'yin-yang', 'cin-astrolojisi' ),
 			'symbolic'         => array( 'sansli', 'dogum-tasi', 'dogum-cicegi', 'melek', 'cakra' ),
@@ -1078,7 +1094,7 @@ class HC_Module_Field_Scanner {
 		return $slugs;
 	}
 
-	private static function prepare_field_rows( $slug, $inputs ) {
+	private static function prepare_field_rows( $slug, $inputs, $context = '' ) {
 		$prepared = array();
 
 		foreach ( $inputs as $input ) {
@@ -1087,7 +1103,7 @@ class HC_Module_Field_Scanner {
 				continue;
 			}
 
-			$mapped = self::map_input_to_profile_field( $input );
+			$mapped = self::map_input_to_profile_field( $input, $context );
 			$key    = $name . '|' . $mapped['profile_field'];
 
 			$row = array(
@@ -1356,6 +1372,7 @@ class HC_Module_Field_Scanner {
 			'Numeroloji'            => array( 'numeroloji', 'yasam-yolu', 'melek', 'cakra', 'sansli' ),
 			'Sağlık'                => array( 'vucut', 'kilo', 'bmi', 'uyku', 'metabolizma', 'kalori' ),
 			'Spor'                  => array( 'spor', 'adim', 'kosu', 'yuruyus', 'bisiklet', 'protein' ),
+			'Otomotiv'              => array( 'arac', 'otomotiv', '0-100', 'beygir', 'cekis', 'drivetrain', 'motor', 'tork' ),
 			'Finans'                => array( 'kredi', 'faiz', 'vergi', 'butce', 'mevduat', 'komisyon' ),
 			'Eğitim'                => array( 'sinav', 'puan', 'not', 'tyt', 'ayt', 'ales' ),
 			'Mühendislik ve Teknik' => array( 'elektrik', 'kablo', 'akim', 'volt', 'beton', 'boru', 'fizik', 'kimya' ),
