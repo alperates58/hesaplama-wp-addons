@@ -1471,6 +1471,166 @@
 
     hcInitExplorer();
 
+    function hcInitModuleAnalysis() {
+        if (!hcAdmin || hcAdmin.currentPage !== 'hesaplama-suite-analysis') {
+            return;
+        }
+
+        var $root = $('#hc-module-analysis');
+        if (!$root.length) {
+            return;
+        }
+
+        var $progress = $('#hc-analysis-progress');
+        var $progressBar = $('#hc-analysis-progress-bar-inner');
+        var $progressLabel = $('#hc-analysis-progress-label');
+        var $progressDetail = $('#hc-analysis-progress-detail');
+        var running = false;
+
+        function setProgress(state) {
+            $progress.prop('hidden', false);
+            $progressBar.css('width', state.percent + '%');
+            $progressLabel.text(state.label);
+            $progressDetail.text(state.detail || '');
+        }
+
+        function setIdle(message) {
+            running = false;
+            $progressBar.css('width', '100%');
+            $progressLabel.text(message || 'Tamamland\u0131');
+            $progressDetail.text('');
+            $('[data-hc-analysis-scan]').prop('disabled', false);
+            setTimeout(function () {
+                window.location.reload();
+            }, 900);
+        }
+
+        function runBatch(mode, offset, reset, slug) {
+            var payload = {
+                action: 'hc_module_analysis_scan_batch',
+                nonce: hcAdmin.nonce,
+                mode: mode,
+                offset: offset || 0,
+                limit: 100
+            };
+
+            if (reset) {
+                payload.reset = 1;
+            }
+
+            if (slug) {
+                payload.slug = slug;
+            }
+
+            $.post(hcAdmin.ajaxurl, payload).done(function (resp) {
+                if (!resp || !resp.success || !resp.data) {
+                    setProgress({
+                        percent: 100,
+                        label: 'Tarama ba\u015far\u0131s\u0131z',
+                        detail: (resp && resp.data && resp.data.message) ? resp.data.message : 'Beklenmeyen sunucu yan\u0131t\u0131s\u0131.'
+                    });
+                    $('[data-hc-analysis-scan]').prop('disabled', false);
+                    running = false;
+                    return;
+                }
+
+                var data = resp.data;
+                var total = Math.max(1, parseInt(data.total || 1, 10));
+                var processed = Math.min(total, parseInt(data.next_offset || 0, 10));
+                var percent = Math.max(2, Math.min(100, Math.round((processed / total) * 100)));
+
+                setProgress({
+                    percent: percent,
+                    label: 'Tarama devam ediyor',
+                    detail: processed + ' / ' + total + ' mod\u00fcl tarand\u0131'
+                });
+
+                if (data.done) {
+                    setIdle('Tarama tamamland\u0131');
+                    return;
+                }
+
+                runBatch(mode, data.next_offset || 0, false, slug);
+            }).fail(function (xhr) {
+                running = false;
+                $('[data-hc-analysis-scan]').prop('disabled', false);
+                setProgress({
+                    percent: 100,
+                    label: 'Tarama ba\u015far\u0131s\u0131z',
+                    detail: 'HTTP ' + xhr.status
+                });
+            });
+        }
+
+        $(document).on('click', '[data-hc-analysis-scan]', function () {
+            if (running) {
+                return;
+            }
+
+            var mode = $(this).data('hc-analysis-scan');
+            var reset = $(this).data('reset') ? 1 : 0;
+            var slug = mode === 'single' ? ($('#hc-analysis-single-slug').val() || '').trim() : '';
+
+            if (mode === 'single' && !slug) {
+                window.alert('L\u00fctfen taranacak mod\u00fcl slug\u0131n\u0131 girin.');
+                return;
+            }
+
+            running = true;
+            $('[data-hc-analysis-scan]').prop('disabled', true);
+            setProgress({
+                percent: 2,
+                label: 'Tarama ba\u015flat\u0131ld\u0131',
+                detail: mode === 'single' ? slug : mode
+            });
+            runBatch(mode, 0, reset, slug);
+        });
+
+        function sendCustomFieldUpdate($row, reviewStatusOverride) {
+            var fieldKey = $row.data('field-key');
+            var payload = {
+                action: 'hc_module_analysis_save_custom_field',
+                nonce: hcAdmin.nonce,
+                field_key: fieldKey,
+                label: $row.find('.hc-analysis-field-label').val(),
+                type: $row.find('.hc-analysis-field-type').val(),
+                unit: $row.find('.hc-analysis-field-unit').val(),
+                field_group: $row.find('.hc-analysis-field-group').val(),
+                aliases: $row.find('.hc-analysis-field-aliases').val(),
+                admin_review_status: reviewStatusOverride || $row.find('.hc-analysis-review-status').val()
+            };
+
+            $.post(hcAdmin.ajaxurl, payload).done(function (resp) {
+                if (!resp || !resp.success) {
+                    window.alert((resp && resp.data && resp.data.message) ? resp.data.message : 'Kaydetme ba\u015far\u0131s\u0131z.');
+                    return;
+                }
+
+                if (reviewStatusOverride) {
+                    $row.find('.hc-analysis-review-status').val(reviewStatusOverride);
+                }
+
+                window.location.reload();
+            }).fail(function (xhr) {
+                window.alert('Sunucu hatas\u0131: HTTP ' + xhr.status);
+            });
+        }
+
+        $(document).on('click', '[data-hc-save-custom-field]', function () {
+            sendCustomFieldUpdate($(this).closest('tr'));
+        });
+
+        $(document).on('click', '[data-hc-approve-custom-field]', function () {
+            sendCustomFieldUpdate($(this).closest('tr'), 'approved');
+        });
+
+        $(document).on('click', '[data-hc-ignore-custom-field]', function () {
+            sendCustomFieldUpdate($(this).closest('tr'), 'ignored');
+        });
+    }
+
+    hcInitModuleAnalysis();
+
     function formatYoastChecklist(data) {
         var lines = [];
         var map = {

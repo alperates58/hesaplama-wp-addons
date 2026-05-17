@@ -25,6 +25,9 @@ new HC_Calculator_Loader();
 // Hesaplama API — profil eklentisi ve diğer eklentiler için backend hesaplama motoru.
 require_once HC_PLUGIN_DIR . 'includes/class-hc-calculation-api.php';
 HC_Calculation_API::init();
+require_once HC_PLUGIN_DIR . 'includes/class-hc-profile-field-dictionary.php';
+require_once HC_PLUGIN_DIR . 'includes/class-hc-module-field-scanner.php';
+HC_Module_Field_Scanner::init();
 
 // Admin / AJAX / Cron bağlamında: yönetim ve AI sınıfları
 if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {

@@ -2207,7 +2207,7 @@ class HC_Admin_Page {
         );
 
         add_submenu_page( 'hesaplama-suite', 'Dashboard', 'Dashboard', 'manage_options', 'hesaplama-suite', [ $this, 'render_modules_page' ] );
-        add_submenu_page( 'hesaplama-suite', 'ModÃ¼l Analiz', 'ModÃ¼l Analiz', 'manage_options', 'hesaplama-suite-analysis', [ $this, 'render_analysis_page' ] );
+        add_submenu_page( 'hesaplama-suite', html_entity_decode( 'Mod&uuml;l Analiz', ENT_QUOTES | ENT_HTML5, 'UTF-8' ), html_entity_decode( 'Mod&uuml;l Analiz', ENT_QUOTES | ENT_HTML5, 'UTF-8' ), 'manage_options', 'hesaplama-suite-analysis', [ $this, 'render_analysis_page' ] );
         add_submenu_page( 'hesaplama-suite', 'Yazı Oluştur', 'Yazı Oluştur', 'manage_options', 'hesaplama-suite-writer', [ $this, 'render_writer_page' ] );
         add_submenu_page( 'hesaplama-suite', 'Modül Oluştur', 'Modül Oluştur', 'manage_options', 'hesaplama-suite-generator', [ $this, 'render_generator_page' ] );
         add_submenu_page( 'hesaplama-suite', 'Toplu Üretici (DeepSeek/Gemini)', 'Toplu Üretici', 'manage_options', 'hesaplama-suite-bulk', [ $this, 'render_bulk_page' ] );
@@ -2314,6 +2314,10 @@ class HC_Admin_Page {
         <?php
     }
 
+    private function hc_decode_text( $text ) {
+        return html_entity_decode( (string) $text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+    }
+
     public function render_modules_page() {
         $this->render_header('Dashboard & Modüller');
         $this->render_modules_tab();
@@ -2338,7 +2342,7 @@ class HC_Admin_Page {
     }
 
     public function render_analysis_page() {
-        $this->render_header('ModÃ¼l Analiz');
+        $this->render_header( $this->hc_decode_text( 'Mod&uuml;l Analiz' ) );
         $this->render_analysis_tab();
         $this->render_footer();
     }
@@ -2373,173 +2377,269 @@ class HC_Admin_Page {
     }
 
     private function render_analysis_tab() {
-        $search        = sanitize_text_field( wp_unslash( $_GET['analysis_search'] ?? '' ) );
-        $category      = sanitize_text_field( wp_unslash( $_GET['analysis_category'] ?? '' ) );
-        $selected_slug = sanitize_key( wp_unslash( $_GET['analysis_module'] ?? '' ) );
-        $rows          = HC_Module_Analysis::get_module_rows();
-        $categories    = HC_Module_Analysis::get_analysis_categories( $rows );
+        HC_Module_Field_Scanner::maybe_upgrade_table();
 
-        if ( $search || $category ) {
-            $rows = array_values(
-                array_filter(
-                    $rows,
-                    static function ( $row ) use ( $search, $category ) {
-                        if ( $category && $category !== ( $row['category'] ?? '' ) ) {
-                            return false;
-                        }
+        $filters = array(
+            'search'                    => sanitize_text_field( wp_unslash( $_GET['analysis_search'] ?? '' ) ),
+            'profile_field'             => sanitize_key( wp_unslash( $_GET['analysis_profile_field'] ?? '' ) ),
+            'section'                   => sanitize_key( wp_unslash( $_GET['analysis_section'] ?? '' ) ),
+            'suggested_profile_status'  => sanitize_key( wp_unslash( $_GET['analysis_status'] ?? '' ) ),
+            'backend_supported'         => isset( $_GET['analysis_backend_supported'] ) && '' !== $_GET['analysis_backend_supported'] ? (string) wp_unslash( $_GET['analysis_backend_supported'] ) : '',
+            'confidence_bucket'         => sanitize_key( wp_unslash( $_GET['analysis_confidence'] ?? '' ) ),
+            'custom_field_only'         => isset( $_GET['analysis_custom_only'] ) && '' !== $_GET['analysis_custom_only'] ? (string) wp_unslash( $_GET['analysis_custom_only'] ) : '',
+            'no_input_detected'         => sanitize_key( wp_unslash( $_GET['analysis_no_input'] ?? '' ) ),
+            'page_num'                  => max( 1, (int) ( $_GET['analysis_page_num'] ?? 1 ) ),
+            'per_page'                  => 200,
+        );
 
-                        if ( ! $search ) {
-                            return true;
-                        }
-
-                        $haystack = implode(
-                            ' ',
-                            array_filter(
-                                [
-                                    $row['slug'] ?? '',
-                                    $row['name'] ?? '',
-                                    $row['category'] ?? '',
-                                    implode( ' ', $row['inputs'] ?? [] ),
-                                ]
-                            )
-                        );
-
-                        return false !== stripos( $haystack, $search );
-                    }
-                )
-            );
-        }
-
-        if ( ! $selected_slug && ! empty( $rows[0]['slug'] ) ) {
-            $selected_slug = $rows[0]['slug'];
-        }
-
-        $selected_row = null;
-        foreach ( $rows as $row ) {
-            if ( $selected_slug === ( $row['slug'] ?? '' ) ) {
-                $selected_row = $row;
-                break;
-            }
-        }
-
-        if ( ! $selected_row && ! empty( $rows[0] ) ) {
-            $selected_row = $rows[0];
-        }
+        $report        = HC_Module_Field_Scanner::get_admin_report( $filters );
+        $summary       = $report['summary'];
+        $rows_data     = $report['rows'];
+        $rows          = $rows_data['items'];
+        $no_input      = $report['no_input_modules'];
+        $options       = $report['filter_options'];
+        $custom_fields = HC_Module_Field_Scanner::get_custom_field_registry();
+        $page_url      = admin_url( 'admin.php?page=hesaplama-suite-analysis' );
+        $single_slug   = sanitize_key( wp_unslash( $_GET['analysis_single_slug'] ?? '' ) );
+        $status_labels = array( 'profile_core', 'profile_optional', 'tool_only', 'disabled' );
+        $group_labels  = array( 'basic_profile', 'health_lifestyle', 'astrology_details', 'numerology', 'relationship', 'optional_details', 'custom' );
+        $type_options  = array( 'text', 'number', 'date', 'time', 'select', 'tel', 'email' );
+        $base_query    = array(
+            'page'                       => 'hesaplama-suite-analysis',
+            'analysis_search'            => $filters['search'],
+            'analysis_profile_field'     => $filters['profile_field'],
+            'analysis_section'           => $filters['section'],
+            'analysis_status'            => $filters['suggested_profile_status'],
+            'analysis_backend_supported' => $filters['backend_supported'],
+            'analysis_confidence'        => $filters['confidence_bucket'],
+            'analysis_custom_only'       => $filters['custom_field_only'],
+            'analysis_no_input'          => $filters['no_input_detected'],
+        );
         ?>
-        <div class="hc-card hc-module-analysis-card">
+        <div class="hc-card hc-module-analysis-card" id="hc-module-analysis" data-hc-module-analysis>
             <div class="hc-module-analysis-head">
                 <div>
-                    <h2>ModÃ¼l Analizi</h2>
-                    <p>Solda modÃ¼ller ve kategorileri, saÄŸda ise seÃ§ilen modÃ¼lÃ¼n istediÄŸi bilgiler otomatik olarak listelenir.</p>
+                    <h2>Mod&uuml;l Alan Analizi</h2>
+                    <p>T&uuml;m mod&uuml;ller merkezi tabloya yazılır. Varsayılan dictionary dışındaki alanlar suggested/custom field olarak korunur ve admin onayıyla kalıcı hale gelir.</p>
                 </div>
                 <div class="hc-module-analysis-stats">
-                    <span><strong><?php echo esc_html( number_format_i18n( count( $rows ) ) ); ?></strong> modÃ¼l gÃ¶steriliyor</span>
-                    <span><strong><?php echo esc_html( number_format_i18n( count( $categories ) ) ); ?></strong> kategori</span>
+                    <span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['total_modules'] ?? 0 ) ) ); ?></strong> toplam mod&uuml;l</span>
+                    <span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['scanned_modules'] ?? 0 ) ) ); ?></strong> taranan mod&uuml;l</span>
+                    <span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['input_modules'] ?? 0 ) ) ); ?></strong> input bulunan mod&uuml;l</span>
+                    <span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['profile_matched_modules'] ?? 0 ) ) ); ?></strong> profile field eşleşen mod&uuml;l</span>
+                </div>
+            </div>
+
+            <div class="hc-analysis-summary-grid">
+                <div class="hc-analysis-summary-card"><span>Backend supported</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['backend_supported'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>Frontend only</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['frontend_only'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>profile_core</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['status_counts']['profile_core'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>profile_optional</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['status_counts']['profile_optional'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>tool_only</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['status_counts']['tool_only'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>disabled</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['status_counts']['disabled'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>No input detected</span><strong><?php echo esc_html( number_format_i18n( (int) ( $summary['no_input_modules'] ?? 0 ) ) ); ?></strong></div>
+                <div class="hc-analysis-summary-card"><span>Son tarama</span><strong><?php echo esc_html( ! empty( $summary['last_scan_at'] ) ? $summary['last_scan_at'] : '-' ); ?></strong></div>
+            </div>
+
+            <div class="hc-analysis-actions-bar">
+                <div class="hc-analysis-actions-main">
+                    <button type="button" class="button button-primary" data-hc-analysis-scan="all">T&uuml;m mod&uuml;lleri tara</button>
+                    <button type="button" class="button" data-hc-analysis-scan="missing">Sadece eksikleri tara</button>
+                    <button type="button" class="button hc-button-danger" data-hc-analysis-scan="all" data-reset="1">Tabloyu temizle ve yeniden tara</button>
+                    <a class="button" href="<?php echo esc_url( $report['export_url'] ); ?>">JSON export indir</a>
+                </div>
+                <div class="hc-analysis-actions-single">
+                    <input type="text" id="hc-analysis-single-slug" value="<?php echo esc_attr( $single_slug ); ?>" placeholder="Tek mod&uuml;l slug'ı" />
+                    <button type="button" class="button" data-hc-analysis-scan="single">Tek mod&uuml;l tara</button>
+                </div>
+            </div>
+
+            <div class="hc-analysis-progress" id="hc-analysis-progress" hidden>
+                <div class="hc-analysis-progress-bar"><span id="hc-analysis-progress-bar-inner" style="width:0%;"></span></div>
+                <div class="hc-analysis-progress-meta">
+                    <strong id="hc-analysis-progress-label">Hazır</strong>
+                    <span id="hc-analysis-progress-detail"></span>
                 </div>
             </div>
 
             <form method="get" class="hc-module-analysis-filters">
                 <input type="hidden" name="page" value="hesaplama-suite-analysis" />
+                <label><span>Arama</span><input type="search" name="analysis_search" value="<?php echo esc_attr( $filters['search'] ); ?>" placeholder="module_slug, title, field_label veya input adı" /></label>
                 <label>
-                    <span>ModÃ¼l ara</span>
-                    <input type="search" name="analysis_search" value="<?php echo esc_attr( $search ); ?>" placeholder="ModÃ¼l adÄ±, slug veya alan ara" />
+                    <span>profile_field</span>
+                    <select name="analysis_profile_field">
+                        <option value="">T&uuml;m alanlar</option>
+                        <?php foreach ( (array) $options['profile_fields'] as $profile_field ) : ?>
+                            <option value="<?php echo esc_attr( $profile_field ); ?>" <?php selected( $filters['profile_field'], $profile_field ); ?>><?php echo esc_html( $profile_field ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </label>
                 <label>
-                    <span>Kategori</span>
-                    <select name="analysis_category">
-                        <option value="">TÃ¼m kategoriler</option>
-                        <?php foreach ( $categories as $category_name ) : ?>
-                            <option value="<?php echo esc_attr( $category_name ); ?>" <?php selected( $category, $category_name ); ?>><?php echo esc_html( $category_name ); ?></option>
+                    <span>section</span>
+                    <select name="analysis_section">
+                        <option value="">T&uuml;m section değerleri</option>
+                        <?php foreach ( (array) $options['sections'] as $section ) : ?>
+                            <option value="<?php echo esc_attr( $section ); ?>" <?php selected( $filters['section'], $section ); ?>><?php echo esc_html( $section ); ?></option>
                         <?php endforeach; ?>
+                    </select>
+                </label>
+                <label>
+                    <span>suggested_profile_status</span>
+                    <select name="analysis_status">
+                        <option value="">T&uuml;m stat&uuml;ler</option>
+                        <?php foreach ( $status_labels as $status_label ) : ?>
+                            <option value="<?php echo esc_attr( $status_label ); ?>" <?php selected( $filters['suggested_profile_status'], $status_label ); ?>><?php echo esc_html( $status_label ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+                <label>
+                    <span>backend_supported</span>
+                    <select name="analysis_backend_supported">
+                        <option value="">T&uuml;m&uuml;</option>
+                        <option value="1" <?php selected( $filters['backend_supported'], '1' ); ?>>1</option>
+                        <option value="0" <?php selected( $filters['backend_supported'], '0' ); ?>>0</option>
+                    </select>
+                </label>
+                <label>
+                    <span>confidence</span>
+                    <select name="analysis_confidence">
+                        <option value="">T&uuml;m seviyeler</option>
+                        <option value="low" <?php selected( $filters['confidence_bucket'], 'low' ); ?>>D&uuml;ş&uuml;k confidence</option>
+                        <option value="known" <?php selected( $filters['confidence_bucket'], 'known' ); ?>>Sadece eşleşen alanlar</option>
+                    </select>
+                </label>
+                <label>
+                    <span>custom/suggested</span>
+                    <select name="analysis_custom_only">
+                        <option value="">T&uuml;m&uuml;</option>
+                        <option value="1" <?php selected( $filters['custom_field_only'], '1' ); ?>>Sadece custom/suggested</option>
+                        <option value="0" <?php selected( $filters['custom_field_only'], '0' ); ?>>Sadece varsayılan dictionary</option>
+                    </select>
+                </label>
+                <label>
+                    <span>no input detected</span>
+                    <select name="analysis_no_input">
+                        <option value="">T&uuml;m mod&uuml;ller</option>
+                        <option value="1" <?php selected( $filters['no_input_detected'], '1' ); ?>>Sadece no input detected</option>
                     </select>
                 </label>
                 <div class="hc-module-analysis-actions">
                     <button type="submit" class="button button-primary">Filtrele</button>
-                    <a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-analysis' ) ); ?>">SÄ±fÄ±rla</a>
+                    <a class="button" href="<?php echo esc_url( $page_url ); ?>">Sıfırla</a>
                 </div>
             </form>
 
-            <div class="hc-module-analysis-layout">
-                <aside class="hc-module-analysis-sidebar">
-                    <div class="hc-module-analysis-sidebar-head">ModÃ¼ller</div>
-                    <div class="hc-module-analysis-list">
-                        <?php if ( empty( $rows ) ) : ?>
-                            <p class="hc-module-analysis-empty">Bu filtreyle eÅŸleÅŸen modÃ¼l bulunamadÄ±.</p>
-                        <?php else : ?>
-                            <?php foreach ( $rows as $row ) : ?>
-                                <?php
-                                $item_url = add_query_arg(
-                                    [
-                                        'page'              => 'hesaplama-suite-analysis',
-                                        'analysis_module'   => $row['slug'],
-                                        'analysis_search'   => $search,
-                                        'analysis_category' => $category,
-                                    ],
-                                    admin_url( 'admin.php' )
-                                );
-                                $is_active = ! empty( $selected_row['slug'] ) && $selected_row['slug'] === $row['slug'];
-                                ?>
-                                <a class="hc-module-analysis-item<?php echo $is_active ? ' is-active' : ''; ?>" href="<?php echo esc_url( $item_url ); ?>">
-                                    <strong><?php echo esc_html( $row['name'] ); ?></strong>
-                                    <span><?php echo esc_html( $row['category'] ); ?></span>
-                                </a>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+            <?php if ( ! empty( $report['profile_field_counts'] ) ) : ?>
+                <div class="hc-analysis-chip-list">
+                    <?php foreach ( array_slice( $report['profile_field_counts'], 0, 18 ) as $count_row ) : ?>
+                        <span class="hc-analysis-chip"><strong><?php echo esc_html( $count_row['profile_field'] ); ?></strong><em><?php echo esc_html( number_format_i18n( (int) $count_row['module_count'] ) ); ?> mod&uuml;l</em></span>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <div class="hc-analysis-table-card">
+                <div class="hc-analysis-table-head">
+                    <div>
+                        <h3><?php echo '1' === $filters['no_input_detected'] ? 'No input detected' : 'Mod&uuml;l alan tablosu'; ?></h3>
+                        <p><?php echo '1' === $filters['no_input_detected'] ? esc_html( number_format_i18n( count( $no_input ) ) ) . ' modül listeleniyor.' : esc_html( number_format_i18n( (int) $rows_data['total_items'] ) ) . ' satır bulundu. Sayfa ' . esc_html( number_format_i18n( (int) $rows_data['page_num'] ) ) . ' / ' . esc_html( number_format_i18n( (int) $rows_data['total_pages'] ) ); ?></p>
                     </div>
-                </aside>
-
-                <section class="hc-module-analysis-detail">
-                    <?php if ( empty( $selected_row ) ) : ?>
-                        <div class="hc-module-analysis-placeholder">
-                            <h3>ModÃ¼l seÃ§ilmedi</h3>
-                            <p>Soldaki listeden bir modÃ¼l seÃ§erek hangi bilgilere ihtiyaÃ§ duyduÄŸunu gÃ¶rebilirsiniz.</p>
-                        </div>
+                </div>
+                <div class="hc-explorer-table-wrap">
+                    <?php if ( '1' === $filters['no_input_detected'] ) : ?>
+                        <table class="wp-list-table widefat striped hc-explorer-table">
+                            <thead><tr><th>module_slug</th><th>module_title</th><th>section</th><th>status</th><th>backend_supported</th><th>updated_at</th></tr></thead>
+                            <tbody>
+                            <?php if ( empty( $no_input ) ) : ?>
+                                <tr><td colspan="6">Bu filtrede kayıt bulunamadı.</td></tr>
+                            <?php else : foreach ( $no_input as $item ) : ?>
+                                <tr>
+                                    <td><code><?php echo esc_html( $item['slug'] ); ?></code></td>
+                                    <td><?php echo esc_html( $item['title'] ); ?></td>
+                                    <td><?php echo esc_html( $item['section'] ); ?></td>
+                                    <td><?php echo esc_html( $item['suggested_profile_status'] ); ?></td>
+                                    <td><?php echo esc_html( (int) $item['backend_supported'] ); ?></td>
+                                    <td><?php echo esc_html( $item['updated_at'] ); ?></td>
+                                </tr>
+                            <?php endforeach; endif; ?>
+                            </tbody>
+                        </table>
                     <?php else : ?>
-                        <div class="hc-module-analysis-detail-head">
-                            <div>
-                                <h3><?php echo esc_html( $selected_row['name'] ); ?></h3>
-                                <p><?php echo esc_html( $selected_row['category'] ); ?> kategorisinde yer alÄ±yor.</p>
-                            </div>
-                            <code><?php echo esc_html( $selected_row['shortcode'] ); ?></code>
-                        </div>
-
-                        <div class="hc-module-analysis-meta">
-                            <div>
-                                <span>Slug</span>
-                                <strong><?php echo esc_html( $selected_row['slug'] ); ?></strong>
-                            </div>
-                            <div>
-                                <span>Alan sayÄ±sÄ±</span>
-                                <strong><?php echo esc_html( number_format_i18n( count( $selected_row['inputs'] ) ) ); ?></strong>
-                            </div>
-                            <div>
-                                <span>Analiz kaynaÄŸÄ±</span>
-                                <strong>calculator.php</strong>
-                            </div>
-                        </div>
-
-                        <div class="hc-module-analysis-section">
-                            <h4>Ä°htiyaÃ§ duyduÄŸu bilgiler</h4>
-                            <?php if ( empty( $selected_row['inputs'] ) ) : ?>
-                                <p class="hc-module-analysis-empty">Belirgin bir giriÅŸ alanÄ± bulunamadÄ±. Bu modÃ¼lÃ¼n iÃ§eriÄŸi manuel kontrol gerektirebilir.</p>
-                            <?php else : ?>
-                                <ul class="hc-module-analysis-fields">
-                                    <?php foreach ( $selected_row['inputs'] as $input_label ) : ?>
-                                        <li><?php echo esc_html( $input_label ); ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-
-                        <?php if ( ! empty( $selected_row['desc'] ) ) : ?>
-                            <div class="hc-module-analysis-section">
-                                <h4>ModÃ¼l aÃ§Ä±klamasÄ±</h4>
-                                <p><?php echo esc_html( $selected_row['desc'] ); ?></p>
-                            </div>
-                        <?php endif; ?>
+                        <table class="wp-list-table widefat striped hc-explorer-table">
+                            <thead><tr><th>module_slug</th><th>module_title</th><th>section</th><th>module_input_name</th><th>profile_field</th><th>field_label</th><th>field_type</th><th>required</th><th>confidence</th><th>suggested_profile_status</th><th>backend_supported</th><th>source</th></tr></thead>
+                            <tbody>
+                            <?php if ( empty( $rows ) ) : ?>
+                                <tr><td colspan="12">Bu filtrede kayıt bulunamadı.</td></tr>
+                            <?php else : foreach ( $rows as $row ) : ?>
+                                <tr>
+                                    <td><code><?php echo esc_html( $row['module_slug'] ); ?></code><?php if ( ! empty( $row['is_custom_field'] ) ) : ?><span class="hc-analysis-badge is-custom">custom</span><?php endif; ?></td>
+                                    <td><?php echo esc_html( $row['module_title'] ); ?></td>
+                                    <td><?php echo esc_html( $row['section'] ); ?></td>
+                                    <td><code><?php echo esc_html( $row['module_input_name'] ); ?></code></td>
+                                    <td><strong><?php echo esc_html( $row['profile_field'] ); ?></strong><?php if ( ! empty( $row['detected_field_key'] ) && $row['detected_field_key'] !== $row['profile_field'] ) : ?><div class="hc-analysis-subtle">detected: <?php echo esc_html( $row['detected_field_key'] ); ?></div><?php endif; ?></td>
+                                    <td><?php echo esc_html( $row['field_label'] ); ?><?php if ( ! empty( $row['field_unit'] ) ) : ?><div class="hc-analysis-subtle">unit: <?php echo esc_html( $row['field_unit'] ); ?></div><?php endif; ?><?php if ( ! empty( $row['field_group'] ) ) : ?><div class="hc-analysis-subtle">group: <?php echo esc_html( $row['field_group'] ); ?></div><?php endif; ?></td>
+                                    <td><?php echo esc_html( $row['field_type'] ); ?></td>
+                                    <td><?php echo esc_html( (int) $row['required'] ); ?></td>
+                                    <td><?php echo esc_html( number_format_i18n( (float) $row['confidence'], 2 ) ); ?><?php if ( (float) $row['confidence'] < 0.60 || 'auto' === $row['admin_review_status'] ) : ?><span class="hc-analysis-badge is-warning">İnceleme gerekli</span><?php endif; ?></td>
+                                    <td><?php echo esc_html( $row['suggested_profile_status'] ); ?><div class="hc-analysis-subtle"><?php echo esc_html( $row['admin_review_status'] ); ?></div></td>
+                                    <td><?php echo esc_html( (int) $row['backend_supported'] ); ?></td>
+                                    <td><?php echo esc_html( $row['source'] ); ?></td>
+                                </tr>
+                            <?php endforeach; endif; ?>
+                            </tbody>
+                        </table>
                     <?php endif; ?>
-                </section>
+                </div>
+                <?php if ( '1' !== $filters['no_input_detected'] && $rows_data['total_pages'] > 1 ) : ?>
+                    <div class="hc-analysis-pagination">
+                        <?php for ( $page = 1; $page <= $rows_data['total_pages']; $page++ ) : ?>
+                            <a class="button <?php echo (int) $page === (int) $rows_data['page_num'] ? 'button-primary' : ''; ?>" href="<?php echo esc_url( add_query_arg( array_merge( $base_query, array( 'analysis_page_num' => $page ) ), admin_url( 'admin.php' ) ) ); ?>"><?php echo esc_html( number_format_i18n( $page ) ); ?></a>
+                        <?php endfor; ?>
+                    </div>
+                <?php endif; ?>
             </div>
+
+            <div class="hc-analysis-table-card">
+                <div class="hc-analysis-table-head"><div><h3>Custom / Suggested field yönetimi</h3><p>Onaylanan alanlar sonraki taramalarda custom dictionary tarafından tanınır.</p></div></div>
+                <div class="hc-explorer-table-wrap">
+                    <table class="wp-list-table widefat striped hc-explorer-table">
+                        <thead><tr><th>field_key</th><th>label</th><th>type</th><th>unit</th><th>field_group</th><th>aliases</th><th>status</th><th>confidence</th><th>module_count</th><th>İşlem</th></tr></thead>
+                        <tbody>
+                        <?php if ( empty( $custom_fields ) ) : ?>
+                            <tr><td colspan="10">Henüz custom/suggested field bulunmuyor.</td></tr>
+                        <?php else : foreach ( $custom_fields as $field_key => $field ) : ?>
+                            <tr class="hc-analysis-custom-row" data-field-key="<?php echo esc_attr( $field_key ); ?>">
+                                <td><code><?php echo esc_html( $field_key ); ?></code></td>
+                                <td><input type="text" class="hc-analysis-field-label" value="<?php echo esc_attr( $field['label'] ); ?>" /></td>
+                                <td><select class="hc-analysis-field-type"><?php foreach ( $type_options as $type_option ) : ?><option value="<?php echo esc_attr( $type_option ); ?>" <?php selected( $field['type'], $type_option ); ?>><?php echo esc_html( $type_option ); ?></option><?php endforeach; ?></select></td>
+                                <td><input type="text" class="hc-analysis-field-unit" value="<?php echo esc_attr( $field['unit'] ); ?>" /></td>
+                                <td><select class="hc-analysis-field-group"><?php foreach ( $group_labels as $group_label ) : ?><option value="<?php echo esc_attr( $group_label ); ?>" <?php selected( $field['field_group'], $group_label ); ?>><?php echo esc_html( $group_label ); ?></option><?php endforeach; ?></select></td>
+                                <td><textarea class="hc-analysis-field-aliases" rows="2"><?php echo esc_textarea( implode( ', ', (array) $field['aliases'] ) ); ?></textarea></td>
+                                <td><select class="hc-analysis-review-status"><option value="auto" <?php selected( $field['admin_review_status'], 'auto' ); ?>>auto</option><option value="reviewed" <?php selected( $field['admin_review_status'], 'reviewed' ); ?>>reviewed</option><option value="approved" <?php selected( $field['admin_review_status'], 'approved' ); ?>>approved</option><option value="ignored" <?php selected( $field['admin_review_status'], 'ignored' ); ?>>ignored</option></select></td>
+                                <td><?php echo esc_html( number_format_i18n( (float) $field['confidence'], 2 ) ); ?></td>
+                                <td><?php echo esc_html( number_format_i18n( (int) $field['module_count'] ) ); ?></td>
+                                <td><button type="button" class="button button-primary" data-hc-save-custom-field>Kaydet</button> <button type="button" class="button" data-hc-approve-custom-field>Onayla</button> <button type="button" class="button" data-hc-ignore-custom-field>Ignore</button></td>
+                            </tr>
+                        <?php endforeach; endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <?php if ( ! empty( $report['profile_field_counts'] ) ) : ?>
+                <div class="hc-analysis-table-card">
+                    <div class="hc-analysis-table-head"><div><h3>Profile field kapsama özeti</h3><p>Profile eklentisinin doğrudan sorgulayacağı alan kırılımı.</p></div></div>
+                    <div class="hc-explorer-table-wrap">
+                        <table class="wp-list-table widefat striped hc-explorer-table">
+                            <thead><tr><th>profile_field</th><th>kaç modül açıyor</th></tr></thead>
+                            <tbody>
+                            <?php foreach ( $report['profile_field_counts'] as $count_row ) : ?>
+                                <tr><td><code><?php echo esc_html( $count_row['profile_field'] ); ?></code></td><td><?php echo esc_html( number_format_i18n( (int) $count_row['module_count'] ) ); ?></td></tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <?php
     }
