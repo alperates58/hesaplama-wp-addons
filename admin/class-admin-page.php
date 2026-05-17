@@ -2417,6 +2417,9 @@ class HC_Admin_Page {
         );
         ?>
         <div class="hc-card hc-module-analysis-card" id="hc-module-analysis" data-hc-module-analysis>
+            <?php if ( empty( $summary['table_exists'] ) ) : ?>
+                <div class="notice notice-error"><p><?php echo esc_html( ! empty( $summary['last_error'] ) ? $summary['last_error'] : 'wp_hc_module_fields tablosu henüz oluşmadı.' ); ?></p></div>
+            <?php endif; ?>
             <div class="hc-module-analysis-head">
                 <div>
                     <h2>Mod&uuml;l Alan Analizi</h2>

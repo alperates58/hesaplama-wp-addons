@@ -9,6 +9,7 @@ class HC_Module_Field_Scanner {
 	const MODULE_INDEX_OPTION  = 'hc_module_field_module_index_v1';
 	const SUMMARY_OPTION       = 'hc_module_field_scan_summary_v1';
 	const PROGRESS_OPTION      = 'hc_module_field_scan_progress_v1';
+	const LAST_ERROR_OPTION    = 'hc_module_field_last_error_v1';
 	const SCHEMA_VERSION       = '1.0';
 	const SCHEMA_OPTION        = 'hc_module_field_schema_version';
 	const JS_READ_LIMIT        = 204800;
@@ -28,7 +29,7 @@ class HC_Module_Field_Scanner {
 		static $done = false;
 
 		if ( $done ) {
-			return;
+			return self::table_exists();
 		}
 
 		$done = true;
@@ -40,54 +41,76 @@ class HC_Module_Field_Scanner {
 		$table_name      = self::get_table_name();
 		$charset_collate = $wpdb->get_charset_collate();
 
-		$sql = "CREATE TABLE {$table_name} (
-			id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-			module_slug VARCHAR(190) NOT NULL,
-			module_title VARCHAR(255) NULL,
-			shortcode VARCHAR(190) NULL,
-			category VARCHAR(120) NULL,
-			section VARCHAR(80) NULL,
-			module_input_name VARCHAR(190) NOT NULL,
-			profile_field VARCHAR(120) NOT NULL,
-			field_label VARCHAR(190) NULL,
-			field_type VARCHAR(40) NULL,
-			field_unit VARCHAR(40) NULL,
-			required TINYINT(1) DEFAULT 1,
-			options_json LONGTEXT NULL,
-			source VARCHAR(80) DEFAULT 'auto_scan',
-			confidence DECIMAL(5,2) DEFAULT 0.00,
-			has_meta_json TINYINT(1) DEFAULT 0,
-			has_calculator_php TINYINT(1) DEFAULT 0,
-			has_calculator_js TINYINT(1) DEFAULT 0,
-			has_calculator_css TINYINT(1) DEFAULT 0,
-			backend_supported TINYINT(1) DEFAULT 0,
-			frontend_supported TINYINT(1) DEFAULT 1,
-			profile_relevance_score INT DEFAULT 0,
-			suggested_profile_status VARCHAR(40) DEFAULT 'tool_only',
-			ai_useful TINYINT(1) DEFAULT 0,
-			sensitive TINYINT(1) DEFAULT 0,
-			is_custom_field TINYINT(1) DEFAULT 0,
-			detected_field_key VARCHAR(120) NULL,
-			field_group VARCHAR(80) NULL,
-			admin_review_status VARCHAR(40) DEFAULT 'auto',
-			created_at DATETIME NULL,
-			updated_at DATETIME NULL,
-			PRIMARY KEY  (id),
-			UNIQUE KEY module_input_unique (module_slug, module_input_name, profile_field),
-			KEY profile_field (profile_field),
-			KEY module_slug (module_slug),
-			KEY section (section),
-			KEY suggested_profile_status (suggested_profile_status),
-			KEY admin_review_status (admin_review_status)
+		$sql = "CREATE TABLE `{$table_name}` (
+			`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+			`module_slug` VARCHAR(190) NOT NULL,
+			`module_title` VARCHAR(255) NULL,
+			`shortcode` VARCHAR(190) NULL,
+			`category` VARCHAR(120) NULL,
+			`section` VARCHAR(80) NULL,
+			`module_input_name` VARCHAR(190) NOT NULL,
+			`profile_field` VARCHAR(120) NOT NULL,
+			`field_label` VARCHAR(190) NULL,
+			`field_type` VARCHAR(40) NULL,
+			`field_unit` VARCHAR(40) NULL,
+			`required` TINYINT(1) DEFAULT 1,
+			`options_json` LONGTEXT NULL,
+			`source` VARCHAR(80) DEFAULT 'auto_scan',
+			`confidence` DECIMAL(5,2) DEFAULT 0.00,
+			`has_meta_json` TINYINT(1) DEFAULT 0,
+			`has_calculator_php` TINYINT(1) DEFAULT 0,
+			`has_calculator_js` TINYINT(1) DEFAULT 0,
+			`has_calculator_css` TINYINT(1) DEFAULT 0,
+			`backend_supported` TINYINT(1) DEFAULT 0,
+			`frontend_supported` TINYINT(1) DEFAULT 1,
+			`profile_relevance_score` INT DEFAULT 0,
+			`suggested_profile_status` VARCHAR(40) DEFAULT 'tool_only',
+			`ai_useful` TINYINT(1) DEFAULT 0,
+			`is_sensitive` TINYINT(1) DEFAULT 0,
+			`is_custom_field` TINYINT(1) DEFAULT 0,
+			`detected_field_key` VARCHAR(120) NULL,
+			`field_group` VARCHAR(80) NULL,
+			`admin_review_status` VARCHAR(40) DEFAULT 'auto',
+			`created_at` DATETIME NULL,
+			`updated_at` DATETIME NULL,
+			PRIMARY KEY  (`id`),
+			UNIQUE KEY `module_input_unique` (`module_slug`, `module_input_name`, `profile_field`),
+			KEY `profile_field` (`profile_field`),
+			KEY `module_slug` (`module_slug`),
+			KEY `section` (`section`),
+			KEY `suggested_profile_status` (`suggested_profile_status`),
+			KEY `admin_review_status` (`admin_review_status`)
 		) {$charset_collate};";
 
 		dbDelta( $sql );
+		self::migrate_legacy_sensitive_column();
 		update_option( self::SCHEMA_OPTION, self::SCHEMA_VERSION, false );
+
+		if ( self::table_exists() ) {
+			delete_option( self::LAST_ERROR_OPTION );
+			return true;
+		}
+
+		$error = $wpdb->last_error ? $wpdb->last_error : 'wp_hc_module_fields tablosu oluşturulamadı.';
+		update_option( self::LAST_ERROR_OPTION, $error, false );
+		return false;
 	}
 
 	public static function get_table_name() {
 		global $wpdb;
 		return $wpdb->prefix . self::TABLE_SUFFIX;
+	}
+
+	public static function table_exists() {
+		global $wpdb;
+		$table_name = self::get_table_name();
+		$found      = $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table_name ) );
+
+		return $found === $table_name;
+	}
+
+	public static function get_last_error() {
+		return (string) get_option( self::LAST_ERROR_OPTION, '' );
 	}
 
 	public static function ajax_scan_batch() {
@@ -209,7 +232,19 @@ class HC_Module_Field_Scanner {
 	}
 
 	public static function scan_all_modules( $args = array() ) {
-		self::maybe_upgrade_table();
+		if ( ! self::maybe_upgrade_table() ) {
+			return array(
+				'mode'       => $args['mode'] ?? 'all',
+				'offset'     => 0,
+				'next_offset'=> 0,
+				'processed'  => 0,
+				'total'      => 0,
+				'done'       => true,
+				'results'    => array(),
+				'summary'    => self::rebuild_summary(),
+				'error'      => self::get_last_error(),
+			);
+		}
 
 		$args = wp_parse_args(
 			$args,
@@ -269,7 +304,19 @@ class HC_Module_Field_Scanner {
 	}
 
 	public static function scan_module( $slug ) {
-		self::maybe_upgrade_table();
+		if ( ! self::maybe_upgrade_table() ) {
+			return array(
+				'slug'              => sanitize_key( $slug ),
+				'error'             => true,
+				'error_code'        => 'table_creation_failed',
+				'message'           => self::get_last_error(),
+				'field_count'       => 0,
+				'profile_fields'    => array(),
+				'required_fields'   => array(),
+				'optional_fields'   => array(),
+				'backend_supported' => 0,
+			);
+		}
 
 		$slug = sanitize_key( $slug );
 		self::$current_scan_slug = $slug;
@@ -319,7 +366,7 @@ class HC_Module_Field_Scanner {
 			$field_row['profile_relevance_score']  = $relevance['score'];
 			$field_row['suggested_profile_status'] = $relevance['suggested_status'];
 			$field_row['ai_useful']                = $relevance['ai_useful'] ? 1 : 0;
-			$field_row['sensitive']                = $field_row['sensitive'] ? 1 : ( $relevance['sensitive'] ? 1 : 0 );
+			$field_row['is_sensitive']             = $field_row['is_sensitive'] ? 1 : ( $relevance['sensitive'] ? 1 : 0 );
 		}
 		unset( $field_row );
 
@@ -338,17 +385,34 @@ class HC_Module_Field_Scanner {
 			'profile_relevance_score' => $relevance['score'],
 			'suggested_profile_status'=> $relevance['suggested_status'],
 			'ai_useful'               => $relevance['ai_useful'] ? 1 : 0,
-			'sensitive'               => $relevance['sensitive'] ? 1 : 0,
+			'is_sensitive'            => $relevance['sensitive'] ? 1 : 0,
 		);
 
-		self::save_module_fields( $slug, $module_info, $field_rows );
+		$save_result = self::save_module_fields( $slug, $module_info, $field_rows );
+
+		if ( is_wp_error( $save_result ) ) {
+			return array(
+				'slug'              => $slug,
+				'title'             => $title,
+				'error'             => true,
+				'error_code'        => $save_result->get_error_code(),
+				'message'           => $save_result->get_error_message(),
+				'field_count'       => count( $field_rows ),
+				'profile_fields'    => array_values( array_unique( array_filter( wp_list_pluck( $field_rows, 'profile_field' ), array( __CLASS__, 'filter_known_profile_field' ) ) ) ),
+				'required_fields'   => array_values( array_unique( wp_list_pluck( array_filter( $field_rows, array( __CLASS__, 'filter_required_rows' ) ), 'profile_field' ) ) ),
+				'optional_fields'   => array_values( array_unique( wp_list_pluck( array_filter( $field_rows, array( __CLASS__, 'filter_optional_rows' ) ), 'profile_field' ) ) ),
+				'backend_supported' => $backend ? 1 : 0,
+			);
+		}
 
 		return array(
 			'slug'               => $slug,
 			'title'              => $title,
 			'field_count'        => count( $field_rows ),
 			'no_inputs_detected' => empty( $field_rows ),
-			'profile_fields'     => array_values( array_unique( wp_list_pluck( $field_rows, 'profile_field' ) ) ),
+			'profile_fields'     => array_values( array_unique( array_filter( wp_list_pluck( $field_rows, 'profile_field' ), array( __CLASS__, 'filter_known_profile_field' ) ) ) ),
+			'required_fields'    => array_values( array_unique( wp_list_pluck( array_filter( $field_rows, array( __CLASS__, 'filter_required_rows' ) ), 'profile_field' ) ) ),
+			'optional_fields'    => array_values( array_unique( wp_list_pluck( array_filter( $field_rows, array( __CLASS__, 'filter_optional_rows' ) ), 'profile_field' ) ) ),
 			'suggested_status'   => $relevance['suggested_status'],
 			'backend_supported'  => $backend ? 1 : 0,
 		);
@@ -574,7 +638,7 @@ class HC_Module_Field_Scanner {
 		return array(
 			'profile_field'      => $match['profile_field'],
 			'confidence'         => (float) $match['confidence'],
-			'sensitive'          => ! empty( $field_info['sensitive'] ),
+			'is_sensitive'       => ! empty( $field_info['sensitive'] ),
 			'ai_useful'          => ! empty( $field_info['ai_useful'] ),
 			'is_custom_field'    => ! empty( $match['is_custom_field'] ),
 			'detected_field_key' => (string) ( $match['detected_field_key'] ?? $match['profile_field'] ),
@@ -686,6 +750,10 @@ class HC_Module_Field_Scanner {
 	public static function save_module_fields( $slug, $module_info, $field_rows ) {
 		global $wpdb;
 
+		if ( ! self::table_exists() && ! self::maybe_upgrade_table() ) {
+			return new WP_Error( 'table_missing', self::get_last_error() ?: 'wp_hc_module_fields tablosu mevcut değil.' );
+		}
+
 		$table_name = self::get_table_name();
 		$now        = current_time( 'mysql' );
 		$index      = self::get_module_index();
@@ -705,7 +773,7 @@ class HC_Module_Field_Scanner {
 					'options_json'      => ! empty( $row['options'] ) ? wp_json_encode( array_values( $row['options'] ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) : null,
 					'source'            => (string) $row['source'],
 					'confidence'        => round( (float) $row['confidence'], 2 ),
-					'sensitive'         => ! empty( $row['sensitive'] ) ? 1 : 0,
+					'is_sensitive'      => ! empty( $row['is_sensitive'] ) ? 1 : 0,
 					'ai_useful'         => ! empty( $row['ai_useful'] ) ? 1 : 0,
 					'is_custom_field'   => ! empty( $row['is_custom_field'] ) ? 1 : 0,
 					'detected_field_key'=> ! empty( $row['detected_field_key'] ) ? (string) $row['detected_field_key'] : null,
@@ -716,7 +784,13 @@ class HC_Module_Field_Scanner {
 				)
 			);
 
-			$wpdb->insert( $table_name, $data );
+			$inserted = $wpdb->insert( $table_name, $data );
+
+			if ( false === $inserted ) {
+				$error = $wpdb->last_error ? $wpdb->last_error : 'Modül alan kaydı veritabanına yazılamadı.';
+				update_option( self::LAST_ERROR_OPTION, $error, false );
+				return new WP_Error( 'insert_failed', $error );
+			}
 		}
 
 		$known_fields = array_values(
@@ -747,7 +821,7 @@ class HC_Module_Field_Scanner {
 			'profile_relevance_score' => (int) $module_info['profile_relevance_score'],
 			'suggested_profile_status'=> (string) $module_info['suggested_profile_status'],
 			'ai_useful'               => (int) $module_info['ai_useful'],
-			'sensitive'               => (int) $module_info['sensitive'],
+			'is_sensitive'            => (int) $module_info['is_sensitive'],
 			'profile_fields'          => $known_fields,
 			'required_fields'         => array_values( array_unique( wp_list_pluck( array_filter( $field_rows, array( __CLASS__, 'filter_required_rows' ) ), 'profile_field' ) ) ),
 			'optional_fields'         => array_values( array_unique( wp_list_pluck( array_filter( $field_rows, array( __CLASS__, 'filter_optional_rows' ) ), 'profile_field' ) ) ),
@@ -760,6 +834,9 @@ class HC_Module_Field_Scanner {
 		);
 
 		update_option( self::MODULE_INDEX_OPTION, $index, false );
+		delete_option( self::LAST_ERROR_OPTION );
+
+		return true;
 	}
 
 	public static function clear_module_fields( $slug ) {
@@ -774,6 +851,9 @@ class HC_Module_Field_Scanner {
 		if ( ! is_array( $summary ) || empty( $summary ) ) {
 			$summary = self::rebuild_summary();
 		}
+
+		$summary['table_exists'] = self::table_exists();
+		$summary['last_error']   = self::get_last_error();
 
 		return $summary;
 	}
@@ -795,12 +875,14 @@ class HC_Module_Field_Scanner {
 			)
 		);
 
+		$table_exists = self::table_exists();
+
 		return array(
 			'summary'             => self::get_scan_summary(),
-			'rows'                => self::get_admin_rows( $args ),
+			'rows'                => $table_exists ? self::get_admin_rows( $args ) : array( 'items' => array(), 'total_items' => 0, 'page_num' => 1, 'per_page' => (int) $args['per_page'], 'total_pages' => 1 ),
 			'no_input_modules'    => self::get_no_input_modules( $args ),
-			'filter_options'      => self::get_filter_options(),
-			'profile_field_counts'=> self::get_profile_field_counts(),
+			'filter_options'      => $table_exists ? self::get_filter_options() : array( 'profile_fields' => array(), 'sections' => array(), 'statuses' => array(), 'field_groups' => array() ),
+			'profile_field_counts'=> $table_exists ? self::get_profile_field_counts() : array(),
 			'module_index'        => self::get_module_index(),
 			'export_url'          => wp_nonce_url( admin_url( 'admin-post.php?action=hc_module_analysis_export' ), 'hc_module_analysis_export' ),
 		);
@@ -810,7 +892,7 @@ class HC_Module_Field_Scanner {
 		global $wpdb;
 
 		$table_name  = self::get_table_name();
-		$rows        = $wpdb->get_results( "SELECT * FROM {$table_name} ORDER BY module_slug ASC, id ASC", ARRAY_A );
+		$rows        = self::table_exists() ? $wpdb->get_results( "SELECT * FROM {$table_name} ORDER BY module_slug ASC, id ASC", ARRAY_A ) : array();
 		$module_index = self::get_module_index();
 		$grouped      = array();
 
@@ -842,7 +924,7 @@ class HC_Module_Field_Scanner {
 						'score'            => (int) $row['profile_relevance_score'],
 						'suggested_status' => (string) $row['suggested_profile_status'],
 						'ai_useful'        => ! empty( $row['ai_useful'] ),
-						'sensitive'        => ! empty( $row['sensitive'] ) || ! empty( $summary['sensitive'] ),
+					'sensitive'        => ! empty( $row['is_sensitive'] ) || ! empty( $summary['is_sensitive'] ),
 					),
 				);
 			}
@@ -896,7 +978,7 @@ class HC_Module_Field_Scanner {
 					'score'            => (int) $summary['profile_relevance_score'],
 					'suggested_status' => (string) $summary['suggested_profile_status'],
 					'ai_useful'        => ! empty( $summary['ai_useful'] ),
-					'sensitive'        => ! empty( $summary['sensitive'] ),
+					'sensitive'        => ! empty( $summary['is_sensitive'] ),
 				),
 			);
 		}
@@ -1019,7 +1101,7 @@ class HC_Module_Field_Scanner {
 				'options'           => ! empty( $input['options'] ) ? array_values( array_unique( array_filter( (array) $input['options'] ) ) ) : array(),
 				'source'            => (string) ( $input['source'] ?? 'auto_scan' ),
 				'confidence'        => max( (float) ( $input['confidence'] ?? 0 ), (float) $mapped['confidence'] ),
-				'sensitive'         => ! empty( $mapped['sensitive'] ),
+				'is_sensitive'      => ! empty( $mapped['is_sensitive'] ),
 				'ai_useful'         => ! empty( $mapped['ai_useful'] ),
 				'is_custom_field'   => ! empty( $mapped['is_custom_field'] ),
 				'detected_field_key'=> (string) ( $mapped['detected_field_key'] ?? $mapped['profile_field'] ),
@@ -1061,7 +1143,7 @@ class HC_Module_Field_Scanner {
 			),
 			'last_scan_at'            => '',
 			'no_input_modules'        => 0,
-			'row_count'               => (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table_name}" ),
+			'row_count'               => self::table_exists() ? (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$table_name}" ) : 0,
 		);
 
 		foreach ( $index as $item ) {
@@ -1229,6 +1311,21 @@ class HC_Module_Field_Scanner {
 		return is_array( $rows ) ? $rows : array();
 	}
 
+	private static function migrate_legacy_sensitive_column() {
+		global $wpdb;
+
+		if ( ! self::table_exists() ) {
+			return;
+		}
+
+		$table_name = self::get_table_name();
+		$columns    = $wpdb->get_col( "SHOW COLUMNS FROM `{$table_name}`", 0 );
+
+		if ( in_array( 'sensitive', $columns, true ) && ! in_array( 'is_sensitive', $columns, true ) ) {
+			$wpdb->query( "ALTER TABLE `{$table_name}` CHANGE `sensitive` `is_sensitive` TINYINT(1) DEFAULT 0" );
+		}
+	}
+
 	private static function sync_custom_field_rows( $field_key, $field ) {
 		global $wpdb;
 
@@ -1280,7 +1377,7 @@ class HC_Module_Field_Scanner {
 
 	private static function rows_have_sensitive_fields( $fields ) {
 		foreach ( $fields as $field ) {
-			if ( ! empty( $field['sensitive'] ) ) {
+			if ( ! empty( $field['is_sensitive'] ) ) {
 				return true;
 			}
 		}
@@ -1294,6 +1391,10 @@ class HC_Module_Field_Scanner {
 
 	private static function filter_optional_rows( $row ) {
 		return empty( $row['required'] ) && 'unknown' !== ( $row['profile_field'] ?? '' );
+	}
+
+	private static function filter_known_profile_field( $profile_field ) {
+		return ! empty( $profile_field ) && 'unknown' !== $profile_field;
 	}
 
 	private static function filter_low_confidence_rows( $row ) {

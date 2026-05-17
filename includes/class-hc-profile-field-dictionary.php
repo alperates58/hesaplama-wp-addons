@@ -256,6 +256,16 @@ class HC_Profile_Field_Dictionary {
 					continue;
 				}
 
+				if ( $label && preg_match( '/(^|_)' . preg_quote( $alias, '/' ) . '(_|$)/', $label ) ) {
+					$best = self::pick_better_match( $best, $field_key, 0.91, $alias, 'label_boundary' );
+					continue;
+				}
+
+				if ( $label && false !== strpos( $label, $alias ) ) {
+					$best = self::pick_better_match( $best, $field_key, 0.88, $alias, 'label_contains' );
+					continue;
+				}
+
 				if ( $haystack && preg_match( '/(^|_)' . preg_quote( $alias, '/' ) . '(_|$)/', $haystack ) ) {
 					$best = self::pick_better_match( $best, $field_key, 0.82, $alias, 'word_boundary' );
 					continue;
