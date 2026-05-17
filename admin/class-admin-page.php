@@ -3290,7 +3290,10 @@ class HC_Admin_Page {
                     <h2>Modül yönetimi artık arama ve sayfalama odaklı çalışıyor</h2>
                     <p class="hc-card-copy">İlk yüklemede sadece özet veriler ve ilk sayfa getirilir. Detaylar, kategori ağacı ve görünüm geçişleri AJAX ile artımlı yüklenir.</p>
                 </div>
-                <button type="button" class="button hc-button-ghost" data-hc-toggle-categories>Kategorileri Yönet</button>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <a class="button button-primary" href="<?php echo esc_url( admin_url( 'admin.php?page=hesaplama-suite-analysis' ) ); ?>">Modül Analiz</a>
+                    <button type="button" class="button hc-button-ghost" data-hc-toggle-categories>Kategorileri Yönet</button>
+                </div>
             </div>
         </div>
 
