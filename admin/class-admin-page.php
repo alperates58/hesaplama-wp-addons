@@ -2214,6 +2214,7 @@ class HC_Admin_Page {
         add_submenu_page( 'hesaplama-suite', 'AI Ayarları', 'AI Ayarları', 'manage_options', 'hesaplama-suite-ai', [ $this, 'render_ai_settings_page' ] );
         add_submenu_page( 'hesaplama-suite', 'GitHub Ayarları', 'GitHub Ayarları', 'manage_options', 'hesaplama-suite-github', [ $this, 'render_github_page' ] );
         add_submenu_page( 'hesaplama-suite', 'İçerik Planı', 'İçerik Planı', 'manage_options', 'hesaplama-suite-planner', [ $this, 'render_planner_page' ] );
+        add_submenu_page( 'hesaplama-suite', 'Performans', 'Performans', 'manage_options', 'hesaplama-suite-performance', [ $this, 'render_performance_page' ] );
     }
 
     public function enqueue_admin_assets( $hook ) {
@@ -2281,6 +2282,17 @@ class HC_Admin_Page {
             HC_Module_Inventory::save_catalog_settings( $_POST );
 
             wp_safe_redirect( add_query_arg( [ 'page' => 'hesaplama-suite', 'modules_saved' => '1' ], admin_url( 'admin.php' ) ) );
+            exit;
+        }
+
+        if ( isset( $_POST['hc_save_performance'] ) ) {
+            if ( ! current_user_can( 'manage_options' ) ) wp_die( 'Yetkisiz islem' );
+            if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'hc_save_performance_settings' ) ) wp_die( 'Gecersiz istek' );
+
+            $lazy = isset( $_POST['hc_lazy_shortcode_registration'] ) ? 1 : 0;
+            update_option( 'hc_lazy_shortcode_registration', $lazy );
+
+            wp_safe_redirect( admin_url( 'admin.php?page=hesaplama-suite-performance&saved=1' ) );
             exit;
         }
     }
@@ -2374,6 +2386,61 @@ class HC_Admin_Page {
         $this->render_header('İçerik Planı');
         HC_Excel_Planner::render_planner_tab();
         $this->render_footer();
+    }
+
+    public function render_performance_page() {
+        $this->render_header('Performans Ayarları');
+        $this->render_performance_tab();
+        $this->render_footer();
+    }
+
+    private function render_performance_tab() {
+        $lazy_enabled = (bool) get_option( 'hc_lazy_shortcode_registration', 1 );
+        $saved        = isset( $_GET['saved'] ) && '1' === $_GET['saved'] && ( sanitize_text_field( wp_unslash( $_GET['page'] ?? '' ) ) === 'hesaplama-suite-performance' );
+        ?>
+        <div class="hc-section-card" style="max-width:680px;">
+            <h2 style="margin-top:0">Shortcode Kayıt Performansı</h2>
+            <?php if ( $saved ) : ?>
+                <div class="notice notice-success is-dismissible" style="margin-bottom:16px"><p>Ayarlar kaydedildi.</p></div>
+            <?php endif; ?>
+
+            <p>Hesaplama Suite, <strong>2672+</strong> adet <code>hc_*</code> shortcode tanımlar.
+            Tümünü her sayfa yükünde register etmek PHP regex motorunu aşırı yükler.
+            <strong>Lazy mod</strong> açıkken yalnızca mevcut sayfanın içeriğinde kullanılan
+            shortcode'lar register edilir (genellikle 1-3 adet).</p>
+
+            <form method="post">
+                <?php wp_nonce_field( 'hc_save_performance_settings' ); ?>
+                <table class="form-table" role="presentation">
+                    <tr>
+                        <th scope="row">Lazy Shortcode Kaydı</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="hc_lazy_shortcode_registration" value="1"
+                                    <?php checked( $lazy_enabled ); ?> />
+                                Aktif (Önerilen)
+                            </label>
+                            <p class="description">
+                                Frontend sayfalarında yalnızca kullanılan <code>hc_*</code> shortcode'ları register et.
+                                Admin / AJAX / REST / WP-CLI bağlamlarında her zaman tüm shortcode'lar register edilir.
+                                Sorun yaşarsanız işareti kaldırın.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <p class="submit">
+                    <input type="submit" name="hc_save_performance" class="button button-primary" value="Kaydet" />
+                </p>
+            </form>
+
+            <hr style="margin:24px 0">
+
+            <h3 style="margin-top:0">Debug</h3>
+            <p>Profil sayfanıza <code>[hc_lazy_debug]</code> shortcode'unu ekleyerek canlı istatistikleri görebilirsiniz
+            (yalnızca yönetici kullanıcılara görüntülenir).</p>
+        </div>
+        <?php
     }
 
     private function render_analysis_tab() {
