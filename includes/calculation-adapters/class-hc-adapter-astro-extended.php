@@ -242,3 +242,468 @@ HC_Calculation_API::register_adapter(
 		);
 	}
 );
+
+// -------------------------------------------------------
+// Yardımcı: tropikal güneş burcu anahtarı (ASCII-safe)
+// -------------------------------------------------------
+
+if ( ! function_exists( 'hc_adapter_sun_sign_key' ) ) {
+	function hc_adapter_sun_sign_key( $month, $day ) {
+		if ( ( 3 === $month && $day >= 21 ) || ( 4 === $month && $day <= 19 ) )  { return 'koc'; }
+		if ( ( 4 === $month && $day >= 20 ) || ( 5 === $month && $day <= 20 ) )  { return 'boga'; }
+		if ( ( 5 === $month && $day >= 21 ) || ( 6 === $month && $day <= 20 ) )  { return 'ikizler'; }
+		if ( ( 6 === $month && $day >= 21 ) || ( 7 === $month && $day <= 22 ) )  { return 'yengec'; }
+		if ( ( 7 === $month && $day >= 23 ) || ( 8 === $month && $day <= 22 ) )  { return 'aslan'; }
+		if ( ( 8 === $month && $day >= 23 ) || ( 9 === $month && $day <= 22 ) )  { return 'basak'; }
+		if ( ( 9 === $month && $day >= 23 ) || ( 10 === $month && $day <= 22 ) ) { return 'terazi'; }
+		if ( ( 10 === $month && $day >= 23 ) || ( 11 === $month && $day <= 21 ) ) { return 'akrep'; }
+		if ( ( 11 === $month && $day >= 22 ) || ( 12 === $month && $day <= 21 ) ) { return 'yay'; }
+		if ( ( 12 === $month && $day >= 22 ) || ( 1 === $month && $day <= 19 ) ) { return 'oglak'; }
+		if ( ( 1 === $month && $day >= 20 ) || ( 2 === $month && $day <= 18 ) )  { return 'kova'; }
+		return 'balik';
+	}
+}
+
+// -------------------------------------------------------
+// Uranüs Burcu — dönem tablosu (~7 yıl/burç)
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'uranus-burcu-hesaplama',
+	function ( array $p ) {
+		$slug = 'uranus-burcu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		$periods = array(
+			array( 'start' => '1897-12-20', 'sign' => 'Yay' ),
+			array( 'start' => '1904-12-20', 'sign' => 'Oğlak' ),
+			array( 'start' => '1912-01-31', 'sign' => 'Kova' ),
+			array( 'start' => '1919-12-01', 'sign' => 'Balık' ),
+			array( 'start' => '1927-04-18', 'sign' => 'Koç' ),
+			array( 'start' => '1934-06-06', 'sign' => 'Boğa' ),
+			array( 'start' => '1941-08-07', 'sign' => 'İkizler' ),
+			array( 'start' => '1948-08-30', 'sign' => 'Yengeç' ),
+			array( 'start' => '1955-08-24', 'sign' => 'Aslan' ),
+			array( 'start' => '1961-11-01', 'sign' => 'Başak' ),
+			array( 'start' => '1968-09-28', 'sign' => 'Terazi' ),
+			array( 'start' => '1974-11-21', 'sign' => 'Akrep' ),
+			array( 'start' => '1981-02-17', 'sign' => 'Yay' ),
+			array( 'start' => '1988-02-15', 'sign' => 'Oğlak' ),
+			array( 'start' => '1995-04-01', 'sign' => 'Kova' ),
+			array( 'start' => '2003-03-10', 'sign' => 'Balık' ),
+			array( 'start' => '2010-05-28', 'sign' => 'Koç' ),
+			array( 'start' => '2018-05-15', 'sign' => 'Boğa' ),
+			array( 'start' => '2025-07-07', 'sign' => 'İkizler' ),
+		);
+
+		$sign = null;
+		foreach ( array_reverse( $periods ) as $period ) {
+			if ( $ts >= strtotime( $period['start'] ) ) {
+				$sign = $period['sign'];
+				break;
+			}
+		}
+		if ( null === $sign ) { return HC_Calculation_API::error( $slug, 'out_of_range', 'Doğum tarihi Uranüs tablosu dışında.' ); }
+
+		$descs = array(
+			'Koç'     => 'Uranüs Koç burcunda olanlar özgürlük, bireysel yenilik ve cesur öncülük enerjisi taşıyan bir neslin parçasıdır.',
+			'Boğa'    => 'Uranüs Boğa burcunda olanlar maddi değerleri, doğa ilişkisini ve ekonomiyi yeniden tanımlayan nesil enerjisi taşır.',
+			'İkizler' => 'Uranüs İkizler burcunda olanlar iletişim ve bilgi teknolojilerinde devrimci fikirler üreten nesil enerjisi taşır.',
+			'Yengeç'  => 'Uranüs Yengeç burcunda olanlar aile ve duygusal güvenlik anlayışını köklü biçimde yeniden şekillendiren nesil enerjisi taşır.',
+			'Aslan'   => 'Uranüs Aslan burcunda olanlar yaratıcılık ve bireysel ifade biçimlerinde çarpıcı yenilikler getiren nesil enerjisi taşır.',
+			'Başak'   => 'Uranüs Başak burcunda olanlar iş hayatı, sağlık ve teknoloji entegrasyonunda dönüşümcü bakış açısı taşır.',
+			'Terazi'  => 'Uranüs Terazi burcunda olanlar ilişkiler, adalet ve toplumsal dengede köklü değişimler öncülüğü yapan nesil enerjisi taşır.',
+			'Akrep'   => 'Uranüs Akrep burcunda olanlar psikoloji, dönüşüm ve ortak kaynaklar konusunda tabuları yıkan enerji taşır.',
+			'Yay'     => 'Uranüs Yay burcunda olanlar inanç, felsefe ve küresel özgürlük alanında yenilikçi bir vizyon taşır.',
+			'Oğlak'   => 'Uranüs Oğlak burcunda olanlar kurumsal yapıları ve gelenekleri teknolojiyle dönüştürme potansiyeli taşıyan nesil enerjisine sahiptir.',
+			'Kova'    => 'Uranüs Kova burcunda olanlar (doğal yönetici) kolektif bilinç ve teknolojik devrimi simgeleyen güçlü bir nesil enerjisi taşır.',
+			'Balık'   => 'Uranüs Balık burcunda olanlar ruhsal uyanış, sanattaki yenilikler ve evrensel empati temalarını taşıyan nesil enerjisine sahiptir.',
+		);
+
+		return array(
+			'title'       => 'Uranüs Burcu',
+			'value'       => $sign,
+			'unit'        => '',
+			'label'       => 'Uranüs: ' . $sign,
+			'description' => $descs[ $sign ] ?? $sign,
+			'warnings'    => array( 'Uranüs bir burçta ~7 yıl geçirir; nesil temasını gösterir. Eğlence ve kişisel farkındalık amaçlıdır.' ),
+			'raw'         => array( 'birth_date' => $p['birth_date'], 'sign' => $sign ),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Neptün Burcu — dönem tablosu (~14 yıl/burç)
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'neptun-burcu-hesaplama',
+	function ( array $p ) {
+		$slug = 'neptun-burcu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		$periods = array(
+			array( 'start' => '1901-01-01', 'sign' => 'İkizler' ),
+			array( 'start' => '1915-07-19', 'sign' => 'Yengeç' ),
+			array( 'start' => '1929-09-21', 'sign' => 'Aslan' ),
+			array( 'start' => '1943-10-03', 'sign' => 'Başak' ),
+			array( 'start' => '1956-10-19', 'sign' => 'Terazi' ),
+			array( 'start' => '1970-11-06', 'sign' => 'Akrep' ),
+			array( 'start' => '1984-11-21', 'sign' => 'Yay' ),
+			array( 'start' => '1998-01-29', 'sign' => 'Oğlak' ),
+			array( 'start' => '2012-02-03', 'sign' => 'Balık' ),
+			array( 'start' => '2025-03-30', 'sign' => 'Koç' ),
+		);
+
+		$sign = null;
+		foreach ( array_reverse( $periods ) as $period ) {
+			if ( $ts >= strtotime( $period['start'] ) ) {
+				$sign = $period['sign'];
+				break;
+			}
+		}
+		if ( null === $sign ) { return HC_Calculation_API::error( $slug, 'out_of_range', 'Doğum tarihi Neptün tablosu dışında.' ); }
+
+		$descs = array(
+			'İkizler' => 'Neptün İkizler\'de: zihinsel düzeyde yüksek hayal gücü ve sezgisel bilgi arayışı bu nesil temasını renklendirir.',
+			'Yengeç'  => 'Neptün Yengeç\'te: vatan, aile ve duygusal köklere yönelik ruhsal bir bağ bu nesil temasında öne çıkar.',
+			'Aslan'   => 'Neptün Aslan\'da: sanat, yaratıcılık ve kendini ifadede ilahi ilham arayışı bu nesil enerjisini belirler.',
+			'Başak'   => 'Neptün Başak\'ta: detaylarda gizlenen kutsallığı fark etme ve hizmet yoluyla anlam arama bu nesil temasını oluşturur.',
+			'Terazi'  => 'Neptün Terazi\'de: güzellik, uyum ve ilişkilerdeki evrensel idealler bu neslin ruhsal arayışını şekillendirmiştir.',
+			'Akrep'   => 'Neptün Akrep\'te: yaşamın gizemli ve dönüştürücü boyutlarına yönelik derin ruhsal merak bu nesil enerjisinde kendini gösterir.',
+			'Yay'     => 'Neptün Yay\'da: farklı kültürler ve inançlar arasında evrensel gerçeği arama isteği bu neslin ruhsal yolculuğunu simgeler.',
+			'Oğlak'   => 'Neptün Oğlak\'ta: hayalleri somut gerçekliğe dönüştürme azmi ve ruhsal olgunluğu disiplinle arama bu neslin temasıdır.',
+			'Balık'   => 'Neptün Balık\'ta (yönetici): sınırsız empati, ruhsal uyanış ve sanatın en saf hali bu neslin kolektif enerjisinde zirveye ulaşır.',
+			'Koç'     => 'Neptün Koç\'ta: ruhsal cesaret, bireysel uyanış ve yeni inançların öncülüğü bu neslin kolektif temasını oluşturur.',
+		);
+
+		return array(
+			'title'       => 'Neptün Burcu',
+			'value'       => $sign,
+			'unit'        => '',
+			'label'       => 'Neptün: ' . $sign,
+			'description' => $descs[ $sign ] ?? $sign,
+			'warnings'    => array( 'Neptün bir burçta ~14 yıl geçirir; nesil temasını gösterir. Eğlence ve kişisel farkındalık amaçlıdır.' ),
+			'raw'         => array( 'birth_date' => $p['birth_date'], 'sign' => $sign ),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Plüton Burcu — dönem tablosu (12-30 yıl/burç)
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'pluton-burcu-hesaplama',
+	function ( array $p ) {
+		$slug = 'pluton-burcu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		$periods = array(
+			array( 'start' => '1884-01-01', 'sign' => 'İkizler' ),
+			array( 'start' => '1913-09-10', 'sign' => 'Yengeç' ),
+			array( 'start' => '1939-06-14', 'sign' => 'Aslan' ),
+			array( 'start' => '1958-06-10', 'sign' => 'Başak' ),
+			array( 'start' => '1972-04-17', 'sign' => 'Terazi' ),
+			array( 'start' => '1984-08-28', 'sign' => 'Akrep' ),
+			array( 'start' => '1995-11-10', 'sign' => 'Yay' ),
+			array( 'start' => '2008-01-26', 'sign' => 'Oğlak' ),
+			array( 'start' => '2024-01-21', 'sign' => 'Kova' ),
+		);
+
+		$sign = null;
+		foreach ( array_reverse( $periods ) as $period ) {
+			if ( $ts >= strtotime( $period['start'] ) ) {
+				$sign = $period['sign'];
+				break;
+			}
+		}
+		if ( null === $sign ) { return HC_Calculation_API::error( $slug, 'out_of_range', 'Doğum tarihi Plüton tablosu dışında.' ); }
+
+		$descs = array(
+			'İkizler' => 'Plüton İkizler\'de: zihinsel güç ve iletişimin dönüştürücü bir araca dönüştüğü nesil enerjisi.',
+			'Yengeç'  => 'Plüton Yengeç\'te: vatan ve aile kavramlarının köklü biçimde yeniden yapılandığı nesil enerjisi.',
+			'Aslan'   => 'Plüton Aslan\'da: bireysel güç, ihtişam ve "ben" merkezli liderliğin dönüştürücü biçimde yükseldiği nesil enerjisi.',
+			'Başak'   => 'Plüton Başak\'ta: iş dünyası, sağlık sistemleri ve teknolojinin kökten dönüştüğü; verimlilik ve mükemmeliyetin simgesi nesil enerjisi.',
+			'Terazi'  => 'Plüton Terazi\'de: ilişkiler, adalet ve toplumsal cinsiyet dengelerinde derin dönüşümler getiren nesil enerjisi.',
+			'Akrep'   => 'Plüton Akrep\'te (yönetici): psikoloji ve güç kavramlarında en yoğun dönüşümleri yaşayan simyacı enerji.',
+			'Yay'     => 'Plüton Yay\'da: inançların ve küreselleşmenin sınır tanımadan yayıldığı; gerçek arayışındaki özgürlük tutkusuyla tanınan nesil enerjisi.',
+			'Oğlak'   => 'Plüton Oğlak\'ta: ekonomik krizler ve sistemlerin yeniden inşasıyla şekillenen kurumsal dönüşüm nesil enerjisi.',
+			'Kova'    => 'Plüton Kova\'da: yapay zeka ve toplumsal devrimlerle insanlığın geleceğini şekillendiren yeni nesil enerjisi.',
+		);
+
+		return array(
+			'title'       => 'Plüton Burcu',
+			'value'       => $sign,
+			'unit'        => '',
+			'label'       => 'Plüton: ' . $sign,
+			'description' => $descs[ $sign ] ?? $sign,
+			'warnings'    => array( 'Plüton bir burçta 12-30 yıl geçirir; nesil temasını gösterir. Eğlence ve kişisel farkındalık amaçlıdır.' ),
+			'raw'         => array( 'birth_date' => $p['birth_date'], 'sign' => $sign ),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Vedik Burç — Lahiri Ayanamsa, Sanskrit isimler
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'vedik-burc-hesaplama',
+	function ( array $p ) {
+		$slug = 'vedik-burc-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		$year           = (int) gmdate( 'Y', $ts );
+		$start_of_aries = mktime( 0, 0, 0, 3, 21, $year );
+		$diff_days      = ( $ts - $start_of_aries ) / 86400.0;
+		if ( $diff_days < 0.0 ) { $diff_days += 365.0; }
+		$tropical_deg = $diff_days * ( 360.0 / 365.0 );
+		$ayanamsa     = 22.5 + ( $year - 1900 ) * 0.0135;
+		$sidereal_deg = fmod( $tropical_deg - $ayanamsa + 360.0, 360.0 );
+
+		$vedic_signs = array(
+			array( 'sk' => 'Mesha',      'tr' => 'Koç' ),
+			array( 'sk' => 'Vrishabha',  'tr' => 'Boğa' ),
+			array( 'sk' => 'Mithuna',    'tr' => 'İkizler' ),
+			array( 'sk' => 'Karka',      'tr' => 'Yengeç' ),
+			array( 'sk' => 'Simha',      'tr' => 'Aslan' ),
+			array( 'sk' => 'Kanya',      'tr' => 'Başak' ),
+			array( 'sk' => 'Tula',       'tr' => 'Terazi' ),
+			array( 'sk' => 'Vrishchika', 'tr' => 'Akrep' ),
+			array( 'sk' => 'Dhanu',      'tr' => 'Yay' ),
+			array( 'sk' => 'Makara',     'tr' => 'Oğlak' ),
+			array( 'sk' => 'Kumbha',     'tr' => 'Kova' ),
+			array( 'sk' => 'Meena',      'tr' => 'Balık' ),
+		);
+		$idx   = (int) floor( $sidereal_deg / 30.0 );
+		$sign  = $vedic_signs[ $idx ];
+		$value = $sign['sk'] . ' (' . $sign['tr'] . ')';
+		$desc  = 'Vedik Jyotish astrolojisinde Lahiri Ayanamsa (~' . round( $ayanamsa, 1 ) . '°) uygulandığında '
+			. 'Rasi burcunuz ' . $value . ' olarak hesaplanmıştır. '
+			. 'Batı burcunuzdan farklı olması normaldir; bu sistem gerçek takımyıldız konumlarını esas alır.';
+
+		return array(
+			'title'       => 'Vedik Burç',
+			'value'       => $value,
+			'unit'        => '',
+			'label'       => 'Rasi: ' . $value,
+			'description' => $desc,
+			'warnings'    => array( 'Vedik/Jyotish geleneğine dayalı sembolik göstergedir. Ayanamsa yaklaşık değerdir.' ),
+			'raw'         => array(
+				'birth_date'   => $p['birth_date'],
+				'tropical_deg' => round( $tropical_deg, 4 ),
+				'ayanamsa'     => round( $ayanamsa, 4 ),
+				'sidereal_deg' => round( $sidereal_deg, 4 ),
+				'sign_sk'      => $sign['sk'],
+				'sign_tr'      => $sign['tr'],
+				'sign_index'   => $idx,
+			),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Kuzey Ay Düğümü — ortalama düğüm formülü
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'kuzey-ay-dugumu-hesaplama',
+	function ( array $p ) {
+		$slug = 'kuzey-ay-dugumu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		// Ortalama yükselen düğüm (Mean Ascending Node of Moon)
+		$jd    = ( $ts / 86400.0 ) + 2440587.5;
+		$T     = ( $jd - 2451545.0 ) / 36525.0;
+		$omega = fmod( 125.0445 - 1934.1363 * $T, 360.0 );
+		if ( $omega < 0.0 ) { $omega += 360.0; }
+
+		$signs = array( 'Koç', 'Boğa', 'İkizler', 'Yengeç', 'Aslan', 'Başak', 'Terazi', 'Akrep', 'Yay', 'Oğlak', 'Kova', 'Balık' );
+		$idx   = (int) floor( $omega / 30.0 );
+		$sign  = $signs[ $idx ];
+
+		$purposes = array(
+			'Koç'     => 'Bireyselliği geliştirmek, cesaret göstermek ve özgün bir yol çizmek.',
+			'Boğa'    => 'Maddi güvenliği sağlamak, sabır geliştirmek ve kalıcı değerler üretmek.',
+			'İkizler' => 'Bilgiyi paylaşmak, iletişim becerilerini geliştirmek ve meraklı kalmak.',
+			'Yengeç'  => 'Duygusal bağlar kurmak, şefkat göstermek ve aile değerlerini anlamak.',
+			'Aslan'   => 'Yaratıcılığını ifade etmek, özgüven geliştirmek ve liderlik etmek.',
+			'Başak'   => 'Hizmet etmek, pratik beceriler geliştirmek ve günlük hayatta düzen kurmak.',
+			'Terazi'  => 'İlişkilerde denge bulmak, diplomasi ve adil ortaklıklar geliştirmek.',
+			'Akrep'   => 'Dönüşümü benimsemek, derinlik kazanmak ve güçlü sezgiler geliştirmek.',
+			'Yay'     => 'Bilgelik aramak, özgürleşmek ve geniş bir vizyon kazanmak.',
+			'Oğlak'   => 'Sorumluluk almak, disiplinli çalışmak ve toplumsal katkı sunmak.',
+			'Kova'    => 'Toplumsal fayda sağlamak, özgün olmak ve insancıl idealler peşinde koşmak.',
+			'Balık'   => 'Ruhsallığa yönelmek, bırakmayı öğrenmek ve evrensel empati geliştirmek.',
+		);
+
+		$desc = 'Doğum tarihindeki Kuzey Ay Düğümü ' . $sign . ' burcundadır. '
+			. 'KAD bu yaşamdaki evrimsel amacı simgeler: ' . ( $purposes[ $sign ] ?? '' );
+
+		return array(
+			'title'       => 'Kuzey Ay Düğümü',
+			'value'       => $sign,
+			'unit'        => '',
+			'label'       => 'KAD: ' . $sign,
+			'description' => $desc,
+			'warnings'    => array( 'Eğlence ve kişisel farkındalık amaçlıdır; ortalama Ay Düğümü hesabıdır.' ),
+			'raw'         => array(
+				'birth_date' => $p['birth_date'],
+				'omega_deg'  => round( $omega, 4 ),
+				'sign'       => $sign,
+				'sign_index' => $idx,
+			),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Çin Burcu Döngüsü — 60 yıllık Gök Sapı + Yer Dalı
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'cin-burcu-dongusu-hesaplama',
+	function ( array $p ) {
+		$slug = 'cin-burcu-dongusu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+		$year = (int) gmdate( 'Y', $ts );
+
+		// 1984 = referans yıl (Yang Ağaç Fare)
+		$stems    = array( 'Yang Ağaç', 'Yin Ağaç', 'Yang Ateş', 'Yin Ateş', 'Yang Toprak', 'Yin Toprak', 'Yang Metal', 'Yin Metal', 'Yang Su', 'Yin Su' );
+		$branches = array( 'Fare', 'Öküz', 'Kaplan', 'Tavşan', 'Ejderha', 'Yılan', 'At', 'Keçi', 'Maymun', 'Horoz', 'Köpek', 'Domuz' );
+
+		$stem_idx   = ( ( $year - 1984 ) % 10 + 10 ) % 10;
+		$branch_idx = ( ( $year - 1984 ) % 12 + 12 ) % 12;
+		$stem       = $stems[ $stem_idx ];
+		$branch     = $branches[ $branch_idx ];
+		$value      = $stem . ' ' . $branch;
+		$cycle_pos  = ( ( $year - 1984 ) % 60 + 60 ) % 60 + 1;
+
+		$desc = $year . ' yılı 60 yıllık Çin döngüsünün ' . $cycle_pos . '. yılıdır. '
+			. $stem . ' elementi ruhsal yönünüzü, ' . $branch . ' burcu ise sosyal ve fiziksel yönünüzü temsil eder.';
+
+		return array(
+			'title'       => 'Çin Burcu Döngüsü',
+			'value'       => $value,
+			'unit'        => '',
+			'label'       => $value . ' (' . $year . ')',
+			'description' => $desc,
+			'warnings'    => array( 'Eğlence ve kişisel farkındalık amaçlıdır; takvim yılı baz alınmıştır.' ),
+			'raw'         => array(
+				'birth_year' => $year,
+				'stem'       => $stem,
+				'branch'     => $branch,
+				'cycle_pos'  => $cycle_pos,
+			),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Burç Elementi — doğum tarihinden element
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'burc-elementi-hesaplama',
+	function ( array $p ) {
+		$slug = 'burc-elementi-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		$month = (int) gmdate( 'n', $ts );
+		$day   = (int) gmdate( 'j', $ts );
+		$key   = hc_adapter_sun_sign_key( $month, $day );
+
+		if ( in_array( $key, array( 'koc', 'aslan', 'yay' ), true ) ) {
+			$element = 'Ateş';
+			$signs   = 'Koç, Aslan, Yay';
+			$desc    = 'Ateş burçları (Koç, Aslan, Yay) enerjik, tutkulu ve öncü ruha sahiptir. İlham verici liderlik ve cesaret bu elementin temel nitelikleridir. Yaratıcı güç ve girişimci ruh bu elementle özdeşleşir.';
+		} elseif ( in_array( $key, array( 'boga', 'basak', 'oglak' ), true ) ) {
+			$element = 'Toprak';
+			$signs   = 'Boğa, Başak, Oğlak';
+			$desc    = 'Toprak burçları (Boğa, Başak, Oğlak) pratik, güvenilir ve sabırlıdır. Somut sonuçlar, maddi güvenlik ve kalıcı değerler üretme bu elementin güçlü yönüdür.';
+		} elseif ( in_array( $key, array( 'ikizler', 'terazi', 'kova' ), true ) ) {
+			$element = 'Hava';
+			$signs   = 'İkizler, Terazi, Kova';
+			$desc    = 'Hava burçları (İkizler, Terazi, Kova) entelektüel, sosyal ve iletişim odaklıdır. Fikirlerin paylaşımı, denge arayışı ve toplumsal bağlar bu elementin gücünü oluşturur.';
+		} else {
+			$element = 'Su';
+			$signs   = 'Yengeç, Akrep, Balık';
+			$desc    = 'Su burçları (Yengeç, Akrep, Balık) derin duygusallık, sezgi ve empatinin temsilcisidir. Ruhsal bağlar, içsel bilgelik ve şifa bu elementin özüdür.';
+		}
+
+		return array(
+			'title'       => 'Burç Elementi',
+			'value'       => $element,
+			'unit'        => '',
+			'label'       => 'Element: ' . $element . ' (' . $signs . ')',
+			'description' => $desc,
+			'warnings'    => array( 'Eğlence ve kişisel farkındalık amaçlıdır.' ),
+			'raw'         => array( 'birth_date' => $p['birth_date'], 'sign_key' => $key, 'element' => $element ),
+		);
+	}
+);
+
+// -------------------------------------------------------
+// Burç Grubu — doğum tarihinden modalite
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'burc-grubu-hesaplama',
+	function ( array $p ) {
+		$slug = 'burc-grubu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) { return $err; }
+		$ts = strtotime( $p['birth_date'] );
+		if ( ! $ts ) { return HC_Calculation_API::error( $slug, 'invalid_date', 'Geçersiz doğum tarihi.' ); }
+
+		$month = (int) gmdate( 'n', $ts );
+		$day   = (int) gmdate( 'j', $ts );
+		$key   = hc_adapter_sun_sign_key( $month, $day );
+
+		if ( in_array( $key, array( 'koc', 'yengec', 'terazi', 'oglak' ), true ) ) {
+			$grup  = 'Öncü';
+			$signs = 'Koç, Yengeç, Terazi, Oğlak';
+			$desc  = 'Öncü burçlar (Koç, Yengeç, Terazi, Oğlak) başlatıcı enerjiyle doludur. Yeni projeler kurmak ve liderlik etmek bu grubun temel özelliğidir. Harekete geçiren kıvılcımdırlar.';
+		} elseif ( in_array( $key, array( 'boga', 'aslan', 'akrep', 'kova' ), true ) ) {
+			$grup  = 'Sabit';
+			$signs = 'Boğa, Aslan, Akrep, Kova';
+			$desc  = 'Sabit burçlar (Boğa, Aslan, Akrep, Kova) dayanıklı ve kararlıdır; başladıklarını sonuna götürürler. Değişime karşı direnç ve derin bağlılık bu grubun özünü oluşturur.';
+		} else {
+			$grup  = 'Değişken';
+			$signs = 'İkizler, Başak, Yay, Balık';
+			$desc  = 'Değişken burçlar (İkizler, Başak, Yay, Balık) esnek, uyumlu ve çok yönlüdür. Mevsim geçişlerini temsil eder; dönüşüm ve arabuluculuk bu grubun gücüdür.';
+		}
+
+		return array(
+			'title'       => 'Burç Grubu',
+			'value'       => $grup,
+			'unit'        => '',
+			'label'       => 'Grup: ' . $grup . ' (' . $signs . ')',
+			'description' => $desc,
+			'warnings'    => array( 'Eğlence ve kişisel farkındalık amaçlıdır.' ),
+			'raw'         => array( 'birth_date' => $p['birth_date'], 'sign_key' => $key, 'grup' => $grup ),
+		);
+	}
+);

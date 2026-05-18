@@ -315,3 +315,47 @@ HC_Calculation_API::register_adapter(
 		return hc_adapter_planet_result( $slug, 'Satürn', $p['birth_date'], $saturn_el, $descs );
 	}
 );
+
+// -------------------------------------------------------
+// Merkür Burcu
+// -------------------------------------------------------
+
+HC_Calculation_API::register_adapter(
+	'merkur-burcu-hesaplama',
+	function ( array $p ) {
+		$slug = 'merkur-burcu-hesaplama';
+		$err  = HC_Calculation_API::require_fields( $slug, $p, array( 'birth_date' ) );
+		if ( $err ) {
+			return $err;
+		}
+
+		$d = ( hc_adapter_planet_jd( strtotime( $p['birth_date'] ) ) - 2451543.5 );
+
+		$mercury_el = array(
+			'N'  => 48.3313 + 0.0000324587 * $d,
+			'i'  => 7.0047 + 0.00000005 * $d,
+			'w'  => 77.4564 + 0.0000155447 * $d,
+			'a'  => 0.387098,
+			'e'  => 0.205635,
+			'M0' => 174.7947,
+			'M1' => 4.0923344,
+		);
+
+		$descs = array(
+			'Koç'     => 'Merkür Koç\'ta: hızlı, doğrudan ve cesur düşünce biçimi. Net ve spontane iletişim tarzı; gördüğünü olduğu gibi ifade eder.',
+			'Boğa'    => 'Merkür Boğa\'da: temkinli, sabırlı ve güçlü bellekli bir zihin. Pratik ve somut bilgiye değer verir.',
+			'İkizler' => 'Merkür İkizler\'de (yönetici): kıvrak, meraklı ve çok yönlü zeka. Bilgiyi hızla işler, iletişimi ve bilgiyi sever.',
+			'Yengeç'  => 'Merkür Yengeç\'te: duygusal hafıza ve sezgisel düşünce biçimi. Geçmiş deneyimlerden güçlü bağlantılar kurar.',
+			'Aslan'   => 'Merkür Aslan\'da: yaratıcı, etkileyici ve özgüvenli ifade tarzı. Büyük resmi ve geniş perspektifi benimser.',
+			'Başak'   => 'Merkür Başak\'ta (yönetici): titiz, analitik ve mükemmeliyetçi zeka. Detayları fark etme ve düzenleme ustası.',
+			'Terazi'  => 'Merkür Terazi\'de: diplomatik ve dengeli düşünür. Her konunun iki tarafını değerlendiren adil bir zihin.',
+			'Akrep'   => 'Merkür Akrep\'te: derinlemesine araştıran, gizli gerçekleri bulan ve stratejik iletişim kuran bir zeka.',
+			'Yay'     => 'Merkür Yay\'da: felsefi, iyimser ve dürüst düşünce. Özgürlük ve büyük fikirler zihni besler.',
+			'Oğlak'   => 'Merkür Oğlak\'ta: ciddi, gerçekçi ve uzun vadeli planlayan bir zihin. Disiplin ve pratiklik ön planda.',
+			'Kova'    => 'Merkür Kova\'da: özgün, yenilikçi ve insancıl düşünce. Alışılmışın dışında çözümler üretir.',
+			'Balık'   => 'Merkür Balık\'ta: sezgisel, sembolik ve hayal gücüyle dolu bir zihin. Şiirsel ve akışkan ifade tarzı.',
+		);
+
+		return hc_adapter_planet_result( $slug, 'Merkür', $p['birth_date'], $mercury_el, $descs );
+	}
+);
