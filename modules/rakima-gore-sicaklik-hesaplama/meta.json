@@ -1,0 +1,5 @@
+{
+  "name": "Rakıma Göre Sıcaklık Hesaplama",
+  "desc": "Farklı yükseklikler arasındaki sıcaklık değişimini standart, kuru veya nemli adyabatik düşüş hızlarına göre hesaplar.",
+  "shortcode": "[hc_rakima_gore_sicaklik_hesaplama]"
+}

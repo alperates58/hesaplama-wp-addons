@@ -1,0 +1,5 @@
+{
+  "name": "Kinetik Enerji Hesaplama",
+  "desc": "Hareket halindeki bir cismin kütlesine ve hızına bağlı olarak sahip olduğu kinetik enerjiyi hesaplar.",
+  "shortcode": "[hc_kinetik_enerji_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Rakıma Göre Hava Basıncı Hesaplama",
+  "desc": "Belirtilen rakıma (deniz seviyesinden yüksekliğe) göre standart atmosferik hava basıncını farklı birimlerde hesaplar.",
+  "shortcode": "[hc_rakima_gore_hava_basinci_hesaplama]"
+}

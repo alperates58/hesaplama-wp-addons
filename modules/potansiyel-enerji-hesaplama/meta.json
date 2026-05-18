@@ -1,0 +1,5 @@
+{
+  "name": "Potansiyel Enerji Hesaplama",
+  "desc": "Yerçekimi potansiyel enerjisini (farklı gezegen seçenekleriyle) ve yay esneklik potansiyel enerjisini hesaplar.",
+  "shortcode": "[hc_potansiyel_enerji_hesaplama]"
+}

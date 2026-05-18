@@ -1,0 +1,5 @@
+{
+  "name": "Mutlak Nem Hesaplama",
+  "desc": "Sıcaklık ve bağıl neme bağlı olarak havada metreküp başına düşen su buharı miktarını (mutlak nem) hesaplar.",
+  "shortcode": "[hc_mutlak_nem_hesaplama]"
+}

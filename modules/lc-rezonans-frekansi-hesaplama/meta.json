@@ -1,0 +1,5 @@
+{
+  "name": "LC Rezonans Frekansı Hesaplama",
+  "desc": "Bobin indüktansı (L) ve kondansatör kapasitansı (C) değerlerine göre devrenin rezonans frekansını hesaplar.",
+  "shortcode": "[hc_lc_rezonans_frekansi_hesaplama]"
+}

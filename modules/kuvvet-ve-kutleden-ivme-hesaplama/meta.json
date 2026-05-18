@@ -1,0 +1,5 @@
+{
+  "name": "Kuvvet ve Kütleden İvme Hesaplama",
+  "desc": "Bir cisme uygulanan net kuvvet ve cismin kütlesine göre kazanacağı ivmeyi (a = F/m) hesaplar.",
+  "shortcode": "[hc_kuvvet_ve_kutleden_ivme_hesaplama]"
+}

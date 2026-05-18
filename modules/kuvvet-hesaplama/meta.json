@@ -1,0 +1,5 @@
+{
+  "name": "Kuvvet Hesaplama",
+  "desc": "Mekanik (F=m·a) ve Coulomb elektrostatik kuvvet yasalarına göre kuvvet hesaplamaları yapar.",
+  "shortcode": "[hc_kuvvet_hesaplama]"
+}

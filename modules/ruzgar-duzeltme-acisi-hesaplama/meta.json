@@ -1,0 +1,5 @@
+{
+  "name": "Rüzgar Düzeltme Açısı Hesaplama",
+  "desc": "Havacılıkta rüzgar yönü, rüzgar hızı, uçağın rotası ve gerçek hava hızına (TAS) göre Rüzgar Düzeltme Açısı'nı (WCA) ve yer hızını (GS) hesaplar.",
+  "shortcode": "[hc_ruzgar_duzeltme_acisi_hesaplama]"
+}

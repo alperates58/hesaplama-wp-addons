@@ -1,0 +1,5 @@
+{
+  "name": "Psikrometrik Hesaplama",
+  "desc": "Kuru hazne ve ıslak hazne sıcaklıklarına göre bağıl nem, çiy noktası, özgül nem ve entalpi gibi psikrometrik hava özelliklerini hesaplar.",
+  "shortcode": "[hc_psikrometrik_hesaplama]"
+}

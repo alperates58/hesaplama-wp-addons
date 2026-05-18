@@ -1,0 +1,5 @@
+{
+  "name": "Polar Atalet Momenti Hesaplama",
+  "desc": "Daire, boru ve dikdörtgen kesitli millerin burulmaya karşı direncini temsil eden polar atalet momentini hesaplar.",
+  "shortcode": "[hc_polar_atalet_momenti_hesaplama]"
+}

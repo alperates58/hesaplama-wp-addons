@@ -1,0 +1,37 @@
+/* Reaksiyon Süresi Kutusu Özel Stilleri */
+.hc-reaction-box {
+    width: 100%;
+    height: 150px;
+    background-color: var(--hc-primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.hc-reaction-box:hover {
+    filter: brightness(1.05);
+}
+.hc-reaction-box:active {
+    transform: scale(0.98);
+}
+.hc-reaction-box.waiting {
+    background-color: #e74c3c; /* Red */
+}
+.hc-reaction-box.ready {
+    background-color: #2ecc71; /* Green */
+}
+.hc-reaction-box.early {
+    background-color: #f39c12; /* Orange */
+}
+.hc-reaction-box.success {
+    background-color: #3498db; /* Blue */
+}

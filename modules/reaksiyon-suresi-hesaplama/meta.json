@@ -1,0 +1,5 @@
+{
+  "name": "Reaksiyon Süresi Hesaplama",
+  "desc": "Kullanıcının görsel uyaranlara karşı tepki (reaksiyon) süresini milisaniye cinsinden ölçen etkileşimli bir test modülüdür.",
+  "shortcode": "[hc_reaksiyon_suresi_hesaplama]"
+}

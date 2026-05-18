@@ -1,0 +1,5 @@
+{
+  "name": "Lümen Hesaplama",
+  "desc": "Oda alanı ve kullanım amacına göre ihtiyaç duyulan ışık akısını (lümen) ve ampul güçlerini hesaplar.",
+  "shortcode": "[hc_lumen_hesaplama]"
+}

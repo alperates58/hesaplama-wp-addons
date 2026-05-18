@@ -1,0 +1,5 @@
+{
+  "name": "Kırınım Hesaplama",
+  "desc": "Tek yarıkta veya çift yarıkta ışık kırınımı ve saçak genişliğini hesaplar.",
+  "shortcode": "[hc_kirinim_hesaplama]"
+}

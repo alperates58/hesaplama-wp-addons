@@ -1,0 +1,5 @@
+{
+  "name": "Merkezkaç Kuvvet Hesaplama",
+  "desc": "Dönen referans sistemindeki bir cisme etki eden hayali merkezkaç kuvvetini ve ivmesini hesaplar.",
+  "shortcode": "[hc_merkezkac_kuvvet_hesaplama]"
+}

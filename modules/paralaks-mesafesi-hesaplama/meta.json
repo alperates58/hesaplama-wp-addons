@@ -1,0 +1,5 @@
+{
+  "name": "Paralaks Mesafesi Hesaplama",
+  "desc": "Yıldızların paralaks açısına (arcsecond) göre Dünya'ya olan mesafelerini parsek, ışık yılı ve astronomik birim (AU) cinsinden hesaplar.",
+  "shortcode": "[hc_paralaks_mesafesi_hesaplama]"
+}

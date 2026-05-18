@@ -1,0 +1,5 @@
+{
+  "name": "Sanal Sıcaklık Hesaplama",
+  "desc": "Meteorolojide nemli havanın yoğunluğunu kuru hava sıcaklığı cinsinden ifade etmek için kullanılan sanal sıcaklığı (virtual temperature) hesaplar.",
+  "shortcode": "[hc_sanal_sicaklik_hesaplama]"
+}

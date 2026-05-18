@@ -1,0 +1,5 @@
+{
+  "name": "Pnömatik Silindir Kuvveti Hesaplama",
+  "desc": "Pnömatik silindirlerin çap, mil çapı ve hava basıncına göre ileri (itme) ve geri (çekme) yönlü teorik/pratik kuvvetlerini hesaplar.",
+  "shortcode": "[hc_pnomatik_silindir_kuvveti_hesaplama]"
+}

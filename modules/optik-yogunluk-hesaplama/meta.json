@@ -1,0 +1,5 @@
+{
+  "name": "Optik Yoğunluk Hesaplama",
+  "desc": "Işığın geçirgenlik (transmitans) oranına veya Beer-Lambert Yasası'na göre bir ortamın optik yoğunluğunu (absorbans) hesaplar.",
+  "shortcode": "[hc_optik_yogunluk_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Rydberg Denklemi Hesaplama",
+  "desc": "Hidrojen benzeri elementlerin elektron geçişleri sırasındaki foton emisyonu dalga boyunu ve enerjisini Rydberg formülüyle hesaplar.",
+  "shortcode": "[hc_rydberg_denklemi_hesaplama]"
+}

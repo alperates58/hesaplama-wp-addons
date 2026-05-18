@@ -1,0 +1,5 @@
+{
+  "name": "Kütlesel Atalet Momenti Hesaplama",
+  "desc": "Küre, silindir, disk, boru ve çubuk gibi geometrik şekillerin kütlesel atalet momentini hesaplar.",
+  "shortcode": "[hc_kutlesel_atalet_momenti_hesaplama]"
+}

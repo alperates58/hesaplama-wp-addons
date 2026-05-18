@@ -1,0 +1,5 @@
+{
+  "name": "Kilogramdan Newtona Çevirme Hesaplama",
+  "desc": "Kütle birimi olan kilogramı yerçekimi ivmesine bağlı olarak kuvvet birimi olan Newton'a çevirir.",
+  "shortcode": "[hc_kilogramdan_newtona_cevirme_hesaplama]"
+}

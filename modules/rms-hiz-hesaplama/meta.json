@@ -1,0 +1,5 @@
+{
+  "name": "RMS Hız Hesaplama",
+  "desc": "Parçacıkların kök ortalama kare (RMS) hızını mikroskobik düzeyde (k_B·T/m) veya girilen hız değerleri kümesine göre hesaplar.",
+  "shortcode": "[hc_rms_hiz_hesaplama]"
+}

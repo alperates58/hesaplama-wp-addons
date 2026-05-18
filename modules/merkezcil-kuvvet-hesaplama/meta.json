@@ -1,0 +1,5 @@
+{
+  "name": "Merkezcil Kuvvet Hesaplama",
+  "desc": "Dairesel hareket yapan bir cismin kütlesi, hızı (çizgisel/açısal) ve yarıçapına göre merkezcil kuvvet ve ivmesini hesaplar.",
+  "shortcode": "[hc_merkezcil_kuvvet_hesaplama]"
+}

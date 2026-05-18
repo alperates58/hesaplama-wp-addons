@@ -1,0 +1,5 @@
+{
+  "name": "Mercek Yapımcı Denklemi Hesaplama",
+  "desc": "Merceğin kırılma indisi, ortam indisi ve eğrilik yarıçaplarına göre odak uzaklığını ve gücünü hesaplar.",
+  "shortcode": "[hc_mercek_yapimci_denklemi_hesaplama]"
+}

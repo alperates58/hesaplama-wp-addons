@@ -1,0 +1,5 @@
+{
+  "name": "Sarkaç Frekansı Hesaplama",
+  "desc": "Basit bir sarkaçta ip uzunluğu ve yerçekimi ivmesine göre sarkacın saniyedeki salınım (frekans) sayısını hesaplar.",
+  "shortcode": "[hc_sarkac_frekansi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Newton un İkinci Yasası Hesaplama",
+  "desc": "Newton'un 2. Yasası'na (F = m·a) göre kuvvet, kütle ve ivme ilişkisini, opsiyonel sürtünme etkisiyle birlikte hesaplar.",
+  "shortcode": "[hc_newton_un_ikinci_yasasi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Moleküler RMS Hız Hesaplama",
+  "desc": "Gaz moleküllerinin sıcaklık ve molar kütleye bağlı olarak kök ortalama kare (RMS) hızını hesaplar.",
+  "shortcode": "[hc_molekuler_rms_hiz_hesaplama]"
+}

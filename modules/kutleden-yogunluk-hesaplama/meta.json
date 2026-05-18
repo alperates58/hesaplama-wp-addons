@@ -1,0 +1,5 @@
+{
+  "name": "Kütleden Yoğunluk Hesaplama",
+  "desc": "Toplam kütle ve toplam hacim değerlerine göre malzemenin yoğunluğunu (&rho; = m/V) hesaplar.",
+  "shortcode": "[hc_kutleden_yogunluk_hesaplama]"
+}

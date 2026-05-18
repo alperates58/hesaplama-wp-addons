@@ -1,0 +1,5 @@
+{
+  "name": "Momentum Korunumu Hesaplama",
+  "desc": "Tek boyutta çarpışan iki cismin esnek veya esnek olmayan çarpışma sonrası son hızlarını ve enerji değişimlerini hesaplar.",
+  "shortcode": "[hc_momentum_korunumu_hesaplama]"
+}

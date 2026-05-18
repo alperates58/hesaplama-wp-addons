@@ -1,0 +1,5 @@
+{
+  "name": "Sarkaç Periyodu Hesaplama",
+  "desc": "Basit bir sarkacın bir tam salınım yapma süresini (periyodunu) ip uzunluğu ve bırakılma açısı düzeltmeleriyle birlikte hesaplar.",
+  "shortcode": "[hc_sarkac_periyodu_hesaplama]"
+}

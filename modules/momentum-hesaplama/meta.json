@@ -1,0 +1,5 @@
+{
+  "name": "Momentum Hesaplama",
+  "desc": "Hareket halindeki bir cismin kütlesi ve hızına bağlı olarak çizgisel momentumunu (p = m·v) hesaplar.",
+  "shortcode": "[hc_momentum_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Newton Soğuma Yasası Hesaplama",
+  "desc": "Bir cismin bulunduğu ortamda zamana bağlı olarak soğuma veya ısınma eğrisini Newton'un Soğuma Yasası'na göre hesaplar.",
+  "shortcode": "[hc_newton_soguma_yasasi_hesaplama]"
+}

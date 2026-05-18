@@ -1,0 +1,5 @@
+{
+  "name": "Özgül Ağırlık Hesaplama",
+  "desc": "Bir maddenin yoğunluğu veya kütle/hacim değerlerine göre özgül ağırlığını (birim hacminin ağırlığını) ve bağıl yoğunluğunu hesaplar.",
+  "shortcode": "[hc_ozgul_agirlik_hesaplama]"
+}

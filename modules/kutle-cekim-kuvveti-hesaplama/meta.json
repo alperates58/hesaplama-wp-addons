@@ -1,0 +1,5 @@
+{
+  "name": "Kütle Çekim Kuvveti Hesaplama",
+  "desc": "Newton'un kütleçekim yasasına göre iki kütle arasındaki kütleçekim kuvvetini hesaplar.",
+  "shortcode": "[hc_kutle_cekim_kuvveti_hesaplama]"
+}

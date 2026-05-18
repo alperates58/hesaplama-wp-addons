@@ -1,0 +1,5 @@
+{
+  "name": "m/s Hız Hesaplama",
+  "desc": "Alınan mesafe ve geçen süreye bağlı olarak hızı m/s (metre/saniye) ve km/sa cinsinden hesaplar.",
+  "shortcode": "[hc_m_s_hiz_hesaplama]"
+}

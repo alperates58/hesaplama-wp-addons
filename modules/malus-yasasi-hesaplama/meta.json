@@ -1,0 +1,5 @@
+{
+  "name": "Malus Yasası Hesaplama",
+  "desc": "Polarize filtreden geçen ışık şiddetini ve geçirgenlik oranını Malus Yasası'na (I = I₀·cos²&theta;) göre hesaplar.",
+  "shortcode": "[hc_malus_yasasi_hesaplama]"
+}

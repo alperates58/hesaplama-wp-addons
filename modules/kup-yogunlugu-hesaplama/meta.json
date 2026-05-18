@@ -1,0 +1,5 @@
+{
+  "name": "Küp Yoğunluğu Hesaplama",
+  "desc": "Küp şeklindeki bir cismin kenar uzunluğu ve kütlesine göre hacim ve yoğunluğunu hesaplar.",
+  "shortcode": "[hc_kup_yogunlugu_hesaplama]"
+}

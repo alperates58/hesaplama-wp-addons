@@ -1,0 +1,5 @@
+{
+  "name": "Kütle Hacim Yoğunluk Hesaplama",
+  "desc": "Yoğunluk formülü (&rho; = m/V) parametrelerinden girilen iki değere göre bilinmeyen üçüncüyü hesaplar.",
+  "shortcode": "[hc_kutle_hacim_yogunluk_hesaplama]"
+}

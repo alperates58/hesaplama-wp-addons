@@ -1,0 +1,5 @@
+{
+  "name": "Kuvvet Kütle İvme Hesaplama",
+  "desc": "Newton'un 2. Yasası (F = m·a) parametrelerinden girilen iki değere göre bilinmeyen üçüncüyü hesaplar.",
+  "shortcode": "[hc_kuvvet_kutle_ivme_hesaplama]"
+}

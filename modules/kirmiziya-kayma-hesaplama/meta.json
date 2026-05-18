@@ -1,0 +1,5 @@
+{
+  "name": "Kırmızıya Kayma Hesaplama",
+  "desc": "Evrendeki gökcisimlerinin kırmızıya kayma oranını (z) ve uzaklaşma hızlarını hesaplar.",
+  "shortcode": "[hc_kirmiziya_kayma_hesaplama]"
+}

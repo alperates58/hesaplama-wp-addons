@@ -1,0 +1,5 @@
+{
+  "name": "Normal Kuvvet Hesaplama",
+  "desc": "Yatay veya eğik düzlemdeki bir cismin kütlesi, eğim açısı ve dış dikey kuvvetlere göre yüzey normal kuvvetini hesaplar.",
+  "shortcode": "[hc_normal_kuvvet_hesaplama]"
+}

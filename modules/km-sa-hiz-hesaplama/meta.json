@@ -1,0 +1,5 @@
+{
+  "name": "km/sa Hız Hesaplama",
+  "desc": "Alınan mesafe ve geçen zamana göre ortalama hızı km/sa ve m/s cinsinden hesaplar.",
+  "shortcode": "[hc_km_sa_hiz_hesaplama]"
+}

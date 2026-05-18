@@ -1,0 +1,5 @@
+{
+  "name": "Küre Yoğunluğu Hesaplama",
+  "desc": "Küre şeklindeki bir cismin yarıçapı ve kütlesine göre hacim ve yoğunluğunu hesaplar.",
+  "shortcode": "[hc_kure_yogunlugu_hesaplama]"
+}

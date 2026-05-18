@@ -1,0 +1,5 @@
+{
+  "name": "Mesafeye Göre Ses Zayıflaması Hesaplama",
+  "desc": "Ses kaynağından uzaklaştıkça ses basınç düzeyindeki (dB) düşüşü ve zayıflamayı hesaplar.",
+  "shortcode": "[hc_mesafeye_gore_ses_zayiflamasi_hesaplama]"
+}
