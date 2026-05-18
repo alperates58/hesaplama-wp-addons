@@ -1,0 +1,5 @@
+{
+  "name": "Sürtünme Katsayısı Hesaplama",
+  "desc": "Sürtünme ve normal kuvvet değerlerine ya da eğim açısına göre statik veya kinetik sürtünme katsayısını (μ) hesaplar.",
+  "shortcode": "[hc_surtunme_katsayisi_hesaplama]"
+}

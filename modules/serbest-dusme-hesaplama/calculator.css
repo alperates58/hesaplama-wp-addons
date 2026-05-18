@@ -1,0 +1,113 @@
+.hc-calculator {
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+}
+
+.hc-cal-header {
+    text-align: center;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 16px;
+}
+
+.hc-cal-header h3 {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    color: #1a1a1a;
+}
+
+.hc-cal-header p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.hc-form-group {
+    margin-bottom: 20px;
+}
+
+.hc-form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.hc-input, .hc-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fafafa;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.hc-input:focus, .hc-select:focus {
+    border-color: #0073aa;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+.hc-btn {
+    width: 100%;
+    padding: 14px;
+    background: #0073aa;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.hc-btn:hover {
+    background: #005177;
+}
+
+.hc-result {
+    margin-top: 24px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 4px solid #0073aa;
+    border-radius: 4px;
+    display: none;
+}
+
+.hc-result.visible {
+    display: block;
+}
+
+.hc-result-title {
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.hc-result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.hc-result-label {
+    color: #555555;
+}
+
+.hc-result-value {
+    font-weight: 700;
+    color: #1a1a1a;
+}

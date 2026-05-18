@@ -1,0 +1,5 @@
+{
+  "name": "Şimşek Mesafesi Hesaplama",
+  "desc": "Şimşek çakması ile gök gürültüsü duyulması arasındaki süreye göre şimşeğin düştüğü mesafeyi hesaplar.",
+  "shortcode": "[hc_simsek_mesafesi_hesaplama]"
+}

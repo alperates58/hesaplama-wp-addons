@@ -1,0 +1,5 @@
+{
+  "name": "Weber Hesaplama",
+  "desc": "Manyetik akı birimi olan Weber (Wb) değerini manyetik alan (Tesla), yüzey alanı ve açı parametreleri üzerinden hesaplar.",
+  "shortcode": "[hc_weber_hesaplama]"
+}

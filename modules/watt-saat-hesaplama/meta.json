@@ -1,0 +1,5 @@
+{
+  "name": "Watt Saat Hesaplama",
+  "desc": "Cihaz gücü (Watt) ve kullanım süresine göre tüketilen veya depolanan enerjiyi Watt-saat (Wh) ve Kilowatt-saat (kWh) olarak hesaplar.",
+  "shortcode": "[hc_watt_saat_hesaplama]"
+}

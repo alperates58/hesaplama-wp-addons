@@ -1,0 +1,5 @@
+{
+  "name": "TNT Eşdeğeri Enerji Hesaplama",
+  "desc": "Farklı enerji birimlerindeki (Joule, kWh, vb.) enerjiyi ton veya kilogram cinsinden TNT eşdeğeri patlama enerjisine çevirir.",
+  "shortcode": "[hc_tnt_esdegeri_enerji_hesaplama]"
+}

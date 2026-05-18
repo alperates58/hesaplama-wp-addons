@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Düşme Mesafesi Hesaplama",
+  "desc": "Yerçekimi ivmesi etkisiyle serbest düşen bir cismin belirli bir sürede katettiği mesafeyi hesaplar.",
+  "shortcode": "[hc_serbest_dusme_mesafesi_hesaplama]"
+}

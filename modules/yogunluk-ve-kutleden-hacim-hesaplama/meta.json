@@ -1,0 +1,5 @@
+{
+  "name": "Yoğunluk ve Kütleden Hacim Hesaplama",
+  "desc": "Belirli bir yoğunluk ve kütleye sahip olan cismin kapladığı toplam hacmi metreküp, litre ve cm³ cinsinden hesaplar.",
+  "shortcode": "[hc_yogunluk_ve_kutleden_hacim_hesaplama]"
+}

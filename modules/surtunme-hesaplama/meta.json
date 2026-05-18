@@ -1,0 +1,5 @@
+{
+  "name": "Sürtünme Hesaplama",
+  "desc": "Düz ve eğimli yüzeylerdeki statik ve kinetik sürtünme kuvvetlerini, normal kuvveti ve sürtünme katsayısını hesaplar.",
+  "shortcode": "[hc_surtunme_hesaplama]"
+}

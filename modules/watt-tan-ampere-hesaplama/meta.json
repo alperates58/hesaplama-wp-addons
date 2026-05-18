@@ -1,0 +1,5 @@
+{
+  "name": "Watt tan Ampere Hesaplama",
+  "desc": "Elektriksel gücü (Watt), voltaj ve faz tipine göre elektrik akımına (Amper) dönüştürür.",
+  "shortcode": "[hc_watt_tan_ampere_hesaplama]"
+}

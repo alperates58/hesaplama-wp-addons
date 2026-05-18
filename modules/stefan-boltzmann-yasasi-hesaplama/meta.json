@@ -1,0 +1,5 @@
+{
+  "name": "Stefan-Boltzmann Yasası Hesaplama",
+  "desc": "Bir nesnenin yüzey alanı, sıcaklığı ve yayma gücüne (emissivity) göre uzaya yaydığı toplam termal ışıma gücünü hesaplar.",
+  "shortcode": "[hc_stefan_boltzmann_yasasi_hesaplama]"
+}

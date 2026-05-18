@@ -1,0 +1,5 @@
+{
+  "name": "Yarım Ömür Hesaplama",
+  "desc": "Radyoaktif elementlerin veya yarılanma ömrüne sahip diğer maddelerin zaman içindeki bozunma miktarını ve kalan kütlesini hesaplar.",
+  "shortcode": "[hc_yarim_omur_hesaplama]"
+}

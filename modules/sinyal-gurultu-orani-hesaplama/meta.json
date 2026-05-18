@@ -1,0 +1,5 @@
+{
+  "name": "Sinyal Gürültü Oranı Hesaplama",
+  "desc": "Güç veya gerilim bazlı sinyal ve gürültü seviyelerine göre SNR oranını ve desibel (dB) karşılığını hesaplar.",
+  "shortcode": "[hc_sinyal_gurultu_orani_hesaplama]"
+}

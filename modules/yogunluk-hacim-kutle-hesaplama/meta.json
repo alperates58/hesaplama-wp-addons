@@ -1,0 +1,5 @@
+{
+  "name": "Yoğunluk Hacim Kütle Hesaplama",
+  "desc": "Yoğunluk (özkütle), hacim ve kütle büyüklükleri arasında malzeme kütüphanesi yardımıyla çok yönlü hesaplama yapar.",
+  "shortcode": "[hc_yogunluk_hacim_kutle_hesaplama]"
+}

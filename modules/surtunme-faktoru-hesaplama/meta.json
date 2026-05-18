@@ -1,0 +1,5 @@
+{
+  "name": "Sürtünme Faktörü Hesaplama",
+  "desc": "Boru akışlarında Reynolds sayısı ve pürüzlülüğe bağlı olarak Darcy-Weisbach sürtünme faktörünü hesaplar.",
+  "shortcode": "[hc_surtunme_faktoru_hesaplama]"
+}

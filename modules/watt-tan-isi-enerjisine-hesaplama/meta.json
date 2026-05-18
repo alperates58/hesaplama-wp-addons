@@ -1,0 +1,5 @@
+{
+  "name": "Watt tan Isı Enerjisine Hesaplama",
+  "desc": "Belirli bir güçteki (Watt) ısıtıcı veya elektrikli cihazın, çalışma süresi boyunca ürettiği ısı enerjisini Joule, kalori ve BTU olarak hesaplar.",
+  "shortcode": "[hc_watt_tan_isi_enerjisine_hesaplama]"
+}

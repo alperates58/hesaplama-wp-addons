@@ -1,0 +1,5 @@
+{
+  "name": "Snell Yasası Hesaplama",
+  "desc": "Işığın iki farklı ortam arasındaki geçişinde kırılma açılarını ve kritik açıyı Snell Yasası ile hesaplar.",
+  "shortcode": "[hc_snell_yasasi_hesaplama]"
+}

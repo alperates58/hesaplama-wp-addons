@@ -1,0 +1,5 @@
+{
+  "name": "Siyah Cisim Işıması Hesaplama",
+  "desc": "Belirli bir sıcaklıktaki siyah cismin yaydığı maksimum ışınım dalga boyunu ve toplam ışıma gücünü hesaplar.",
+  "shortcode": "[hc_siyah_cisim_isismasi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Silindir Yoğunluğu Hesaplama",
+  "desc": "Bir silindirin yarıçap, yükseklik ve kütle değerlerini kullanarak hacmini ve yoğunluğunu hesaplar.",
+  "shortcode": "[hc_silindir_yogunlugu_hesaplama]"
+}

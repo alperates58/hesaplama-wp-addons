@@ -1,0 +1,5 @@
+{
+  "name": "Teleskop Büyütme Oranı Hesaplama",
+  "desc": "Teleskop odak uzaklığı ve oküler (göz merceği) odak uzaklığına göre teleskobun büyütme oranını ve sınırlarını hesaplar.",
+  "shortcode": "[hc_teleskop_buyutme_orani_hesaplama]"
+}

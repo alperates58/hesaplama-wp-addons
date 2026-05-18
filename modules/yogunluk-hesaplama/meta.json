@@ -1,0 +1,5 @@
+{
+  "name": "Yoğunluk Hesaplama",
+  "desc": "Kütle ve hacim değerleri girilen bir maddenin özkütlesini (yoğunluğunu) yüksek hassasiyetle hesaplar ve farklı birimlere çevirir.",
+  "shortcode": "[hc_yogunluk_hesaplama]"
+}

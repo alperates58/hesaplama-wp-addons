@@ -3,43 +3,76 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_surukleme_kuvveti_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-drag-force',
+        'hc-surukleme-kuvveti-hesaplama',
         HC_PLUGIN_URL . 'modules/surukleme-kuvveti-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
     wp_enqueue_style(
-        'hc-drag-force-css',
+        'hc-surukleme-kuvveti-hesaplama-css',
         HC_PLUGIN_URL . 'modules/surukleme-kuvveti-hesaplama/calculator.css',
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-drag-force">
-        <h3>Sürükleme Kuvveti (Fd)</h3>
-        <div class="hc-form-group">
-            <label for="hc-df-rho">Akışkan Yoğunluğu (ρ) [kg/m³]</label>
-            <input type="number" id="hc-df-rho" value="1.225">
-            <small>Hava (Deniz Seviyesi): 1.225, Su: 1000</small>
+    <div class="hc-calculator" id="hc-surukleme-kuvveti-hesaplama">
+        <div class="hc-cal-header">
+            <h3>Sürükleme Kuvveti Hesaplama</h3>
+            <p>Akışkan içinde hareket eden cisimlerin hız, kesit alanı, akışkan yoğunluğu ve sürükleme katsayılarına göre maruz kaldıkları direnç kuvvetini hesaplar.</p>
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-df-v">Hız (v) [m/s]</label>
-            <input type="number" id="hc-df-v" value="30">
+            <label for="hc-srk-preset">Cisim Geometrisi / Sürükleme Katsayısı (C_d)</label>
+            <select id="hc-srk-preset" class="hc-select" onchange="hcSuruklemeSablonDegisti()">
+                <option value="custom">Özel Katsayı Gir</option>
+                <option value="sphere">Küre [Cd = 0.47]</option>
+                <option value="cube">Küp [Cd = 1.05]</option>
+                <option value="cylinder">Düz Silindir [Cd = 0.82]</option>
+                <option value="car">Binek Otomobil [Cd = 0.28]</option>
+                <option value="streamlined">Aerodinamik Damla Formu [Cd = 0.04]</option>
+            </select>
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-df-cd">Sürükleme Katsayısı (Cd)</label>
-            <input type="number" id="hc-df-cd" value="0.47" step="0.01">
-            <small>Küre: 0.47, Otomobil: 0.25-0.35</small>
+            <label for="hc-srk-cd">Sürükleme Katsayısı (C_d)</label>
+            <input type="number" id="hc-srk-cd" class="hc-input" value="0.47" step="any" min="0">
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-df-a">Kesit Alanı (A) [m²]</label>
-            <input type="number" id="hc-df-a" value="2" step="0.1">
+            <label for="hc-srk-fluid">Akışkan Ortamı (Yoğunluk Preseti)</label>
+            <select id="hc-srk-fluid" class="hc-select" onchange="hcSuruklemeAkiskanDegisti()">
+                <option value="air">Hava (Deniz Seviyesi, 15°C) [1.225 kg/m³]</option>
+                <option value="water">Tatlı Su (20°C) [998 kg/m³]</option>
+                <option value="custom">Özel Yoğunluk Gir (kg/m³)</option>
+            </select>
         </div>
-        <button class="hc-btn" onclick="hcDragForceHesapla()">Kuvveti Hesapla</button>
-        <div class="hc-result" id="hc-drag-force-result">
+
+        <div class="hc-form-group" id="hc-srk-rho-group" style="display:none;">
+            <label for="hc-srk-rho">Akışkan Yoğunluğu (ρ - kg/m³)</label>
+            <input type="number" id="hc-srk-rho" class="hc-input" value="1.225" step="any" min="0">
+        </div>
+
+        <div class="hc-form-group">
+            <label for="hc-srk-v">Cisim Hızı (m/s)</label>
+            <input type="number" id="hc-srk-v" class="hc-input" placeholder="örn. 30 (Hava için ~108 km/sa)" step="any" min="0">
+        </div>
+
+        <div class="hc-form-group">
+            <label for="hc-srk-area">Projeksiyon Kesit Alanı (A - m²)</label>
+            <input type="number" id="hc-srk-area" class="hc-input" placeholder="örn. 0.5" step="any" min="0">
+        </div>
+
+        <button class="hc-btn" onclick="hcSuruklemeKuvvetiHesapla()">Hesapla</button>
+
+        <div class="hc-result" id="hc-surukleme-kuvveti-hesaplama-result">
+            <div class="hc-result-title">Sürükleme Direnci Sonuçları</div>
             <div class="hc-result-item">
-                <span>Sürükleme Kuvveti:</span>
-                <span class="hc-result-value" id="hc-res-df-val">0 Newton</span>
+                <span class="hc-result-label">Sürükleme Kuvveti (F_d):</span>
+                <span class="hc-result-value" id="hc-srk-res-fd">-</span>
             </div>
-            <p class="hc-df-note">Fd = 0.5 * ρ * v² * Cd * A</p>
+            <div class="hc-result-item">
+                <span class="hc-result-label">Hız (km/sa):</span>
+                <span class="hc-result-value" id="hc-srk-res-kmh">-</span>
+            </div>
+            <div class="hc-result-desc" id="hc-srk-desc"></div>
         </div>
     </div>
     <?php

@@ -1,0 +1,5 @@
+{
+  "name": "Su Yoğunluğu Hesaplama",
+  "desc": "Sıcaklık ve tuzluluk oranına göre suyun yoğunluğunu yüksek hassasiyetle hesaplar.",
+  "shortcode": "[hc_su_yogunlugu_hesaplama]"
+}

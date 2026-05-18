@@ -1,0 +1,5 @@
+{
+  "name": "Ufuk Mesafesi Hesaplama",
+  "desc": "Gözlemcinin göz yüksekliğine göre Dünya'nın eğriliğini ve atmosferik kırılmayı hesaba katarak ufuk çizgisinin olan mesafesini hesaplar.",
+  "shortcode": "[hc_ufuk_mesafesi_hesaplama]"
+}

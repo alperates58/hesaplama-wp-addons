@@ -1,0 +1,5 @@
+{
+  "name": "Watt Dönüşümü Hesaplama",
+  "desc": "Güç birimi olan Watt (W) değerini kilowatt, megawatt, beygir gücü (HP), BTU/saat ve kalori/saniye birimlerine dönüştürür.",
+  "shortcode": "[hc_watt_donusumu_hesaplama]"
+}

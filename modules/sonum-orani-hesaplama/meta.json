@@ -1,0 +1,5 @@
+{
+  "name": "Sönüm Oranı Hesaplama",
+  "desc": "Mekanik bir sistemin sönüm katsayısı, yay katsayısı ve kütle değerlerine göre sönüm oranını ve sistem tipini hesaplar.",
+  "shortcode": "[hc_sonum_orani_hesaplama]"
+}

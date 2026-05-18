@@ -1,0 +1,5 @@
+{
+  "name": "Tork Hesaplama",
+  "desc": "Kuvvet, döndürme kolu (mesafe) ve uygulama açısına göre mekanik tork (döndürme momenti) değerini hesaplar.",
+  "shortcode": "[hc_tork_hesaplama]"
+}

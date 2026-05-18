@@ -1,0 +1,5 @@
+{
+  "name": "Watt tan KVA ye Hesaplama",
+  "desc": "Aktif güç değerini (Watt), güç faktörü yardımıyla jeneratör ve trafo kapasitelerinde kullanılan görünür güce (kVA) dönüştürür.",
+  "shortcode": "[hc_watt_tan_kva_ye_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Vuru Frekansı Hesaplama",
+  "desc": "Birbirine çok yakın iki farklı frekanstaki ses dalgasının üst üste binmesiyle oluşan akustik vuru (beat) frekansını hesaplar.",
+  "shortcode": "[hc_vuru_frekansi_hesaplama]"
+}

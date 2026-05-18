@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Düşme Süresi Hesaplama",
+  "desc": "Yerçekimi ivmesiyle belirli bir yükseklikten serbest bırakılan cismin düşüş süresini hesaplar.",
+  "shortcode": "[hc_serbest_dusme_suresi_hesaplama]"
+}

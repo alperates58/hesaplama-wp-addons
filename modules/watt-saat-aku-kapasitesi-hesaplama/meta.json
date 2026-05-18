@@ -1,0 +1,5 @@
+{
+  "name": "Watt-Saat Akü Kapasitesi Hesaplama",
+  "desc": "Akü veya pil gücünü Watt-saat (Wh) ile Amper-saat (Ah) birimleri arasında, nominal voltaja bağlı olarak dönüştürür ve hesaplar.",
+  "shortcode": "[hc_watt_saat_aku_kapasitesi_hesaplama]"
+}

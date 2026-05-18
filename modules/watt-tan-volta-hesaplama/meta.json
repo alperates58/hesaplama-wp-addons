@@ -1,0 +1,5 @@
+{
+  "name": "Watt tan Volta Hesaplama",
+  "desc": "Elektriksel gücü (Watt) ve çekilen akım (Amper) değerine göre devredeki gerilimi (Volt) DC, AC Tek Faz ve AC Üç Faz için hesaplar.",
+  "shortcode": "[hc_watt_tan_volta_hesaplama]"
+}

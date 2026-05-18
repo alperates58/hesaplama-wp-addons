@@ -1,0 +1,5 @@
+{
+  "name": "Yerçekimi Potansiyel Enerjisi Hesaplama",
+  "desc": "Bir kütlenin yerçekimi alanındaki yüksekliğinden kaynaklanan potansiyel enerjisini (Joule) farklı gök cisimleri yerçekimlerine göre hesaplar.",
+  "shortcode": "[hc_yercekimi_potansiyel_enerjisi_hesaplama]"
+}

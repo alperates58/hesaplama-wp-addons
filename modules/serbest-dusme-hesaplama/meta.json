@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Düşme Hesaplama",
+  "desc": "Yerçekimi etkisiyle serbest düşen bir cismin süre, hız, yükseklik ve çarpma enerjisi değerlerini hesaplar.",
+  "shortcode": "[hc_serbest_dusme_hesaplama]"
+}

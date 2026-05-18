@@ -1,0 +1,5 @@
+{
+  "name": "Watt Ampere Hesaplama",
+  "desc": "Güç (Watt), voltaj ve güç faktörüne göre elektrik akımını (Amper) DC, AC Tek Faz ve AC Üç Faz devreleri için hesaplar.",
+  "shortcode": "[hc_watt_ampere_hesaplama]"
+}

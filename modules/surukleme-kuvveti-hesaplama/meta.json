@@ -1,5 +1,5 @@
 {
   "name": "Sürükleme Kuvveti Hesaplama",
-  "desc": "Akışkanlar dinamiğinde, bir nesnenin hızı ve şekline bağlı olarak üzerine etki eden direnç (sürükleme) kuvvetini hesaplar.",
+  "desc": "Bir akışkan (hava, su vb.) içinde hareket eden bir cisme etki eden aerodinamik/hidrodinamik sürükleme (direnç) kuvvetini hesaplar.",
   "shortcode": "[hc_surukleme_kuvveti_hesaplama]"
 }

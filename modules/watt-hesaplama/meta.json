@@ -1,0 +1,5 @@
+{
+  "name": "Watt Hesaplama",
+  "desc": "Ohm Kanunu ve Joule Kanunu'na dayanarak voltaj, akım ve direnç değerlerinden elektriksel gücü (Watt) hesaplar.",
+  "shortcode": "[hc_watt_hesaplama]"
+}

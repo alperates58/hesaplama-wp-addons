@@ -1,0 +1,5 @@
+{
+  "name": "Sürtünme Kuvveti Hesaplama",
+  "desc": "Normal kuvvete ve yüzey sürtünme katsayısına göre statik ve kinetik sürtünme kuvvetlerini hesaplar.",
+  "shortcode": "[hc_surtunme_kuvveti_hesaplama]"
+}

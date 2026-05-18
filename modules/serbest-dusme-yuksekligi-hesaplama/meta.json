@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Düşme Yüksekliği Hesaplama",
+  "desc": "Yerçekimi ivmesiyle düşen bir cismin çarpma hızına göre bırakıldığı yüksekliği hesaplar.",
+  "shortcode": "[hc_serbest_dusme_yuksekligi_hesaplama]"
+}

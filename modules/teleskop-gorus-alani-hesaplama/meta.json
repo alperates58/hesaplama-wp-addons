@@ -1,0 +1,5 @@
+{
+  "name": "Teleskop Görüş Alanı Hesaplama",
+  "desc": "Teleskop odak uzaklığı, oküler odak uzaklığı ve okülerin görünür görüş alanına (AFoV) göre gerçek görüş alanını (TFoV) hesaplar.",
+  "shortcode": "[hc_teleskop_gorus_alani_hesaplama]"
+}

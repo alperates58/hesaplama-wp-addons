@@ -1,0 +1,5 @@
+{
+  "name": "Serbest Düşme Hızı Hesaplama",
+  "desc": "Belirli bir yükseklikten serbest bırakılan cismin yere çarpma hızını hesaplar.",
+  "shortcode": "[hc_serbest_dusme_hizi_hesaplama]"
+}

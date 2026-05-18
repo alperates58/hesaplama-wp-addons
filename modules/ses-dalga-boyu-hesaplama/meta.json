@@ -1,0 +1,5 @@
+{
+  "name": "Ses Dalga Boyu Hesaplama",
+  "desc": "Ses frekansına ve ortam sıcaklığına bağlı olarak ses dalgasının boyunu hesaplar.",
+  "shortcode": "[hc_ses_dalga_boyu_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Schwarzschild Yarıçapı Hesaplama",
+  "desc": "Bir kütlenin kara delik haline gelmesi için gereken kritik büzülme yarıçapını (olay ufku) hesaplar.",
+  "shortcode": "[hc_schwarzschild_yaricapi_hesaplama]"
+}

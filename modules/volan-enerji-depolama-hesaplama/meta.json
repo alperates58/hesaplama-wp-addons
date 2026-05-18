@@ -1,0 +1,5 @@
+{
+  "name": "Volan Enerji Depolama Hesaplama",
+  "desc": "Volanın (flywheel) kütlesi, yarıçapı, şekil tipi ve dönme hızına (RPM) göre depoladığı kinetik enerjiyi hesaplar.",
+  "shortcode": "[hc_volan_enerji_depolama_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Yay Sabiti Hesaplama",
+  "desc": "Hooke Yasası'na dayanarak bir yayın kuvvet sabitini (k), uygulanan kuvvet ve yayın uzama/sıkışma miktarına göre hesaplar.",
+  "shortcode": "[hc_yay_sabiti_hesaplama]"
+}

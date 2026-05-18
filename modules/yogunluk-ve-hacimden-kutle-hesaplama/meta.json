@@ -1,0 +1,5 @@
+{
+  "name": "Yoğunluk ve Hacimden Kütle Hesaplama",
+  "desc": "Belirli bir yoğunluk ve hacme sahip olan bir cismin toplam kütlesini (ağırlığını) kg, gram ve ton cinsinden hesaplar.",
+  "shortcode": "[hc_yogunluk_ve_hacimden_kutle_hesaplama]"
+}

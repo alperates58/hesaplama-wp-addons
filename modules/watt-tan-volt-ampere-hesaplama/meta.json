@@ -1,0 +1,5 @@
+{
+  "name": "Watt tan Volt Ampere Hesaplama",
+  "desc": "Elektriksel aktif gücü (Watt), devrenin güç faktörünü (cosφ) kullanarak görünür güce (Volt-Amper / VA) dönüştürür.",
+  "shortcode": "[hc_watt_tan_volt_ampere_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Ses Hızı Hesaplama",
+  "desc": "Ses dalgalarının gazlarda (sıcaklığa bağlı), sıvılarda ve katılarda yayılma hızını hesaplar.",
+  "shortcode": "[hc_ses_hizi_hesaplama]"
+}

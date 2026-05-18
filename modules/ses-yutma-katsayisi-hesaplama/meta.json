@@ -1,0 +1,5 @@
+{
+  "name": "Ses Yutma Katsayısı Hesaplama",
+  "desc": "Bir malzemenin ses enerjisini yutma performansını (absorpsiyon katsayısı) ve ses yutma sınıfını hesaplar.",
+  "shortcode": "[hc_ses_yutma_katsayisi_hesaplama]"
+}
