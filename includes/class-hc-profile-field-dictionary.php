@@ -177,6 +177,14 @@ class HC_Profile_Field_Dictionary {
 				'sensitive' => false,
 				'ai_useful' => true,
 			),
+			'duration_minutes'   => array(
+				'label'     => 'Egzersiz Süresi',
+				'type'      => 'number',
+				'aliases'   => array( 'duration_minutes', 'duration', 'sure', 'süre', 'egzersiz_suresi', 'egzersiz_süresi', 'dakika' ),
+				'unit'      => 'dakika',
+				'sensitive' => false,
+				'ai_useful' => true,
+			),
 		);
 	}
 

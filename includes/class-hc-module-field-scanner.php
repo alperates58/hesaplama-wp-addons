@@ -402,6 +402,62 @@ class HC_Module_Field_Scanner {
 			'is_sensitive'            => $relevance['sensitive'] ? 1 : 0,
 		);
 
+		// Override map: slug bazlı section / suggested_profile_status / profile_fields düzeltmeleri.
+		$overrides = self::get_profile_module_overrides();
+		if ( isset( $overrides[ $slug ] ) ) {
+			$ovr = $overrides[ $slug ];
+
+			if ( ! empty( $ovr['section'] ) ) {
+				$module_info['section'] = $ovr['section'];
+			}
+
+			if ( ! empty( $ovr['suggested_profile_status'] ) ) {
+				$module_info['suggested_profile_status'] = $ovr['suggested_profile_status'];
+				// Score'u da en az threshold'a çek (profile_optional = 50).
+				if ( 'profile_optional' === $ovr['suggested_profile_status'] && $module_info['profile_relevance_score'] < 50 ) {
+					$module_info['profile_relevance_score'] = 50;
+				}
+				foreach ( $field_rows as &$fr ) {
+					$fr['suggested_profile_status'] = $ovr['suggested_profile_status'];
+					if ( 'profile_optional' === $ovr['suggested_profile_status'] ) {
+						$fr['profile_relevance_score'] = max( (int) ( $fr['profile_relevance_score'] ?? 0 ), 50 );
+					}
+				}
+				unset( $fr );
+			}
+
+			// Eksik profile_field'ları sentetik satır olarak enjekte et.
+			if ( ! empty( $ovr['profile_fields'] ) ) {
+				$already_mapped = array_column( $field_rows, 'profile_field' );
+				foreach ( $ovr['profile_fields'] as $pf ) {
+					if ( in_array( $pf, $already_mapped, true ) ) {
+						continue;
+					}
+					$fi           = HC_Profile_Field_Dictionary::get_field( $pf ) ?: array();
+					$field_rows[] = array(
+						'module_slug'             => $slug,
+						'module_input_name'       => $pf,
+						'profile_field'           => $pf,
+						'field_label'             => (string) ( $fi['label'] ?? self::humanize_slug( str_replace( '_', '-', $pf ) ) ),
+						'field_type'              => (string) ( $fi['type'] ?? 'text' ),
+						'field_unit'              => (string) ( $fi['unit'] ?? '' ),
+						'required'                => 1,
+						'options'                 => array(),
+						'source'                  => 'profile_override',
+						'confidence'              => 1.00,
+						'is_sensitive'            => ! empty( $fi['sensitive'] ) ? 1 : 0,
+						'ai_useful'               => ! empty( $fi['ai_useful'] ) ? 1 : 0,
+						'is_custom_field'         => 0,
+						'detected_field_key'      => $pf,
+						'field_group'             => (string) ( $fi['field_group'] ?? '' ),
+						'admin_review_status'     => 'reviewed',
+						'profile_relevance_score' => $module_info['profile_relevance_score'],
+						'suggested_profile_status'=> $module_info['suggested_profile_status'],
+					);
+				}
+			}
+		}
+
 		$save_result = self::save_module_fields( $slug, $module_info, $field_rows );
 
 		if ( is_wp_error( $save_result ) ) {
@@ -1518,6 +1574,115 @@ class HC_Module_Field_Scanner {
 		}
 
 		return $rows;
+	}
+
+	/**
+	 * Slug bazlı sabit override map.
+	 * Otomatik taramanın yanlış atadığı section / suggested_profile_status / profile_fields
+	 * değerlerini düzeltmek için kullanılır.
+	 * backend_supported detect_backend_supported() sonucuyla otomatik dolar; burada değiştirilmez.
+	 *
+	 * @return array slug => [ section, suggested_profile_status, profile_fields? ]
+	 */
+	private static function get_profile_module_overrides() {
+		$sport_calorie_slugs = array(
+			'yuruyus-kalori-yakimi-hesaplama',
+			'kosu-kalori-yakimi-hesaplama',
+			'bisiklet-kalori-yakimi-hesaplama',
+			'yuzme-kalori-yakimi-hesaplama',
+			'ip-atlama-kalori-yakimi-hesaplama',
+			'yoga-kalori-yakimi-hesaplama',
+			'pilates-kalori-yakimi-hesaplama',
+			'zumba-kalori-yakimi-hesaplama',
+			'basketbol-kalori-yakimi-hesaplama',
+			'futbol-kalori-yakimi-hesaplama',
+		);
+
+		$overrides = array(
+			// --- Numeroloji ---
+			'kisisel-yil-sayisi-hesaplama'   => array(
+				'section'                  => 'numerology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'dogum-gunu-sayisi-hesaplama'    => array(
+				'section'                  => 'numerology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'dogum-gunu-hesaplayici'         => array(
+				'section'                  => 'numerology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+
+			// --- Astroloji ---
+			'cin-burcu-hesaplama'            => array(
+				'section'                  => 'astrology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'cin-elementi-hesaplama'         => array(
+				'section'                  => 'astrology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'burc-dekani-hesaplama'          => array(
+				'section'                  => 'astrology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'burc-derecesi-hesaplama'        => array(
+				'section'                  => 'astrology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'gunes-burcu-hesaplama'          => array(
+				'section'                  => 'astrology',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+
+			// --- Sembolik Profil ---
+			'aura-rengi-hesaplama'           => array(
+				'section'                  => 'symbolic_profile',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'dogum-tarot-karti-hesaplama'    => array(
+				'section'                  => 'symbolic_profile',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+			'ask-tarot-karti-hesaplama'      => array(
+				'section'                  => 'symbolic_profile',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date' ),
+			),
+
+			// --- Uyum / İlişki ---
+			'burc-uyumu-hesaplama'           => array(
+				'section'                  => 'compatibility',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date', 'partner_birth_date' ),
+			),
+			'cin-burcuna-gore-ask-uyumu-hesaplama' => array(
+				'section'                  => 'compatibility',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'birth_date', 'partner_birth_date' ),
+			),
+		);
+
+		// Spor / kalori modülleri — toplu ekle
+		foreach ( $sport_calorie_slugs as $slug ) {
+			$overrides[ $slug ] = array(
+				'section'                  => 'sport_activity',
+				'suggested_profile_status' => 'profile_optional',
+				'profile_fields'           => array( 'weight', 'duration_minutes' ),
+			);
+		}
+
+		return $overrides;
 	}
 
 	private static function resolve_dom_label( DOMNode $node, DOMXPath $xpath ) {
