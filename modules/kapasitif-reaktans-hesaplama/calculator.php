@@ -3,39 +3,52 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kapasitif_reaktans_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-cap-react',
+        'hc-kapasitif-reaktans-hesaplama',
         HC_PLUGIN_URL . 'modules/kapasitif-reaktans-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-kapasitif-reaktans-hesaplama-css',
+        HC_PLUGIN_URL . 'modules/kapasitif-reaktans-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-cap-react">
-        <h3>Kapasitif Reaktans (XC) Hesaplama</h3>
+    <div class="hc-calculator" id="hc-kapasitif-reaktans-hesaplama">
+        <h3>Kapasitif Reaktans Hesaplama</h3>
         
         <div class="hc-form-group">
-            <label>Frekans (f, Hz)</label>
-            <input type="number" id="hc-xc-f" placeholder="Hz" step="1" value="50">
+            <label for="hc-kare-kapasitans">Kapasitans Değeri (C)</label>
+            <input type="number" step="any" id="hc-kare-kapasitans" value="10" placeholder="Kapasitans giriniz" required>
         </div>
         
         <div class="hc-form-group">
-            <label>Kapasite (C)</label>
-            <div style="display: flex; gap: 5px;">
-                <input type="number" id="hc-xc-c" placeholder="Değer" step="0.001" style="flex:1;">
-                <select id="hc-xc-unit" style="width: 80px;">
-                    <option value="1">F</option>
-                    <option value="0.001">mF</option>
-                    <option value="0.000001" selected>μF</option>
-                    <option value="0.000000001">nF</option>
-                    <option value="0.000000000001">pF</option>
-                </select>
-            </div>
+            <label for="hc-kare-kbirim">Kapasitans Birimi</label>
+            <select id="hc-kare-kbirim">
+                <option value="uf" selected>mikroFarad (μF)</option>
+                <option value="nf">nanoFarad (nF)</option>
+                <option value="pf">pikoFarad (pF)</option>
+                <option value="f">Farad (F)</option>
+            </select>
         </div>
         
-        <button class="hc-btn" onclick="hcCapReactHesapla()">Hesapla</button>
+        <div class="hc-form-group">
+            <label for="hc-kare-frekans">Frekans (f)</label>
+            <input type="number" step="any" id="hc-kare-frekans" value="50" placeholder="Frekans giriniz" required>
+        </div>
         
-        <div class="hc-result" id="hc-xc-result">
-            <span>Kapasitif Reaktans (XC):</span>
-            <div class="hc-result-value" id="hc-xc-res-val">0 Ω</div>
-            <small>Formül: XC = 1 / (2 × π × f × C)</small>
+        <div class="hc-form-group">
+            <label for="hc-kare-fbirim">Frekans Birimi</label>
+            <select id="hc-kare-fbirim">
+                <option value="hz" selected>Hertz (Hz)</option>
+                <option value="khz">kilohertz (kHz)</option>
+                <option value="mhz">megahertz (MHz)</option>
+            </select>
+        </div>
+        
+        <button class="hc-btn" onclick="hcKapasitifReaktansHesapla()">Hesapla</button>
+        
+        <div class="hc-result" id="hc-kapasitif-reaktans-hesaplama-result">
+            <!-- Sonuçlar buraya -->
         </div>
     </div>
     <?php

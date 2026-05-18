@@ -1,5 +1,5 @@
 {
   "name": "Isıl Genleşme Hesaplama",
-  "desc": "Sıcaklık değişimi nedeniyle malzemelerde meydana gelen boyutsal değişimi (ΔL = αL₀ΔT) hesaplar.",
+  "desc": "Katı ve sıvı malzemelerin sıcaklık değişimi altındaki boyutsal genleşmesini (boyca veya hacimce) hesaplar.",
   "shortcode": "[hc_isil_genlesme_hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Gün Doğumu Saati Hesaplama",
+  "desc": "Coğrafi koordinatlara ve tarihe göre günlük güneşin doğuş saatini hesaplar.",
+  "shortcode": "[hc_gun_dogumu_saati_hesaplama]"
+}

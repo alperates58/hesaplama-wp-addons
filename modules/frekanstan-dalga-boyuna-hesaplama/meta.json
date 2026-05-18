@@ -1,0 +1,5 @@
+{
+  "name": "Frekanstan Dalga Boyuna Hesaplama",
+  "desc": "Verilen bir frekans değerinin dalga boyuna dönüştürülmesi.",
+  "shortcode": "[hc_frekanstan_dalga_boyuna_hesaplama]"
+}

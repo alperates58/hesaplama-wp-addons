@@ -1,0 +1,5 @@
+{
+  "name": "Hooke Yasası Hesaplama",
+  "desc": "Yay kuvveti, yay sabiti veya uzama miktarı arasındaki Hooke yasası ilişkisini hesaplar.",
+  "shortcode": "[hc_hooke_yasasi_hesaplama]"
+}

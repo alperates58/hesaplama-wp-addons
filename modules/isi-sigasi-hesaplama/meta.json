@@ -1,0 +1,5 @@
+{
+  "name": "Isı Sığası Hesaplama",
+  "desc": "Kütle, özgül ısı ve sıcaklık değişimine göre ısı transferi (Q) veya toplam ısı sığasını (C) hesaplar.",
+  "shortcode": "[hc_isi_sigasi_hesaplama]"
+}

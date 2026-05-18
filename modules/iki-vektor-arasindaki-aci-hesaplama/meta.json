@@ -1,0 +1,5 @@
+{
+  "name": "İki Vektör Arasındaki Açı Hesaplama",
+  "desc": "2 boyutlu veya 3 boyutlu iki vektör arasındaki açıyı derece ve radyan cinsinden hesaplar.",
+  "shortcode": "[hc_iki_vektor_arasindaki_aci_hesaplama]"
+}

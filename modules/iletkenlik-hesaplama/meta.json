@@ -1,0 +1,5 @@
+{
+  "name": "İletkenlik Hesaplama",
+  "desc": "Elektriksel direnç, tel boyutları ve malzeme türüne göre elektriksel iletkenliği ve iletkenlik katsayısını hesaplar.",
+  "shortcode": "[hc_iletkenlik_hesaplama]"
+}

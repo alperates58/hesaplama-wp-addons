@@ -1,0 +1,5 @@
+{
+  "name": "Havanın Kinematik Viskozitesi Hesaplama",
+  "desc": "Sıcaklık ve basınca bağlı olarak havanın kinematik ve dinamik viskozitesini hesaplar.",
+  "shortcode": "[hc_havanin_kinematik_viskozitesi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "İş ve Güç Hesaplama",
+  "desc": "Uygulanan kuvvet, mesafe, açı ve süreye bağlı olarak yapılan mekanik işi (W) ve üretilen gücü (P) hesaplar.",
+  "shortcode": "[hc_is_ve_guc_hesaplama]"
+}

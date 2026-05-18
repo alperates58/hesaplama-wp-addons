@@ -1,5 +1,5 @@
 {
   "name": "Kapasitif Reaktans Hesaplama",
-  "desc": "Alternatif akım devrelerinde kondansatörün frekansa bağlı olarak gösterdiği direnci (XC = 1/2πfC) hesaplar.",
+  "desc": "Alternatif akım devresindeki frekans ve kapasitans değerlerine göre kondansatörün kapasitif reaktansını (Xc) hesaplar.",
   "shortcode": "[hc_kapasitif_reaktans_hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Kütleden Hacim Hesaplama",
+  "desc": "Kütlesi ve yoğunluğu bilinen bir maddenin toplam hacmini hesaplar.",
+  "shortcode": "[hc_kutleden_hacim_hesaplama]"
+}

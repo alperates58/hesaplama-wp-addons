@@ -1,0 +1,5 @@
+{
+  "name": "Hava Karışım Oranı Hesaplama",
+  "desc": "Meteorolojide hava sıcaklığı, bağıl nem ve basınca göre su buharı karışım oranını hesaplar.",
+  "shortcode": "[hc_hava_karisim_orani_hesaplama]"
+}

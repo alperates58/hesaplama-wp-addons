@@ -1,0 +1,5 @@
+{
+  "name": "Kararlı Durum Isı İletimi Hesaplama",
+  "desc": "Malzemenin ısı iletkenlik katsayısı, kesit alanı, kalınlığı ve sıcaklık farkına göre kararlı durum ısı transfer hızını (Q) hesaplar.",
+  "shortcode": "[hc_kararli_durum_isi_iletimi_hesaplama]"
+}

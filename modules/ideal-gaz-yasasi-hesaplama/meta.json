@@ -1,5 +1,5 @@
 {
   "name": "İdeal Gaz Yasası Hesaplama",
-  "desc": "Basınç, hacim, mol sayısı ve sıcaklık arasındaki ilişkiyi (PV=nRT) hesaplar.",
-  "shortcode": "[hc_ideal_gaz_yasasi_hesaplama]"
+  "desc": "Basınç, hacim, mol sayısı ve sıcaklık arasındaki ideal gaz ilişkisini (P·V = n·R·T) hesaplar.",
+  "shortcode": "[hc_ideal_gaz-yasasi-hesaplama]"
 }

@@ -1,0 +1,5 @@
+{
+  "name": "Frekans Dönüştürme Hesaplama",
+  "desc": "Farklı frekans birimleri (Hz, kHz, MHz, GHz, THz, rad/s) arasında kolay dönüşüm.",
+  "shortcode": "[hc_frekans_donusturme_hesaplama]"
+}

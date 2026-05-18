@@ -1,0 +1,5 @@
+{
+  "name": "Hacimden Yoğunluk Hesaplama",
+  "desc": "Verilen kütle ve hacim değerlerine göre malzemenin yoğunluğunu hesaplar.",
+  "shortcode": "[hc_hacimden_yogunluk_hesaplama]"
+}

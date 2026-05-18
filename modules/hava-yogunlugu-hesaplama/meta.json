@@ -1,0 +1,5 @@
+{
+  "name": "Hava Yoğunluğu Hesaplama",
+  "desc": "Sıcaklık, basınç ve bağıl nem değerlerine göre havanın yoğunluğunu hesaplar.",
+  "shortcode": "[hc_hava_yogunlugu_hesaplama]"
+}

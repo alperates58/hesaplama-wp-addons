@@ -1,0 +1,5 @@
+{
+  "name": "Hava Dirençli Serbest Düşme Hesaplama",
+  "desc": "Yerçekimi ve aerodinamik sürüklenme (hava direnci) etkisi altındaki düşme hareketi.",
+  "shortcode": "[hc_hava_direncli_serbest_dusme_hesaplama]"
+}

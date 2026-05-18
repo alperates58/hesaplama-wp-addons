@@ -3,43 +3,50 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_kapasitans_hesaplama( $atts ) {
     wp_enqueue_script(
-        'hc-cap-calc',
+        'hc-kapasitans-hesaplama',
         HC_PLUGIN_URL . 'modules/kapasitans-hesaplama/calculator.js',
         [], HC_VERSION, true
     );
+    wp_enqueue_style(
+        'hc-kapasitans-hesaplama-css',
+        HC_PLUGIN_URL . 'modules/kapasitans-hesaplama/calculator.css',
+        [ 'hesaplama-suite' ], HC_VERSION
+    );
     ?>
-    <div class="hc-calculator" id="hc-cap-calc">
-        <h3>Kapasitans (Sığa) Hesaplama</h3>
-        <p><small>C = ε × (A / d)</small></p>
+    <div class="hc-calculator" id="hc-kapasitans-hesaplama">
+        <h3>Kapasitans Hesaplama</h3>
         
         <div class="hc-form-group">
-            <label>Levha Alanı (A, cm²)</label>
-            <input type="number" id="hc-cc-area" placeholder="cm²" step="0.1">
-        </div>
-        
-        <div class="hc-form-group">
-            <label>Levha Uzaklığı (d, mm)</label>
-            <input type="number" id="hc-cc-dist" placeholder="mm" step="0.01">
-        </div>
-        
-        <div class="hc-form-group">
-            <label>Yalıtkan (Dielektrik) Malzeme</label>
-            <select id="hc-cc-eps">
-                <option value="1">Hava / Vakum (εr = 1.0)</option>
-                <option value="2.1">Teflon (εr = 2.1)</option>
-                <option value="3.4">Naylon (εr = 3.4)</option>
-                <option value="3.7">Kağıt (εr = 3.7)</option>
-                <option value="4.5">Cam (εr = 4.5)</option>
-                <option value="6">Mika (εr = 6.0)</option>
+            <label for="hc-kap-yalıtkan">Dielektrik (Yalıtkan) Malzeme</label>
+            <select id="hc-kap-yalitkan" onchange="hcKapYalitkanDegisti()">
+                <option value="1" selected>Vakum / Hava (εr = 1.0)</option>
+                <option value="3.7">Kağıt (εr = ~3.7)</option>
+                <option value="6">Mika (εr = ~6.0)</option>
+                <option value="7">Cam (εr = ~7.0)</option>
+                <option value="85">Su (εr = ~85.0)</option>
+                <option value="custom">Özel Dielektrik Sabiti (εr)...</option>
             </select>
         </div>
         
-        <button class="hc-btn" onclick="hcCapacitanceHesapla()">Hesapla</button>
+        <div class="hc-form-group" id="hc-kap-ozel-kapsayici" style="display:none;">
+            <label for="hc-kap-er">Özel Dielektrik Sabiti (εr)</label>
+            <input type="number" step="any" id="hc-kap-er" value="1">
+        </div>
         
-        <div class="hc-result" id="hc-cc-result">
-            <span>Hesaplanan Kapasite (C):</span>
-            <div class="hc-result-value" id="hc-cc-res-val">0 pF</div>
-            <div id="hc-cc-res-uf" style="margin-top:5px; font-size:0.9em; opacity:0.8;">0 μF</div>
+        <div class="hc-form-group">
+            <label for="hc-kap-alan">Plaka Alanı (A - cm²)</label>
+            <input type="number" step="any" id="hc-kap-alan" value="10" placeholder="Örn: 10" required>
+        </div>
+        
+        <div class="hc-form-group">
+            <label for="hc-kap-mesafe">Plakalar Arası Mesafe (d - mm)</label>
+            <input type="number" step="any" id="hc-kap-mesafe" value="1" placeholder="Örn: 1" required>
+        </div>
+        
+        <button class="hc-btn" onclick="hcKapasitansHesapla()">Hesapla</button>
+        
+        <div class="hc-result" id="hc-kapasitans-hesaplama-result">
+            <!-- Sonuçlar buraya -->
         </div>
     </div>
     <?php

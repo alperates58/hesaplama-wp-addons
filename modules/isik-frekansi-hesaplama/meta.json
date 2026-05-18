@@ -1,0 +1,5 @@
+{
+  "name": "Işık Frekansı Hesaplama",
+  "desc": "Işığın dalga boyuna göre frekansını hesaplar ve hangi spektrum rengine karşılık geldiğini belirler.",
+  "shortcode": "[hc_isik_frekansi_hesaplama]"
+}

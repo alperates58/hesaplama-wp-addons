@@ -1,0 +1,5 @@
+{
+  "name": "İtme ve Çizgisel Momentum Hesaplama",
+  "desc": "Kütle, hız, kuvvet ve zaman parametrelerine dayanarak çizgisel momentumu (p) ve itmeyi (I) hesaplar.",
+  "shortcode": "[hc_itme_ve_cizgisel_momentum_hesaplama]"
+}

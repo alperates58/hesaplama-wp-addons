@@ -1,0 +1,5 @@
+{
+  "name": "Frekans Dalga Boyu Hesaplama",
+  "desc": "Dalga yayılma hızına bağlı olarak dalga boyu veya frekans hesaplama.",
+  "shortcode": "[hc_frekans_dalga_boyu_hesaplama]"
+}

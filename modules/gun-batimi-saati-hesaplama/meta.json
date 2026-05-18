@@ -1,0 +1,5 @@
+{
+  "name": "Gün Batımı Saati Hesaplama",
+  "desc": "Coğrafi koordinatlara ve tarihe göre günlük güneşin batış saatini hesaplar.",
+  "shortcode": "[hc_gun_batimi_saati_hesaplama]"
+}

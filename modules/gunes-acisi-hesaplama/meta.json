@@ -1,0 +1,5 @@
+{
+  "name": "Güneş Açısı Hesaplama",
+  "desc": "Tarih, saat ve coğrafi konuma bağlı olarak güneş yükseliş açısı ve azimut açısını hesaplar.",
+  "shortcode": "[hc_gunes_acisi_hesaplama]"
+}

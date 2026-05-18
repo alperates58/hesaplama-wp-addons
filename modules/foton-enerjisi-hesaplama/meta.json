@@ -1,0 +1,5 @@
+{
+  "name": "Foton Enerjisi Hesaplama",
+  "desc": "Dalga boyuna veya frekansa göre tek bir fotonun enerjisini hesaplar.",
+  "shortcode": "[hc_foton_enerjisi_hesaplama]"
+}

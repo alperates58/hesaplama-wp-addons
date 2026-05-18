@@ -1,0 +1,5 @@
+{
+  "name": "Helmholtz Rezonatörü Hesaplama",
+  "desc": "Akustik boşluk hacmi ve boyun boyutlarına göre Helmholtz rezonans frekansını hesaplar.",
+  "shortcode": "[hc_helmholtz_rezonatoru_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Gün Doğumu ve Gün Batımı Hesaplama",
+  "desc": "Tarih ve coğrafi konuma göre hem gün doğumu hem gün batımı saatlerini aynı anda listeler.",
+  "shortcode": "[hc_gun_dogumu_ve_gun_batimi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Hubble Yasası Hesaplama",
+  "desc": "Evrenin genişleme hızını, gökadanın uzaklığına ve Hubble sabitine bağlı olarak hesaplar.",
+  "shortcode": "[hc_hubble_yasasi_hesaplama]"
+}

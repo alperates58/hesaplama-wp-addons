@@ -1,0 +1,5 @@
+{
+  "name": "Gün Işığı Süresi Hesaplama",
+  "desc": "Tarih ve enleme bağlı olarak günlük toplam gündüz (gün ışığı) süresini hesaplar.",
+  "shortcode": "[hc_gun_isigi_suresi_hesaplama]"
+}

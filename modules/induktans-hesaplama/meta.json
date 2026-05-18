@@ -1,0 +1,5 @@
+{
+  "name": "İndüktans Hesaplama",
+  "desc": "Bir bobinin sarım sayısı, boyutları ve çekirdek geçirgenliğine göre indüktans değerini hesaplar.",
+  "shortcode": "[hc_induktans_hesaplama]"
+}

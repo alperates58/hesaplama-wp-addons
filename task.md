@@ -1,64 +1,128 @@
-# Mühendislik Modülleri Görev Listesi
+# Hesaplama Modülleri Görev Listesi
 
-## Grup 1: Elektrik ve Elektronik
-- [x] RF Güç Hesaplama
-- [x] RC Devresi Hesaplama
-- [x] PCB İz Genişliği Hesaplama
-- [x] Paralel Kondansatör Hesaplama
-- [x] Paralel Direnç Hesaplama
-- [x] Paralel Bobin Hesaplama
-- [x] Ohm Yasası Hesaplama
-- [x] Ohm Yasası Güç Hesaplama
-- [x] Ohm Yasası Direnç Hesaplama
-- [x] Ohm Yasası Akım Hesaplama
-- [x] Ohm Kanunu Hesaplama
-- [x] Motor Verimi Hesaplama
-- [x] Motor Akımı Hesaplama
-- [x] MOSFET Hesaplama
+## Astroloji Modülleri (Batch Devamı)
+- [x] 1. Ev Hesaplama
+- [x] 2. Ev Hesaplama
+- [x] 3. Ev Hesaplama
+- [x] 4. Ev Hesaplama
+- [x] 5. Ev Hesaplama
+- [x] 6. Ev Hesaplama
+- [x] 7. Ev Hesaplama
+- [x] 8. Ev Hesaplama
+- [x] 9. Ev Hesaplama
+- [x] 10. Ev Hesaplama
+- [x] 11. Ev Hesaplama
+- [x] 12. Ev Hesaplama
+- [x] Aşk Evi Hesaplama
+- [x] Para Evi Hesaplama
+- [x] Evlilik Evi Hesaplama
+- [x] Kariyer Evi Hesaplama
+- [x] Sağlık Evi Hesaplama
+- [x] Aile Evi Hesaplama
+- [x] Arkadaşlık Evi Hesaplama
+- [x] Güneş Konumu Hesaplama
+- [x] Ay Konumu Hesaplama
+- [x] Merkür Konumu Hesaplama
+- [x] Venüs Konumu Hesaplama
+- [x] Mars Konumu Hesaplama
+- [x] Jüpiter Konumu Hesaplama
+- [x] Satürn Konumu Hesaplama
+- [x] Uranüs Konumu Hesaplama
+- [x] Neptün Konumu Hesaplama
+- [x] Plüton Konumu Hesaplama
+- [x] Gezegen Burcu Hesaplama
+- [x] Gezegen Derecesi Hesaplama
+- [x] Retro Gezegen Hesaplama
+- [x] Doğumda Retro Gezegen Hesaplama
+- [x] Venüs Retrosu Hesaplama
+- [x] Mars Retrosu Hesaplama
+- [x] Jüpiter Retrosu Hesaplama
+- [x] Satürn Retrosu Hesaplama
+- [x] Uranüs Retrosu Hesaplama
+- [x] Neptün Retrosu Hesaplama
+- [x] Plüton Retrosu Hesaplama
+- [x] Doğum Günündeki Ay Evresi Hesaplama
+- [x] Bugünkü Ay Burcu Hesaplama
+- [x] Dolunay Tarihi Hesaplama
+- [x] Yeni Ay Tarihi Hesaplama
+- [x] Ay Tutulması Hesaplama
+- [x] Güneş Tutulması Hesaplama
+- [x] Ay Evreleri Hesaplama
+- [x] Ay Takvimi Hesaplama
+- [x] Güneş Takvimi Hesaplama
+- [x] Ay Döngüsü Hesaplama
+- [x] Tutulma Takvimi Hesaplama
+- [x] Hilal Hesaplama
+- [x] Süper Ay Hesaplama
+- [x] Mavi Ay Hesaplama
+- [x] Ay Burcu Takvimi Hesaplama
+- [x] Ay Düğümü Hesaplama
+- [x] Kuzey Ay Düğümü Hesaplama
+- [x] Güney Ay Düğümü Hesaplama
 
-## Grup 2: Akışkanlar Mekaniği ve Termodinamik
-- [x] Reynolds Sayısı Hesaplama
-- [x] Prandtl Sayısı Hesaplama
-- [x] Nusselt Sayısı Hesaplama
-- [x] Poiseuille Yasası Hesaplama
-- [x] Orifis Debisi Hesaplama
-- [x] Pompa Gücü Hesaplama
-- [x] NPSH Pompa Emiş Yükü Hesaplama
-- [x] Öz Isı Hesaplama
-- [x] Ortalama Serbest Yol Hesaplama
+## Numeroloji Modülleri
+- [x] Kişisel Yıl Sayısı Hesaplama
+- [x] Kişisel Ay Sayısı Hesaplama
+- [x] Kişisel Gün Sayısı Hesaplama
+- [x] Doğum Günü Sayısı Hesaplama
+- [x] Olgunluk Sayısı Hesaplama
+- [ ] İfade Sayısı Hesaplama
+- [ ] Kişilik Sayısı Hesaplama
+- [ ] Kalp Arzusu Sayısı Hesaplama
+- [ ] Ev Numarası Numerolojisi Hesaplama
+- [ ] Telefon Numarası Numerolojisi Hesaplama
+- [ ] Plaka Numerolojisi Hesaplama
+- [ ] Şirket İsmi Numerolojisi Hesaplama
+- [ ] Bebek İsmi Numerolojisi Hesaplama
+- [ ] Numeroloji Aşk Uyumu Hesaplama
+- [ ] Numeroloji Kariyer Sayısı Hesaplama
+- [ ] Karmik Borç Sayısı Hesaplama
+- [ ] Karmik Ders Sayısı Hesaplama
+- [ ] Ruhsal Yol Sayısı Hesaplama
+- [ ] Yaşam Amacı Sayısı Hesaplama
 
-## Grup 3: Makine Mühendisliği ve Mekanik
-- [x] Piston Kuvveti Hesaplama
-- [x] Piston Hızı Hesaplama
-- [x] Poisson Oranı Hesaplama
-- [x] Narinlik Oranı Hesaplama
-- [x] Mekanik Avantaj Hesaplama
-- [x] Makara Sistemi Hesaplama
-- [x] Merdiven Hesaplama
-- [x] Mil Çapı Hesaplama
-- [x] Ortalama Efektif Basınç Hesaplama
+## Çin Astrolojisi Modülleri
+- [ ] Çin Burcu Yılı Hesaplama
+- [ ] Çin Burcu Element Uyumu Hesaplama
+- [ ] Çin Burcuna Göre Aşk Uyumu Hesaplama
+- [ ] Çin Astrolojisine Göre Şanslı Sayı Hesaplama
+- [ ] Çin Astrolojisine Göre Şanslı Gün Hesaplama
+- [ ] Çin Astrolojisine Göre Şanslı Renk Hesaplama
+- [ ] Doğum Yılına Göre Çin Elementi Hesaplama
+- [ ] Çin Takvimi Yaş Hesaplama
+- [ ] Yin Yang Burcu Hesaplama
+- [ ] Çin Ay Takvimi Burcu Hesaplama
+- [ ] Çin Astrolojisi Kişisel Yıl Hesaplama
+- [ ] Çin Burcu Döngüsü Hesaplama
 
-## Grup 4: Endüstriyel Süreç ve Kalite
-- [x] OEE Genel Ekipman Etkinliği Hesaplama
-- [x] MTTR Ortalama Onarım Süresi Hesaplama
-- [x] MTBF Ortalama Arızalar Arası Süre Hesaplama
-- [x] Makine Kullanılabilirlik Hesaplama
-- [x] Proses Yeterlilik Cp Cpk Hesaplama
-- [x] Reaktör Hacmi Hesaplama
-- [x] Madde Dengesi Hesaplama
-- [x] Pastörizasyon Süresi Hesaplama
+## Spiritüel ve Diğer Hesaplamalar
+- [ ] Çakra Denge Puanı Hesaplama
+- [ ] Melek Sayısı Hesaplama
+- [ ] Doğum Tarihine Göre Melek Sayısı Hesaplama
+- [ ] Ruhsal Yaş Hesaplama
+- [ ] Enerji Sayısı Hesaplama
+- [ ] Şanslı Renk Hesaplama
+- [ ] Doğum Taşı Hesaplama
+- [ ] Doğum Çiçeği Hesaplama
+- [ ] Doğum Tarihine Göre Şanslı Taş Hesaplama
+- [ ] Doğum Tarihine Göre Şanslı Renk Hesaplama
+- [ ] Doğum Tarihine Göre Şanslı Gün Hesaplama
 
-## Grup 5: Genel Mühendislik ve Özel Hesaplamalar
-- [x] RAM İhtiyacı Hesaplama
-- [x] Raf Ömrü Hesaplama
-- [x] Radyasyon Dozu Hesaplama
-- [x] Protez Yük Hesaplama
-- [x] MRI Güç Yoğunluğu Hesaplama
-- [x] pH Ölçüm Hesaplama
-- [x] Oksijen Tüketimi Hesaplama
-- [x] Nem Oranı Hesaplama
-- [x] Nem İçeriği Hesaplama
-- [x] MLSS MLVSS Hesaplama
-- [x] Manometre Hesaplama
+## Tarot Modülleri
+- [ ] Doğum Tarot Kartı Hesaplama
+- [ ] Tarot Numeroloji Kartı Hesaplama
+- [ ] Tarot Ruh Kartı Hesaplama
+- [ ] Tarot Yıl Kartı Hesaplama
+- [ ] Kişisel Tarot Kartı Hesaplama
+- [ ] Aşk Tarot Kartı Hesaplama
+- [ ] Kariyer Tarot Kartı Hesaplama
 
-**Toplam: 51/51 Modül Tamamlandı.**
+---
+
+## Mühendislik Modülleri (Tamamlandı)
+- [x] 51 Modül Tamamlandı.
+
+## Fizik Modülleri (Tamamlandı)
+- [x] 45 Modül Tamamlandı.
+
+**Toplam Batch İlerleme: 110/152 Modül Tamamlandı.**

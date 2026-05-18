@@ -1,0 +1,5 @@
+{
+  "name": "Hissedilen Sıcaklık Hesaplama",
+  "desc": "Sıcaklık, bağıl nem ve rüzgar hızına göre havanın hissedilen sıcaklığını (Isı İndeksi veya Rüzgar Soğuğu) hesaplar.",
+  "shortcode": "[hc_hissedilen_sicaklik_hesaplama]"
+}

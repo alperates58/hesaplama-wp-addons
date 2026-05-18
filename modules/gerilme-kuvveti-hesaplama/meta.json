@@ -1,0 +1,5 @@
+{
+  "name": "Gerilme Kuvveti Hesaplama",
+  "desc": "İple veya zincirle çekilen kütlelerdeki dikey ve yatay gerilme.",
+  "shortcode": "[hc_gerilme_kuvveti_hesaplama]"
+}
