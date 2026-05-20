@@ -1,0 +1,5 @@
+{
+  "name": "Sponsorlu İçerik Fiyat Hesaplama",
+  "desc": "Takipçi sayısı, etkileşim oranı, kategori ve içerik türüne göre önerilen sponsorlu içerik ücretlerini hesaplar.",
+  "shortcode": "[hc_sponsorlu_icerik_fiyat_hesaplama]"
+}

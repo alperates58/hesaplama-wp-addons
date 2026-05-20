@@ -1,0 +1,5 @@
+{
+  "name": "Instagram Etkileşim Oranı Hesaplama",
+  "desc": "Takipçi ve erişim sayılarına göre Instagram etkileşim oranını hesaplar.",
+  "shortcode": "[hc_instagram_etkilesim_orani_hesaplama]"
+}

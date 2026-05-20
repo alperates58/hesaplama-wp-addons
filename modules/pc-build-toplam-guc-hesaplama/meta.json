@@ -1,0 +1,5 @@
+{
+  "name": "PC Build Toplam Güç Hesaplama",
+  "desc": "Bilgisayarınızın aktif ve boşta çalışma saatlerine göre günlük/aylık enerji tüketimini ve elektrik faturası maliyetini hesaplar.",
+  "shortcode": "[hc_pc_build_toplam_guc_hesaplama]"
+}

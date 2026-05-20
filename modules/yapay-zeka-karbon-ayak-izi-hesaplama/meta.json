@@ -1,0 +1,5 @@
+{
+  "name": "Yapay Zeka Karbon Ayak İzi Hesaplama",
+  "desc": "Kullanılan GPU donanımı, PUE verimlilik oranı ve çalışma süresine göre yapay zeka modelinin ürettiği karbon ayak izini (CO2) hesaplar.",
+  "shortcode": "[hc_yapay_zeka_karbon_ayak_izi_hesaplama]"
+}

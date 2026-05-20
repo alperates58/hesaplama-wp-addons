@@ -1,0 +1,5 @@
+{
+  "name": "RAM Dual Channel Fark Hesaplama",
+  "desc": "RAM frekansı ve veri yolu nesline göre Tek Kanal (Single Channel) ve Çift Kanal (Dual Channel) bant genişliği farklarını hesaplar.",
+  "shortcode": "[hc_ram_dual_channel_fark_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Twitch Abone Geliri Hesaplama",
+  "desc": "Kademelere (Tier 1, 2, 3 ve Prime) ve yayıncı pay oranlarına göre Twitch aylık net abone gelirini hesaplar.",
+  "shortcode": "[hc_twitch_abone_geliri_hesaplama]"
+}

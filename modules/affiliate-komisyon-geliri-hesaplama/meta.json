@@ -1,0 +1,5 @@
+{
+  "name": "Affiliate Komisyon Geliri Hesaplama",
+  "desc": "Ziyaretçi sayısı, tıklama oranı (CTR), satışa dönüşüm oranı (CR) ve sepet tutarına göre affiliate (satış ortaklığı) gelirini hesaplar.",
+  "shortcode": "[hc_affiliate_komisyon_geliri_hesaplama]"
+}

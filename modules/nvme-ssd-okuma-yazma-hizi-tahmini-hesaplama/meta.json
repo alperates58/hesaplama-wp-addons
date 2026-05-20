@@ -1,0 +1,5 @@
+{
+  "name": "NVMe SSD Okuma Yazma Hızı Tahmini Hesaplama",
+  "desc": "PCIe jenerasyonu (Gen 3, Gen 4, Gen 5) ve hat (Lane) sayısına göre teorik maksimum NVMe SSD bant genişliğini hesaplar.",
+  "shortcode": "[hc_nvme_ssd_okuma_yazma_hizi_tahmini_hesaplama]"
+}

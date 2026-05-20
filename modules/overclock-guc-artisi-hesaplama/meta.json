@@ -1,0 +1,5 @@
+{
+  "name": "Overclock Güç Artışı Hesaplama",
+  "desc": "Temel TDP, frekans ve voltaj değerleri ile overclock sonrası tahmini işlemci/ekran kartı güç tüketimi artışını hesaplar.",
+  "shortcode": "[hc_overclock_guc_artisi_hesaplama]"
+}

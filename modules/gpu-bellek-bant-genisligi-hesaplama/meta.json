@@ -1,0 +1,5 @@
+{
+  "name": "GPU Bellek Bant Genişliği Hesaplama",
+  "desc": "Ekran kartının bellek hızına ve bellek veri yolu arayüzü (bit) genişliğine göre teorik bellek bant genişliğini (GB/s) hesaplar.",
+  "shortcode": "[hc_gpu_bellek_bant_genisligi_hesaplama]"
+}

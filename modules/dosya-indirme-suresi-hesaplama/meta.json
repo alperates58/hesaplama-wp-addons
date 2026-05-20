@@ -1,0 +1,5 @@
+{
+  "name": "Dosya İndirme Süresi Hesaplama",
+  "desc": "Dosya boyutu ve indirme (download) hızınıza göre tahmini dosya indirme süresini hesaplar.",
+  "shortcode": "[hc_dosya_indirme_suresi_hesaplama]"
+}

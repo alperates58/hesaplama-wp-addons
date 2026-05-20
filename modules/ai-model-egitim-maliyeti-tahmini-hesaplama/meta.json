@@ -1,0 +1,5 @@
+{
+  "name": "AI Model Eğitim Maliyeti Tahmini Hesaplama",
+  "desc": "Model parametre boyutu, token adedi, donanım verimliliği (MFU) ve GPU kira ücretlerine göre bir yapay zeka modelinin eğitim maliyetini hesaplar.",
+  "shortcode": "[hc_ai_model_egitim_maliyeti_tahmini_hesaplama]"
+}

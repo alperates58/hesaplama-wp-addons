@@ -1,0 +1,5 @@
+{
+  "name": "İnternet Bant Genişliği Hesaplama",
+  "desc": "Ev veya iş yerindeki kullanıcı sayısı, internet kullanım tipi ve eş zamanlılık oranına göre gerekli toplam internet bant genişliğini (Mbps) hesaplar.",
+  "shortcode": "[hc_internet_bant_genisligi_hesaplama]"
+}

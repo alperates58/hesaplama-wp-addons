@@ -1,0 +1,5 @@
+{
+  "name": "IP Alt Ağ Maskesi Hesaplama",
+  "desc": "IP adresi ve subnet maskesi (veya CIDR /xx değeri) girilerek alt ağ (subnet) bilgilerini, ağ adresini, broadcast adresini ve kullanılabilir IP aralığını hesaplar.",
+  "shortcode": "[hc_ip_alt_ag_maskesi_hesaplama]"
+}

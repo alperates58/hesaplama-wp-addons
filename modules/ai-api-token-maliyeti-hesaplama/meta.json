@@ -1,0 +1,5 @@
+{
+  "name": "AI API Token Maliyeti Hesaplama",
+  "desc": "Seçilen yapay zeka modeline (GPT-4o, Claude 3.5 Sonnet vb.), girdi/çıktı token ve istek miktarına göre API kullanım maliyetini hesaplar.",
+  "shortcode": "[hc_ai_api_token_maliyeti_hesaplama]"
+}

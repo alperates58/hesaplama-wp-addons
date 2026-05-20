@@ -1,0 +1,5 @@
+{
+  "name": "AI Görüntü Üretim Maliyeti Hesaplama",
+  "desc": "Seçilen yapay zeka görsel modeline (DALL-E 3, Midjourney, Stable Diffusion API), çözünürlüğe ve adet miktarına göre görsel üretim maliyetini hesaplar.",
+  "shortcode": "[hc_ai_goruntu_uretim_maliyeti_hesaplama]"
+}

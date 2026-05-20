@@ -1,0 +1,5 @@
+{
+  "name": "ChatGPT Kullanım Maliyeti Hesaplama",
+  "desc": "ChatGPT Plus aboneliği ile API tabanlı kullanım maliyetlerini karşılaştırarak aylık harcamaları hesaplar.",
+  "shortcode": "[hc_chatgpt_kullanim_maliyeti_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Twitch Bit Geliri Hesaplama",
+  "desc": "Twitch Bit (Cheer) miktarına göre yayıncının elde edeceği Dolar ve Türk Lirası gelirini hesaplar.",
+  "shortcode": "[hc_twitch_bit_geliri_hesaplama]"
+}

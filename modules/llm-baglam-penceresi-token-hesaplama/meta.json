@@ -1,0 +1,5 @@
+{
+  "name": "LLM Bağlam Penceresi Token Hesaplama",
+  "desc": "Girilen kelime sayısına veya yapıştırılan metne göre tahmini LLM token kullanımını ve bağlam penceresi doluluk oranını hesaplar.",
+  "shortcode": "[hc_llm_baglam_penceresi_token_hesaplama]"
+}

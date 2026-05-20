@@ -1,0 +1,5 @@
+{
+  "name": "PSU Güç Tüketimi Hesaplama",
+  "desc": "CPU, GPU ve diğer bileşenlerin TDP değerlerine göre bilgisayarınız için önerilen güç kaynağı (PSU) kapasitesini hesaplar.",
+  "shortcode": "[hc_psu_guc_tuketimi_hesaplama]"
+}

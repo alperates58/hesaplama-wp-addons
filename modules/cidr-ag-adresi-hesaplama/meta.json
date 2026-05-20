@@ -1,0 +1,5 @@
+{
+  "name": "CIDR Ağ Adresi Hesaplama",
+  "desc": "Belirli bir IP aralığı veya gereken host sayısına göre en uygun CIDR ağ önekini (/xx) ve IP blok bilgisini hesaplar.",
+  "shortcode": "[hc_cidr_ag_adresi_hesaplama]"
+}

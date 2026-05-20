@@ -1,0 +1,5 @@
+{
+  "name": "WiFi Sinyal Gücü Mesafe Hesaplama",
+  "desc": "Mesafe, frekans (2.4 GHz, 5 GHz, 6 GHz) ve aradaki engellere (duvar, cam vb.) göre WiFi sinyal kaybını (dBm) hesaplar.",
+  "shortcode": "[hc_wifi_sinyal_gucu_mesafe_hesaplama]"
+}

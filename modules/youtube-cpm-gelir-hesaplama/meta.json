@@ -1,0 +1,5 @@
+{
+  "name": "YouTube CPM Gelir Hesaplama",
+  "desc": "YouTube reklam gösterimleri, CPM ve platform kesintisi oranlarına göre yayıncı net gelirini hesaplar.",
+  "shortcode": "[hc_youtube_cpm_gelir_hesaplama]"
+}

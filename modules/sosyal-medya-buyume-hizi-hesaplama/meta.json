@@ -1,0 +1,5 @@
+{
+  "name": "Sosyal Medya Büyüme Hızı Hesaplama",
+  "desc": "Başlangıç ve bitiş takipçi sayılarına göre büyüme hızı oranlarını hesaplar.",
+  "shortcode": "[hc_sosyal_medya_buyume_hizi_hesaplama]"
+}

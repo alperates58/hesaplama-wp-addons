@@ -1,0 +1,5 @@
+{
+  "name": "VPN Hız Kaybı Tahmini Hesaplama",
+  "desc": "Bağlantı tipi, VPN protokolü, sunucu mesafesi ve baz internet hızınıza göre VPN sonrası tahmini hız ve ping artışını hesaplar.",
+  "shortcode": "[hc_vpn_hiz_kaybi_tahmini_hesaplama]"
+}

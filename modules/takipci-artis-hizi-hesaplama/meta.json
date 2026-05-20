@@ -1,0 +1,5 @@
+{
+  "name": "Takipçi Artış Hızı Hesaplama",
+  "desc": "Belirli bir dönemde kazanılan ve kaybedilen takipçi sayısına göre net artış hızını hesaplar.",
+  "shortcode": "[hc_takipci_artis_hizi_hesaplama]"
+}

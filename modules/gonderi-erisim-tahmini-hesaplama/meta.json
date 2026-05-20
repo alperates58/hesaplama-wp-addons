@@ -1,0 +1,5 @@
+{
+  "name": "Gönderi Erişim Tahmini Hesaplama",
+  "desc": "Takipçi sayısı ve içerik türüne göre gönderinin organik erişimini tahmin eder.",
+  "shortcode": "[hc_gonderi_erisim_tahmini_hesaplama]"
+}

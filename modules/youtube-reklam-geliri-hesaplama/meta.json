@@ -1,0 +1,5 @@
+{
+  "name": "YouTube Reklam Geliri Hesaplama",
+  "desc": "Günlük veya aylık video izlenme sayılarına ve RPM (1.000 gösterim başı kazanç) değerine göre YouTube geliri tahmini yapar.",
+  "shortcode": "[hc_youtube_reklam_geliri_hesaplama]"
+}

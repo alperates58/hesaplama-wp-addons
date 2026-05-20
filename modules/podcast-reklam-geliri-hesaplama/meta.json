@@ -1,0 +1,5 @@
+{
+  "name": "Podcast Reklam Geliri Hesaplama",
+  "desc": "Bölüm dinlenme sayısı, reklam adetleri ve CPM oranlarına göre tahmini podcast reklam gelirlerini hesaplar.",
+  "shortcode": "[hc_podcast_reklam_geliri_hesaplama]"
+}

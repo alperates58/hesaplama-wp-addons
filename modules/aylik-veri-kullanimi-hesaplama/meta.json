@@ -1,0 +1,5 @@
+{
+  "name": "Aylık Veri Kullanımı Hesaplama",
+  "desc": "Günlük yaptığınız web gezintisi, video/müzik dinleme, oyun indirme ve sosyal medya aktivitelerine göre tahmini aylık internet kota kullanımını (GB) hesaplar.",
+  "shortcode": "[hc_aylik_veri_kullanimi_hesaplama]"
+}

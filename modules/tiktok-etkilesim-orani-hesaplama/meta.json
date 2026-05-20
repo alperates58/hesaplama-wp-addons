@@ -1,0 +1,5 @@
+{
+  "name": "TikTok Etkileşim Oranı Hesaplama",
+  "desc": "Takipçi ve video izlenme sayılarına göre TikTok etkileşim oranını hesaplar.",
+  "shortcode": "[hc_tiktok_etkilesim_orani_hesaplama]"
+}

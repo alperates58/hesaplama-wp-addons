@@ -1,0 +1,5 @@
+{
+  "name": "Monitör Piksel Yoğunluğu Hesaplama",
+  "desc": "Ekran çözünürlüğü ve ekran boyutuna (inç) göre monitörünüzün piksel yoğunluğunu (PPI) ve piksel boyutunu hesaplar.",
+  "shortcode": "[hc_monitor_piksel_yogunlugu_hesaplama]"
+}

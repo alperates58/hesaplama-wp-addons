@@ -1,0 +1,5 @@
+{
+  "name": "Viral Katsayı Hesaplama",
+  "desc": "Kullanıcı başına davet ve dönüşüm oranına göre uygulamanızın viral büyüme katsayısını hesaplar.",
+  "shortcode": "[hc_viral_katsayi_hesaplama]"
+}

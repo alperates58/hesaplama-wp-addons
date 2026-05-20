@@ -1,0 +1,5 @@
+{
+  "name": "YouTube Abone Hedef Süresi Hesaplama",
+  "desc": "Mevcut büyüme hızına göre hedef YouTube abone sayısına ulaşma süresini hesaplar.",
+  "shortcode": "[hc_youtube_abone_hedef_suresi_hesaplama]"
+}
