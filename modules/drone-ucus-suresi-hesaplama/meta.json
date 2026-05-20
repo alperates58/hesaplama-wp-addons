@@ -1,0 +1,5 @@
+{
+  "name": "Drone Uçuş Süresi Hesaplama",
+  "desc": "Batarya kapasitesi ve ortalama akım çekişine göre drone uçuş süresini hesaplar.",
+  "shortcode": "[hc_drone_ucus_suresi_hesaplama]"
+}

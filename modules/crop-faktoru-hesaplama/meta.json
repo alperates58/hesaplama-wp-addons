@@ -1,0 +1,5 @@
+{
+  "name": "Crop Faktörü Hesaplama",
+  "desc": "Sensörün fiziksel boyutlarına göre kırpma çarpanını (Crop Factor) ve köşegen uzunluğunu hesaplar.",
+  "shortcode": "[hc_crop_faktoru_hesaplama]"
+}

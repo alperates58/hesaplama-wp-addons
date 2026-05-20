@@ -1,0 +1,5 @@
+{
+  "name": "SD Kart Kapasite Çekim Süresi Hesaplama",
+  "desc": "SD kart kapasitesine göre video çekim süresini veya fotoğraf sayısını hesaplar.",
+  "shortcode": "[hc_sd_kart_kapasite_cekim_suresi_hesaplama]"
+}

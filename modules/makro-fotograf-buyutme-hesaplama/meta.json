@@ -1,0 +1,5 @@
+{
+  "name": "Makro Fotoğraf Büyütme Hesaplama",
+  "desc": "Makro fotografya büyütme oranı (magnification), etkili f-stop ve sensor crop faktörüne göre hesaplar.",
+  "shortcode": "[hc_makro_fotograf_buyutme_hesaplama]"
+}

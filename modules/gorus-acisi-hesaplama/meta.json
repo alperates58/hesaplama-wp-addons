@@ -1,0 +1,5 @@
+{
+  "name": "Görüş Açısı Hesaplama",
+  "desc": "Odak uzaklığı ve sensör boyutuna göre yatay, dikey ve köşegen görüş açısını hesaplar.",
+  "shortcode": "[hc_gorus_acisi_hesaplama]"
+}

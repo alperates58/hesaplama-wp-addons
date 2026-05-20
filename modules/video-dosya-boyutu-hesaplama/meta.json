@@ -1,0 +1,5 @@
+{
+  "name": "Video Dosya Boyutu Hesaplama",
+  "desc": "Video bitrate, çözünürlük ve süreye göre dosya boyutunu hesaplar.",
+  "shortcode": "[hc_video_dosya_boyutu_hesaplama]"
+}

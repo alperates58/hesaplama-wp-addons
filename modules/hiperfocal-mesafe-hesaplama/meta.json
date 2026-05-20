@@ -1,0 +1,5 @@
+{
+  "name": "Hiperfocal Mesafe Hesaplama",
+  "desc": "Belirli bir odak uzaklığı, diyafram ve sensör tipine göre en yakın netleme sınırını maksimuma çıkaran hiperfokal mesafeyi hesaplar.",
+  "shortcode": "[hc_hiperfocal_mesafe_hesaplama]"
+}

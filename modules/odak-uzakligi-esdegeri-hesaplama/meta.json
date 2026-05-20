@@ -1,0 +1,5 @@
+{
+  "name": "Odak Uzaklığı Eşdeğeri Hesaplama",
+  "desc": "Kırpma çarpanına (Crop Factor) göre gerçek odak uzaklığının 35mm (Full Frame) eşdeğerini hesaplar.",
+  "shortcode": "[hc_odak_uzakligi_esdegeri_hesaplama]"
+}

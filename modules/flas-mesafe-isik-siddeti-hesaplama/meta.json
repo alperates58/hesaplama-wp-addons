@@ -1,0 +1,5 @@
+{
+  "name": "Flaş Mesafe Işık Şiddeti Hesaplama",
+  "desc": "Flaş rehber numarasına göre mesafe ve diyafram kombinasyonunu hesaplar (Guide Number formülü).",
+  "shortcode": "[hc_flas_mesafe_isik_siddeti_hesaplama]"
+}

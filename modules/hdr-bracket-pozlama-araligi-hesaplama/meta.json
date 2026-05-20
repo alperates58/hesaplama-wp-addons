@@ -1,0 +1,5 @@
+{
+  "name": "HDR Bracket Pozlama Aralığı Hesaplama",
+  "desc": "HDR fotoğrafçılığında optimal pozlama aralığını (EV spacing) hesaplar.",
+  "shortcode": "[hc_hdr_bracket_pozlama_araligi_hesaplama]"
+}

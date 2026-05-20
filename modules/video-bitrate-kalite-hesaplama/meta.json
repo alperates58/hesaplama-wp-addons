@@ -1,0 +1,5 @@
+{
+  "name": "Video Bitrate Kalite Hesaplama",
+  "desc": "Çözünürlük, kare hızı ve hedef kaliteye göre optimal bitrate'i hesaplar.",
+  "shortcode": "[hc_video_bitrate_kalite_hesaplama]"
+}

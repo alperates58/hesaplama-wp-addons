@@ -1,0 +1,5 @@
+{
+  "name": "Alan Derinliği Hesaplama",
+  "desc": "Odak uzaklığı, diyafram, konu mesafesi ve sensör tipine göre alan derinliğini (DoF) ve hiperfokal mesafeyi hesaplar.",
+  "shortcode": "[hc_alan_derinligi_hesaplama]"
+}

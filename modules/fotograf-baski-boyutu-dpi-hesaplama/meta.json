@@ -1,0 +1,5 @@
+{
+  "name": "Fotoğraf Baskı Boyutu DPI Hesaplama",
+  "desc": "Görüntü piksel boyutuna göre baskı boyutu ve DPI'ı hesaplar.",
+  "shortcode": "[hc_fotograf_baski_boyutu_dpi_hesaplama]"
+}

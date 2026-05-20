@@ -1,0 +1,5 @@
+{
+  "name": "Ham Görüntü Dosya Boyutu Hesaplama",
+  "desc": "RAW görüntü dosya boyutunu sensor boyutu, bit derinliğine göre hesaplar.",
+  "shortcode": "[hc_ham_goruntu_dosya_boyutu_hesaplama]"
+}

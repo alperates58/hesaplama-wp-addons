@@ -1,0 +1,5 @@
+{
+  "name": "Gimbal Titreşim Frekansı Hesaplama",
+  "desc": "Gimbal sistemi için optimal titreşim sönümleme frekansını hesaplar.",
+  "shortcode": "[hc_gimbal_titresim_frekansı_hesaplama]"
+}

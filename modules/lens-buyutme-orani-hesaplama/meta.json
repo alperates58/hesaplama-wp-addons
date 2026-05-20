@@ -1,0 +1,5 @@
+{
+  "name": "Lens Büyütme Oranı Hesaplama",
+  "desc": "Lensin odak uzaklığı ve netleme mesafesine göre maksimum büyütme oranını (M) ve büyütme oranını (1:x) hesaplar.",
+  "shortcode": "[hc_lens_buyutme_orani_hesaplama]"
+}

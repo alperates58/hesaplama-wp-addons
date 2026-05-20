@@ -1,0 +1,5 @@
+{
+  "name": "Video Kare Hızı Yavaş Çekim Hesaplama",
+  "desc": "Slow-motion videosunda gerçek hız oranını ve oynatma hızını hesaplar.",
+  "shortcode": "[hc_video_kare_hizi_yavas_cekim_hesaplama]"
+}

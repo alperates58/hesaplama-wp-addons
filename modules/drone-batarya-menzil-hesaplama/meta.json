@@ -1,0 +1,5 @@
+{
+  "name": "Drone Batarya Menzil Hesaplama",
+  "desc": "Drone hız, batarya kapasitesi ve enerji tüketimine göre maksimum menzili hesaplar.",
+  "shortcode": "[hc_drone_batarya_menzil_hesaplama]"
+}

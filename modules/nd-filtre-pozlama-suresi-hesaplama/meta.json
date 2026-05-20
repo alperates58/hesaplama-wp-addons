@@ -1,0 +1,5 @@
+{
+  "name": "ND Filtre Pozlama Süresi Hesaplama",
+  "desc": "ND filtre duruluk derecesine göre gerekli pozlama süresini hesaplar (long exposure için).",
+  "shortcode": "[hc_nd_filtre_pozlama_suresi_hesaplama]"
+}

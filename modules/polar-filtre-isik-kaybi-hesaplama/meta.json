@@ -1,0 +1,5 @@
+{
+  "name": "Polar Filtre Işık Kaybı Hesaplama",
+  "desc": "Polarizing filtre kullanımı sırasında oluşan ışık kaybını ve diyafram değişimini hesaplar.",
+  "shortcode": "[hc_polar_filtre_isik_kaybi_hesaplama]"
+}

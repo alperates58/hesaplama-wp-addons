@@ -1,0 +1,5 @@
+{
+  "name": "Time Lapse Çekim Süresi Hesaplama",
+  "desc": "Time-lapse fotoğrafçılığında çekim süresi, interval ve video süresini hesaplar.",
+  "shortcode": "[hc_time_lapse_cekim_suresi_hesaplama]"
+}
