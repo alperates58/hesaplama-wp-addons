@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Fibonacci Geri Çekilme Hesaplama",
+    "description": "Seçilen tepe ve dip fiyat seviyelerine göre standart Fibonacci destek ve direnç geri çekilme seviyelerini hesaplar.",
+    "shortcode": "hc_kripto_fibonacci_geri_cekilme_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

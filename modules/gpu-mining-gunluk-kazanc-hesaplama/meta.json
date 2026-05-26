@@ -1,0 +1,7 @@
+{
+    "name": "GPU Mining Günlük Kazanç Hesaplama",
+    "description": "Kullandığınız ekran kartlarının toplam MH\/s gücünü ve watt tüketimini girerek günlük net kazancınızı hesaplar.",
+    "shortcode": "hc_gpu_mining_gunluk_kazanc_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

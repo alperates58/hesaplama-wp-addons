@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Stop Loss Hesaplama",
+    "description": "Alış fiyatı ve stop limitinize göre potansiyel zarar sınırınızı ve işlemde kaybedebileceğiniz maksimum tutarı hesaplar.",
+    "shortcode": "hc_kripto_stop_loss_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

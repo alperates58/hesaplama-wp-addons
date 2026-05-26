@@ -1,0 +1,7 @@
+{
+    "name": "Staking Yıllık Getiri Hesaplama",
+    "description": "Staking yaptığınız kripto para miktarı ve yıllık getiri oranına (APY\/APR) göre vade sonundaki getiriyi basit faizle hesaplar.",
+    "shortcode": "hc_staking_yillik_getiri_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Yıllık Vergi Yükümlülüğü Hesaplama",
+    "description": "Bir yıl içindeki tüm işlemlerinizden elde ettiğiniz toplam karları, zararları ve varsa muafiyet sınırlarını birleştirerek yıllık verginizi hesaplar.",
+    "shortcode": "hc_kripto_yillik_vergi_yukumlulugu_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

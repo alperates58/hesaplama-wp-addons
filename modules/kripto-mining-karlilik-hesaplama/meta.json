@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Mining Karlılık Hesaplama",
+    "description": "Kazım gücü, cihaz gücü, elektrik ücreti ve zorluk derecesine göre madencilik (mining) gelir ve elektrik maliyetlerini hesaplar.",
+    "shortcode": "hc_kripto_mining_karlilik_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

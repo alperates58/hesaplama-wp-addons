@@ -1,0 +1,7 @@
+{
+    "name": "Kripto LIFO Vergi Hesaplama",
+    "description": "Son giren ilk çıkar (LIFO) yöntemine göre yaptığınız kripto alım satım işlemlerinin vergiye tabi sermaye kazançlarını hesaplar.",
+    "shortcode": "hc_kripto_lifo_vergi_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

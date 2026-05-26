@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Dollar Cost Averaging Getiri Hesaplama",
+    "description": "Belirli sıklıkta yapılan DCA alımlarının ortalama büyüme oranı varsayımı altında gelecekteki tahmini getirisini hesaplar.",
+    "shortcode": "hc_kripto_dollar_cost_averaging_getiri_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

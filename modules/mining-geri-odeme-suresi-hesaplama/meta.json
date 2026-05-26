@@ -1,0 +1,7 @@
+{
+    "name": "Mining Geri Ödeme Süresi Hesaplama",
+    "description": "Satın aldığınız madencilik cihazlarının maliyetini günlük net kazancınıza oranlayarak amortisman süresini hesaplar.",
+    "shortcode": "hc_mining_geri_odeme_suresi_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

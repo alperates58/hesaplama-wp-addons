@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Risk Ödül Oranı Hesaplama",
+    "description": "Pozisyona giriş, kar al ve stop loss seviyelerinize göre işlemin risk ödül oranını (R:R) hesaplar.",
+    "shortcode": "hc_kripto_risk_odul_orani_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

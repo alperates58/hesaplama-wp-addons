@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Hedef Fiyat Kar Hesaplama",
+    "description": "Alış fiyatı ve miktar üzerinden belirlediğiniz hedef fiyata ulaştığınızda elde edeceğiniz potansiyel karı hesaplar.",
+    "shortcode": "hc_kripto_hedef_fiyat_kar_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

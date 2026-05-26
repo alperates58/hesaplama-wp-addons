@@ -1,0 +1,7 @@
+{
+    "name": "Kripto ATH den Düşüş Yüzdesi Hesaplama",
+    "description": "Tarihi en yüksek fiyat seviyesinden (ATH) güncel fiyata olan düşüş yüzdesini ve yeniden ATH olması için gereken artış oranını hesaplar.",
+    "shortcode": "hc_kripto_ath_den_dusus_yuzdesi_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

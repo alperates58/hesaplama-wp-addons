@@ -1,0 +1,7 @@
+{
+    "name": "Ethereum Gas Ücreti Hesaplama",
+    "description": "Ethereum ağındaki işlem limitine ve gwei birim fiyatına göre tahmini gas (ağ transfer) ücretini dolar ve ether cinsinden hesaplar.",
+    "shortcode": "hc_ethereum_gas_ucreti_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Portföy Değeri Hesaplama",
+    "description": "Portföyünüzdeki farklı kripto para miktarlarını ve fiyatlarını girerek toplam portföy değerinizi ve varlık dağılım oranlarını hesaplar.",
+    "shortcode": "hc_kripto_portfoy_degeri_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

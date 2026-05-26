@@ -1,0 +1,109 @@
+.hc-calculator {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+.hc-calculator h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #0f172a;
+    font-weight: 600;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 8px;
+}
+.hc-form-group {
+    margin-bottom: 16px;
+}
+.hc-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #334155;
+    font-size: 14px;
+}
+.hc-form-group input, .hc-form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #0f172a;
+    background-color: #f8fafc;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hc-form-group input:focus, .hc-form-group select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    outline: none;
+    background-color: #ffffff;
+}
+.hc-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-align: center;
+}
+.hc-btn:hover {
+    background: #2563eb;
+}
+.hc-btn:active {
+    transform: scale(0.98);
+}
+.hc-btn-danger {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.hc-btn-danger:hover {
+    background: #dc2626;
+}
+.hc-result {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed #e2e8f0;
+    display: none;
+}
+.hc-result.visible {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+.hc-result h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #0f172a;
+    font-size: 16px;
+    font-weight: 600;
+}
+.hc-result table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.hc-result table td, .hc-result table th {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #334155;
+}
+.hc-result table tr:last-child td {
+    border-bottom: none;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

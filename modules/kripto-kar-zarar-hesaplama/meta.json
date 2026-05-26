@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Kar Zarar Hesaplama",
+    "description": "Alış ve satış fiyatları ile komisyon oranlarına göre kripto trade işlemlerinizin kar\/zarar ve ROI oranını hesaplar.",
+    "shortcode": "hc_kripto_kar_zarar_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

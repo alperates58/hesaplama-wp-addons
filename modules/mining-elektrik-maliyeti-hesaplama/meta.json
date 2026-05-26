@@ -1,0 +1,7 @@
+{
+    "name": "Mining Elektrik Maliyeti Hesaplama",
+    "description": "Madencilik cihazınızın çektiği güce ve günlük çalışma süresine göre elektrik tüketimini ve faturasını hesaplar.",
+    "shortcode": "hc_mining_elektrik_maliyeti_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

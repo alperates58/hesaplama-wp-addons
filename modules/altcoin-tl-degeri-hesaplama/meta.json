@@ -1,0 +1,7 @@
+{
+    "name": "Altcoin TL Değeri Hesaplama",
+    "description": "Altcoin fiyatını Dolar ve güncel dolar kuru üzerinden Türk Lirası birim değerine çevirir ve toplam bakiyeyi hesaplar.",
+    "shortcode": "hc_altcoin_tl_degeri_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

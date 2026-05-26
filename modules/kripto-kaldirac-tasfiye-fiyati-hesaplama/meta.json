@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Kaldıraç Tasfiye Fiyatı Hesaplama",
+    "description": "Long veya Short kaldıraçlı işlemlerinizde pozisyonun likidasyon (lik) olma fiyatını hesaplar.",
+    "shortcode": "hc_kripto_kaldirac_tasfiye_fiyati_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

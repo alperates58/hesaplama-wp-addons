@@ -1,0 +1,7 @@
+{
+    "name": "Staking Bileşik Getiri Hesaplama",
+    "description": "Günlük, haftalık veya aylık periyotlarda elde edilen staking ödüllerinin tekrar stake edilmesiyle oluşan bileşik faiz getirisini hesaplar.",
+    "shortcode": "hc_staking_bilesik_getiri_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

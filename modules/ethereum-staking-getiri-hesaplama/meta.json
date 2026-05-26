@@ -1,0 +1,7 @@
+{
+    "name": "Ethereum Staking Getiri Hesaplama",
+    "description": "Ethereum 2.0 ağında stake ettiğiniz ETH miktarına ve ağın güncel yıllık getiri oranına göre staking kazançlarınızı hesaplar.",
+    "shortcode": "hc_ethereum_staking_getiri_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

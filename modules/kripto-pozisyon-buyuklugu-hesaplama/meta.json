@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Pozisyon Büyüklüğü Hesaplama",
+    "description": "Toplam kasa bakiyeniz, risk yüzdeniz ve stop loss oranınıza göre açabileceğiniz ideal pozisyon büyüklüğünü hesaplar.",
+    "shortcode": "hc_kripto_pozisyon_buyuklugu_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

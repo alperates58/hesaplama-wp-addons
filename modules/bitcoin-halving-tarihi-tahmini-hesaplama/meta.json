@@ -1,0 +1,7 @@
+{
+    "name": "Bitcoin Halving Tarihi Tahmini Hesaplama",
+    "description": "Bitcoin ağının güncel blok yüksekliği ve ortalama blok süresine göre bir sonraki Halving (yarılanma) tarihini tahmin eder.",
+    "shortcode": "hc_bitcoin_halving_tarihi_tahmini_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

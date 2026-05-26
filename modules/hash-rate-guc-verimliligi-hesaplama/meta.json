@@ -1,0 +1,7 @@
+{
+    "name": "Hash Rate Güç Verimliliği Hesaplama",
+    "description": "Madencilik donanımınızın ürettiği kazım gücü ve elektrik tüketimi verilerini karşılaştırarak hashrate başına güç verimliliğini (W\/MH veya J\/TH) hesaplar.",
+    "shortcode": "hc_hash_rate_guc_verimliligi_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

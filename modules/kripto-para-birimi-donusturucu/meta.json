@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Para Birimi Dönüştürücü",
+    "description": "Kripto para birimlerini güncel fiyat bilgisi ve adet bazında Dolar, Euro ve Türk Lirası karşılıklarına anlık dönüştürür.",
+    "shortcode": "hc_kripto_para_birimi_donusturucu",
+    "category": "crypto",
+    "status": "active"
+}

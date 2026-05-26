@@ -1,0 +1,7 @@
+{
+    "name": "Bitcoin Satın Alma Maliyeti Hesaplama",
+    "description": "Alınan Bitcoin miktarı, birim fiyatı ve komisyon oranlarına göre net ve brüt alış maliyetlerinizi hesaplar.",
+    "shortcode": "hc_bitcoin_satin_alma_maliyeti_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

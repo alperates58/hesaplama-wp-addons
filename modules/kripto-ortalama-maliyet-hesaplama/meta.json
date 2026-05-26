@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Ortalama Maliyet Hesaplama",
+    "description": "Aynı kripto paradan farklı fiyatlardan yaptığınız alımları girerek ortalama birim maliyetinizi hesaplar.",
+    "shortcode": "hc_kripto_ortalama_maliyet_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

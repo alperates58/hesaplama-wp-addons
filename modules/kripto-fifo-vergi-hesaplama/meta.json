@@ -1,0 +1,7 @@
+{
+    "name": "Kripto FIFO Vergi Hesaplama",
+    "description": "İlk giren ilk çıkar (FIFO) yöntemine göre yaptığınız kripto alım satım işlemlerinin vergiye tabi sermaye kazançlarını hesaplar.",
+    "shortcode": "hc_kripto_fifo_vergi_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

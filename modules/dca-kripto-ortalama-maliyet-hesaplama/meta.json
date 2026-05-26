@@ -1,0 +1,7 @@
+{
+    "name": "DCA Kripto Ortalama Maliyet Hesaplama",
+    "description": "Dolar Maliyet Ortalaması (DCA) stratejisine göre yaptığınız periyodik alımların ortalama maliyetini çıkarır.",
+    "shortcode": "hc_dca_kripto_ortalama_maliyet_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}

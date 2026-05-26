@@ -1,0 +1,7 @@
+{
+    "name": "Kripto Sermaye Kazancı Vergi Hesaplama",
+    "description": "Kripto alım ve satım tutarlarınız arasındaki farktan oluşan sermaye kazancını ve buna uygulanan gelir vergisini hesaplar.",
+    "shortcode": "hc_kripto_sermaye_kazanci_vergi_hesaplama",
+    "category": "crypto",
+    "status": "active"
+}
