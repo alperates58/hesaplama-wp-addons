@@ -1,0 +1,5 @@
+{
+    "name": "Hibrit Çalışma Maliyet Karşılaştırma Hesaplama",
+    "description": "Tamamen ofisten çalışmak ile hibrit (örn: 3 gün ev, 2 gün ofis) çalışmak arasındaki maliyet farklarını, faturaları ve yol\/yemek giderlerini karşılaştırır.",
+    "shortcode": "hc_hibrit_calisma_maliyet_karsilastirma_hesaplama"
+}

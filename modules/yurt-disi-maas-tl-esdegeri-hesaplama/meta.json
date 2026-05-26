@@ -1,0 +1,5 @@
+{
+    "name": "Yurt Dışı Maaş TL Eşdeğeri Hesaplama",
+    "description": "Döviz cinsinden yurt dışından kazandığınız maaşı güncel döviz kuru, şahıs şirketi veya gelir vergisi kesintileri sonrası elinize geçecek net TL karşılığına dönüştürür.",
+    "shortcode": "hc_yurt_disi_maas_tl_esdegeri_hesaplama"
+}

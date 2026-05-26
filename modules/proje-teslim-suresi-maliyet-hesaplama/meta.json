@@ -1,0 +1,5 @@
+{
+    "name": "Proje Teslim Süresi Maliyet Hesaplama",
+    "description": "Proje teslim süresinin gecikmesi durumunda oluşabilecek ek iş gücü kaybı, cezai şartlar ve fırsat maliyeti kayıplarını hesaplar.",
+    "shortcode": "hc_proje_teslim_suresi_maliyet_hesaplama"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Startup Runway Hesaplama",
+    "description": "Girişiminizin (Startup) kasasındaki mevcut nakit ve aylık net nakit çıkışına (net burn rate) göre kaç ay hayatta kalabileceğini (Runway) hesaplar.",
+    "shortcode": "hc_startup_runway_hesaplama"
+}

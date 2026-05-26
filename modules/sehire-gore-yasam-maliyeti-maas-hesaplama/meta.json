@@ -1,0 +1,5 @@
+{
+    "name": "Şehire Göre Yaşam Maliyeti Maaş Hesaplama",
+    "description": "Farklı şehirlere (örn: İstanbul’dan İzmir’e veya Ankara’ya) taşınırken yaşam maliyeti endeks farklarına göre almanız gereken eşdeğer maaşı hesaplar.",
+    "shortcode": "hc_sehire_gore_yasam_maliyeti_maas_hesaplama"
+}

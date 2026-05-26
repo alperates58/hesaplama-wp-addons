@@ -1,0 +1,5 @@
+{
+    "name": "Burn Rate Hesaplama",
+    "description": "Girişimin brüt burn rate (toplam aylık harcama) ve net burn rate (gelirler çıktıktan sonra eriyen nakit) oranlarını analiz eder.",
+    "shortcode": "hc_burn_rate_hesaplama"
+}

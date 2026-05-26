@@ -1,0 +1,5 @@
+{
+    "name": "Müşteri Başına Karlılık Hesaplama",
+    "description": "Belli bir müşteriden elde ettiğiniz gelir ile bu müşteriye harcadığınız zamanın, ek lisansların ve masrafların net kar oranını analiz eder.",
+    "shortcode": "hc_musteri_basina_karlilik_hesaplama"
+}

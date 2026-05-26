@@ -1,0 +1,5 @@
+{
+    "name": "Yatırım Sonrasi Şirket Değeri Hesaplama",
+    "description": "Alınan yatırım miktarı ve verilen hisse oranına göre şirketin Yatırım Öncesi (Pre-Money) ve Yatırım Sonrası (Post-Money) değerlemelerini hesaplar.",
+    "shortcode": "hc_yatirim_sonrasi_sirket_degeri_hesaplama"
+}

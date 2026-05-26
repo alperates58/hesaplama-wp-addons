@@ -1,0 +1,5 @@
+{
+    "name": "Kurucu Hisse Seyreltme Hesaplama",
+    "description": "Yeni yatırım turlarında veya çalışan hisse havuzu (ESOP) oluşturulurken kurucuların hisse oranlarının ne kadar seyreleceğini (Dilution) hesaplar.",
+    "shortcode": "hc_kurucu_hisse_seyreltme_hesaplama"
+}

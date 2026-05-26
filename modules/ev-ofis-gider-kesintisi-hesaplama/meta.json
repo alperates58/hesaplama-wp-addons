@@ -1,0 +1,5 @@
+{
+    "name": "Ev Ofis Gider Kesintisi Hesaplama",
+    "description": "Evden çalışanların evlerinin alanına oranla kira, elektrik, ısınma, internet faturalarının ne kadarını iş gideri olarak gösterebileceklerini hesaplar.",
+    "shortcode": "hc_ev_ofis_gider_kesintisi_hesaplama"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Churn Rate Hesaplama",
+    "description": "Dönem başında sahip olduğunuz abonelerin ne kadarının bu dönem içerisinde abonelikten ayrıldığını (müşteri kaybını) yüzde olarak hesaplar.",
+    "shortcode": "hc_churn_rate_hesaplama"
+}

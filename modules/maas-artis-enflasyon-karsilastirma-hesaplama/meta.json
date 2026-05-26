@@ -1,0 +1,5 @@
+{
+    "name": "Maaş Artış Enflasyon Karşılaştırma Hesaplama",
+    "description": "Yapılan maaş artış oranını resmi (TÜİK) veya gayriresmi enflasyon oranları ile karşılaştırarak alım gücünüzün ne kadar değiştiğini hesaplar.",
+    "shortcode": "hc_maas_artis_enflasyon_karsilastirma_hesaplama"
+}

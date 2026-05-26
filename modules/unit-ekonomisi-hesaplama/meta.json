@@ -1,0 +1,5 @@
+{
+    "name": "Unit Ekonomisi Hesaplama",
+    "description": "Ürün bazında birim satış fiyatı, birim değişken maliyetler ve müşteri edinim giderlerine göre birim bazlı brüt kar marjını analiz eder.",
+    "shortcode": "hc_unit_ekonomisi_hesaplama"
+}

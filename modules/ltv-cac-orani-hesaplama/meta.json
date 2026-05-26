@@ -1,0 +1,5 @@
+{
+    "name": "LTV CAC Oranı Hesaplama",
+    "description": "Müşteri Yaşam Boyu Değeri (LTV) ve Müşteri Edinme Maliyeti (CAC) oranlarını karşılaştırarak startup pazarlama verimliliğini analiz eder.",
+    "shortcode": "hc_ltv_cac_orani_hesaplama"
+}

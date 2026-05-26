@@ -1,0 +1,5 @@
+{
+    "name": "Satın Alma Gücü Paritesi Maaş Hesaplama",
+    "description": "Yurt dışından alınan veya teklif edilen bir maaşın, iki ülke arasındaki satın alma gücü paritesine (PPP) göre Türkiye’deki refah karşılığını hesaplar.",
+    "shortcode": "hc_satin_alma_gucu_paritesi_maas_hesaplama"
+}

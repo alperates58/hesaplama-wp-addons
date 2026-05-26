@@ -1,0 +1,5 @@
+{
+    "name": "Freelance Acil Fon İhtiyacı Hesaplama",
+    "description": "Düzensiz gelire sahip olan freelancerlar için aylık kişisel ve şirket yaşam giderlerine göre kaç aylık acil fonu (Emergency Fund) oluşturması gerektiğini hesaplar.",
+    "shortcode": "hc_freelance_acil_fon_ihtiyaci_hesaplama"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Commute Zaman Maliyeti Hesaplama",
+    "description": "İşe gidiş geliş (commute) sürenizin, kendi saatlik ücretiniz üzerinden aylık ve yıllık bazda zaman maliyetini hesaplar.",
+    "shortcode": "hc_commute_zaman_maliyeti_hesaplama"
+}

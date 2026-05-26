@@ -1,0 +1,5 @@
+{
+    "name": "Brüt Net Maaş Dönüşümü Yurt Dışı Hesaplama",
+    "description": "Yurt dışından alınan brüt maaş tekliflerini, bulunulan hedef ülkenin (örn. ABD, Almanya, İngiltere) tahmini sosyal güvenlik ve gelir vergisi kesintilerine göre net maaşa çevirir.",
+    "shortcode": "hc_brut_net_maas_donusumu_yurt_disi_hesaplama"
+}

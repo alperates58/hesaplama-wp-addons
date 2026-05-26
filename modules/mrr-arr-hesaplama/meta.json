@@ -1,0 +1,5 @@
+{
+    "name": "MRR ARR Hesaplama",
+    "description": "SaaS ve abonelik modeline sahip girişimler için Aylık Tekrarlayan Gelir (MRR) ve Yıllık Tekrarlayan Gelir (ARR) metriklerini hesaplar.",
+    "shortcode": "hc_mrr_arr_hesaplama"
+}
