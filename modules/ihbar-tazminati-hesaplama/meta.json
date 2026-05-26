@@ -1,5 +1,5 @@
 {
-  "name": "İhbar Tazminatı Hesaplama (2026)",
-  "desc": "Çalışma süresine göre yasal ihbar sürelerini ve tazminat tutarını hesaplar.",
-  "shortcode": "[hc_ihbar_tazminati_hesaplama]"
+    "name": "İhbar Tazminatı Hesaplama",
+    "desc": "Çalışanın iş yerindeki kıdemine göre yasal ihbar süresini, brüt ve net ihbar tazminatı tutarını gelir vergisi ve damga vergisi kesintileriyle hesaplar.",
+    "shortcode": "[hc_ihbar_tazminati_hesaplama]"
 }

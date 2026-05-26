@@ -1,0 +1,5 @@
+{
+    "name": "Tüketici Mahkemesi Değer Sınırı Hesaplama",
+    "desc": "2026 yılı güncel yasal sınırına (186.000 ₺) göre uyuşmazlığın Tüketici Hakem Heyetine mi yoksa Arabuluculuk\/Mahkemeye mi tabi olduğunu hesaplar.",
+    "shortcode": "[hc_tuketici_mahkemesi_deger_siniri_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Boşanma Mal Paylaşımı Hesaplama",
+    "desc": "Edinilmiş mallara katılma rejimi uyarınca evlilikte edinilen varlıkları borçlar ve kişisel paylar düşülerek paylaştırır.",
+    "shortcode": "[hc_bosanma_mal_paylasimi_hesaplama]"
+}

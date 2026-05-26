@@ -1,0 +1,5 @@
+{
+    "name": "Kira Depozito Faizi Hesaplama",
+    "desc": "TBK 342 uyarınca bankaya vadeli hesaba yatırılan kira depozito bedelinin süre ve faiz oranlarına göre getirisini hesaplar.",
+    "shortcode": "[hc_kira_depozito_faizi_hesaplama]"
+}

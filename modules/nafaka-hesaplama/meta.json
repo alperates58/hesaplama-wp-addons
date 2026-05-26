@@ -1,0 +1,5 @@
+{
+    "name": "Nafaka Hesaplama",
+    "desc": "Gelir durumu ve çocuk sayısına göre tedbir, iştirak ve yoksulluk nafakasını Yargıtay uygulamalarına paralel hesaplar.",
+    "shortcode": "[hc_nafaka_hesaplama]"
+}

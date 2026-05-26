@@ -1,0 +1,5 @@
+{
+    "name": "İşe İade Tazminatı Hesaplama",
+    "desc": "İşe iade davalarında mahkemece hükmedilebilen 4-8 aylık işe başlatmama tazminatı ile en fazla 4 aya kadar olan boşta geçen süre ücretini hesaplar.",
+    "shortcode": "[hc_ise_iade_tazminati_hesaplama]"
+}

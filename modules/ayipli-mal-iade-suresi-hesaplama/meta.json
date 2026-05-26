@@ -1,0 +1,5 @@
+{
+    "name": "Ayıplı Mal İade Süresi Hesaplama",
+    "desc": "Tüketici Kanunu (TKHK) uyarınca satın alınan mallardaki ayıplara karşı yasal iade sorumluluk sürelerini ve hak düşürücü süreleri hesaplar.",
+    "shortcode": "[hc_ayipli_mal_iade_suresi_hesaplama]"
+}

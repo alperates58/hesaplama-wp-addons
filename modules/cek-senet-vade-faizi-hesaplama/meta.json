@@ -1,0 +1,5 @@
+{
+    "name": "Çek Senet Vade Faizi Hesaplama",
+    "desc": "Süresinde ödenmeyen çek ve senetler için vade\/ibraz tarihinden itibaren ticari avans faizi (%43) ve çek tazminatı (%10) gibi yasal alacakları hesaplar.",
+    "shortcode": "[hc_cek_senet_vade_faizi_hesaplama]"
+}

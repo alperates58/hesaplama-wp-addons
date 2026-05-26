@@ -1,0 +1,5 @@
+{
+    "name": "Alacak Asıl Faiz Toplam Hesaplama",
+    "desc": "Asıl alacağa yasal, ticari veya özel faiz oranlarını uygulayarak toplam faiz getirisini ve genel alacak tutarını hesaplar.",
+    "shortcode": "[hc_alacak_asil_faiz_toplam_hesaplama]"
+}

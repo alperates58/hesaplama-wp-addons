@@ -1,0 +1,5 @@
+{
+    "name": "İcra Vekalet Ücreti Hesaplama",
+    "desc": "2025-2026 güncel Avukatlık Asgari Ücret Tarifesi (AAÜT) uyarınca icra dairelerindeki takiplerde ödenmesi gereken vekalet ücretini kademeli olarak hesaplar.",
+    "shortcode": "[hc_icra_vekalet_ucreti_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Garanti Kapsamı Süresi Hesaplama",
+    "desc": "Ürünün teslim tarihinden itibaren kalan garanti süresini ve yetkili serviste geçen sürelerin eklenmesiyle oluşan yeni garanti bitiş tarihini hesaplar.",
+    "shortcode": "[hc_garanti_kapsami_suresi_hesaplama]"
+}

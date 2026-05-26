@@ -1,0 +1,5 @@
+{
+    "name": "Yıllık İzin Ücreti Alacağı Hesaplama",
+    "desc": "İşten ayrılma durumunda hak kazanılıp kullanılmayan yıllık izin günleri için ödenecek brüt ve net ücret alacağını hesaplar.",
+    "shortcode": "[hc_yillik_izin_ucreti_alacagi_hesaplama]"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Velayet Nafaka Güncelleme Hesaplama",
+    "desc": "Daha önce bağlanmış olan iştirak veya yoksulluk nafakasının, güncel yıllık TÜFE (Tüketici Fiyat Endeksi) enflasyon oranına göre yeni değerini hesaplar.",
+    "shortcode": "[hc_velayet_nafaka_guncelleme_hesaplama]"
+}

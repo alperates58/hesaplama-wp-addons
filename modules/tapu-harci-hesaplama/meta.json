@@ -1,0 +1,5 @@
+{
+    "name": "Tapu Harcı Hesaplama",
+    "desc": "Gayrimenkul alım satımlarında ödenmesi gereken %4 tapu harcını alıcı-satıcı paylarına ve döner sermaye bedellerine göre hesaplar.",
+    "shortcode": "[hc_tapu_harci_hesaplama]"
+}

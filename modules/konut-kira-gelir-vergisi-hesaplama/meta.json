@@ -1,0 +1,5 @@
+{
+    "name": "Konut Kira Gelir Vergisi Hesaplama",
+    "desc": "Kira gelirlerinin yıllık toplamı üzerinden götürü veya gerçek gider yöntemlerini kullanarak 2025\/2026 güncel vergi dilimleri kapsamında gelir vergisini hesaplar.",
+    "shortcode": "[hc_konut_kira_gelir_vergisi_hesaplama]"
+}

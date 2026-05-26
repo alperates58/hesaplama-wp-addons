@@ -1,0 +1,5 @@
+{
+    "name": "Trafik Cezası İtiraz Süresi Hesaplama",
+    "desc": "Trafik cezası tebligat tarihine göre yasal 15 günlük itiraz süresini ve itirazın yapılabileceği son günü hesaplar.",
+    "shortcode": "[hc_trafik_cezasi_itiraz_suresi_hesaplama]"
+}

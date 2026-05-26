@@ -1,0 +1,5 @@
+{
+    "name": "Kıdem Tazminatı Tavanı Hesaplama",
+    "desc": "Çalışanın giydirilmiş brüt ücreti ve hizmet süresini kullanarak, işten çıkış dönemine göre 2026 güncel tavan tutarını uygulayarak kıdem tazminatını hesaplar.",
+    "shortcode": "[hc_kidem_tazminati_tavani_hesaplama]"
+}

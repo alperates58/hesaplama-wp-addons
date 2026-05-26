@@ -1,0 +1,5 @@
+{
+    "name": "Çocuk Nafakası Hesaplama",
+    "desc": "Müşterek çocukların yaş grupları ve velayet dışı kalan eşin gelirine göre ödenmesi gereken iştirak nafakasını hesaplar.",
+    "shortcode": "[hc_cocuk_nafakasi_hesaplama]"
+}

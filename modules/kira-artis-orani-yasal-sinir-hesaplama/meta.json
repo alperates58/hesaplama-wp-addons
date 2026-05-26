@@ -1,0 +1,5 @@
+{
+    "name": "Kira Artış Oranı Yasal Sınır Hesaplama",
+    "desc": "2026 yasal düzenlemelerine göre konut ve iş yerleri için en güncel TÜFE 12 aylık ortalama artış sınırını hesaplar.",
+    "shortcode": "[hc_kira_artis_orani_yasal_sinir_hesaplama]"
+}

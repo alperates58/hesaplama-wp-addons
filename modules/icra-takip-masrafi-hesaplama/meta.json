@@ -1,0 +1,5 @@
+{
+    "name": "İcra Takip Masrafı Hesaplama",
+    "desc": "2026 yılı resmi tarifelerine göre icra dairesinde takip başlatmak için gereken harç ve masraf kalemlerini hesaplar.",
+    "shortcode": "[hc_icra_takip_masrafi_hesaplama]"
+}

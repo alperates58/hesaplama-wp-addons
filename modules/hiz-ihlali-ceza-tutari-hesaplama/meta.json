@@ -1,0 +1,5 @@
+{
+    "name": "Hız İhlali Ceza Tutarı Hesaplama",
+    "desc": "27 Şubat 2026 tarihinde yürürlüğe giren yeni 9 kademeli yasal hız aşımı ceza sistemine göre idari para cezalarını ve ehliyete el konulma durumlarını hesaplar.",
+    "shortcode": "[hc_hiz_ihlali_ceza_tutari_hesaplama]"
+}

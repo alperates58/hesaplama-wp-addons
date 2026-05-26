@@ -1,0 +1,5 @@
+{
+    "name": "Yoksulluk Nafakası Hesaplama",
+    "desc": "Boşanma nedeniyle yoksulluğa düşecek eş için tarafların kusur durumu ve gelir dengesine göre spousal alimony hesaplar.",
+    "shortcode": "[hc_yoksulluk_nafakasi_hesaplama]"
+}

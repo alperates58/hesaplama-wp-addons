@@ -1,0 +1,5 @@
+{
+    "name": "Trafik Cezası Erken Ödeme İndirimi Hesaplama",
+    "desc": "Trafik cezalarının 2026 yılı kurallarına göre tebliğden itibaren 1 ay (30 gün) içinde ödenmesi durumunda sağlanan %25 indirim miktarını ve son ödeme tarihini hesaplar.",
+    "shortcode": "[hc_trafik_cezasi_erken_odeme_indirimi_hesaplama]"
+}

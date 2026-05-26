@@ -1,0 +1,5 @@
+{
+    "name": "Cayma Hakkı Süresi Hesaplama",
+    "desc": "Mesafeli (online) sözleşmeler, kapıdan satışlar vb. tüketici işlemlerinde 14 günlük yasal cayma hakkı süresini hesaplar.",
+    "shortcode": "[hc_cayma_hakki_suresi_hesaplama]"
+}

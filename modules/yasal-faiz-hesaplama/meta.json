@@ -1,0 +1,5 @@
+{
+    "name": "Yasal Faiz Hesaplama",
+    "desc": "Alacak ve borç ilişkilerinde yasal olarak uygulanan güncel yasal faiz oranını (%24) kullanarak faiz getirisini hesaplar.",
+    "shortcode": "[hc_yasal_faiz_hesaplama]"
+}

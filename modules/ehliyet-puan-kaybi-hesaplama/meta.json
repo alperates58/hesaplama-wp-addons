@@ -1,0 +1,5 @@
+{
+    "name": "Ehliyet Puan Kaybı Hesaplama",
+    "desc": "Trafik kuralları ihlalleri sonucu oluşan ceza puanlarını toplar ve 100 puanlık yasal limite göre ehliyete el konulma durumunu hesaplar.",
+    "shortcode": "[hc_ehliyet_puan_kaybi_hesaplama]"
+}

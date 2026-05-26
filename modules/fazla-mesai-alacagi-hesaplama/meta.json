@@ -1,0 +1,5 @@
+{
+    "name": "Fazla Mesai Alacağı Hesaplama",
+    "desc": "Haftalık 45 saati aşan çalışmalar için aylık brüt maaş üzerinden %150 zamlı saatlik fazla çalışma ücretini brüt ve net olarak hesaplar.",
+    "shortcode": "[hc_fazla_mesai_alacagi_hesaplama]"
+}
