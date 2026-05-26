@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_proje_teslim_tarihi_hesaplama",
+    "name": "Proje Teslim Tarihi Hesaplama",
+    "description": "Projenin efor saati, ekip büyüklüğü, günlük çalışma saati ve risk payını (buffer) hesaba katarak bitiş tarihini takvim üzerinde hesaplar."
+}

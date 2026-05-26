@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_klima_enerji_tuketimi_hesaplama",
+    "name": "Klima Enerji Tüketimi Hesaplama",
+    "description": "Klimanın BTU büyüklüğü, çalışma süresi ve SEER\/SCOP değerine göre elektrik tüketimini ve faturaya etkisini hesaplar."
+}

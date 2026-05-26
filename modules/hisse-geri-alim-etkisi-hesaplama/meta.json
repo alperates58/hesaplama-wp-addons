@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_hisse_geri_alim_etkisi_hesaplama",
+    "name": "Hisse Geri Alım Etkisi Hesaplama",
+    "description": "Halka açık şirketlerin yaptıkları hisse geri alımlarının hisse başına kar (EPS), F\/K oranı ve özsermaye karlılığı üzerindeki pozitif etkilerini hesaplar."
+}

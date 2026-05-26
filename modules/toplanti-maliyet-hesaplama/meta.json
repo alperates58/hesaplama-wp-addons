@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_toplanti_maliyet_hesaplama",
+    "name": "Toplantı Maliyet Hesaplama",
+    "description": "Toplantıya katılan kişi sayısı ve ortalama saatlik ücretlerine göre toplantının şirkete olan finansal maliyetini hesaplar."
+}

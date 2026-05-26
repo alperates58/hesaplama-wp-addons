@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_depresyon_risk_skoru_hesaplama",
+    "name": "Depresyon Risk Skoru Hesaplama",
+    "description": "Hasta Sağlığı Anketi (PHQ-9) kriterlerine göre son 2 hafta içindeki depresif duygu durum seviyenizi ve risk skorunuzu hesaplar."
+}

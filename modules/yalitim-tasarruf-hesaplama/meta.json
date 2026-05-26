@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_yalitim_tasarruf_hesaplama",
+    "name": "Yalıtım Tasarruf Hesaplama",
+    "description": "Mevcut fatura tutarı, bina yapısı ve yalıtım levha kalınlığına göre elde edilecek yıllık yakıt tasarrufunu hesaplar."
+}

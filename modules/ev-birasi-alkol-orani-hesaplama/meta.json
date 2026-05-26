@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_ev_birasi_alkol_orani_hesaplama",
+    "name": "Ev Birası Alkol Oranı Hesaplama",
+    "description": "Ev biracılığında mayalama öncesi ilk yoğunluk (OG) ve şişeleme öncesi son yoğunluk (FG) değerlerine göre biranın alkol oranını (ABV) hesaplar."
+}

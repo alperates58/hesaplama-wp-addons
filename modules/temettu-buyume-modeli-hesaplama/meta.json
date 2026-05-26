@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_temettu_buyume_modeli_hesaplama",
+    "name": "Temettü Büyüme Modeli Hesaplama",
+    "description": "Gordon Büyüme Modeli kullanarak temettü büyüme oranı ve iskonto oranına göre hisse senedinin olması gereken adil (intrinsic) değerini hesaplar."
+}

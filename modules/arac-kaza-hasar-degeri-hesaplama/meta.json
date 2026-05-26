@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_arac_kaza_hasar_degeri_hesaplama",
+    "name": "Araç Kaza Hasar Değeri Hesaplama",
+    "description": "Aracınızın kaza öncesi piyasa değeri, kilometre, yaş ve hasar seviyesine göre oluşacak tahmini değer kaybını (amortisman) hesaplar."
+}

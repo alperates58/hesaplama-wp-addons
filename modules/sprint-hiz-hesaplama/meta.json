@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_sprint_hiz_hesaplama",
+    "name": "Sprint Hız Hesaplama",
+    "description": "Agile\/Scrum takımlarında son sprintlerin tamamlanma hızına göre takımın gelecek sprint kapasitesini ve backlog tamamlama süresini hesaplar."
+}

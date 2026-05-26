@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_isi_pompasi_verimlilik_cop_hesaplama",
+    "name": "Isı Pompası Verimlilik COP Hesaplama",
+    "description": "Isı pompasının sağladığı ısı enerjisi ve harcadığı elektrik enerjisine göre COP (Performans Katsayısı) verimliliğini hesaplar."
+}

@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_temettu_getiri_orani_hesaplama",
+    "name": "Temettü Getiri Oranı Hesaplama",
+    "description": "Hisse başına dağıtılan yıllık temettü ve hisse fiyatına göre temettü verimini (dividend yield) hesaplar."
+}

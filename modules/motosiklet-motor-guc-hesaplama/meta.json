@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_motosiklet_motor_guc_hesaplama",
+    "name": "Motosiklet Motor Güç Hesaplama",
+    "description": "Motosiklet motorunun silindir çapı (bore), strok ve devir sayısına göre hacmini ve tork gücü ile HP (Beygir) değerini hesaplar."
+}

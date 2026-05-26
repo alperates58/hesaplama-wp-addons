@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_yerden_isitma_guc_hesaplama",
+    "name": "Yerden Isıtma Güç Hesaplama",
+    "description": "Döşenecek alanın metrekaresine, boru aralığına ve zemin malzemesine göre gerekli ısıtma gücünü ve boru uzunluğunu hesaplar."
+}

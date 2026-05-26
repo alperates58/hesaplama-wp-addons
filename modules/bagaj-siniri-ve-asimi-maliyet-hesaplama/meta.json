@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_bagaj_siniri_ve_asimi_maliyet_hesaplama",
+    "name": "Bagaj Sınırı ve Aşımı Maliyet Hesaplama",
+    "description": "Uçuşlarda bilet tipinize göre belirlenmiş bagaj hakkını aşan fazla bagajlarınızın havalimanında ödeyeceğiniz tahmini ceza ücretlerini hesaplar."
+}

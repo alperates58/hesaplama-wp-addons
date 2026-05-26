@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_klima_btu_ihtiyaci_hesaplama",
+    "name": "Klima BTU İhtiyacı Hesaplama",
+    "description": "Oda genişliği, kişi sayısı, bölge ve güneş ışığı alma durumuna göre ideal klima BTU kapasitesini hesaplar."
+}

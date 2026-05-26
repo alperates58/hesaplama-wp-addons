@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_kefir_fermantasyon_suresi_hesaplama",
+    "name": "Kefir Fermantasyon Süresi Hesaplama",
+    "description": "Kullanılan süt hacmi, kefir mayası ağırlığı ve oda sıcaklığına göre en uygun fermantasyon süresini hesaplar."
+}

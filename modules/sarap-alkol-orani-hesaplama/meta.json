@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_sarap_alkol_orani_hesaplama",
+    "name": "Şarap Alkol Oranı Hesaplama",
+    "description": "Şarap yapımında başlangıç şeker oranı (Brix veya OG) ve son ölçümlere göre şarabın nihai alkol değerini ve kalan şeker miktarını hesaplar."
+}

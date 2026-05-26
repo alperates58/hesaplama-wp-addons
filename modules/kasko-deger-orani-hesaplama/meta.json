@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_kasko_deger_orani_hesaplama",
+    "name": "Kasko Değer Oranı Hesaplama",
+    "description": "Aracınızın kasko sigortası priminin, araç kasko değerine olan oranını hesaplar ve teklifin piyasa ortalamalarına göre uygunluğunu denetler."
+}

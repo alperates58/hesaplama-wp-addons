@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_motosiklet_sigorta_maliyet_tahmini_hesaplama",
+    "name": "Motosiklet Sigorta Maliyet Tahmini Hesaplama",
+    "description": "Sürücü yaşı, hasarsızlık kademesi, şehir ve motor gücüne göre tahmini trafik sigortası primini hesaplar."
+}

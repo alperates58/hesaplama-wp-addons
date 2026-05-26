@@ -1,0 +1,5 @@
+{
+    "shortcode": "hc_gorev_onceliklendirme_suresi_hesaplama",
+    "name": "Görev Önceliklendirme Süresi Hesaplama",
+    "description": "Görevlerinizin aciliyet, önem ve çaba derecesine göre öncelik skorunu çıkarır ve Eisenhower matrisinde konumlandırır."
+}
