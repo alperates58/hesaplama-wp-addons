@@ -1,0 +1,5 @@
+{
+    "name": "Koin Koleksiyon Değer Artışı Hesaplama",
+    "description": "Nadir paraların metal türü, alım yılı ve alış fiyatına göre zaman içindeki bileşik yıllık değer artışını (CAGR) hesaplar.",
+    "shortcode": "hc_koin_koleksiyon_deger_artisi_hesaplama"
+}

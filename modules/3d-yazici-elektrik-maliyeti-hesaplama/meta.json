@@ -1,0 +1,5 @@
+{
+    "name": "3D Yazıcı Elektrik Maliyeti Hesaplama",
+    "description": "3D yazıcının güç tüketimine, baskı süresine ve elektrik tarifesine göre tüketilen enerjiyi ve maliyetini hesaplar.",
+    "shortcode": "hc_3d_yazici_elektrik_maliyeti_hesaplama"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Ses Frekansı Oktav Hesaplama",
+    "description": "Başlangıç frekansına göre üst ve alt oktav frekans değerlerini ve yarım ses nota basamaklarını hesaplar.",
+    "shortcode": "hc_ses_frekansi_oktav_hesaplama"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Terraryum Nem Hesaplama",
+    "description": "Terraryum hacmi, mevcut nem ve hedef neme göre hedeflenen nemi korumak için önerilen günlük püskürtme miktarını hesaplar.",
+    "shortcode": "hc_terraryum_nem_hesaplama"
+}

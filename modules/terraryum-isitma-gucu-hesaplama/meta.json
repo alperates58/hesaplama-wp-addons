@@ -1,0 +1,5 @@
+{
+    "name": "Terraryum Isıtma Gücü Hesaplama",
+    "description": "Terraryum hacmi, oda sıcaklığı ve sürüngeniniz için hedef sıcaklık farkına göre gereken ısıtıcı gücünü (Watt) hesaplar.",
+    "shortcode": "hc_terraryum_isitma_gucu_hesaplama"
+}

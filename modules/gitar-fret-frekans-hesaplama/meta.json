@@ -1,0 +1,5 @@
+{
+    "name": "Gitar Fret Frekans Hesaplama",
+    "description": "Gitarın skala uzunluğuna ve tel frekansına göre fret mesafelerini (köprüye\/eşiğe olan uzaklıklarını) ve nota frekanslarını hesaplar.",
+    "shortcode": "hc_gitar_fret_frekans_hesaplama"
+}

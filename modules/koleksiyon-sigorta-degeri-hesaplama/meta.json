@@ -1,0 +1,5 @@
+{
+    "name": "Koleksiyon Sigorta Değeri Hesaplama",
+    "description": "Koleksiyon türü, saklama koşulları ve risk seviyelerine göre tahmini yıllık sigorta primini ve önerilen teminat tutarını hesaplar.",
+    "shortcode": "hc_koleksiyon_sigorta_degeri_hesaplama"
+}

@@ -1,0 +1,5 @@
+{
+    "name": "Akvaryum Balık Yoğunluğu Hesaplama",
+    "description": "Akvaryumunuzun su hacmine ve balık türlerinin boylarına göre güvenli balık taşıma kapasitesini hesaplar.",
+    "shortcode": "hc_akvaryum_balik_yogunlugu_hesaplama"
+}

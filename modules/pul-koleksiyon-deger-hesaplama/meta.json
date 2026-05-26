@@ -1,0 +1,5 @@
+{
+    "name": "Pul Koleksiyon Değer Hesaplama",
+    "description": "Pulun kondisyonu (MNH, MLH, Damgalı), sertifikası ve katalog fiyatına göre tahmini piyasa değerini hesaplar.",
+    "shortcode": "hc_pul_koleksiyon_deger_hesaplama"
+}

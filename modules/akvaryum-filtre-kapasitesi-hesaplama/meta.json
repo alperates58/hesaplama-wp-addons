@@ -1,0 +1,5 @@
+{
+    "name": "Akvaryum Filtre Kapasitesi Hesaplama",
+    "description": "Akvaryum su hacmine ve balık yüküne göre uygun filtre debisini (Litre\/Saat) hesaplar.",
+    "shortcode": "hc_akvaryum_filtre_kapasitesi_hesaplama"
+}

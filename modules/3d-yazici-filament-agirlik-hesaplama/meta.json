@@ -1,0 +1,5 @@
+{
+    "name": "3D Yazıcı Filament Ağırlık Hesaplama",
+    "description": "Filament türü, uzunluk veya hacim bilgisine göre baskının filament ağırlığını (gram) ve yaklaşık rulo maliyetini hesaplar.",
+    "shortcode": "hc_3d_yazici_filament_agirlik_hesaplama"
+}

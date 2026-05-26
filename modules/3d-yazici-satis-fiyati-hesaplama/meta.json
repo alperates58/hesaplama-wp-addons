@@ -1,0 +1,5 @@
+{
+    "name": "3D Yazıcı Satış Fiyatı Hesaplama",
+    "description": "3D baskının üretim maliyetine, hedeflenen kâr oranına, platform komisyonuna ve vergilere göre perakende satış fiyatını hesaplar.",
+    "shortcode": "hc_3d_yazici_satis_fiyati_hesaplama"
+}

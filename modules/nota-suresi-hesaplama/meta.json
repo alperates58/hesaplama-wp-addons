@@ -1,0 +1,5 @@
+{
+    "name": "Nota Süresi Hesaplama",
+    "description": "Parçanın temposuna (BPM) göre farklı nota değerlerinin (birlik, dörtlük, sekizlik vb.) süre karşılıklarını milisaniye (ms) olarak hesaplar.",
+    "shortcode": "hc_nota_suresi_hesaplama"
+}

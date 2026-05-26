@@ -1,0 +1,5 @@
+{
+    "name": "Dijital Ses Dosya Boyutu Hesaplama",
+    "description": "Örnekleme hızı, bit derinliği ve kanal sayısına göre sıkıştırılmamış ses veya sıkıştırılmış MP3 dosya boyutlarını hesaplar.",
+    "shortcode": "hc_dijital_ses_dosya_boyutu_hesaplama"
+}

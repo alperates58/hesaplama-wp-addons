@@ -1,0 +1,5 @@
+{
+    "name": "3D Yazıcı Baskı Süresi Tahmini Hesaplama",
+    "description": "Baskı hacmi, katman yüksekliği, doluluk oranı ve baskı hızına göre yaklaşık baskı süresini tahmin eder.",
+    "shortcode": "hc_3d_yazici_baski_suresi_tahmini_hesaplama"
+}

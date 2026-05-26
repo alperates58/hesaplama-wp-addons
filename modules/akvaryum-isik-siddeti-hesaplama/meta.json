@@ -1,0 +1,5 @@
+{
+    "name": "Akvaryum Işık Şiddeti Hesaplama",
+    "description": "Akvaryum hacmine ve bitki türünün ışık ihtiyacına göre gerekli LED lümen veya floresan Watt değerini hesaplar.",
+    "shortcode": "hc_akvaryum_isik_siddeti_hesaplama"
+}

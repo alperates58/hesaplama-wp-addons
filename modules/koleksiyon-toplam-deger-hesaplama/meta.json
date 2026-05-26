@@ -1,0 +1,5 @@
+{
+    "name": "Koleksiyon Toplam Değer Hesaplama",
+    "description": "Koleksiyon ürünlerinin adet, alış fiyatı ve güncel değerlerini karşılaştırarak toplam portföy değerini ve kâr\/zarar durumunu hesaplar.",
+    "shortcode": "hc_koleksiyon_toplam_deger_hesaplama"
+}

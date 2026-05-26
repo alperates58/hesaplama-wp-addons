@@ -1,0 +1,5 @@
+{
+    "name": "BPM Tempo Hesaplama",
+    "description": "Ritme tıklayarak (Tap Tempo) veya süre bazlı vuruş girişlerine göre şarkının BPM (Dakika Başına Vuruş) değerini ölçer.",
+    "shortcode": "hc_bpm_tempo_hesaplama"
+}

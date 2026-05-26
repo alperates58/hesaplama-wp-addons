@@ -1,0 +1,5 @@
+{
+    "name": "Akvaryum Su Hacmi Hesaplama",
+    "description": "Akvaryum boyutlarına ve şekline göre su hacmini, yaklaşık kum miktarını ve net su kapasitesini hesaplar.",
+    "shortcode": "hc_akvaryum_su_hacmi_hesaplama"
+}
