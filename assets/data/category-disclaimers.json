@@ -1,0 +1,44 @@
+{
+  "disclaimers": {
+    "health": {
+      "title": "Tıbbi Sorumluluk Reddi Uyarısı",
+      "text": "Bu hesaplama aracı genel bilgilendirme amacıyla sunulmuştur. Sonuçlar tıbbi teşhis, tedavi veya klinik tavsiye niteliği taşımaz. Sağlık durumunuzla ilgili kararlar almadan önce mutlaka uzman bir hekime danışınız.",
+      "css_class": "hc-disclaimer-health"
+    },
+    "legal": {
+      "title": "Yasal Sorumluluk Reddi Uyarısı",
+      "text": "Bu araç genel bilgi vermek amacıyla hazırlanmıştır. Sonuçlar hukuki açıdan bağlayıcı değildir. Herhangi bir hak kaybı yaşamamak adına resmi süreçlerinizi uzman bir avukat eşliğinde yürütmeniz tavsiye edilir.",
+      "css_class": "hc-disclaimer-legal"
+    },
+    "finance": {
+      "title": "Finansal Sorumluluk Reddi Uyarısı",
+      "text": "Hesaplama sonuçları tahmini simülasyonlardan ibarettir ve yatırım tavsiyesi içermez. Kredi, vergi veya yatırım kararlarınızı vermeden önce resmi kurum veya finans kuruluşlarından güncel verileri teyit ediniz.",
+      "css_class": "hc-disclaimer-finance"
+    },
+    "tax": {
+      "title": "Vergi Mevzuatı Uyarısı",
+      "text": "Hesaplanan vergi tutarları güncel yasal mevzuat sınırları ve tarifelerine göre tahmini olarak sunulmaktadır. Resmi beyannameleriniz ve işlemleriniz için mali müşavirinize veya ilgili vergi dairesine danışınız.",
+      "css_class": "hc-disclaimer-tax"
+    },
+    "sgk": {
+      "title": "Sosyal Güvenlik Mevzuatı Uyarısı",
+      "text": "Bu hesaplama İş Kanunu ve SGK genelgelerine göre tahmini sonuçlar üretmektedir. Resmi emeklilik, kıdem veya ihbar tazminatı hak edişleri için Sosyal Güvenlik Kurumu'ndan resmi döküm alınız.",
+      "css_class": "hc-disclaimer-sgk"
+    },
+    "automotive_safety": {
+      "title": "Sürüş Güvenliği Uyarısı",
+      "text": "Durma ve fren mesafesi hesaplamaları standart fiziksel formüller ve ortalama sürtünme katsayılarıyla çalışır. Gerçek durma mesafeleri yol durumu, lastik kalitesi, hava koşulları ve sürücü reflekslerine göre değişir. Lütfen hız sınırlarına uyunuz.",
+      "css_class": "hc-disclaimer-automotive"
+    },
+    "engineering": {
+      "title": "Teknik Güvenlik Uyarısı",
+      "text": "Bu hesaplayıcı genel mühendislik formüllerine dayalıdır. Gerçek inşaat, elektrik veya tesisat projeleriniz için sertifikalı uzman mühendis ve mimarlar tarafından onaylanmış projeleri kullanınız.",
+      "css_class": "hc-disclaimer-engineering"
+    },
+    "entertainment": {
+      "title": "Eğlence Amaçlı Kullanım Uyarısı",
+      "text": "Bu araç eğlence ve genel astroloji/numeroloji amaçlıdır. Çıkan sonuçların bilimsel veya gerçek bir doğruluğu bulunmamaktadır.",
+      "css_class": "hc-disclaimer-entertainment"
+    }
+  }
+}

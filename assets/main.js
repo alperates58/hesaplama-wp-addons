@@ -582,6 +582,61 @@
         });
     }
 
+    // ── Merkezi Yapı Yardımcıları ────────────────────────────────────────
+
+    window.hcGetFormulaConstant = function (key, defaultValue) {
+        if (window.hcCentralData && window.hcCentralData.dictionary && typeof window.hcCentralData.dictionary[key] !== 'undefined') {
+            return window.hcCentralData.dictionary[key];
+        }
+        return typeof defaultValue !== 'undefined' ? defaultValue : null;
+    };
+
+    function initCategoryDisclaimers() {
+        var boxes = document.querySelectorAll('.hc-disclaimer-box');
+        var i;
+
+        if (boxes.length === 0) {
+            return;
+        }
+
+        if (!window.hcCentralData || !window.hcCentralData.disclaimers) {
+            return;
+        }
+
+        // Inject disclaimer CSS
+        if (!document.getElementById('hc-disclaimer-styles')) {
+            var style = document.createElement('style');
+            style.id = 'hc-disclaimer-styles';
+            style.textContent = 
+                '.hc-disclaimer-box { margin-top: 24px; padding: 16px 20px; border-radius: 12px; border-left: 5px solid #667085; background-color: #f8fafc; font-size: 13.5px; color: #334155; line-height: 1.6; text-align: left; }' +
+                '.hc-disclaimer-title { font-weight: 700; margin-bottom: 6px; color: #1e293b; font-size: 14.5px; }' +
+                '.hc-disclaimer-health { border-left-color: #c0362c; background-color: #fef2f2; }' +
+                '.hc-disclaimer-health .hc-disclaimer-title { color: #991b1b; }' +
+                '.hc-disclaimer-legal { border-left-color: #c98905; background-color: #fffbeb; }' +
+                '.hc-disclaimer-legal .hc-disclaimer-title { color: #92400e; }' +
+                '.hc-disclaimer-finance { border-left-color: #155eef; background-color: #eff6ff; }' +
+                '.hc-disclaimer-finance .hc-disclaimer-title { color: #1e40af; }' +
+                '.hc-disclaimer-tax, .hc-disclaimer-sgk { border-left-color: #0f8a5f; background-color: #f0fdf4; }' +
+                '.hc-disclaimer-tax .hc-disclaimer-title, .hc-disclaimer-sgk .hc-disclaimer-title { color: #166534; }' +
+                '.hc-disclaimer-automotive { border-left-color: #eab308; background-color: #fefce8; }' +
+                '.hc-disclaimer-automotive .hc-disclaimer-title { color: #854d0e; }' +
+                '.hc-disclaimer-engineering { border-left-color: #0f172a; background-color: #f1f5f9; }' +
+                '.hc-disclaimer-engineering .hc-disclaimer-title { color: #0f172a; }';
+            document.head.appendChild(style);
+        }
+
+        for (i = 0; i < boxes.length; i++) {
+            var box = boxes[i];
+            var type = box.getAttribute('data-hc-disclaimer-type');
+            if (type && window.hcCentralData.disclaimers[type]) {
+                var data = window.hcCentralData.disclaimers[type];
+                box.className = 'hc-disclaimer-box ' + (data.css_class || '');
+                box.innerHTML = '<div class="hc-disclaimer-title">' + escapeHtml(data.title) + '</div>' +
+                                '<div class="hc-disclaimer-text">' + escapeHtml(data.text) + '</div>';
+            }
+        }
+    }
+
     function initSharePanels() {
         var calculators = document.querySelectorAll('.hc-calculator, [id^="hc-"]');
         var i;
@@ -595,10 +650,15 @@
         }
     }
 
+    function initCentralizedFeatures() {
+        initSharePanels();
+        initCategoryDisclaimers();
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSharePanels);
+        document.addEventListener('DOMContentLoaded', initCentralizedFeatures);
         return;
     }
 
-    initSharePanels();
+    initCentralizedFeatures();
 })();

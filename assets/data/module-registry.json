@@ -1,0 +1,24 @@
+{
+  "modules": [
+    {
+      "module_slug": "ask-uyumu",
+      "module_name": "Burç & numeroloji aşk uyumu",
+      "module_path": "modules/ask-uyumu",
+      "category": "Diğer / Günlük Yaşam",
+      "risk_level": "Düşük",
+      "priority": "Düşük",
+      "uses_formula_dictionary": false,
+      "dictionary_keys": [],
+      "has_hardcoded_constants": false,
+      "requires_disclaimer": false,
+      "disclaimer_type": "entertainment",
+      "source_required": false,
+      "source_keys": [],
+      "result_detail_level": "Kısa",
+      "last_formula_review": "2026-07-06",
+      "next_review_due": "2027-07-06",
+      "owner_note": "Aşk uyumu test modülü",
+      "validation_status": "Approved"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "finans": [
+    {
+      "key": "test_finans_katsayi",
+      "value": 1.15,
+      "unit": "oran",
+      "valid_from": "2026-01-01",
+      "valid_until": null,
+      "source_key": "test_source",
+      "source_url": null,
+      "last_verified_at": "2026-07-06T10:00:00Z",
+      "next_review_due": "2027-01-01",
+      "risk_level": "Düşük",
+      "notes": "Test katsayısı"
+    }
+  ],
+  "sgk": [],
+  "hukuk": [],
+  "health": [],
+  "automotive_safety": [],
+  "engineering": [],
+  "diğer": []
+}

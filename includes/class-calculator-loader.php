@@ -12,6 +12,9 @@ class HC_Calculator_Loader {
 	// Bu request'te register edilen hc_* tag sayısı (debug için)
 	private $lazy_registered_count = 0;
 
+	// Modül kayıt defteri verisi
+	private $module_registry = null;
+
 	public function __construct() {
 		$this->lazy_mode = $this->should_use_lazy_mode();
 
@@ -27,6 +30,42 @@ class HC_Calculator_Loader {
 
 		// Debug shortcode — sadece yöneticilere gösterilir
 		add_shortcode( 'hc_lazy_debug', [ $this, 'render_debug_shortcode' ] );
+	}
+
+	// ── Registry Yükleyici ───────────────────────────────────────────────
+
+	private function load_module_registry() {
+		if ( $this->module_registry !== null ) {
+			return $this->module_registry;
+		}
+
+		$file = HC_PLUGIN_DIR . 'assets/data/module-registry.json';
+		if ( ! file_exists( $file ) ) {
+			$this->module_registry = [];
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				error_log( 'HC Warning: module-registry.json bulunamadı! Geriye uyumlu mod aktif.' );
+			}
+			return $this->module_registry;
+		}
+
+		$content = file_get_contents( $file );
+		$data = json_decode( $content, true );
+		if ( ! is_array( $data ) || ! isset( $data['modules'] ) || ! is_array( $data['modules'] ) ) {
+			$this->module_registry = [];
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				error_log( 'HC Warning: module-registry.json bozuk veya boş! Geriye uyumlu mod aktif.' );
+			}
+			return $this->module_registry;
+		}
+
+		$this->module_registry = [];
+		foreach ( $data['modules'] as $module ) {
+			if ( isset( $module['module_slug'] ) ) {
+				$this->module_registry[ $module['module_slug'] ] = $module;
+			}
+		}
+
+		return $this->module_registry;
 	}
 
 	// ── Lazy mod kararı ─────────────────────────────────────────────────
@@ -55,6 +94,7 @@ class HC_Calculator_Loader {
 
 		$loaded_module_keys  = [];
 		$loaded_render_names = [];
+		$registry = $this->load_module_registry();
 
 		foreach ( glob( $modules_dir . '*', GLOB_ONLYDIR ) as $module_path ) {
 			if ( $this->should_skip_module_directory( $module_path ) ) {
@@ -74,6 +114,13 @@ class HC_Calculator_Loader {
 			if ( $render_name && isset( $loaded_render_names[ $render_name ] ) ) {
 				error_log( sprintf( 'HC duplicate render function skipped: %s (%s already provided by %s)', $slug, $render_name, $loaded_render_names[ $render_name ] ) );
 				continue;
+			}
+
+			// Geriye uyumluluk uyarısı: registry'de yoksa uyar ama yükle
+			if ( ! isset( $registry[ $slug ] ) ) {
+				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+					error_log( sprintf( 'HC Registry Warning: "%s" modülü module-registry.json dosyasında kayıtlı değil!', $slug ) );
+				}
 			}
 
 			if ( file_exists( $file ) ) {
@@ -137,6 +184,13 @@ class HC_Calculator_Loader {
 			return;
 		}
 
+		$registry = $this->load_module_registry();
+		if ( ! isset( $registry[ $slug ] ) ) {
+			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+				error_log( sprintf( 'HC Registry Warning: "%s" modülü module-registry.json dosyasında kayıtlı değil!', $slug ) );
+			}
+		}
+
 		$this->shortcode_map[ $tag ] = $file;
 		add_shortcode( $tag, [ $this, 'render_shortcode' ] );
 		$this->lazy_registered_count++;
@@ -179,11 +233,26 @@ class HC_Calculator_Loader {
 				$result = $function( $atts );
 				$output = ob_get_clean();
 
+				$html = '';
 				if ( is_string( $result ) && '' !== $result ) {
-					return $output . $result;
+					$html = $output . $result;
+				} else {
+					$html = $output;
 				}
 
-				return $output;
+				// Otomatik disclaimer placeholder yerleştirme (Registry onaylıysa)
+				$registry = $this->load_module_registry();
+				if ( isset( $registry[ $slug ] ) ) {
+					$meta = $registry[ $slug ];
+					if ( ! empty( $meta['requires_disclaimer'] ) && ! empty( $meta['disclaimer_type'] ) ) {
+						$html .= sprintf(
+							'<div class="hc-disclaimer-box" data-hc-disclaimer-type="%s"></div>',
+							esc_attr( $meta['disclaimer_type'] )
+						);
+					}
+				}
+
+				return $html;
 			} catch ( Throwable $e ) {
 				while ( ob_get_level() > $level ) {
 					ob_end_clean();
@@ -217,6 +286,36 @@ class HC_Calculator_Loader {
 				HC_VERSION,
 				true
 			);
+
+			// Katsayı sözlüğü ve disclaimer verilerini JS ortamına localize et
+			$dict_file = HC_PLUGIN_DIR . 'assets/data/formula-dictionary.json';
+			$disc_file = HC_PLUGIN_DIR . 'assets/data/category-disclaimers.json';
+
+			$dict_data = file_exists( $dict_file ) ? json_decode( file_get_contents( $dict_file ), true ) : [];
+			$disc_data = file_exists( $disc_file ) ? json_decode( file_get_contents( $disc_file ), true ) : [];
+
+			$client_dict = [];
+			if ( is_array( $dict_data ) ) {
+				foreach ( $dict_data as $cat => $items ) {
+					if ( is_array( $items ) ) {
+						foreach ( $items as $item ) {
+							if ( isset( $item['key'] ) && isset( $item['value'] ) ) {
+								$client_dict[ $item['key'] ] = $item['value'];
+							}
+						}
+					}
+				}
+			}
+
+			$client_disclaimers = isset( $disc_data['disclaimers'] ) ? $disc_data['disclaimers'] : [];
+
+			$central_data = [
+				'dictionary'  => $client_dict,
+				'disclaimers' => $client_disclaimers,
+			];
+
+			$inline_js = 'window.hcCentralData = ' . json_encode( $central_data, JSON_UNESCAPED_UNICODE ) . ';';
+			wp_add_inline_script( 'hesaplama-suite', $inline_js, 'before' );
 		}
 	}
 

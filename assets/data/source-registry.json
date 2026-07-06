@@ -1,0 +1,11 @@
+{
+  "test_source": {
+    "source_key": "test_source",
+    "name": "Test Kaynağı",
+    "type": "resmi kurum",
+    "update_frequency": "Yıllık",
+    "last_checked_at": "2026-07-06",
+    "trust_level": "Yüksek",
+    "notes": "Test kaynak kaydı"
+  }
+}
