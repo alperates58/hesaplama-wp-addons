@@ -25,11 +25,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "youtube-vergi-hesaplama",
+                "influencer-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "bagkur-primi-hesaplama",
@@ -56,11 +59,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "sgk-primi-hesaplama",
+                "esnaf-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "bayram-mesaisi-hesaplama",
@@ -87,11 +93,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "resmi-tatil-mesaisi-hesaplama",
+                "fazla-mesai-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "bosanma-mal-paylasimi-hesaplama",
@@ -180,11 +189,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "tuketici-mahkemesi-deger-siniri-hesaplama",
+                "trafik-cezasi-itiraz-suresi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "cocuk-nafakasi-hesaplama",
@@ -242,11 +254,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "damga-vergisi-hesaplama-2026",
+                "stopaj-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "damga-vergisi-hesaplama-2026",
@@ -273,11 +288,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "damga-vergisi-hesaplama",
+                "gelir-vergisi-hesaplama-2026"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "deger-artis-kazanci-vergisi-hesaplama",
@@ -304,11 +322,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "tapu-harci-hesaplama",
+                "gelir-vergisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "elektrokimyasal-hucre-hesaplama",
@@ -366,11 +387,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "emekli-maasi-hesaplama-2026",
+                "emeklilik-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "emekli-maasi-hesaplama-2026",
@@ -397,11 +421,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "emeklilik-hesaplama",
+                "emeklilik-yasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "emeklilik-borclanmasi-hesaplama",
@@ -428,11 +455,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "emeklilik-hesaplama",
+                "emeklilik-yasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "emeklilik-hesaplama",
@@ -459,11 +489,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "emeklilik-yasi-hesaplama",
+                "eyt-emeklilik-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "emeklilik-yasi-hesaplama",
@@ -490,11 +523,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "emeklilik-hesaplama",
+                "eyt-emeklilik-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "emlak-vergisi-hesaplama",
@@ -521,11 +557,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "tapu-harci-hesaplama",
+                "deger-artis-kazanci-vergisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "esnaf-vergi-hesaplama",
@@ -552,11 +591,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "sahis-sirketi-vergi-hesaplama",
+                "bagkur-primi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "eyt-emeklilik-hesaplama",
@@ -583,11 +625,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "emeklilik-hesaplama",
+                "emeklilik-yasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "faiz-vergisi-hesaplama",
@@ -614,11 +659,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "stopaj-hesaplama",
+                "gelir-vergisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "fazla-mesai-alacagi-hesaplama",
@@ -645,11 +693,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "fazla-mesai-hesaplama",
+                "yillik-izin-ucreti-alacagi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "fazla-mesai-hesaplama",
@@ -676,11 +727,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "fazla-mesai-alacagi-hesaplama",
+                "yillik-izin-ucreti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "fazla-mesai-ve-nobet-ucreti-hesaplama",
@@ -769,11 +823,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "sahis-sirketi-vergi-hesaplama",
+                "gelir-vergisi-hesaplama-2026"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "gece-mesaisi-hesaplama",
@@ -800,11 +857,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "fazla-mesai-hesaplama",
+                "resmi-tatil-mesaisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "gecici-vergi-hesaplama",
@@ -831,11 +891,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kurumlar-vergisi-hesaplama",
+                "gelir-vergisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "gecici-vergisi-hesaplama",
@@ -893,11 +956,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "gelir-vergisi-hesaplama-2026",
+                "stopaj-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "gelir-vergisi-hesaplama-2026",
@@ -924,11 +990,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "sahis-sirketi-vergi-hesaplama",
+                "damga-vergisi-hesaplama-2026"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "genel-satis-vergisi-hesaplama",
@@ -986,11 +1055,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "adsense-vergi-hesaplama",
+                "youtube-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "gumruk-vergisi-hesaplama",
@@ -1017,11 +1089,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "ithalat-vergisi-hesaplama",
+                "kdv-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "guncel-kdv-hesaplama",
@@ -1079,11 +1154,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "trafik-cezasi-erken-odeme-indirimi-hesaplama",
+                "trafik-cezasi-itiraz-suresi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "ihbar-tazminati-hesaplama",
@@ -1110,11 +1188,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kidem-tazminati-hesaplama",
+                "ise-iade-tazminati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "influencer-vergi-hesaplama",
@@ -1141,11 +1222,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "youtube-vergi-hesaplama",
+                "adsense-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "ise-iade-tazminati-hesaplama",
@@ -1172,11 +1256,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kidem-tazminati-hesaplama",
+                "ihbar-tazminati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "issizlik-maasi-hesaplama",
@@ -1203,11 +1290,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kidem-tazminati-hesaplama",
+                "ihbar-tazminati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "ithalat-vergisi-hesaplama",
@@ -1234,11 +1324,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "gumruk-vergisi-hesaplama",
+                "kdv-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "kambiyo-vergisi-hesaplama",
@@ -1265,11 +1358,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "stopaj-hesaplama",
+                "kdv-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "kar-payi-vergisi-hesaplama",
@@ -1296,11 +1392,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "stopaj-hesaplama",
+                "limited-sirket-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "karbon-emisyonu-co2-vergisi-hesaplama",
@@ -1358,11 +1457,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kdv-hesaplama",
+                "kdv-tevkifat-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "kdv-hesaplama",
@@ -1389,11 +1491,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kdv-dahil-haric-hesaplama",
+                "kdv-tevkifat-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "kdv-hesaplama-tevkifatli",
@@ -1454,11 +1559,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kdv-hesaplama",
+                "kdv-dahil-haric-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "kidem-tazminati-hesaplama",
@@ -1485,11 +1593,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "ihbar-tazminati-hesaplama",
+                "kidem-tazminati-tavani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "kidem-tazminati-tavani-hesaplama",
@@ -1516,11 +1627,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kidem-tazminati-hesaplama",
+                "ihbar-tazminati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "kimyasal-denklem-dengeleme-hesaplama",
@@ -1677,11 +1791,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "stopaj-hesaplama",
+                "kira-vergisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "kira-vergisi-hesaplama",
@@ -1708,11 +1825,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "konut-kira-gelir-vergisi-hesaplama",
+                "kira-stopaji-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "konaklama-vergisi-hesaplama",
@@ -1739,11 +1859,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kdv-hesaplama",
+                "stopaj-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "konut-kira-gelir-vergisi-hesaplama",
@@ -1770,11 +1893,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kira-vergisi-hesaplama",
+                "kira-stopaji-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "kripto-fifo-vergi-hesaplama",
@@ -1925,11 +2051,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "limited-sirket-vergi-hesaplama",
+                "gecici-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "limited-sirket-vergi-hesaplama",
@@ -1956,11 +2085,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kurumlar-vergisi-hesaplama",
+                "sahis-sirketi-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "maas-artis-enflasyon-karsilastirma-hesaplama",
@@ -2052,11 +2184,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "fazla-mesai-hesaplama",
+                "gece-mesaisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "mobbing-manevi-tazminat-tahmini-hesaplama",
@@ -2116,11 +2251,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "stopaj-hesaplama",
+                "sahis-sirketi-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "nafaka-hesaplama",
@@ -2147,11 +2285,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "bosanma-mal-paylasimi-hesaplama",
+                "velayet-nafaka-guncelleme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "resmi-tatil-mesaisi-hesaplama",
@@ -2178,11 +2319,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "bayram-mesaisi-hesaplama",
+                "gece-mesaisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "sahis-sirketi-vergi-hesaplama",
@@ -2209,11 +2353,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "freelancer-vergi-hesaplama",
+                "gelir-vergisi-hesaplama-2026"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "satin-alma-gucu-paritesi-maas-hesaplama",
@@ -2333,11 +2480,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "sgk-primi-hesaplama",
+                "emeklilik-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "sgk-primi-hesaplama",
@@ -2364,11 +2514,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "maas-hesaplama-2026",
+                "gelir-vergisi-hesaplama-2026"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "stopaj-hesaplama",
@@ -2395,11 +2548,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kira-stopaji-hesaplama",
+                "muhtasar-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "tazminat-faizi-hesaplama",
@@ -2426,11 +2582,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "kidem-tazminati-hesaplama",
+                "ihbar-tazminati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "trafik-cezasi-erken-odeme-indirimi-hesaplama",
@@ -2457,11 +2616,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "trafik-cezasi-itiraz-suresi-hesaplama",
+                "hiz-ihlali-ceza-tutari-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 1 Premium Content Integrated."
         },
         {
             "module_slug": "trafik-cezasi-itiraz-suresi-hesaplama",
@@ -2488,11 +2650,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "trafik-cezasi-erken-odeme-indirimi-hesaplama",
+                "hiz-ihlali-ceza-tutari-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "tuketici-mahkemesi-deger-siniri-hesaplama",
@@ -2519,11 +2684,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "cayma-hakki-suresi-hesaplama",
+                "tazminat-faizi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "uyku-borcu-hesaplama",
@@ -2614,11 +2782,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "tapu-harci-hesaplama",
+                "deger-artis-kazanci-vergisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "vergi-sonrasi-borc-maliyeti-hesaplama",
@@ -2710,11 +2881,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "yillik-izin-ucreti-hesaplama",
+                "fazla-mesai-alacagi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "yillik-izin-ucreti-hesaplama",
@@ -2741,11 +2915,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "yillik-izin-ucreti-alacagi-hesaplama",
+                "kidem-tazminati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Batch 2 Premium Content Integrated."
         },
         {
             "module_slug": "yoksulluk-nafakasi-hesaplama",
@@ -2803,11 +2980,14 @@
             "example_required": false,
             "source_note_required": true,
             "disclaimer_required": true,
-            "related_calculators": [],
-            "content_review_status": "needs_content_review",
+            "related_calculators": [
+                "adsense-vergi-hesaplama",
+                "influencer-vergi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 4A Critical 91 Skeleton Integration."
+            "notes": "Phase 5 Premium Content Integrated."
         },
         {
             "module_slug": "yurt-disi-maas-tl-esdegeri-hesaplama",
