@@ -1,42 +1,43 @@
-# Merkezi Yapıya Bağlanan Modüller Raporu (Centralized Modules Report)
+# Merkezi Yapıya Bağlanan Modüller Raporu (Centralized Modules Report) - Faz 2A
 
-Faz 1 kapsamında modüllerin merkezi yapıya uyumluluk ve geçiş istatistikleri aşağıda detaylandırılmıştır.
-
----
-
-## 📊 Modül Geçiş İstatistikleri (Faz 1)
-
-| Geçiş Durumu | Modül Sayısı | Açıklama |
-| :--- | :---: | :--- |
-| **Merkezi Yapıya Bağlanan (Katsayıları Taşınan)** | **0** | Faz 1 yasakları doğrultusunda hiçbir modülün katsayısı koda gömülü halden ayrıştırılmamıştır. |
-| **Sadece Registry'ye Kaydedilen** | **1** | Test amacıyla `ask-uyumu` modülü registry'ye eklenmiş ve geriye uyumluluk test edilmiştir. |
-| **Formülü Değişen Modüller** | **0** | Hiçbir formül veya katsayı mantığı değiştirilmemiştir. |
-| **Sonucu Değişen Modüller** | **0** | Kullanıcı çıktı ekranlarında hiçbir değişiklik yapılmamıştır. |
-| **Otomatik Disclaimer Eklenen Modüller** | **0** | Altyapı testi hariç, canlı modüllerin hiçbirine disclaimer basılmamıştır. |
-| **Hiç Dokunulmayan / Fallback ile Çalışan Modüller** | **2.939** | Geri kalan tüm modüller eski glob tespiti ve dosya yükleme mekanizmasıyla sorunsuz çalışmaya devam etmektedir. |
+Faz 2A kapsamında modüllerin merkezi registry entegrasyonuna ait istatistikleri ve durum bilgileri aşağıda listelenmiştir.
 
 ---
 
-## 🔍 Detaylı Kırılım Listesi
+## 📊 Modül Entegrasyon İstatistikleri (Faz 2A)
 
-### A) Merkezi Yapıya Bağlanan Modüller Listesi
-* *Faz 1 kapsamında merkezi yapıya bağlanan (kodu değiştirilen) modül bulunmamaktadır.*
+* **Merkezi Registry Kapsamına Alınan Modül Sayısı:** **91** (Tamamı yüksek/kritik riskli finans, hukuk, sağlık ve mühendislik modülleridir).
+* **Canlı Kullanıcı Davranışı Değişen Modül Sayısı:** **0** (Modül kodlarına dokunulmamış, disclaimer gösterimi JSON seviyesinde `disclaimer_type: ""` ile kapatılmıştır).
+* **Kategori Düzeltmesi Yapılan Modül Sayısı:** **15** (Analizde yanlış kategoride durduğu tespit edilen 15 modül için registry'de `corrected_category` alanı tanımlanmıştır).
+* **Eklenen Veri Kaynağı Sayısı:** **9 adet** (`gib_teblig_2026`, `sgk_genelge_2026`, `tcmb_bddk_faiz`, `mevzuat_kanunlar`, `who_saglik_bakanligi`, `euro_ncap_safety`, `tse_iso_insaat`, `academic_engineering_sources`, `genel_standartlar`).
 
-### B) Davranışı Değişen Modüller Listesi
-* *Faz 1 kapsamında davranışı, girdisi veya çıktısı değişen hiçbir modül bulunmamaktadır.*
+---
 
-### C) Hiç Dokunulmayan Modüller Listesi
-* `modules/` dizini altındaki tüm **2.939** modül (altyapı testi hariç) tamamen orijinal kodlarıyla çalışmaktadır.
+## 🔍 Kategori Düzeltme Listesi
 
-### D) Kontrol Edilmesi Önerilen Örnek Modüller Listesi (Smoke Test)
-Mevcut fallback ve yeni registry sisteminin bir arada çalıştığını test etmek için aşağıdaki 10 modülün front-end sayfalarının kontrol edilmesi önerilir:
-1. **Burç & numeroloji aşk uyumu** (`[hc_ask_uyumu]` - Registry'de kayıtlı test modülü)
-2. **Kredi Kartı Asgari Ödeme** (`[hc_kredi_karti_asgari_odeme]` - Eski modül, registry dışı fallback)
-3. **Maksimum Nabız Hesaplama** (`[hc_maksimum_nabiz_hesaplama]` - Eski modül, registry dışı fallback)
-4. **REM Uyku Süresi** (`[hc_rem_uyku_suresi_hesaplama]` - Eski modül, registry dışı fallback)
-5. **Rapor Parası Hesaplama** (`[hc_rapor_parasi_hesaplama]` - Eski modül, registry dışı fallback)
-6. **Damga Vergisi Hesaplama** (`[hc_damga_vergisi_hesaplama]` - Eski modül, registry dışı fallback)
-7. **Yasal Faiz Hesaplama** (`[hc_yasal_faiz_hesaplama]` - Eski modül, registry dışı fallback)
-8. **Kıdem Tazminatı Hesaplama** (`[hc_kidem_tazminati_hesaplama]` - Eski modül, registry dışı fallback)
-9. **Tüketici Mahkemesi Sınırı** (`[hc_tuketici_mahkemesi_siniri]` - Eski modül, registry dışı fallback)
-10. **Lastik Ölçüsü Karşılaştırma** (`[hc_lastik_karsilastirma_hesaplama]` - Eski modül, registry dışı fallback)
+Eski sistemdeki yanlış kategorileri düzeltilerek registry'ye kaydedilen modüller:
+1. `uyku-borcu-hesaplama` -> Sağlık & Tıp (Kaynak: `who_saglik_bakanligi`)
+2. `kdv-hesaplama-tevkifatli` -> Finans & Ekonomi (Kaynak: `gib_teblig_2026`)
+3. `kdv-tevkifat-hesaplama` -> Finans & Ekonomi (Kaynak: `gib_teblig_2026`)
+4. `stopaj-hesaplama` -> Finans & Ekonomi (Kaynak: `gib_teblig_2026`)
+5. `vergi-sonrasi-borc-maliyeti-hesaplama` -> Finans & Ekonomi (Kaynak: `gib_teblig_2026`)
+6. `yillik-izin-ucreti-alacagi-hesaplama` -> Finans & Ekonomi (SGK/İş Hukuku) (Kaynak: `sgk_genelge_2026`)
+7. `kimyasal-denklem-dengeleme-hesaplama` -> Bilim & Mühendislik (Kaynak: `academic_engineering_sources`)
+8. `kimyasal-oksijen-ihtiyaci-hesaplama` -> Bilim & Mühendislik (Kaynak: `academic_engineering_sources`)
+9. `kimyasal-proses-verimi-hesaplama` -> Bilim & Mühendislik (Kaynak: `academic_engineering_sources`)
+10. `lbm-hesaplayici` -> Sağlık & Tıp (Kaynak: `who_saglik_bakanligi`)
+11. `is-kazasi-tazminat-tahmini-hesaplama` -> Hukuk & Mevzuat (Kaynak: `mevzuat_kanunlar`)
+12. `lastik-karsilastirma-hesaplama` -> Otomotiv & Trafik (Kaynak: `euro_ncap_safety`)
+13. `zemin-kaplama-metrekare-hesaplama` -> Ev, İnşaat & Bahçe (Kaynak: `tse_iso_insaat`)
+14. `kondansator-hesaplama` -> Bilim & Mühendislik (Kaynak: `academic_engineering_sources`)
+15. `is-uyumu-hesaplama` -> Diğer / Günlük Yaşam (Kaynak: `genel_standartlar`)
+
+---
+
+## 📋 Registry'ye Kaydedilen Örnek Kritik Modüller (Smoke Test İçin)
+Registry doğrulaması yapılan 91 modülden 5 adedinin shortcode render motorunda test edildiği ve sıfır hata ile çalıştığı doğrulanmıştır:
+1. **Maaş Hesaplama 2026 (Brüt/Net):** `[hc_maas_hesaplama_2026]`
+2. **Yasal Faiz Hesaplama:** `[hc_yasal_faiz_hesaplama]`
+3. **KDV Hesaplama (Tevkifatlı):** `[hc_kdv_hesaplama_tevkifatli]`
+4. **Uyku Borcu Hesaplama:** `[hc_uyku_borcu_hesaplama]`
+5. **Kimyasal Denklem Dengeleme:** `[hc_kimyasal_denklem_dengeleme_hesaplama]`

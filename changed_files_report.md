@@ -1,35 +1,24 @@
-# Değişen Dosyalar Raporu (Changed Files Report)
+# Değişen Dosyalar Raporu (Changed Files Report) - Faz 2A
 
-Bu rapor, Faz 1 kapsamında Hesaplama Suite eklentisinde yapılan tüm dosya değişikliklerini ve bunların sistem üzerindeki etkilerini açıklar.
-
----
-
-## 📁 1. Yeni Oluşturulan Dosyalar (Registry & Sözlük İskeletleri)
-* **[formula-dictionary.json](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/data/formula-dictionary.json):** Merkezi formül/katsayı veri deposu.
-* **[source-registry.json](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/data/source-registry.json):** Katsayı referans kaynaklarının kayıt defteri.
-* **[module-registry.json](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/data/module-registry.json):** Modül entegrasyonlarının ve özelliklerinin kayıt defteri.
-* **[category-disclaimers.json](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/data/category-disclaimers.json):** Kategori bazlı sorumluluk reddi uyarıları (disclaimers) şablonları.
+Bu rapor, Faz 2A (Kritik Modüllerin Registry Entegrasyonu) kapsamında yapılan dosya değişikliklerini ve bunların sistem üzerindeki etkilerini belgeler.
 
 ---
 
-## 🛠️ 2. Değiştirilen Kod Dosyaları
-* **[class-calculator-loader.php](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/includes/class-calculator-loader.php):**
-  * Modül kayıt defterini okuma ve entegrasyon doğrulaması yapısı eklendi.
-  * Registry'de yer almayan modüller için hata vermeden geriye uyumlu çalışma (fallback) ve log uyarısı eklendi.
-  * PHP'deki sözlük ve disclaimer verilerini JS ortamına senkron aktarmak için inline script enjeksiyonu (`wp_add_inline_script`) eklendi.
-  * Disclaimer gerektiren modüllerin altına otomatik placeholder container (`.hc-disclaimer-box`) basma mantığı entegre edildi.
-* **[main.js](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/main.js):**
-  * Katsayıları güvenli okumayı sağlayan global `window.hcGetFormulaConstant(key, defaultValue)` helper fonksiyonu tanımlandı.
-  * `.hc-disclaimer-box` elementlerini bulup localize verilerle dolduran ve görünür kılan `initCategoryDisclaimers()` fonksiyonu entegre edildi.
-  * `assets/style.css` dosyasına müdahale etmemek amacıyla, disclaimer kutularının CSS stilleri dinamik head style enjeksiyonuyla JS tarafında tanımlandı.
+## 📁 1. Yeni Oluşturulan / Değiştirilen Dosyalar
+
+Faz 2A kapsamında **kesinlikle hiçbir PHP, JS veya CSS kod dosyası değiştirilmemiştir.** Sadece aşağıdaki iki veri dosyası güncellenmiştir:
+
+* **[module-registry.json](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/data/module-registry.json):** 91 adet yüksek/kritik riskli modülün kayıt bilgileri, kategorileri, öncelikleri, kaynak atamaları ve disclaimer durumları eklenmiştir.
+* **[source-registry.json](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/assets/data/source-registry.json):** Yasal ve akademik denetimler için `academic_engineering_sources` (Akademik Mühendislik Kaynakları) anahtarı dahil 9 adet veri kaynağı tanımlanmıştır.
 
 ---
 
-## 📊 3. Sistem Etki Analizi
+## 📊 2. Sistem Etki Analizi
 
 | Sistem Bileşeni | Değişiklik Durumu | Etki Derecesi | Açıklama / Garanti |
 | :--- | :---: | :---: | :--- |
-| **WordPress Dashboard** | Etkilenmedi | **Sıfır Etki** | Dashboard rotaları, admin menüleri veya PHP admin sınıflarına dokunulmamıştır. |
-| **GitHub Update Akışı** | Etkilenmedi | **Sıfır Etki** | Update motoruna (`class-github-updater.php`) veya eklenti versiyon sabitlerine dokunulmamıştır. |
-| **Shortcode / Modül Yükleme** | Değiştirildi (Geriye Uyumlu) | **Sıfır Risk** | Shortcode kayıt mekanizması korunmuş; kayıt dışı modüller için fallback devrededir. |
-| **Modül Kodları (calculator.js/php)**| Etkilenmedi | **Sıfır Etki** | 2.939 modülün hiçbirinin PHP/JS dosyasına dokunulmamıştır. |
+| **WordPress Dashboard** | Değişmedi | **Sıfır Etki** | Dashboard dosyaları ve PHP sınıfları tamamen orijinal durumundadır. |
+| **GitHub Update Motoru** | Değişmedi | **Sıfır Etki** | Update kodlarına (`class-github-updater.php`) dokunulmamıştır. |
+| **Shortcode / Modül Yükleme** | Değişmedi | **Sıfır Etki** | Shortcode kayıt ve glob tarama sistemi geriye uyumlulukla sorunsuz çalışır. |
+| **Modül Kodları (PHP/JS)** | Değişmedi | **Sıfır Etki** | 2.939 modülün hiçbir calculator.js veya php dosyasına müdahale edilmemiştir. |
+| **Kullanıcı Çıktı Ekranları** | Değişmedi | **Sıfır Etki** | `disclaimer_type: ""` ve `disclaimer_enabled: false` ayarları sayesinde canlı kullanıcılara disclaimer kutuları basılması 100% engellenmiştir. |

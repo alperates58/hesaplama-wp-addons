@@ -1,11 +1,83 @@
 {
-  "test_source": {
-    "source_key": "test_source",
-    "name": "Test Kaynağı",
-    "type": "resmi kurum",
-    "update_frequency": "Yıllık",
-    "last_checked_at": "2026-07-06",
-    "trust_level": "Yüksek",
-    "notes": "Test kaynak kaydı"
-  }
+    "gib_teblig_2026":  {
+                            "name":  "Gelir İdaresi Başkanlığı 2026 Tebliğleri",
+                            "last_checked_at":  "2026-07-06",
+                            "source_key":  "gib_teblig_2026",
+                            "type":  "resmi kurum",
+                            "notes":  "Gelir ve kurumlar vergisi tarifeleri ile harç tutarları.",
+                            "trust_level":  "En Yüksek",
+                            "update_frequency":  "Yıllık"
+                        },
+    "tcmb_bddk_faiz":  {
+                           "name":  "TCMB / BDDK Faiz Oranları ve Kredi Sınırları Yönetmeliği",
+                           "last_checked_at":  "2026-07-06",
+                           "source_key":  "tcmb_bddk_faiz",
+                           "type":  "resmi kurum",
+                           "notes":  "Yasal ve temerrüt faiz oranları ile kredi kullanım sınırlamaları.",
+                           "trust_level":  "En Yüksek",
+                           "update_frequency":  "Aylık"
+                       },
+    "euro_ncap_safety":  {
+                             "name":  "Euro NCAP Güvenlik Testi Standartları ve Fizik Kuralları",
+                             "last_checked_at":  "2026-07-06",
+                             "source_key":  "euro_ncap_safety",
+                             "type":  "standart",
+                             "notes":  "Hız ve fren mesafesi fiziksel katsayıları.",
+                             "trust_level":  "Yüksek",
+                             "update_frequency":  "Statik"
+                         },
+    "mevzuat_kanunlar":  {
+                             "name":  "Türk Borçlar Kanunu, Hukuk Hekimleri ve Yargıtay İçtihatları",
+                             "last_checked_at":  "2026-07-06",
+                             "source_key":  "mevzuat_kanunlar",
+                             "type":  "kanun",
+                             "notes":  "Nafaka, tazminat ve ceza hesaplama yasal altyapıları.",
+                             "trust_level":  "En Yüksek",
+                             "update_frequency":  "Statik (Yargı İçtihatları)"
+                         },
+    "tse_iso_insaat":  {
+                           "name":  "Türk Standardları Enstitüsü (TSE) / ISO Yapı Yönetmelikleri",
+                           "last_checked_at":  "2026-07-06",
+                           "source_key":  "tse_iso_insaat",
+                           "type":  "standart",
+                           "notes":  "Yapı ve mühendislik birim/sarfiyat katsayıları.",
+                           "trust_level":  "Yüksek",
+                           "update_frequency":  "Statik"
+                       },
+    "genel_standartlar":  {
+                              "name":  "Uluslararası Birim Çevrim ve Matematiksel Standartlar",
+                              "last_checked_at":  "2026-07-06",
+                              "source_key":  "genel_standartlar",
+                              "type":  "standart",
+                              "notes":  "Matematiksel ve fiziksel temel sabitler.",
+                              "trust_level":  "En Yüksek",
+                              "update_frequency":  "Statik"
+                          },
+    "academic_engineering_sources":  {
+                                         "name":  "Akademik Kimya, Fizik ve Mühendislik Kaynakları",
+                                         "last_checked_at":  "2026-07-06",
+                                         "source_key":  "academic_engineering_sources",
+                                         "type":  "akademik",
+                                         "notes":  "Kimyasal formüller ve proses katsayıları.",
+                                         "trust_level":  "Yüksek",
+                                         "update_frequency":  "Statik"
+                                     },
+    "sgk_genelge_2026":  {
+                             "name":  "Sosyal Güvenlik Kurumu (SGK) ve Resmi Gazete Genelgeleri (2026)",
+                             "last_checked_at":  "2026-07-06",
+                             "source_key":  "sgk_genelge_2026",
+                             "type":  "resmi kurum",
+                             "notes":  "Asgari ücret, kıdem tazminatı tavanı ve iş kanunu mevzuatları.",
+                             "trust_level":  "En Yüksek",
+                             "update_frequency":  "Dinamik (Mevzuat Değişimi)"
+                         },
+    "who_saglik_bakanligi":  {
+                                 "name":  "Dünya Sağlık Örgütü (WHO) / T.C. Sağlık Bakanlığı Klinik Kılavuzları",
+                                 "last_checked_at":  "2026-07-06",
+                                 "source_key":  "who_saglik_bakanligi",
+                                 "type":  "akademik",
+                                 "notes":  "Fizyolojik katsayılar ve referans değer aralıkları.",
+                                 "trust_level":  "En Yüksek",
+                                 "update_frequency":  "Statik"
+                             }
 }

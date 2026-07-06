@@ -1,24 +1,2643 @@
 {
-  "modules": [
-    {
-      "module_slug": "ask-uyumu",
-      "module_name": "Burç & numeroloji aşk uyumu",
-      "module_path": "modules/ask-uyumu",
-      "category": "Diğer / Günlük Yaşam",
-      "risk_level": "Düşük",
-      "priority": "Düşük",
-      "uses_formula_dictionary": false,
-      "dictionary_keys": [],
-      "has_hardcoded_constants": false,
-      "requires_disclaimer": false,
-      "disclaimer_type": "entertainment",
-      "source_required": false,
-      "source_keys": [],
-      "result_detail_level": "Kısa",
-      "last_formula_review": "2026-07-06",
-      "next_review_due": "2027-07-06",
-      "owner_note": "Aşk uyumu test modülü",
-      "validation_status": "Approved"
-    }
-  ]
+    "modules":  [
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "adsense-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Adsense Vergi Hesaplama",
+                        "module_path":  "modules/adsense-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "bagkur-primi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Bağkur Primi Hesaplama",
+                        "module_path":  "modules/bagkur-primi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "bayram-mesaisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Bayram Mesaisi Hesaplama",
+                        "module_path":  "modules/bayram-mesaisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "bosanma-mal-paylasimi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Boşanma Mal Paylaşımı Hesaplama",
+                        "module_path":  "modules/bosanma-mal-paylasimi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "brut-net-maas-donusumu-yurt-disi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Brüt Net Maaş Dönüşümü Yurt Dışı Hesaplama",
+                        "module_path":  "modules/brut-net-maas-donusumu-yurt-disi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "cayma-hakki-suresi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Cayma Hakkı Süresi Hesaplama",
+                        "module_path":  "modules/cayma-hakki-suresi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "health",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "cocuk-nafakasi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Çocuk Nafakası Hesaplama",
+                        "module_path":  "modules/cocuk-nafakasi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Sağlık \u0026 Tıp",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "damga-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Damga Vergisi Hesaplama",
+                        "module_path":  "modules/damga-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "damga-vergisi-hesaplama-2026",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Damga Vergisi Hesaplama (2026)",
+                        "module_path":  "modules/damga-vergisi-hesaplama-2026",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "deger-artis-kazanci-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Değer Artış Kazancı Vergisi Hesaplama",
+                        "module_path":  "modules/deger-artis-kazanci-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "engineering",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "elektrokimyasal-hucre-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kimya ve proses hesaplamaları bilim/mühendislik kategorisindedir.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "academic_engineering_sources"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Elektrokimyasal Hücre Hesaplama",
+                        "module_path":  "modules/elektrokimyasal-hucre-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Bilim \u0026 Mühendislik",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "emekli-ikramiyesi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Emekli İkramiyesi Hesaplama",
+                        "module_path":  "modules/emekli-ikramiyesi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "emekli-maasi-hesaplama-2026",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Emekli Maaşı Hesaplama 2026",
+                        "module_path":  "modules/emekli-maasi-hesaplama-2026",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "emeklilik-borclanmasi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Emeklilik Borçlanması Hesaplama",
+                        "module_path":  "modules/emeklilik-borclanmasi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "emeklilik-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Emeklilik Hesaplama",
+                        "module_path":  "modules/emeklilik-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "emeklilik-yasi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Emeklilik Yaşı Hesaplama",
+                        "module_path":  "modules/emeklilik-yasi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "emlak-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Emlak Vergisi Hesaplama",
+                        "module_path":  "modules/emlak-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "esnaf-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Esnaf Vergi Hesaplama",
+                        "module_path":  "modules/esnaf-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "eyt-emeklilik-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "EYT Emeklilik Hesaplama",
+                        "module_path":  "modules/eyt-emeklilik-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "faiz-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Faiz Vergisi Hesaplama",
+                        "module_path":  "modules/faiz-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "fazla-mesai-alacagi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Fazla Mesai Alacağı Hesaplama",
+                        "module_path":  "modules/fazla-mesai-alacagi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "fazla-mesai-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Fazla Mesai Hesaplama",
+                        "module_path":  "modules/fazla-mesai-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "fazla-mesai-ve-nobet-ucreti-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Fazla Mesai ve Nöbet Ücreti Hesaplama",
+                        "module_path":  "modules/fazla-mesai-ve-nobet-ucreti-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "freelance-vergi-sonrasi-net-gelir-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Freelance Vergi Sonrası Net Gelir Hesaplama",
+                        "module_path":  "modules/freelance-vergi-sonrasi-net-gelir-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "freelancer-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Freelancer Vergi Hesaplama",
+                        "module_path":  "modules/freelancer-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "gece-mesaisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Gece Mesaisi Hesaplama",
+                        "module_path":  "modules/gece-mesaisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "gecici-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Geçici Vergi Hesaplama",
+                        "module_path":  "modules/gecici-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "gecici-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Geçici Vergi Hesaplama",
+                        "module_path":  "modules/gecici-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "gelir-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Gelir Vergisi Hesaplama",
+                        "module_path":  "modules/gelir-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "gelir-vergisi-hesaplama-2026",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Gelir Vergisi Hesaplama (2026)",
+                        "module_path":  "modules/gelir-vergisi-hesaplama-2026",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "genel-satis-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Genel Satış Vergisi Hesaplama",
+                        "module_path":  "modules/genel-satis-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Otomotiv \u0026 Trafik",
+                        "module_slug":  "google-adsense-geliri-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Google AdSense Geliri Hesaplama",
+                        "module_path":  "modules/google-adsense-geliri-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Otomotiv \u0026 Trafik",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "gumruk-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Gümrük Vergisi Hesaplama",
+                        "module_path":  "modules/gumruk-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "guncel-kdv-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Güncel KDV Hesaplama",
+                        "module_path":  "modules/guncel-kdv-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "finance",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "hiz-ihlali-ceza-tutari-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Hız İhlali Ceza Tutarı Hesaplama",
+                        "module_path":  "modules/hiz-ihlali-ceza-tutari-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "ihbar-tazminati-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "İhbar Tazminatı Hesaplama",
+                        "module_path":  "modules/ihbar-tazminati-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "influencer-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Influencer Vergi Hesaplama",
+                        "module_path":  "modules/influencer-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "ise-iade-tazminati-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "İşe İade Tazminatı Hesaplama",
+                        "module_path":  "modules/ise-iade-tazminati-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "issizlik-maasi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "İşsizlik Maaşı Hesaplama",
+                        "module_path":  "modules/issizlik-maasi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "ithalat-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "İthalat Vergisi Hesaplama",
+                        "module_path":  "modules/ithalat-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kambiyo-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kambiyo Vergisi Hesaplama",
+                        "module_path":  "modules/kambiyo-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kar-payi-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kar Payı Vergisi Hesaplama",
+                        "module_path":  "modules/kar-payi-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "karbon-emisyonu-co2-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Karbon Emisyonu (CO2) Vergisi Hesaplama",
+                        "module_path":  "modules/karbon-emisyonu-co2-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kdv-dahil-haric-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "KDV Dahil Hariç Hesaplama",
+                        "module_path":  "modules/kdv-dahil-haric-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kdv-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "KDV Hesaplama",
+                        "module_path":  "modules/kdv-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "kdv-hesaplama-tevkifatli",
+                        "priority":  "Acil",
+                        "category_note":  "Vergi/tevkifat/stopaj finans kategorisine taşındı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "KDV Hesaplama (Tevkifatlı)",
+                        "module_path":  "modules/kdv-hesaplama-tevkifatli",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "kdv-tevkifat-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Vergi/tevkifat/stopaj finans kategorisine taşındı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "KDV Tevkifat Hesaplama",
+                        "module_path":  "modules/kdv-tevkifat-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kidem-tazminati-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kıdem Tazminatı Hesaplama (2026)",
+                        "module_path":  "modules/kidem-tazminati-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kidem-tazminati-tavani-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kıdem Tazminatı Tavanı Hesaplama",
+                        "module_path":  "modules/kidem-tazminati-tavani-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "engineering",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "kimyasal-denklem-dengeleme-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kimya ve proses hesaplamaları bilim/mühendislik kategorisindedir.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "academic_engineering_sources"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kimyasal Denklem Dengeleme Hesaplama",
+                        "module_path":  "modules/kimyasal-denklem-dengeleme-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Bilim \u0026 Mühendislik",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "engineering",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "kimyasal-oksijen-ihtiyaci-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kimya ve proses hesaplamaları bilim/mühendislik kategorisindedir.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "academic_engineering_sources"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kimyasal Oksijen İhtiyacı Hesaplama",
+                        "module_path":  "modules/kimyasal-oksijen-ihtiyaci-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Bilim \u0026 Mühendislik",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "engineering",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "kimyasal-proses-verimi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kimya ve proses hesaplamaları bilim/mühendislik kategorisindedir.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "academic_engineering_sources"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kimyasal Proses Verimi Hesaplama",
+                        "module_path":  "modules/kimyasal-proses-verimi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Bilim \u0026 Mühendislik",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "kira-artis-orani-yasal-sinir-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kira Artış Oranı Yasal Sınır Hesaplama",
+                        "module_path":  "modules/kira-artis-orani-yasal-sinir-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kira-stopaji-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kira Stopajı Hesaplama",
+                        "module_path":  "modules/kira-stopaji-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kira-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kira Vergisi Hesaplama",
+                        "module_path":  "modules/kira-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "konaklama-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Konaklama Vergisi Hesaplama",
+                        "module_path":  "modules/konaklama-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "konut-kira-gelir-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Konut Kira Gelir Vergisi Hesaplama",
+                        "module_path":  "modules/konut-kira-gelir-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kripto-fifo-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kripto FIFO Vergi Hesaplama",
+                        "module_path":  "modules/kripto-fifo-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kripto-lifo-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kripto LIFO Vergi Hesaplama",
+                        "module_path":  "modules/kripto-lifo-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kripto-sermaye-kazanci-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kripto Sermaye Kazancı Vergi Hesaplama",
+                        "module_path":  "modules/kripto-sermaye-kazanci-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kripto-yillik-vergi-yukumlulugu-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kripto Yıllık Vergi Yükümlülüğü Hesaplama",
+                        "module_path":  "modules/kripto-yillik-vergi-yukumlulugu-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "kurumlar-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Kurumlar Vergisi Hesaplama",
+                        "module_path":  "modules/kurumlar-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "limited-sirket-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Limited Şirket Vergi Hesaplama",
+                        "module_path":  "modules/limited-sirket-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "maas-artis-enflasyon-karsilastirma-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Maaş Artış Enflasyon Karşılaştırma Hesaplama",
+                        "module_path":  "modules/maas-artis-enflasyon-karsilastirma-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "maas-hesaplama-2026",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Maaş Hesaplama 2026 (Brüt/Net)",
+                        "module_path":  "modules/maas-hesaplama-2026",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "mesai-saati-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Mesai Saati Hesaplama",
+                        "module_path":  "modules/mesai-saati-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "health",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "mobbing-manevi-tazminat-tahmini-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Mobbing Manevi Tazminat Tahmini Hesaplama",
+                        "module_path":  "modules/mobbing-manevi-tazminat-tahmini-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Sağlık \u0026 Tıp",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "muhtasar-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Muhtasar Vergi Hesaplama",
+                        "module_path":  "modules/muhtasar-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "finance",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "nafaka-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Nafaka Hesaplama",
+                        "module_path":  "modules/nafaka-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "resmi-tatil-mesaisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Resmi Tatil Mesaisi Hesaplama",
+                        "module_path":  "modules/resmi-tatil-mesaisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "sahis-sirketi-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Şahıs Şirketi Vergi Hesaplama",
+                        "module_path":  "modules/sahis-sirketi-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "satin-alma-gucu-paritesi-maas-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Satın Alma Gücü Paritesi Maaş Hesaplama",
+                        "module_path":  "modules/satin-alma-gucu-paritesi-maas-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "satis-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Satış Vergisi Hesaplama",
+                        "module_path":  "modules/satis-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "sehire-gore-yasam-maliyeti-maas-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Şehire Göre Yaşam Maliyeti Maaş Hesaplama",
+                        "module_path":  "modules/sehire-gore-yasam-maliyeti-maas-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "entertainment",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Diğer / Günlük Yaşam",
+                        "module_slug":  "sgk-gun-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "SGK Gün Hesaplama",
+                        "module_path":  "modules/sgk-gun-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Diğer / Günlük Yaşam",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "sgk-primi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "SGK Primi Hesaplama",
+                        "module_path":  "modules/sgk-primi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "stopaj-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Vergi/tevkifat/stopaj finans kategorisine taşındı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Stopaj Hesaplama",
+                        "module_path":  "modules/stopaj-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "tazminat-faizi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Tazminat Faizi Hesaplama",
+                        "module_path":  "modules/tazminat-faizi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "trafik-cezasi-erken-odeme-indirimi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Trafik Cezası Erken Ödeme İndirimi Hesaplama",
+                        "module_path":  "modules/trafik-cezasi-erken-odeme-indirimi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "trafik-cezasi-itiraz-suresi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Trafik Cezası İtiraz Süresi Hesaplama",
+                        "module_path":  "modules/trafik-cezasi-itiraz-suresi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "tuketici-mahkemesi-deger-siniri-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "mevzuat_kanunlar"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Tüketici Mahkemesi Değer Sınırı Hesaplama",
+                        "module_path":  "modules/tuketici-mahkemesi-deger-siniri-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "health",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "uyku-borcu-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Uyku borcu hesaplama sağlık kategorisindedir.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "who_saglik_bakanligi"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Uyku Borcu Hesaplama",
+                        "module_path":  "modules/uyku-borcu-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Sağlık \u0026 Tıp",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "finance",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "velayet-nafaka-guncelleme-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Velayet Nafaka Güncelleme Hesaplama",
+                        "module_path":  "modules/velayet-nafaka-guncelleme-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "veraset-vergisi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Veraset Vergisi Hesaplama",
+                        "module_path":  "modules/veraset-vergisi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Sağlık \u0026 Tıp",
+                        "module_slug":  "vergi-sonrasi-borc-maliyeti-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Vergi/tevkifat/stopaj finans kategorisine taşındı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Vergi Sonrası Borç Maliyeti Hesaplama",
+                        "module_path":  "modules/vergi-sonrasi-borc-maliyeti-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "finance",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "yasal-faiz-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "tcmb_bddk_faiz"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Yasal Faiz Hesaplama",
+                        "module_path":  "modules/yasal-faiz-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Otomotiv \u0026 Trafik",
+                        "module_slug":  "yillik-izin-ucreti-alacagi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Yıllık izin ücreti alacağı SGK/iş hukuku kapsamındadır.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Yıllık İzin Ücreti Alacağı Hesaplama",
+                        "module_path":  "modules/yillik-izin-ucreti-alacagi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "yillik-izin-ucreti-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Yıllık İzin Ücreti Hesaplama (2026)",
+                        "module_path":  "modules/yillik-izin-ucreti-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "legal",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Hukuk \u0026 Mevzuat",
+                        "module_slug":  "yoksulluk-nafakasi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Yoksulluk Nafakası Hesaplama",
+                        "module_path":  "modules/yoksulluk-nafakasi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Hukuk \u0026 Mevzuat",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "tax",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "youtube-vergi-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "gib_teblig_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "YouTube Vergi Hesaplama",
+                        "module_path":  "modules/youtube-vergi-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    },
+                    {
+                        "target_disclaimer_type":  "sgk",
+                        "last_formula_review":  "2026-07-06",
+                        "declared_category":  "Finans \u0026 Ekonomi",
+                        "module_slug":  "yurt-disi-maas-tl-esdegeri-hesaplama",
+                        "priority":  "Acil",
+                        "category_note":  "Kategori doğrulandı.",
+                        "disclaimer_type":  "",
+                        "uses_formula_dictionary":  false,
+                        "validation_status":  "RegistryOnly",
+                        "requires_disclaimer":  true,
+                        "owner_note":  "Phase 2A Registry-Only Integration",
+                        "next_review_due":  "2027-07-06",
+                        "category_confidence":  "high",
+                        "source_keys":  [
+                                            "sgk_genelge_2026"
+                                        ],
+                        "dictionary_keys":  [
+
+                                            ],
+                        "disclaimer_enabled":  false,
+                        "module_name":  "Yurt Dışı Maaş TL Eşdeğeri Hesaplama",
+                        "module_path":  "modules/yurt-disi-maas-tl-esdegeri-hesaplama",
+                        "risk_level":  "Kritik",
+                        "source_required":  true,
+                        "result_detail_level":  "CurrentOutputUnchanged",
+                        "corrected_category":  "Finans \u0026 Ekonomi",
+                        "has_hardcoded_constants":  true
+                    }
+                ]
 }

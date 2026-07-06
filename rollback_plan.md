@@ -1,38 +1,24 @@
-# Geri Dönüş Planı (Rollback Plan)
+# Geri Dönüş Planı (Rollback Plan) - Faz 2A
 
-Faz 1 güncellemesi sırasında herhangi bir beklenmedik problem oluşması (örneğin WordPress admin panelinde bir yavaşlama, JS çakışması veya sunucu hatası) durumunda eski davranışa tamamen geri dönmek için uygulanacak adımlar aşağıda belirtilmiştir.
+Faz 2A güncellemeleri sırasında (örneğin JSON okuma hatası veya site hızında yavaşlama vb.) beklenmedik bir problem yaşanması durumunda eski davranışa geri dönmek için uygulanacak adımlar aşağıda belirtilmiştir.
 
 ---
 
 ## ↩️ 1. Hızlı Geri Alma (Git Revert)
-Değişiklikler henüz commit edilmediği için, Git üzerinden working directory'yi Faz 1 öncesi temiz haline getirmek son derece kolaydır. Terminalde sırasıyla aşağıdaki komutları çalıştırmanız yeterlidir:
+
+Faz 2A kapsamında sadece iki veri dosyası değiştirildiği için geri dönmek son derece kolaydır. Terminalde sırasıyla aşağıdaki komutları çalıştırmanız yeterlidir:
 
 ```bash
-# Değiştirilen dosyaları orijinal haline getirin:
-git checkout -- assets/main.js includes/class-calculator-loader.php
-
-# Yeni oluşturulan veri klasörünü silin:
-Remove-Item -Recurse -Force assets/data
+# Değiştirilen veri dosyalarını orijinal haline getirin:
+git checkout -- assets/data/module-registry.json assets/data/source-registry.json
 ```
 
-Bu iki komut çalıştırıldıktan sonra sistem **Faz 1 öncesindeki orijinal haline** 1 saniye içinde geri dönecektir.
+Bu komut çalıştırıldıktan sonra sistem **1 saniye içinde Faz 2A öncesindeki orijinal haline** geri dönecektir.
 
 ---
 
-## 🛠️ 2. Manuel Geri Alma (Git Olmadan)
-Git terminal erişimi bulunmuyorsa, FTP veya File Manager üzerinden aşağıdaki manuel işlemler yapılabilir:
+## ⚙️ 2. Geçici Devre Dışı Bırakma (Kill Switch)
 
-1. **`includes/class-calculator-loader.php`** dosyasını açın.
-2. Aşağıdaki fonksiyon ve özellikleri silin:
-   - `private $module_registry` özelliği
-   - `private function load_module_registry()` metodu
-   - `register_shortcodes()`, `maybe_register_single_tag()`, `render_shortcode()` ve `enqueue_assets()` fonksiyonlarındaki eklenen satırları temizleyin (Değişikliklerin detayları için [changed_files_report.md](file:///c:/Users/alper.ates.LIDER/Desktop/hesaplama-wp-addons/changed_files_report.md) dosyasına bakınız).
-3. **`assets/main.js`** dosyasını açıp sonuna eklenen `window.hcGetFormulaConstant` ve `initCategoryDisclaimers` fonksiyonlarını silin.
-4. **`assets/data/`** klasörünü tamamen silin.
-
----
-
-## ⚙️ 3. Geçici Devre Dışı Bırakma (Kill Switch)
-Mevcut Faz 1 kodlarını silmeden sadece merkezi yapıyı devre dışı bırakmak isterseniz:
-1. `assets/data/module-registry.json` dosyasının adını `module-registry.json.disabled` yapın veya dosya içeriğini temizleyin (`{ "modules": [] }`).
-2. Bu durumda, fallback sistemi devreye girecek ve loader otomatik olarak eski glob tarama yöntemine geri dönecektir. JS tarafında da herhangi bir veri localize edilmeyecektir.
+Dosyaları revert etmeden sadece yeni eklenen 91 modül kaydını devre dışı bırakmak isterseniz:
+1. `assets/data/module-registry.json` dosyasını açıp içeriğini `{ "modules": [] }` yapın.
+2. Bu durumda, loader otomatik olarak eski glob tarama yöntemine (fallback) geri dönecek ve tüm modüller eski usulle çalışmaya devam edecektir.

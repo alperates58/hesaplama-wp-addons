@@ -1,17 +1,17 @@
-# Uyumluluk Kontrol Raporu (Compatibility Check Report)
+# Uyumluluk Kontrol Raporu (Compatibility Check Report) - Faz 2A
 
-Faz 1 kapsamında yapılan tüm entegrasyon testleri ve uyumluluk kontrollerinin sonuçları aşağıda listelenmiştir.
+Bu rapor, Faz 2A veri dosyaları entegrasyonu sonrasında yapılan tüm geriye uyumluluk ve stabilite kontrollerini belgeler.
 
 ---
 
 ## 🧪 1. Otomatik Test Sonuçları (PHP CLI Test Suite)
-Eklenti dosyaları mock (simüle edilmiş) WordPress ortamında PHP CLI ile test edilmiştir:
-* **Gözden Geçirilen Sınıf:** `HC_Calculator_Loader`
-* **Syntax ve Derleme Hatası Kontrolü:** **BAŞARILI** (Syntax hatası bulunmamaktadır, PHP 8.3.30 ile tam uyumludur).
-* **Modül Kayıt Testi (Shortcode Map):** **BAŞARILI** (Tüm 2.936 modül shortcode sistemine başarıyla kaydedildi).
-* **Geriye Uyumlu Fallback Testi:** **BAŞARILI** (Kayıtlı olmayan modüller hata vermeden başarıyla yüklendi).
-* **Veri Gömme (Localization) Testi:** **BAŞARILI** (`window.hcCentralData` nesnesi tam şemasıyla inline script olarak üretildi).
-* **Disclaimer Placeholder Testi:** **BAŞARILI** (Yalnızca requires_disclaimer=true olan modüllere placeholder eklendi).
+Eklenti dosyaları mock WordPress ortamında PHP CLI ile test edilmiştir:
+* **Test Dosyası:** `scratch/test_loader.php`
+* **Test 1: Kayıt Kapasitesi:** **BAŞARILI** (Tüm 2.936 modül shortcode sistemine başarıyla kaydedildi).
+* **Test 2: Geriye Uyumlu Fallback (10 Modül):** **BAŞARILI** (Registry dışı bırakılan 10 örnek modül hata vermeden ve disclaimer basmadan sorunsuz yüklendi).
+* **Test 3: Kritik Modüller (5 Modül) Çıktı Testi:** **BAŞARILI** (Yeni eklenen 5 kritik modül render edildi ve HTML çıktılarında disclaimer placeholder container'ının oluşmadığı, yani canlı çıktının bozulmadığı kanıtlandı).
+* **Test 4: Veri Gömme (Localization) Testi:** **BAŞARILI** (`window.hcCentralData` nesnesi inline script olarak sorunsuz üretildi).
+* **Test 5: Sorumluluk Reddi (Disclaimer) Doğrulama Testi:** **BAŞARILI** (Requires_disclaimer=true olan modüllere, disclaimer_type alanı doldurulduğunda disclaimer container'ın başarıyla eklendiği doğrulanarak altyapının çalıştığı kanıtlandı).
 
 ---
 
@@ -19,27 +19,10 @@ Eklenti dosyaları mock (simüle edilmiş) WordPress ortamında PHP CLI ile test
 
 | Kontrol Maddesi | Durum | Açıklama |
 | :--- | :---: | :--- |
-| **PHP Syntax Kontrolü** | **GEÇTİ** | `php -l` kontrolünde loader sınıfında hiçbir syntax/lint hatası tespit edilmemiştir. |
-| **WordPress Fatal/Warning Kontrolü** | **GEÇTİ** | PHP yürütmesi sırasında herhangi bir Fatal Error, Warning veya Exception oluşmamıştır. |
-| **Dashboard Açılış Kontrolü** | **GEÇTİ** | Dashboard menüleri, yetkileri veya rotalarına dokunulmamış; admin hooks aynen korunmuştur. |
-| **GitHub Update Mekanizması** | **GEÇTİ** | `includes/class-github-updater.php` dosyası tamamen korunmuştur, otomatik güncelleme akışı aktiftir. |
-| **Shortcode Yükleme Uyumluluğu** | **GEÇTİ** | `render_shortcode()` eski modülleri aynen require_once etmeye devam etmektedir. |
-| **Registry Fallback Testi** | **GEÇTİ** | Registry boş olsa veya modül registry dışı kalsa dahi loader sorunsuz çalışmaya devam etmektedir. |
-| **JS Console Error Kontrolü** | **GEÇTİ** | `window.hcGetFormulaConstant` tanımsız nesne çağrıları yapmaz, hata güvenlidir. |
-| **window.hcCentralData Kontrolü** | **GEÇTİ** | JSON sözlük ve disclaimers verileri HTML içine temiz bir global nesne olarak yazılmaktadır. |
-| **Disclaimer Sınırlandırması** | **GEÇTİ** | Otomatik disclaimer enjeksiyonu sadece registry onaylı modüllere uygulanmaktadır. |
-
----
-
-## 🔍 3. Smoke Test Edilen Örnek Modüller (Registry Dışı Fallback Kontrolü)
-Aşağıdaki 10 modülün registry kaydı bulunmamasına rağmen, shortcode render motorunun eski dosyaları başarıyla require_once edip çalıştırdığı doğrulanmıştır:
-1. `kredi-karti-asgari-odeme`
-2. `maksimum-nabiz-hesaplama`
-3. `rem-uyku-suresi`
-4. `rapor-parasi-hesaplama`
-5. `damga-vergisi-hesaplama`
-6. `yasal-faiz-hesaplama`
-7. `kidem-tazminati-hesaplama`
-8. `tuketici-mahkemesi-siniri`
-9. `lastik-karsilastirma-hesaplama`
-10. `isletme-karbon-ayak-izi-hesaplama`
+| **JSON Sözdizimi Kontrolü** | **GEÇTİ** | `module-registry.json` ve `source-registry.json` dosyaları UTF-8 BOM'suz formatta valid JSON'dur. |
+| **WordPress Fatal/Warning Kontrolü** | **GEÇTİ** | Registry okumaları ve JSON parse işlemleri PHP tarafında sıfır hata/uyarı ile tamamlanmıştır. |
+| **Dashboard Açılış Uyumluluğu** | **GEÇTİ** | Dashboard dosyalarına dokunulmadığı için admin paneli tamamen orijinal durumdadır. |
+| **GitHub Update Mekanizması** | **GEÇTİ** | `includes/class-github-updater.php` dosyası tamamen korunmuştur. |
+| **Shortcode Yükleme Uyumluluğu** | **GEÇTİ** | Geriye uyumluluk (fallback) mekanizması ile registry dışı 2.845 modül sorunsuz çalışmaktadır. |
+| **Disclaimer Sınırlandırması** | **GEÇTİ** | Canlıda `disclaimer_type: ""` yapısı sayesinde hiçbir kritik modülde disclaimer render edilmemektedir. |
+| **CI/CD Validator Uyarısı** | **GEÇTİ** | `validate_modules.ps1` warning mode validatorü çalıştırılarak uyarı veren kritik modül sayısının sıfıra indiği doğrulanmıştır. |
