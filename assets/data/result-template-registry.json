@@ -1120,7 +1120,9 @@
             "content_review_status": "ready_for_pilot",
             "last_reviewed_at": "2026-07-06",
             "reviewed_by": "Antigravity",
-            "notes": "Phase 5 Premium Content Integrated."
+            "notes": "Phase 5 Premium Content Integrated.",
+            "name": "İthalat Gümrük Vergisi Hesaplama",
+            "desc": "Yurtdışından gelen gönderilerin CIF kıymeti, ürün tipi ve gümrük vergisi oranlarına göre ödenecek toplam gümrük vergisi ve KDV tutarını hesaplar."
         },
         {
             "module_slug": "guncel-kdv-hesaplama",
@@ -25987,6 +25989,2593 @@
             ],
             "content_review_status": "ready_for_pilot",
             "notes": "Registered in Phase 5F."
+        },
+        {
+            "module_slug": "evliligimiz-kac-gun-oldu",
+            "name": "Evliliğimiz Kaç Gün Oldu?",
+            "desc": "Evlilik tarihinizi girerek bugün itibarıyla evliliğinizin kaçıncı gününde olduğunuzu ve gelecek yıldönümlerini hesaplar.",
+            "shortcode": "[hc_evliligimiz_kac_gun_oldu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gun-hesaplama",
+                "gun-saat-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "evlilik-evi-hesaplama",
+            "name": "Doğum Haritası Evlilik Evi Hesaplama",
+            "desc": "Doğum haritanızdaki 7. ev (Evlilik Evi) yerleşimine ve burcuna göre evlilik enerjinizi yorumlar.",
+            "shortcode": "[hc_evlilik_evi_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "evlilik-tarihi-uyumu-hesaplama",
+                "ask-uyumu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "evlilik-tarihi-uyumu-hesaplama",
+            "name": "Evlilik Tarihi Uyumu Hesaplama",
+            "desc": "Düğün tarihinizi numerolojik ve astrolojik olarak analiz ederek evliliğinize getireceği enerjiyi hesaplar.",
+            "shortcode": "[hc_evlilik_tarihi_uyumu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "evlilik-evi-hesaplama",
+                "ask-uyumu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "evlilik-uyumu-hesaplama",
+            "name": "Evlilik Uyumu Hesaplama",
+            "desc": "Çiftlerin kişilik özellikleri, yaşam beklentileri ve alışkanlıklarına göre evlilik uyum yüzdesini hesaplar.",
+            "shortcode": "[hc_evlilik_uyumu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "evlilik-tarihi-uyumu-hesaplama",
+                "ask-uyumu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "evsel-atik-miktari-hesaplama",
+            "name": "Evsel Atık Miktarı Hesaplama",
+            "desc": "Hane nüfusu ve tüketim alışkanlıklarınıza göre haftalık ve yıllık ürettiğiniz evsel çöp miktarını ve geri dönüşüm potansiyelini hesaplar.",
+            "shortcode": "[hc_evsel_atik_miktari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-karbon-ayak-izi-hesaplama",
+                "ekolojik-ayak-izi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "f-istatistigi-hesaplama",
+            "name": "F İstatistiği ve ANOVA Hesaplama",
+            "desc": "Grup içi ve gruplar arası varyansları karşılaştırarak ANOVA testi için F-değerini ve anlamlılık düzeyini hesaplar.",
+            "shortcode": "[hc_f_istatistigi_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "t-testi-hesaplama",
+                "standart-sapma-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "f-m-orani-hesaplama",
+            "name": "F-M Oranı Hesaplama (Gıda\/Mikroorganizma)",
+            "desc": "Atıksu arıtma tesislerinde aktif çamur havuzunun yükleme durumunu belirleyen Gıda\/Mikroorganizma (F\/M) oranını hesaplar.",
+            "shortcode": "[hc_f_m_orani_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "filtrasyon-hizi-hesaplama",
+                "ev-su-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "faaliyet-oranlari-hesaplama",
+            "name": "Faaliyet Oranları (Verimlilik) Hesaplama",
+            "desc": "Stok devir hızı, alacak devir hızı ve aktif devir hızı gibi finansal verimlilik oranlarını hesaplar.",
+            "shortcode": "[hc_faaliyet_oranlari_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "favok-marji-hesaplama",
+                "firma-degeri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "faiz-hesaplama",
+            "name": "Faiz Hesaplama (Vadeli Mevduat & Kredi)",
+            "desc": "Mevduat yatırımları ve borçlanmalar için basit ve bileşik faiz getirilerini stopaj kesintisi dahil hesaplar.",
+            "shortcode": "[hc_faiz_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-faiz-hesaplama",
+                "esdeger-faiz-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "faktoryel-hesaplama",
+            "name": "Faktöriyel Hesaplama",
+            "desc": "Girilen pozitif tam sayının faktöriyel değerini (n!) ve permütasyon\/kombinasyon hesaplamalarında kullanılan temel faktöriyel adımlarını hesaplar.",
+            "shortcode": "[hc_faktoryel_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fibonacci-sayisi-hesaplama",
+                "finalden-kac-almaliyim-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fan-gucu-hesaplama",
+            "name": "Fan Gücü Hesaplama",
+            "desc": "Hava debisi, basınç farkı ve fan verimliliğine göre gereken elektrik motoru gücünü (kW veya HP) hesaplar.",
+            "shortcode": "[hc_fan_gucu_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-elektrik-faturasi-hesaplama",
+                "ev-enerji-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "faraday-elektroliz-yasasi-hesaplama",
+            "name": "Faraday Elektroliz Yasası Hesaplama",
+            "desc": "Elektroliz işleminde devreden geçen akım ve süreye göre elektrottan ayrışan veya kaplanan madde miktarını (gram) hesaplar.",
+            "shortcode": "[hc_faraday_elektroliz]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "entalpi-hesaplama",
+                "entropi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "favok-carpani-hesaplama",
+            "name": "FAVÖK Çarpanı (EV\/EBITDA) Hesaplama",
+            "desc": "Şirketlerin piyasa değeri, borçları ve nakit durumuna göre Firma Değeri \/ FAVÖK (EV\/EBITDA) oranını hesaplar.",
+            "shortcode": "[hc_favok_carpani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "favok-hesaplama",
+                "favok-marji-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "favok-hesaplama",
+            "name": "FAVÖK (EBITDA) Hesaplama",
+            "desc": "Gelir tablosundaki net kâra faiz, vergi ve amortisman giderlerini geri ekleyerek esas faaliyet kârlılığını (FAVÖK) hesaplar.",
+            "shortcode": "[hc_favok_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "favok-carpani-hesaplama",
+                "favok-marji-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "favok-marji-hesaplama",
+            "name": "FAVÖK Marjı Hesaplama",
+            "desc": "FAVÖK değerinin net satışlara oranını hesaplayarak şirketin operasyonel kârlılık yüzdesini bulur.",
+            "shortcode": "[hc_favok_marji]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "favok-hesaplama",
+                "favok-carpani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fayans-miktari-hesaplama",
+            "name": "Fayans Miktarı Hesaplama",
+            "desc": "Duvar veya zemin ölçüleri ile seçilen fayans boyutuna göre gereken fayans adedini ve paket sayısını (fire payı dahil) hesaplar.",
+            "shortcode": "[hc_fayans_miktari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fayans-yapistirici-miktari-hesaplama",
+                "duvar-metrekare-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fayans-yapistirici-miktari-hesaplama",
+            "name": "Fayans Yapıştırıcı Miktarı Hesaplama",
+            "desc": "Kaplanacak alanın büyüklüğü ve tarak (malta) boyutuna göre gereken fayans yapıştırıcı harç (kg) ve torba sayısını hesaplar.",
+            "shortcode": "[hc_fayans_yapistirici]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fayans-miktari-hesaplama",
+                "duvar-metrekare-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fazla-kilo-hesaplama",
+            "name": "Fazla Kilo Hesaplama",
+            "desc": "Boyunuz, kilonuz ve cinsiyetinize göre ideal kilo sınırınızı aşan fazla kütle miktarını ve yakılması gereken kaloriyi hesaplar.",
+            "shortcode": "[hc_fazla_kilo_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "basit-kalori-ihtiyaci-hesaplama",
+                "egzersiz-kalori-yakimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "feet-metre-donusturucu",
+            "name": "Feet - Metre Dönüştürücü",
+            "desc": "İngiliz\/Amerikan uzunluk birimi olan Feet (ft) ve İnç (in) değerlerini, SI standardı Metre (m) ve Santimetre (cm) birimlerine dönüştürür.",
+            "shortcode": "[hc_feet_metre_donusturucu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "alan-birimi-donusturucu",
+                "fit-kare-metrekare-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fenotip-orani-hesaplama",
+            "name": "Fenotip Oranı Hesaplama",
+            "desc": "Mendel genetiği kurallarına göre çaprazlanan alellerin (monohibrit, dihibrit) fenotipik açılım oranlarını hesaplar.",
+            "shortcode": "[hc_fenotip_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "genotip-frekansi-hesaplama",
+                "genotipten-fenotip-bulma-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fermantasyon-sekeri-miktari-hesaplama",
+            "name": "Fermantasyon Şekeri Miktarı Hesaplama",
+            "desc": "Ev yapımı içecek, sirke veya ekmek yapımında, hedef alkol oranına veya gazlanma seviyesine göre eklenmesi gereken şeker miktarını (gram) hesaplar.",
+            "shortcode": "[hc_fermantasyon_sekeri]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-birasi-alkol-orani-hesaplama",
+                "espresso-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "ferritin-degeri-degerlendirme-hesaplama",
+            "name": "Ferritin Değeri Değerlendirme",
+            "desc": "Kan tahlilindeki ferritin seviyesini yaş ve cinsiyete göre analiz ederek demir depolarının durumunu değerlendirir.",
+            "shortcode": "[hc_ferritin_degerlendirme]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "eritrosit-indeksleri-hesaplama",
+                "eozinofil-sayisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fev1-fvc-orani-hesaplama",
+            "name": "FEV1\/FVC Oranı (Tiffeneau İndeksi) Hesaplama",
+            "desc": "Solunum fonksiyon testindeki FEV1 ve FVC değerlerine göre akciğer hastalığının türünü (obstrüktif, restriktif) belirler.",
+            "shortcode": "[hc_fev1_fvc_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "eozinofil-sayisi-hesaplama",
+                "ense-kalinligi-degerlendirme"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "ffmi-hesaplama",
+            "name": "Yağsız Vücut Kütlesi İndeksi (FFMI) Hesaplama",
+            "desc": "Boy, kilo ve vücut yağ oranına göre yağsız kas kütlesi indeksini (FFMI) hesaplar ve genetik kas sınırınızı analiz eder.",
+            "shortcode": "[hc_ffmi_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-protein-ihtiyaci-hesaplama",
+                "fazla-kilo-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fibonacci-sayisi-hesaplama",
+            "name": "Fibonacci Sayısı Hesaplama",
+            "desc": "Belirli bir sıradaki Fibonacci sayısını ve altın oranla ilişkisini hesaplar.",
+            "shortcode": "[hc_fibonacci_sayisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "faktoryel-hesaplama",
+                "finalden-kac-almaliyim-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fifo-stok-degerleme-hesaplama",
+            "name": "FIFO Stok Değerleme Hesaplama",
+            "desc": "İlk giren ilk çıkar (FIFO) yöntemine göre dönem sonu stok değerini ve satılan malın maliyetini (SMM) hesaplar.",
+            "shortcode": "[hc_fifo_stok_degerleme]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "faaliyet-oranlari-hesaplama",
+                "e-ticaret-kar-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fiili-dolasim-orani-hesaplama",
+            "name": "Hisse Fiili Dolaşım Oranı Hesaplama",
+            "desc": "Halka açık şirketlerin borsada işlem gören serbest hisse adetlerini ve fiili dolaşım oranını (FDO) hesaplar.",
+            "shortcode": "[hc_fiili_dolasim_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "faaliyet-oranlari-hesaplama",
+                "firma-degeri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "filtrasyon-hizi-hesaplama",
+            "name": "Kum Filtresi Filtrasyon Hızı Hesaplama",
+            "desc": "Havuz veya su arıtma tesislerinde debi ve filtre alanına göre filtrasyon hızını (m³\/m²\/saat) hesaplar.",
+            "shortcode": "[hc_filtrasyon_hizi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "f-m-orani-hesaplama",
+                "ev-su-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "filtre-kahve-olcusu-hesaplama",
+            "name": "Filtre Kahve Ölçüsü Hesaplama",
+            "desc": "Fincan sayısına ve tercih edilen içim sertliğine (yumuşak, orta, sert) göre gereken su ve kahve miktarını (gram veya kaşık) hesaplar.",
+            "shortcode": "[hc_filtre_kahve_olcusu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "espresso-orani-hesaplama",
+                "ekstraksiyon-verimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "finalden-kac-almaliyim-hesaplama",
+            "name": "Finalden Kaç Almalıyım Hesaplama",
+            "desc": "Vize notlarınız ve bunların ağırlık yüzdelerine göre, dersi geçmek için final sınavından almanız gereken minimum notu hesaplar.",
+            "shortcode": "[hc_finalden_kac_almaliyim]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gano-hesaplama",
+                "gpa-cevirme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fire-orani-hesaplama",
+            "name": "Fire Oranı Hesaplama",
+            "desc": "Üretim veya ticaret süreçlerinde ham madde kayıplarını ve fire oranını hesaplar.",
+            "shortcode": "[hc_fire_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fire-ve-randiman-hesaplama",
+                "faaliyet-oranlari-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fire-ve-randiman-hesaplama",
+            "name": "Fire ve Randıman Hesaplama",
+            "desc": "Gıda, tekstil ve imalat sektörlerinde üretim girdilerine göre elde edilen sağlam ürün oranını (randıman) ve maliyet etkisini hesaplar.",
+            "shortcode": "[hc_fire_ve_randiman]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fire-orani-hesaplama",
+                "e-ticaret-kar-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fire-yuzdesi-hesaplama",
+            "name": "Fire Yüzdesi Hesaplama",
+            "desc": "Giren ve çıkan ürün miktarlarına göre oluşan fire yüzdesini basitçe hesaplar.",
+            "shortcode": "[hc_fire_yuzdesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fire-orani-hesaplama",
+                "fire-ve-randiman-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "firin-elektrik-tuketimi-hesaplama",
+            "name": "Fırın Elektrik Tüketimi Hesaplama",
+            "desc": "Fırın gücü, kullanım süresi ve güncel elektrik tarifesine göre fırının yaktığı elektriği ve fatura maliyetini hesaplar.",
+            "shortcode": "[hc_firin_elektrik_tuketimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-enerji-tuketimi-hesaplama",
+                "ev-elektrik-faturasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "firin-sicakligi-donusumu-hesaplama",
+            "name": "Fırın Sıcaklığı Dönüşümü",
+            "desc": "Yabancı yemek tariflerindeki fırın sıcaklıklarını Celsius (°C), Fahrenheit (°F) ve Gas Mark (Gaz Seviyesi) birimleri arasında dönüştürür.",
+            "shortcode": "[hc_firin_sicakligi_donusumu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "et-pisirme-suresi-hesaplama",
+                "et-kureleme-tuz-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "firinci-yuzdesi-hesaplama",
+            "name": "Fırıncı Yüzdesi (Baker's Percentage) Hesaplama",
+            "desc": "Ekmek yapımında un miktarını %100 kabul ederek su, tuz ve maya oranlarını fırıncı yüzdesi standardına göre hesaplar.",
+            "shortcode": "[hc_firinci_yuzdesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ekmek-hamuru-su-orani-hesaplama",
+                "et-kureleme-tuz-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "firma-degeri-hesaplama",
+            "name": "Firma Değeri (Enterprise Value) Hesaplama",
+            "desc": "Bir şirketin piyasa değeri ve borçluluk durumuna göre net satın alma maliyetini (Firma Değeri - EV) hesaplar.",
+            "shortcode": "[hc_firma_degeri_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "favok-carpani-hesaplama",
+                "faaliyet-oranlari-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "firsat-maliyeti-hesaplama",
+            "name": "Fırsat Maliyeti Hesaplama",
+            "desc": "Bir yatırım veya karar seçeneğini tercih ettiğinizde, vazgeçtiğiniz en iyi alternatif seçeneğin kaçırılan getirisini hesaplar.",
+            "shortcode": "[hc_firsat_maliyeti]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-almak-mi-kiralamak-mi-hesaplama",
+                "enflasyona-gore-yatirim-getirisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fisher-kesin-testi-hesaplama",
+            "name": "Fisher Kesin Testi Hesaplama (2x2)",
+            "desc": "Küçük örneklem boyutuna sahip iki kategorik değişken arasındaki bağımsızlığı 2x2 olasılık tablosuyla hesaplar.",
+            "shortcode": "[hc_fisher_kesin_testi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "f-istatistigi-hesaplama",
+                "faktoryel-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fit-kare-metrekare-donusturucu",
+            "name": "Fit Kare - Metrekare Dönüştürücü",
+            "desc": "İngiliz\/Amerikan alan birimi olan Fit Kareyi (sq ft) uluslararası standart Metrekareye (m²) ve tersine dönüştürür.",
+            "shortcode": "[hc_fit_kare_metrekare]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "feet-metre-donusturucu",
+                "alan-birimi-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fitness-kalori-yakimi-hesaplama",
+            "name": "Fitness Kalori Yakımı Hesaplama",
+            "desc": "Kilo, egzersiz türü (ağırlık antrenmanı, kardiyo vb.) ve süresine göre yaktığınız kaloriyi hesaplar.",
+            "shortcode": "[hc_fitness_kalori_yakimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "basit-kalori-ihtiyaci-hesaplama",
+                "ev-isi-kalori-yakimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fiyat-artis-orani-hesaplama",
+            "name": "Fiyat Artış Oranı (Zam) Hesaplama",
+            "desc": "Eski ve yeni fiyatlar arasındaki farka göre fiyat artış yüzdesini ve paranın alım gücü değişimini hesaplar.",
+            "shortcode": "[hc_fiyat_artis_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "enflasyon-hesaplama",
+                "kdv-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fiyat-kazanc-orani-hesaplama",
+            "name": "Fiyat Kazanç Oranı (F\/K) Hesaplama",
+            "desc": "Hisse senedi fiyatını hisse başına kâra oranlayarak şirketin F\/K değerleme çarpanını hesaplar.",
+            "shortcode": "[hc_fiyat_kazanc_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "favok-carpani-hesaplama",
+                "firma-degeri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fiyat-nakit-akisi-orani-hesaplama",
+            "name": "Fiyat \/ Nakit Akışı Oranı Hesaplama",
+            "desc": "Hisse fiyatını hisse başına işletme nakit akışına oranlayarak şirketin nakit üretme gücünü hesaplar.",
+            "shortcode": "[hc_fiyat_nakit_akisi_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fiyat-kazanc-orani-hesaplama",
+                "fiyat-satis-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fiyat-satis-orani-hesaplama",
+            "name": "Fiyat \/ Satış Oranı (P\/S) Hesaplama",
+            "desc": "Hisse fiyatını hisse başına satış gelirine (ciro) oranlayarak şirketin ciro çarpanını hesaplar.",
+            "shortcode": "[hc_fiyat_satis_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fiyat-kazanc-orani-hesaplama",
+                "fiyat-nakit-akisi-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fiziksel-sarkac-hesaplama",
+            "name": "Fiziksel Sarkaç Periyot Hesaplama",
+            "desc": "Eylemsizlik momenti, kütle merkezi ve kütleye göre fiziksel (bileşik) sarkacın salınım periyodunu ve frekansını hesaplar.",
+            "shortcode": "[hc_fiziksel_sarkac]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "esneklik-potansiyel-enerjisi-hesaplama",
+                "frekans-dalga-boyu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "flans-civata-tork-hesaplama",
+            "name": "Flanş Cıvata Torku Hesaplama",
+            "desc": "Boru flanşlarında sızdırmazlık sağlamak için cıvata sınıfı ve çapına göre gereken sıkma torkunu (Nm) hesaplar.",
+            "shortcode": "[hc_flans_civata_tork]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gerilme-hesaplama",
+                "gerilme-kuvveti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "flas-mesafe-isik-siddeti-hesaplama",
+            "name": "Flaş Mesafe ve Işık Şiddeti Hesaplama",
+            "desc": "Fotoğrafçılıkta flaş kılavuz numarası (GN), diyafram açıklığı ve ISO değerine göre flaşın aydınlatma mesafesini hesaplar.",
+            "shortcode": "[hc_flas_mesafe_isik_siddeti]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fotograf-baski-boyutu-dpi-hesaplama",
+                "fotograf-cozunurluk-baski-kalitesi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "forward-kur-hesaplama",
+            "name": "Forward Kur Hesaplama",
+            "desc": "İki ülkenin faiz oranları ve spot kura göre gelecekteki forward (vadeli) döviz kurunu faiz paritesi teorisiyle hesaplar.",
+            "shortcode": "[hc_forward_kur_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "faiz-hesaplama",
+                "euro-getirisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fotoelektrik-etki-hesaplama",
+            "name": "Fotoelektrik Etki Hesaplama",
+            "desc": "Metal yüzeye düşen ışığın frekansı ve eşik enerjisine göre sökülen elektronların maksimum kinetik enerjisini ve durdurma gerilimini hesaplar.",
+            "shortcode": "[hc_fotoelektrik_etki]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "enerjiden-dalga-boyuna-hesaplama",
+                "esneklik-potansiyel-enerjisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fotograf-baski-boyutu-dpi-hesaplama",
+            "name": "Fotoğraf Baskı Boyutu (DPI) Hesaplama",
+            "desc": "Fotoğraf çözünürlüğü (piksel) ve hedeflenen baskı kalitesine (DPI) göre basılabilecek maksimum fiziksel boyutu (cm) hesaplar.",
+            "shortcode": "[hc_fotograf_baski_boyutu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fotograf-cozunurluk-baski-kalitesi-hesaplama",
+                "flas-mesafe-isik-siddeti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fotograf-cozunurluk-baski-kalitesi-hesaplama",
+            "name": "Fotoğraf Çözünürlük ve Baskı Kalitesi",
+            "desc": "Baskı boyutları ve bakma mesafesine göre gereken minimum megapiksel çözünürlüğü hesaplar.",
+            "shortcode": "[hc_fotograf_cozunurluk_baski]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fotograf-baski-boyutu-dpi-hesaplama",
+                "flas-mesafe-isik-siddeti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "foton-enerjisi-hesaplama",
+            "name": "Foton Enerjisi Hesaplama",
+            "desc": "Frekans veya dalga boyuna göre tek bir fotonun taşıdığı kuantum enerjisini (E = h·f) hesaplar.",
+            "shortcode": "[hc_foton_enerjisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "enerjiden-dalga-boyuna-hesaplama",
+                "fotoelektrik-etki-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fotosentez-hizi-hesaplama",
+            "name": "Fotosentez Hızı Hesaplama",
+            "desc": "Işık şiddeti, karbondioksit konsantrasyonu ve sıcaklık değerlerine göre bitkilerin fotosentez hızını ve sınırlayıcı faktörleri hesaplar.",
+            "shortcode": "[hc_fotosentez_hizi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "evapotranspirasyon-hesaplama",
+                "gubre-miktari-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "framingham-kalp-riski-hesaplama",
+            "name": "Framingham Kalp Hastalığı Risk Skoru",
+            "desc": "Yaş, kolesterol, tansiyon ve sigara alışkanlığına göre önümüzdeki 10 yıl içinde kardiyovasküler hastalık geçirme riskinizi hesaplar.",
+            "shortcode": "[hc_framingham_kalp_riski]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "glasgow-koma-skalasi-hesaplama",
+                "egzersiz-kalori-yakimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "freelance-acil-fon-ihtiyaci-hesaplama",
+            "name": "Freelance Acil Durum Fonu Hesaplama",
+            "desc": "Düzensiz gelire sahip serbest çalışanlar (freelancer) için aylık giderler ve işsiz kalma riskine göre biriktirilmesi gereken acil durum fonu tutarını hesaplar.",
+            "shortcode": "[hc_freelance_acil_fon]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "freelance-proje-fiyat-teklifi-hesaplama",
+                "freelance-yillik-gelir-hedefi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "freelance-proje-fiyat-teklifi-hesaplama",
+            "name": "Freelance Proje Fiyat Teklifi Hesaplama",
+            "desc": "Saatlik ücretiniz, tahmini çalışma süreniz ve proje maliyetlerine göre müşteriye sunmanız gereken minimum teklif tutarını hesaplar.",
+            "shortcode": "[hc_freelance_teklif]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "freelance-yillik-gelir-hedefi-hesaplama",
+                "freelance-acil-fon-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "freelance-yillik-gelir-hedefi-hesaplama",
+            "name": "Freelance Yıllık Gelir Hedefi",
+            "desc": "Yaşam giderleri, iş giderleri, vergiler ve tatil planlarınıza göre serbest çalışanların (freelancer) hedeflemesi gereken yıllık ciro ve saatlik ücreti hesaplar.",
+            "shortcode": "[hc_freelance_gelir_hedefi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "freelance-proje-fiyat-teklifi-hesaplama",
+                "freelance-acil-fon-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "frekans-dagilimi-hesaplama",
+            "name": "Frekans Dağılımı Hesaplama",
+            "desc": "Verilen sayısal veri setine göre frekans tablosu, sınıf aralıkları, yığılmalı frekans ve nispi frekans değerlerini hesaplar.",
+            "shortcode": "[hc_frekans_dagilimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-poligonu-hesaplama",
+                "standart-sapma-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "frekans-dalga-boyu-hesaplama",
+            "name": "Frekans - Dalga Boyu Hesaplama",
+            "desc": "Elektromanyetik dalgalar veya ses dalgaları için frekans ve dalga boyunu birbirine dönüştürür (λ = v\/f).",
+            "shortcode": "[hc_frekans_dalga_boyu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "foton-enerjisi-hesaplama",
+                "enerjiden-dalga-boyuna-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "frekans-donusturme-hesaplama",
+            "name": "Frekans Dönüştürme Hesaplama",
+            "desc": "Frekans birimlerini Hertz (Hz), Kilohertz (kHz), Megahertz (MHz), Gigahertz (GHz) ve saniyedeki devir (rpm) arasında dönüştürür.",
+            "shortcode": "[hc_frekans_donusturme]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-dalga-boyu-hesaplama",
+                "frekanstan-dalga-boyuna-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "frekans-hesaplama",
+            "name": "Frekans Hesaplama",
+            "desc": "Dönem süresi (T) veya toplam döngü sayısı ve zamana göre frekans (f = 1\/T) değerini hesaplar.",
+            "shortcode": "[hc_frekans_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-dalga-boyu-hesaplama",
+                "frekans-donusturme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "frekans-poligonu-hesaplama",
+            "name": "Frekans Poligonu Hesaplama",
+            "desc": "Gruplandırılmış veri setlerine göre sınıf orta noktalarını ve frekanslarını belirleyerek frekans poligonu koordinatlarını hesaplar.",
+            "shortcode": "[hc_frekans_poligonu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-dagilimi-hesaplama",
+                "standart-sapma-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "frekanstan-dalga-boyuna-hesaplama",
+            "name": "Frekanstan Dalga Boyuna Hesaplama",
+            "desc": "Frekans değerine göre elektromanyetik veya ses dalgasının dalga boyunu metre cinsinden hesaplar.",
+            "shortcode": "[hc_frekanstan_dalga_boyuna]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-dalga-boyu-hesaplama",
+                "frekans-donusturme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fren-balatasi-omru-hesaplama",
+            "name": "Fren Balatası Ömrü Hesaplama",
+            "desc": "Aylık yaptığınız kilometre, sürüş tarzınız ve araç tipine göre fren balatalarınızın tahmini ömrünü ve değişim zamanını hesaplar.",
+            "shortcode": "[hc_fren_balatasi_omru]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fren-mesafesi-hesaplama",
+                "g-kuvveti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fren-mesafesi-hesaplama",
+            "name": "Fren Mesafesi Hesaplama",
+            "desc": "Araç hızı, yolun sürtünme katsayısı ve reaksiyon sürenize göre durma mesafesini ve reaksiyon mesafesini hesaplar.",
+            "shortcode": "[hc_fren_mesafesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fren-balatasi-omru-hesaplama",
+                "g-kuvveti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "froude-sayisi-hesaplama",
+            "name": "Froude Sayısı Hesaplama",
+            "desc": "Açık kanal akışlarında veya gemi hidrodinamiğinde, atalet kuvvetlerinin yerçekimi kuvvetlerine oranını (Froude sayısı - Fr) hesaplar.",
+            "shortcode": "[hc_froude_sayisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "f-m-orani-hesaplama",
+                "esneklik-potansiyel-enerjisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "fundus-yuksekligi-hesaplama",
+            "name": "Fundus Yüksekliği Değerlendirme",
+            "desc": "Gebelikte rahim tepesi (fundus) yüksekliğine göre bebeğin büyüme gelişimini ve gebelik haftası uyumunu değerlendirir.",
+            "shortcode": "[hc_fundus_yuksekligi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-dogum-tarihi",
+                "gebelik-kesesi-hafta-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "futbol-kalori-yakimi-hesaplama",
+            "name": "Futbol Kalori Yakımı Hesaplama",
+            "desc": "Kilonuz ve oynadığınız süreye göre futbol antrenmanı veya maçında yaktığınız tahmini kalori miktarını hesaplar.",
+            "shortcode": "[hc_futbol_kalori]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fitness-kalori-yakimi-hesaplama",
+                "egzersiz-kalori-yakimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "g-kuvveti-hesaplama",
+            "name": "G Kuvveti Hesaplama",
+            "desc": "Hız değişimi ve durma süresine veya dairesel hareket yarıçapına göre cismin maruz kaldığı G kuvvetini hesaplar.",
+            "shortcode": "[hc_g_kuvveti]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fren-mesafesi-hesaplama",
+                "fren-balatasi-omru-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gad-7-anksiyete-testi-hesaplama",
+            "name": "GAD-7 Anksiyete Testi",
+            "desc": "Yaygın Anksiyete Bozukluğunu (YAB) taramak için kullanılan 7 soruluk klinik GAD-7 ölçeğine göre anksiyete seviyenizi hesaplar.",
+            "shortcode": "[hc_gad_7_anksiyete]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "epworth-uykululuk-olcegi-hesaplama",
+                "evcil-hayvan-yasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "galon-litre-donusturucu",
+            "name": "Galon - Litre Dönüştürücü",
+            "desc": "Amerikan (US) ve İngiliz (UK) Galon hacim birimlerini, uluslararası standart Litre (L) birimine dönüştürür.",
+            "shortcode": "[hc_galon_litre_donusturucu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "alan-birimi-donusturucu",
+                "feet-metre-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gano-hesaplama",
+            "name": "GANO (Genel Akademik Not Ortalaması) Hesaplama",
+            "desc": "Dönem içi ders notları, kredileri ve harf notlarına göre YÖK standardında GANO (GPA) not ortalamasını hesaplar.",
+            "shortcode": "[hc_gano_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "finalden-kac-almaliyim-hesaplama",
+                "gpa-cevirme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "garanti-kapsami-suresi-hesaplama",
+            "name": "Garanti Kapsamı Süresi Hesaplama",
+            "desc": "Satın alma tarihi ve yasal garanti sürelerine göre ürünün garantisinin bitiş tarihini ve kalan gün sayısını hesaplar.",
+            "shortcode": "[hc_garanti_kapsami_suresi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gun-hesaplama",
+                "gun-saat-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gay-lussac-yasasi-hesaplama",
+            "name": "Gay-Lussac Yasası Hesaplama",
+            "desc": "Sabit hacimdeki bir gazın sıcaklık ve basınç değişimlerini (P1\/T1 = P2\/T2) hesaplar.",
+            "shortcode": "[hc_gay_lussac]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "entalpi-hesaplama",
+                "entropi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gayrimenkul-kapitalizasyon-orani-hesaplama",
+            "name": "Gayrimenkul Kapitalizasyon Oranı (Cap Rate) Hesaplama",
+            "desc": "Yıllık net faaliyet geliri (NOI) ve mülk değerine göre gayrimenkulün kapitalizasyon oranını (Cap Rate) ve yatırım getirisini hesaplar.",
+            "shortcode": "[hc_gayrimenkul_kapitalizasyon]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-almak-mi-kiralamak-mi-hesaplama",
+                "firsat-maliyeti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gaz-molar-kutle-hesaplama",
+            "name": "Gazın Molar Kütlesi Hesaplama",
+            "desc": "İdeal gaz yasasına göre basınç, hacim, sıcaklık ve kütle değerlerini kullanarak bilinmeyen bir gazın molar kütlesini (g\/mol) hesaplar.",
+            "shortcode": "[hc_gaz_molar_kutle]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gaz-yogunlugu-hesaplama",
+                "gay-lussac-yasasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gaz-yogunlugu-hesaplama",
+            "name": "Gaz Yoğunluğu Hesaplama",
+            "desc": "İdeal gaz yasası denklemlerine göre basınç, sıcaklık ve molar kütleye göre gazın yoğunluğunu (kg\/m³ veya g\/L) hesaplar.",
+            "shortcode": "[hc_gaz_yogunlugu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gaz-molar-kutle-hesaplama",
+                "gay-lussac-yasasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gc-icerigi-hesaplama",
+            "name": "DNA GC İçeriği Hesaplama",
+            "desc": "DNA\/RNA dizisindeki Guanin ve Sitozin bazlarının yüzdesini hesaplayarak primer erime sıcaklığını (Tm) tahmin eder.",
+            "shortcode": "[hc_gc_icerigi_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fenotip-orani-hesaplama",
+                "genotip-frekansi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebe-kalma-tarihi",
+            "name": "Gebe Kalma Tarihi Hesaplama",
+            "desc": "Son adet tarihiniz ve adet döngü uzunluğunuza göre tahmini gebe kalma (ilişki\/döllenme) tarihinizi hesaplar.",
+            "shortcode": "[hc_gebe_kalma_tarihi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-dogum-tarihi",
+                "gebelik-kesesi-hafta-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelik-dogum-tarihi",
+            "name": "Gebelik Doğum Tarihi (Naegele Yöntemi) Hesaplama",
+            "desc": "Son adet tarihinize göre Naegele kuralını uygulayarak tahmini doğum (tahmini doğum tarihi) tarihinizi hesaplar.",
+            "shortcode": "[hc_gebelik_dogum_tarihi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebe-kalma-tarihi",
+                "gebelik-kesesi-hafta-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelik-haftasini-aya-cevirme",
+            "name": "Gebelik Haftasını Aya Çevirme",
+            "desc": "Gebelik haftasını tıp standartlarına göre gebelik ayı karşılığına dönüştürür (örn. 20 hafta kaçıncı ay?).",
+            "shortcode": "[hc_gebelik_haftasi_ay]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-dogum-tarihi",
+                "gebe-kalma-tarihi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelik-kesesi-hafta-hesaplama",
+            "name": "Gebelik Kesesi Ölçüsüne Göre Hafta",
+            "desc": "Ultrasondaki gebelik kesesi çapına (MSD) göre gebelik haftasını ve gününü hesaplar.",
+            "shortcode": "[hc_gebelik_kesesi_hafta]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-dogum-tarihi",
+                "gebe-kalma-tarihi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelik-testi-hata-payi",
+            "name": "Yanlış Negatif Gebelik Testi Riski",
+            "desc": "İlişki üzerinden geçen gün sayısı ve adet gecikmesine göre evde yapılan idrar testlerinin hata payını ve yanlış negatif çıkma olasılığını hesaplar.",
+            "shortcode": "[hc_gebelik_testi_hata_payi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-testi-zamani",
+                "gebe-kalma-tarihi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelik-testi-zamani",
+            "name": "Gebelik Testi Zamanı Hesaplama",
+            "desc": "Son adet tarihi ve adet döngü uzunluğunuza göre, idrar ve kan gebelik testlerini en doğru sonuç için ne zaman yapmanız gerektiğini hesaplar.",
+            "shortcode": "[hc_gebelik_testi_zamani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-testi-hata-payi",
+                "gebe-kalma-tarihi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelikte-enerji-ihtiyaci",
+            "name": "Gebelikte Enerji (Kalori) İhtiyacı",
+            "desc": "Gebelik öncesi kilonuz, boyunuz, aktivite seviyeniz ve gebelik haftanıza göre hamilelikte almanız gereken günlük kalori miktarını hesaplar.",
+            "shortcode": "[hc_gebelikte_enerji_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-kilo-alimi",
+                "gebelikte-su-ihtiyaci"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelikte-fazla-kilo-alimi-hesaplama",
+            "name": "Gebelikte Fazla Kilo Alımı Değerlendirme",
+            "desc": "Hamilelikte haftanıza göre aldığınız kilonun, tıp otoritelerinin önerdiği üst limitleri aşıp aşmadığını analiz eder.",
+            "shortcode": "[hc_gebelikte_fazla_kilo_alimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-kilo-alimi",
+                "gebelikte-su-ihtiyaci"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelikte-kalan-gun",
+            "name": "Gebelikte Kalan Gün Hesaplama",
+            "desc": "Son adet tarihinize göre tahmini doğuma kaç gün, kaç hafta ve kaç saat kaldığını gösteren geri sayım hesaplayıcısıdır.",
+            "shortcode": "[hc_gebelikte_kalan_gun]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelik-dogum-tarihi",
+                "gebe-kalma-tarihi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelikte-kilo-alimi",
+            "name": "Gebelikte Kilo Alımı Hesaplama",
+            "desc": "Gebelik öncesi Vücut Kitle İndeksinize (VKİ) göre hamilelik süresince almanız gereken ideal kilo aralığını hesaplar ve haftalık gelişim grafiğiyle karşılaştırır.",
+            "shortcode": "[hc_gebelikte_kilo_alimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-fazla-kilo-alimi-hesaplama",
+                "gebelikte-su-ihtiyaci"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelikte-su-ihtiyaci",
+            "name": "Gebelikte Su İhtiyacı Hesaplama",
+            "desc": "Hamilelik haftası, vücut ağırlığı ve fiziksel aktivitenize göre gebelikte içmeniz gereken günlük minimum su miktarını hesaplar.",
+            "shortcode": "[hc_gebelikte_su_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-kilo-alimi",
+                "gebelikte-enerji-ihtiyaci"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gebelikte-vucut-kitle-indeksi-hesaplama",
+            "name": "Gebelikte Vücut Kitle İndeksi (VKİ) Hesaplama",
+            "desc": "Gebelik haftanıza göre mevcut kilonuzun sağlıklı VKİ aralıklarında olup olmadığını hesaplar.",
+            "shortcode": "[hc_gebelikte_vucut_kitle_indeksi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-kilo-alimi",
+                "gebelikte-fazla-kilo-alimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gecikme-hesaplama",
+            "name": "Ağ Gecikmesi (Latency) Hesaplama",
+            "desc": "Veri paketi boyutu, bant genişliği ve mesafe ışık hızına göre ağdaki toplam aktarım ve yayılım gecikmesini (Ping) hesaplar.",
+            "shortcode": "[hc_gecikme_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-donusturme-hesaplama",
+                "frekans-dalga-boyu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gelecek-deger-hesaplama",
+            "name": "Gelecek Değer (Future Value) Hesaplama",
+            "desc": "Bugünkü bir paranın, belirli bir faiz oranı ve vade sonunda bileşik faizle ulaşacağı gelecekteki değeri hesaplar.",
+            "shortcode": "[hc_gelecek_deger_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "faiz-hesaplama",
+                "enflasyona-gore-yatirim-getirisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gelir-gider-defteri-hesaplama",
+            "name": "Gelir Gider Defteri (Bütçe) Hesaplama",
+            "desc": "Aylık gelir ve gider kalemlerinizi kategorize ederek tasarruf oranınızı ve bütçe dengenizi hesaplar.",
+            "shortcode": "[hc_gelir_gider_defteri]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "freelance-acil-fon-ihtiyaci-hesaplama",
+                "freelance-yillik-gelir-hedefi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gelme-acisi-hesaplama",
+            "name": "Işık Gelme Açısı Hesaplama (Snell Yasası)",
+            "desc": "İki ortamın kırılma indekslerine ve ışığın gelme açısına göre kırılma açısını (Snell Yasası: n1·sin(θ1) = n2·sin(θ2)) hesaplar.",
+            "shortcode": "[hc_gelme_acisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-dalga-boyu-hesaplama",
+                "gelme-acisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "genclerde-vucut-kitle-indeksi-hesaplama",
+            "name": "Çocuk ve Gençlerde Vücut Kitle İndeksi (VKİ) Persentil Hesaplama",
+            "desc": "2-20 yaş arası çocuk ve gençler için CDC büyüme eğrilerine göre yaş ve cinsiyete özel VKİ persentil (yüzdelik) değerini hesaplar.",
+            "shortcode": "[hc_genclerde_vucut_kitle_indeksi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fazla-kilo-hesaplama",
+                "gebelikte-vucut-kitle-indeksi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "genetik-uzaklik-hesaplama",
+            "name": "Genetik Uzaklık (Nei's Genetic Distance) Hesaplama",
+            "desc": "Popülasyon genetiğinde, iki popülasyon arasındaki alel frekanslarına göre Nei genetik uzaklık değerini hesaplar.",
+            "shortcode": "[hc_genetik_uzaklik]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fenotip-orani-hesaplama",
+                "genotip-frekansi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "genlesme-tanki-hesaplama",
+            "name": "Genleşme Tankı Kapasitesi Hesaplama",
+            "desc": "Isıtma veya güneş enerjisi sistemlerindeki toplam su hacmi ve sıcaklık farkına göre gereken genleşme tankı boyutunu (Litre) hesaplar.",
+            "shortcode": "[hc_genlesme_tanki]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fan-gucu-hesaplama",
+                "ev-su-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "genotip-frekansi-hesaplama",
+            "name": "Genotip Frekansı (Hardy-Weinberg) Hesaplama",
+            "desc": "Popülasyondaki alel frekanslarına göre homozigot dominant, heterozigot ve homozigot resesif genotip frekanslarını Hardy-Weinberg dengesiyle hesaplar.",
+            "shortcode": "[hc_genotip_frekansi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fenotip-orani-hesaplama",
+                "genetik-uzaklik-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "genotipten-fenotip-bulma-hesaplama",
+            "name": "Genotipten Fenotip Bulma",
+            "desc": "Ebeveynlerin genotiplerine göre yavruda oluşabilecek genotip ve fenotip olasılıklarını Punnett karesiyle hesaplar.",
+            "shortcode": "[hc_genotipten_fenotip]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fenotip-orani-hesaplama",
+                "genotip-frekansi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "geometrik-dagilim-hesaplama",
+            "name": "Geometrik Dağılım Hesaplama",
+            "desc": "Olasılık teorisinde, ilk başarıyı elde edene kadar yapılan bağımsız deneme sayısının olasılığını (Geometrik Dağılım) hesaplar.",
+            "shortcode": "[hc_geometrik_dagilim]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "geometrik-ortalama-hesaplama",
+                "standart-sapma-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "geometrik-ortalama-hesaplama",
+            "name": "Geometrik Ortalama Hesaplama",
+            "desc": "Girdiğiniz sayı dizisinin geometrik ortalamasını hesaplar (özellikle finansal büyüme ve oran hesaplarında kullanılır).",
+            "shortcode": "[hc_geometrik_ortalama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "geometrik-dagilim-hesaplama",
+                "standart-sapma-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gercek-alan-hesaplama",
+            "name": "Gerçek Alan (Harita Ölçeği) Hesaplama",
+            "desc": "Harita üzerindeki alan ve harita ölçeğine göre arazinin gerçek alanını (m² veya km²) hesaplar.",
+            "shortcode": "[hc_gercek_alan]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gercek-uzunluk-hesaplama",
+                "alan-birimi-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gercek-enflasyon-hesaplama",
+            "name": "Gerçek (Hissedilen) Enflasyon Hesaplama",
+            "desc": "TÜİK resmi sepeti yerine kendi kişisel harcama kalemlerinize ve tüketim alışkanlıklarınıza göre gerçek (kişisel) enflasyon oranınızı hesaplar.",
+            "shortcode": "[hc_gercek_enflasyon]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gelir-gider-defteri-hesaplama",
+                "enflasyona-gore-yatirim-getirisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gercek-sicaklik-hesaplama",
+            "name": "Gerçek Hissedilen Sıcaklık (Isı İndeksi) Hesaplama",
+            "desc": "Hava sıcaklığı ve bağıl nem değerlerine göre insan vücudunun hissettiği gerçek sıcaklığı (ısı indeksi) hesaplar.",
+            "shortcode": "[hc_gercek_sicaklik]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-su-ihtiyaci-hesaplama",
+                "is-makinesi-yakit-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gercek-uzunluk-hesaplama",
+            "name": "Gerçek Uzunluk (Harita Ölçeği) Hesaplama",
+            "desc": "Harita üzerindeki çizgi uzunluğu ve ölçeğe göre arazideki gerçek mesafeyi (metre veya kilometre) hesaplar.",
+            "shortcode": "[hc_gercek_uzunluk]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gercek-alan-hesaplama",
+                "feet-metre-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gerilme-hesaplama",
+            "name": "Mekanik Gerilme (Stress) Hesaplama",
+            "desc": "Uygulanan kuvvet ve kesit alanına göre mühendislik elemanlarındaki gerilme (Pascal or MPa) değerini hesaplar.",
+            "shortcode": "[hc_gerilme_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fan-gucu-hesaplama",
+                "froude-sayisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gestasyonel-diyabet-riski-hesaplama",
+            "name": "Gebelik Şekeri (Gestasyonel Diyabet) Riski",
+            "desc": "Yaş, gebelik öncesi kilo, aile öyküsü ve tıbbi geçmişinize göre gebelik şekeri (gestasyonel diyabet) geliştirme riskinizi hesaplar.",
+            "shortcode": "[hc_gestasyonel_diyabet_riski]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "glukoz-tolerans-testi-ogtt-degerlendirme",
+                "gebelikte-kilo-alimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezi-butcesi-hesaplama",
+            "name": "Gezi Bütçesi Hesaplama",
+            "desc": "Konaklama, ulaşım, yemek ve aktivite giderlerinize göre tatil veya iş gezilerinizin toplam maliyetini ve günlük bütçe ihtiyacını hesaplar.",
+            "shortcode": "[hc_gezi_butcesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezi-yakit-maliyeti-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezi-yakit-maliyeti-hesaplama",
+            "name": "Gezi Yakıt Maliyeti Hesaplama",
+            "desc": "Gideceğiniz yol mesafesi, aracınızın ortalama yakıt tüketimi ve güncel yakıt fiyatına göre yolculuğunuzun yakıt maliyetini hesaplar.",
+            "shortcode": "[hc_gezi_yakit_maliyeti]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezi-butcesi-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gim-fiziksel-aktivite-duzeyi-hesaplama",
+            "name": "Fiziksel Aktivite Düzeyi (PAL) Hesaplama",
+            "desc": "Günlük yaptığınız aktivitelerin sürelerine göre Fiziksel Aktivite Düzeyinizi (PAL) ve toplam enerji harcama çarpanınızı hesaplar.",
+            "shortcode": "[hc_pal_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "egzersiz-kalori-yakimi",
+                "futbol-kalori-yakimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "girdi-cikti-analizi-hesaplama",
+            "name": "Ekonomik Girdi-Çıktı (Input-Output) Analizi",
+            "desc": "Leontief girdi-çıktı modeliyle, sektörler arası mal akışını ve nihai talep değişimlerinin toplam üretim üzerindeki etkisini hesaplar.",
+            "shortcode": "[hc_girdi_cikti_analizi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "amortisman-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "giris-empedansi-hesaplama",
+            "name": "Giriş Empedansı Hesaplama",
+            "desc": "Elektronik devrelerde, voltaj ve akım faz farklarına göre bir devrenin giriş empedansını (Z = V\/I) hesaplar.",
+            "shortcode": "[hc_giris_empedansi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "guc-faktoru-hesaplama",
+                "hoparlör-empedans-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "giro-sayisi-hesaplama",
+            "name": "Giro Sayısı (Santrifüj G Kuvveti) Hesaplama",
+            "desc": "Laboratuvar santrifüjlerinde, rotor yarıçapı ve dönme hızına (RPM) göre numunenin maruz kaldığı Bağıl Santrifüj Kuvvetini (RCF \/ G) hesaplar.",
+            "shortcode": "[hc_giro_sayisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "g-kuvveti-hesaplama",
+                "froude-sayisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gise-islemleri-sure-hesaplama",
+            "name": "Gişe İşlemleri Bekleme Süresi (Kuyruk Teorisi) Hesaplama",
+            "desc": "Banka, hastane veya gişelerdeki müşteri geliş hızı ve servis hızına göre ortalama bekleme süresini ve kuyruk uzunluğunu hesaplar.",
+            "shortcode": "[hc_gise_sure]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "girdi-cikti-analizi-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "git-kredisi-faiz-hesaplama",
+            "name": "Konut (GİT) Kredisi Faiz Hesaplama",
+            "desc": "Geri Ödemeli İpotek Finansmanı (GİT) ve konut kredilerinde aylık taksit tutarı, toplam faiz yükü ve amortisman tablosunu hesaplar.",
+            "shortcode": "[hc_git_kredisi_faiz]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-almak-mi-kiralamak-mi-hesaplama",
+                "gelecek-deger-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glase-kalinligi-hesaplama",
+            "name": "Glase (Buz Kaplama) Kalınlığı Hesaplama",
+            "desc": "Dondurulmuş su ürünlerinde (balık, karides vb.) net ağırlık ve brüt ağırlık arasındaki farka göre glase (buz kaplama) oranını (%) hesaplar.",
+            "shortcode": "[hc_glase_kalinligi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "galon-litre-donusturucu",
+                "vucut-yuzey-alani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glasgow-koma-skalasi-hesaplama",
+            "name": "Glasgow Koma Skalası (GKS) Hesaplama",
+            "desc": "Klinik nörolojide, hastanın göz, sözel ve motor yanıtlarına göre bilinç durumunu ve beyin hasarı derecesini (3-15 puan) hesaplar.",
+            "shortcode": "[hc_glasgow_koma_skalasi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "framingham-kalp-riski-hesaplama",
+                "egzersiz-kalori-yakimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gliserol-hacim-orani-hesaplama",
+            "name": "Gliserol Hacim Oranı Hesaplama",
+            "desc": "Laboratuvar solüsyonları veya el dezenfektanı formüllerinde, hedeflenen alkol oranına göre eklenmesi gereken gliserol hacmini ve yüzdesini hesaplar.",
+            "shortcode": "[hc_gliserol_hacim_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "galon-litre-donusturucu",
+                "vucut-yuzey-alani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glisemik-yuk-hesaplama",
+            "name": "Glisemik Yük (GL) Hesaplama",
+            "desc": "Tükettiğiniz gıdanın porsiyon miktarı ve glisemik indeksine (GI) göre kan şekerini yükseltme etkisini (Glisemik Yük) hesaplar.",
+            "shortcode": "[hc_glisemik_yuk]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gestasyonel-diyabet-riski-hesaplama",
+                "fitness-kalori-yakimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glokom-riski-hesaplama",
+            "name": "Glokom (Göz Tansiyonu) Risk Skoru",
+            "desc": "Göz içi basıncı, yaş, aile öyküsü ve kornea kalınlığına göre glokom (göz tansiyonu) gelişme riskini değerlendirir.",
+            "shortcode": "[hc_glokom_riski]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-derecesi-gozluk-reçetesi-donusturucu",
+                "glasgow-koma-skalasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glomeruler-filtrasyon-hizi-gfr-hesaplama",
+            "name": "Glomerüler Filtrasyon Hızı (eGFR) Hesaplama",
+            "desc": "Kreatinin, yaş, cinsiyet ve kiloya göre böbreklerin süzme kapasitesini (CKD-EPI ve MDRD formülleriyle) hesaplar.",
+            "shortcode": "[hc_egfr_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-su-ihtiyaci-hesaplama",
+                "framingham-kalp-riski-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glukoz-tolerans-testi-ogtt-degerlendirme",
+            "name": "Şeker Yükleme Testi (OGTT) Değerlendirme",
+            "desc": "75g veya 100g oral glukoz tolerans testi (OGTT) sonuçlarına göre diyabet, prediyabet veya gebelik şekeri durumunu analiz eder.",
+            "shortcode": "[hc_ogtt_degerlendirme]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gestasyonel-diyabet-riski-hesaplama",
+                "gebelikte-kilo-alimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glutensiz-un-ikamesi-hesaplama",
+            "name": "Glutensiz Un İkamesi ve Karışım Hesaplama",
+            "desc": "Normal buğday unu içeren tarifleri glutensiz hale getirmek için pirinç unu, patates nişastası ve kıvam artırıcı (Ksantan sakızı) oranlarını hesaplar.",
+            "shortcode": "[hc_glutensiz_un_ikamesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "glisemik-yuk-hesaplama",
+                "ev-su-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "goc-orani-hesaplama",
+            "name": "Net Göç Oranı Hesaplama",
+            "desc": "Bir bölgeye gelen göçmen ve bölgeden giden göçmen sayılarına göre net göç oranını (her 1.000 kişi başına) hesaplar.",
+            "shortcode": "[hc_goc_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gercek-alan-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "golge-boyu-hesaplama",
+            "name": "Gölge Boyu Hesaplama",
+            "desc": "Cisim yüksekliği ve güneşin geliş açısına (yükseklik açısı) göre cismin oluşturacağı gölge boyunu hesaplar.",
+            "shortcode": "[hc_golge_boyu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gelme-acisi-hesaplama",
+                "gercek-alan-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gonderme-acisi-hesaplama",
+            "name": "Gönderme \/ Kırılma Açısı Hesaplama (Snell Yasası)",
+            "desc": "Optik ve akustikte, sinyalin bir ortamdan diğerine geçerken kırılma\/gönderme açısını hesaplar.",
+            "shortcode": "[hc_gonderme_acisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gelme-acisi-hesaplama",
+                "frekans-dalga-boyu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gonderi-hacimsel-agirlik-desi-hesaplama",
+            "name": "Kargo Desi (Hacimsel Ağırlık) Hesaplama",
+            "desc": "Kargo kolilerinin en, boy, yükseklik ölçüleri ve miktarına göre kargo firmalarının ücretlendirmede kullandığı Desi (Hacimsel Ağırlık) değerini hesaplar.",
+            "shortcode": "[hc_desi_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gercek-alan-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "goreli-nem-hesaplama",
+            "name": "Bağıl (Göreli) Nem Hesaplama",
+            "desc": "Hava sıcaklığı ve çiğlenme noktasına göre havadaki bağıl (göreli) nem yüzdesini hesaplar.",
+            "shortcode": "[hc_goreli_nem]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gercek-sicaklik-hesaplama",
+                "fotosentez-hizi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "goreli-refah-endeksi-hesaplama",
+            "name": "Göreli Refah Endeksi (RWI) Hesaplama",
+            "desc": "Finansal göstergeler, altyapı erişimi ve hanehalkı varlıklarına göre bölgelerin bağıl refah düzeyini (0-100) hesaplar.",
+            "shortcode": "[hc_goreli_refah_endeksi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gelir-gider-defteri-hesaplama",
+                "goc-orani-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gorelilik-zamani-zaman-genlesmesi-hesaplama",
+            "name": "Zaman Genleşmesi (Özel Görelilik) Hesaplama",
+            "desc": "Einstein'ın Özel Görelilik teorisine göre, ışık hızına yakın hızlarda seyahat eden bir gözlemci için zamanın ne kadar yavaş aktığını (Zaman Genleşmesi) hesaplar.",
+            "shortcode": "[hc_zaman_genlesmesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gravitasyonel-zaman-genlesmesi-hesaplama",
+                "foton-enerjisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gorme-keskinligi-snellen-donusturucu",
+            "name": "Görme Keskinliği (Snellen) Dönüştürücü",
+            "desc": "Göz testlerindeki Snellen kesri (20\/20, 6\/6), ondalık değer ve logMAR görme keskinliği birimlerini birbirine dönüştürür.",
+            "shortcode": "[hc_snellen_donusturucu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-derecesi-gozluk-reçetesi-donusturucu",
+                "glokom-riski-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gorsel-baski-cozunurluk-hesaplama",
+            "name": "Görsel Baskı Çözünürlüğü Hesaplama",
+            "desc": "Baskı alınacak fiziksel boyut (cm) ve görselin piksel çözünürlüğüne göre elde edilecek baskı kalitesini (DPI) hesaplar.",
+            "shortcode": "[hc_gorsel_baski_cozunurluk]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fotograf-baski-boyutu-dpi-hesaplama",
+                "fotograf-cozunurluk-baski-kalitesi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gorsel-oran-aspect-ratio-hesaplama",
+            "name": "Ekran En Boy Oranı (Aspect Ratio) Hesaplama",
+            "desc": "Görsel veya ekran piksel boyutlarına göre en-boy oranını (16:9, 4:3, 1:1 vb.) ve eksik kenar piksellerini hesaplar.",
+            "shortcode": "[hc_aspect_ratio]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gorsel-baski-cozunurluk-hesaplama",
+                "fotograf-baski-boyutu-dpi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "goz-derecesi-gozluk-reçetesi-donusturucu",
+            "name": "Gözlük Reçetesi (Sferik Eşdeğer) Dönüştürücü",
+            "desc": "Gözlük reçetelerindeki Sferik (SPH), Silindirik (CYL) ve Aks (AXIS) değerlerine göre göz derecesini ve Sferik Eşdeğeri (SE) hesaplar.",
+            "shortcode": "[hc_gozluk_recetesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gorme-keskinligi-snellen-donusturucu",
+                "glokom-riski-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "goz-bebegi-mesafesi-pd-hesaplama",
+            "name": "Göz Bebeği Mesafesi (PD) Hesaplama",
+            "desc": "Gözlük camlarının doğru odaklanması için iki göz bebeği arasındaki mesafeyi (Pupillary Distance) referans ölçülerine göre doğrular.",
+            "shortcode": "[hc_pd_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-derecesi-gozluk-reçetesi-donusturucu",
+                "glokom-riski-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gozluk-cami-odak-uzakligi-hesaplama",
+            "name": "Gözlük Camı Odak Uzaklığı Hesaplama",
+            "desc": "Diyoptri cinsinden göz derecesine göre gözlük veya lens camının odak uzaklığını (metre ve cm) hesaplar.",
+            "shortcode": "[hc_gozluk_cami_odak_uzakligi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-derecesi-gozluk-reçetesi-donusturucu",
+                "goz-bebegi-mesafesi-pd-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gozluk-cam-kalinligi-hesaplama",
+            "name": "Gözlük Camı Kalınlığı Hesaplama",
+            "desc": "Gözlük camının kırılma indeksi (inceltme oranı), reçete derecesi ve çerçeve boyutuna göre camın kenar ve merkez kalınlığını tahmin eder.",
+            "shortcode": "[hc_gozluk_cam_kalinligi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-derecesi-gozluk-reçetesi-donusturucu",
+                "gozluk-cerceve-boyutu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gozluk-cerceve-boyutu-hesaplama",
+            "name": "Gözlük Çerçeve Boyutu (Ekartman) Doğrulama",
+            "desc": "Yüz genişliği ve gözler arası mesafenize (PD) göre konforlu bir kullanım için seçmeniz gereken ideal çerçeve boyutlarını (ekartman, köprü, sap) hesaplar.",
+            "shortcode": "[hc_gozluk_cerceve_boyutu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-bebegi-mesafesi-pd-hesaplama",
+                "gozluk-cam-kalinligi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gozluk-reçetesi-prizma-degeri-hesaplama",
+            "name": "Gözlük Reçetesi Prizma Değeri ve Odak Sapması",
+            "desc": "Gözlük camlarındaki optik odak kaymalarından kaynaklanan istenmeyen prizmatik etkiyi (Prentice Kuralı: P = c·D) hesaplar.",
+            "shortcode": "[hc_prizma_degeri]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "goz-bebegi-mesafesi-pd-hesaplama",
+                "goz-derecesi-gozluk-reçetesi-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gpa-cevirme-hesaplama",
+            "name": "GPA Çevirme (4'lük - 100'lük Sistem) Dönüştürücü",
+            "desc": "Akademik not ortalamalarını (GPA) 4'lük sistem, 100'lük sistem ve YÖK dönüşüm tablosu standartları arasında dönüştürür.",
+            "shortcode": "[hc_gpa_cevirme]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gano-hesaplama",
+                "finalden-kac-almaliyim-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gps-koordinat-mesafesi-hesaplama",
+            "name": "GPS Koordinat Mesafesi (Haversine Formülü) Hesaplama",
+            "desc": "Enlem ve boylam koordinatları verilen iki nokta arasındaki küresel kuş uçuşu mesafeyi (Haversine formülüyle) hesaplar.",
+            "shortcode": "[hc_gps_mesafe]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gercek-uzunluk-hesaplama",
+                "gezi-yakit-maliyeti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "grafik-cozunurluk-hesaplama",
+            "name": "Grafik Kartı Çözünürlük ve Piksel Hesaplama",
+            "desc": "Ekran çözünürlüğü ve en-boy oranına göre toplam piksel sayısını ve bant genişliği ihtiyaçlarını hesaplar.",
+            "shortcode": "[hc_grafik_cozunurluk]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "grafik-kart-vram-ihtiyaci-hesaplama",
+                "gorsel-oran-aspect-ratio-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "grafik-kart-vram-ihtiyaci-hesaplama",
+            "name": "Grafik Kartı VRAM İhtiyacı Hesaplama",
+            "desc": "Oyun çözünürlüğü, doku kalitesi ve grafik ayarlarına göre ekran kartı bellek (VRAM) ihtiyacını tahmin eder.",
+            "shortcode": "[hc_vram_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "grafik-cozunurluk-hesaplama",
+                "gorsel-oran-aspect-ratio-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gravitational-potansiyel-enerji-hesaplama",
+            "name": "Yerçekimi Potansiyel Enerjisi Hesaplama",
+            "desc": "Kütle, yükseklik ve yerçekimi ivmesine göre cismin sahip olduğu yerçekimi potansiyel enerjisini (Ep = m·g·h) hesaplar.",
+            "shortcode": "[hc_potansiyel_enerji]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "esneklik-potansiyel-enerjisi-hesaplama",
+                "froude-sayisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gravitasyonel-zaman-genlesmesi-hesaplama",
+            "name": "Kütleçekimsel Zaman Genleşmesi (Genel Görelilik) Hesaplama",
+            "desc": "Einstein'ın Genel Görelilik teorisine göre, güçlü kütleçekim alanlarında zamanın zayıf yerçekimine kıyasla ne kadar yavaş aktığını hesaplar.",
+            "shortcode": "[hc_gravitasyonel_zaman]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gorelilik-zamani-zaman-genlesmesi-hesaplama",
+                "g-kuvveti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gravite-hesaplama",
+            "name": "API Gravite (Petrol Yoğunluğu) Hesaplama",
+            "desc": "Petrol mühendisliğinde, suyun yoğunluğuna göre ham petrolün API gravite değerini ve petrol sınıfını hesaplar.",
+            "shortcode": "[hc_gravite_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gaz-yogunlugu-hesaplama",
+                "froude-sayisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "grey-kod-donusturucu",
+            "name": "Gray Kodu Dönüştürücü",
+            "desc": "İkili sayı sistemi (Binary) ile Gray kodu (Gray Code) arasında çift yönlü sayısal dönüşüm yapar.",
+            "shortcode": "[hc_grey_kod]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "grey-koda-donusturme",
+                "gecikme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "grey-koda-donusturme",
+            "name": "Gray Koda Dönüştürme",
+            "desc": "Girilen desimal (onluk) veya binary (ikili) sayıları Gray kodu eşdeğerine dönüştürür.",
+            "shortcode": "[hc_grey_koda_donusturme]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "grey-kod-donusturucu",
+                "gecikme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gri-su-geri-kazanim-hesaplama",
+            "name": "Gri Su Geri Kazanım ve Tasarruf Hesaplama",
+            "desc": "Duş, lavabo ve çamaşır makinesinden çıkan gri su miktarını hesaplar ve bu suyun sifonlarda yeniden kullanımıyla sağlanacak su tasarrufunu hesaplar.",
+            "shortcode": "[hc_gri_su_geri_kazanim]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "ev-su-tuketimi-hesaplama",
+                "evapotranspirasyon-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gruplandirilmis-veri-standart-sapmasi-hesaplama",
+            "name": "Gruplandırılmış Veri Standart Sapması Hesaplama",
+            "desc": "Sınıf aralıkları ve frekans değerleri verilmiş gruplandırılmış veri setlerinin standart sapmasını ve varyansını hesaplar.",
+            "shortcode": "[hc_gruplandirilmis_standart_sapma]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "frekans-dagilimi-hesaplama",
+                "frekans-poligonu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gubre-miktari-hesaplama",
+            "name": "Tarla Gübre Miktarı Hesaplama",
+            "desc": "Arazi büyüklüğü, yetiştirilen ürün tipi ve gübre içeriğine (N-P-K) göre bitkilerin ihtiyaç duyduğu net gübre torba miktarını hesaplar.",
+            "shortcode": "[hc_gubre_miktari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "evapotranspirasyon-hesaplama",
+                "gercek-alan-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "guc-faktoru-hesaplama",
+            "name": "Güç Faktörü (Cos φ) Hesaplama",
+            "desc": "Alternatif akım (AC) elektrik sistemlerinde, aktif güç ve görünür güce göre güç faktörünü (Cos φ) ve gereken kompanzasyon kondansatör kapasitesini hesaplar.",
+            "shortcode": "[hc_guc_faktoru]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "giris-empedansi-hesaplama",
+                "guc-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "guc-hesaplama",
+            "name": "Fiziksel Güç (Power) Hesaplama",
+            "desc": "Yapılan iş ve zamana veya uygulanan kuvvet ve hıza göre fiziksel gücü (Watt ve Beygir Gücü) hesaplar.",
+            "shortcode": "[hc_fiziksel_guc]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gravitational-potansiyel-enerji-hesaplama",
+                "guc-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "guc-kaynagi-psu-ihtiyaci-hesaplama",
+            "name": "Bilgisayar Güç Kaynağı (PSU) İhtiyacı",
+            "desc": "Bilgisayar bileşenlerine (İşlemci, Ekran Kartı, RAM vb.) göre sisteminiz için gereken minimum güç kaynağı (PSU) watt değerini hesaplar.",
+            "shortcode": "[hc_psu_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "grafik-cozunurluk-hesaplama",
+                "grafik-kart-vram-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "guc-tuketimi-hesaplama",
+            "name": "Elektrikli Cihaz Güç Tüketimi Hesaplama",
+            "desc": "Elektrikli ev aletlerinin watt değerleri ve kullanım sürelerine göre günlük, aylık tüketimlerini ve elektrik faturası maliyetini hesaplar.",
+            "shortcode": "[hc_guc_tuketimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gelir-gider-defteri-hesaplama",
+                "gunes-paneli-amortisman-suresi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "guler-yuz-orani-hesaplama",
+            "name": "Müşteri Güler Yüz Oranı Hesaplama",
+            "desc": "Hizmet sektöründe, anket verileri veya gözlemlere dayanarak müşterilerin memnuniyet (güler yüz) oranını (%) hesaplar.",
+            "shortcode": "[hc_guler_yuz_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gise-islemleri-sure-hesaplama",
+                "gelir-gider-defteri-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "guler-yuz-testi-skoru-hesaplama",
+            "name": "Güler Yüz Testi Skor Hesaplama",
+            "desc": "Psikolojik testler veya insan kaynakları değerlendirmelerinde, olumlu\/olumsuz duygu durum yanıtlarına göre neşe ve iyimserlik skorunu hesaplar.",
+            "shortcode": "[hc_guler_yuz_testi_skoru]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gad-7-anksiyete-testi-hesaplama",
+                "epworth-uykululuk-olcegi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gun-hesaplama",
+            "name": "İki Tarih Arasındaki Gün Sayısı",
+            "desc": "Seçilen iki tarih arasındaki toplam gün, hafta, ay ve yıl sayısını artık yılları da hesaba katarak hesaplar.",
+            "shortcode": "[hc_gun_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-kalan-gun",
+                "gun-saat-donusturucu"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gun-saat-donusturucu",
+            "name": "Gün - Saat Dönüştürücü",
+            "desc": "Gün, saat, dakika ve saniye zaman birimlerini birbirine dönüştürür.",
+            "shortcode": "[hc_gun_saat_donusturucu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gun-hesaplama",
+                "gebelikte-kalan-gun"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-adim-kalori-hesaplama",
+            "name": "Adım Sayısı Kalori Hesaplama",
+            "desc": "Attığınız adım sayısı, boyunuz, kilonuz ve yürüme hızınıza göre yaktığınız tahmini kalori miktarını hesaplar.",
+            "shortcode": "[hc_adim_kalori]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "fitness-kalori-yakimi-hesaplama",
+                "egzersiz-kalori-yakimi"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-kalori-ihtiyaci-hesaplama",
+            "name": "Günlük Kalori İhtiyacı (TDEE) Hesaplama",
+            "desc": "Kilo, boy, yaş, cinsiyet ve günlük aktivite seviyenize göre kilonuzu korumak, vermek veya almak için almanız gereken kalori miktarını hesaplar.",
+            "shortcode": "[hc_gunluk_kalori_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "egzersiz-kalori-yakimi",
+                "gunluk-su-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-kafein-miktari-hesaplama",
+            "name": "Günlük Kafein Limiti Hesaplama",
+            "desc": "Tükettiğiniz kahve, çay ve enerji içeceklerine göre günlük aldığınız kafein miktarını hesaplar ve yasal güvenlik limitleriyle karşılaştırır.",
+            "shortcode": "[hc_kafein_miktari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gad-7-anksiyete-testi-hesaplama",
+                "gunluk-su-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-karbonhidrat-ihtiyaci-hesaplama",
+            "name": "Günlük Karbonhidrat İhtiyacı",
+            "desc": "Günlük kalori ihtiyacınız ve beslenme hedefinize göre almanız gereken ideal karbonhidrat miktarını (gram ve kalori) hesaplar.",
+            "shortcode": "[hc_karbonhidrat_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-kalori-ihtiyaci-hesaplama",
+                "glisemik-yuk-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-lif-ihtiyaci-hesaplama",
+            "name": "Günlük Lif (Posa) İhtiyacı",
+            "desc": "Yaş, cinsiyet ve günlük kalori tüketiminize göre sindirim sistemi sağlığı için almanız gereken günlük minimum lif (posa) miktarını hesaplar.",
+            "shortcode": "[hc_lif_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-karbonhidrat-ihtiyaci-hesaplama",
+                "gunluk-kalori-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-protein-ihtiyaci-hesaplama",
+            "name": "Günlük Protein İhtiyacı",
+            "desc": "Vücut ağırlığı, aktivite düzeyi ve fitness hedeflerinize (kilo verme, kas yapma) göre almanız gereken günlük protein miktarını hesaplar.",
+            "shortcode": "[hc_protein_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-kalori-ihtiyaci-hesaplama",
+                "gunluk-karbonhidrat-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-su-ihtiyaci-hesaplama",
+            "name": "Günlük Su İhtiyacı Hesaplama",
+            "desc": "Kilonuz, günlük aktivite seviyeniz ve cinsiyetinize göre sağlıklı bir yaşam için içmeniz gereken su miktarını hesaplar.",
+            "shortcode": "[hc_gunluk_su_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gebelikte-su-ihtiyaci",
+                "gunluk-kalori-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-tuz-tuketimi-hesaplama",
+            "name": "Günlük Tuz ve Sodyum Limiti",
+            "desc": "Tükettiğiniz gıdalara göre günlük aldığınız tuz (sodyum) miktarını hesaplar ve DSÖ yasal güvenlik limitleriyle karşılaştırır.",
+            "shortcode": "[hc_tuz_tuketimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "glomeruler-filtrasyon-hizi-gfr-hesaplama",
+                "gunluk-su-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-uyku-ihtiyaci-hesaplama",
+            "name": "Günlük Uyku İhtiyacı",
+            "desc": "Yaşınız ve genel sağlık durumunuza göre bilimsel standartlarda uyumanız gereken ideal günlük uyku süresini ve uyku döngülerini hesaplar.",
+            "shortcode": "[hc_uyku_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "epworth-uykululuk-olcegi-hesaplama",
+                "gunluk-kafein-miktari-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunluk-yag-ihtiyaci-hesaplama",
+            "name": "Günlük Yağ İhtiyacı",
+            "desc": "Günlük kalori ihtiyacınız ve diyet tipinize göre tüketmeniz gereken sağlıklı yağ miktarını (gram ve kalori) hesaplar.",
+            "shortcode": "[hc_yag_ihtiyaci]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-kalori-ihtiyaci-hesaplama",
+                "gunluk-protein-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunes-acisi-hesaplama",
+            "name": "Güneş Açıları (Yükseklik ve Azimut) Hesaplama",
+            "desc": "Tarih, saat ve enlem\/boylam koordinatlarına göre güneşin gökyüzündeki yükseklik (altitude) ve yön (azimut) açılarını hesaplar.",
+            "shortcode": "[hc_gunes_acisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "golge-boyu-hesaplama",
+                "gelme-acisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunes-paneli-amortisman-suresi-hesaplama",
+            "name": "Güneş Paneli Amortisman Süresi Hesaplama",
+            "desc": "Güneş paneli kurulum maliyeti, üretilen yıllık elektrik ve elektrik tarifelerine göre yatırımın kendini amorti etme süresini (yıl) hesaplar.",
+            "shortcode": "[hc_gunes_paneli_amortisman]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "guc-tuketimi-hesaplama",
+                "gunes-paneli-verimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunes-paneli-verimi-hesaplama",
+            "name": "Güneş Paneli Hücre Verimi Hesaplama",
+            "desc": "Güneş panelinin fiziksel boyutları, güç çıkışı (Watt) ve güneş radyasyon şiddetine göre panelin elektriksel verimini (%) hesaplar.",
+            "shortcode": "[hc_gunes_paneli_verimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunes-paneli-amortisman-suresi-hesaplama",
+                "guc-tuketimi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gunes-pili-verim-hesaplama",
+            "name": "Güneş Pili (Solar Cell) Verimi",
+            "desc": "Fotoelektrik fizik ilkelerine göre, güneş pili hücresinin doldurma faktörü (Fill Factor) ve kuantum verimliliğini hesaplar.",
+            "shortcode": "[hc_gunes_pili_verimi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunes-paneli-verimi-hesaplama",
+                "fotoelektrik-etki-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "geometrik-dizi-hesaplama",
+            "name": "Geometrik Dizi Hesaplama",
+            "desc": "Bir geometrik dizinin ilk terimi, ortak çarpanı ve terim sayısına göre n. terimini ve ilk n terim toplamını hesaplar.",
+            "shortcode": "[hc_geometrik_dizi_hesaplama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "aritmetik-dizi-hesaplama",
+                "bilesik-faiz-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gercek-birim-uzama-hesaplama",
+            "name": "Gerçek Birim Uzama Hesaplama",
+            "desc": "Malzemelerde şekil değişimi sırasında anlık boy değişimine dayalı gerçek birim uzamayı (True Strain) ve mühendislik uzamasını hesaplar.",
+            "shortcode": "[hc_gercek_birim_uzama]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gerilme-hesaplama",
+                "hooke-yasasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "geri-donusum-etkisi-hesaplama",
+            "name": "Geri Dönüşüm Etkisi Hesaplama",
+            "desc": "Geri dönüştürdüğünüz kağıt, plastik, cam ve metal atık miktarlarına göre kurtarılan ağaç, su, elektrik enerjisi ve CO₂ tasarrufunu hesaplar.",
+            "shortcode": "[hc_geri_donusum_etkisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "geri-donusum-orani-hesaplama",
+                "karbon-ayak-izi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "geri-donusum-orani-hesaplama",
+            "name": "Geri Dönüşüm Oranı Hesaplama",
+            "desc": "Tesis, belediye veya hanelerde üretilen toplam atık miktarı içindeki geri kazanılan atıkların yüzdesini (%) hesaplar.",
+            "shortcode": "[hc_geri_donusum_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "geri-donusum-etkisi-hesaplama",
+                "karbon-ayak-izi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "geri-sayim",
+            "name": "Resmi Tatiller ve Sınavlar Geri Sayım",
+            "desc": "Seçilen resmi tatiller, önemli günler ve 2026 ÖSYM sınavları (YKS, KPSS vb.) için kalan gün, saat, dakika ve saniyeyi hesaplar.",
+            "shortcode": "[hc_geri_sayim]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gun-hesaplama",
+                "haftalik-calisma-saati-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gerilim-birimi-donusturme-hesaplama",
+            "name": "Elektriksel Gerilim Birimi Dönüştürücü",
+            "desc": "Volt, milivolt, kilovolt, mikrovolt ve megavolt birimleri arasında hızlı ve hassas gerilim (voltaj) dönüşümü yapar.",
+            "shortcode": "[hc_gerilim_donusturucu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gerilim-dusumu-hesaplama",
+                "gerilim-bolucu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gerilim-bolucu-hesaplama",
+            "name": "Gerilim Bölücü (Voltage Divider) Hesaplama",
+            "desc": "Giriş gerilimi ve iki seri direnç değerine göre çıkış gerilimini ve dirençler üzerinde harcanan güçleri hesaplar.",
+            "shortcode": "[hc_gerilim_bolucu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gerilim-birimi-donusturme-hesaplama",
+                "gerilim-dusumu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gerilim-dusumu-hesaplama",
+            "name": "Elektrik Tesisatı Gerilim Düşümü Hesaplama",
+            "desc": "Kablo uzunluğu, çekilen güç\/akım, faz tipi ve kablo kesitine göre tesisattaki gerilim düşümünü (%) ve yasal uygunluğunu hesaplar.",
+            "shortcode": "[hc_gerilim_dusumu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "guc-tuketimi-hesaplama",
+                "gerilim-birimi-donusturme-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gerilme-kuvveti-hesaplama",
+            "name": "İp Gerilme Kuvveti Hesaplama",
+            "desc": "Statik ve dinamik sistemlerde, asılı kütlelerin ivmesine ve eğim açılarına göre ipteki gerilme kuvvetini (Tension) hesaplar.",
+            "shortcode": "[hc_ip_gerilmesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "yercekimi-potansiyel-enerji-hesaplama",
+                "gravitational-potansiyel-enerji-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gerilme-yigilmasi-katsayisi-hesaplama",
+            "name": "Gerilme Yığılması Katsayısı (Kt)",
+            "desc": "Makine elemanlarındaki delik, çentik ve kademeli kesit değişimleri nedeniyle oluşan maksimum lokal gerilmenin nominal gerilmeye oranını (Kt) hesaplar.",
+            "shortcode": "[hc_gerilme_yigilmasi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gerilme-hesaplama",
+                "hooke-yasasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezegen-burcu-hesaplama",
+            "name": "Astrolojik Gezegen Burcu Hesaplama",
+            "desc": "Doğum tarihi, saati ve doğum yerine göre doğum haritanızdaki tüm ana gezegenlerin (Güneş'ten Plüton'a) hangi burçlarda olduğunu hesaplar.",
+            "shortcode": "[hc_gezegen_burcu]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezegen-derecesi-hesaplama",
+                "gezegenlerin-ev-konumlari"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezegen-derecesi-hesaplama",
+            "name": "Astrolojik Gezegen Dereceleri Hesaplama",
+            "desc": "Gezegenlerin burçlardaki tam boylam derecesini ve dakikasını (örneğin 15° 24' Koç) hesaplar.",
+            "shortcode": "[hc_gezegen_derecesi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezegen-etkileri-hesaplama",
+                "gezegenlerin-ev-konumlari"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezegen-etkileri-hesaplama",
+            "name": "Astrolojik Gezegen Etkileri Hesaplama",
+            "desc": "Doğum haritanızdaki baskın gezegen yerleşimlerine göre yaşam alanlarınızdaki karakter ve gelecek potansiyellerinizi analiz eder.",
+            "shortcode": "[hc_gezegen_etkileri]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezegenlerin-ev-konumlari",
+                "gezegen-burcu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezegen-konumlari-hesaplama",
+            "name": "Anlık Gezegen Konumları Hesaplama",
+            "desc": "Doğum anında veya seçilen herhangi bir tarihte gökyüzündeki gezegenlerin tam ekliptik boylamlarını ve enlemlerini hesaplar.",
+            "shortcode": "[hc_gezegen_konumlari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezegen-burcu-hesaplama",
+                "gunes-acisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezegenlerde-agirlik-hesaplama",
+            "name": "Farklı Gezegenlerde Ağırlık Hesaplama",
+            "desc": "Dünya üzerindeki kilonuzu girerek Güneş sistemindeki diğer gezegenlerde ve Ay'da kaç kilogram geleceğinizi hesaplar.",
+            "shortcode": "[hc_gezegenlerde_agirlik]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "yercekimi-potansiyel-enerji-hesaplama",
+                "hacimden-kutle-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gezegenlerin-ev-konumlari",
+            "name": "Astrolojik Ev Konumları Hesaplama",
+            "desc": "Doğum saati ve koordinatlarına göre Placidus ev sistemi kullanarak gezegenlerin doğum haritanızda hangi evlerde (1. Ev - 12. Ev) yer aldığını hesaplar.",
+            "shortcode": "[hc_gezegen_ev_konumlari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gezegen-burcu-hesaplama",
+                "gezegen-derecesi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gibbs-serbest-enerjisi-hesaplama",
+            "name": "Gibbs Serbest Enerjisi Hesaplama",
+            "desc": "Termodinamik tepkimelerin kendiliğindenliğini (spontane olup olmadığını) entalpi, entropi ve sıcaklık değerlerine göre hesaplar.",
+            "shortcode": "[hc_gibbs_serbest_enerjisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "hess-yasasi-hesaplama",
+                "ideal-gaz-yasasi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gida-fire-orani-hesaplama",
+            "name": "Gıda Fire Oranı Hesaplama",
+            "desc": "Gıda işletmelerinde veya mutfaklarda, gıdanın brüt ağırlığı ile işlendikten (ayıklama, pişirme) sonraki net ağırlığı arasındaki fire ve verim oranını hesaplar.",
+            "shortcode": "[hc_gida_fire_orani]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gida-israfi-hesaplama",
+                "gida-kalorisi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gida-israfi-hesaplama",
+            "name": "Gıda İsrafı ve Karbon Maliyeti",
+            "desc": "Haftalık çöpe atılan gıda miktarlarına göre yıllık çöpe giden parayı, boşa harcanan suyu ve CO₂ salınımını hesaplar.",
+            "shortcode": "[hc_gida_israfi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gida-fire-orani-hesaplama",
+                "karbon-ayak-izi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gida-kalorisi-hesaplama",
+            "name": "Besin Kalorisi Hesaplama",
+            "desc": "Gıdaların içerdikleri karbonhidrat, protein, yağ ve lif gramajlarına göre Atwater sistemini kullanarak toplam kalori değerini hesaplar.",
+            "shortcode": "[hc_besin_kalorisi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-kalori-ihtiyaci-hesaplama",
+                "gunluk-protein-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gidada-sulfit-miktari-hesaplama",
+            "name": "Gıdada Sülfit Miktarı Hesaplama",
+            "desc": "Kurutulmuş meyveler ve şaraplardaki serbest sülfit (Kükürt Dioksit - SO₂) miktarını yasal güvenlik limitlerine göre değerlendirir.",
+            "shortcode": "[hc_gidada_sulfit_miktari]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gida-fire-orani-hesaplama",
+                "gida-israfi-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gimbal-titresim-frekansı-hesaplama",
+            "name": "Gimbal Titreşim Sönümleme Frekansı",
+            "desc": "Dron, kamera ve gimbal sistemlerinde, yük ağırlığı ve sönümleyici (damper) sertliğine göre rezonans frekansını hesaplar.",
+            "shortcode": "[hc_gimbal_titresim]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "guc-tuketimi-hesaplama",
+                "gerilim-dusumu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gitar-fret-frekans-hesaplama",
+            "name": "Gitar Perde (Fret) Frekans Hesaplama",
+            "desc": "Gitar klavyesindeki perdelerin (fret) tel eşiğine olan mesafesini ve her perdede basılan notanın frekansını (Hz) hesaplar.",
+            "shortcode": "[hc_gitar_fret_frekans]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gun-saat-donusturucu",
+                "gerilme-kuvveti-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "gizli-isi-hesaplama",
+            "name": "Fiziksel Gizli Isı (Q = mL) Hesaplama",
+            "desc": "Maddelerin erime, donma, buharlaşma ve yoğunlaşma gibi hal değişimleri sırasında sıcaklığı sabit kalarak emdiği veya saldığı ısı enerjisini hesaplar.",
+            "shortcode": "[hc_gizli_isi]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "guc-tuketimi-hesaplama",
+                "gerilim-dusumu-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
+        },
+        {
+            "module_slug": "glisemik-indeks-hesaplama",
+            "name": "Glisemik İndeks (GI) Değerlendirme",
+            "desc": "Besinlerin glisemik indeks ve porsiyondaki karbonhidrat miktarına göre kan şekerini yükseltme etkisini (Glisemik Yük) hesaplar ve kategorize eder.",
+            "shortcode": "[hc_glisemik_indeks]",
+            "disclaimer_type": "legal_financial",
+            "related_calculators": [
+                "gunluk-karbonhidrat-ihtiyaci-hesaplama",
+                "gunluk-lif-ihtiyaci-hesaplama"
+            ],
+            "content_review_status": "ready_for_pilot",
+            "notes": "Registered in Phase 5G."
         }
     ]
 }
