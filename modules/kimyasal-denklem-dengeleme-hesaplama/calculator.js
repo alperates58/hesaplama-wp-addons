@@ -28,6 +28,37 @@ function hcKimyasalDenklemDengelemeHesapla() {
         // For the sake of this module, I'll implement a basic matrix solver in a follow-up if needed.
     }
 
+    if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('kimyasal-denklem-dengeleme-hesaplama', {
+        primaryResult: result,
+        shortSummary: 'Kimyasal denklem dengeleme sonucu.',
+        interpretation: 'Reaksiyon denklemindeki girenler ve ürünler tarafındaki atom sayıları eşitlenerek denkleştirilmiş denklem katsayıları bulunmuştur.',
+        formula: {
+            raw: 'Girenler (Sol) = Ürünler (Sağ)',
+            text: 'Her bir kimyasal element için kütlenin korunumu kanunu uyarınca sol ve sağ taraftaki atom miktarları lineer denklem sistemleri kurularak eşitlenir.'
+        },
+        example: 'H2 + O2 = H2O denklemi dengelendiğinde: 2 H₂ + O₂ = 2 H₂O şeklinde katsayılar atanır.',
+        source: {
+            name: 'Akademik Kimya ve Temel Stoikiometri Prensipleri',
+            url: 'https://en.wikipedia.org/wiki/Chemical_equation'
+        },
+        nextActions: [
+            'Dengelenmiş denklem katsayılarını stoikiometrik mol hesaplarında kullanabilirsiniz.',
+            'Bileşik formüllerinde büyük-küçük harf ayrımına dikkat edin (Örn: Co kobalt, CO karbonmonoksit).'
+        ],
+        faq: [
+            { question: "Kimyasal denklem neden dengelenmelidir?", answer: "Kütlenin korunumu yasası gereği reaksiyona giren atomların türü ve sayısı, çıkan ürünlerinki ile aynı olmak zorundadır." },
+            { question: "Hangi denklemler dengelemeye uygundur?", answer: "Yazılan formüllerin kimyasal olarak kararlı ve doğru yazılmış olması gerekmektedir." }
+        ],
+        metadata: {
+            severity: 'success',
+            status: 'success',
+            lastUpdated: '2026-07-06',
+            badges: ['Bilim & Mühendislik', 'Kimya / Stoikiometri']
+        }
+    })) {
+        return;
+    }
+
     document.getElementById('hc-eq-val').innerHTML = result;
     document.getElementById('hc-eq-result').classList.add('visible');
 }

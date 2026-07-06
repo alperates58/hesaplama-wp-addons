@@ -582,6 +582,213 @@
         });
     }
 
+    // ── Result Engine Mimari Standart (Faz 2E) ──────────────────────────
+    window.HC = window.HC || {};
+    window.HC.ResultEngine = {
+        version: "1.0.0",
+
+        render: function (slug, data, targetSelector) {
+            // 1. Feature Flag Check
+            if (!window.hcConfig || !window.hcConfig.resultEngineEnabled) {
+                return false;
+            }
+
+            // 2. Registry Validation (Only ready_for_pilot templates)
+            var templates = window.hcTemplates || [];
+            var tpl = templates.find(function (t) { return t.module_slug === slug; });
+            if (!tpl || tpl.content_review_status !== "ready_for_pilot") {
+                return false;
+            }
+
+            try {
+                var target = document.querySelector(targetSelector) || 
+                             document.querySelector('#hc-' + slug + ' .hc-result') || 
+                             document.getElementById('hc-' + slug + '-result');
+                if (!target) return false;
+
+                var html = '';
+                var severity = (data.metadata && data.metadata.severity) ? data.metadata.severity : 'info';
+
+                // Base Card Block
+                html += '<div class="hc-rt-card hc-rt-card--' + escapeHtml(severity) + '">';
+
+                // Header Block
+                html += '<div class="hc-rt-header">';
+                if (tpl.result_sections_enabled.result_title) {
+                    var titleText = data.title || (window.hcRegistry && window.hcRegistry[slug] ? window.hcRegistry[slug].name : 'Hesaplama Sonucu');
+                    html += '<h4 class="hc-rt-title">' + escapeHtml(titleText) + '</h4>';
+                }
+
+                // Badges
+                var badges = (data.metadata && data.metadata.badges) ? data.metadata.badges : [];
+                if (badges.length > 0) {
+                    html += '<div class="hc-rt-badges">';
+                    badges.forEach(function (b) {
+                        html += '<span class="hc-rt-badge hc-rt-badge--highlight">' + escapeHtml(b) + '</span>';
+                    });
+                    html += '</div>';
+                }
+                html += '</div>';
+
+                // Primary Result Block
+                if (tpl.result_sections_enabled.primary_result && data.primaryResult) {
+                    html += '<div class="hc-rt-primary" aria-live="polite" aria-atomic="true">' + escapeHtml(data.primaryResult) + '</div>';
+                }
+
+                // Short Summary Block
+                if (tpl.result_sections_enabled.short_summary && data.shortSummary) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<div class="hc-rt-section-body"><strong>' + escapeHtml(data.shortSummary) + '</strong></div>';
+                    html += '</section>';
+                }
+
+                // Interpretation Block
+                if (tpl.result_sections_enabled.interpretation && data.interpretation) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Değerlendirme</h5>';
+                    html += '<div class="hc-rt-section-body">' + data.interpretation + '</div>';
+                    html += '</section>';
+                }
+
+                // Reference Table Block
+                if (tpl.result_sections_enabled.reference_table && data.referenceTable) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Referans Değerleri</h5>';
+                    html += '<div class="hc-rt-table-wrapper">';
+                    html += '<table class="hc-rt-table">';
+                    if (data.referenceTable.headers) {
+                        html += '<thead><tr>';
+                        data.referenceTable.headers.forEach(function (h) {
+                            html += '<th scope="col">' + escapeHtml(h) + '</th>';
+                        });
+                        html += '</tr></thead>';
+                    }
+                    if (data.referenceTable.rows) {
+                        html += '<tbody>';
+                        data.referenceTable.rows.forEach(function (row, rIndex) {
+                            var trClass = (data.referenceTable.highlightedRowIndex === rIndex) ? ' class="hc-rt-row-highlight"' : '';
+                            html += '<tr' + trClass + '>';
+                            row.forEach(function (cell) {
+                                html += '<td>' + escapeHtml(cell) + '</td>';
+                            });
+                            html += '</tr>';
+                        });
+                        html += '</tbody>';
+                    }
+                    html += '</table></div></section>';
+                }
+
+                // Formula Explanation Block
+                if (tpl.result_sections_enabled.formula_explanation && data.formula) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Formül ve Hesaplama Yöntemi</h5>';
+                    html += '<div class="hc-rt-section-body">';
+                    if (data.formula.raw) {
+                        html += '<code>' + escapeHtml(data.formula.raw) + '</code><br><br>';
+                    }
+                    if (data.formula.text) {
+                        html += escapeHtml(data.formula.text);
+                    }
+                    html += '</div></section>';
+                }
+
+                // Example Calculation Block
+                if (tpl.result_sections_enabled.example_calculation && data.example) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Örnek Senaryo</h5>';
+                    html += '<div class="hc-rt-section-body">' + escapeHtml(data.example) + '</div>';
+                    html += '</section>';
+                }
+
+                // Source Note Block
+                if (tpl.result_sections_enabled.source_note && data.source) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Resmi Kaynak</h5>';
+                    html += '<div class="hc-rt-section-body">';
+                    if (data.source.url) {
+                        html += '<a href="' + escapeHtml(data.source.url) + '" target="_blank" rel="noopener noreferrer" style="color:var(--hc-rt-color-info); font-weight:600;">' + escapeHtml(data.source.name) + ' ↗</a>';
+                    } else {
+                        html += escapeHtml(data.source.name);
+                    }
+                    html += '</div></section>';
+                }
+
+                // Disclaimer Block
+                if (tpl.result_sections_enabled.disclaimer) {
+                    var discType = '';
+                    if (window.hcRegistry && window.hcRegistry[slug]) {
+                        discType = window.hcRegistry[slug].target_disclaimer_type || window.hcRegistry[slug].disclaimer_type;
+                    }
+                    var discData = (discType && window.hcDisclaimers && window.hcDisclaimers[discType]) ? window.hcDisclaimers[discType] : null;
+                    if (discData) {
+                        html += '<div class="hc-rt-disclaimer">';
+                        html += '<div><strong>' + escapeHtml(discData.title) + ':</strong> ' + escapeHtml(discData.text) + '</div>';
+                        html += '</div>';
+                    }
+                }
+
+                // Next Actions Block
+                if (tpl.result_sections_enabled.next_actions && data.nextActions && data.nextActions.length > 0) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Önerilen Adımlar</h5>';
+                    html += '<ul class="hc-rt-next-actions">';
+                    data.nextActions.forEach(function (act) {
+                        html += '<li class="hc-rt-action-item">' + escapeHtml(act) + '</li>';
+                    });
+                    html += '</ul></section>';
+                }
+
+                // Related Calculators Block
+                if (tpl.result_sections_enabled.related_calculators && tpl.related_calculators && tpl.related_calculators.length > 0) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">İlgili Hesaplayıcılar</h5>';
+                    html += '<div class="hc-rt-related-list">';
+                    tpl.related_calculators.forEach(function (relSlug) {
+                        var relName = (window.hcRegistry && window.hcRegistry[relSlug]) ? window.hcRegistry[relSlug].name : relSlug;
+                        html += '<a href="../' + escapeHtml(relSlug) + '/" class="hc-rt-related-link">' + escapeHtml(relName) + '</a>';
+                    });
+                    html += '</div></section>';
+                }
+
+                // FAQ Block
+                if (tpl.result_sections_enabled.faq_snippets && data.faq && data.faq.length > 0) {
+                    html += '<section class="hc-rt-section">';
+                    html += '<h5 class="hc-rt-section-title">Sıkça Sorulan Sorular</h5>';
+                    data.faq.forEach(function (f) {
+                        html += '<details class="hc-rt-faq-item">';
+                        html += '<summary>' + escapeHtml(f.question) + '</summary>';
+                        html += '<div class="hc-rt-faq-answer">' + escapeHtml(f.answer) + '</div>';
+                        html += '</details>';
+                    });
+                    html += '</section>';
+                }
+
+                html += '</div>'; // End card
+
+                target.innerHTML = html;
+                target.classList.add('visible');
+                return true;
+            } catch (err) {
+                console.error("HC ResultEngine Render Error: ", err);
+                return false;
+            }
+        },
+
+        update: function (slug, data) {
+            return this.render(slug, data);
+        },
+
+        destroy: function (slug) {
+            var target = document.querySelector('#hc-' + slug + ' .hc-result') || document.getElementById('hc-' + slug + '-result');
+            if (target) {
+                target.innerHTML = '';
+                target.classList.remove('visible');
+                return true;
+            }
+            return false;
+        }
+    };
+
     // ── Merkezi Yapı Yardımcıları ────────────────────────────────────────
 
     window.hcGetFormulaConstant = function (key, defaultValue) {

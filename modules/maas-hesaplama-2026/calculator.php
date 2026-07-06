@@ -99,6 +99,7 @@ function hc_render_maas_hesaplama_2026( $atts ) {
                 <li>Rakam asgari ücretin altında olduğunda hesaplama yapılmaz.</li>
                 <li>2026 yılında AGİ uygulanmadığı için Asgari Geçim İndirimi alanı 0,00 TL gösterilir.</li>
             </ol>
+            <div class="hc-result" id="hc-maas-result-summary" style="display:none;"></div>
         </div>
     </div>
     <?php

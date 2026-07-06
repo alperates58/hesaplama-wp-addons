@@ -356,6 +356,53 @@ function hcMaasTabloHesapla2026() {
     hcMaasBaslikGuncelle();
     document.getElementById('hc-maas-tfoot').innerHTML = hcToplamSatiri(toplam, kumulatif, maliyetGoster);
     hcMaasIsverenKolonlariGuncelle();
+
+    if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined') {
+        var summaryEl = document.getElementById('hc-maas-result-summary');
+        if (summaryEl) {
+            summaryEl.style.display = 'block';
+            window.HC.ResultEngine.render('maas-hesaplama-2026', {
+                primaryResult: hcTL(toplam.toplamNet) + ' ₺',
+                shortSummary: '12 Aylık Toplam Net Ele Geçen Ücret hesaplandı.',
+                interpretation: 'Hesaplanan net ücret, 2026 yılı asgari ücret istisnası ve gelir vergisi dilimleri (%15, %20, %27, %35, %40) dikkate alınarak kümülatif matrah üzerinden hesaplanmıştır.',
+                referenceTable: {
+                    headers: ['Açıklama', 'Yıllık Toplam Tutar (₺)'],
+                    rows: [
+                        ['Toplam Brüt Ücret', hcTL(toplam.brut) + ' ₺'],
+                        ['Toplam SSK İşçi Payı (%14)', hcTL(toplam.sskIsci) + ' ₺'],
+                        ['Toplam İşsizlik Sigortası İşçi Payı (%1)', hcTL(toplam.issizlikIsci) + ' ₺'],
+                        ['Toplam Hesaplanan Gelir Vergisi', hcTL(toplam.gelirVergisi) + ' ₺'],
+                        ['Toplam Damga Vergisi', hcTL(toplam.damgaVergisi) + ' ₺'],
+                        ['Toplam Net Ele Geçen Ücret', hcTL(toplam.toplamNet) + ' ₺'],
+                        ['Toplam İşveren Maliyeti', hcTL(toplam.toplamMaliyet) + ' ₺']
+                    ],
+                    highlightedRowIndex: 5
+                },
+                formula: {
+                    raw: 'Net Ele Geçen = Brüt - SSK İşçi - İşsizlik İşçi - Gelir Vergisi - Damga Vergisi + İstisnalar',
+                    text: '2026 yılı yasal düzenlemelerine göre aylık brüt ücretten SGK işçi kesintileri yapıldıktan sonra kalan matraha kümülatif vergi dilimleri uygulanır. Asgari ücret tutarındaki KDV/Gelir Vergisi ve Damga Vergisi istisnaları düşülerek net ele geçen tutar bulunur.'
+                },
+                source: {
+                    name: 'Gelir Vergisi Kanunu Genel Tebliği ve Sosyal Sigortalar Mevzuatı (2026)',
+                    url: 'https://www.resmigazete.gov.tr'
+                },
+                nextActions: [
+                    'Kümülâtif vergi matrahınızın diğer iş yerlerinden gelen matrahlarla birleştirilip birleştirilmeyeceğini mali müşavirinizle görüşün.',
+                    'Hesaplanan işveren maliyetini bütçe planlamalarınızda kullanabilirsiniz.'
+                ],
+                faq: [
+                    { question: "2026 yılında Gelir Vergisi dilimleri nasıldır?", answer: "İlk dilim 190.000 ₺\'ye kadar %15, sonra sırasıyla %20, %27, %35 ve %40 olarak uygulanmaktadır." },
+                    { question: "Maaş hesaplamasında asgari ücret istisnası nasıl uygulanır?", answer: "Her ay asgari ücretin brüt tutarına tekabül eden gelir ve damga vergisi tutarı, hesaplanan vergilerden mahsup edilir." }
+                ],
+                metadata: {
+                    severity: 'success',
+                    status: 'success',
+                    lastUpdated: '2026-07-06',
+                    badges: ['Finans & Ekonomi', 'Maaş & Vergi 2026']
+                }
+            }, '#hc-maas-result-summary');
+        }
+    }
 }
 
 (function() {

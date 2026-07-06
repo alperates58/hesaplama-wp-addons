@@ -279,6 +279,12 @@ class HC_Calculator_Loader {
 				[],
 				HC_VERSION
 			);
+			wp_enqueue_style(
+				'hesaplama-suite-result-template',
+				HC_PLUGIN_URL . 'assets/result-template.css',
+				[ 'hesaplama-suite' ],
+				HC_VERSION
+			);
 			wp_enqueue_script(
 				'hesaplama-suite',
 				HC_PLUGIN_URL . 'assets/main.js',
@@ -287,12 +293,16 @@ class HC_Calculator_Loader {
 				true
 			);
 
-			// Katsayı sözlüğü ve disclaimer verilerini JS ortamına localize et
+			// Katsayı sözlüğü, template, registry, sources ve disclaimer verileri
 			$dict_file = HC_PLUGIN_DIR . 'assets/data/formula-dictionary.json';
 			$disc_file = HC_PLUGIN_DIR . 'assets/data/category-disclaimers.json';
+			$tpl_file  = HC_PLUGIN_DIR . 'assets/data/result-template-registry.json';
+			$src_file  = HC_PLUGIN_DIR . 'assets/data/source-registry.json';
 
 			$dict_data = file_exists( $dict_file ) ? json_decode( file_get_contents( $dict_file ), true ) : [];
 			$disc_data = file_exists( $disc_file ) ? json_decode( file_get_contents( $disc_file ), true ) : [];
+			$tpl_data  = file_exists( $tpl_file ) ? json_decode( file_get_contents( $tpl_file ), true ) : [];
+			$src_data  = file_exists( $src_file ) ? json_decode( file_get_contents( $src_file ), true ) : [];
 
 			$client_dict = [];
 			if ( is_array( $dict_data ) ) {
@@ -308,13 +318,25 @@ class HC_Calculator_Loader {
 			}
 
 			$client_disclaimers = isset( $disc_data['disclaimers'] ) ? $disc_data['disclaimers'] : [];
+			$client_tpl         = isset( $tpl_data['templates'] ) ? $tpl_data['templates'] : [];
+			$client_src         = isset( $src_data['sources'] ) ? $src_data['sources'] : [];
+			$client_reg         = $this->load_module_registry();
 
 			$central_data = [
 				'dictionary'  => $client_dict,
 				'disclaimers' => $client_disclaimers,
+				'templates'   => $client_tpl,
+				'sources'     => $client_src,
+				'registry'    => $client_reg,
 			];
 
-			$inline_js = 'window.hcCentralData = ' . json_encode( $central_data, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js  = 'window.hcCentralData = ' . json_encode( $central_data, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcRegistry = ' . json_encode( $client_reg, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcTemplates = ' . json_encode( $client_tpl, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcSources = ' . json_encode( $client_src, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcDisclaimers = ' . json_encode( $client_disclaimers, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcConfig = { "resultEngineEnabled": true };';
+
 			wp_add_inline_script( 'hesaplama-suite', $inline_js, 'before' );
 		}
 	}
