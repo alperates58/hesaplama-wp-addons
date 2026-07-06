@@ -18,20 +18,6 @@ function hcTc2Hesapla() {
     }
 
     const diff = ((d2 - d1) / d1) * 100;
-    var severity = Math.abs(diff) > 3 ? 'danger' : 'success';
-
-    if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('lastik-karsilastirma-hesaplama', {
-        diff: (diff > 0 ? '+' : '') + diff.toFixed(2) + '%',
-        d1: d1.toFixed(1),
-        d2: d2.toFixed(1),
-        dDiff: (d2 - d1).toFixed(1),
-        severity: severity,
-        metadata: {
-            badges: ['Otomotiv & Trafik', 'Güvenlik Standardı']
-        }
-    })) {
-        return;
-    }
 
     document.getElementById('hc-tc2-val').innerText = diff.toFixed(2) + "%";
     document.getElementById('hc-tc2-result').classList.add('visible');

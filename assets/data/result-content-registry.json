@@ -1,457 +1,2063 @@
 {
-  "version": "1.0.0",
-  "last_updated": "2026-07-06",
-  "modules": {
-    "ask-uyumu": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "{n1} ve {n2} İsim & Burç Aşk Uyumu Analizi",
-      "primaryResult": "%{skor}",
-      "interpretation_rules": [
-        {
-          "condition": "skor >= 80",
-          "text": "Mükemmel Ruh İkizi! Uyumlu elementleriniz ve rezonansa sahip isim titreşimleriniz, derin ve kalıcı bir beraberliği işaret ediyor. Karşılıklı sevginiz, engelleri aşmak için en büyük gücünüz.",
-          "severity": "success"
+    "version": "1.0.0",
+    "last_updated": "2026-07-06",
+    "modules": {
+        "adsense-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
         },
-        {
-          "condition": "skor >= 60 && skor < 80",
-          "text": "Güzel Gelişim Potansiyeli! Karşılıklı empati, saygı ve çabayla taçlanan, sevgi dolu bir bağ kurabilirsiniz. İletişimi ön planda tuttuğunuz sürece uyumunuz her geçen gün artacaktır.",
-          "severity": "warning"
+        "bagkur-primi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
         },
-        {
-          "condition": "skor < 60",
-          "text": "Farkındalık ve Denge İlişkisi! Farklılıklarınızın birbirinizi besleyerek geliştirdiği, sabır ve emek gerektiren bir süreç. Birbirinizi değiştirmek yerine olduğunuz gibi kabul ettiğinizde çok daha güçlü bir bağ kurabilirsiniz.",
-          "severity": "danger"
-        }
-      ],
-      "next_actions": [
-        "Burç elementlerinizin ortak özelliklerini detaylı şekilde inceleyin.",
-        "İsimlerinizi göbek adlarınızla birlikte yazarak testi tekrarlayın.",
-        "Partnerinizle ortak ilgi alanlarınızı keşfedip birlikte vakit geçirin."
-      ],
-      "faq": [
-        { "question": "İsim aşk uyumu testi neye dayanır?", "answer": "Klasik numerolojideki harf frekansı ve isim sayı değerlerinin uyumuna dayanır." },
-        { "question": "Burç elementlerinin ilişkilerdeki rolü nedir?", "answer": "Ateş, toprak, hava ve su elementlerinin birbiriyle olan çekim veya dengeleme özelliklerini yansıtır." },
-        { "question": "Aşk uyumu sonucu ilişkide kesin belirleyici midir?", "answer": "Hayır, bu analiz astroloji ve numeroloji teorilerine dayalı eğlence amaçlı bir kılavuzdur." },
-        { "question": "Farklı isim varyasyonları (göbek adı vb.) sonucu etkiler mi?", "answer": "Evet, ismin tam yazılışı numerolojik toplamı ve frekansı doğrudan değiştirir." },
-        { "question": "Bu analiz ne sıklıkla güncellenmelidir?", "answer": "Doğum haritası ve isimler sabit olduğundan temel uyum değişmez, ancak transit burç etkileri güncellenebilir." }
-      ]
-    },
-    "gebelik-haftasi-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "SAT'a göre tahmini gebelik süresi hesaplandı.",
-      "primaryResult": "{hafta} Hafta {gun} Gün",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Şu an {donemText} içerisindesiniz. {yorumText}",
-          "severity": "info"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Trimester Dönemi", "Hafta Aralığı", "Açıklama"],
-        "rows": [
-          ["1. Trimester", "1 - 13. Hafta", "Organ gelişimi ve erken gebelik evresi"],
-          ["2. Trimester", "14 - 26. Hafta", "En rahat dönem, bebeğin büyüme evresi"],
-          ["3. Trimester", "27 - 40. Hafta", "Doğuma hazırlık ve gelişim tamamlama"],
-          ["40 Hafta Sonrası", "41+ Hafta", "Doktor kontrolünde yakın takip gereklidir"]
-        ]
-      },
-      "formula": {
-        "raw": "Gebelik Süresi = Hesaplama Tarihi - Son Adet Tarihi (SAT)",
-        "explanation": "Gebelik süresi, son adet tarihinin (SAT) ilk gününden itibaren geçen gün sayısının haftaya çevrilmesiyle hesaplanır. İdeal gebelik süresi 280 gün (40 hafta) kabul edilir."
-      },
-      "source": {
-        "name": "ACOG (American College of Obstetricians and Gynecologists) & T.C. Sağlık Bakanlığı",
-        "url": "https://www.acog.org"
-      },
-      "next_actions": [
-        "Haftalık gebelik takibinizi aksatmamak için doktor kontrollerinizi planlayın.",
-        "Sağlıklı beslenme ve hekim onaylı egzersiz programları uygulayın.",
-        "Trimester dönemine uygun tarama testleri ve aşılar hakkında hekiminize danışın."
-      ],
-      "faq": [
-        { "question": "Son Adet Tarihi (SAT) neden gebelik başlangıcı kabul edilir?", "answer": "Yumurtlama tarihi kişiye göre değişebildiğinden, tıbbi standardizasyon için SAT'ın ilk günü esas alınır." },
-        { "question": "Trimester nedir ve gebelikte kaç trimester vardır?", "answer": "Gebelik süreci 3 ana döneme (trimester) ayrılır: 1-13 hafta (1.), 14-26 hafta (2.) ve 27-40 hafta (3.)." },
-        { "question": "Normal bir gebelik kaç gün sürer?", "answer": "İdeal bir gebelik SAT başlangıcından itibaren ortalama 280 gün (40 hafta) sürer." },
-        { "question": "Tahmini doğum tarihinde doğum yapma olasılığı nedir?", "answer": "Bebeklerin sadece yaklaşık %5'i tam hesaplanan günde doğar; doğumlar genellikle 37-42. haftalar arasında gerçekleşir." },
-        { "question": "Gebelik haftası ultrason ölçümleri ile neden farklı çıkabilir?", "answer": "Bebeğin gelişim hızı ve SAT'ın tam hatırlanmaması nedeniyle 1-2 haftalık sapmalar normal kabul edilir ve hekim kararı esastır." },
-        { "question": "Hangi belirtilerde acilen doktora başvurulmalıdır?", "answer": "Vajinal kanama, şiddetli karın ağrısı, bebek hareketlerinin azalması, yüksek ateş veya ani şişlik durumlarında derhal doktora başvurulmalıdır." }
-      ]
-    },
-    "kdv-hesaplama-tevkifatli": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Tevkifatlı KDV hesaplaması başarıyla tamamlandı.",
-      "primaryResult": "{grandTotal} ₺",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Girilen tutara ait KDV oranının bir kısmı alıcı tarafından beyan edilmek üzere tevkif edilmiş (kesilmiş), kalan kısım ise satıcıya ödenmek üzere hesaplanmıştır.",
-          "severity": "success"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Açıklama", "Tutar (₺)"],
-        "rows": [
-          ["Matrah (KDV Hariç Tutar)", "{amount} ₺"],
-          ["Hesaplanan Toplam KDV", "{totalKdv} ₺"],
-          ["Tevkif Edilen KDV Tutarı", "-{tevkifatAmount} ₺"],
-          ["Beyan Edilecek KDV (Satıcıya Ödenen)", "{sellerKdv} ₺"],
-          ["Fatura Genel Toplamı (Matrah + Satıcı KDV)", "{grandTotal} ₺"]
-        ]
-      },
-      "formula": {
-        "raw": "Tevkifat Tutarı = KDV Tutarı * Tevkifat Oranı (örn. 5/10)",
-        "explanation": "Toplam KDV tutarı hesaplandıktan sonra, ilgili tevkifat oranına (bölümüne) göre KDV ikiye bölünür. Kesilen kısım alıcı tarafından 2 no'lu KDV beyannamesi ile devlete beyan edilir."
-      },
-      "source": {
-        "name": "Gelir İdaresi Başkanlığı (GİB) KDV Tebliği",
-        "url": "https://www.gib.gov.tr"
-      },
-      "next_actions": [
-        "Faturayı keserken tevkifat kodunun ve oranının doğru seçildiğinden emin olun.",
-        "Tevkif edilen tutarı 2 no'lu KDV beyannamesi ile beyan süresi içinde ödeyin.",
-        "GİB KDV Genel Uygulama Tebliğindeki güncel sınır ve tevkifat oranlarını takip edin."
-      ],
-      "faq": [
-        { "question": "KDV Tevkifatı nedir?", "answer": "KDV'nin tamamının satıcıya ödenmeyip, yasal olarak belirlenen kısmının alıcı tarafından kesilerek doğrudan vergi dairesine ödenmesidir." },
-        { "question": "Tevkifat uygulamak kimler için zorunludur?", "answer": "Belirlenmiş alıcılar (kamu kurumları, borsalar, halka açık şirketler vb.) ile tebliğde geçen mal/hizmetleri sunanlar için zorunludur." },
-        { "question": "Tevkifatlı fatura limiti 2026 yılı için ne kadardır?", "answer": "Fatura kesim sınırı KDV dahil tebliğde belirtilen yasal limitleri (en son 6.900 ₺) aşan işlemlerde uygulanır." },
-        { "question": "KDV-2 beyannamesi nedir ve ne zaman verilir?", "answer": "Alıcının tevkif ettiği KDV'yi beyan ettiği belgedir; ilgili ayı takip eden ayın 26. günü akşamına kadar verilir." },
-        { "question": "Tevkifat yapılmaması durumunda cezai işlem uygulanır mı?", "answer": "Evet, zamanında beyan edilmeyen veya kesilmeyen vergi için vergi ziyaı cezası ve gecikme faizi uygulanır." },
-        { "question": "Kısmi tevkifat ile tam tevkifat arasındaki fark nedir?", "answer": "Kısmi tevkifatta KDV'nin bir kısmı kesilirken, tam tevkifatta KDV'nin tamamı alıcı tarafından üstlenilir." }
-      ]
-    },
-    "kimyasal-denklem-dengeleme-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Kimyasal denklem dengeleme sonucu.",
-      "primaryResult": "{result}",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Reaksiyon denklemindeki girenler ve ürünler tarafındaki atom sayıları eşitlenerek denkleştirilmiş denklem katsayıları bulunmuştur.",
-          "severity": "success"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Kural Sırası", "Öncelik Sembolü", "Açıklama"],
-        "rows": [
-          ["1. Adım", "Metal (M)", "Öncelikle metaller dengelenir (Na, Fe, Ca vb.)"],
-          ["2. Adım", "Ametal (A)", "Metaller dışındaki ametaller eşitlenir (C, N, S vb.)"],
-          ["3. Adım", "Hidrojen (H)", "Hidrojen atomları eşitlenir"],
-          ["4. Adım", "Oksijen (O)", "En son oksijen sayıları kontrol edilerek denge sağlanır"]
-        ]
-      },
-      "formula": {
-        "raw": "Girenler (Sol) = Ürünler (Sağ)",
-        "explanation": "Her bir kimyasal element için kütlenin korunumu kanunu uyarınca sol ve sağ taraftaki atom miktarları lineer denklem sistemleri kurularak eşitlenir."
-      },
-      "source": {
-        "name": "IUPAC (International Union of Pure and Applied Chemistry)",
-        "url": "https://iupac.org"
-      },
-      "next_actions": [
-        "Dengelenmiş denklem katsayılarını stoikiometrik mol hesaplarında kullanabilirsiniz.",
-        "Bileşik formüllerinde büyük-küçük harf ayrımına dikkat edin (Örn: Co kobalt, CO karbonmonoksit).",
-        "Tepkimenin endotermik veya ekzotermik durumunu ısı yönünden kontrol edin."
-      ],
-      "faq": [
-        { "question": "Kimyasal denklem neden dengelenmelidir?", "answer": "Kütlenin korunumu yasası gereği reaksiyona giren atomların türü ve sayısı, çıkan ürünlerinki ile aynı olmak zorundadır." },
-        { "question": "Hangi denklemler dengelemeye uygundur?", "answer": "Yazılan formüllerin kimyasal olarak kararlı ve doğru yazılmış olması gerekmektedir." },
-        { "question": "Dengeleme katsayıları neyi ifade eder?", "answer": "Tepkimeye giren ve çıkan maddelerin mol oranlarını, dolayısıyla hacimsel veya kütlesel birleşme oranlarını gösterir." },
-        { "question": "Bileşiklerin alt indisleri dengeleme sırasında değiştirilebilir mi?", "answer": "Kesinlikle hayır; alt indislerin değişmesi maddenin kimyasal kimliğini değiştirir. Sadece katsayılar değiştirilebilir." },
-        { "question": "Redoks tepkimeleri bu basit dengeleme yöntemiyle çözülebilir mi?", "answer": "Elektron alışverişi olan karmaşık redoks tepkimeleri için yarı tepkime yöntemi gibi ileri teknikler gerekir." }
-      ]
-    },
-    "kira-artis-orani-yasal-sinir-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Yasal kira artış oranı hesaplandı.",
-      "primaryResult": "{yeniKira} ₺",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Hesaplanan tutar, TÜFE 12 aylık ortalaması yasal tavanı baz alınarak yapılmıştır. Türk Borçlar Kanunu Madde 344 uyarınca konut kiralarında yasal artış sınırı bu oranı geçemez.",
-          "severity": "info"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Açıklama", "Değer"],
-        "rows": [
-          ["Mevcut Kira Bedeli", "{kira} ₺"],
-          ["Artış Oranı", "{oran}"],
-          ["Artış Miktarı", "+{artis} ₺"],
-          ["Yeni Kira Bedeli", "{yeniKira} ₺"]
-        ]
-      },
-      "formula": {
-        "raw": "Yeni Kira = Mevcut Kira * (1 + Artış Oranı)",
-        "explanation": "Mevcut kira tutarı belirlenen yasal artış oranı (TÜFE 12 aylık ortalaması) kadar artırılarak yeni dönem kira bedeli hesaplanır."
-      },
-      "source": {
-        "name": "Türkiye Borçlar Kanunu Madde 344",
-        "url": "https://www.mevzuat.gov.tr"
-      },
-      "next_actions": [
-        "Artış oranının kontrat yenileme ayına ait güncel TÜFE 12 aylık ortalaması olduğunu doğrulayın.",
-        "Ev sahibi ve kiracı arasında yazılı mutabakat sağlayarak kira sözleşmesine ek protokol yapın.",
-        "Kira ödemelerinizi banka üzerinden yasal açıklama ile gönderin."
-      ],
-      "faq": [
-        { "question": "Kira artış oranı yasal tavanı neye göre belirlenir?", "answer": "Borçlar Kanunu uyarınca kira artışı, sözleşme yenilenen ay açıklanan 12 aylık TÜFE ortalamasını geçemez." },
-        { "question": "Ev sahibi yasal oranın üzerinde artış talep edebilir mi?", "answer": "Hayır, taraflar aksini kararlaştırmadıkça yasal tavanın üzerindeki zam talepleri geçersizdir." },
-        { "question": "Sözleşmede sabit bir zam oranı (örn: %20) yazıyorsa yasal tavan aşılabilir mi?", "answer": "Sözleşmede yazan oran yasal tavandan (TÜFE) düşükse o oran geçerlidir; yüksekse yasal tavan uygulanır." },
-        { "question": "5 yıllık kira süresi dolduğunda kira tespit davası nasıl açılır?", "answer": "5 yıl dolduktan sonra mal sahibi yasal tavanla bağlı kalmaksızın 'kira tespit davası' ile rayiç bedel isteyebilir." },
-        { "question": "İşyeri kiralarında artış sınırı nedir?", "answer": "İşyeri kiralarında da artış üst sınırı konutlarda olduğu gibi 12 aylık TÜFE ortalamasıdır." },
-        { "question": "Yasal zam yapılmaması tahliye sebebi midir?", "answer": "Evet, kiracının yasal oranda zam yapmaksızın eski kirayı yatırmaya devam etmesi eksik ödeme nedeniyle tahliye sebebi oluşturabilir." }
-      ]
-    },
-    "lastik-karsilastirma-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Lastik çap kıyaslama sonucu.",
-      "primaryResult": "{diff}",
-      "interpretation_rules": [
-        {
-          "condition": "severity === 'danger'",
-          "text": "Lastik çap farkı %3 limitinin üzerindedir. Bu durum araçta şanzıman, ABS, ESP ve hız göstergesi hatalarına yol açabileceğinden tavsiye edilmez.",
-          "severity": "danger"
+        "bayram-mesaisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
         },
-        {
-          "condition": "severity === 'success'",
-          "text": "Lastik çap farkı yasal sınırlar (%3) dahilindedir. Güvenle kullanabilirsiniz.",
-          "severity": "success"
+        "bosanma-mal-paylasimi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "brut-net-maas-donusumu-yurt-disi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "cayma-hakki-suresi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "cocuk-nafakasi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "damga-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "damga-vergisi-hesaplama-2026": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "deger-artis-kazanci-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "elektrokimyasal-hucre-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "emekli-ikramiyesi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "emekli-maasi-hesaplama-2026": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "emeklilik-borclanmasi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "emeklilik-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "emeklilik-yasi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "emlak-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "esnaf-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "eyt-emeklilik-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "faiz-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "fazla-mesai-alacagi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "fazla-mesai-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "fazla-mesai-ve-nobet-ucreti-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "freelance-vergi-sonrasi-net-gelir-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "freelancer-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gece-mesaisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gecici-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gecici-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gelir-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gelir-vergisi-hesaplama-2026": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "genel-satis-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "google-adsense-geliri-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gumruk-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "guncel-kdv-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "hiz-ihlali-ceza-tutari-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "ihbar-tazminati-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "influencer-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "ise-iade-tazminati-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "issizlik-maasi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "ithalat-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kambiyo-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kar-payi-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "karbon-emisyonu-co2-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kdv-dahil-haric-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kdv-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kdv-hesaplama-tevkifatli": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Tevkifatlı KDV hesaplaması başarıyla tamamlandı.",
+            "primaryResult": "{grandTotal} ₺",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Girilen tutara ait KDV oranının bir kısmı alıcı tarafından beyan edilmek üzere tevkif edilmiş (kesilmiş), kalan kısım ise satıcıya ödenmek üzere hesaplanmıştır.",
+                    "severity": "success"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Açıklama",
+                    "Tutar (₺)"
+                ],
+                "rows": [
+                    [
+                        "Matrah (KDV Hariç Tutar)",
+                        "{amount} ₺"
+                    ],
+                    [
+                        "Hesaplanan Toplam KDV",
+                        "{totalKdv} ₺"
+                    ],
+                    [
+                        "Tevkif Edilen KDV Tutarı",
+                        "-{tevkifatAmount} ₺"
+                    ],
+                    [
+                        "Beyan Edilecek KDV (Satıcıya Ödenen)",
+                        "{sellerKdv} ₺"
+                    ],
+                    [
+                        "Fatura Genel Toplamı (Matrah + Satıcı KDV)",
+                        "{grandTotal} ₺"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Tevkifat Tutarı = KDV Tutarı * Tevkifat Oranı (örn. 5\/10)",
+                "explanation": "Toplam KDV tutarı hesaplandıktan sonra, ilgili tevkifat oranına (bölümüne) göre KDV ikiye bölünür. Kesilen kısım alıcı tarafından 2 no'lu KDV beyannamesi ile devlete beyan edilir."
+            },
+            "source": {
+                "name": "Gelir İdaresi Başkanlığı (GİB) KDV Tebliği",
+                "url": "https:\/\/www.gib.gov.tr"
+            },
+            "next_actions": [
+                "Faturayı keserken tevkifat kodunun ve oranının doğru seçildiğinden emin olun.",
+                "Tevkif edilen tutarı 2 no'lu KDV beyannamesi ile beyan süresi içinde ödeyin.",
+                "GİB KDV Genel Uygulama Tebliğindeki güncel sınır ve tevkifat oranlarını takip edin."
+            ],
+            "faq": [
+                {
+                    "question": "KDV Tevkifatı nedir?",
+                    "answer": "KDV'nin tamamının satıcıya ödenmeyip, yasal olarak belirlenen kısmının alıcı tarafından kesilerek doğrudan vergi dairesine ödenmesidir."
+                },
+                {
+                    "question": "Tevkifat uygulamak kimler için zorunludur?",
+                    "answer": "Belirlenmiş alıcılar (kamu kurumları, borsalar, halka açık şirketler vb.) ile tebliğde geçen mal\/hizmetleri sunanlar için zorunludur."
+                },
+                {
+                    "question": "Tevkifatlı fatura limiti 2026 yılı için ne kadardır?",
+                    "answer": "Fatura kesim sınırı KDV dahil tebliğde belirtilen yasal limitleri (en son 6.900 ₺) aşan işlemlerde uygulanır."
+                },
+                {
+                    "question": "KDV-2 beyannamesi nedir ve ne zaman verilir?",
+                    "answer": "Alıcının tevkif ettiği KDV'yi beyan ettiği belgedir; ilgili ayı takip eden ayın 26. günü akşamına kadar verilir."
+                },
+                {
+                    "question": "Tevkifat yapılmaması durumunda cezai işlem uygulanır mı?",
+                    "answer": "Evet, zamanında beyan edilmeyen veya kesilmeyen vergi için vergi ziyaı cezası ve gecikme faizi uygulanır."
+                },
+                {
+                    "question": "Kısmi tevkifat ile tam tevkifat arasındaki fark nedir?",
+                    "answer": "Kısmi tevkifatta KDV'nin bir kısmı kesilirken, tam tevkifatta KDV'nin tamamı alıcı tarafından üstlenilir."
+                }
+            ]
+        },
+        "kdv-tevkifat-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kidem-tazminati-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kidem-tazminati-tavani-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kimyasal-denklem-dengeleme-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Kimyasal denklem dengeleme sonucu.",
+            "primaryResult": "{result}",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Reaksiyon denklemindeki girenler ve ürünler tarafındaki atom sayıları eşitlenerek denkleştirilmiş denklem katsayıları bulunmuştur.",
+                    "severity": "success"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Kural Sırası",
+                    "Öncelik Sembolü",
+                    "Açıklama"
+                ],
+                "rows": [
+                    [
+                        "1. Adım",
+                        "Metal (M)",
+                        "Öncelikle metaller dengelenir (Na, Fe, Ca vb.)"
+                    ],
+                    [
+                        "2. Adım",
+                        "Ametal (A)",
+                        "Metaller dışındaki ametaller eşitlenir (C, N, S vb.)"
+                    ],
+                    [
+                        "3. Adım",
+                        "Hidrojen (H)",
+                        "Hidrojen atomları eşitlenir"
+                    ],
+                    [
+                        "4. Adım",
+                        "Oksijen (O)",
+                        "En son oksijen sayıları kontrol edilerek denge sağlanır"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Girenler (Sol) = Ürünler (Sağ)",
+                "explanation": "Her bir kimyasal element için kütlenin korunumu kanunu uyarınca sol ve sağ taraftaki atom miktarları lineer denklem sistemleri kurularak eşitlenir."
+            },
+            "source": {
+                "name": "IUPAC (International Union of Pure and Applied Chemistry)",
+                "url": "https:\/\/iupac.org"
+            },
+            "next_actions": [
+                "Dengelenmiş denklem katsayılarını stoikiometrik mol hesaplarında kullanabilirsiniz.",
+                "Bileşik formüllerinde büyük-küçük harf ayrımına dikkat edin (Örn: Co kobalt, CO karbonmonoksit).",
+                "Tepkimenin endotermik veya ekzotermik durumunu ısı yönünden kontrol edin."
+            ],
+            "faq": [
+                {
+                    "question": "Kimyasal denklem neden dengelenmelidir?",
+                    "answer": "Kütlenin korunumu yasası gereği reaksiyona giren atomların türü ve sayısı, çıkan ürünlerinki ile aynı olmak zorundadır."
+                },
+                {
+                    "question": "Hangi denklemler dengelemeye uygundur?",
+                    "answer": "Yazılan formüllerin kimyasal olarak kararlı ve doğru yazılmış olması gerekmektedir."
+                },
+                {
+                    "question": "Dengeleme katsayıları neyi ifade eder?",
+                    "answer": "Tepkimeye giren ve çıkan maddelerin mol oranlarını, dolayısıyla hacimsel veya kütlesel birleşme oranlarını gösterir."
+                },
+                {
+                    "question": "Bileşiklerin alt indisleri dengeleme sırasında değiştirilebilir mi?",
+                    "answer": "Kesinlikle hayır; alt indislerin değişmesi maddenin kimyasal kimliğini değiştirir. Sadece katsayılar değiştirilebilir."
+                },
+                {
+                    "question": "Redoks tepkimeleri bu basit dengeleme yöntemiyle çözülebilir mi?",
+                    "answer": "Elektron alışverişi olan karmaşık redoks tepkimeleri için yarı tepkime yöntemi gibi ileri teknikler gerekir."
+                }
+            ]
+        },
+        "kimyasal-oksijen-ihtiyaci-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kimyasal-proses-verimi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kira-artis-orani-yasal-sinir-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Yasal kira artış oranı hesaplandı.",
+            "primaryResult": "{yeniKira} ₺",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Hesaplanan tutar, TÜFE 12 aylık ortalaması yasal tavanı baz alınarak yapılmıştır. Türk Borçlar Kanunu Madde 344 uyarınca konut kiralarında yasal artış sınırı bu oranı geçemez.",
+                    "severity": "info"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Açıklama",
+                    "Değer"
+                ],
+                "rows": [
+                    [
+                        "Mevcut Kira Bedeli",
+                        "{kira} ₺"
+                    ],
+                    [
+                        "Artış Oranı",
+                        "{oran}"
+                    ],
+                    [
+                        "Artış Miktarı",
+                        "+{artis} ₺"
+                    ],
+                    [
+                        "Yeni Kira Bedeli",
+                        "{yeniKira} ₺"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Yeni Kira = Mevcut Kira * (1 + Artış Oranı)",
+                "explanation": "Mevcut kira tutarı belirlenen yasal artış oranı (TÜFE 12 aylık ortalaması) kadar artırılarak yeni dönem kira bedeli hesaplanır."
+            },
+            "source": {
+                "name": "Türkiye Borçlar Kanunu Madde 344",
+                "url": "https:\/\/www.mevzuat.gov.tr"
+            },
+            "next_actions": [
+                "Artış oranının kontrat yenileme ayına ait güncel TÜFE 12 aylık ortalaması olduğunu doğrulayın.",
+                "Ev sahibi ve kiracı arasında yazılı mutabakat sağlayarak kira sözleşmesine ek protokol yapın.",
+                "Kira ödemelerinizi banka üzerinden yasal açıklama ile gönderin."
+            ],
+            "faq": [
+                {
+                    "question": "Kira artış oranı yasal tavanı neye göre belirlenir?",
+                    "answer": "Borçlar Kanunu uyarınca kira artışı, sözleşme yenilenen ay açıklanan 12 aylık TÜFE ortalamasını geçemez."
+                },
+                {
+                    "question": "Ev sahibi yasal oranın üzerinde artış talep edebilir mi?",
+                    "answer": "Hayır, taraflar aksini kararlaştırmadıkça yasal tavanın üzerindeki zam talepleri geçersizdir."
+                },
+                {
+                    "question": "Sözleşmede sabit bir zam oranı (örn: %20) yazıyorsa yasal tavan aşılabilir mi?",
+                    "answer": "Sözleşmede yazan oran yasal tavandan (TÜFE) düşükse o oran geçerlidir; yüksekse yasal tavan uygulanır."
+                },
+                {
+                    "question": "5 yıllık kira süresi dolduğunda kira tespit davası nasıl açılır?",
+                    "answer": "5 yıl dolduktan sonra mal sahibi yasal tavanla bağlı kalmaksızın 'kira tespit davası' ile rayiç bedel isteyebilir."
+                },
+                {
+                    "question": "İşyeri kiralarında artış sınırı nedir?",
+                    "answer": "İşyeri kiralarında da artış üst sınırı konutlarda olduğu gibi 12 aylık TÜFE ortalamasıdır."
+                },
+                {
+                    "question": "Yasal zam yapılmaması tahliye sebebi midir?",
+                    "answer": "Evet, kiracının yasal oranda zam yapmaksızın eski kirayı yatırmaya devam etmesi eksik ödeme nedeniyle tahliye sebebi oluşturabilir."
+                }
+            ]
+        },
+        "kira-stopaji-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kira-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "konaklama-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "konut-kira-gelir-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kripto-fifo-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kripto-lifo-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kripto-sermaye-kazanci-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kripto-yillik-vergi-yukumlulugu-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "kurumlar-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "limited-sirket-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "maas-artis-enflasyon-karsilastirma-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "maas-hesaplama-2026": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "12 Aylık Toplam Net Ele Geçen Ücret hesaplandı.",
+            "primaryResult": "{toplamNet} ₺",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Hesaplanan net ücret, 2026 yılı asgari ücret istisnası ve gelir vergisi dilimleri (%15, %20, %27, %35, %40) dikkate alınarak kümülatif matrah üzerinden hesaplanmıştır.",
+                    "severity": "success"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Açıklama",
+                    "Yıllık Toplam Tutar (₺)"
+                ],
+                "rows": [
+                    [
+                        "Toplam Brüt Ücret",
+                        "{brut} ₺"
+                    ],
+                    [
+                        "Toplam SSK İşçi Payı (%14)",
+                        "{sskIsci} ₺"
+                    ],
+                    [
+                        "Toplam İşsizlik Sigortası İşçi Payı (%1)",
+                        "{issizlikIsci} ₺"
+                    ],
+                    [
+                        "Toplam Hesaplanan Gelir Vergisi",
+                        "{gelirVergisi} ₺"
+                    ],
+                    [
+                        "Toplam Damga Vergisi",
+                        "{damgaVergisi} ₺"
+                    ],
+                    [
+                        "Toplam Net Ele Geçen Ücret",
+                        "{toplamNet} ₺"
+                    ],
+                    [
+                        "Toplam İşveren Maliyeti",
+                        "{toplamMaliyet} ₺"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Net Ele Geçen = Brüt - SSK İşçi - İşsizlik İşçi - Gelir Vergisi - Damga Vergisi + İstisnalar",
+                "explanation": "2026 yılı yasal düzenlemelerine göre aylık brüt ücretten SGK işçi kesintileri yapıldıktan sonra kalan matraha kümülatif vergi dilimleri uygulanır. Asgari ücret tutarındaki Gelir Vergisi ve Damga Vergisi istisnaları düşülerek net ele geçen tutar bulunur."
+            },
+            "source": {
+                "name": "Gelir Vergisi Kanunu Genel Tebliği ve Sosyal Sigortalar Mevzuatı (2026)",
+                "url": "https:\/\/www.resmigazete.gov.tr"
+            },
+            "next_actions": [
+                "Kümülâtif vergi matrahınızın diğer iş yerlerinden gelen matrahlarla birleştirilip birleştirilmeyeceğini mali müşavirinizle görüşün.",
+                "Hesaplanan işveren maliyetini bütçe planlamalarınızda kullanabilirsiniz.",
+                "5 puanlık SGK işveren prim teşvik haklarınızı kontrol edin."
+            ],
+            "faq": [
+                {
+                    "question": "2026 yılında Gelir Vergisi dilimleri nasıldır?",
+                    "answer": "İlk dilim 190.000 ₺ olup %15, ikinci dilim 400.000 ₺ olup %20, üçüncü dilim 1.500.000 ₺ olup %27, dördüncü dilim 5.300.000 ₺ olup %35 ve üzeri %40'tır."
+                },
+                {
+                    "question": "Asgari ücret istisnası maaş hesabını nasıl etkiler?",
+                    "answer": "Her ay brüt asgari ücrete isabet eden gelir vergisi ve damga vergisi tutarı, çalışanın hesaplanan vergilerinden düşülerek net maaşı artırır."
+                },
+                {
+                    "question": "Kümülatif gelir vergisi matrahı nedir?",
+                    "answer": "Yıl içinde her ay alınan brüt maaştan SGK primleri düşüldükten sonra kalan vergiye esas tutarların üst üste eklenmesiyle oluşan toplamdır."
+                },
+                {
+                    "question": "2026 yılında AGİ (Asgari Geçim İndirimi) ödeniyor mu?",
+                    "answer": "Hayır, AGİ uygulaması tamamen kaldırılmış olup, yerine tüm çalışanlara asgari ücret kadar vergi muafiyeti getirilmiştir."
+                },
+                {
+                    "question": "İşveren maliyeti neleri kapsar?",
+                    "answer": "Brüt maaşa ek olarak %20.5 oranındaki SGK işveren payı ve %2 oranındaki işsizlik sigortası işveren payını kapsar."
+                },
+                {
+                    "question": "5 puanlık SGK indirim hakkı nedir?",
+                    "answer": "SGK primlerini düzenli ödeyen ve borcu olmayan işverenler için uygulanan %5 oranındaki devlet desteğidir."
+                },
+                {
+                    "question": "Yıl içinde iş yeri değiştirenlerin kümülatif matrahı sıfırlanır mı?",
+                    "answer": "Evet, yeni iş yerinde matrah sıfırdan başlar ancak yıl sonunda iki matrah birleştirilerek beyanname verilmesi gerekebilir."
+                },
+                {
+                    "question": "Maaş dışındaki prim ve ikramiyeler vergi dilimini nasıl etkiler?",
+                    "answer": "Brüt tutara eklenen her türlü prim ve ikramiye kümülatif matrahı büyüterek daha erken üst vergi dilimine girilmesine yol açar."
+                }
+            ]
+        },
+        "mesai-saati-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "mobbing-manevi-tazminat-tahmini-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Mobbing manevi tazminat tahmini aralığı hesaplandı.",
+            "primaryResult": "{minTazminat} ₺ - {maxTazminat} ₺",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Hesaplanan tutar, mobbing süresi, delil durumu ve şirket büyüklüğü katsayıları baz alınarak Yargıtay emsal kararları çerçevesinde tahmin edilmiştir.",
+                    "severity": "warning"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Kriter",
+                    "Girdi Değeri"
+                ],
+                "rows": [
+                    [
+                        "Mobbing Süresi",
+                        "{sure} Ay"
+                    ],
+                    [
+                        "Psikolojik Etki Katsayısı",
+                        "{psiko} Puan"
+                    ],
+                    [
+                        "Delil\/İspat Durumu",
+                        "{delilText}"
+                    ],
+                    [
+                        "Şirket Büyüklüğü",
+                        "{sirketText}"
+                    ],
+                    [
+                        "Tahmini Minimum Tazminat",
+                        "{minTazminat} ₺"
+                    ],
+                    [
+                        "Tahmini Maksimum Tazminat",
+                        "{maxTazminat} ₺"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Tazminat = (Süre Puanı + Psikolojik Etki + Delil Puanı) * Şirket Katsayısı * 250",
+                "explanation": "Mobbing süresi (max 30 puan), psikolojik etki (max 35 puan) ve delil gücü (max 35 puan) toplanarak şirket katsayısı ve taban ücret çarpanı ile hesaplanır. Delil olmaması durumunda %60 hakkaniyet indirimi uygulanır."
+            },
+            "source": {
+                "name": "Yargıtay 9. Hukuk Dairesi Emsal Mobbing Kararları",
+                "url": "https:\/\/www.mevzuat.gov.tr"
+            },
+            "next_actions": [
+                "Mobbing teşkil eden tüm e-posta, mesaj ve yazışmaları güvenli bir şekilde arşivleyin.",
+                "Yaşadığınız psikolojik yıpranmayı belgelemek adına devlet hastanesinden psikiyatrik rapor alın.",
+                "İş akdinizi haklı nedenle feshetmeden önce mutlaka bir iş hukuku avukatına danışın."
+            ],
+            "faq": [
+                {
+                    "question": "Hukuken hangi davranışlar mobbing (psikolojik taciz) sınıfına girer?",
+                    "answer": "Sistemli, sürekli ve kasıtlı olarak çalışanı yıldırmaya, işten uzaklaştırmaya yönelik bezdirici davranışlar mobbingdir."
+                },
+                {
+                    "question": "Mobbing davasında hangi deliller mahkemece kabul edilir?",
+                    "answer": "E-postalar, WhatsApp yazışmaları, performans baskısını gösteren belgeler, şahit beyanları ve psikiyatrik doktor raporları güçlü delillerdir."
+                },
+                {
+                    "question": "Mobbing nedeniyle iş sözleşmesini haklı nedenle fesheden kıdem tazminatı alabilir mi?",
+                    "answer": "Evet, mobbinge uğrayan işçi iş sözleşmesini haklı nedenle derhal feshedebilir ve kıdem tazminatı almaya hak kazanır."
+                },
+                {
+                    "question": "Manevi tazminat davası açmak için zamanaşımı süresi ne kadardır?",
+                    "answer": "Mobbing eyleminin sona ermesinden itibaren genel zamanaşımı süresi 10 yıldır."
+                },
+                {
+                    "question": "Mobbing davalarında arabuluculuk zorunlu mudur?",
+                    "answer": "Evet, iş mahkemesinde dava açmadan önce arabuluculuk kurumuna başvurmak yasal bir zorunluluktur."
+                },
+                {
+                    "question": "Mahkemenin takdir ettiği manevi tazminat tutarı neye göre değişir?",
+                    "answer": "Tarafların sosyal ve ekonomik durumu, mobbingin süresi, sıklığı ve işçide bıraktığı psikolojik hasarın büyüklüğüne göre değişir."
+                }
+            ]
+        },
+        "muhtasar-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "nafaka-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "resmi-tatil-mesaisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "sahis-sirketi-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "satin-alma-gucu-paritesi-maas-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "satis-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "sehire-gore-yasam-maliyeti-maas-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "sgk-gun-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "sgk-primi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "stopaj-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "tazminat-faizi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "trafik-cezasi-erken-odeme-indirimi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "trafik-cezasi-itiraz-suresi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "tuketici-mahkemesi-deger-siniri-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "uyku-borcu-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Uyku borcu analizi başarıyla tamamlandı.",
+            "primaryResult": "{statusText}",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "{desc}",
+                    "severity": "severity"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Yaş Grubu",
+                    "İdeal Günlük Uyku Süresi"
+                ],
+                "rows": [
+                    [
+                        "Yetişkinler (18 - 64 yaş)",
+                        "7 - 9 Saat"
+                    ],
+                    [
+                        "Gençler (14 - 17 yaş)",
+                        "8 - 10 Saat"
+                    ],
+                    [
+                        "Okul Çağı Çocukları (6 - 13 yaş)",
+                        "9 - 11 Saat"
+                    ],
+                    [
+                        "Okul Öncesi Çocuklar (3 - 5 yaş)",
+                        "10 - 13 Saat"
+                    ],
+                    [
+                        "Bebekler (4 - 11 ay)",
+                        "12 - 15 Saat"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Uyku Borcu = (Hedef Uyku - Gerçek Uyku) * 7",
+                "explanation": "Hedeflenen günlük uyku süresi ile gerçekleşen günlük uyku süresi arasındaki farkın haftalık toplamıdır."
+            },
+            "source": {
+                "name": "Dünya Sağlık Örgütü (WHO) Uyku Kılavuzları",
+                "url": "https:\/\/www.who.int"
+            },
+            "next_actions": [
+                "Hafta sonu aşırı uyumak yerine günlük uykunuzu 30-60 dakika artırın.",
+                "Yatmadan en az 1 saat önce ekran kullanımını sonlandırın.",
+                "Kafein ve ağır gıda alımını öğleden sonra sınırlandırın."
+            ],
+            "faq": [
+                {
+                    "question": "Uyku borcu nedir?",
+                    "answer": "İdeal olarak uyumanız gereken süre ile fiilen uyuduğunuz süre arasındaki negatif farkın gün geçtikçe birikmesidir."
+                },
+                {
+                    "question": "Hafta sonu fazla uyumak hafta içi oluşan uyku borcunu sıfırlar mı?",
+                    "answer": "Hayır, hafta sonu aşırı uyumak sirkadiyen ritmi bozar and uyku borcunu biyolojik olarak tamamen telafi etmez."
+                },
+                {
+                    "question": "Kronik uyku borcunun belirtileri nelerdir?",
+                    "answer": "Gün içinde uyuklama, odaklanma güçlüğü, sinirlilik, tatlı aşermesi ve zayıf bağışıklık en belirgin semptomlardır."
+                },
+                {
+                    "question": "Sirkadiyen ritim nedir ve uyku borcuyla ilişkisi nasıldır?",
+                    "answer": "Sirkadiyen ritim, vücudun 24 saatlik biyolojik saatidir. Düzensiz uykular bu saati bozarak melatonin salgılanmasını engeller."
+                },
+                {
+                    "question": "Uyku kalitesini (uyku hijyeni) artırmak için neler yapılabilir?",
+                    "answer": "Her gün aynı saatte yatıp kalkmak, yatmadan 1 saat önce ekranları kapatmak ve yatak odasını karanlık\/serin tutmak gerekir."
+                }
+            ]
+        },
+        "velayet-nafaka-guncelleme-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "veraset-vergisi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "vergi-sonrasi-borc-maliyeti-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "yasal-faiz-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Yasal faiz hesaplaması başarıyla tamamlandı.",
+            "primaryResult": "{toplam} ₺",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Belirtilen tarihler arasındaki günlük faiz oranı yıllık %24 (günlük %0.06575) üzerinden hesaplanmıştır.",
+                    "severity": "success"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Açıklama",
+                    "Değer"
+                ],
+                "rows": [
+                    [
+                        "Faize Esas Anapara",
+                        "{anapara} ₺"
+                    ],
+                    [
+                        "Günlük Yasal Faiz Oranı",
+                        "%0.06575 (Yıllık %24)"
+                    ],
+                    [
+                        "Geçen Gün Sayısı",
+                        "{diffDays} Gün"
+                    ],
+                    [
+                        "Biriken Faiz Tutarı",
+                        "+{faiz} ₺"
+                    ],
+                    [
+                        "Toplam Alacak (Anapara + Faiz)",
+                        "{toplam} ₺"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Faiz = Anapara * 0.24 * (Gün Sayısı \/ 365)",
+                "explanation": "Anaparanın yıllık yasal faiz oranı (%24) ve gün sayısı ile çarpılarak 365 güne bölünmesiyle hesaplanır."
+            },
+            "source": {
+                "name": "TCMB Yasal Faiz Tebliğleri",
+                "url": "https:\/\/www.tcmb.gov.tr"
+            },
+            "next_actions": [
+                "Dava ve temerrüt tarihlerinin mevzuata uygunluğunu hukuk müşavirinizle netleştirin.",
+                "Hesaplanan toplam alacak tutarı ile icra takibi başlatabilirsiniz.",
+                "Alacağınız ticari bir sözleşmeden kaynaklanıyorsa avans faiz oranlarını da sorgulayın."
+            ],
+            "faq": [
+                {
+                    "question": "Yasal faiz oranı 2026 yılı için ne kadar?",
+                    "answer": "Yıllık yasal faiz oranı %24 olarak uygulanmaktadır."
+                },
+                {
+                    "question": "Dönemsel faiz değişiklikleri hesaba katılıyor mu?",
+                    "answer": "Bu modül güncel sabit yasal faiz oranını baz almaktadır."
+                },
+                {
+                    "question": "Temerrüt faizi ile yasal faiz arasındaki fark nedir?",
+                    "answer": "Temerrüt faizi borçlunun gecikmesi nedeniyle ödediği faizdir, yasal faiz ise kanunen aksi belirtilmedikçe uygulanan taban orandır."
+                },
+                {
+                    "question": "Faiz başlangıç tarihi (temerrüt) nasıl belirlenir?",
+                    "answer": "Temerrüt tarihi, ihtarname tebliğ tarihi veya dava tarihi esas alınır."
+                },
+                {
+                    "question": "Bileşik faiz (faize faiz yürütülmesi) yasal mıdır?",
+                    "answer": "Hayır, Türkiye hukuk sisteminde kanuni faiz hesaplarında bileşik faiz yürütülmesi yasal olarak yasaklanmıştır."
+                }
+            ]
+        },
+        "yillik-izin-ucreti-alacagi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "yillik-izin-ucreti-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "yoksulluk-nafakasi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "youtube-vergi-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "yurt-disi-maas-tl-esdegeri-hesaplama": {
+            "metadata": {
+                "content_status": "skeleton",
+                "content_version": "0.1.0",
+                "review_status": "needs_content_review"
+            },
+            "summary_template": "",
+            "primaryResult": "",
+            "interpretation_rules": [],
+            "reference_table": null,
+            "formula": null,
+            "source": null,
+            "next_actions": [],
+            "faq": []
+        },
+        "gebelik-haftasi-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "SAT'a göre tahmini gebelik süresi hesaplandı.",
+            "primaryResult": "{hafta} Hafta {gun} Gün",
+            "interpretation_rules": [
+                {
+                    "condition": "true",
+                    "text": "Şu an {donemText} içerisindesiniz. {yorumText}",
+                    "severity": "info"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Trimester Dönemi",
+                    "Hafta Aralığı",
+                    "Açıklama"
+                ],
+                "rows": [
+                    [
+                        "1. Trimester",
+                        "1 - 13. Hafta",
+                        "Organ gelişimi ve erken gebelik evresi"
+                    ],
+                    [
+                        "2. Trimester",
+                        "14 - 26. Hafta",
+                        "En rahat dönem, bebeğin büyüme evresi"
+                    ],
+                    [
+                        "3. Trimester",
+                        "27 - 40. Hafta",
+                        "Doğuma hazırlık ve gelişim tamamlama"
+                    ],
+                    [
+                        "40 Hafta Sonrası",
+                        "41+ Hafta",
+                        "Doktor kontrolünde yakın takip gereklidir"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Gebelik Süresi = Hesaplama Tarihi - Son Adet Tarihi (SAT)",
+                "explanation": "Gebelik süresi, son adet tarihinin (SAT) ilk gününden itibaren geçen gün sayısının haftaya çevrilmesiyle hesaplanır. İdeal gebelik süresi 280 gün (40 hafta) kabul edilir."
+            },
+            "source": {
+                "name": "ACOG (American College of Obstetricians and Gynecologists) & T.C. Sağlık Bakanlığı",
+                "url": "https:\/\/www.acog.org"
+            },
+            "next_actions": [
+                "Haftalık gebelik takibinizi aksatmamak için doktor kontrollerinizi planlayın.",
+                "Sağlıklı beslenme ve hekim onaylı egzersiz programları uygulayın.",
+                "Trimester dönemine uygun tarama testleri ve aşılar hakkında hekiminize danışın."
+            ],
+            "faq": [
+                {
+                    "question": "Son Adet Tarihi (SAT) neden gebelik başlangıcı kabul edilir?",
+                    "answer": "Yumurtlama tarihi kişiye göre değişebildiğinden, tıbbi standardizasyon için SAT'ın ilk günü esas alınır."
+                },
+                {
+                    "question": "Trimester nedir ve gebelikte kaç trimester vardır?",
+                    "answer": "Gebelik süreci 3 ana döneme (trimester) ayrılır: 1-13 hafta (1.), 14-26 hafta (2.) ve 27-40 hafta (3.)."
+                },
+                {
+                    "question": "Normal bir gebelik kaç gün sürer?",
+                    "answer": "İdeal bir gebelik SAT başlangıcından itibaren ortalama 280 gün (40 hafta) sürer."
+                },
+                {
+                    "question": "Tahmini doğum tarihinde doğum yapma olasılığı nedir?",
+                    "answer": "Bebeklerin sadece yaklaşık %5'i tam hesaplanan günde doğar; doğumlar genellikle 37-42. haftalar arasında gerçekleşir."
+                },
+                {
+                    "question": "Gebelik haftası ultrason ölçümleri ile neden farklı çıkabilir?",
+                    "answer": "Bebeğin gelişim hızı ve SAT'ın tam hatırlanmaması nedeniyle 1-2 haftalık sapmalar normal kabul edilir ve hekim kararı esastır."
+                },
+                {
+                    "question": "Hangi belirtilerde acilen doktora başvurulmalıdır?",
+                    "answer": "Vajinal kanama, şiddetli karın ağrısı, bebek hareketlerinin azalması, yüksek ateş veya ani şişlik durumlarında derhal doktora başvurulmalıdır."
+                }
+            ]
+        },
+        "lastik-olcusu-karsilastirma-hesaplama": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "Lastik çap kıyaslama sonucu.",
+            "primaryResult": "{diff}",
+            "interpretation_rules": [
+                {
+                    "condition": "severity === 'danger'",
+                    "text": "Lastik çap farkı %3 limitinin üzerindedir. Bu durum araçta şanzıman, ABS, ESP ve hız göstergesi hatalarına yol açabileceğinden tavsiye edilmez.",
+                    "severity": "danger"
+                },
+                {
+                    "condition": "severity === 'success'",
+                    "text": "Lastik çap farkı yasal sınırlar (%3) dahilindedir. Güvenle kullanabilirsiniz.",
+                    "severity": "success"
+                }
+            ],
+            "reference_table": {
+                "headers": [
+                    "Ölçüm",
+                    "Eski Lastik",
+                    "Yeni Lastik",
+                    "Fark \/ Değişim"
+                ],
+                "rows": [
+                    [
+                        "Çap Değeri",
+                        "{d1} mm",
+                        "{d2} mm",
+                        "{dDiff} mm"
+                    ],
+                    [
+                        "Yüzdesel Çap Değişimi",
+                        "100%",
+                        "100%",
+                        "{diff}"
+                    ],
+                    [
+                        "Hız Göstergesi Hatası (100 km\/h iken)",
+                        "100 km\/h",
+                        "100 km\/h",
+                        "{speed} km\/h"
+                    ]
+                ]
+            },
+            "formula": {
+                "raw": "Çap = (Genişlik * YanakOranı \/ 50) + (Jant * 25.4)",
+                "explanation": "Lastik yanağının iki katı ile jant çapının milimetre cinsinden toplamı alınarak lastik dış çapı hesaplanır."
+            },
+            "source": {
+                "name": "Uluslararası Lastik Ebat Standartları (ETRTO)",
+                "url": "https:\/\/www.etrto.org"
+            },
+            "next_actions": [
+                "Eğer çap farkı %3'ten büyükse orijinal lastik ebadına sadık kalın.",
+                "Yeni lastik takıldığında hız göstergesindeki sapma oranını göz önünde bulundurun.",
+                "Lastik değişiminden sonra rot ve balans ayarlarını mutlaka yeniletin."
+            ],
+            "faq": [
+                {
+                    "question": "Lastik çap farkı neden %3 sınırını aşmamalıdır?",
+                    "answer": "%3'ten fazla çap değişimi ABS\/ESP fren sensörlerinin hatalı çalışmasına ve şanzımana aşırı yük binmesine neden olabilir."
+                },
+                {
+                    "question": "Lastik çapı büyüdüğünde hız göstergesi nasıl etkilenir?",
+                    "answer": "Çap büyüdüğünde tekerlek bir turda daha fazla yol alacağından, gösterge panelindeki hız gerçek hızınızdan daha düşük görünür."
+                },
+                {
+                    "question": "Lastik taban genişliği artırıldığında yakıt tüketimi nasıl değişir?",
+                    "answer": "Taban genişledikçe yuvarlanma direnci ve sürtünme artacağı için yakıt tüketimi bir miktar artabilir."
+                },
+                {
+                    "question": "Jant çapını büyütürken yanak oranını neden düşürmeliyiz?",
+                    "answer": "Toplam dış tekerlek çapını orijinal ölçüye yakın tutmak ve yasal tolerans limitlerinde kalmak için yanak kalınlığı azaltılmalıdır."
+                },
+                {
+                    "question": "Lastik basıncı çap hesaplamasını etkiler mi?",
+                    "answer": "Matematiksel hesaplama geometrik ölçülere dayanır, ancak aşırı düşük basınç gerçek yuvarlanma çapını fiilen küçültür."
+                }
+            ]
+        },
+        "ask-uyumu": {
+            "metadata": {
+                "ai_generated": false,
+                "content_version": "1.0.0"
+            },
+            "summary_template": "{n1} ve {n2} İsim & Burç Aşk Uyumu Analizi",
+            "primaryResult": "%{skor}",
+            "interpretation_rules": [
+                {
+                    "condition": "skor >= 80",
+                    "text": "Mükemmel Ruh İkizi! Uyumlu elementleriniz ve rezonansa sahip isim titreşimleriniz, derin ve kalıcı bir beraberliği işaret ediyor. Karşılıklı sevginiz, engelleri aşmak için en büyük gücünüz.",
+                    "severity": "success"
+                },
+                {
+                    "condition": "skor >= 60 && skor < 80",
+                    "text": "Güzel Gelişim Potansiyeli! Karşılıklı empati, saygı ve çabayla taçlanan, sevgi dolu bir bağ kurabilirsiniz. İletişimi ön planda tuttuğunuz sürece uyumunuz her geçen gün artacaktır.",
+                    "severity": "warning"
+                },
+                {
+                    "condition": "skor < 60",
+                    "text": "Farkındalık ve Denge İlişkisi! Farklılıklarınızın birbirinizi besleyerek geliştirdiği, sabır ve emek gerektiren bir süreç. Birbirinizi değiştirmek yerine olduğunuz gibi kabul ettiğinizde çok daha güçlü bir bağ kurabilirsiniz.",
+                    "severity": "danger"
+                }
+            ],
+            "next_actions": [
+                "Burç elementlerinizin ortak özelliklerini detaylı şekilde inceleyin.",
+                "İsimlerinizi göbek adlarınızla birlikte yazarak testi tekrarlayın.",
+                "Partnerinizle ortak ilgi alanlarınızı keşfedip birlikte vakit geçirin."
+            ],
+            "faq": [
+                {
+                    "question": "İsim aşk uyumu testi neye dayanır?",
+                    "answer": "Klasik numerolojideki harf frekansı ve isim sayı değerlerinin uyumuna dayanır."
+                },
+                {
+                    "question": "Burç elementlerinin ilişkilerdeki rolü nedir?",
+                    "answer": "Ateş, toprak, hava ve su elementlerinin birbiriyle olan çekim veya dengeleme özelliklerini yansıtır."
+                },
+                {
+                    "question": "Aşk uyumu sonucu ilişkide kesin belirleyici midir?",
+                    "answer": "Hayır, bu analiz astroloji ve numeroloji teorilerine dayalı eğlence amaçlı bir kılavuzdur."
+                },
+                {
+                    "question": "Farklı isim varyasyonları (göbek adı vb.) sonucu etkiler mi?",
+                    "answer": "Evet, ismin tam yazılışı numerolojik toplamı ve frekansı doğrudan değiştirir."
+                },
+                {
+                    "question": "Bu analiz ne sıklıkla güncellenmelidir?",
+                    "answer": "Doğum haritası ve isimler sabit olduğundan temel uyum değişmez, ancak transit burç etkileri güncellenebilir."
+                }
+            ]
         }
-      ],
-      "reference_table": {
-        "headers": ["Ölçüm", "Eski Lastik", "Yeni Lastik", "Fark / Değişim"],
-        "rows": [
-          ["Çap Değeri", "{d1} mm", "{d2} mm", "{dDiff} mm"],
-          ["Yüzdesel Çap Değişimi", "100%", "100%", "{diff}"]
-        ]
-      },
-      "formula": {
-        "raw": "Çap = (Genişlik * YanakOranı / 50) + (Jant * 25.4)",
-        "explanation": "Lastik yanağının iki katı ile jant çapının milimetre cinsinden toplamı alınarak lastik dış çapı hesaplanır."
-      },
-      "source": {
-        "name": "Uluslararası Lastik Ebat Standartları (ETRTO)",
-        "url": "https://www.etrto.org"
-      },
-      "next_actions": [
-        "Eğer çap farkı %3'ten büyükse orijinal lastik ebadına sadık kalın.",
-        "Yeni lastik takıldığında hız göstergesindeki sapma oranını göz önünde bulundurun.",
-        "Lastik değişiminden sonra rot ve balans ayarlarını mutlaka yeniletin."
-      ],
-      "faq": [
-        { "question": "Lastik çap farkı neden %3 sınırını aşmamalıdır?", "answer": "%3'ten fazla çap değişimi ABS/ESP fren sensörlerinin hatalı çalışmasına ve şanzımana aşırı yük binmesine neden olabilir." },
-        { "question": "Lastik çapı büyüdüğünde hız göstergesi nasıl etkilenir?", "answer": "Çap büyüdüğünde tekerlek bir turda daha fazla yol alacağından, gösterge panelindeki hız gerçek hızınızdan daha düşük görünür." },
-        { "question": "Lastik taban genişliği artırıldığında yakıt tüketimi nasıl değişir?", "answer": "Taban genişledikçe yuvarlanma direnci ve sürtünme artacağı için yakıt tüketimi bir miktar artabilir." },
-        { "question": "Jant çapını büyütürken yanak oranını neden düşürmeliyiz?", "answer": "Toplam dış tekerlek çapını orijinal ölçüye yakın tutmak ve yasal tolerans limitlerinde kalmak için yanak kalınlığı azaltılmalıdır." },
-        { "question": "Lastik basıncı çap hesaplamasını etkiler mi?", "answer": "Matematiksel hesaplama geometrik ölçülere dayanır, ancak aşırı düşük basınç gerçek yuvarlanma çapını fiilen küçültür." }
-      ]
-    },
-    "maas-hesaplama-2026": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "12 Aylık Toplam Net Ele Geçen Ücret hesaplandı.",
-      "primaryResult": "{toplamNet} ₺",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Hesaplanan net ücret, 2026 yılı asgari ücret istisnası ve gelir vergisi dilimleri (%15, %20, %27, %35, %40) dikkate alınarak kümülatif matrah üzerinden hesaplanmıştır.",
-          "severity": "success"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Açıklama", "Yıllık Toplam Tutar (₺)"],
-        "rows": [
-          ["Toplam Brüt Ücret", "{brut} ₺"],
-          ["Toplam SSK İşçi Payı (%14)", "{sskIsci} ₺"],
-          ["Toplam İşsizlik Sigortası İşçi Payı (%1)", "{issizlikIsci} ₺"],
-          ["Toplam Hesaplanan Gelir Vergisi", "{gelirVergisi} ₺"],
-          ["Toplam Damga Vergisi", "{damgaVergisi} ₺"],
-          ["Toplam Net Ele Geçen Ücret", "{toplamNet} ₺"],
-          ["Toplam İşveren Maliyeti", "{toplamMaliyet} ₺"]
-        ]
-      },
-      "formula": {
-        "raw": "Net Ele Geçen = Brüt - SSK İşçi - İşsizlik İşçi - Gelir Vergisi - Damga Vergisi + İstisnalar",
-        "explanation": "2026 yılı yasal düzenlemelerine göre aylık brüt ücretten SGK işçi kesintileri yapıldıktan sonra kalan matraha kümülatif vergi dilimleri uygulanır. Asgari ücret tutarındaki Gelir Vergisi ve Damga Vergisi istisnaları düşülerek net ele geçen tutar bulunur."
-      },
-      "source": {
-        "name": "Gelir Vergisi Kanunu Genel Tebliği ve Sosyal Sigortalar Mevzuatı (2026)",
-        "url": "https://www.resmigazete.gov.tr"
-      },
-      "next_actions": [
-        "Kümülâtif vergi matrahınızın diğer iş yerlerinden gelen matrahlarla birleştirilip birleştirilmeyeceğini mali müşavirinizle görüşün.",
-        "Hesaplanan işveren maliyetini bütçe planlamalarınızda kullanabilirsiniz.",
-        "5 puanlık SGK işveren prim teşvik haklarınızı kontrol edin."
-      ],
-      "faq": [
-        { "question": "2026 yılında Gelir Vergisi dilimleri nasıldır?", "answer": "İlk dilim 190.000 ₺ olup %15, ikinci dilim 400.000 ₺ olup %20, üçüncü dilim 1.500.000 ₺ olup %27, dördüncü dilim 5.300.000 ₺ olup %35 ve üzeri %40'tır." },
-        { "question": "Asgari ücret istisnası maaş hesabını nasıl etkiler?", "answer": "Her ay brüt asgari ücrete isabet eden gelir vergisi ve damga vergisi tutarı, çalışanın hesaplanan vergilerinden düşülerek net maaşı artırır." },
-        { "question": "Kümülatif gelir vergisi matrahı nedir?", "answer": "Yıl içinde her ay alınan brüt maaştan SGK primleri düşüldükten sonra kalan vergiye esas tutarların üst üste eklenmesiyle oluşan toplamdır." },
-        { "question": "2026 yılında AGİ (Asgari Geçim İndirimi) ödeniyor mu?", "answer": "Hayır, AGİ uygulaması tamamen kaldırılmış olup, yerine tüm çalışanlara asgari ücret kadar vergi muafiyeti getirilmiştir." },
-        { "question": "İşveren maliyeti neleri kapsar?", "answer": "Brüt maaşa ek olarak %20.5 oranındaki SGK işveren payı ve %2 oranındaki işsizlik sigortası işveren payını kapsar." },
-        { "question": "5 puanlık SGK indirim hakkı nedir?", "answer": "SGK primlerini düzenli ödeyen ve borcu olmayan işverenler için uygulanan %5 oranındaki devlet desteğidir." },
-        { "question": "Yıl içinde iş yeri değiştirenlerin kümülatif matrahı sıfırlanır mı?", "answer": "Evet, yeni iş yerinde matrah sıfırdan başlar ancak yıl sonunda iki matrah birleştirilerek beyanname verilmesi gerekebilir." },
-        { "question": "Maaş dışındaki prim ve ikramiyeler vergi dilimini nasıl etkiler?", "answer": "Brüt tutara eklenen her türlü prim ve ikramiye kümülatif matrahı büyüterek daha erken üst vergi dilimine girilmesine yol açar." }
-      ]
-    },
-    "mobbing-manevi-tazminat-tahmini-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Mobbing manevi tazminat tahmini aralığı hesaplandı.",
-      "primaryResult": "{minTazminat} ₺ - {maxTazminat} ₺",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Hesaplanan tutar, mobbing süresi, delil durumu ve şirket büyüklüğü katsayıları baz alınarak Yargıtay emsal kararları çerçevesinde tahmin edilmiştir.",
-          "severity": "warning"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Kriter", "Girdi Değeri"],
-        "rows": [
-          ["Mobbing Süresi", "{sure} Ay"],
-          ["Psikolojik Etki Katsayısı", "{psiko} Puan"],
-          ["Delil/İspat Durumu", "{delilText}"],
-          ["Şirket Büyüklüğü", "{sirketText}"],
-          ["Tahmini Minimum Tazminat", "{minTazminat} ₺"],
-          ["Tahmini Maksimum Tazminat", "{maxTazminat} ₺"]
-        ]
-      },
-      "formula": {
-        "raw": "Tazminat = (Süre Puanı + Psikolojik Etki + Delil Puanı) * Şirket Katsayısı * 250",
-        "explanation": "Mobbing süresi (max 30 puan), psikolojik etki (max 35 puan) ve delil gücü (max 35 puan) toplanarak şirket katsayısı ve taban ücret çarpanı ile hesaplanır. Delil olmaması durumunda %60 hakkaniyet indirimi uygulanır."
-      },
-      "source": {
-        "name": "Yargıtay 9. Hukuk Dairesi Emsal Mobbing Kararları",
-        "url": "https://www.mevzuat.gov.tr"
-      },
-      "next_actions": [
-        "Mobbing teşkil eden tüm e-posta, mesaj ve yazışmaları güvenli bir şekilde arşivleyin.",
-        "Yaşadığınız psikolojik yıpranmayı belgelemek adına devlet hastanesinden psikiyatrik rapor alın.",
-        "İş akdinizi haklı nedenle feshetmeden önce mutlaka bir iş hukuku avukatına danışın."
-      ],
-      "faq": [
-        { "question": "Hukuken hangi davranışlar mobbing (psikolojik taciz) sınıfına girer?", "answer": "Sistemli, sürekli ve kasıtlı olarak çalışanı yıldırmaya, işten uzaklaştırmaya yönelik bezdirici davranışlar mobbingdir." },
-        { "question": "Mobbing davasında hangi deliller mahkemece kabul edilir?", "answer": "E-postalar, WhatsApp yazışmaları, performans baskısını gösteren belgeler, şahit beyanları ve psikiyatrik doktor raporları güçlü delillerdir." },
-        { "question": "Mobbing nedeniyle iş sözleşmesini haklı nedenle fesheden kıdem tazminatı alabilir mi?", "answer": "Evet, mobbinge uğrayan işçi iş sözleşmesini haklı nedenle derhal feshedebilir ve kıdem tazminatı almaya hak kazanır." },
-        { "question": "Manevi tazminat davası açmak için zamanaşımı süresi ne kadardır?", "answer": "Mobbing eyleminin sona ermesinden itibaren genel zamanaşımı süresi 10 yıldır." },
-        { "question": "Mobbing davalarında arabuluculuk zorunlu mudur?", "answer": "Evet, iş mahkemesinde dava açmadan önce arabuluculuk kurumuna başvurmak yasal bir zorunluluktur." },
-        { "question": "Mahkemenin takdir ettiği manevi tazminat tutarı neye göre değişir?", "answer": "Tarafların sosyal ve ekonomik durumu, mobbingin süresi, sıklığı ve işçide bıraktığı psikolojik hasarın büyüklüğüne göre değişir." }
-      ]
-    },
-    "uyku-borcu-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Uyku borcu analizi başarıyla tamamlandı.",
-      "primaryResult": "{statusText}",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "{desc}",
-          "severity": "severity"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Yaş Grubu", "İdeal Günlük Uyku Süresi"],
-        "rows": [
-          ["Yetişkinler (18 - 64 yaş)", "7 - 9 Saat"],
-          ["Gençler (14 - 17 yaş)", "8 - 10 Saat"],
-          ["Okul Çağı Çocukları (6 - 13 yaş)", "9 - 11 Saat"],
-          ["Okul Öncesi Çocuklar (3 - 5 yaş)", "10 - 13 Saat"],
-          ["Bebekler (4 - 11 ay)", "12 - 15 Saat"]
-        ]
-      },
-      "formula": {
-        "raw": "Uyku Borcu = (Hedef Uyku - Gerçek Uyku) * 7",
-        "explanation": "Hedeflenen günlük uyku süresi ile gerçekleşen günlük uyku süresi arasındaki farkın haftalık toplamıdır."
-      },
-      "source": {
-        "name": "Dünya Sağlık Örgütü (WHO) Uyku Kılavuzları",
-        "url": "https://www.who.int"
-      },
-      "next_actions": [
-        "Hafta sonu aşırı uyumak yerine günlük uykunuzu 30-60 dakika artırın.",
-        "Yatmadan en az 1 saat önce ekran kullanımını sonlandırın.",
-        "Kafein ve ağır gıda alımını öğleden sonra sınırlandırın."
-      ],
-      "faq": [
-        { "question": "Uyku borcu nedir?", "answer": "İdeal olarak uyumanız gereken süre ile fiilen uyuduğunuz süre arasındaki negatif farkın gün geçtikçe birikmesidir." },
-        { "question": "Hafta sonu fazla uyumak hafta içi oluşan uyku borcunu sıfırlar mı?", "answer": "Hayır, hafta sonu aşırı uyumak sirkadiyen ritmi bozar and uyku borcunu biyolojik olarak tamamen telafi etmez." },
-        { "question": "Kronik uyku borcunun belirtileri nelerdir?", "answer": "Gün içinde uyuklama, odaklanma güçlüğü, sinirlilik, tatlı aşermesi ve zayıf bağışıklık en belirgin semptomlardır." },
-        { "question": "Sirkadiyen ritim nedir ve uyku borcuyla ilişkisi nasıldır?", "answer": "Sirkadiyen ritim, vücudun 24 saatlik biyolojik saatidir. Düzensiz uykular bu saati bozarak melatonin salgılanmasını engeller." },
-        { "question": "Uyku kalitesini (uyku hijyeni) artırmak için neler yapılabilir?", "answer": "Her gün aynı saatte yatıp kalkmak, yatmadan 1 saat önce ekranları kapatmak ve yatak odasını karanlık/serin tutmak gerekir." }
-      ]
-    },
-    "yasal-faiz-hesaplama": {
-      "metadata": {
-        "ai_generated": false,
-        "content_version": "1.0.0"
-      },
-      "summary_template": "Yasal faiz hesaplaması başarıyla tamamlandı.",
-      "primaryResult": "{toplam} ₺",
-      "interpretation_rules": [
-        {
-          "condition": "true",
-          "text": "Belirtilen tarihler arasındaki günlük faiz oranı yıllık %24 (günlük %0.06575) üzerinden hesaplanmıştır.",
-          "severity": "success"
-        }
-      ],
-      "reference_table": {
-        "headers": ["Açıklama", "Değer"],
-        "rows": [
-          ["Faize Esas Anapara", "{anapara} ₺"],
-          ["Günlük Yasal Faiz Oranı", "%0.06575 (Yıllık %24)"],
-          ["Geçen Gün Sayısı", "{diffDays} Gün"],
-          ["Biriken Faiz Tutarı", "+{faiz} ₺"],
-          ["Toplam Alacak (Anapara + Faiz)", "{toplam} ₺"]
-        ]
-      },
-      "formula": {
-        "raw": "Faiz = Anapara * 0.24 * (Gün Sayısı / 365)",
-        "explanation": "Anaparanın yıllık yasal faiz oranı (%24) ve gün sayısı ile çarpılarak 365 güne bölünmesiyle hesaplanır."
-      },
-      "source": {
-        "name": "TCMB Yasal Faiz Tebliğleri",
-        "url": "https://www.tcmb.gov.tr"
-      },
-      "next_actions": [
-        "Dava ve temerrüt tarihlerinin mevzuata uygunluğunu hukuk müşavirinizle netleştirin.",
-        "Hesaplanan toplam alacak tutarı ile icra takibi başlatabilirsiniz.",
-        "Alacağınız ticari bir sözleşmeden kaynaklanıyorsa avans faiz oranlarını da sorgulayın."
-      ],
-      "faq": [
-        { "question": "Yasal faiz oranı 2026 yılı için ne kadar?", "answer": "Yıllık yasal faiz oranı %24 olarak uygulanmaktadır." },
-        { "question": "Dönemsel faiz değişiklikleri hesaba katılıyor mu?", "answer": "Bu modül güncel sabit yasal faiz oranını baz almaktadır." },
-        { "question": "Temerrüt faizi ile yasal faiz arasındaki fark nedir?", "answer": "Temerrüt faizi borçlunun gecikmesi nedeniyle ödediği faizdir, yasal faiz ise kanunen aksi belirtilmedikçe uygulanan taban orandır." },
-        { "question": "Faiz başlangıç tarihi (temerrüt) nasıl belirlenir?", "answer": "Temerrüt tarihi, ihtarname tebliğ tarihi veya dava tarihi esas alınır." },
-        { "question": "Bileşik faiz (faize faiz yürütülmesi) yasal mıdır?", "answer": "Hayır, Türkiye hukuk sisteminde kanuni faiz hesaplarında bileşik faiz yürütülmesi yasal olarak yasaklanmıştır." }
-      ]
     }
-  }
 }

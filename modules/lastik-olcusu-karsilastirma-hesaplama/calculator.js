@@ -21,6 +21,20 @@ function hcTccHesapla() {
     const diffPct = ((dia2 - dia1) / dia1) * 100;
     const speedAt100 = 100 * (dia2 / dia1);
 
+    if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('lastik-olcusu-karsilastirma-hesaplama', {
+        diff: (diffPct > 0 ? "+" : "") + diffPct.toFixed(2) + "%",
+        d1: dia1.toFixed(1),
+        d2: dia2.toFixed(1),
+        dDiff: (dia2 - dia1).toFixed(1),
+        speed: speedAt100.toFixed(1),
+        severity: Math.abs(diffPct) <= 3 ? "success" : "danger",
+        metadata: {
+            badges: ['Otomotiv & Trafik', 'Güvenlik Standardı']
+        }
+    })) {
+        return;
+    }
+
     document.getElementById('hc-tcc-dia1').innerText = dia1.toFixed(1) + " mm";
     document.getElementById('hc-tcc-dia2').innerText = dia2.toFixed(1) + " mm";
     
