@@ -584,8 +584,31 @@
 
     // ── Result Engine Mimari Standart (Faz 2E) ──────────────────────────
     window.HC = window.HC || {};
+
+    function getSafeModuleName(slug) {
+        if (!slug) return '';
+        // 1. Check templates registry
+        var templates = window.hcTemplates || [];
+        var tpl = templates.find(function (t) { return t.module_slug === slug; });
+        if (tpl && tpl.name) return tpl.name;
+
+        // 2. Check module registry (supports module_name and name keys)
+        if (window.hcRegistry && window.hcRegistry[slug]) {
+            if (window.hcRegistry[slug].module_name) return window.hcRegistry[slug].module_name;
+            if (window.hcRegistry[slug].name) return window.hcRegistry[slug].name;
+        }
+
+        // 3. Fallback: Slug to readable title
+        var parts = slug.split('-');
+        var capitalized = parts.map(function (p) {
+            if (!p) return '';
+            return p.charAt(0).toUpperCase() + p.slice(1);
+        });
+        return capitalized.join(' ');
+    }
+
     window.HC.ResultEngine = {
-        version: "1.0.0",
+        version: "1.0.1",
 
         render: function (slug, data, targetSelector) {
             // 1. Feature Flag Check
@@ -607,7 +630,7 @@
                 if (!target) return false;
 
                 var html = '';
-                var severity = (data.metadata && data.metadata.severity) ? data.metadata.severity : 'info';
+                var severity = (data.metadata && data.metadata.severity && data.metadata.severity !== 'undefined') ? data.metadata.severity : 'info';
 
                 // Base Card Block
                 html += '<div class="hc-rt-card hc-rt-card--' + escapeHtml(severity) + '">';
@@ -615,35 +638,40 @@
                 // Header Block
                 html += '<div class="hc-rt-header">';
                 if (tpl.result_sections_enabled.result_title) {
-                    var titleText = data.title || (window.hcRegistry && window.hcRegistry[slug] ? window.hcRegistry[slug].name : 'Hesaplama Sonucu');
-                    html += '<h4 class="hc-rt-title">' + escapeHtml(titleText) + '</h4>';
+                    var titleText = data.title || getSafeModuleName(slug);
+                    if (titleText && titleText !== 'undefined') {
+                        html += '<h4 class="hc-rt-title">' + escapeHtml(titleText) + '</h4>';
+                    }
                 }
 
                 // Badges
                 var badges = (data.metadata && data.metadata.badges) ? data.metadata.badges : [];
-                if (badges.length > 0) {
-                    html += '<div class="hc-rt-badges">';
-                    badges.forEach(function (b) {
-                        html += '<span class="hc-rt-badge hc-rt-badge--highlight">' + escapeHtml(b) + '</span>';
-                    });
-                    html += '</div>';
+                if (badges && badges.length > 0) {
+                    var validBadges = badges.filter(function (b) { return b && b !== 'undefined'; });
+                    if (validBadges.length > 0) {
+                        html += '<div class="hc-rt-badges">';
+                        validBadges.forEach(function (b) {
+                            html += '<span class="hc-rt-badge hc-rt-badge--highlight">' + escapeHtml(b) + '</span>';
+                        });
+                        html += '</div>';
+                    }
                 }
                 html += '</div>';
 
                 // Primary Result Block
-                if (tpl.result_sections_enabled.primary_result && data.primaryResult) {
+                if (tpl.result_sections_enabled.primary_result && data.primaryResult && data.primaryResult !== 'undefined') {
                     html += '<div class="hc-rt-primary" aria-live="polite" aria-atomic="true">' + escapeHtml(data.primaryResult) + '</div>';
                 }
 
                 // Short Summary Block
-                if (tpl.result_sections_enabled.short_summary && data.shortSummary) {
+                if (tpl.result_sections_enabled.short_summary && data.shortSummary && data.shortSummary !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<div class="hc-rt-section-body"><strong>' + escapeHtml(data.shortSummary) + '</strong></div>';
                     html += '</section>';
                 }
 
                 // Interpretation Block
-                if (tpl.result_sections_enabled.interpretation && data.interpretation) {
+                if (tpl.result_sections_enabled.interpretation && data.interpretation && data.interpretation !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Değerlendirme</h5>';
                     html += '<div class="hc-rt-section-body">' + data.interpretation + '</div>';
@@ -651,49 +679,47 @@
                 }
 
                 // Reference Table Block
-                if (tpl.result_sections_enabled.reference_table && data.referenceTable) {
+                if (tpl.result_sections_enabled.reference_table && data.referenceTable && data.referenceTable.rows && data.referenceTable.rows.length > 0) {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Referans Değerleri</h5>';
                     html += '<div class="hc-rt-table-wrapper">';
                     html += '<table class="hc-rt-table">';
-                    if (data.referenceTable.headers) {
+                    if (data.referenceTable.headers && data.referenceTable.headers.length > 0) {
                         html += '<thead><tr>';
                         data.referenceTable.headers.forEach(function (h) {
-                            html += '<th scope="col">' + escapeHtml(h) + '</th>';
+                            html += '<th scope="col">' + escapeHtml(h || '') + '</th>';
                         });
                         html += '</tr></thead>';
                     }
-                    if (data.referenceTable.rows) {
-                        html += '<tbody>';
-                        data.referenceTable.rows.forEach(function (row, rIndex) {
-                            var trClass = (data.referenceTable.highlightedRowIndex === rIndex) ? ' class="hc-rt-row-highlight"' : '';
-                            html += '<tr' + trClass + '>';
-                            row.forEach(function (cell) {
-                                html += '<td>' + escapeHtml(cell) + '</td>';
-                            });
-                            html += '</tr>';
+                    html += '<tbody>';
+                    data.referenceTable.rows.forEach(function (row, rIndex) {
+                        if (!row || row.length === 0) return;
+                        var trClass = (data.referenceTable.highlightedRowIndex === rIndex) ? ' class="hc-rt-row-highlight"' : '';
+                        html += '<tr' + trClass + '>';
+                        row.forEach(function (cell) {
+                            html += '<td>' + escapeHtml(cell || '') + '</td>';
                         });
-                        html += '</tbody>';
-                    }
-                    html += '</table></div></section>';
+                        html += '</tr>';
+                    });
+                    html += '</tbody></table></div></section>';
                 }
 
                 // Formula Explanation Block
-                if (tpl.result_sections_enabled.formula_explanation && data.formula) {
+                if (tpl.result_sections_enabled.formula_explanation && data.formula && (data.formula.raw || data.formula.text)) {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Formül ve Hesaplama Yöntemi</h5>';
                     html += '<div class="hc-rt-section-body">';
-                    if (data.formula.raw) {
+                    if (data.formula.raw && data.formula.raw !== 'undefined') {
                         html += '<code>' + escapeHtml(data.formula.raw) + '</code><br><br>';
                     }
-                    if (data.formula.text) {
+                    if (data.formula.text && data.formula.text !== 'undefined') {
                         html += escapeHtml(data.formula.text);
                     }
                     html += '</div></section>';
                 }
 
                 // Example Calculation Block
-                if (tpl.result_sections_enabled.example_calculation && data.example) {
+                if (tpl.result_sections_enabled.example_calculation && data.example && data.example !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Örnek Senaryo</h5>';
                     html += '<div class="hc-rt-section-body">' + escapeHtml(data.example) + '</div>';
@@ -701,11 +727,11 @@
                 }
 
                 // Source Note Block
-                if (tpl.result_sections_enabled.source_note && data.source) {
+                if (tpl.result_sections_enabled.source_note && data.source && data.source.name && data.source.name !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Resmi Kaynak</h5>';
                     html += '<div class="hc-rt-section-body">';
-                    if (data.source.url) {
+                    if (data.source.url && data.source.url !== 'undefined') {
                         html += '<a href="' + escapeHtml(data.source.url) + '" target="_blank" rel="noopener noreferrer" style="color:var(--hc-rt-color-info); font-weight:600;">' + escapeHtml(data.source.name) + ' ↗</a>';
                     } else {
                         html += escapeHtml(data.source.name);
@@ -720,7 +746,7 @@
                         discType = window.hcRegistry[slug].target_disclaimer_type || window.hcRegistry[slug].disclaimer_type;
                     }
                     var discData = (discType && window.hcDisclaimers && window.hcDisclaimers[discType]) ? window.hcDisclaimers[discType] : null;
-                    if (discData) {
+                    if (discData && discData.title && discData.text && discData.title !== 'undefined' && discData.text !== 'undefined') {
                         html += '<div class="hc-rt-disclaimer">';
                         html += '<div><strong>' + escapeHtml(discData.title) + ':</strong> ' + escapeHtml(discData.text) + '</div>';
                         html += '</div>';
@@ -729,38 +755,54 @@
 
                 // Next Actions Block
                 if (tpl.result_sections_enabled.next_actions && data.nextActions && data.nextActions.length > 0) {
-                    html += '<section class="hc-rt-section">';
-                    html += '<h5 class="hc-rt-section-title">Önerilen Adımlar</h5>';
-                    html += '<ul class="hc-rt-next-actions">';
+                    var actionsHtml = '';
                     data.nextActions.forEach(function (act) {
-                        html += '<li class="hc-rt-action-item">' + escapeHtml(act) + '</li>';
+                        if (act && act !== 'undefined') {
+                            actionsHtml += '<li class="hc-rt-action-item">' + escapeHtml(act) + '</li>';
+                        }
                     });
-                    html += '</ul></section>';
+                    if (actionsHtml) {
+                        html += '<section class="hc-rt-section">';
+                        html += '<h5 class="hc-rt-section-title">Önerilen Adımlar</h5>';
+                        html += '<ul class="hc-rt-next-actions">' + actionsHtml + '</ul>';
+                        html += '</section>';
+                    }
                 }
 
                 // Related Calculators Block
                 if (tpl.result_sections_enabled.related_calculators && tpl.related_calculators && tpl.related_calculators.length > 0) {
-                    html += '<section class="hc-rt-section">';
-                    html += '<h5 class="hc-rt-section-title">İlgili Hesaplayıcılar</h5>';
-                    html += '<div class="hc-rt-related-list">';
+                    var relatedHtml = '';
                     tpl.related_calculators.forEach(function (relSlug) {
-                        var relName = (window.hcRegistry && window.hcRegistry[relSlug]) ? window.hcRegistry[relSlug].name : relSlug;
-                        html += '<a href="../' + escapeHtml(relSlug) + '/" class="hc-rt-related-link">' + escapeHtml(relName) + '</a>';
+                        if (!relSlug) return;
+                        var relName = getSafeModuleName(relSlug);
+                        if (!relName || relName === 'undefined') return;
+                        relatedHtml += '<a href="../' + escapeHtml(relSlug) + '/" class="hc-rt-related-link">' + escapeHtml(relName) + '</a>';
                     });
-                    html += '</div></section>';
+                    if (relatedHtml) {
+                        html += '<section class="hc-rt-section">';
+                        html += '<h5 class="hc-rt-section-title">İlgili Hesaplayıcılar</h5>';
+                        html += '<div class="hc-rt-related-list">' + relatedHtml + '</div>';
+                        html += '</section>';
+                    }
                 }
 
                 // FAQ Block
                 if (tpl.result_sections_enabled.faq_snippets && data.faq && data.faq.length > 0) {
-                    html += '<section class="hc-rt-section">';
-                    html += '<h5 class="hc-rt-section-title">Sıkça Sorulan Sorular</h5>';
+                    var faqHtml = '';
                     data.faq.forEach(function (f) {
-                        html += '<details class="hc-rt-faq-item">';
-                        html += '<summary>' + escapeHtml(f.question) + '</summary>';
-                        html += '<div class="hc-rt-faq-answer">' + escapeHtml(f.answer) + '</div>';
-                        html += '</details>';
+                        if (f && f.question && f.answer && f.question !== 'undefined' && f.answer !== 'undefined') {
+                            faqHtml += '<details class="hc-rt-faq-item">';
+                            faqHtml += '<summary>' + escapeHtml(f.question) + '</summary>';
+                            faqHtml += '<div class="hc-rt-faq-answer">' + escapeHtml(f.answer) + '</div>';
+                            faqHtml += '</details>';
+                        }
                     });
-                    html += '</section>';
+                    if (faqHtml) {
+                        html += '<section class="hc-rt-section">';
+                        html += '<h5 class="hc-rt-section-title">Sıkça Sorulan Sorular</h5>';
+                        html += faqHtml;
+                        html += '</section>';
+                    }
                 }
 
                 html += '</div>'; // End card
