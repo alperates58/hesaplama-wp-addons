@@ -34,19 +34,10 @@ function hcAskUyumuHesapla() {
     }
 
     if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('ask-uyumu', {
-        primaryResult: "%" + skor,
-        shortSummary: n1 + " ve " + n2 + " Aşk Uyumu Analizi",
-        interpretation: desc,
-        faq: [
-            { question: "İsim aşk uyumu nasıl hesaplanır?", answer: "İsimlerin harf değerlerinin numerolojik frekansları toplanarak hesaplanır." },
-            { question: "Bu testin bilimsel bir geçerliliği var mıdır?", answer: "Hayır, bu test astroloji ve numeroloji tabanlı olup eğlence amaçlıdır." }
-        ],
-        metadata: {
-            severity: skor >= 80 ? "success" : (skor >= 60 ? "warning" : "danger"),
-            status: "success",
-            lastUpdated: "2026-07-06",
-            badges: ["Astroloji", "Numeroloji"]
-        }
+        skor: skor,
+        n1: n1,
+        n2: n2,
+        severity: skor >= 80 ? "success" : (skor >= 60 ? "warning" : "danger")
     })) {
         return;
     }

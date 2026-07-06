@@ -33,44 +33,15 @@ function hcMobbingTazminatHesapla() {
     }
 
     if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('mobbing-manevi-tazminat-tahmini-hesaplama', {
-        primaryResult: Math.round(minTazminat).toLocaleString('tr-TR') + ' ₺ - ' + Math.round(maxTazminat).toLocaleString('tr-TR') + ' ₺',
-        shortSummary: 'Mobbing manevi tazminat tahmini aralığı hesaplandı.',
-        interpretation: 'Hesaplanan tutar, mobbing süresi, delil durumu ve şirket büyüklüğü katsayıları baz alınarak Yargıtay emsal kararları çerçevesinde tahmin edilmiştir.',
-        referenceTable: {
-            headers: ['Kriter', 'Girdi Değeri'],
-            rows: [
-                ['Mobbing Süresi', sure + ' Ay'],
-                ['Psikolojik Etki Katsayısı', psiko + ' Puan'],
-                ['Delil/İspat Durumu', delil === 35 ? 'Güçlü Yazılı Deliller var' : (delil === 20 ? 'Şahit/Kısmi Deliller var' : 'Sadece Beyan (Delil Yok)')],
-                ['Şirket Büyüklüğü', sirket === 2.5 ? 'Büyük Ölçekli' : (sirket === 1.5 ? 'Orta Ölçekli' : 'Küçük Ölçekli')],
-                ['Tahmini Minimum Tazminat', Math.round(minTazminat).toLocaleString('tr-TR') + ' ₺'],
-                ['Tahmini Maksimum Tazminat', Math.round(maxTazminat).toLocaleString('tr-TR') + ' ₺']
-            ],
-            highlightedRowIndex: 4
-        },
-        formula: {
-            raw: 'Tazminat = (Süre Puanı + Psikolojik Etki + Delil Puanı) * Şirket Katsayısı * 250',
-            text: 'Mobbing süresi (max 30 puan), psikolojik etki (max 35 puan) ve delil gücü (max 35 puan) toplanarak şirket katsayısı ve taban ücret çarpanı ile hesaplanır. Delil olmaması durumunda %60 hakkaniyet indirimi uygulanır.'
-        },
-        example: '6 ay süre, orta etki ve güçlü delil içeren bir senaryoda tazminat tahmini yaklaşık 45.000 ₺ - 90.000 ₺ arasındadır.',
-        source: {
-            name: 'Yargıtay 9. Hukuk Dairesi Emsal Mobbing Kararları ve Türk Borçlar Kanunu Madde 56',
-            url: 'https://www.mevzuat.gov.tr'
-        },
-        nextActions: [
-            'Mobbing teşkil eden tüm e-posta, mesaj ve yazışmaları güvenli bir şekilde arşivleyin.',
-            'Yaşadığınız psikolojik yıpranmayı belgelemek adına devlet hastanesinden psikiyatrik rapor alın.',
-            'İş akdinizi haklı nedenle feshetmeden önce mutlaka bir iş hukuku avukatına danışın.'
-        ],
-        faq: [
-            { question: "Mobbing davalarında ispat yükü kimdedir?", answer: "İddia sahibi işçi mobbinge uğradığını delillerle veya güçlü emarelerle kanıtlamakla yükümlüdür." },
-            { question: "Manevi tazminat miktarı neye göre belirlenir?", answer: "Tarafların sosyal ve ekonomik durumu, olayın vehameti, mobbingin süresi ve işçide bıraktığı hasar esas alınır." }
-        ],
+        minTazminat: Math.round(minTazminat).toLocaleString('tr-TR'),
+        maxTazminat: Math.round(maxTazminat).toLocaleString('tr-TR'),
+        sure: sure,
+        psiko: psiko,
+        delilText: delil === 35 ? 'Güçlü Yazılı Deliller var' : (delil === 20 ? 'Şahit/Kısmi Deliller var' : 'Sadece Beyan (Delil Yok)'),
+        sirketText: sirket === 2.5 ? 'Büyük Ölçekli' : (sirket === 1.5 ? 'Orta Ölçekli' : 'Küçük Ölçekli'),
         metadata: {
-            severity: 'warning',
-            status: 'success',
-            lastUpdated: '2026-07-06',
-            badges: ['Hukuk & Mevzuat', 'Tazminat Tahmini']
+            badges: ['Hukuk & Mevzuat', 'Tazminat Tahmini'],
+            severity: 'warning'
         }
     })) {
         return;

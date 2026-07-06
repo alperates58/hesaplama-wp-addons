@@ -322,12 +322,22 @@ class HC_Calculator_Loader {
 			$client_src         = isset( $src_data['sources'] ) ? $src_data['sources'] : [];
 			$client_reg         = $this->load_module_registry();
 
+			$content_reg_file = HC_PLUGIN_DIR . 'assets/data/result-content-registry.json';
+			$client_content   = [];
+			if ( file_exists( $content_reg_file ) ) {
+				$content_reg_data = json_decode( file_get_contents( $content_reg_file ), true );
+				if ( is_array( $content_reg_data ) && isset( $content_reg_data['modules'] ) ) {
+					$client_content = $content_reg_data['modules'];
+				}
+			}
+
 			$central_data = [
 				'dictionary'  => $client_dict,
 				'disclaimers' => $client_disclaimers,
 				'templates'   => $client_tpl,
 				'sources'     => $client_src,
 				'registry'    => $client_reg,
+				'content'     => $client_content,
 			];
 
 			$inline_js  = 'window.hcCentralData = ' . json_encode( $central_data, JSON_UNESCAPED_UNICODE ) . ';';
@@ -335,6 +345,7 @@ class HC_Calculator_Loader {
 			$inline_js .= 'window.hcTemplates = ' . json_encode( $client_tpl, JSON_UNESCAPED_UNICODE ) . ';';
 			$inline_js .= 'window.hcSources = ' . json_encode( $client_src, JSON_UNESCAPED_UNICODE ) . ';';
 			$inline_js .= 'window.hcDisclaimers = ' . json_encode( $client_disclaimers, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcContentRegistry = ' . json_encode( $client_content, JSON_UNESCAPED_UNICODE ) . ';';
 			$inline_js .= 'window.hcConfig = { "resultEngineEnabled": true };';
 
 			wp_add_inline_script( 'hesaplama-suite', $inline_js, 'before' );

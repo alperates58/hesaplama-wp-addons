@@ -20,29 +20,11 @@ function hcUykuBorcuHesapla() {
         : (weeklyDebt < 0 ? 'Hedefinizden daha fazla uyuyorsunuz. Harika!' : 'Uyku düzeniniz hedeflerinizle tam uyumlu.');
 
     if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('uyku-borcu-hesaplama', {
-        primaryResult: statusText,
-        shortSummary: 'Uyku borcu analizi başarıyla tamamlandı.',
-        interpretation: desc,
-        formula: {
-            raw: 'Uyku Borcu = (Hedef Uyku - Gerçek Uyku) * 7',
-            text: 'Hedeflenen günlük uyku süresi ile gerçekleşen günlük uyku süresi arasındaki farkın haftalık toplamıdır.'
-        },
-        source: {
-            name: 'Dünya Sağlık Örgütü (WHO) Uyku Kılavuzları',
-            url: 'https://www.who.int'
-        },
-        nextActions: [
-            'Hafta sonu aşırı uyumak yerine günlük uykunuzu 30-60 dakika artırın.',
-            'Yatmadan en az 1 saat önce ekran kullanımını sonlandırın.'
-        ],
-        faq: [
-            { question: "Uyku borcu kronik yorgunluğa yol açar mı?", answer: "Evet, biriken uyku borcu dikkat dağınıklığı ve yorgunluğa neden olabilir." },
-            { question: "Yetişkinler için günlük ideal uyku süresi nedir?", answer: "WHO ve uzmanlar yetişkinler için günlük 7-9 saat uykuyu önermektedir." }
-        ],
+        weeklyDebt: weeklyDebt.toFixed(1).toLocaleString('tr-TR'),
+        statusText: statusText,
+        desc: desc,
+        severity: severity,
         metadata: {
-            severity: severity,
-            status: 'success',
-            lastUpdated: '2026-07-06',
             badges: ['Sağlık & Tıp', 'Uyku Hijyeni']
         }
     })) {

@@ -104,42 +104,15 @@ function hcGebelikHaftasiHesapla() {
     var yorumText = hcGebelikHaftasiYorum(hafta, gun, kalanGun);
     var donemText = hcGebelikHaftasiDonem(hafta);
     if (typeof window.HC !== 'undefined' && typeof window.HC.ResultEngine !== 'undefined' && window.HC.ResultEngine.render('gebelik-haftasi-hesaplama', {
-        primaryResult: hafta + ' Hafta ' + gun + ' Gün',
-        shortSummary: 'Tahmini gebelik süresi hesaplandı.',
-        interpretation: yorumText,
-        referenceTable: {
-            headers: ['Ölçüm', 'Değer'],
-            rows: [
-                ['Gebelik Haftası', hafta + ' Hafta ' + gun + ' Gün'],
-                ['Toplam Geçen Gün', hcGebelikHaftasiFormat(gecenGun) + ' Gün'],
-                ['Tahmini Doğum Tarihi', hcGebelikHaftasiTarihFormatla(dogum)],
-                ['Kalan Süre', hcGebelikHaftasiKalanMetin(kalanGun)],
-                ['Gebelik Dönemi (Trimester)', donemText],
-                ['Tamamlanma Oranı', yuzde.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + '%']
-            ],
-            highlightedRowIndex: 0
-        },
-        formula: {
-            raw: 'Gebelik Süresi = Hesaplama Tarihi - Son Adet Tarihi (SAT)',
-            text: 'Gebelik süresi, son adet tarihinin (SAT) ilk gününden itibaren geçen gün sayısının haftaya çevrilmesiyle hesaplanır. İdeal gebelik süresi 280 gün (40 hafta) kabul edilir.'
-        },
-        source: {
-            name: 'ACOG (American College of Obstetricians and Gynecologists)',
-            url: 'https://www.acog.org'
-        },
-        nextActions: [
-            'Haftalık gebelik takibinizi aksatmamak için doktor kontrollerinizi planlayın.',
-            'Sağlıklı beslenme ve doktor onaylı egzersiz programları uygulayın.',
-            'Trimester dönemine uygun tarama testleri ve aşılar hakkında hekiminize danışın.'
-        ],
-        faq: [
-            { question: "Tahmini doğum tarihi nasıl hesaplanır?", answer: "Son adet tarihinin (SAT) ilk gününe 280 gün (40 hafta) eklenerek hesaplanır." },
-            { question: "Trimester nedir?", answer: "Yaklaşık 3\'er aylık dönemlerden oluşan 3 ana gebelik evresidir." }
-        ],
+        hafta: hafta,
+        gun: gun,
+        donemText: donemText,
+        yorumText: yorumText,
+        gecenGun: hcGebelikHaftasiFormat(gecenGun),
+        dogum: hcGebelikHaftasiTarihFormatla(dogum),
+        kalanGunText: hcGebelikHaftasiKalanMetin(kalanGun),
+        yuzde: yuzde.toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + '%',
         metadata: {
-            severity: 'info',
-            status: 'success',
-            lastUpdated: '2026-07-06',
             badges: ['Sağlık & Tıp', donemText]
         }
     })) {

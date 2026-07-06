@@ -608,7 +608,7 @@
     }
 
     window.HC.ResultEngine = {
-        version: "1.0.1",
+        version: "1.1.0",
 
         render: function (slug, data, targetSelector) {
             // 1. Feature Flag Check
@@ -629,8 +629,129 @@
                              document.getElementById('hc-' + slug + '-result');
                 if (!target) return false;
 
-                var html = '';
+                // ── Content Registry & Placeholders Resolve ─────────────────
+                var contentRegistry = window.hcContentRegistry || {};
+                var content = contentRegistry[slug] || {};
+
+                var replacePlaceholders = function(text, values) {
+                    if (!text || typeof text !== 'string') return text;
+                    if (!values) return text;
+                    for (var key in values) {
+                        if (values.hasOwnProperty(key)) {
+                            var val = values[key];
+                            if (val === null || val === undefined) val = '';
+                            var regex = new RegExp('{' + key + '}', 'g');
+                            text = text.replace(regex, val);
+                        }
+                    }
+                    return text;
+                };
+
+                var evaluateCondition = function(condition, values) {
+                    if (!condition || condition === 'true') return true;
+                    try {
+                        var keys = Object.keys(values);
+                        var args = keys.concat('return ' + condition + ';');
+                        var fn = Function.prototype.bind.apply(Function, [null].concat(args));
+                        var actualFn = new fn();
+                        var valArray = keys.map(function(k) { return values[k]; });
+                        return actualFn.apply(null, valArray);
+                    } catch (e) {
+                        return false;
+                    }
+                };
+
+                // Dynamic severity & interpretation resolution
                 var severity = (data.metadata && data.metadata.severity && data.metadata.severity !== 'undefined') ? data.metadata.severity : 'info';
+                var interpretationText = '';
+                if (content.interpretation_rules && content.interpretation_rules.length > 0) {
+                    for (var r = 0; r < content.interpretation_rules.length; r++) {
+                        var rule = content.interpretation_rules[r];
+                        if (evaluateCondition(rule.condition, data)) {
+                            interpretationText = replacePlaceholders(rule.text, data);
+                            if (rule.severity) {
+                                severity = rule.severity === 'severity' ? (data.severity || severity) : rule.severity;
+                            }
+                            break;
+                        }
+                    }
+                } else if (data.interpretation && data.interpretation !== 'undefined') {
+                    interpretationText = data.interpretation;
+                }
+
+                // Resolving other elements
+                var titleText = data.title || getSafeModuleName(slug);
+                var shortSummary = content.summary_template 
+                    ? replacePlaceholders(content.summary_template, data) 
+                    : data.shortSummary;
+
+                var primaryResult = content.primaryResult
+                    ? replacePlaceholders(content.primaryResult, data)
+                    : data.primaryResult;
+
+                var refTable = null;
+                if (content.reference_table && content.reference_table.rows && content.reference_table.rows.length > 0) {
+                    var headers = (content.reference_table.headers || []).map(function(h) {
+                        return replacePlaceholders(h, data);
+                    });
+                    var rows = content.reference_table.rows.map(function(row) {
+                        return row.map(function(cell) {
+                            return replacePlaceholders(cell, data);
+                        });
+                    });
+                    refTable = {
+                        headers: headers,
+                        rows: rows,
+                        highlightedRowIndex: (data.referenceTable && typeof data.referenceTable.highlightedRowIndex !== 'undefined') 
+                            ? data.referenceTable.highlightedRowIndex 
+                            : -1
+                    };
+                } else if (data.referenceTable) {
+                    refTable = data.referenceTable;
+                }
+
+                var formulaData = null;
+                if (content.formula && (content.formula.raw || content.formula.explanation)) {
+                    formulaData = {
+                        raw: replacePlaceholders(content.formula.raw, data),
+                        text: replacePlaceholders(content.formula.explanation, data)
+                    };
+                } else if (data.formula) {
+                    formulaData = data.formula;
+                }
+
+                var exampleText = content.example_scenario
+                    ? replacePlaceholders(content.example_scenario, data)
+                    : data.example;
+
+                var sourceData = null;
+                if (content.source && content.source.name) {
+                    sourceData = {
+                        name: replacePlaceholders(content.source.name, data),
+                        url: replacePlaceholders(content.source.url, data)
+                    };
+                } else if (data.source) {
+                    sourceData = data.source;
+                }
+
+                var nextActions = (content.next_actions && content.next_actions.length > 0)
+                    ? content.next_actions.map(function(act) { return replacePlaceholders(act, data); })
+                    : data.nextActions;
+
+                var relatedCalculators = (content.related_calculators && content.related_calculators.length > 0)
+                    ? content.related_calculators
+                    : (tpl.related_calculators || []);
+
+                var faq = (content.faq && content.faq.length > 0)
+                    ? content.faq.map(function(item) {
+                        return {
+                            question: replacePlaceholders(item.question, data),
+                            answer: replacePlaceholders(item.answer, data)
+                        };
+                      })
+                    : data.faq;
+
+                var html = '';
 
                 // Base Card Block
                 html += '<div class="hc-rt-card hc-rt-card--' + escapeHtml(severity) + '">';
@@ -638,7 +759,6 @@
                 // Header Block
                 html += '<div class="hc-rt-header">';
                 if (tpl.result_sections_enabled.result_title) {
-                    var titleText = data.title || getSafeModuleName(slug);
                     if (titleText && titleText !== 'undefined') {
                         html += '<h4 class="hc-rt-title">' + escapeHtml(titleText) + '</h4>';
                     }
@@ -659,42 +779,42 @@
                 html += '</div>';
 
                 // Primary Result Block
-                if (tpl.result_sections_enabled.primary_result && data.primaryResult && data.primaryResult !== 'undefined') {
-                    html += '<div class="hc-rt-primary" aria-live="polite" aria-atomic="true">' + escapeHtml(data.primaryResult) + '</div>';
+                if (tpl.result_sections_enabled.primary_result && primaryResult && primaryResult !== 'undefined') {
+                    html += '<div class="hc-rt-primary" aria-live="polite" aria-atomic="true">' + escapeHtml(primaryResult) + '</div>';
                 }
 
                 // Short Summary Block
-                if (tpl.result_sections_enabled.short_summary && data.shortSummary && data.shortSummary !== 'undefined') {
+                if (tpl.result_sections_enabled.short_summary && shortSummary && shortSummary !== 'undefined') {
                     html += '<section class="hc-rt-section">';
-                    html += '<div class="hc-rt-section-body"><strong>' + escapeHtml(data.shortSummary) + '</strong></div>';
+                    html += '<div class="hc-rt-section-body"><strong>' + escapeHtml(shortSummary) + '</strong></div>';
                     html += '</section>';
                 }
 
                 // Interpretation Block
-                if (tpl.result_sections_enabled.interpretation && data.interpretation && data.interpretation !== 'undefined') {
+                if (tpl.result_sections_enabled.interpretation && interpretationText && interpretationText !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Değerlendirme</h5>';
-                    html += '<div class="hc-rt-section-body">' + data.interpretation + '</div>';
+                    html += '<div class="hc-rt-section-body">' + interpretationText + '</div>';
                     html += '</section>';
                 }
 
                 // Reference Table Block
-                if (tpl.result_sections_enabled.reference_table && data.referenceTable && data.referenceTable.rows && data.referenceTable.rows.length > 0) {
+                if (tpl.result_sections_enabled.reference_table && refTable && refTable.rows && refTable.rows.length > 0) {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Referans Değerleri</h5>';
                     html += '<div class="hc-rt-table-wrapper">';
                     html += '<table class="hc-rt-table">';
-                    if (data.referenceTable.headers && data.referenceTable.headers.length > 0) {
+                    if (refTable.headers && refTable.headers.length > 0) {
                         html += '<thead><tr>';
-                        data.referenceTable.headers.forEach(function (h) {
+                        refTable.headers.forEach(function (h) {
                             html += '<th scope="col">' + escapeHtml(h || '') + '</th>';
                         });
                         html += '</tr></thead>';
                     }
                     html += '<tbody>';
-                    data.referenceTable.rows.forEach(function (row, rIndex) {
+                    refTable.rows.forEach(function (row, rIndex) {
                         if (!row || row.length === 0) return;
-                        var trClass = (data.referenceTable.highlightedRowIndex === rIndex) ? ' class="hc-rt-row-highlight"' : '';
+                        var trClass = (refTable.highlightedRowIndex === rIndex) ? ' class="hc-rt-row-highlight"' : '';
                         html += '<tr' + trClass + '>';
                         row.forEach(function (cell) {
                             html += '<td>' + escapeHtml(cell || '') + '</td>';
@@ -705,46 +825,43 @@
                 }
 
                 // Formula Explanation Block
-                if (tpl.result_sections_enabled.formula_explanation && data.formula && (data.formula.raw || data.formula.text)) {
+                if (tpl.result_sections_enabled.formula_explanation && formulaData && (formulaData.raw || formulaData.text)) {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Formül ve Hesaplama Yöntemi</h5>';
                     html += '<div class="hc-rt-section-body">';
-                    if (data.formula.raw && data.formula.raw !== 'undefined') {
-                        html += '<code>' + escapeHtml(data.formula.raw) + '</code><br><br>';
+                    if (formulaData.raw && formulaData.raw !== 'undefined') {
+                        html += '<code>' + escapeHtml(formulaData.raw) + '</code><br><br>';
                     }
-                    if (data.formula.text && data.formula.text !== 'undefined') {
-                        html += escapeHtml(data.formula.text);
+                    if (formulaData.text && formulaData.text !== 'undefined') {
+                        html += escapeHtml(formulaData.text);
                     }
                     html += '</div></section>';
                 }
 
                 // Example Calculation Block
-                if (tpl.result_sections_enabled.example_calculation && data.example && data.example !== 'undefined') {
+                if (tpl.result_sections_enabled.example_calculation && exampleText && exampleText !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Örnek Senaryo</h5>';
-                    html += '<div class="hc-rt-section-body">' + escapeHtml(data.example) + '</div>';
+                    html += '<div class="hc-rt-section-body">' + escapeHtml(exampleText) + '</div>';
                     html += '</section>';
                 }
 
                 // Source Note Block
-                if (tpl.result_sections_enabled.source_note && data.source && data.source.name && data.source.name !== 'undefined') {
+                if (tpl.result_sections_enabled.source_note && sourceData && sourceData.name && sourceData.name !== 'undefined') {
                     html += '<section class="hc-rt-section">';
                     html += '<h5 class="hc-rt-section-title">Resmi Kaynak</h5>';
                     html += '<div class="hc-rt-section-body">';
-                    if (data.source.url && data.source.url !== 'undefined') {
-                        html += '<a href="' + escapeHtml(data.source.url) + '" target="_blank" rel="noopener noreferrer" style="color:var(--hc-rt-color-info); font-weight:600;">' + escapeHtml(data.source.name) + ' ↗</a>';
+                    if (sourceData.url && sourceData.url !== 'undefined') {
+                        html += '<a href="' + escapeHtml(sourceData.url) + '" target="_blank" rel="noopener noreferrer" style="color:var(--hc-rt-color-info); font-weight:600;">' + escapeHtml(sourceData.name) + ' ↗</a>';
                     } else {
-                        html += escapeHtml(data.source.name);
+                        html += escapeHtml(sourceData.name);
                     }
                     html += '</div></section>';
                 }
 
                 // Disclaimer Block
                 if (tpl.result_sections_enabled.disclaimer) {
-                    var discType = '';
-                    if (window.hcRegistry && window.hcRegistry[slug]) {
-                        discType = window.hcRegistry[slug].target_disclaimer_type || window.hcRegistry[slug].disclaimer_type;
-                    }
+                    var discType = content.disclaimer_type || (window.hcRegistry && window.hcRegistry[slug] ? (window.hcRegistry[slug].target_disclaimer_type || window.hcRegistry[slug].disclaimer_type) : '');
                     var discData = (discType && window.hcDisclaimers && window.hcDisclaimers[discType]) ? window.hcDisclaimers[discType] : null;
                     if (discData && discData.title && discData.text && discData.title !== 'undefined' && discData.text !== 'undefined') {
                         html += '<div class="hc-rt-disclaimer">';
@@ -754,9 +871,9 @@
                 }
 
                 // Next Actions Block
-                if (tpl.result_sections_enabled.next_actions && data.nextActions && data.nextActions.length > 0) {
+                if (tpl.result_sections_enabled.next_actions && nextActions && nextActions.length > 0) {
                     var actionsHtml = '';
-                    data.nextActions.forEach(function (act) {
+                    nextActions.forEach(function (act) {
                         if (act && act !== 'undefined') {
                             actionsHtml += '<li class="hc-rt-action-item">' + escapeHtml(act) + '</li>';
                         }
@@ -770,9 +887,9 @@
                 }
 
                 // Related Calculators Block
-                if (tpl.result_sections_enabled.related_calculators && tpl.related_calculators && tpl.related_calculators.length > 0) {
+                if (tpl.result_sections_enabled.related_calculators && relatedCalculators && relatedCalculators.length > 0) {
                     var relatedHtml = '';
-                    tpl.related_calculators.forEach(function (relSlug) {
+                    relatedCalculators.forEach(function (relSlug) {
                         if (!relSlug) return;
                         var relName = getSafeModuleName(relSlug);
                         if (!relName || relName === 'undefined') return;
@@ -787,9 +904,9 @@
                 }
 
                 // FAQ Block
-                if (tpl.result_sections_enabled.faq_snippets && data.faq && data.faq.length > 0) {
+                if (tpl.result_sections_enabled.faq_snippets && faq && faq.length > 0) {
                     var faqHtml = '';
-                    data.faq.forEach(function (f) {
+                    faq.forEach(function (f) {
                         if (f && f.question && f.answer && f.question !== 'undefined' && f.answer !== 'undefined') {
                             faqHtml += '<details class="hc-rt-faq-item">';
                             faqHtml += '<summary>' + escapeHtml(f.question) + '</summary>';
