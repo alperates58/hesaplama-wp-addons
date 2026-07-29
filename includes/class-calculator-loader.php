@@ -340,12 +340,12 @@ class HC_Calculator_Loader {
 				'content'     => $client_content,
 			];
 
-			$inline_js  = 'window.hcCentralData = ' . json_encode( $central_data, JSON_UNESCAPED_UNICODE ) . ';';
-			$inline_js .= 'window.hcRegistry = ' . json_encode( $client_reg, JSON_UNESCAPED_UNICODE ) . ';';
-			$inline_js .= 'window.hcTemplates = ' . json_encode( $client_tpl, JSON_UNESCAPED_UNICODE ) . ';';
-			$inline_js .= 'window.hcSources = ' . json_encode( $client_src, JSON_UNESCAPED_UNICODE ) . ';';
-			$inline_js .= 'window.hcDisclaimers = ' . json_encode( $client_disclaimers, JSON_UNESCAPED_UNICODE ) . ';';
-			$inline_js .= 'window.hcContentRegistry = ' . json_encode( $client_content, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js  = 'window.hcCentralData = ' . wp_json_encode( $central_data, JSON_UNESCAPED_UNICODE ) . ';';
+			$inline_js .= 'window.hcRegistry = window.hcCentralData.registry;';
+			$inline_js .= 'window.hcTemplates = window.hcCentralData.templates;';
+			$inline_js .= 'window.hcSources = window.hcCentralData.sources;';
+			$inline_js .= 'window.hcDisclaimers = window.hcCentralData.disclaimers;';
+			$inline_js .= 'window.hcContentRegistry = window.hcCentralData.content;';
 			$inline_js .= 'window.hcConfig = { "resultEngineEnabled": true };';
 
 			wp_add_inline_script( 'hesaplama-suite', $inline_js, 'before' );
