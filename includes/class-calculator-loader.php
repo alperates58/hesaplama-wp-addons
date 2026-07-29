@@ -320,14 +320,50 @@ class HC_Calculator_Loader {
 			$client_disclaimers = isset( $disc_data['disclaimers'] ) ? $disc_data['disclaimers'] : [];
 			$client_tpl         = isset( $tpl_data['templates'] ) ? $tpl_data['templates'] : [];
 			$client_src         = isset( $src_data['sources'] ) ? $src_data['sources'] : [];
-			$client_reg         = $this->load_module_registry();
+			$raw_reg            = $this->load_module_registry();
 
 			$content_reg_file = HC_PLUGIN_DIR . 'assets/data/result-content-registry.json';
-			$client_content   = [];
+			$raw_content      = [];
 			if ( file_exists( $content_reg_file ) ) {
 				$content_reg_data = json_decode( file_get_contents( $content_reg_file ), true );
 				if ( is_array( $content_reg_data ) && isset( $content_reg_data['modules'] ) ) {
-					$client_content = $content_reg_data['modules'];
+					$raw_content = $content_reg_data['modules'];
+				}
+			}
+
+			// ── Aktif Modül Filtreleme (Faz 2) ──────────────────────────────────
+			$tags = $this->extract_hc_tags_from_content( $post->post_content );
+			$active_slugs = [];
+
+			foreach ( $tags as $tag ) {
+				if ( 'hc_lazy_debug' === $tag ) {
+					continue;
+				}
+
+				$slug = '';
+				if ( isset( $this->shortcode_map[ $tag ] ) ) {
+					$slug = basename( dirname( $this->shortcode_map[ $tag ] ) );
+				}
+				if ( ! $slug ) {
+					$slug = str_replace( '_', '-', substr( $tag, 3 ) );
+				}
+
+				if ( $slug && ! in_array( $slug, $active_slugs, true ) ) {
+					$active_slugs[] = $slug;
+				}
+			}
+
+			$client_reg     = [];
+			$client_content = [];
+
+			if ( ! empty( $active_slugs ) ) {
+				foreach ( $active_slugs as $slug ) {
+					if ( isset( $raw_reg[ $slug ] ) ) {
+						$client_reg[ $slug ] = $raw_reg[ $slug ];
+					}
+					if ( isset( $raw_content[ $slug ] ) ) {
+						$client_content[ $slug ] = $raw_content[ $slug ];
+					}
 				}
 			}
 
