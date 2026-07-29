@@ -320,74 +320,15 @@ class HC_Calculator_Loader {
 			$client_disclaimers = isset( $disc_data['disclaimers'] ) ? $disc_data['disclaimers'] : [];
 			$client_tpl         = isset( $tpl_data['templates'] ) ? $tpl_data['templates'] : [];
 			$client_src         = isset( $src_data['sources'] ) ? $src_data['sources'] : [];
-			$raw_reg            = $this->load_module_registry();
+			$client_reg         = $this->load_module_registry();
 
 			$content_reg_file = HC_PLUGIN_DIR . 'assets/data/result-content-registry.json';
-			$raw_content      = [];
+			$client_content   = [];
 			if ( file_exists( $content_reg_file ) ) {
 				$content_reg_data = json_decode( file_get_contents( $content_reg_file ), true );
 				if ( is_array( $content_reg_data ) && isset( $content_reg_data['modules'] ) ) {
-					$raw_content = $content_reg_data['modules'];
+					$client_content = $content_reg_data['modules'];
 				}
-			}
-
-			// ── Aktif Modül Filtreleme (Faz 2) ──────────────────────────────────
-			$tags = $this->extract_hc_tags_from_content( $post->post_content );
-			$active_slugs = [];
-
-			foreach ( $tags as $tag ) {
-				if ( 'hc_lazy_debug' === $tag ) {
-					continue;
-				}
-
-				$slug = '';
-				if ( isset( $this->shortcode_map[ $tag ] ) ) {
-					$slug = basename( dirname( $this->shortcode_map[ $tag ] ) );
-				}
-				if ( ! $slug ) {
-					$slug = str_replace( '_', '-', substr( $tag, 3 ) );
-				}
-
-				if ( ! isset( $raw_reg[ $slug ] ) && is_array( $raw_reg ) ) {
-					foreach ( $raw_reg as $reg_slug => $reg_item ) {
-						if ( ( isset( $reg_item['shortcode'] ) && $reg_item['shortcode'] === '[' . $tag . ']' ) ||
-						     ( isset( $reg_item['aliases'] ) && is_array( $reg_item['aliases'] ) && in_array( $tag, $reg_item['aliases'], true ) ) ) {
-							$slug = $reg_slug;
-							break;
-						}
-					}
-				}
-
-				if ( $slug && ! in_array( $slug, $active_slugs, true ) ) {
-					$active_slugs[] = $slug;
-				}
-			}
-
-			$client_reg     = [];
-			$client_content = [];
-
-			foreach ( $active_slugs as $slug ) {
-				if ( isset( $raw_reg[ $slug ] ) ) {
-					$client_reg[ $slug ] = $raw_reg[ $slug ];
-				} else {
-					error_log( 'HC frontend payload: module mapping not found for shortcode/slug ' . sanitize_key( $slug ) );
-				}
-
-				if ( isset( $raw_content[ $slug ] ) ) {
-					$client_content[ $slug ] = $raw_content[ $slug ];
-				}
-			}
-
-			if ( is_array( $client_tpl ) && ! empty( $active_slugs ) ) {
-				$filtered_tpl = [];
-				foreach ( $client_tpl as $tpl_item ) {
-					if ( isset( $tpl_item['module_slug'] ) && in_array( $tpl_item['module_slug'], $active_slugs, true ) ) {
-						$filtered_tpl[] = $tpl_item;
-					}
-				}
-				$client_tpl = $filtered_tpl;
-			} elseif ( empty( $active_slugs ) ) {
-				$client_tpl = [];
 			}
 
 			$central_data = [
