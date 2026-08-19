@@ -24,11 +24,11 @@ function hc_render_yuzde_hesaplama( $atts ) {
             <label for="hc-yh-islem-turu">Hesaplama Türünü Seçin</label>
             <div class="hc-yh-select-wrapper">
                 <select id="hc-yh-islem-turu" class="hc-yh-select" onchange="hcYhSelectTab(this.value)">
-                    <option value="sayi" selected>🔢 Sayının Yüzdesi (A sayısının % B'si)</option>
-                    <option value="oran">📊 Yüzde Oranı (A sayısı, B sayısının % kaçı)</option>
-                    <option value="degisim">📈 Yüzde Değişim (A'dan B'ye artış/azalış % kaçı)</option>
-                    <option value="ekle-cikar">🏷️ Yüzde Ekle / Çıkar (Zam veya İndirim Tutarı)</option>
-                    <option value="ters">🔄 Tamamını Bul (% A'sı B olan sayının tamamı)</option>
+                    <option value="sayi" selected>Sayının Yüzdesi</option>
+                    <option value="oran">Yüzde Oranı</option>
+                    <option value="degisim">Yüzde Değişim (Artış / Azalış)</option>
+                    <option value="ekle-cikar">Yüzde Ekle / Çıkar (Zam / İndirim)</option>
+                    <option value="ters">Ters Yüzde (Tamamını Bul)</option>
                 </select>
             </div>
         </div>
