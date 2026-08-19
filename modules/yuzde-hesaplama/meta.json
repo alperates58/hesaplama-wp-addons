@@ -1,5 +1,6 @@
 {
   "name": "Yüzde Hesaplama",
-  "desc": "Genel amaçlı yüzde hesaplama aracı; X sayısı Y sayısının yüzde kaçıdır?",
+  "desc": "Kapsamlı yüzde hesaplama aracı; sayının yüzdesi, yüzde oranı, yüzde değişim (artış/azalış), zam/indirim ekleme-çıkarma ve ters yüzde hesabı.",
   "shortcode": "[hc_yuzde_hesaplama]"
 }
+

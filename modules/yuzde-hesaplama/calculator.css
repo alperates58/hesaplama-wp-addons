@@ -1,62 +1,427 @@
+/* Yüzde Hesaplama Modülü Özel Stilleri */
+
 #hc-yuzde-hesaplama {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    font-family: 'Outfit', sans-serif;
-    max-width: 550px;
-    margin: 20px auto;
+    max-width: 680px;
+    margin: 25px auto;
+    font-family: inherit;
 }
 
-#hc-yuzde-hesaplama .hc-yuzde-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 15px;
-    padding: 20px;
+.hc-yh-header {
     margin-bottom: 20px;
+    text-align: left;
 }
 
-#hc-yuzde-hesaplama .hc-yuzde-row {
+.hc-yh-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    font-weight: 780;
+    color: #101828;
+}
+
+.hc-yh-desc {
+    margin: 0;
+    font-size: 14px;
+    color: #667085;
+    line-height: 1.45;
+}
+
+/* Sekmeler */
+.hc-yh-tabs {
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    background: #f1f5f9;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.hc-yh-tabs::-webkit-scrollbar {
+    height: 4px;
+}
+
+.hc-yh-tabs::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.hc-yh-tab-btn {
+    flex: 1 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.18s ease;
+}
+
+.hc-yh-tab-btn:hover {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.hc-yh-tab-btn.active {
+    background: #ffffff;
+    color: #155eef;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+}
+
+.hc-yh-tab-icon {
+    font-size: 15px;
+}
+
+/* Panel Lead */
+.hc-yh-panel-lead {
+    padding: 12px 16px;
+    background: #f8fafc;
+    border-left: 4px solid #155eef;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 18px;
+}
+
+.hc-yh-panel-lead strong {
+    color: #0f172a;
+}
+
+/* Grid Layout */
+.hc-yh-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+/* Sık Kullanılanlar Çipleri */
+.hc-yh-quick-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    font-weight: 600;
-    color: #475569;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border: 1px dashed #e2e8f0;
+    border-radius: 10px;
 }
 
-#hc-yuzde-hesaplama input {
-    width: 80px;
-    padding: 8px;
-    border: 2px solid #cbd5e1;
-    border-radius: 8px;
-    text-align: center;
+.hc-yh-quick-label {
+    font-size: 12.5px;
     font-weight: 700;
+    color: #64748b;
 }
 
-#hc-yuzde-hesaplama .hc-mini-btn {
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-weight: 900;
+.hc-yh-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.hc-yh-chip {
+    padding: 4px 10px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.hc-yh-chip:hover {
+    border-color: #155eef;
+    color: #155eef;
+    background: #eff6ff;
+    transform: translateY(-1px);
+}
+
+/* Radio Group */
+.hc-yh-radio-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.hc-yh-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+}
+
+.hc-yh-radio input[type="radio"] {
+    width: auto;
+    min-height: auto;
+    margin: 0;
     cursor: pointer;
 }
 
-#hc-yuzde-hesaplama .hc-yuzde-res {
-    margin-top: 15px;
-    font-size: 1.1rem;
+.hc-yh-radio:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+/* Buton Satırı */
+.hc-yh-btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.hc-yh-reset-btn {
+    padding: 12px 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+
+.hc-yh-reset-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+/* Sonuç Alanı */
+.hc-yh-res-box {
+    padding: 18px 20px;
+    background: #ffffff;
+    border: 1px solid #dbe7ff;
+    border-radius: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(21, 94, 239, 0.05);
+}
+
+.hc-yh-res-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.hc-yh-res-primary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hc-yh-res-big {
+    font-size: 32px;
+    font-weight: 850;
+    color: #155eef;
+    line-height: 1.1;
+}
+
+.hc-yh-copy-btn {
+    padding: 7px 12px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+.hc-yh-copy-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+/* Ek Sonuç Kartları */
+.hc-yh-cards-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.hc-yh-card {
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hc-yh-card-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.hc-yh-card-value {
+    font-size: 18px;
+    font-weight: 800;
     color: #1e293b;
-    display: none;
 }
 
-#hc-yuzde-hesaplama .hc-yuzde-res.visible {
-    display: block;
-    animation: fadeIn 0.3s ease;
+.hc-yh-card-success {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+.hc-yh-card-success .hc-yh-card-value {
+    color: #15803d;
 }
 
-#hc-yuzde-hesaplama .hc-yuzde-res strong {
-    color: #2563eb;
-    font-size: 1.4rem;
+.hc-yh-card-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
 }
+.hc-yh-card-danger .hc-yh-card-value {
+    color: #b91c1c;
+}
+
+/* Oran Çubuğu */
+.hc-yh-bar-wrapper {
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.hc-yh-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.hc-yh-progress {
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.hc-yh-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #155eef, #0f8a5f);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+/* Formül Kutusu */
+.hc-yh-formula-box {
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.hc-yh-formula-head {
+    font-size: 12.5px;
+    font-weight: 780;
+    color: #475569;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.hc-yh-formula-content strong {
+    color: #0f172a;
+}
+
+/* Pratik Tablo */
+.hc-yh-table-box {
+    padding: 14px 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.hc-yh-table-head {
+    font-size: 12.5px;
+    font-weight: 780;
+    color: #475569;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.hc-yh-table-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+    gap: 8px;
+}
+
+.hc-yh-table-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.hc-yh-ti-pct {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #155eef;
+}
+
+.hc-yh-ti-val {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1e293b;
+    margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hc-yh-grid {
+        grid-template-columns: 1fr;
+    }
+    .hc-yh-cards-row {
+        grid-template-columns: 1fr;
+    }
+    .hc-yh-res-big {
+        font-size: 26px;
+    }
+    .hc-yh-tab-btn {
+        padding: 8px 10px;
+        font-size: 12.5px;
+    }
+}
+
