@@ -1,13 +1,19 @@
 /* Yüzde Hesaplama Modülü Özel Stilleri */
 
 #hc-yuzde-hesaplama {
+    width: 100%;
     max-width: 680px;
-    margin: 25px auto;
+    margin: 20px auto;
     font-family: inherit;
+    box-sizing: border-box;
+}
+
+#hc-yuzde-hesaplama * {
+    box-sizing: border-box;
 }
 
 .hc-yh-header {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     text-align: left;
 }
 
@@ -25,99 +31,103 @@
     line-height: 1.45;
 }
 
-/* Sekmeler */
-.hc-yh-tabs {
-    display: flex;
-    gap: 6px;
-    padding: 6px;
-    background: #f1f5f9;
-    border-radius: 14px;
-    margin-bottom: 22px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+/* Seçim Alanı */
+.hc-yh-select-group {
+    margin-bottom: 20px;
 }
 
-.hc-yh-tabs::-webkit-scrollbar {
-    height: 4px;
-}
-
-.hc-yh-tabs::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-.hc-yh-tab-btn {
-    flex: 1 0 auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 10px 14px;
-    border: none;
-    background: transparent;
-    border-radius: 10px;
+.hc-yh-select-group label {
+    display: block;
+    margin-bottom: 8px;
     font-size: 13.5px;
+    font-weight: 780;
+    color: #1e293b;
+}
+
+.hc-yh-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.hc-yh-select {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 40px 11px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 15px;
     font-weight: 700;
-    color: #475569;
+    outline: none;
     cursor: pointer;
-    white-space: nowrap;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     transition: all 0.18s ease;
 }
 
-.hc-yh-tab-btn:hover {
-    color: #0f172a;
-    background: rgba(255, 255, 255, 0.6);
-}
-
-.hc-yh-tab-btn.active {
+.hc-yh-select:hover {
     background: #ffffff;
-    color: #155eef;
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+    border-color: #94a3b8;
 }
 
-.hc-yh-tab-icon {
-    font-size: 15px;
+.hc-yh-select:focus {
+    background: #ffffff;
+    border-color: #155eef;
+    box-shadow: 0 0 0 4px rgba(21, 94, 239, 0.12);
+}
+
+.hc-yh-select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: #64748b;
+    pointer-events: none;
 }
 
 /* Panel Lead */
 .hc-yh-panel-lead {
-    padding: 12px 16px;
+    padding: 12px 14px;
     background: #f8fafc;
     border-left: 4px solid #155eef;
     border-radius: 8px;
     font-size: 14px;
     color: #334155;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    line-height: 1.4;
 }
 
 .hc-yh-panel-lead strong {
     color: #0f172a;
 }
 
-/* Grid Layout */
+/* Form Grid */
 .hc-yh-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 14px;
+    gap: 14px;
+    margin-bottom: 12px;
 }
 
-/* Sık Kullanılanlar Çipleri */
+/* Sık Kullanılanlar */
 .hc-yh-quick-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     padding: 10px 12px;
     background: #f8fafc;
-    border: 1px dashed #e2e8f0;
+    border: 1px dashed #cbd5e1;
     border-radius: 10px;
 }
 
 .hc-yh-quick-label {
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 700;
     color: #64748b;
 }
@@ -129,7 +139,7 @@
 }
 
 .hc-yh-chip {
-    padding: 4px 10px;
+    padding: 5px 10px;
     border: 1px solid #cbd5e1;
     background: #ffffff;
     border-radius: 6px;
@@ -144,48 +154,50 @@
     border-color: #155eef;
     color: #155eef;
     background: #eff6ff;
-    transform: translateY(-1px);
 }
 
-/* Radio Group */
+/* Radio Grubu */
 .hc-yh-radio-group {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .hc-yh-radio {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 14px;
+    padding: 10px 12px;
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 10px;
-    font-size: 13.5px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 650;
     color: #334155;
     cursor: pointer;
-    transition: border-color 0.18s, background 0.18s;
+    transition: all 0.18s ease;
 }
 
 .hc-yh-radio input[type="radio"] {
-    width: auto;
-    min-height: auto;
-    margin: 0;
+    width: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
     cursor: pointer;
 }
 
 .hc-yh-radio:hover {
     background: #f1f5f9;
-    border-color: #cbd5e1;
 }
 
 /* Buton Satırı */
 .hc-yh-btn-row {
     display: flex;
     gap: 10px;
-    margin-top: 6px;
+    margin-top: 8px;
+}
+
+.hc-yh-btn-row .hc-btn {
+    flex: 1;
 }
 
 .hc-yh-reset-btn {
@@ -207,23 +219,23 @@
     border-color: #94a3b8;
 }
 
-/* Sonuç Alanı */
+/* Sonuç Kartı */
 .hc-yh-res-box {
-    padding: 18px 20px;
+    padding: 16px 18px;
     background: #ffffff;
     border: 1px solid #dbe7ff;
     border-radius: 14px;
-    margin-bottom: 14px;
-    box-shadow: 0 4px 12px rgba(21, 94, 239, 0.05);
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(21, 94, 239, 0.04);
 }
 
 .hc-yh-res-title {
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 12.5px;
+    font-weight: 750;
     color: #64748b;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
 }
 
 .hc-yh-res-primary {
@@ -231,22 +243,23 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .hc-yh-res-big {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 850;
     color: #155eef;
-    line-height: 1.1;
+    line-height: 1.15;
+    word-break: break-word;
 }
 
 .hc-yh-copy-btn {
-    padding: 7px 12px;
+    padding: 6px 12px;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 700;
     color: #334155;
     cursor: pointer;
@@ -258,32 +271,33 @@
     color: #0f172a;
 }
 
-/* Ek Sonuç Kartları */
+/* Alt Kartlar */
 .hc-yh-cards-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 10px;
+    margin-bottom: 12px;
 }
 
 .hc-yh-card {
-    padding: 14px 16px;
+    padding: 12px 14px;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     gap: 4px;
+    word-break: break-word;
 }
 
 .hc-yh-card-label {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11.5px;
+    font-weight: 650;
     color: #64748b;
 }
 
 .hc-yh-card-value {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 800;
     color: #1e293b;
 }
@@ -306,7 +320,7 @@
 
 /* Oran Çubuğu */
 .hc-yh-bar-wrapper {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     padding: 12px 14px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -316,14 +330,14 @@
 .hc-yh-bar-labels {
     display: flex;
     justify-content: space-between;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 700;
     color: #475569;
     margin-bottom: 6px;
 }
 
 .hc-yh-progress {
-    height: 12px;
+    height: 10px;
     background: #e2e8f0;
     border-radius: 999px;
     overflow: hidden;
@@ -338,23 +352,23 @@
 
 /* Formül Kutusu */
 .hc-yh-formula-box {
-    padding: 14px 16px;
+    padding: 12px 14px;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    margin-bottom: 14px;
-    font-size: 13.5px;
+    margin-bottom: 12px;
+    font-size: 13px;
     color: #334155;
-    line-height: 1.5;
+    line-height: 1.45;
+    word-break: break-word;
 }
 
 .hc-yh-formula-head {
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 780;
     color: #475569;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
 }
 
 .hc-yh-formula-content strong {
@@ -363,32 +377,31 @@
 
 /* Pratik Tablo */
 .hc-yh-table-box {
-    padding: 14px 16px;
+    padding: 12px 14px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
 }
 
 .hc-yh-table-head {
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 780;
     color: #475569;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
 }
 
 .hc-yh-table-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 6px;
 }
 
 .hc-yh-table-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8px 6px;
+    padding: 7px 4px;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -396,19 +409,20 @@
 }
 
 .hc-yh-ti-pct {
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 700;
     color: #155eef;
 }
 
 .hc-yh-ti-val {
-    font-size: 14px;
+    font-size: 13.5px;
     font-weight: 800;
     color: #1e293b;
     margin-top: 2px;
+    word-break: break-word;
 }
 
-/* Responsive */
+/* Responsive Düzenlemeler */
 @media (max-width: 600px) {
     .hc-yh-grid {
         grid-template-columns: 1fr;
@@ -416,12 +430,22 @@
     .hc-yh-cards-row {
         grid-template-columns: 1fr;
     }
-    .hc-yh-res-big {
-        font-size: 26px;
+    .hc-yh-radio-group {
+        grid-template-columns: 1fr;
     }
-    .hc-yh-tab-btn {
-        padding: 8px 10px;
-        font-size: 12.5px;
+    .hc-yh-res-big {
+        font-size: 24px;
+    }
+    .hc-yh-btn-row {
+        flex-direction: column;
+    }
+    .hc-yh-reset-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .hc-yh-table-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
+
 

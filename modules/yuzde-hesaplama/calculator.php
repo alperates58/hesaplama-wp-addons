@@ -19,28 +19,18 @@ function hc_render_yuzde_hesaplama( $atts ) {
             <p class="hc-yh-desc">İhtiyacınıza uygun hesaplama türünü seçin; anında sonuç, adım adım formül ve pratik tabloyu inceleyin.</p>
         </div>
 
-        <!-- Sekmeler -->
-        <div class="hc-yh-tabs" role="tablist">
-            <button type="button" class="hc-yh-tab-btn active" role="tab" aria-selected="true" onclick="hcYhTab('sayi', this)">
-                <span class="hc-yh-tab-icon">🔢</span>
-                <span>Sayının Yüzdesi</span>
-            </button>
-            <button type="button" class="hc-yh-tab-btn" role="tab" aria-selected="false" onclick="hcYhTab('oran', this)">
-                <span class="hc-yh-tab-icon">📊</span>
-                <span>Yüzde Oranı</span>
-            </button>
-            <button type="button" class="hc-yh-tab-btn" role="tab" aria-selected="false" onclick="hcYhTab('degisim', this)">
-                <span class="hc-yh-tab-icon">📈</span>
-                <span>Yüzde Değişim</span>
-            </button>
-            <button type="button" class="hc-yh-tab-btn" role="tab" aria-selected="false" onclick="hcYhTab('ekle-cikar', this)">
-                <span class="hc-yh-tab-icon">🏷️</span>
-                <span>Yüzde Ekle / Çıkar</span>
-            </button>
-            <button type="button" class="hc-yh-tab-btn" role="tab" aria-selected="false" onclick="hcYhTab('ters', this)">
-                <span class="hc-yh-tab-icon">🔄</span>
-                <span>Tamamını Bul</span>
-            </button>
+        <!-- Hesaplama Türü Seçici (Mobilde ve Masaüstünde Tam Uyumlu) -->
+        <div class="hc-form-group hc-yh-select-group">
+            <label for="hc-yh-islem-turu">Hesaplama Türünü Seçin</label>
+            <div class="hc-yh-select-wrapper">
+                <select id="hc-yh-islem-turu" class="hc-yh-select" onchange="hcYhSelectTab(this.value)">
+                    <option value="sayi" selected>🔢 Sayının Yüzdesi (A sayısının % B'si)</option>
+                    <option value="oran">📊 Yüzde Oranı (A sayısı, B sayısının % kaçı)</option>
+                    <option value="degisim">📈 Yüzde Değişim (A'dan B'ye artış/azalış % kaçı)</option>
+                    <option value="ekle-cikar">🏷️ Yüzde Ekle / Çıkar (Zam veya İndirim Tutarı)</option>
+                    <option value="ters">🔄 Tamamını Bul (% A'sı B olan sayının tamamı)</option>
+                </select>
+            </div>
         </div>
 
         <!-- Sekme 1: Sayının Yüzdesi (A'nın %B'si) -->

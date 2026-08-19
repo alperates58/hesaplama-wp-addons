@@ -1,16 +1,8 @@
 // Yüzde Hesaplama Ana Mantık ve Fonksiyonları
 
-function hcYhTab(tabName, btn) {
+function hcYhSelectTab(tabName) {
     var calc = document.getElementById('hc-yuzde-hesaplama');
     if (!calc) return;
-
-    var tabButtons = calc.querySelectorAll('.hc-yh-tab-btn');
-    tabButtons.forEach(function(b) {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
 
     var panels = calc.querySelectorAll('.hc-yh-panel');
     panels.forEach(function(p) {
@@ -23,7 +15,17 @@ function hcYhTab(tabName, btn) {
         targetPanel.style.display = 'block';
         targetPanel.classList.add('active');
     }
+
+    var select = document.getElementById('hc-yh-islem-turu');
+    if (select && select.value !== tabName) {
+        select.value = tabName;
+    }
 }
+
+function hcYhTab(tabName, btn) {
+    hcYhSelectTab(tabName);
+}
+
 
 function hcYhFormatNumber(num, maxDecimals) {
     if (num === null || num === undefined || isNaN(num)) return '-';
