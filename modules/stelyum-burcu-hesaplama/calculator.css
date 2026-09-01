@@ -1,49 +1,443 @@
 #hc-stelyum {
-    max-width: 750px;
-    margin: 20px auto;
-    padding: 35px;
+    max-width: 780px;
+    margin: 24px auto;
+    padding: 30px 24px;
     background: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    font-family: 'Inter', sans-serif;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     border: 1px solid #e2e8f0;
+    color: #1e293b;
+}
+
+#hc-stelyum .hc-header {
+    text-align: center;
+    margin-bottom: 24px;
 }
 
 #hc-stelyum .hc-header h3 {
-    color: #1e293b;
+    margin: 0 0 8px 0;
+    color: #0f172a;
+    font-size: 24px;
     font-weight: 800;
 }
 
-#hc-stelyum .hc-form-grid {
+#hc-stelyum .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Bölüm Başlıkları ve Kutuları */
+.hc-st-section {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 22px;
+}
+
+.hc-st-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.hc-st-step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+.hc-st-section-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 16px 0;
+    line-height: 1.45;
+}
+
+/* Doğum Bilgileri Grid */
+.hc-form-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.hc-st-checkbox-group {
+    margin-top: 6px;
+}
+
+.hc-st-inline-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.hc-st-inline-label input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    min-height: auto;
+    cursor: pointer;
+}
+
+/* Hızlı Doldur Butonu */
+.hc-st-calc-birth-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+.hc-st-calc-birth-btn:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* Gezegenler Grid */
+.hc-st-planets-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
-#hc-stelyum .hc-btn {
-    background: #1e293b;
-    color: white;
-    margin-top: 25px;
+.hc-st-planet-box {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 0;
 }
 
-#hc-stelyum .hc-btn:hover {
-    background: #334155;
+.hc-st-planet-box label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
 }
 
-#hc-stelyum .hc-result {
-    background: #f8fafc;
-    border: 2px solid #1e293b;
+.hc-st-icon {
+    font-size: 14px;
 }
 
-#hc-stelyum .hc-result-value {
+.hc-st-planet-box select {
+    font-size: 13px;
+    padding: 8px 10px;
+    min-height: 38px;
+}
+
+.hc-st-deg-badge {
+    display: none;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 600;
     color: #2563eb;
-    font-size: 40px;
-    text-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    background: #eff6ff;
+    border-radius: 6px;
+    padding: 2px 6px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-    #hc-stelyum .hc-form-grid {
+/* Ana Analiz Butonu */
+.hc-st-main-btn {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+.hc-st-main-btn:hover {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.3);
+}
+
+/* Sonuç Kartları */
+#hc-st-result {
+    display: none;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-st-result.visible {
+    display: block;
+    animation: hcFadeIn 0.35s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stelyum Başlık Kartı */
+.hc-st-summary-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.hc-st-summary-card.has-stellium {
+    background: linear-gradient(180deg, #f8faff 0%, #eff6ff 100%);
+    border-color: #3b82f6;
+}
+
+.hc-st-summary-card.no-stellium {
+    background: linear-gradient(180deg, #fbfcfe 0%, #f1f5f9 100%);
+    border-color: #94a3b8;
+}
+
+.hc-st-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.hc-st-badge-type {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hc-st-badge-count {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-st-result-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.hc-st-summary-card.has-stellium .hc-st-result-title {
+    color: #1d4ed8;
+}
+
+.hc-st-result-subtitle {
+    font-size: 15px;
+    color: #475569;
+    font-weight: 500;
+}
+
+/* Kart Genel */
+.hc-st-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.hc-st-card-title {
+    margin: 0 0 14px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Gezegen Çipleri */
+.hc-st-planets-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hc-st-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #334155;
+}
+
+.hc-st-chip.is-stellium {
+    background: #dbeafe;
+    border-color: #93c5fd;
+    color: #1e40af;
+    font-weight: 700;
+}
+
+.hc-st-chip-planet {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.hc-st-chip.is-stellium .hc-st-chip-planet {
+    color: #1e40af;
+}
+
+/* Element ve Nitelik Denge Çubukları */
+.hc-st-balance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.hc-st-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 4px;
+}
+
+.hc-st-bar-wrap {
+    margin-bottom: 10px;
+}
+
+.hc-st-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 4px;
+}
+
+.hc-st-progress {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.hc-st-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+}
+
+.hc-st-bar.hc-fire { background: #ef4444; }
+.hc-st-bar.hc-earth { background: #d97706; }
+.hc-st-bar.hc-air { background: #0ea5e9; }
+.hc-st-bar.hc-water { background: #3b82f6; }
+
+.hc-st-bar.hc-cardinal { background: #8b5cf6; }
+.hc-st-bar.hc-fixed { background: #059669; }
+.hc-st-bar.hc-mutable { background: #f59e0b; }
+
+/* Rapor Kartları */
+.hc-st-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.hc-st-report-card.secondary-stellium {
+    border-left: 4px solid #8b5cf6;
+    background: #faf5ff;
+}
+
+.hc-st-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hc-st-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.hc-st-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hc-st-highlight-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 680px) {
+    #hc-stelyum {
+        padding: 20px 16px;
+    }
+
+    .hc-form-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .hc-st-planets-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .hc-st-balance-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hc-st-result-title {
+        font-size: 22px;
+    }
 }
+
