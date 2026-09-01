@@ -1,57 +1,180 @@
 function hcBaskinNitelikHesapla() {
-    const weights = {
-        sun: document.getElementById('hc-hn-sun').value,
-        moon: document.getElementById('hc-hn-moon').value,
-        asc: document.getElementById('hc-hn-asc').value,
-        mercury: document.getElementById('hc-hn-mercury').value,
-        venus: document.getElementById('hc-hn-venus').value,
-        mars: document.getElementById('hc-hn-mars').value
-    };
+    const bStr = document.getElementById('hc-bn-birth').value;
+    const tStr = document.getElementById('hc-bn-time').value;
+    const cVal = document.getElementById('hc-bn-city').value;
 
-    const modalityPoints = { "Öncü": 0, "Sabit": 0, "Değişken": 0 };
-
-    const signToModality = {
-        "koc": "Öncü", "yengec": "Öncü", "terazi": "Öncü", "oglak": "Öncü",
-        "boga": "Sabit", "aslan": "Sabit", "akrep": "Sabit", "kova": "Sabit",
-        "ikizler": "Değişken", "basak": "Değişken", "yay": "Değişken", "balik": "Değişken"
-    };
-
-    function addPoints(sign, p) {
-        const modality = signToModality[sign];
-        modalityPoints[modality] += p;
+    if (!bStr) {
+        alert('Lütfen doğum tarihinizi girin.');
+        return;
     }
 
-    addPoints(weights.sun, 3);
-    addPoints(weights.moon, 3);
-    addPoints(weights.asc, 3);
-    addPoints(weights.mercury, 1);
-    addPoints(weights.venus, 1);
-    addPoints(weights.mars, 1);
+    const timeParts = (tStr || "12:00").split(':').map(Number);
+    const hour = timeParts[0] + (timeParts[1] / 60);
 
-    let dominantModality = "";
-    let maxP = -1;
-    for (let mod in modalityPoints) {
-        if (modalityPoints[mod] > maxP) {
-            maxP = modalityPoints[mod];
-            dominantModality = mod;
+    const coords = (cVal || "41.0082,28.9784").split(',').map(Number);
+    const lat = coords[0];
+    const lon = coords[1];
+
+    const dParts = bStr.split('-').map(Number);
+    let Y = dParts[0], M = dParts[1], D = dParts[2];
+
+    const rad = Math.PI / 180;
+    function norm(deg) {
+        deg = deg % 360;
+        return deg < 0 ? deg + 360 : deg;
+    }
+
+    function getJD(Y, M, D, hour) {
+        let yCalc = Y, mCalc = M;
+        if (mCalc <= 2) { yCalc -= 1; mCalc += 12; }
+        const A = Math.floor(yCalc / 100);
+        const B = 2 - A + Math.floor(A / 4);
+        return Math.floor(365.25 * (yCalc + 4716)) + Math.floor(30.6001 * (mCalc + 1)) + D + B - 1524.5 + (hour / 24);
+    }
+
+    function calcAllPlanets(jdVal) {
+        const dVal = jdVal - 2451543.5;
+        const TVal = dVal / 36525;
+
+        // Earth
+        const L0_e = norm(280.46646 + 36000.76983 * TVal);
+        const M_e = norm(357.52911 + 35999.05029 * TVal);
+        const C_e = (1.914602 - 0.004817 * TVal) * Math.sin(M_e * rad) + (0.019993 - 0.000101 * TVal) * Math.sin(2 * M_e * rad);
+        const sunLon = norm(L0_e + C_e);
+        const e_e = 0.016708634 - 0.000042037 * TVal;
+        const R_e = 1.000001018 * (1 - e_e * e_e) / (1 + e_e * Math.cos((M_e + C_e) * rad));
+        const Xe = R_e * Math.cos(sunLon * rad);
+        const Ye = R_e * Math.sin(sunLon * rad);
+
+        // Moon
+        const L_m = norm(218.3164477 + 481267.88123421 * TVal);
+        const D_m = norm(297.8501921 + 445267.1114034 * TVal);
+        const M_m = norm(134.9633964 + 477198.8675055 * TVal);
+        const moonLon = norm(L_m + 6.288774 * Math.sin(M_m * rad) + 1.274027 * Math.sin((2 * D_m - M_m) * rad) + 0.658314 * Math.sin(2 * D_m * rad));
+
+        function solvePlanet(N0, N1, i0, i1, w0, w1, a0, e0, e1, M0, M1) {
+            const N = norm(N0 + N1 * dVal);
+            const inc = i0 + i1 * dVal;
+            const w = norm(w0 + w1 * dVal);
+            const a = a0;
+            const ecc = e0 + e1 * dVal;
+            const M_p = norm(M0 + M1 * dVal);
+            let E = M_p;
+            for (let k = 0; k < 5; k++) {
+                E = E - (E - ecc * (180 / Math.PI) * Math.sin(E * rad) - M_p) / (1 - ecc * Math.cos(E * rad));
+            }
+            const xv = a * (Math.cos(E * rad) - ecc);
+            const yv = a * (Math.sqrt(1 - ecc * ecc) * Math.sin(E * rad));
+            const v = norm(Math.atan2(yv, xv) / rad);
+            const r = Math.sqrt(xv * xv + yv * yv);
+            const xh = r * (Math.cos(N * rad) * Math.cos((v + w) * rad) - Math.sin(N * rad) * Math.sin((v + w) * rad) * Math.cos(inc * rad));
+            const yh = r * (Math.sin(N * rad) * Math.cos((v + w) * rad) + Math.cos(N * rad) * Math.sin((v + w) * rad) * Math.cos(inc * rad));
+            const xg = xh - Xe;
+            const yg = yh - Ye;
+            return norm(Math.atan2(yg, xg) / rad);
         }
+
+        const GMST0 = norm(280.46061837 + 360.98564736629 * (jdVal - 2451545.0));
+        const RAMC = norm(GMST0 + lon);
+        const eps = 23.4392911 - 0.0130042 * TVal;
+        const num = Math.cos(RAMC * rad);
+        const den = -Math.sin(RAMC * rad) * Math.cos(eps * rad) - Math.tan(lat * rad) * Math.sin(eps * rad);
+        let ascLon = norm(Math.atan2(num, den) / rad);
+
+        return [
+            { name: "Güneş", weight: 3, lon: sunLon },
+            { name: "Ay", weight: 3, lon: moonLon },
+            { name: "Yükselen", weight: 3, lon: ascLon },
+            { name: "Merkür", weight: 2, lon: solvePlanet(48.3313, 3.24587e-5, 7.0047, 5.00e-8, 29.1241, 1.01444e-5, 0.387098, 0.205635, 5.59e-10, 168.6562, 4.0923344368) },
+            { name: "Venüs", weight: 2, lon: solvePlanet(76.6799, 2.46590e-5, 3.3946, 2.75e-8, 54.8910, 1.38374e-5, 0.723332, 0.006773, -1.302e-9, 48.0052, 1.6021302244) },
+            { name: "Mars", weight: 2, lon: solvePlanet(49.5574, 2.11081e-5, 1.8497, -1.78e-8, 286.5016, 2.92961e-5, 1.523688, 0.093405, 2.516e-9, 18.6021, 0.5240207766) },
+            { name: "Jüpiter", weight: 1.5, lon: solvePlanet(100.4542, 2.76854e-5, 1.3030, -1.557e-7, 273.8777, 1.64505e-5, 5.202561, 0.048498, 4.469e-9, 19.8950, 0.0830853001) },
+            { name: "Satürn", weight: 1.5, lon: solvePlanet(113.6634, 2.38980e-5, 2.4886, -1.081e-7, 339.3939, 2.97661e-5, 9.55475, 0.055546, -9.499e-9, 316.9670, 0.0334442282) },
+            { name: "Uranüs", weight: 1, lon: solvePlanet(74.0005, 1.3978e-5, 0.7733, 1.9e-8, 96.6612, 3.0565e-5, 19.18171, 0.047318, 7.45e-9, 142.5905, 0.011725806) },
+            { name: "Neptün", weight: 1, lon: solvePlanet(131.7806, 3.0173e-5, 1.7700, -2.55e-7, 272.8461, -6.027e-6, 30.05826, 0.008606, 2.15e-9, 260.2471, 0.005995147) },
+            { name: "Plüton", weight: 1, lon: solvePlanet(110.3034, 3.79e-5, 17.14175, 3.0e-8, 113.7632, 2.0e-5, 39.4816867, 0.24880766, 0, 14.868, 0.00396) }
+        ];
     }
 
-    let modalityDesc = {
-        "Öncü": "Liderlik etmeyi, yeni projelere başlamayı ve inisiyatif almayı seven bir yapı. Hayatı başlatan ve yön veren sizsiniz.",
-        "Sabit": "İstikrarlı, kararlı, başladığı işi bitiren ve değerlerini koruyan bir yapı. Sarsılmaz bir azme ve dayanıklılığa sahipsiniz.",
-        "Değişken": "Esnek, uyumlu, çok yönlü ve değişimden beslenen bir yapı. Şartlara hızla ayak uydurabilir ve her durumu idare edebilirsiniz."
+    const jdVal = getJD(Y, M, D, hour);
+    const bodies = calcAllPlanets(jdVal);
+
+    // 0: Öncü (Koç, Yengeç, Terazi, Oğlak) -> idx % 3 === 0
+    // 1: Sabit (Boğa, Aslan, Akrep, Kova) -> idx % 3 === 1
+    // 2: Değişken (İkizler, Başak, Yay, Balık) -> idx % 3 === 2
+    const modalityNames = ["Öncü (Cardinal)", "Sabit (Fixed)", "Değişken (Mutable)"];
+    const modWeights = { "Öncü": 0, "Sabit": 0, "Değişken": 0 };
+
+    bodies.forEach(b => {
+        const sIdx = Math.floor(b.lon / 30) % 12;
+        const modType = sIdx % 3;
+        if (modType === 0) modWeights["Öncü"] += b.weight;
+        else if (modType === 1) modWeights["Sabit"] += b.weight;
+        else modWeights["Değişken"] += b.weight;
+    });
+
+    const totalWeight = Object.values(modWeights).reduce((a, b) => a + b, 0);
+
+    let modData = Object.keys(modWeights).map(m => ({
+        name: m,
+        score: modWeights[m],
+        pct: Math.round((modWeights[m] / totalWeight) * 100)
+    })).sort((a, b) => b.score - a.score);
+
+    const dominantMod = modData[0];
+
+    const modalityArchetypes = {
+        "Öncü": {
+            title: "⚡ Öncü Nitelik (Başlatan & Lider)",
+            desc: "İnisiyatif alma, projeleri başlatma, yenilik getirme ve yön belirleme konusunda doğuştan bir gücünüz var. Beklemek yerine ilk adımı siz atarsınız.",
+            strategy: "Başlattığınız projeleri tamamlamak ve sürdürmek için Sabit niteliğin kararlılığından faydalanın."
+        },
+        "Sabit": {
+            title: "🛡️ Sabit Nitelik (Sürdüren & Kararlı)",
+            desc: "Odaklanma, kararlılık, sabır ve derinleşme ana gücünüzdür. Başlanan bir işi ne olursa olsun sonuca ulaştırır, sadakat ve güven aşılarsınız.",
+            strategy: "Değişime ve yeni fikirlere direnç göstermek yerine esnekliği hayatınıza dahil edin."
+        },
+        "Değişken": {
+            title: "🔄 Değişken Nitelik (Uyum Sağlayan & Esnek)",
+            desc: "Hızlı adaptasyon, çok yönlülük, krizlerde esneklik ve köprü kurma yeteneğiniz yüksektir. Şartlar ne olursa olsun yeni duruma uyum sağlarsınız.",
+            strategy: "Aynı anda çok fazla şeye dağılmak yerine önceliklerinizi netleştirip tek bir hedefe odaklanın."
+        }
     };
 
-    let detailedDesc = `
-        <p><strong>Baskın Nitelik Analizi:</strong> Haritanızda en yoğun nitelik <strong>${dominantModality}</strong> olarak belirlendi.</p>
-        <p><strong>Eylem Tarzınız:</strong> ${modalityDesc[dominantModality]}</p>
-        <p><strong>Karakter Dinamiği:</strong> Baskın niteliğiniz, olaylar karşısındaki ilk tepkinizi belirler. ${dominantModality === 'Öncü' ? 'Yeni bir şeyleri tetiklemek sizin doğanızda var.' : dominantModality === 'Sabit' ? 'Bir şeyi sürdürmek ve sağlamlaştırmak sizin en güçlü yanınız.' : 'Sürekli yenilenmek ve akışa uymak sizi hayatta tutan şey.'}</p>
-        <p><strong>2026 Tavsiyesi:</strong> 2026 yılındaki gökyüzü hareketleri, özellikle ${dominantModality === 'Değişken' ? 'çok yönlü yeteneklerinizi kullanmanızı' : dominantModality === 'Öncü' ? 'yeni iş girişimlerinde bulunmanızı' : 'mevcut kazanımlarınızı korumanızı'} destekliyor. Bu yıl karakterinizin bu baskın yönünü profesyonel hayatta bir strateji olarak kullanın.</p>
-        <p><strong>Not:</strong> Eksik olan niteliğinizi tamamlamak için o niteliğe sahip kişilerle ekip kurmak, hayat başarınızı artıracaktır.</p>
+    const heroHtml = `
+        <div class="hc-bn-hero-card">
+            <div class="hc-bn-hero-badge">Baskın Nitelik (%${dominantMod.pct})</div>
+            <div class="hc-bn-hero-title">${modalityArchetypes[dominantMod.name].title}</div>
+            <p class="hc-bn-hero-sub">${modalityArchetypes[dominantMod.name].desc}</p>
+        </div>
     `;
 
-    document.getElementById('hc-hn-value').innerText = dominantModality;
-    document.getElementById('hc-hn-desc').innerHTML = detailedDesc;
-    document.getElementById('hc-hn-result').classList.add('visible');
+    const modColors = { "Öncü": "#e11d48", "Sabit": "#d97706", "Değişken": "#2563eb" };
+
+    let barsHtml = "";
+    modData.forEach(item => {
+        barsHtml += `
+            <div class="hc-bn-bar-row">
+                <div class="hc-bn-bar-header">
+                    <span class="hc-bn-mname">${item.name} Nitelik</span>
+                    <span class="hc-bn-mpct">%${item.pct} (${item.score} Puan)</span>
+                </div>
+                <div class="hc-bn-bar-track">
+                    <div class="hc-bn-bar-fill" style="width: ${item.pct}%; background: ${modColors[item.name]};"></div>
+                </div>
+            </div>
+        `;
+    });
+
+    let descHtml = `
+        <p><strong>Eylem Tarzınız:</strong> Haritanızdaki en baskın modalite <strong>${dominantMod.name}</strong> niteliğidir. ${modalityArchetypes[dominantMod.name].desc}</p>
+        <p><strong>Gelişim ve Başarı Stratejisi:</strong> ${modalityArchetypes[dominantMod.name].strategy}</p>
+    `;
+
+    document.getElementById('hc-bn-hero').innerHTML = heroHtml;
+    document.getElementById('hc-bn-bars').innerHTML = barsHtml;
+    document.getElementById('hc-bn-desc').innerHTML = descHtml;
+
+    document.getElementById('hc-bn-result').classList.add('visible');
+    document.getElementById('hc-bn-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

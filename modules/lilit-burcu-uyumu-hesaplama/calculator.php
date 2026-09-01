@@ -15,56 +15,41 @@ function hc_render_lilit_burcu_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-lilit-uyum">
         <div class="hc-header">
-            <h3>Lilit (Kara Ay) Burcu Uyumu</h3>
-            <p>Ruhunuzun en derin, karanlık ve tutkulu köşelerindeki uyumu keşfedin. Bastırılmış arzuların analizini yapın.</p>
+            <h3>Lilit (Kara Ay) Burcu Uyumu Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Kara Ay Lilit burçlarınızı otomatik tespit edin; manyetik çekim, bastırılmış arzular, tabular ve bağımsızlık uyumunuzu öğrenin.</p>
         </div>
-        
-        <div class="hc-form-row">
-            <div class="hc-form-group">
-                <label for="hc-lu-sign1">Sizin Lilit Burcunuz</label>
-                <select id="hc-lu-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+        <div class="hc-lil-persons-grid">
+            <div class="hc-lil-person-box">
+                <div class="hc-lil-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-lil-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-lil-d1" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label for="hc-lu-sign2">Partnerinizin Lilit Burcu</label>
-                <select id="hc-lu-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+            <div class="hc-lil-person-box">
+                <div class="hc-lil-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-lil-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-lil-d2" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcLilitUyumHesapla()">Karanlık Uyumu Gör</button>
+        <button type="button" class="hc-btn" onclick="hcLilitUyumHesapla()">🔮 Lilit ve Manyetik Tutku Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-lu-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Tutku ve Derinlik:</span>
-                <span class="hc-result-value" id="hc-lu-value">% -</span>
+            <div class="hc-lil-hero" id="hc-lil-hero"></div>
+
+            <div class="hc-lil-section">
+                <h4 class="hc-lil-sec-title">📊 4 Derin Tutku ve Manyetizma Boyutu</h4>
+                <div class="hc-lil-dim-grid" id="hc-lil-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-lu-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-lil-section">
+                <h4 class="hc-lil-sec-title">📖 Lilit - Lilit Sinastri Analizi</h4>
+                <div class="hc-result-content" id="hc-lu-desc"></div>
             </div>
         </div>
     </div>

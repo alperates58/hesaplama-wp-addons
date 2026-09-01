@@ -14,16 +14,32 @@ function hc_render_saturn_burcu_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-saturn-burcu-hesaplama">
-        <h3>Satürn Burcu Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-saturn-tarih">Doğum Tarihi</label>
-            <input type="date" id="hc-saturn-tarih">
+        <div class="hc-header">
+            <h3>Satürn Burcu ve Karmik Yaşam Dersi Hesaplama</h3>
+            <p class="hc-subtitle">Doğum anınızdaki Satürn konumunu, hayatınızdaki en büyük sınav ve olgunlaşma alanlarını, ustalaşacağınız karmik misyonu keşfedin.</p>
         </div>
-        <button class="hc-btn" onclick="hcSaturnBurcuHesapla()">Hesapla</button>
+
+        <div class="hc-form-group">
+            <label for="hc-saturn-tarih">Doğum Tarihi *</label>
+            <input type="date" id="hc-saturn-tarih" value="1995-05-15" class="hc-input" required>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcSaturnBurcuHesapla()">♄ Satürn Burcumu Hesapla</button>
+
         <div class="hc-result" id="hc-saturn-burcu-result">
-            <div class="hc-result-label">Satürn Burcunuz:</div>
-            <div class="hc-result-value" id="hc-saturn-value"></div>
-            <div class="hc-result-desc" id="hc-saturn-desc"></div>
+            <div class="hc-saturn-summary-card">
+                <div class="hc-saturn-badge-row">
+                    <span class="hc-saturn-badge-deg" id="hc-saturn-deg-badge">-</span>
+                    <span class="hc-saturn-badge-motion" id="hc-saturn-motion-badge">-</span>
+                </div>
+                <div class="hc-saturn-result-title" id="hc-saturn-value">-</div>
+                <div class="hc-saturn-result-subtitle" id="hc-saturn-meta">-</div>
+            </div>
+
+            <div class="hc-saturn-report-card">
+                <h4 class="hc-saturn-report-title">🏛️ Karmik Sınavlar, Olgunlaşma ve Yaşam Ustalığı</h4>
+                <div id="hc-saturn-desc"></div>
+            </div>
         </div>
     </div>
     <?php

@@ -15,56 +15,41 @@ function hc_render_venus_burcu_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-venus-uyum">
         <div class="hc-header">
-            <h3>Venüs Burcu Uyumu Hesaplama</h3>
-            <p>Aşk dilinizi, romantizm anlayışınızı ve partnerinizle olan estetik rezonansınızı keşfedin.</p>
+            <h3>Venüs Burcu Uyumu Hesaplama (Aşk ve Romantizm Dili)</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Venüs burçlarınızı otomatik tespit edin veya doğrudan seçerek aşk dili ve romantik sinerjinizi öğrenin.</p>
         </div>
-        
-        <div class="hc-form-row">
-            <div class="hc-form-group">
-                <label for="hc-vu-sign1">Sizin Venüs Burcunuz</label>
-                <select id="hc-vu-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+        <div class="hc-vu-persons-grid">
+            <div class="hc-vu-person-box">
+                <div class="hc-vu-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-vu-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-vu-d1" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label for="hc-vu-sign2">Onun Venüs Burcunuz</label>
-                <select id="hc-vu-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+            <div class="hc-vu-person-box">
+                <div class="hc-vu-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-vu-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-vu-d2" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcVenusUyumHesapla()">Romantik Uyumu Gör</button>
+        <button type="button" class="hc-btn" onclick="hcVenusUyumHesapla()">💖 Venüs ve Romantizm Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-vu-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Romantik Sinerji:</span>
-                <span class="hc-result-value" id="hc-vu-value">% -</span>
+            <div class="hc-vu-hero" id="hc-vu-hero"></div>
+
+            <div class="hc-vu-section">
+                <h4 class="hc-vu-sec-title">📊 4 Aşk ve Sevgi Dili Boyutu</h4>
+                <div class="hc-vu-dim-grid" id="hc-vu-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-vu-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-vu-section">
+                <h4 class="hc-vu-sec-title">📖 Venüs - Venüs Sinastri Analizi</h4>
+                <div class="hc-result-content" id="hc-vu-desc"></div>
             </div>
         </div>
     </div>

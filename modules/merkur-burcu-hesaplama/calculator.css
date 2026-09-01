@@ -1,16 +1,143 @@
-.hc-merkur-burcu-result {
+#hc-merkur-burcu-hesaplama {
+    max-width: 680px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-merkur-burcu-hesaplama .hc-header {
     text-align: center;
+    margin-bottom: 22px;
 }
 
-.hc-merkur-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #5dade2;
-    margin: 10px 0;
+#hc-merkur-burcu-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-.hc-merkur-desc {
-    font-style: italic;
-    color: #666;
+#hc-merkur-burcu-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#hc-merkur-burcu-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-merkur-burcu-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-merkur-summary-card {
+    background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #7dd3fc;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(2, 132, 199, 0.08);
+}
+
+.hc-merkur-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.hc-merkur-badge-deg {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-merkur-badge-motion {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-merkur-result-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0369a1;
+    margin-bottom: 4px;
+}
+
+.hc-merkur-result-subtitle {
+    font-size: 14px;
+    color: #0284c7;
+    font-weight: 600;
+}
+
+.hc-merkur-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+.hc-merkur-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hc-merkur-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
     line-height: 1.6;
+    color: #334155;
 }
+
+.hc-merkur-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hc-merkur-retro-box {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    color: #9a3412;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+

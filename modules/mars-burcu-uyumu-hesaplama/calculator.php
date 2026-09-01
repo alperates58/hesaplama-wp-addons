@@ -15,56 +15,41 @@ function hc_render_mars_burcu_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-mars-uyum">
         <div class="hc-header">
-            <h3>Mars Burcu Uyumu Hesaplama</h3>
-            <p>Enerjinizi nasıl harcıyorsunuz? Partnerinizle olan tutku ve eylem uyumunuzu keşfedin.</p>
+            <h3>Mars Burcu Uyumu Hesaplama (Tutku ve Enerji Uyumu)</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Mars burçlarınızı otomatik tespit edin; cinsel çekim, enerji seviyesi, hırs ve kriz yönetimi uyumunuzu öğrenin.</p>
         </div>
-        
-        <div class="hc-form-row">
-            <div class="hc-form-group">
-                <label for="hc-mu-sign1">Sizin Mars Burcunuz</label>
-                <select id="hc-mu-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+        <div class="hc-mu-persons-grid">
+            <div class="hc-mu-person-box">
+                <div class="hc-mu-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-mu-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-mu-d1" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label for="hc-mu-sign2">Onun Mars Burcunuz</label>
-                <select id="hc-mu-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+            <div class="hc-mu-person-box">
+                <div class="hc-mu-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-mu-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-mu-d2" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcMarsUyumHesapla()">Enerji Uyumunu Gör</button>
+        <button type="button" class="hc-btn" onclick="hcMarsUyumHesapla()">🔥 Mars ve Tutku Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-mu-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Tutku ve Eylem Skoru:</span>
-                <span class="hc-result-value" id="hc-mu-value">% -</span>
+            <div class="hc-mu-hero" id="hc-mu-hero"></div>
+
+            <div class="hc-mu-section">
+                <h4 class="hc-mu-sec-title">📊 4 Tutku ve Dinamizm Boyutu</h4>
+                <div class="hc-mu-dim-grid" id="hc-mu-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-mu-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-mu-section">
+                <h4 class="hc-mu-sec-title">📖 Mars - Mars Sinastri Analizi</h4>
+                <div class="hc-result-content" id="hc-mu-desc"></div>
             </div>
         </div>
     </div>

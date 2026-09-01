@@ -14,25 +14,42 @@ function hc_render_cin_burcu_uyumu_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-cin-burcu-uyumu">
-        <h3>Çin Burcu Uyumu Hesaplama</h3>
-        <div class="hc-form-grid">
-            <div class="hc-form-group">
-                <label>1. Kişi Doğum Yılı</label>
-                <input type="number" id="hc-c1-year" class="hc-input" placeholder="Örn: 1990" min="1900" max="2100">
+        <div class="hc-header">
+            <h3>Çin Burcu ve Element Uyumu Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Çin Burcunuzu (12 Hayvan), Elementinizi (Ahşap, Ateş, Toprak, Metal, Su) ve San He / Liu He kadersel uyumunuzu öğrenin.</p>
+        </div>
+
+        <div class="hc-cz-persons-grid">
+            <div class="hc-cz-person-box">
+                <div class="hc-cz-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-c1-date">Doğum Tarihi *</label>
+                    <input type="date" id="hc-c1-date" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label>2. Kişi Doğum Yılı</label>
-                <input type="number" id="hc-c2-year" class="hc-input" placeholder="Örn: 1992" min="1900" max="2100">
+
+            <div class="hc-cz-person-box">
+                <div class="hc-cz-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-c2-date">Doğum Tarihi *</label>
+                    <input type="date" id="hc-c2-date" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
-        <button class="hc-btn" onclick="hcCinBurcuUyumuHesapla()">Uyum Analizi Yap</button>
+
+        <button type="button" class="hc-btn" onclick="hcCinBurcuUyumuHesapla()">🐉 Çin Astrolojisi Uyumunu Hesapla</button>
+
         <div class="hc-result" id="hc-cin-burcu-uyumu-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Zodyak Uyumu</span>
-                <div class="hc-result-value" id="hc-cin-uyum-score">-</div>
+            <div class="hc-cz-hero" id="hc-cz-hero"></div>
+
+            <div class="hc-cz-section">
+                <h4 class="hc-cz-sec-title">📊 4 Çin Astrolojisi Uyum Boyutu</h4>
+                <div class="hc-cz-dim-grid" id="hc-cz-dim-grid"></div>
             </div>
-            <div class="hc-cin-details" id="hc-cin-details">
-                <!-- Detaylar -->
+
+            <div class="hc-cz-section">
+                <h4 class="hc-cz-sec-title">📖 Detaylı San He (Üçlü Uyum) ve Element Analizi</h4>
+                <div class="hc-cin-details" id="hc-cin-details"></div>
             </div>
         </div>
     </div>

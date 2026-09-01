@@ -1,106 +1,132 @@
-.hc-yukselen-burc-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+#hc-yukselen-burc-hesaplama {
+    max-width: 680px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
 }
 
-.hc-yukselen-burc-manuel {
+#hc-yukselen-burc-hesaplama .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-yukselen-burc-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#hc-yukselen-burc-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-asc-note {
+    margin-top: 5px;
+    font-size: 11px;
+    color: #6366f1;
+    font-weight: 500;
+}
+
+#hc-yukselen-burc-result {
     display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
 }
 
-.hc-yukselen-burc-not {
+#hc-yukselen-burc-result.visible {
     display: block;
-    margin-top: 6px;
-    color: #666;
-    font-size: 12px;
-    line-height: 1.4;
+    animation: hcFadeIn 0.3s ease-out;
 }
 
-.hc-yukselen-burc-result {
-    border-left-color: #6b4fd8;
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.hc-yukselen-burc-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 14px;
+.hc-asc-summary-card {
+    background: linear-gradient(180deg, #f5f3ff 0%, #ede9fe 100%);
+    border: 2px solid #c4b5fd;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
 }
 
-.hc-yukselen-burc-symbol {
-    width: 56px;
-    height: 56px;
+.hc-asc-badge-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 56px;
-    border-radius: 8px;
-    background: #f0edff;
-    color: #4d36b8;
-    font-size: 32px;
-    line-height: 1;
-}
-
-.hc-yukselen-burc-degree {
-    color: #555;
-    font-size: 14px;
-    margin-top: 3px;
-}
-
-.hc-yukselen-burc-details {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    margin: 12px 0;
+    margin-bottom: 10px;
 }
 
-.hc-yukselen-burc-details div {
-    padding: 10px;
-    background: #f7f7f7;
-    border: 1px solid #e4e4e4;
-    border-radius: 6px;
-}
-
-.hc-yukselen-burc-details span,
-.hc-yukselen-burc-details strong {
-    display: block;
-}
-
-.hc-yukselen-burc-details span {
-    color: #666;
+.hc-asc-badge-deg {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #6d28d9;
+    color: #ffffff;
     font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-dsc-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #ec4899;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-asc-result-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #4c1d95;
     margin-bottom: 4px;
 }
 
-.hc-yukselen-burc-details strong {
-    color: #222;
+.hc-asc-result-subtitle {
     font-size: 14px;
+    color: #6d28d9;
+    font-weight: 600;
 }
 
-.hc-yukselen-burc-yorum {
-    margin: 12px 0 0;
-    color: #333;
-    line-height: 1.5;
+.hc-asc-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
 }
 
-.hc-yukselen-burc-uyari {
-    margin: 12px 0 0;
-    padding: 10px;
-    background: #fff8e5;
-    border: 1px solid #f0d37a;
-    border-radius: 6px;
-    color: #6d5200;
-    font-size: 13px;
-    line-height: 1.4;
+.hc-asc-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
 }
 
-@media (max-width: 480px) {
-    .hc-yukselen-burc-grid,
-    .hc-yukselen-burc-details {
+.hc-asc-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.hc-asc-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-3 {
         grid-template-columns: 1fr;
     }
-
-    .hc-yukselen-burc-card {
-        align-items: flex-start;
-    }
 }
+

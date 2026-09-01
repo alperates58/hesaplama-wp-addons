@@ -1,47 +1,187 @@
-#hc-progres-harita .hc-form-grid {
+#hc-progres-harita {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-progres-harita .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-progres-harita .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#hc-progres-harita .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 14px;
+    margin-bottom: 16px;
 }
 
-#hc-progres-harita .hc-prog-summary {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: left;
-    border-left: 4px solid #ffd700;
+#hc-progres-harita-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
 }
 
-#hc-progres-harita .hc-prog-planets {
-    text-align: left;
+#hc-progres-harita-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
 }
 
-#hc-progres-harita .hc-prog-item {
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-prog-hero-card {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hc-prog-hero-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.hc-prog-hero-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 14px;
+}
+
+.hc-prog-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-prog-mini-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.hc-prog-mini-label { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; }
+.hc-prog-mini-val { font-size: 15px; font-weight: 800; color: #0f172a; }
+.hc-prog-ing { font-size: 11px; font-weight: 700; color: #16a34a; }
+
+.hc-prog-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-prog-sec-title {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-prog-moon-box {
+    background: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.hc-prog-phase-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #86198f;
+    margin-bottom: 6px;
+}
+
+.hc-prog-phase-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #701a75;
+    margin-bottom: 10px;
+}
+
+.hc-prog-moon-note {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #4a044e;
+    background: rgba(255, 255, 255, 0.7);
     padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }
 
-#hc-progres-harita .hc-prog-item.highlight {
-    background: rgba(255, 215, 0, 0.05);
+.hc-prog-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
 }
 
-#hc-progres-harita .hc-prog-planet {
-    font-weight: bold;
-    color: #ffd700;
+.hc-prog-table th, .hc-prog-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-#hc-progres-harita .hc-prog-change {
-    font-size: 0.75rem;
-    color: #2ed573;
-    font-style: italic;
+.hc-prog-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
 }
 
-@media (max-width: 480px) {
-    #hc-progres-harita .hc-form-grid {
+.hc-tr-highlight {
+    background: #f0fdf4;
+}
+
+.hc-prog-ing-badge {
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.hc-prog-same {
+    color: #64748b;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-2, .hc-prog-hero-grid {
         grid-template-columns: 1fr;
     }
 }
+

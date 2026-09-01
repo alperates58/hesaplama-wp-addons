@@ -15,24 +15,34 @@ function hc_render_burc_yasi_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-burc-yas">
         <div class="hc-header">
-            <h3>Burç ve Gezegen Yaşı Hesaplama</h3>
-            <p>Zaman sadece Dünya günlerinden ibaret değildir. Ruhunuzun Jüpiter ve Satürn döngülerindeki yaşını keşfedin.</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-byas-birthdate">Doğum Tarihiniz</label>
-            <input type="date" id="hc-byas-birthdate" class="hc-input" required>
+            <h3>Gezegen Yaşı ve Astrolojik Döngüler Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihinizi girerek Merkür, Venüs, Mars, Jüpiter, Satürn, Uranüs ve Kiron gezegen yaşlarınızı, Satürn Dönüşü ve Kadersel Yaşam Evrenizi öğrenin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcBurcYasHesapla()">Gezegen Yaşlarımı Hesapla</button>
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-byas-birthdate">Doğum Tarihiniz *</label>
+                <input type="date" id="hc-byas-birthdate" value="1995-05-15" class="hc-input" required>
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-byas-target">Hesaplama Tarihi</label>
+                <input type="date" id="hc-byas-target" value="2026-05-15" class="hc-input">
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcBurcYasHesapla()">🪐 Gezegen Yaşlarımı & Döngülerimi Hesapla</button>
 
         <div class="hc-result" id="hc-byas-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Satürn Döngü Yaşınız:</span>
-                <span class="hc-result-value" id="hc-byas-value">-</span>
+            <div class="hc-byas-hero" id="hc-byas-hero"></div>
+
+            <div class="hc-byas-section">
+                <h4 class="hc-byas-sec-title">🌌 7 Gezegen Yaşı ve Döngü İlerlemesi</h4>
+                <div class="hc-byas-grid" id="hc-byas-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-byas-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-byas-section">
+                <h4 class="hc-byas-sec-title">📖 Astrolojik Yaşam Evresi ve Kadersel Eşikler</h4>
+                <div class="hc-result-content" id="hc-byas-desc"></div>
             </div>
         </div>
     </div>

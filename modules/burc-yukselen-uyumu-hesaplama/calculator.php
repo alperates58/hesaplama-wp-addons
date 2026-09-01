@@ -15,56 +15,60 @@ function hc_render_burc_yukselen_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-yukselen-uyum">
         <div class="hc-header">
-            <h3>Burç ve Yükselen Uyumu Hesaplama</h3>
-            <p>Dış dünyaya verdiğiniz maske ile partnerinizin özü ne kadar örtüşüyor? Fiziksel çekim ve imaj uyumunuzu keşfedin.</p>
+            <h3>Burç ve Yükselen Uyumu Hesaplama (Güneş - ASC)</h3>
+            <p class="hc-subtitle">Sizin Güneş burcunuz (öz karakteriniz) ile partnerinizin Yükselen burcu (dışa vuran enerjisi ve fiziksel aurası) arasındaki çekimi ve sosyal uyumu analiz edin.</p>
         </div>
-        
-        <div class="hc-form-row">
+
+        <div class="hc-form-grid-2">
             <div class="hc-form-group">
-                <label for="hc-yu-sign1">Sizin Burcunuz</label>
+                <label for="hc-yu-sign1">Sizin Güneş Burcunuz *</label>
                 <select id="hc-yu-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
+                    <option value="Koç">♈ Koç (Ateş / Öncü)</option>
+                    <option value="Boğa">♉ Boğa (Toprak / Sabit)</option>
+                    <option value="İkizler">♊ İkizler (Hava / Değişken)</option>
+                    <option value="Yengeç">♋ Yengeç (Su / Öncü)</option>
+                    <option value="Aslan" selected>♌ Aslan (Ateş / Sabit)</option>
+                    <option value="Başak">♍ Başak (Toprak / Değişken)</option>
+                    <option value="Terazi">♎ Terazi (Hava / Öncü)</option>
+                    <option value="Akrep">♏ Akrep (Su / Sabit)</option>
+                    <option value="Yay">♐ Yay (Ateş / Değişken)</option>
+                    <option value="Oğlak">♑ Oğlak (Toprak / Öncü)</option>
+                    <option value="Kova">♒ Kova (Hava / Sabit)</option>
+                    <option value="Balık">♓ Balık (Su / Değişken)</option>
                 </select>
             </div>
             <div class="hc-form-group">
-                <label for="hc-yu-sign2">Partnerinizin Yükseleni</label>
+                <label for="hc-yu-sign2">Partnerinizin Yükselen Burcu *</label>
                 <select id="hc-yu-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
+                    <option value="Koç">♈ Koç (Ateş / Öncü)</option>
+                    <option value="Boğa">♉ Boğa (Toprak / Sabit)</option>
+                    <option value="İkizler">♊ İkizler (Hava / Değişken)</option>
+                    <option value="Yengeç">♋ Yengeç (Su / Öncü)</option>
+                    <option value="Aslan">♌ Aslan (Ateş / Sabit)</option>
+                    <option value="Başak">♍ Başak (Toprak / Değişken)</option>
+                    <option value="Terazi" selected>♎ Terazi (Hava / Öncü)</option>
+                    <option value="Akrep">♏ Akrep (Su / Sabit)</option>
+                    <option value="Yay">♐ Yay (Ateş / Değişken)</option>
+                    <option value="Oğlak">♑ Oğlak (Toprak / Öncü)</option>
+                    <option value="Kova">♒ Kova (Hava / Sabit)</option>
+                    <option value="Balık">♓ Balık (Su / Değişken)</option>
                 </select>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcYukselenUyumHesapla()">Cazibe Uyumunu Gör</button>
+        <button type="button" class="hc-btn" onclick="hcYukselenUyumHesapla()">✨ Cazibe ve İmaj Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-yu-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Cazibe ve İmaj Skoru:</span>
-                <span class="hc-result-value" id="hc-yu-value">% -</span>
+            <div class="hc-yu-hero" id="hc-yu-hero"></div>
+
+            <div class="hc-yu-section">
+                <h4 class="hc-yu-sec-title">📊 4 Çekim ve Etkileşim Boyutu</h4>
+                <div class="hc-yu-dim-grid" id="hc-yu-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-yu-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-yu-section">
+                <h4 class="hc-yu-sec-title">📖 Detaylı Güneş - Yükselen Sinastri Raporu</h4>
+                <div class="hc-result-content" id="hc-yu-desc"></div>
             </div>
         </div>
     </div>

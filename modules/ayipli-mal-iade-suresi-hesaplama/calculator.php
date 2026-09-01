@@ -1,10 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-function hc_render_ayipli-mal-iade-suresi_hesaplama( $atts ) {
-    // Note: To match shortcode tag requirements we keep standard function name
-}
-
 function hc_render_ayipli_mal_iade_suresi_hesaplama( $atts ) {
     wp_enqueue_script(
         'hc-ayipli-mal-iade',

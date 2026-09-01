@@ -15,37 +15,47 @@ function hc_render_burca_gore_sansli_gun_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-burc-sansli-gun">
         <div class="hc-header">
-            <h3>Şanslı Gün Hesaplama</h3>
-            <p>Haftanın her günü bir gezegen tarafından yönetilir. Burcunuzun yöneticisi ile uyumlu olan günü keşfedin.</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-sg-sign">Burcunuzu Seçin</label>
-            <select id="hc-sg-sign" class="hc-input">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
+            <h3>Burca Göre Şanslı Gün ve Gezegen Saati Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihinizi girerek veya burcunuzu seçerek yönetici gezegeninizin hükmettiği en verimli ve şanslı günlerinizi keşfedin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcBurcSansliGunHesapla()">Günümü Bul</button>
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-sg-date">Doğum Tarihi *</label>
+                <input type="date" id="hc-sg-date" value="1995-05-15" class="hc-input" onchange="hcSgSyncDateToSign()">
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-sg-sign">Veya Burcunuzu Seçin</label>
+                <select id="hc-sg-sign" class="hc-input">
+                    <option value="koc">♈ Koç (Salı - Mars)</option>
+                    <option value="boga" selected>♉ Boğa (Cuma - Venüs)</option>
+                    <option value="ikizler">♊ İkizler (Çarşamba - Merkür)</option>
+                    <option value="yengec">♋ Yengeç (Pazartesi - Ay)</option>
+                    <option value="aslan">♌ Aslan (Pazar - Güneş)</option>
+                    <option value="basak">♍ Başak (Çarşamba - Merkür)</option>
+                    <option value="terazi">♎ Terazi (Cuma - Venüs)</option>
+                    <option value="akrep">♏ Akrep (Salı - Mars/Plüton)</option>
+                    <option value="yay">♐ Yay (Perşembe - Jüpiter)</option>
+                    <option value="oglak">♑ Oğlak (Cumartesi - Satürn)</option>
+                    <option value="kova">♒ Kova (Cumartesi - Satürn/Uranüs)</option>
+                    <option value="balik">♓ Balık (Perşembe - Jüpiter/Neptün)</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcBurcSansliGunHesapla()">🍀 Şanslı Günümü & Saatlerimi Öğren</button>
 
         <div class="hc-result" id="hc-sg-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Şanslı Gününüz:</span>
-                <span class="hc-result-value" id="hc-sg-value">-</span>
+            <div class="hc-sg-hero" id="hc-sg-hero"></div>
+
+            <div class="hc-sg-section">
+                <h4 class="hc-sg-sec-title">⏳ En Şanslı Gezegen Saatleri & Ritüel Zamanları</h4>
+                <div class="hc-sg-hours" id="hc-sg-hours"></div>
             </div>
-            <div class="hc-result-content" id="hc-sg-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-sg-section">
+                <h4 class="hc-sg-sec-title">📖 Kadersel Fırsatlar ve Eylem Rehberliği</h4>
+                <div class="hc-result-content" id="hc-sg-desc"></div>
             </div>
         </div>
     </div>

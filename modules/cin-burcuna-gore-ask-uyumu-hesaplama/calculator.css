@@ -1,28 +1,172 @@
-.hc-calculator#hc-cin-love-uyum .hc-score-box {
-    background: #fff5f5;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ffcdd2;
-    margin: 15px 0;
+#hc-cin-love-uyum {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-cin-love-uyum .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-cin-love-uyum .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#hc-cin-love-uyum .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-cla-persons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.hc-cla-person-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.hc-cla-pbadge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #e11d48;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.hc-badge-p2 {
+    background: #d97706;
+}
+
+#hc-cin-love-uyum-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-cin-love-uyum-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-cla-hero-card {
+    background: linear-gradient(180deg, #fff1f2 0%, #ffe4e6 100%);
+    border: 2px solid #fda4af;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hc-cla-hero-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e11d48;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.hc-cla-hero-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #9f1239;
+    margin-bottom: 6px;
+}
+
+.hc-cla-hero-sub {
+    margin: 0;
+    font-size: 13px;
+    color: #be123c;
+    font-weight: 600;
+}
+
+.hc-cla-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-cla-sec-title {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-cla-dim-grid {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.hc-calculator#hc-cin-love-uyum .hc-score-label {
-    font-size: 1.1rem;
-    color: #555;
+.hc-cla-dim-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 10px 14px;
 }
 
-.hc-calculator#hc-cin-love-uyum .hc-score-value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #d32f2f;
+.hc-cla-dim-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
 }
 
-.hc-calculator#hc-cin-love-uyum .hc-desc {
+.hc-cla-dim-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.hc-cla-dim-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease-out;
+}
+
+#hc-cluy-content p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
     line-height: 1.6;
-    font-style: italic;
-    color: #444;
+    color: #334155;
 }
+
+#hc-cluy-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .hc-cla-persons-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

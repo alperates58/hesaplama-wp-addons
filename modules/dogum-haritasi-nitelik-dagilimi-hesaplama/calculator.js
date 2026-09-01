@@ -1,75 +1,193 @@
-/**
- * Doğum Haritası Nitelik Dağılımı Hesaplama
- */
-
-const HC_Astro_Nit_Engine = {
-    getJulianDate: function(date) {
-        return (date.getTime() / 86400000) - (date.getTimezoneOffset() / 1440) + 2440587.5;
-    },
-    rev: function(x) { return x - Math.floor(x / 360.0) * 360.0; },
-    getPlanets: function(date) {
-        const d = this.getJulianDate(date) - 2451545.0;
-        return {
-            "Güneş": { lon: this.rev(280.466 + 0.98564736 * d + 1.915 * Math.sin(this.rev(357.528 + 0.9856003 * d) * Math.PI / 180)), weight: 3 },
-            "Ay": { lon: this.rev(218.316 + 13.176396 * d + 6.289 * Math.sin(this.rev(134.963 + 13.064993 * d) * Math.PI / 180)), weight: 3 },
-            "Merkür": { lon: this.rev(252.25 + 4.09233 * d), weight: 1 },
-            "Venüs": { lon: this.rev(181.98 + 1.60213 * d), weight: 1 },
-            "Mars": { lon: this.rev(355.45 + 0.52402 * d), weight: 1 },
-            "Jüpiter": { lon: this.rev(34.35 + 0.08308 * d), weight: 1 },
-            "Satürn": { lon: this.rev(50.07 + 0.03344 * d), weight: 1 }
-        };
-    },
-    getModality: function(lon) {
-        const idx = Math.floor(lon / 30);
-        const mods = ["Cardinal", "Fixed", "Mutable", "Cardinal", "Fixed", "Mutable", "Cardinal", "Fixed", "Mutable", "Cardinal", "Fixed", "Mutable"];
-        return mods[idx];
-    }
-};
-
 function hcNitelikDagilimiHesapla() {
-    const dateStr = document.getElementById('hc-nit-date').value;
-    if (!dateStr) return;
+    const dStr = document.getElementById('hc-nit-date').value;
+    const tStr = document.getElementById('hc-nit-time').value;
+    const cVal = document.getElementById('hc-nit-city').value;
 
-    const planets = HC_Astro_Nit_Engine.getPlanets(new Date(dateStr));
-    let scores = { Cardinal: 0, Fixed: 0, Mutable: 0 };
-    let totalWeight = 0;
+    if (!dStr) {
+        alert('Lütfen doğum tarihinizi girin.');
+        return;
+    }
 
-    Object.keys(planets).forEach(k => {
-        const p = planets[k];
-        const mod = HC_Astro_Nit_Engine.getModality(p.lon);
-        scores[mod] += p.weight;
-        totalWeight += p.weight;
+    const timeParts = (tStr || "12:00").split(':').map(Number);
+    const hour = timeParts[0] + (timeParts[1] / 60);
+
+    const coords = (cVal || "41.0082,28.9784").split(',').map(Number);
+    const lat = coords[0];
+    const lon = coords[1];
+
+    const dParts = dStr.split('-').map(Number);
+    let Y = dParts[0], M = dParts[1], D = dParts[2];
+
+    const rad = Math.PI / 180;
+    function norm(deg) {
+        deg = deg % 360;
+        return deg < 0 ? deg + 360 : deg;
+    }
+
+    function getJD(Y, M, D, hour) {
+        let yCalc = Y, mCalc = M;
+        if (mCalc <= 2) { yCalc -= 1; mCalc += 12; }
+        const A = Math.floor(yCalc / 100);
+        const B = 2 - A + Math.floor(A / 4);
+        return Math.floor(365.25 * (yCalc + 4716)) + Math.floor(30.6001 * (mCalc + 1)) + D + B - 1524.5 + (hour / 24);
+    }
+
+    function calcAllPlanets(jdVal) {
+        const dVal = jdVal - 2451543.5;
+        const TVal = dVal / 36525;
+
+        // Earth
+        const L0_e = norm(280.46646 + 36000.76983 * TVal);
+        const M_e = norm(357.52911 + 35999.05029 * TVal);
+        const C_e = (1.914602 - 0.004817 * TVal) * Math.sin(M_e * rad) + (0.019993 - 0.000101 * TVal) * Math.sin(2 * M_e * rad);
+        const sunLon = norm(L0_e + C_e);
+        const e_e = 0.016708634 - 0.000042037 * TVal;
+        const R_e = 1.000001018 * (1 - e_e * e_e) / (1 + e_e * Math.cos((M_e + C_e) * rad));
+        const Xe = R_e * Math.cos(sunLon * rad);
+        const Ye = R_e * Math.sin(sunLon * rad);
+
+        // Moon
+        const L_m = norm(218.3164477 + 481267.88123421 * TVal);
+        const D_m = norm(297.8501921 + 445267.1114034 * TVal);
+        const M_m = norm(134.9633964 + 477198.8675055 * TVal);
+        const moonLon = norm(L_m + 6.288774 * Math.sin(M_m * rad) + 1.274027 * Math.sin((2 * D_m - M_m) * rad) + 0.658314 * Math.sin(2 * D_m * rad));
+
+        function solvePlanet(N0, N1, i0, i1, w0, w1, a0, e0, e1, M0, M1) {
+            const N = norm(N0 + N1 * dVal);
+            const inc = i0 + i1 * dVal;
+            const w = norm(w0 + w1 * dVal);
+            const a = a0;
+            const ecc = e0 + e1 * dVal;
+            const M_p = norm(M0 + M1 * dVal);
+            let E = M_p;
+            for (let k = 0; k < 5; k++) {
+                E = E - (E - ecc * (180 / Math.PI) * Math.sin(E * rad) - M_p) / (1 - ecc * Math.cos(E * rad));
+            }
+            const xv = a * (Math.cos(E * rad) - ecc);
+            const yv = a * (Math.sqrt(1 - ecc * ecc) * Math.sin(E * rad));
+            const v = norm(Math.atan2(yv, xv) / rad);
+            const r = Math.sqrt(xv * xv + yv * yv);
+            const xh = r * (Math.cos(N * rad) * Math.cos((v + w) * rad) - Math.sin(N * rad) * Math.sin((v + w) * rad) * Math.cos(inc * rad));
+            const yh = r * (Math.sin(N * rad) * Math.cos((v + w) * rad) + Math.cos(N * rad) * Math.sin((v + w) * rad) * Math.cos(inc * rad));
+            const xg = xh - Xe;
+            const yg = yh - Ye;
+            return norm(Math.atan2(yg, xg) / rad);
+        }
+
+        const GMST0 = norm(280.46061837 + 360.98564736629 * (jdVal - 2451545.0));
+        const RAMC = norm(GMST0 + lon);
+        const eps = 23.4392911 - 0.0130042 * TVal;
+        const num = Math.cos(RAMC * rad);
+        const den = -Math.sin(RAMC * rad) * Math.cos(eps * rad) - Math.tan(lat * rad) * Math.sin(eps * rad);
+        let ascLon = norm(Math.atan2(num, den) / rad);
+
+        return [
+            { name: "Güneş", symbol: "☉", weight: 3, lon: sunLon },
+            { name: "Ay", symbol: "☽", weight: 3, lon: moonLon },
+            { name: "Yükselen (ASC)", symbol: "ASC", weight: 3, lon: ascLon },
+            { name: "Merkür", symbol: "☿", weight: 2, lon: solvePlanet(48.3313, 3.24587e-5, 7.0047, 5.00e-8, 29.1241, 1.01444e-5, 0.387098, 0.205635, 5.59e-10, 168.6562, 4.0923344368) },
+            { name: "Venüs", symbol: "♀", weight: 2, lon: solvePlanet(76.6799, 2.46590e-5, 3.3946, 2.75e-8, 54.8910, 1.38374e-5, 0.723332, 0.006773, -1.302e-9, 48.0052, 1.6021302244) },
+            { name: "Mars", symbol: "♂", weight: 2, lon: solvePlanet(49.5574, 2.11081e-5, 1.8497, -1.78e-8, 286.5016, 2.92961e-5, 1.523688, 0.093405, 2.516e-9, 18.6021, 0.5240207766) },
+            { name: "Jüpiter", symbol: "♃", weight: 1.5, lon: solvePlanet(100.4542, 2.76854e-5, 1.3030, -1.557e-7, 273.8777, 1.64505e-5, 5.202561, 0.048498, 4.469e-9, 19.8950, 0.0830853001) },
+            { name: "Satürn", symbol: "♄", weight: 1.5, lon: solvePlanet(113.6634, 2.38980e-5, 2.4886, -1.081e-7, 339.3939, 2.97661e-5, 9.55475, 0.055546, -9.499e-9, 316.9670, 0.0334442282) },
+            { name: "Uranüs", symbol: "♅", weight: 1, lon: solvePlanet(74.0005, 1.3978e-5, 0.7733, 1.9e-8, 96.6612, 3.0565e-5, 19.18171, 0.047318, 7.45e-9, 142.5905, 0.011725806) },
+            { name: "Neptün", symbol: "♆", weight: 1, lon: solvePlanet(131.7806, 3.0173e-5, 1.7700, -2.55e-7, 272.8461, -6.027e-6, 30.05826, 0.008606, 2.15e-9, 260.2471, 0.005995147) },
+            { name: "Plüton", symbol: "♇", weight: 1, lon: solvePlanet(110.3034, 3.79e-5, 17.14175, 3.0e-8, 113.7632, 2.0e-5, 39.4816867, 0.24880766, 0, 14.868, 0.00396) }
+        ];
+    }
+
+    const jdVal = getJD(Y, M, D, hour);
+    const bodies = calcAllPlanets(jdVal);
+
+    const burclar = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
+    const symbols = ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"];
+    const modNames = ["Öncü", "Sabit", "Değişken"];
+
+    const modWeights = { "Öncü": 0, "Sabit": 0, "Değişken": 0 };
+    bodies.forEach(b => {
+        const sIdx = Math.floor(b.lon / 30) % 12;
+        const mod = modNames[sIdx % 3];
+        modWeights[mod] += b.weight;
     });
 
-    const labels = { Cardinal: "Öncü", Fixed: "Sabit", Mutable: "Değişken" };
-    const colors = { Cardinal: "#ff4757", Fixed: "#70a1ff", Mutable: "#2ed573" };
+    const totalWeight = Object.values(modWeights).reduce((a, b) => a + b, 0);
 
-    let html = "";
-    Object.keys(scores).forEach(mod => {
-        const pct = Math.round((scores[mod] / totalWeight) * 100);
-        html += `
-            <div class="hc-nit-row">
-                <div class="hc-nit-label">${labels[mod]} (%${pct})</div>
-                <div class="hc-nit-bar-bg">
-                    <div class="hc-nit-bar-fill" style="width: ${pct}%; background: ${colors[mod]};"></div>
+    let modData = Object.keys(modWeights).map(m => ({
+        name: m,
+        score: modWeights[m],
+        pct: Math.round((modWeights[m] / totalWeight) * 100)
+    })).sort((a, b) => b.score - a.score);
+
+    const dominantMod = modData[0];
+    const modColors = { "Öncü": "#e11d48", "Sabit": "#d97706", "Değişken": "#2563eb" };
+
+    const heroHtml = `
+        <div class="hc-nit-hero-card">
+            <div class="hc-nit-hero-badge">Baskın Nitelik</div>
+            <div class="hc-nit-hero-title">${dominantMod.name} Nitelik (%${dominantMod.pct})</div>
+            <p class="hc-nit-hero-sub">Haritanızda en yoğun çalışan modalite ${dominantMod.name} niteliğidir. Bu durum yaşam karşısındaki tutumunuzu ve eylem tarzınızı belirler.</p>
+        </div>
+    `;
+
+    let barsHtml = "";
+    modData.forEach(item => {
+        barsHtml += `
+            <div class="hc-nit-bar-row">
+                <div class="hc-nit-bar-header">
+                    <span class="hc-nit-name">${item.name} Nitelik</span>
+                    <span class="hc-nit-pct">%${item.pct} (${item.score} Puan)</span>
+                </div>
+                <div class="hc-nit-bar-track">
+                    <div class="hc-nit-bar-fill" style="width: ${item.pct}%; background: ${modColors[item.name]};"></div>
                 </div>
             </div>
         `;
     });
 
-    document.getElementById('hc-nit-bars').innerHTML = html;
-
-    const dominant = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-    const interpretations = {
-        Cardinal: "Öncü niteliğiniz baskın. Başlatma enerjiniz yüksek, lider ruhlu ve eyleme geçmeye hazırsınız.",
-        Fixed: "Sabit niteliğiniz baskın. Kararlı, dayanıklı, odaklı ve başladığı işi bitiren bir yapıdasınız.",
-        Mutable: "Değişken niteliğiniz baskın. Esnek, uyumlu, çok yönlü ve değişimlere kolayca ayak uydurabilen birisiniz."
-    };
-
-    document.getElementById('hc-nit-desc').innerHTML = `
-        <h4>Baskın Nitelik: ${labels[dominant]}</h4>
-        <p>${interpretations[dominant]}</p>
+    let tableHtml = `
+        <table class="hc-nit-table">
+            <thead>
+                <tr>
+                    <th>Gezegen</th>
+                    <th>Burç</th>
+                    <th>Nitelik</th>
+                    <th>Ağırlık</th>
+                </tr>
+            </thead>
+            <tbody>
     `;
 
+    bodies.forEach(b => {
+        const sIdx = Math.floor(b.lon / 30) % 12;
+        const mod = modNames[sIdx % 3];
+        tableHtml += `
+            <tr>
+                <td><strong>${b.symbol} ${b.name}</strong></td>
+                <td>${symbols[sIdx]} ${burclar[sIdx]}</td>
+                <td><span class="hc-nit-tag hc-nt-${mod.toLowerCase()}">${mod}</span></td>
+                <td>${b.weight} Puan</td>
+            </tr>
+        `;
+    });
+    tableHtml += `</tbody></table>`;
+
+    const interpretations = {
+        "Öncü": "Öncü niteliğinizin baskın olması, liderlik, başlatma enerjisi, inisiyatif alma ve olaylara yön verme gücünüzü gösterir.",
+        "Sabit": "Sabit niteliğinizin baskın olması, kararlılık, sabır, dayanıklılık, başladığı işi bitirme ve kalıcı değerler üretme gücünüzü gösterir.",
+        "Değişken": "Değişken niteliğinizin baskın olması, esneklik, uyum yeteneği, çok yönlülük ve kriz durumlarında hızla manevra yapabilme gücünüzü gösterir."
+    };
+
+    const descHtml = `
+        <p>${interpretations[dominantMod.name]}</p>
+        <p><strong>Nitelik Dengesi:</strong> Haritada Öncü (Başlatma), Sabit (Sürdürme) ve Değişken (Uyum/Dönüştürme) dengesi ne kadar uyumluysa, hedeflerinizi gerçeğe dönüştürme süreciniz o kadar pürüzsüz ilerler.</p>
+    `;
+
+    document.getElementById('hc-nit-hero').innerHTML = heroHtml;
+    document.getElementById('hc-nit-bars').innerHTML = barsHtml;
+    document.getElementById('hc-nit-planets-table').innerHTML = tableHtml;
+    document.getElementById('hc-nit-desc').innerHTML = descHtml;
+
     document.getElementById('hc-nitelik-dagilimi-result').classList.add('visible');
+    document.getElementById('hc-nitelik-dagilimi-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+

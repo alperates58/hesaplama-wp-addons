@@ -15,57 +15,41 @@ function hc_render_ruh_esi_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-ruh-esi-uyum">
         <div class="hc-header">
-            <h3>Ruh Eşi Uyumu Hesaplama</h3>
-            <p>Gözle görülmeyen bağların, kadersel karşılaşmaların ve ruhsal rezonansın analizini yapın.</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-re-sign1">Sizin Burcunuz</label>
-            <select id="hc-re-sign1" class="hc-input">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
-        </div>
-        
-        <div class="hc-re-icon">✨</div>
-
-        <div class="hc-form-group">
-            <label for="hc-re-sign2">Partnerinizin Burcu</label>
-            <select id="hc-re-sign2" class="hc-input">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
+            <h3>Ruh Eşi ve Kadersel Bağ Uyumu Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Ay Düğümleri, Güneş, Ay ve Venüs kadersel yerleşimlerinizle ruh eşi rezonansınızı, telepatik bağınızı ve karmik çekiminizi keşfedin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcRuhEsiUyumHesapla()">Ruhsal Uyumu Keşfet</button>
+        <div class="hc-re-persons-grid">
+            <div class="hc-re-person-box">
+                <div class="hc-re-pbadge">👤 1. Ruh (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-re-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-re-d1" value="1995-05-15" class="hc-input" required>
+                </div>
+            </div>
+
+            <div class="hc-re-person-box">
+                <div class="hc-re-pbadge hc-badge-p2">✨ 2. Ruh (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-re-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-re-d2" value="1996-09-20" class="hc-input" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcRuhEsiUyumHesapla()">🔮 Ruh Eşi Rezonansını Hesapla</button>
 
         <div class="hc-result" id="hc-re-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Ruhsal Rezonans:</span>
-                <span class="hc-result-value" id="hc-re-value">% -</span>
+            <div class="hc-re-hero" id="hc-re-hero"></div>
+
+            <div class="hc-re-section">
+                <h4 class="hc-re-sec-title">📊 4 Kadersel Ruh Eşi Boyutu</h4>
+                <div class="hc-re-dim-grid" id="hc-re-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-re-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-re-section">
+                <h4 class="hc-re-sec-title">📖 Karmik ve Spiritüel Ruh Analizi</h4>
+                <div class="hc-result-content" id="hc-re-desc"></div>
             </div>
         </div>
     </div>

@@ -16,23 +16,35 @@ function hc_render_gunes_burcu_hesaplama( $atts ) {
     <div class="hc-calculator" id="hc-gunes-burcu">
         <div class="hc-header">
             <h3>Güneş Burcu Hesaplama</h3>
-            <p>Doğum tarihinizi girerek temel karakterinizi şekillendiren güneş burcunuzu öğrenin.</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-gb-birthdate">Doğum Tarihiniz</label>
-            <input type="date" id="hc-gb-birthdate" class="hc-input" required>
+            <p class="hc-subtitle">Doğum tarihinizi girerek temel karakterinizi, yaşam misyonunuzu ve Güneş burcunuzun tam derecesini keşfedin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcGunesBurcuHesapla()">Burcumu Hesapla</button>
+        <div class="hc-form-grid-2">
+            <div class="hc-form-group">
+                <label for="hc-gb-birthdate">Doğum Tarihi *</label>
+                <input type="date" id="hc-gb-birthdate" value="1995-05-15" class="hc-input" required>
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-gb-time">Doğum Saati (Opsiyonel / Sınır Günleri İçin)</label>
+                <input type="time" id="hc-gb-time" value="12:00" class="hc-input">
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcGunesBurcuHesapla()">☀️ Güneş Burcumu Hesapla</button>
 
         <div class="hc-result" id="hc-gb-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Güneş Burcunuz:</span>
-                <span class="hc-result-value" id="hc-gb-sign-name">-</span>
+            <div class="hc-gb-summary-card">
+                <div class="hc-gb-badge-row">
+                    <span class="hc-gb-badge-deg" id="hc-gb-deg-badge">-</span>
+                    <span class="hc-gb-badge-decan" id="hc-gb-decan-badge">-</span>
+                </div>
+                <div class="hc-gb-result-title" id="hc-gb-sign-name">-</div>
+                <div class="hc-gb-result-subtitle" id="hc-gb-sign-meta">-</div>
             </div>
-            <div class="hc-result-content" id="hc-gb-sign-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-gb-report-card">
+                <h4 class="hc-gb-report-title">👑 Temel Karakter ve Yaşam Misyonu</h4>
+                <div id="hc-gb-sign-desc"></div>
             </div>
         </div>
     </div>

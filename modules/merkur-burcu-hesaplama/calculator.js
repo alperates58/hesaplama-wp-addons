@@ -1,60 +1,168 @@
 function hcMerkurBurcuHesapla() {
     const tarihStr = document.getElementById('hc-merkur-tarih').value;
-    if (!tarihStr) { alert('Lütfen doğum tarihinizi girin.'); return; }
-    const date = new Date(tarihStr);
-    
-    function getJD(d) { return (d.getTime() / 86400000) + 2440587.5; }
-    const jd = getJD(date);
-    const d = jd - 2451543.5;
-    const rad = Math.PI / 180;
+    const saatStr = document.getElementById('hc-merkur-saat').value;
 
-    function norm(x) { x %= 360; return x < 0 ? x + 360 : x; }
-
-    function getHeliocentric(planet, d) {
-        let { N, i, w, a, e, M0, M1 } = planet;
-        let M = norm(M0 + M1 * d);
-        let E = M + (180 / Math.PI) * e * Math.sin(M * rad) * (1 + e * Math.cos(M * rad));
-        for(let j=0; j<3; j++) E = E - (E - (180/Math.PI)*e*Math.sin(E*rad) - M) / (1 - e*Math.cos(E*rad));
-        let xv = a * (Math.cos(E * rad) - e);
-        let yv = a * (Math.sqrt(1 - e * e) * Math.sin(E * rad));
-        let v = Math.atan2(yv, xv) / rad;
-        let r = Math.sqrt(xv * xv + yv * yv);
-        let lonecl = norm(v + w);
-        let x = r * (Math.cos(N * rad) * Math.cos(lonecl * rad) - Math.sin(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let y = r * (Math.sin(N * rad) * Math.cos(lonecl * rad) + Math.cos(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let z = r * Math.sin(lonecl * rad) * Math.sin(i * rad);
-        return { x, y, z };
+    if (!tarihStr) {
+        alert('Lütfen doğum tarihinizi girin.');
+        return;
     }
 
-    const earth = { N: 0, i: 0, w: 102.9404 + 0.0000470935 * d, a: 1.00000011, e: 0.01671022 - 0.0000000012 * d, M0: 357.5291, M1: 0.98560028 };
-    const mercury = { N: 48.3313 + 0.0000324587 * d, i: 7.0047 + 0.00000005 * d, w: 77.4564 + 0.0000155447 * d, a: 0.387098, e: 0.205635, M0: 174.7947, M1: 4.0923344 };
+    const parts = tarihStr.split('-').map(Number);
+    const timeParts = (saatStr || '12:00').split(':').map(Number);
+    let Y = parts[0], M = parts[1], D = parts[2];
+    let hour = timeParts[0] + (timeParts[1] || 0) / 60;
 
-    const pE = getHeliocentric(earth, d);
-    const pM = getHeliocentric(mercury, d);
+    let tzOffset = 3;
+    if (Y < 2016 || (Y === 2016 && M < 9)) {
+        if (M > 3 && M < 10) tzOffset = 3;
+        else if (M === 3 && D >= 25) tzOffset = 3;
+        else if (M === 10 && D < 25) tzOffset = 3;
+        else tzOffset = 2;
+    }
 
-    const xG = pM.x - pE.x;
-    const yG = pM.y - pE.y;
-    const lonG = norm(Math.atan2(yG, xG) / rad);
+    let ut = hour - tzOffset;
+    let yCalc = Y, mCalc = M;
+    if (mCalc <= 2) { yCalc -= 1; mCalc += 12; }
+    const A = Math.floor(yCalc / 100);
+    const B = 2 - A + Math.floor(A / 4);
+    const JD = Math.floor(365.25 * (yCalc + 4716)) + Math.floor(30.6001 * (mCalc + 1)) + D + B - 1524.5 + (ut / 24);
 
-    const burclar = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
-    const burc = burclar[Math.floor(lonG / 30)];
+    const rad = Math.PI / 180;
+    function norm(deg) {
+        deg = deg % 360;
+        return deg < 0 ? deg + 360 : deg;
+    }
 
-    const yorumlar = {
-        "Koç": "Merkür'ü Koç burcunda olanlar, düşünce süreçlerinde oldukça hızlı, doğrudan ve cesurdur. İletişim tarzları nettir; ne düşünüyorlarsa olduğu gibi, bazen patavatsızlığa varacak şekilde söyleyebilirler. Zihinleri her zaman yeni fikirlerle doludur ve bir konuyu uzun uzun analiz etmek yerine hemen sonuca varmayı tercih ederler. Tartışmalarda rekabetçi bir tutum sergileyebilirler. Öğrenme biçimleri deneyim odaklıdır; bir şeyi yaparak öğrenmek onlar için en etkili yoldur. Zihinsel enerjileri çok yüksektir ve çevrelerine ilham veren, öncü fikirler üretirler.",
-        "Boğa": "Merkür Boğa kişileri için zihinsel süreçler daha yavaş, temkinli ve pratiktir. Bir konuyu anlamadan veya doğruluğundan emin olmadan fikir beyan etmezler. Düşünceleri oldukça sabittir; bir kez bir şeye karar verdiklerinde onları vazgeçirmek zordur. İletişim tarzları sakin, huzurlu ve güven vericidir. Soyut kavramlardan ziyade somut ve uygulanabilir bilgilerle ilgilenirler. Bellekleri çok güçlüdür ve öğrendikleri bilgileri asla unutmazlar. Estetik ve maddi değerlerle ilgili konularda zekalarını çok iyi kullanırlar. Kararlı ve metodik düşünürlerdir.",
-        "İkizler": "Merkür'ün kendi yöneticisi olduğu İkizler burcunda olması, zekanın en kıvrak, en meraklı ve en esnek halini temsil eder. Bu kişiler adeta bir bilgi süngeri gibidirler; her şeyi öğrenmek, her konuda fikir sahibi olmak isterler. İletişim tarzları son derece akıcı, esprili ve çok yönlüdür. Aynı anda birden fazla konuyla ilgilenebilir ve hızlıca bir düşünceden diğerine geçebilirler. Sosyal becerileri çok gelişmiştir ve her türlü insanla kolayca diyalog kurabilirler. Yazma, konuşma ve dil yetenekleri genellikle ön plandadır. Zihinleri hiçbir zaman durmaz; her zaman yeni bir merakın peşindedirler.",
-        "Yengeç": "Merkür'ü Yengeç burcunda olan bireylerde zihin ve duygular iç içe geçmiştir. Düşünce süreçleri büyük ölçüde sezgilerine ve geçmiş anılarına dayanır. İletişim tarzları nazik, korumacı ve duygusal bir derinliğe sahiptir. Bir şeyi öğrenirken onu sadece mantıklarıyla değil, kalpleriyle de hissetmek isterler. Bellekleri duygusal anlarla yüklüdür; yıllar önceki bir olayı, o an hissettikleriyle birlikte detaylıca hatırlayabilirler. Çevrelerindeki insanların ruh hallerini ve niyetlerini anlama konusunda çok yeteneklidirler. Sessiz ama çok derin bir kavrayışa sahiptirler.",
-        "Aslan": "Merkür Aslan kişileri için düşünceler ve iletişim birer kendini ifade etme aracıdır. Zihinleri yaratıcı fikirlerle doludur ve bu fikirleri büyük bir özgüvenle, adeta bir sahnede sunuyormuş gibi anlatırlar. İletişim tarzları etkileyici, sıcak ve otoriterdir. İnsanları ikna etme ve onlara ilham verme yetenekleri çok gelişmiştir. Bir konuya odaklandıklarında onu geniş bir perspektiften görür ve büyük resmi yakalarlar. Gururları zihinsel süreçlerine de yansır; fikirlerinin takdir edilmesini isterler. Cömert bir zeka yapıları vardır ve her zaman parlak, dikkat çekici çözümler üretirler.",
-        "Başak": "Merkür'ün hem yöneticisi olduğu hem de yüceldiği Başak burcunda bulunması, zekanın en titiz, en analizci ve en mükemmeliyetçi halini temsil eder. Bu kişiler detayları fark etme ve karmaşık yapıları parçalarına ayırarak anlama konusunda ustadırlar. İletişim tarzları net, dürüst ve pratiktir. Gereksiz bilgilerle vakit kaybetmek yerine, işe yarar ve uygulanabilir çözümler üretmeye odaklanırlar. Öğrenme biçimleri metodik ve disiplinlidir. Eleştirel bir zekaları vardır; hataları anında görür ve düzeltmek için harekete geçerler. Her şeyi bir düzen ve mantık çerçevesine oturtmak onların doğal yeteneğidir.",
-        "Terazi": "Merkür'ü Terazi burcunda olanlar için zihinsel süreçler denge, adalet ve uyum arayışı üzerine kuruludur. İletişim tarzları son derece nazik, diplomatik ve zariftir. Tartışmalardan kaçınırlar ve her zaman iki tarafın da haklı yönlerini görmeye çalışırlar; bu da zaman zaman kararsızlık yaşamalarına neden olabilir. Partnerlikler ve sosyal ilişkiler hakkında düşünmek zihinlerini en çok meşgul eden konulardır. Estetik bir zeka yapıları vardır; fikirlerinin bile göze ve kulağa hoş gelmesini isterler. İnsanları bir araya getiren, barışçıl ve uzlaşmacı fikirler üretme konusunda çok başarılıdırlar.",
-        "Akrep": "Merkür Akrep kişileri için zihin bir dedektif gibi çalışır. Yüzeysel olan hiçbir şey onları tatmin etmez; her zaman olayların ve insanların en derinindeki gerçeği, gizli olanı bulmaya çalışırlar. İletişim tarzları derin, gizemli ve bazen sarsıcı derecede dürüsttür. Sezgileri zekalarıyla birleşmiştir, bu da onlara inanılmaz bir analiz gücü verir. Sessizce gözlemler ve en stratejik zamanda en etkili sözü söylerler. Zihinleri çok dayanıklı ve odaklanmıştır. Sır saklama konusunda ustadırlar ve gizemli konular, psikoloji veya araştırma gerektiren alanlarda zekalarını harika kullanırlar.",
-        "Yay": "Merkür'ü Yay burcunda olan bireylerin zihni özgürlük, felsefe ve geniş ufuklar için yaratılmıştır. Düşünceleri iyimser, vizyoner ve dürüsttür. İletişim tarzları doğrudan ve bazen fazla açık sözlü olabilir; ne düşünüyorlarsa filtrelemeden söylerler. Küçük detaylarla uğraşmak yerine, hayatın anlamı ve büyük resmi kavramakla ilgilenirler. Öğrenme biçimleri keşif odaklıdır; yeni kültürler, inançlar ve felsefeler zihinlerini besler. Zihinsel olarak kısıtlanmaya gelemezler. Neşeli ve espri dolu yapılarıyla girdikleri her ortama taze bir bakış açısı getirirler.",
-        "Oğlak": "Merkür Oğlak kişileri için zihinsel süreçler disiplinli, ciddi ve sonuç odaklıdır. Düşünceleri oldukça gerçekçi ve pratiktir; hayalperest fikirler yerine uygulanabilir stratejiler üretirler. İletişim tarzları otoriter, mesafeli ve güven vericidir. Kelimelerini dikkatle seçerler ve sadece gerekli olduğunda konuşurlar. Öğrenme biçimleri hiyerarşik ve metodiktir. Bellekleri yapılandırılmış bilgilerle doludur. Otoriteye ve geleneklere saygılı bir zeka yapıları vardır; ancak kendi fikirlerini de sarsılmaz bir mantık çerçevesinde savunurlar. Uzun vadeli planlar yapmakta ve bunları gerçekleştirmekte üstlerine yoktur.",
-        "Kova": "Merkür'ü Kova burcunda olanlar için zihin bağımsızlık, yenilik ve gelecek üzerine kuruludur. Düşünce biçimleri son derece özgün, aykırı ve objektiftir. Toplumsal kalıpların dışında düşünmeyi severler ve her zaman 'daha farklı nasıl olabilir?' diye sorarlar. İletişim tarzları entelektüel, demokratik ve biraz mesafeli olabilir. Teknoloji, bilim ve insan hakları gibi konular zihinlerini en çok meşgul eden alanlardır. İnanılmaz derecede hızlı kavrayış yetenekleri vardır ve beklenmedik, dahi fikirler üretebilirler. Fikir birliğine önem verirler ama kendi bağımsız düşüncelerinden asla ödün vermezler.",
-        "Balık": "Merkür'ü Balık burcunda olan bireylerde zihin daha çok hayal gücü, sezgi ve sembollerle çalışır. Mantıksal çıkarımlardan ziyade, bütünü hissederek anlama yetenekleri vardır. İletişim tarzları şiirsel, yumuşak ve empatiktir. Kelimelerin ötesindeki duyguları ve enerjileri okuyabilirler. Öğrenme biçimleri akışkandır; her şeyi birbiriyle bağlantılı bir bütün olarak görürler. Sanatsal ve yaratıcı zekaları çok gelişmiştir. Zaman zaman düşünceleri dalgın ve dağınık olabilir, ancak bu onların aynı anda birçok farklı boyuttan bilgi almalarından kaynaklanır. Sessiz bir bilgelikleri ve çok derin bir kavrayışları vardır."
+    function calcMercury(jdVal) {
+        const dVal = jdVal - 2451543.5;
+        const TVal = dVal / 36525;
+
+        // Earth Helio
+        const L0_e = norm(280.46646 + 36000.76983 * TVal);
+        const M_e = norm(357.52911 + 35999.05029 * TVal);
+        const C_e = (1.914602 - 0.004817 * TVal) * Math.sin(M_e * rad) + (0.019993 - 0.000101 * TVal) * Math.sin(2 * M_e * rad);
+        const sunLon = norm(L0_e + C_e);
+        const e_e = 0.016708634 - 0.000042037 * TVal;
+        const R_e = 1.000001018 * (1 - e_e * e_e) / (1 + e_e * Math.cos((M_e + C_e) * rad));
+        const Xe = R_e * Math.cos(sunLon * rad);
+        const Ye = R_e * Math.sin(sunLon * rad);
+
+        // Mercury Helio
+        const N_m = norm(48.3313 + 3.24587e-5 * dVal);
+        const i_m = 7.0047 + 5.00e-8 * dVal;
+        const w_m = norm(29.1241 + 1.01444e-5 * dVal);
+        const a_m = 0.387098;
+        const e_m = 0.205635 + 5.59e-10 * dVal;
+        const M_m = norm(168.6562 + 4.0923344368 * dVal);
+
+        let E_m = M_m;
+        for (let k = 0; k < 5; k++) {
+            E_m = E_m - (E_m - e_m * (180 / Math.PI) * Math.sin(E_m * rad) - M_m) / (1 - e_m * Math.cos(E_m * rad));
+        }
+
+        const xv_m = a_m * (Math.cos(E_m * rad) - e_m);
+        const yv_m = a_m * (Math.sqrt(1 - e_m * e_m) * Math.sin(E_m * rad));
+        const v_m = norm(Math.atan2(yv_m, xv_m) / rad);
+        const r_m = Math.sqrt(xv_m * xv_m + yv_m * yv_m);
+
+        const xh = r_m * (Math.cos(N_m * rad) * Math.cos((v_m + w_m) * rad) - Math.sin(N_m * rad) * Math.sin((v_m + w_m) * rad) * Math.cos(i_m * rad));
+        const yh = r_m * (Math.sin(N_m * rad) * Math.cos((v_m + w_m) * rad) + Math.cos(N_m * rad) * Math.sin((v_m + w_m) * rad) * Math.cos(i_m * rad));
+
+        const xg = xh - Xe;
+        const yg = yh - Ye;
+        return norm(Math.atan2(yg, xg) / rad);
+    }
+
+    const lon1 = calcMercury(JD);
+    const lon2 = calcMercury(JD + 1);
+    let delta = lon2 - lon1;
+    if (delta < -180) delta += 360;
+    if (delta > 180) delta -= 360;
+    const isRetro = delta < 0;
+
+    const burclar = [
+        { name: "Koç", element: "Ateş", modality: "Öncü", symbol: "♈" },
+        { name: "Boğa", element: "Toprak", modality: "Sabit", symbol: "♉" },
+        { name: "İkizler", element: "Hava", modality: "Değişken", symbol: "♊" },
+        { name: "Yengeç", element: "Su", modality: "Öncü", symbol: "♋" },
+        { name: "Aslan", element: "Ateş", modality: "Sabit", symbol: "♌" },
+        { name: "Başak", element: "Toprak", modality: "Değişken", symbol: "♍" },
+        { name: "Terazi", element: "Hava", modality: "Öncü", symbol: "♎" },
+        { name: "Akrep", element: "Su", modality: "Sabit", symbol: "♏" },
+        { name: "Yay", element: "Ateş", modality: "Değişken", symbol: "♐" },
+        { name: "Oğlak", element: "Toprak", modality: "Öncü", symbol: "♑" },
+        { name: "Kova", element: "Hava", modality: "Sabit", symbol: "♒" },
+        { name: "Balık", element: "Su", modality: "Değişken", symbol: "♓" }
+    ];
+
+    const signIdx = Math.floor(lon1 / 30) % 12;
+    const signObj = burclar[signIdx];
+    const degInSign = Math.floor(lon1 % 30);
+    const minInSign = Math.floor((lon1 % 1) * 60);
+
+    const merkurYorumlari = {
+        "Koç": `
+            <p><strong>Zihinsel Profil:</strong> Hızlı, doğrudan, cesur ve tartışmacı bir zeka. Düşüncelerinizi filtrelemeden hemen ifade edersiniz. Yeni fikirleri ilk başlatan siz olursunuz ancak detaylarda sıkılabilirsiniz.</p>
+            <p><strong>İletişim Tarzı:</strong> Net, açık sözlü ve rekabetçi. Pasif-agresiflikten hoşlanmaz, doğrudan sonuca odaklanırsınız.</p>
+        `,
+        "Boğa": `
+            <p><strong>Zihinsel Profil:</strong> Sakin, metodik, pratik ve somut düşünen bir zeka. Bir konuyu iyice sindirmeden karar vermezsiniz; öğrendiğiniz bilgiyi asla unutmazsınız.</p>
+            <p><strong>İletişim Tarzı:</strong> Güven verici, ağırbaşlı ve gerçekçi. Boş tartışmalardan kaçınır, somut çözümlere odaklanırsınız.</p>
+        `,
+        "İkizler": `
+            <p><strong>Zihinsel Profil (Merkür Kendi Evinde):</strong> Üstün kıvrak zeka, çok yönlü düşünme, hızlı öğrenme ve sınırsız merak. Bilgiyi işleme hızınız rakipsizdir.</p>
+            <p><strong>İletişim Tarzı:</strong> Esprili, akıcı, ikna edici ve konuşkan. Sosyal ortamlarda bilgi köprüsü kurarsınız.</p>
+        `,
+        "Yengeç": `
+            <p><strong>Zihinsel Profil:</strong> Sezgisel, fotografik hafızaya sahip ve duygularla düşünen bir zeka. Olayları kelimelerden ziyade yarattığı hislerle hatırlarsınız.</p>
+            <p><strong>İletişim Tarzı:</strong> Şefkatli, dinleyici, empati dolu ve korumacı. Karşınızdakinin duygularını anında sezersiniz.</p>
+        `,
+        "Aslan": `
+            <p><strong>Zihinsel Profil:</strong> Yaratıcı, vizyoner, dramatik ve lider odaklı zeka. Fikirlerinizi büyük bir özgüven ve sahne ışığıyla sunarsınız.</p>
+            <p><strong>İletişim Tarzı:</strong> Etkileyici, ilham verici, karizmatik ve cömert. İnsanları konuşmalarınızla peşinizden sürüklersiniz.</p>
+        `,
+        "Başak": `
+            <p><strong>Zihinsel Profil (Merkür Kendi Evinde & Yücelimde):</strong> Kusursuz analitik zeka, detay ustalığı, eleştirel düşünce ve problem çözme dehası. Kaosu anında organize edersiniz.</p>
+            <p><strong>İletişim Tarzı:</strong> Net, organize, fayda odaklı ve mantıklı. Aksaklıkları hemen tespit edip çözüm sunarsınız.</p>
+        `,
+        "Terazi": `
+            <p><strong>Zihinsel Profil:</strong> Diplomatik, adil, karşıt görüşleri tartan ve estetik düşünen bir zeka. Her konunun iki tarafını da anlamaya çalışırsınız.</p>
+            <p><strong>İletişim Tarzı:</strong> Nazik, uzlaşmacı, zarif ve barışçıl. Çatışmaları zarafetle çözme yeteneğiniz vardır.</p>
+        `,
+        "Akrep": `
+            <p><strong>Zihinsel Profil:</strong> Derin araştırmacı, psikanalitik ve dedektif zekası. Yalanı ve samimiyetsizliği anında fark eder, yüzeyin altındaki hakikati araştırırsınız.</p>
+            <p><strong>İletişim Tarzı:</strong> Ketum, özlü, delici ve dönüştürücü. Çok konuşmaz ama tam 12'den vurursunuz.</p>
+        `,
+        "Yay": `
+            <p><strong>Zihinsel Profil:</strong> Felsefi, geniş vizyonlu, iyimser ve büyük resmi gören zeka. Ayrıntılar yerine hayatın evrensel yasalarıyla ilgilenirsiniz.</p>
+            <p><strong>İletişim Tarzı:</strong> Açık sözlü, esprili, motive edici ve dürüst. Farklı kültürleri ve dilleri öğrenmeye yatkınsınızdır.</p>
+        `,
+        "Oğlak": `
+            <p><strong>Zihinsel Profil:</strong> Stratejik, disiplinli, kurumsal ve gerçekçi zeka. Zamanı ve kaynakları yönetme konusunda ustasınızdır.</p>
+            <p><strong>İletişim Tarzı:</strong> Ciddi, öz, profesyonel ve otoriter. Sözlerinizin arkasında her zaman somut bir ağırlık vardır.</p>
+        `,
+        "Kova": `
+            <p><strong>Zihinsel Profil:</strong> Orijinal, dahi zeka, teknolojik vizyon ve kolektif düşünce. Geleceğin fikirlerini bugünden üretirsiniz.</p>
+            <p><strong>İletişim Tarzı:</strong> Özgürlükçü, mantıklı, hümanist ve sıradışı. Dogmaları ve kalıpları sorgulatırsınız.</p>
+        `,
+        "Balık": `
+            <p><strong>Zihinsel Profil:</strong> Hayal gücü sınırsız, sanatsal, telepatik ve sembolik düşünen zeka. Mantığın ötesindeki ilham kanallarından beslenirsiniz.</p>
+            <p><strong>İletişim Tarzı:</strong> Şiirsel, sezgisel, merhametli ve büyüleyici. Kelimelerin ötesinde ruhsal bir temas kurarsınız.</p>
+        `
     };
 
-    document.getElementById('hc-merkur-value').innerText = burc;
-    document.getElementById('hc-merkur-desc').innerText = yorumlar[burc];
+    const retroText = isRetro ? "☿ Retro (İçe Dönük Derin Zeka)" : "☿ Direkt Hareket";
+    let retroDesc = "";
+    if (isRetro) {
+        retroDesc = `<div class="hc-merkur-retro-box"><strong>Doğum Anında Merkür Retro:</strong> Doğumunuz sırasında Merkür gerilemedeydi. Bu durum, olayları toplumun standart kalıplarından farklı olarak içselleştirip derinlemesine sorgulayan, sezgisel ve felsefi bir zihinsel yapı kazandırır. Zihniniz dışarıya hemen tepki vermek yerine önce kendi iç dünyasında filtreleme yapar.</div>`;
+    }
+
+    document.getElementById('hc-merkur-deg-badge').innerText = `☿ ${degInSign}° ${minInSign}' ${signObj.name}`;
+    document.getElementById('hc-merkur-motion-badge').innerText = retroText;
+    document.getElementById('hc-merkur-value').innerText = `${signObj.symbol} Merkür Burcunuz: ${signObj.name}`;
+    document.getElementById('hc-merkur-meta').innerText = `${signObj.element} Elementi • ${signObj.modality} Nitelik`;
+    document.getElementById('hc-merkur-desc').innerHTML = merkurYorumlari[signObj.name] + retroDesc;
+
     document.getElementById('hc-merkur-burcu-result').classList.add('visible');
+    document.getElementById('hc-merkur-burcu-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

@@ -15,37 +15,47 @@ function hc_render_burc_polaritesi_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-burc-polarite">
         <div class="hc-header">
-            <h3>Burç Polaritesi Hesaplama</h3>
-            <p>Astrolojide burçlar 'Eril' ve 'Dişil' olmak üzere iki polariteye ayrılır. Bu, enerjinin dışa mı yoksa içe mi akacağını belirler.</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-bp-sign">Burcunuzu Seçin</label>
-            <select id="hc-bp-sign" class="hc-input">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
+            <h3>Burç Polaritesi (Eril / Yang & Dişil / Yin) Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihinizi girerek veya burcunuzu seçerek enerjinizin dışa dönük (Eril/Yang) mi yoksa içe dönük ve alıcı (Dişil/Yin) mi olduğunu keşfedin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcBurcPolariteHesapla()">Polaritemi Öğren</button>
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-bp-date">Doğum Tarihi *</label>
+                <input type="date" id="hc-bp-date" value="1995-05-15" class="hc-input" onchange="hcBpSyncDateToSign()">
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-bp-sign">Veya Burcunuzu Seçin</label>
+                <select id="hc-bp-sign" class="hc-input">
+                    <option value="koc">♈ Koç (Eril / Ateş)</option>
+                    <option value="boga" selected>♉ Boğa (Dişil / Toprak)</option>
+                    <option value="ikizler">♊ İkizler (Eril / Hava)</option>
+                    <option value="yengec">♋ Yengeç (Dişil / Su)</option>
+                    <option value="aslan">♌ Aslan (Eril / Ateş)</option>
+                    <option value="basak">♍ Başak (Dişil / Toprak)</option>
+                    <option value="terazi">♎ Terazi (Eril / Hava)</option>
+                    <option value="akrep">♏ Akrep (Dişil / Su)</option>
+                    <option value="yay">♐ Yay (Eril / Ateş)</option>
+                    <option value="oglak">♑ Oğlak (Dişil / Toprak)</option>
+                    <option value="kova">♒ Kova (Eril / Hava)</option>
+                    <option value="balik">♓ Balık (Dişil / Su)</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcBurcPolariteHesapla()">☯️ Polariteyi Hesapla</button>
 
         <div class="hc-result" id="hc-bp-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Burç Polariteniz:</span>
-                <span class="hc-result-value" id="hc-bp-value">-</span>
+            <div class="hc-bp-hero" id="hc-bp-hero"></div>
+
+            <div class="hc-bp-section">
+                <h4 class="hc-bp-sec-title">📊 4 Enerji Polaritesi Boyutu</h4>
+                <div class="hc-bp-dim-grid" id="hc-bp-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-bp-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-bp-section">
+                <h4 class="hc-bp-sec-title">📖 Detaylı Polarite & Enerji Akış Analizi</h4>
+                <div class="hc-result-content" id="hc-bp-desc"></div>
             </div>
         </div>
     </div>

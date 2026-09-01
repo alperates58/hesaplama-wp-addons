@@ -17,104 +17,62 @@ function hc_render_gezegenlerin_ev_konumlari( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-gezegenlerin-ev-konumlari">
-        <h3>Gezegenlerin Ev Konumları</h3>
-        <div class="hc-form-group">
-            <label for="hc-pe-date">Doğum Tarihi</label>
-            <input type="date" id="hc-pe-date">
+        <div class="hc-header">
+            <h3>Gezegenlerin Ev Konumları Hesaplama (10 Gezegen & 12 Ev)</h3>
+            <p class="hc-subtitle">Doğum haritanızda Güneş, Ay, Merkür, Venüs, Mars, Jüpiter, Satürn, Uranüs, Neptün ve Plüton'un hangi yaşam evlerine düştüğünü ve kadersel etkilerini öğrenin.</p>
         </div>
-        <div class="hc-form-group">
-            <label for="hc-pe-time">Doğum Saati</label>
-            <input type="time" id="hc-pe-time">
+
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-pe-date">Doğum Tarihi *</label>
+                <input type="date" id="hc-pe-date" value="1995-05-15" class="hc-input" required>
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-pe-time">Doğum Saati *</label>
+                <input type="time" id="hc-pe-time" value="12:00" class="hc-input" required>
+            </div>
         </div>
+
         <div class="hc-form-group">
-            <label for="hc-pe-city">Doğum Yeri</label>
-            <select id="hc-pe-city">
-                <option value="37.0000,35.3213">Adana</option>
-                <option value="37.7641,38.2761">Adıyaman</option>
-                <option value="38.7637,30.5403">Afyonkarahisar</option>
-                <option value="39.7216,43.0566">Ağrı</option>
-                <option value="40.6500,35.8333">Amasya</option>
-                <option value="39.9207,32.8541">Ankara</option>
-                <option value="36.8841,30.7056">Antalya</option>
-                <option value="41.1827,41.8182">Artvin</option>
-                <option value="37.8560,27.8416">Aydın</option>
-                <option value="39.6483,27.8826">Balıkesir</option>
-                <option value="40.0566,30.0665">Bilecik</option>
-                <option value="39.0626,40.7696">Bingöl</option>
-                <option value="38.3937,42.1231">Bitlis</option>
-                <option value="40.5759,31.5788">Bolu</option>
-                <option value="37.4612,30.0665">Burdur</option>
-                <option value="40.2668,29.0634">Bursa</option>
-                <option value="40.1553,26.4141">Çanakkale</option>
-                <option value="40.6013,33.6134">Çankırı</option>
-                <option value="40.5505,34.9555">Çorum</option>
-                <option value="37.7765,29.0863">Denizli</option>
-                <option value="37.9144,40.2306">Diyarbakır</option>
-                <option value="41.6818,26.5622">Edirne</option>
-                <option value="38.6809,39.2263">Elazığ</option>
-                <option value="39.7500,39.5000">Erzincan</option>
-                <option value="39.9000,41.2700">Erzurum</option>
-                <option value="39.7766,30.5205">Eskişehir</option>
-                <option value="37.0662,37.3833">Gaziantep</option>
-                <option value="40.9128,38.3895">Giresun</option>
-                <option value="40.4385,39.5085">Gümüşhane</option>
-                <option value="37.5833,43.7333">Hakkari</option>
-                <option value="36.4018,36.3498">Hatay</option>
-                <option value="37.7647,30.5565">Isparta</option>
-                <option value="36.8121,34.6414">Mersin</option>
-                <option value="41.0052,28.9769">İstanbul</option>
-                <option value="38.4188,27.1287">İzmir</option>
-                <option value="40.6166,43.1000">Kars</option>
-                <option value="41.3887,33.7827">Kastamonu</option>
-                <option value="38.7312,35.4787">Kayseri</option>
-                <option value="41.7333,27.2166">Kırklareli</option>
-                <option value="39.1424,34.1709">Kırşehir</option>
-                <option value="40.8532,29.8815">Kocaeli</option>
-                <option value="37.8666,32.4833">Konya</option>
-                <option value="39.4166,29.9833">Kütahya</option>
-                <option value="38.3555,38.3094">Malatya</option>
-                <option value="38.6146,27.4296">Manisa</option>
-                <option value="37.5858,36.9371">Kahramanmaraş</option>
-                <option value="37.3212,40.7240">Mardin</option>
-                <option value="37.2155,28.3639">Muğla</option>
-                <option value="38.7347,41.4912">Muş</option>
-                <option value="38.6244,34.7141">Nevşehir</option>
-                <option value="37.9666,34.6833">Niğde</option>
-                <option value="40.9833,37.8833">Ordu</option>
-                <option value="41.0201,40.5233">Rize</option>
-                <option value="40.7569,30.3957">Sakarya</option>
-                <option value="41.2866,36.3300">Samsun</option>
-                <option value="37.9333,41.9333">Siirt</option>
-                <option value="42.0333,35.1500">Sinop</option>
-                <option value="39.7500,37.0166">Sivas</option>
-                <option value="40.9833,27.5166">Tekirdağ</option>
-                <option value="40.3166,36.5500">Tokat</option>
-                <option value="41.0000,39.7222">Trabzon</option>
-                <option value="39.1000,39.5500">Tunceli</option>
-                <option value="37.1590,38.7961">Şanlıurfa</option>
-                <option value="38.6823,29.4081">Uşak</option>
-                <option value="38.5000,43.4000">Van</option>
-                <option value="39.8180,34.8147">Yozgat</option>
-                <option value="41.4500,31.7833">Zonguldak</option>
-                <option value="38.3686,34.0369">Aksaray</option>
-                <option value="40.2551,40.2248">Bayburt</option>
-                <option value="37.1759,33.2287">Karaman</option>
-                <option value="39.8468,33.5152">Kırıkkale</option>
-                <option value="37.8811,41.1350">Batman</option>
-                <option value="37.5166,42.4666">Şırnak</option>
-                <option value="41.5810,32.4609">Bartın</option>
-                <option value="41.1104,42.7021">Ardahan</option>
-                <option value="39.8879,44.0048">Iğdır</option>
-                <option value="40.6500,29.2666">Yalova</option>
-                <option value="41.2061,32.6203">Karabük</option>
-                <option value="36.7183,37.1212">Kilis</option>
-                <option value="37.2130,36.2461">Osmaniye</option>
-                <option value="40.8438,31.1565">Düzce</option>
+            <label for="hc-pe-city">Doğum Yeri (Yükselen & Evler için) *</label>
+            <select id="hc-pe-city" class="hc-input">
+                <option value="39.93,32.85">Ankara</option>
+                <option value="41.01,28.97" selected>İstanbul</option>
+                <option value="38.42,27.14">İzmir</option>
+                <option value="37.00,35.32">Adana</option>
+                <option value="36.89,30.70">Antalya</option>
+                <option value="40.18,29.06">Bursa</option>
+                <option value="37.06,37.38">Gaziantep</option>
+                <option value="37.87,32.49">Konya</option>
+                <option value="41.29,36.33">Samsun</option>
+                <option value="39.75,37.01">Sivas</option>
+                <option value="41.00,39.72">Trabzon</option>
+                <option value="38.72,35.48">Kayseri</option>
+                <option value="37.91,40.24">Diyarbakır</option>
+                <option value="39.90,41.27">Erzurum</option>
+                <option value="38.35,38.31">Malatya</option>
+                <option value="40.76,30.39">Sakarya</option>
+                <option value="37.16,38.79">Şanlıurfa</option>
+                <option value="51.50,-0.12">Londra</option>
+                <option value="40.71,-74.00">New York</option>
+                <option value="52.52,13.40">Berlin</option>
             </select>
         </div>
-        <button class="hc-btn" onclick="hcPlanetEvlerHesapla()">Hesapla</button>
+
+        <button type="button" class="hc-btn" onclick="hcPlanetEvlerHesapla()">🪐 Gezegenlerin Ev Yerleşimlerini Hesapla</button>
+
         <div class="hc-result" id="hc-pe-result">
-            <div id="hc-pe-list"></div>
+            <div class="hc-pe-hero" id="hc-pe-hero"></div>
+
+            <div class="hc-pe-section">
+                <h4 class="hc-pe-sec-title">🌌 10 Gezegenin Ev Yerleşimi & Tematik Yorumları</h4>
+                <div class="hc-pe-grid" id="hc-pe-list"></div>
+            </div>
+
+            <div class="hc-pe-section">
+                <h4 class="hc-pe-sec-title">📖 Evlerin Yaşam Alanları & Astrolojik Anlamı</h4>
+                <div class="hc-result-content" id="hc-pe-desc"></div>
+            </div>
         </div>
     </div>
     <?php

@@ -15,56 +15,41 @@ function hc_render_jupiter_burcu_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-jupiter-uyum">
         <div class="hc-header">
-            <h3>Jüpiter Burcu Uyumu Hesaplama</h3>
-            <p>Birlikte nasıl büyüyeceksiniz? Şans ve vizyon uyumunuzu keşfedin.</p>
+            <h3>Jüpiter Burcu Uyumu Hesaplama (Şans ve Büyüme Uyumu)</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Jüpiter burçlarınızı otomatik tespit edin; bolluk, vizyon, seyahat ve ortak büyüme potansiyelinizi öğrenin.</p>
         </div>
-        
-        <div class="hc-form-row">
-            <div class="hc-form-group">
-                <label for="hc-ju-sign1">Sizin Jüpiter Burcunuz</label>
-                <select id="hc-ju-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+        <div class="hc-jup-persons-grid">
+            <div class="hc-jup-person-box">
+                <div class="hc-jup-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-jup-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-jup-d1" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label for="hc-ju-sign2">Onun Jüpiter Burcunuz</label>
-                <select id="hc-ju-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+            <div class="hc-jup-person-box">
+                <div class="hc-jup-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-jup-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-jup-d2" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcJupiterUyumHesapla()">Büyüme Potansiyelimizi Gör</button>
+        <button type="button" class="hc-btn" onclick="hcJupiterUyumHesapla()">🍀 Jüpiter ve Şans Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-ju-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Bolluk ve Şans Skoru:</span>
-                <span class="hc-result-value" id="hc-ju-value">% -</span>
+            <div class="hc-jup-hero" id="hc-jup-hero"></div>
+
+            <div class="hc-jup-section">
+                <h4 class="hc-jup-sec-title">📊 4 Bolluk ve Vizyon Boyutu</h4>
+                <div class="hc-jup-dim-grid" id="hc-jup-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-ju-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-jup-section">
+                <h4 class="hc-jup-sec-title">📖 Jüpiter - Jüpiter Sinastri Analizi</h4>
+                <div class="hc-result-content" id="hc-ju-desc"></div>
             </div>
         </div>
     </div>

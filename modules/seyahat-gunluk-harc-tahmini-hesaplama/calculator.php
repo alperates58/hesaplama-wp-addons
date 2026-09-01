@@ -1,4 +1,4 @@
-php
+<?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 function hc_render_seyahat_gunluk_harc_tahmini_hesaplama( $atts ) {

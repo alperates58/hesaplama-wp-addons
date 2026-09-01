@@ -15,37 +15,47 @@ function hc_render_burc_yonetici_element_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-burc-element">
         <div class="hc-header">
-            <h3>Burç Elementi Hesaplama</h3>
-            <p>Astrolojide elementler, ruhumuzun ham maddesidir. Sizin ruhunuz hangi elementten yapıldı?</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-be-sign">Burcunuzu Seçin</label>
-            <select id="hc-be-sign" class="hc-input">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
+            <h3>Burç Yönetici Elementi ve Gezegen Simyası Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihinizi girerek veya burcunuzu seçerek ruhunuzun ana elementini, yönetici gezegenini ve 4 element dengesini keşfedin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcBurcElementHesapla()">Elementimi Bul</button>
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-bye-date">Doğum Tarihi *</label>
+                <input type="date" id="hc-bye-date" value="1995-05-15" class="hc-input" onchange="hcByeSyncDateToSign()">
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-be-sign">Veya Burcunuzu Seçin</label>
+                <select id="hc-be-sign" class="hc-input">
+                    <option value="koc">♈ Koç (Yönetici: Mars - Ateş)</option>
+                    <option value="boga" selected>♉ Boğa (Yönetici: Venüs - Toprak)</option>
+                    <option value="ikizler">♊ İkizler (Yönetici: Merkür - Hava)</option>
+                    <option value="yengec">♋ Yengeç (Yönetici: Ay - Su)</option>
+                    <option value="aslan">♌ Aslan (Yönetici: Güneş - Ateş)</option>
+                    <option value="basak">♍ Başak (Yönetici: Merkür - Toprak)</option>
+                    <option value="terazi">♎ Terazi (Yönetici: Venüs - Hava)</option>
+                    <option value="akrep">♏ Akrep (Yönetici: Mars / Plüton - Su)</option>
+                    <option value="yay">♐ Yay (Yönetici: Jüpiter - Ateş)</option>
+                    <option value="oglak">♑ Oğlak (Yönetici: Satürn - Toprak)</option>
+                    <option value="kova">♒ Kova (Yönetici: Satürn / Uranüs - Hava)</option>
+                    <option value="balik">♓ Balık (Yönetici: Jüpiter / Neptün - Su)</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcBurcElementHesapla()">✨ Yönetici Elementimi Bul</button>
 
         <div class="hc-result" id="hc-be-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Yönetici Elementiniz:</span>
-                <span class="hc-result-value" id="hc-be-value">-</span>
+            <div class="hc-bye-hero" id="hc-bye-hero"></div>
+
+            <div class="hc-bye-section">
+                <h4 class="hc-bye-sec-title">📊 4 Element Dağılımı</h4>
+                <div class="hc-bye-dim-grid" id="hc-bye-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-be-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-bye-section">
+                <h4 class="hc-bye-sec-title">📖 Yönetici Element & Gezegen Rehberliği</h4>
+                <div class="hc-result-content" id="hc-be-desc"></div>
             </div>
         </div>
     </div>

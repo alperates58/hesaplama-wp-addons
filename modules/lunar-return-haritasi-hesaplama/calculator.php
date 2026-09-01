@@ -14,25 +14,35 @@ function hc_render_lunar_return_haritasi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-lunar-return">
-        <h3>Lunar Return (Ay Dönüşü) Hesaplama</h3>
-        <div class="hc-form-grid">
+        <div class="hc-header">
+            <h3>Lunar Return (Ay Dönüşü 28 Günlük Harita) Hesaplama</h3>
+            <p class="hc-subtitle">Ayınızın doğum anındaki konumuna döndüğü anı hesaplayarak önünüzdeki 28 günlük dönemin duygusal atmosferini, içsel ihtiyaçlarını ve odak alanlarını keşfedin.</p>
+        </div>
+
+        <div class="hc-form-grid-2">
             <div class="hc-form-group">
-                <label>Doğum Tarihiniz</label>
-                <input type="date" id="hc-lr-birth" class="hc-input">
+                <label for="hc-lr-birth">Doğum Tarihiniz *</label>
+                <input type="date" id="hc-lr-birth" value="1995-05-15" class="hc-input" required>
             </div>
             <div class="hc-form-group">
-                <label>Hedef Ay ve Yıl</label>
-                <input type="month" id="hc-lr-month" class="hc-input" value="2026-05">
+                <label for="hc-lr-month">Hedef Ay ve Yıl *</label>
+                <input type="month" id="hc-lr-month" class="hc-input" value="<?php echo date('Y-m'); ?>" required>
             </div>
         </div>
-        <button class="hc-btn" onclick="hcLunarReturnHesapla()">Aylık Haritayı Hesapla</button>
+
+        <button type="button" class="hc-btn" onclick="hcLunarReturnHesapla()">🌙 28 Günlük Ay Dönüşü Haritasını Hesapla</button>
+
         <div class="hc-result" id="hc-lunar-return-result">
-            <div class="hc-lr-header">
-                <span class="hc-result-label">Aylık Duygusal Odak</span>
-                <div class="hc-result-value" id="hc-lr-focus">-</div>
+            <div class="hc-lr-hero" id="hc-lr-hero"></div>
+
+            <div class="hc-lr-section">
+                <h4 class="hc-lr-sec-title">🪐 Lunar Return Anındaki Gezegen Konumları</h4>
+                <div id="hc-lr-table-container"></div>
             </div>
-            <div id="hc-lr-details" class="hc-lr-details">
-                <!-- Detaylar -->
+
+            <div class="hc-lr-section">
+                <h4 class="hc-lr-sec-title">🌊 28 Günlük Duygusal İklim ve Rehberlik</h4>
+                <div id="hc-lr-details" class="hc-lr-details"></div>
             </div>
         </div>
     </div>

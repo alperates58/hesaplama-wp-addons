@@ -1,57 +1,209 @@
 #hc-gezegensel-skor {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 40px;
-    background: #ffffff;
-    border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-    font-family: 'Inter', sans-serif;
+    max-width: 760px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-gezegensel-skor .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
 }
 
 #hc-gezegensel-skor .hc-header h3 {
-    color: #2d3436;
-    font-size: 30px;
-    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-#hc-gezegensel-skor .hc-form-grid {
+#hc-gezegensel-skor .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-bg-persons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 16px;
+    margin-bottom: 18px;
 }
 
-#hc-gezegensel-skor .hc-form-col h4 {
-    color: #636e72;
-    border-bottom: 2px solid #f1f2f6;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+.hc-bg-person-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
 }
 
-#hc-gezegensel-skor .hc-btn {
-    background: linear-gradient(135deg, #6c5ce7 0%, #00cec9 100%);
-    width: 100%;
-    margin-top: 30px;
-    font-size: 20px;
-    padding: 15px;
+.hc-bg-pbadge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
-#hc-gezegensel-skor .hc-result {
+.hc-badge-p2 {
+    background: #e11d48;
+}
+
+#hc-gs-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-gs-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-bg-hero-card {
+    background: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 100%);
+    border: 2px solid #f472b6;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hc-bg-hero-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #be185d;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
     border-radius: 20px;
-    background: #f9f9ff;
-    border: 1px solid #e0e0ff;
+    margin-bottom: 8px;
 }
 
-#hc-gezegensel-skor .hc-result-value {
-    font-size: 60px;
-    font-weight: 900;
-    color: #6c5ce7;
+.hc-bg-hero-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #9d174d;
+    margin-bottom: 8px;
 }
 
-@media (max-width: 600px) {
-    #hc-gezegensel-skor .hc-form-grid {
+.hc-bg-hero-sub {
+    margin: 0;
+    font-size: 13px;
+    color: #be185d;
+    line-height: 1.5;
+}
+
+.hc-bg-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-bg-sec-title {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-bg-planets-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-bg-planet-col {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.hc-bg-planet-col h5 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hc-bg-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+}
+
+.hc-bg-item:last-child {
+    border-bottom: none;
+}
+
+.hc-bg-item strong {
+    color: #0f172a;
+}
+
+.hc-bg-layers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hc-bg-layer-row {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 10px 14px;
+}
+
+.hc-bg-layer-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.hc-bg-layer-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.hc-bg-layer-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease-out;
+}
+
+.hc-result-content p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.hc-result-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .hc-bg-persons-grid, .hc-bg-planets-grid {
         grid-template-columns: 1fr;
     }
 }
+

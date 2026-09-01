@@ -1,102 +1,152 @@
-.hc-ay-burcu-grid {
+#hc-ay-burcu-hesaplama {
+    max-width: 680px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-ay-burcu-hesaplama .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-ay-burcu-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#hc-ay-burcu-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-form-grid-3 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    margin-bottom: 16px;
 }
 
-.hc-ay-burcu-not {
-    display: block;
+.hc-checkbox-subtext {
     margin-top: 6px;
-    color: #666;
-    font-size: 12px;
-    line-height: 1.4;
 }
 
-.hc-ay-burcu-result {
-    border-left-color: #4a7c8c;
-}
-
-.hc-ay-burcu-card {
+.hc-checkbox-subtext label {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 14px;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
 }
 
-.hc-ay-burcu-symbol {
-    width: 56px;
-    height: 56px;
+.hc-checkbox-subtext input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    min-height: auto;
+}
+
+#hc-ay-burcu-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-ay-burcu-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-ay-summary-card {
+    background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #86efac;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.08);
+}
+
+.hc-ay-badge-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 56px;
-    border-radius: 8px;
-    background: #eef6f8;
-    color: #245766;
-    font-size: 32px;
-    line-height: 1;
-}
-
-.hc-ay-burcu-degree {
-    color: #555;
-    font-size: 14px;
-    margin-top: 3px;
-}
-
-.hc-ay-burcu-details {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    margin: 12px 0;
+    margin-bottom: 10px;
 }
 
-.hc-ay-burcu-details div {
-    padding: 10px;
-    background: #f7f7f7;
-    border: 1px solid #e4e4e4;
-    border-radius: 6px;
-}
-
-.hc-ay-burcu-details span,
-.hc-ay-burcu-details strong {
-    display: block;
-}
-
-.hc-ay-burcu-details span {
-    color: #666;
+.hc-ay-badge-phase {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #0f172a;
+    color: #ffffff;
     font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-ay-badge-deg {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-ay-result-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #14532d;
     margin-bottom: 4px;
 }
 
-.hc-ay-burcu-details strong {
-    color: #222;
+.hc-ay-result-subtitle {
     font-size: 14px;
+    color: #166534;
+    font-weight: 600;
 }
 
-.hc-ay-burcu-yorum {
-    margin: 12px 0 0;
-    color: #333;
-    line-height: 1.5;
+.hc-ay-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
 }
 
-.hc-ay-burcu-uyari {
-    margin: 12px 0 0;
-    padding: 10px;
-    background: #fff8e5;
-    border: 1px solid #f0d37a;
-    border-radius: 6px;
-    color: #6d5200;
-    font-size: 13px;
-    line-height: 1.4;
+.hc-ay-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
 }
 
-@media (max-width: 480px) {
-    .hc-ay-burcu-grid,
-    .hc-ay-burcu-details {
+.hc-ay-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.hc-ay-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-3 {
         grid-template-columns: 1fr;
     }
-
-    .hc-ay-burcu-card {
-        align-items: flex-start;
-    }
 }
+

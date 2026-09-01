@@ -13,26 +13,32 @@ function hc_render_neptun_burcu_hesaplama( $atts ) {
         [ 'hesaplama-suite' ], HC_VERSION
     );
     ?>
-    <div class="hc-calculator" id="hc-neptun-burcu">
+    <div class="hc-calculator" id="hc-neptun-burcu-hesaplama">
         <div class="hc-header">
-            <h3>Neptün Burcu Hesaplama</h3>
-            <p>Neptün hayalleri, ruhsallığı ve kolektif ilhamı temsil eder. Bir burçta yaklaşık 14 yıl kalır.</p>
+            <h3>Neptün Burcu, Sezgi ve Ruhsal İlham Hesaplama</h3>
+            <p class="hc-subtitle">Doğum anınızdaki Neptün konumunu, kolektif hayal gücünüzü, mistik sezgilerinizi ve sanatsal ilham kanalınızı keşfedin.</p>
         </div>
-        
+
         <div class="hc-form-group">
-            <label for="hc-nb-birthdate">Doğum Tarihiniz</label>
-            <input type="date" id="hc-nb-birthdate" class="hc-input" required>
+            <label for="hc-neptun-tarih">Doğum Tarihi *</label>
+            <input type="date" id="hc-neptun-tarih" value="1995-05-15" class="hc-input" required>
         </div>
 
-        <button class="hc-btn" onclick="hcNeptunBurcuHesapla()">Neptün Burcumu Bul</button>
+        <button type="button" class="hc-btn" onclick="hcNeptunBurcuHesapla()">♆ Neptün Burcumu Hesapla</button>
 
-        <div class="hc-result" id="hc-nb-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Neptün Burcunuz:</span>
-                <span class="hc-result-value" id="hc-nb-sign-name">-</span>
+        <div class="hc-result" id="hc-neptun-burcu-result">
+            <div class="hc-neptun-summary-card">
+                <div class="hc-neptun-badge-row">
+                    <span class="hc-neptun-badge-deg" id="hc-neptun-deg-badge">-</span>
+                    <span class="hc-neptun-badge-motion" id="hc-neptun-badge-motion">-</span>
+                </div>
+                <div class="hc-neptun-result-title" id="hc-neptun-value">-</div>
+                <div class="hc-neptun-result-subtitle" id="hc-neptun-meta">-</div>
             </div>
-            <div class="hc-result-content" id="hc-nb-sign-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-neptun-report-card">
+                <h4 class="hc-neptun-report-title">🌊 Ruhsal Vizyon, Sezgisel Güç ve İlham</h4>
+                <div id="hc-neptun-desc"></div>
             </div>
         </div>
     </div>

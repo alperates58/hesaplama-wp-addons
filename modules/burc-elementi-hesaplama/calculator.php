@@ -14,29 +14,49 @@ function hc_render_burc_elementi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-burc-elementi-hesaplama">
-        <h3>Burç Elementi Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-element-burc-select">Burcunuzu Seçin</label>
-            <select id="hc-element-burc-select">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
+        <div class="hc-header">
+            <h3>Burç Elementi ve Mizaç Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihinizi girerek veya burcunuzu seçerek 4 temel element (Ateş, Toprak, Hava, Su) ve antik mizaç dengenizi keşfedin.</p>
         </div>
-        <button class="hc-btn" onclick="hcBurcElementiHesapla()">Elementi Bul</button>
+
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-el-date">Doğum Tarihi *</label>
+                <input type="date" id="hc-el-date" value="1995-05-15" class="hc-input" onchange="hcElSyncDateToSign()">
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-element-burc-select">Veya Burcunuzu Seçin</label>
+                <select id="hc-element-burc-select" class="hc-input">
+                    <option value="koc">♈ Koç (Ateş)</option>
+                    <option value="boga" selected>♉ Boğa (Toprak)</option>
+                    <option value="ikizler">♊ İkizler (Hava)</option>
+                    <option value="yengec">♋ Yengeç (Su)</option>
+                    <option value="aslan">♌ Aslan (Ateş)</option>
+                    <option value="basak">♍ Başak (Toprak)</option>
+                    <option value="terazi">♎ Terazi (Hava)</option>
+                    <option value="akrep">♏ Akrep (Su)</option>
+                    <option value="yay">♐ Yay (Ateş)</option>
+                    <option value="oglak">♑ Oğlak (Toprak)</option>
+                    <option value="kova">♒ Kova (Hava)</option>
+                    <option value="balik">♓ Balık (Su)</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcBurcElementiHesapla()">🔥 Element & Mizaç Analizini Başlat</button>
+
         <div class="hc-result" id="hc-burc-elementi-result">
-            <div class="hc-result-label">Burcunuzun Elementi:</div>
-            <div class="hc-result-value" id="hc-element-value"></div>
-            <div class="hc-result-desc" id="hc-element-desc"></div>
+            <div class="hc-el-hero" id="hc-el-hero"></div>
+
+            <div class="hc-el-section">
+                <h4 class="hc-el-sec-title">📊 4 Element Dağılımı ve Uyumu</h4>
+                <div class="hc-el-dim-grid" id="hc-el-dim-grid"></div>
+            </div>
+
+            <div class="hc-el-section">
+                <h4 class="hc-el-sec-title">📖 Element Simyası & Mizaç Yorumu</h4>
+                <div class="hc-result-content" id="hc-element-desc"></div>
+            </div>
         </div>
     </div>
     <?php

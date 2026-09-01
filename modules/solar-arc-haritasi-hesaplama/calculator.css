@@ -1,51 +1,163 @@
-#hc-solar-arc .hc-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 25px;
+#hc-solar-arc {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
 }
 
-#hc-solar-arc .hc-sa-arc-value {
-    background: rgba(255, 215, 0, 0.1);
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+#hc-solar-arc .hc-header {
     text-align: center;
-    border: 1px solid rgba(255, 215, 0, 0.2);
+    margin-bottom: 22px;
 }
 
-#hc-solar-arc .hc-sa-arc-value .hc-label {
-    display: block;
-    font-size: 0.9rem;
-    opacity: 0.8;
+#hc-solar-arc .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-#hc-solar-arc .hc-sa-arc-value .hc-value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #ffd700;
+#hc-solar-arc .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
 }
 
-#hc-solar-arc .hc-sa-list {
+.hc-form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    text-align: left;
+    gap: 14px;
+    margin-bottom: 16px;
 }
 
-#hc-solar-arc .hc-sa-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px;
+#hc-solar-arc-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-solar-arc-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-sa-hero-card {
+    background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #fcd34d;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hc-sa-hero-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #b45309;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.hc-sa-hero-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #78350f;
+    margin-bottom: 8px;
+}
+
+.hc-sa-hero-sub {
+    margin: 0;
+    font-size: 13px;
+    color: #92400e;
+    line-height: 1.5;
+}
+
+.hc-sa-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-sa-sec-title {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-sa-aspect-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+.hc-sa-aspect-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.hc-sa-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
     border-radius: 8px;
 }
 
-#hc-solar-arc .hc-sa-item strong {
-    color: #ffd700;
+.hc-sa-pair {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
 }
 
-@media (max-width: 480px) {
-    #hc-solar-arc .hc-form-grid,
-    #hc-solar-arc .hc-sa-list {
+.hc-sa-orb {
+    font-size: 11px;
+    color: #64748b;
+    margin-left: auto;
+}
+
+.hc-sa-theme {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.hc-sa-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.hc-sa-table th, .hc-sa-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.hc-sa-table th {
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-2 {
         grid-template-columns: 1fr;
     }
 }
+

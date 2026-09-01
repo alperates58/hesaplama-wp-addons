@@ -1,16 +1,130 @@
-.hc-jupiter-burcu-result {
+#hc-jupiter-burcu-hesaplama {
+    max-width: 680px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-jupiter-burcu-hesaplama .hc-header {
     text-align: center;
+    margin-bottom: 22px;
 }
 
-.hc-jupiter-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #f39c12;
-    margin: 10px 0;
+#hc-jupiter-burcu-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-.hc-jupiter-desc {
-    font-style: italic;
-    color: #666;
+#hc-jupiter-burcu-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+#hc-jupiter-burcu-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-jupiter-burcu-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-jupiter-summary-card {
+    background: linear-gradient(180deg, #fefce8 0%, #fef08a 100%);
+    border: 2px solid #facc15;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(202, 138, 4, 0.08);
+}
+
+.hc-jupiter-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.hc-jupiter-badge-deg {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #ca8a04;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-jupiter-badge-motion {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-jupiter-result-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #854d0e;
+    margin-bottom: 4px;
+}
+
+.hc-jupiter-result-subtitle {
+    font-size: 14px;
+    color: #a16207;
+    font-weight: 600;
+}
+
+.hc-jupiter-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+.hc-jupiter-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hc-jupiter-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
     line-height: 1.6;
+    color: #334155;
 }
+
+.hc-jupiter-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hc-jupiter-retro-box {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    color: #9a3412;
+    font-size: 13px;
+    line-height: 1.5;
+}
+

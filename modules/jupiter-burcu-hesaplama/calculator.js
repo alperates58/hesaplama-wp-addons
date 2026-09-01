@@ -1,60 +1,157 @@
 function hcJupiterBurcuHesapla() {
     const tarihStr = document.getElementById('hc-jupiter-tarih').value;
-    if (!tarihStr) { alert('Lütfen doğum tarihinizi girin.'); return; }
-    const date = new Date(tarihStr);
-    
-    function getJD(d) { return (d.getTime() / 86400000) + 2440587.5; }
-    const jd = getJD(date);
-    const d = jd - 2451543.5;
-    const rad = Math.PI / 180;
 
-    function norm(x) { x %= 360; return x < 0 ? x + 360 : x; }
-
-    function getHeliocentric(planet, d) {
-        let { N, i, w, a, e, M0, M1 } = planet;
-        let M = norm(M0 + M1 * d);
-        let E = M + (180 / Math.PI) * e * Math.sin(M * rad) * (1 + e * Math.cos(M * rad));
-        for(let j=0; j<3; j++) E = E - (E - (180/Math.PI)*e*Math.sin(E*rad) - M) / (1 - e*Math.cos(E*rad));
-        let xv = a * (Math.cos(E * rad) - e);
-        let yv = a * (Math.sqrt(1 - e * e) * Math.sin(E * rad));
-        let v = Math.atan2(yv, xv) / rad;
-        let r = Math.sqrt(xv * xv + yv * yv);
-        let lonecl = norm(v + w);
-        let x = r * (Math.cos(N * rad) * Math.cos(lonecl * rad) - Math.sin(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let y = r * (Math.sin(N * rad) * Math.cos(lonecl * rad) + Math.cos(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let z = r * Math.sin(lonecl * rad) * Math.sin(i * rad);
-        return { x, y, z };
+    if (!tarihStr) {
+        alert('Lütfen doğum tarihinizi girin.');
+        return;
     }
 
-    const earth = { N: 0, i: 0, w: 102.9404 + 0.0000470935 * d, a: 1.00000011, e: 0.01671022 - 0.0000000012 * d, M0: 357.5291, M1: 0.98560028 };
-    const jupiter = { N: 100.4542 + 0.0000276854 * d, i: 1.3030 - 0.0000000155 * d, w: 273.8777 + 0.0000164505 * d, a: 5.202561, e: 0.048498, M0: 19.8950, M1: 0.0830853 };
+    const parts = tarihStr.split('-').map(Number);
+    let Y = parts[0], M = parts[1], D = parts[2];
+    let hour = 12; // 12:00 UT
 
-    const pE = getHeliocentric(earth, d);
-    const pJ = getHeliocentric(jupiter, d);
+    let yCalc = Y, mCalc = M;
+    if (mCalc <= 2) { yCalc -= 1; mCalc += 12; }
+    const A = Math.floor(yCalc / 100);
+    const B = 2 - A + Math.floor(A / 4);
+    const JD = Math.floor(365.25 * (yCalc + 4716)) + Math.floor(30.6001 * (mCalc + 1)) + D + B - 1524.5 + (hour / 24);
 
-    const xG = pJ.x - pE.x;
-    const yG = pJ.y - pE.y;
-    const lonG = norm(Math.atan2(yG, xG) / rad);
+    const rad = Math.PI / 180;
+    function norm(deg) {
+        deg = deg % 360;
+        return deg < 0 ? deg + 360 : deg;
+    }
 
-    const burclar = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
-    const burc = burclar[Math.floor(lonG / 30)];
+    function calcJupiter(jdVal) {
+        const dVal = jdVal - 2451543.5;
+        const TVal = dVal / 36525;
 
-    const yorumlar = {
-        "Koç": "Jüpiter'i Koç burcunda olan bireyler için şans ve büyüme, cesur adımlar atmak ve yeni yollar açmakla gelir. Hayata karşı oldukça iyimser, enerjik ve öncü bir yaklaşımları vardır. Kendilerine olan güvenleri, başkalarının imkansız gördüğü kapıları açmalarını sağlar. En büyük gelişimlerini bireysel özgürlüklerini savunurken ve liderlik vasıflarını sergilerken yaşarlar. Maceracı ruhları sayesinde hayatın sunduğu fırsatları anında yakalarlar. Şansları, harekete geçme hızlarıyla doğru orantılıdır.",
-        "Boğa": "Jüpiter Boğa kişileri için bolluk ve bereket, maddi dünyayı güzelleştirmek, üretmek ve korumakla gelir. Sabırlı, güvenilir ve pratik yaklaşımları sayesinde kalıcı başarılar elde ederler. Doğa ile iç içe olmak, estetiğe önem vermek ve konforlu bir yaşam alanı yaratmak ruhlarını büyütür. Şans onlara genellikle toprakla ilgili işlerde, sanatta veya finansal konularda güler. Değer yargıları oldukça sağlamdır ve sahip olduklarını paylaşarak daha da büyürler. Onlar için şans, huzurlu ve bereketli bir yaşamın meyveleridir.",
-        "İkizler": "Jüpiter'i İkizler burcunda olanlar için büyüme ve bilgelik, bilgi toplamak, öğrenmek ve iletişim kurmakla gelir. Zihinleri her zaman yeni merakların peşindedir ve çok yönlü düşünme yetenekleri sayesinde her türlü fırsatı değerlendirebilirler. Şans onlara genellikle yazma, konuşma, eğitim veya medya gibi alanlarda güler. Sosyal çevreleri çok geniştir ve kurdukları bağlantılar hayatlarında kapılar açar. Zihinsel esneklikleri, en karmaşık sorunlara bile kolayca çözüm bulmalarını sağlar. Onlar için şans, bilginin gücüyle genişlemektir.",
-        "Yengeç": "Jüpiter'in yüceldiği Yengeç burcunda olması, bolluk ve bereketin şefkat, aile ve duygusal bağlar yoluyla gelmesini temsil eder. Bu kişiler başkalarını besledikçe, korudukça ve yuvalarını güzelleştirdikçe ruhsal olarak büyürler. Sezgileri çok güçlüdür ve şanslarını genellikle doğru zamanda doğru yerde hissederek bulurlar. Geçmişe ve köklere olan bağlılıkları onlara bir tür koruma sağlar. Şans onlara emlak, gıda veya insanlara bakım verme gibi alanlarda güler. Onlar için şans, sevdikleriyle birlikte huzurlu ve güvenli bir limanda olmaktır.",
-        "Aslan": "Jüpiter Aslan kişileri için büyüme ve şans, yaratıcılıklarını sergilemek, neşeli olmak ve cömertlik yapmakla gelir. Hayata bir oyun alanı gibi bakarlar ve her anı kutlamaya değer görürler. Özgüvenli ve karizmatik yapıları sayesinde çevrelerine ışık saçarlar. Şans onlara sahne sanatları, liderlik gerektiren pozisyonlar veya eğlence sektörü gibi alanlarda güler. Cömertlikleri arttıkça hayatlarındaki bolluk da artar. İnsanlara ilham vermek ve onları korumak ruhlarını en çok büyüten şeydir. Onlar için şans, kalplerinin sesini takip ederek parlamaktır.",
-        "Başak": "Jüpiter'i Başak burcunda olanlar için şans ve gelişim, mükemmeliyetçilik, hizmet etme ve teknik detaylara odaklanma yoluyla gelir. İşlerini en iyi şekilde yaptıklarında ve başkalarının hayatını kolaylaştırdıklarında bolluk bereketle karşılaşırlar. Pratik zekaları ve analiz yetenekleri sayesinde en karmaşık süreçleri bile verimli hale getirirler. Şans onlara genellikle sağlık, organizasyon, yazılım veya teknik uzmanlık gerektiren alanlarda güler. Mütevazı ama çok çalışkan bir bilgelik yapıları vardır. Onlar için şans, faydalı ve düzenli bir hayat inşa etmektir.",
-        "Terazi": "Jüpiter Terazi kişileri için şans ve büyüme, ilişkiler, adalet ve sosyal uyum yoluyla gelir. Başkalarıyla iş birliği yaptıklarında ve ortaklıklarda dengeyi kurduklarında hayatları genişler. Diplomatik yetenekleri ve zarif duruşları sayesinde kapalı kapıları kolayca açarlar. Şans onlara hukuk, sanat, halkla ilişkiler veya diplomasi gibi alanlarda güler. Estetik anlayışları ve güzellik arayışları ruhlarını besler. İnsanları bir araya getiren ve arabuluculuk yapan rolleri onlara büyük bir bilgelik kazandırır. Onlar için şans, paylaşılan huzurlu bir hayattır.",
-        "Akrep": "Jüpiter'i Akrep burcunda olan bireyler için şans ve gelişim, derinleşmek, gizemleri çözmek ve ruhsal bir dönüşüm yaşamakla gelir. Yüzeysel olanla yetinmezler, hayatın en karanlık ve en derin noktalarındaki bilgeliği ararlar. Şans onlara araştırma, psikoloji, finans veya metafizik gibi alanlarda güler. Sezgileri inanılmaz güçlüdür ve krizleri birer fırsata dönüştürme konusunda ustadırlar. Küllerinden yeniden doğma güçleri, onları hayatın zorlukları karşısında büyütür. Onlar için şans, bilinmeyenin ardındaki gücü keşfetmektir.",
-        "Yay": "Jüpiter'in kendi burcu Yay'da olması, şansın ve bilgeliğin en saf halini temsil eder. Bu kişiler için büyüme, keşfetmek, yeni kültürler tanımak ve felsefi bir bakış açısı geliştirmekle gelir. İyimserlikleri onların en büyük şans mıknatısıdır. Şans onlara yüksek öğrenim, uluslararası ilişkiler, yayıncılık veya spor gibi alanlarda güler. Hayatı bir keşif yolculuğu olarak görürler ve kısıtlanmaya gelemezler. Dürüstlükleri ve geniş vizyonları sayesinde her zaman doğru zamanda doğru yerde olurlar. Onlar için şans, özgür bir ruhla hakikati aramaktır.",
-        "Oğlak": "Jüpiter Oğlak kişileri için şans ve büyüme, disiplin, hırs ve toplumsal statü kazanma yoluyla gelir. Hayallerini somutlaştırmak ve kalıcı eserler bırakmak için sabırla çalışırlar. Şans onlara yönetici pozisyonlarında, devlet işlerinde veya inşaat gibi uzun vadeli projelerde güler. Otoriteye ve geleneklere olan saygılı yaklaşımları onlara kapılar açar. Sorumluluk aldıkça ve bir yapıyı yönettikçe ruhsal olarak genişlerler. Başarıları genellikle geç yaşlarda ama kalıcı bir şekilde gelir. Onlar için şans, zirveye giden yolda gösterilen sabır ve emektir.",
-        "Kova": "Jüpiter'i Kova burcunda olanlar için şans ve büyüme, yenilikçilik, bağımsızlık ve toplumsal idealler peşinde koşmakla gelir. Geleneksel olanın dışına çıktıklarında ve özgün fikirlerini hayata geçirdiklerinde hayatları bereketlenir. Şans onlara teknoloji, bilim, insan hakları veya kolektif çalışmalar gibi alanlarda güler. Arkadaş çevreleri ve dahil oldukları topluluklar onlara büyük fırsatlar sunar. Zihinsel olarak kısıtlanmaya gelemezler ve geleceğin vizyonunu bugünden görürler. Onlar için şans, insanlığı ileriye taşıyacak bir devrimin parçası olmaktır.",
-        "Balık": "Jüpiter'in klasik yöneticisi olduğu Balık burcunda olması, bolluk ve bereketin sınırsız bir şefkat, hayal gücü ve maneviyat yoluyla gelmesini temsil eder. Bu kişiler evrenle bir olduklarını hissettiklerinde ve fedakarlık yaptıklarında ruhsal olarak devleşirler. Şans onlara sanat, şifa, müzik veya ruhsal çalışmalar gibi alanlarda güler. Sezgileri onlara görünmez bir rehberlik sağlar. Koşulsuz sevgi kapasiteleri onlara mucizeleri çeker. Akışta yaşama yetenekleri sayesinde hayatın sunduğu lütufları kolayca kabul ederler. Onlar için şans, ruhun derinliklerindeki huzuru bulmaktır."
+        // Earth Helio
+        const L0_e = norm(280.46646 + 36000.76983 * TVal);
+        const M_e = norm(357.52911 + 35999.05029 * TVal);
+        const C_e = (1.914602 - 0.004817 * TVal) * Math.sin(M_e * rad) + (0.019993 - 0.000101 * TVal) * Math.sin(2 * M_e * rad);
+        const sunLon = norm(L0_e + C_e);
+        const e_e = 0.016708634 - 0.000042037 * TVal;
+        const R_e = 1.000001018 * (1 - e_e * e_e) / (1 + e_e * Math.cos((M_e + C_e) * rad));
+        const Xe = R_e * Math.cos(sunLon * rad);
+        const Ye = R_e * Math.sin(sunLon * rad);
+
+        // Jupiter Helio
+        const N_j = norm(100.4542 + 2.76854e-5 * dVal);
+        const i_j = 1.3030 - 1.557e-7 * dVal;
+        const w_j = norm(273.8777 + 1.64505e-5 * dVal);
+        const a_j = 5.202561;
+        const e_j = 0.048498 + 4.469e-9 * dVal;
+        const M_j = norm(19.8950 + 0.0830853001 * dVal);
+
+        let E_j = M_j;
+        for (let k = 0; k < 5; k++) {
+            E_j = E_j - (E_j - e_j * (180 / Math.PI) * Math.sin(E_j * rad) - M_j) / (1 - e_j * Math.cos(E_j * rad));
+        }
+
+        const xv_j = a_j * (Math.cos(E_j * rad) - e_j);
+        const yv_j = a_j * (Math.sqrt(1 - e_j * e_j) * Math.sin(E_j * rad));
+        const v_j = norm(Math.atan2(yv_j, xv_j) / rad);
+        const r_j = Math.sqrt(xv_j * xv_j + yv_j * yv_j);
+
+        const xh = r_j * (Math.cos(N_j * rad) * Math.cos((v_j + w_j) * rad) - Math.sin(N_j * rad) * Math.sin((v_j + w_j) * rad) * Math.cos(i_j * rad));
+        const yh = r_j * (Math.sin(N_j * rad) * Math.cos((v_j + w_j) * rad) + Math.cos(N_j * rad) * Math.sin((v_j + w_j) * rad) * Math.cos(i_j * rad));
+
+        const xg = xh - Xe;
+        const yg = yh - Ye;
+        return norm(Math.atan2(yg, xg) / rad);
+    }
+
+    const lon1 = calcJupiter(JD);
+    const lon2 = calcJupiter(JD + 1);
+    let delta = lon2 - lon1;
+    if (delta < -180) delta += 360;
+    if (delta > 180) delta -= 360;
+    const isRetro = delta < 0;
+
+    const burclar = [
+        { name: "Koç", element: "Ateş", modality: "Öncü", symbol: "♈" },
+        { name: "Boğa", element: "Toprak", modality: "Sabit", symbol: "♉" },
+        { name: "İkizler", element: "Hava", modality: "Değişken", symbol: "♊" },
+        { name: "Yengeç", element: "Su", modality: "Öncü", symbol: "♋" },
+        { name: "Aslan", element: "Ateş", modality: "Sabit", symbol: "♌" },
+        { name: "Başak", element: "Toprak", modality: "Değişken", symbol: "♍" },
+        { name: "Terazi", element: "Hava", modality: "Öncü", symbol: "♎" },
+        { name: "Akrep", element: "Su", modality: "Sabit", symbol: "♏" },
+        { name: "Yay", element: "Ateş", modality: "Değişken", symbol: "♐" },
+        { name: "Oğlak", element: "Toprak", modality: "Öncü", symbol: "♑" },
+        { name: "Kova", element: "Hava", modality: "Sabit", symbol: "♒" },
+        { name: "Balık", element: "Su", modality: "Değişken", symbol: "♓" }
+    ];
+
+    const signIdx = Math.floor(lon1 / 30) % 12;
+    const signObj = burclar[signIdx];
+    const degInSign = Math.floor(lon1 % 30);
+    const minInSign = Math.floor((lon1 % 1) * 60);
+
+    const jupiterYorumlari = {
+        "Koç": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Cesaret, inisiyatif alma ve yeni yollar açma. İlk adımı attığınızda, risk aldığınızda ve liderlik sergilediğinizde evren sizi büyük fırsatlarla ödüllendirir.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Kendi gücünüze inanmak ve bağımsız hareket etmek en büyük zenginlik kaynağınızdır.</p>
+        `,
+        "Boğa": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Maddi yatırımlar, gayrimenkul, üretim ve sabırla değer inşa etme. Somut kaynakları doğru yönettiğinizde bereketiniz katlanarak artar.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Doğayla uyum içinde yaşamak, huzurlu ve sağlam temelli projelere odaklanmak.</p>
+        `,
+        "İkizler": `
+            <p><strong>Şans & Büyüme Alanı:</strong> İletişim, ticaret, yayıncılık, yazarlık ve bilgi ağları. Çok yönlü projeler, yeni diller ve sosyal köprüler size beklenmedik kapılar açar.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Bilgiyi paylaşmak ve sürekli öğrenmeye açık olmak.</p>
+        `,
+        "Yengeç": `
+            <p><strong>Şans & Büyüme Alanı (Jüpiter Yücelimde):</strong> Aile, ev/yerleşim, şefkat, besleme ve insanlara güvenli alan sağlama. Kalbinizi açtığınızda ve başkalarına koruyucu olduğunuzda hayat size en cömert hediyelerini sunar.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Duygusal cömertlik ve güçlü aidiyet bağı kurmak.</p>
+        `,
+        "Aslan": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Yaratıcılık, sahne sanatları, liderlik ve cömertlik. Işığınızı sergilemekten çekinmediğinizde ve insanlara ilham verdiğinizde krallara layık fırsatlar bulursunuz.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Kalpten gelen cömertlik ve yaşama sevinci aşılamak.</p>
+        `,
+        "Başak": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Sağlık, hizmet sektörü, detaylı analiz, organizasyon ve sistem kurma. İşinizi kusursuz ve faydalı yaptığınızda başarı kendiliğinden gelir.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Pratik çözümler üretmek ve başkalarının hayatını kolaylaştırmak.</p>
+        `,
+        "Terazi": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Ortaklıklar, diplomasi, adalet, halkla ilişkiler ve estetik/sanat. Doğru insanlarla iş birliği kurduğunuzda servet ve itibar kazanırsınız.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Eşitlik, zarafet ve adil kazan-kazan modelleri yaratmak.</p>
+        `,
+        "Akrep": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Derin araştırmalar, ortak finansal kaynaklar, psikoloji, kriz yönetimi ve dönüşüm. Zorlu krizleri fırsata çevirme yeteneğiniz rakipsizdir.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Yüzeyin altına inmek ve tabuları zenginliğe dönüştürmek.</p>
+        `,
+        "Yay": `
+            <p><strong>Şans & Büyüme Alanı (Jüpiter Kendi Evinde):</strong> Uluslararası ilişkiler, yabancı ülkeler, akademi, yüksek felsefe ve yayıncılık. En yüksek şans aurasına sahipsinizdir; vizyonunuzu geniş tuttukça dünya önünüze serilir.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Sınırsız iyimserlik, hakikati aramak ve sınırları aşmak.</p>
+        `,
+        "Oğlak": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Kurumsal yapılar, uzun vadeli kariyer projeleri, gayrimenkul ve stratejik yönetim. Disiplinli ve sabırlı adımlarla zirveye ulaşırsınız.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Sorumluluk almak ve zamanın sınavına dayanan eserler inşa etmek.</p>
+        `,
+        "Kova": `
+            <p><strong>Şans & Büyüme Alanı:</strong> Teknoloji, yapay zeka, inovasyon, dernekler ve toplumsal projeler. Sıradışı ve vizyoner fikirleriniz sizi zenginleştirir.</p>
+            <p><strong>Bolluk Felsefesi:</strong> Kolektife fayda sağlamak ve özgürlüğü savunmak.</p>
+        `,
+        "Balık": `
+            <p><strong>Şans & Büyüme Alanı (Jüpiter Kendi Evinde):</strong> Sanat, sinema, müzik, maneviyat, şifacılık ve evrensel şefkat. Sezgilerinize ve evrensel akışa güvendiğinizde mucizeler yaşarsınız.</p>
+            <p><strong>Bolluk Felsefesi:</strong> İlahi akışa güvenmek ve koşulsuz sevgi yaymak.</p>
+        `
     };
 
-    document.getElementById('hc-jupiter-value').innerText = burc;
-    document.getElementById('hc-jupiter-desc').innerText = yorumlar[burc];
+    const retroText = isRetro ? "♃ Retro (İçselleştirilmiş Ruhsal Şans)" : "♃ Direkt Hareket";
+    let retroDesc = "";
+    if (isRetro) {
+        retroDesc = `<div class="hc-jupiter-retro-box"><strong>Doğum Anında Jüpiter Retro:</strong> Jüpiter doğum haritanızda gerilemedeydi. Bu konum, şansı dış dünyadaki tesadüflerden ziyade, kendi içsel bilgeliğiniz, ruhsal inancınız ve öz değeriniz üzerinden çekmenizi sağlar. Kendi felsefenizi oluşturduğunuzda en büyük büyüme gerçekleşir.</div>`;
+    }
+
+    document.getElementById('hc-jupiter-deg-badge').innerText = `♃ ${degInSign}° ${minInSign}' ${signObj.name}`;
+    document.getElementById('hc-jupiter-motion-badge').innerText = retroText;
+    document.getElementById('hc-jupiter-value').innerText = `${signObj.symbol} Jüpiter Burcunuz: ${signObj.name}`;
+    document.getElementById('hc-jupiter-meta').innerText = `${signObj.element} Elementi • ${signObj.modality} Nitelik`;
+    document.getElementById('hc-jupiter-desc').innerHTML = jupiterYorumlari[signObj.name] + retroDesc;
+
     document.getElementById('hc-jupiter-burcu-result').classList.add('visible');
+    document.getElementById('hc-jupiter-burcu-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

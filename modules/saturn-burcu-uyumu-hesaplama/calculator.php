@@ -15,56 +15,41 @@ function hc_render_saturn_burcu_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-saturn-uyum">
         <div class="hc-header">
-            <h3>Satürn Burcu Uyumu Hesaplama</h3>
-            <p>Zorluklar karşısında ne kadar dayanıklısınız? Sorumluluk ve sadakat uyumunuzu keşfedin.</p>
+            <h3>Satürn Burcu Uyumu Hesaplama (Sadakat ve Kalıcılık Uyumu)</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Satürn burçlarınızı otomatik tespit edin; uzun vadeli güven, sadakat, sorumluluk ve evlilik dayanıklılığınızı öğrenin.</p>
         </div>
-        
-        <div class="hc-form-row">
-            <div class="hc-form-group">
-                <label for="hc-su-sign1">Sizin Satürn Burcunuz</label>
-                <select id="hc-su-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+        <div class="hc-sat-persons-grid">
+            <div class="hc-sat-person-box">
+                <div class="hc-sat-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-sat-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-sat-d1" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label for="hc-su-sign2">Onun Satürn Burcunuz</label>
-                <select id="hc-su-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+            <div class="hc-sat-person-box">
+                <div class="hc-sat-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-sat-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-sat-d2" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcSaturnUyumHesapla()">Bağlılık Potansiyelimizi Gör</button>
+        <button type="button" class="hc-btn" onclick="hcSaturnUyumHesapla()">🪐 Satürn ve Sadakat Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-su-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Sorumluluk ve Sabır Skoru:</span>
-                <span class="hc-result-value" id="hc-su-value">% -</span>
+            <div class="hc-sat-hero" id="hc-sat-hero"></div>
+
+            <div class="hc-sat-section">
+                <h4 class="hc-sat-sec-title">📊 4 Kalıcılık ve Sadakat Boyutu</h4>
+                <div class="hc-sat-dim-grid" id="hc-sat-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-su-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-sat-section">
+                <h4 class="hc-sat-sec-title">📖 Satürn - Satürn Sinastri Analizi</h4>
+                <div class="hc-result-content" id="hc-su-desc"></div>
             </div>
         </div>
     </div>

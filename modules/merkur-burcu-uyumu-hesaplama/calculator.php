@@ -15,56 +15,41 @@ function hc_render_merkur_burcu_uyumu_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-merkur-uyum">
         <div class="hc-header">
-            <h3>Merkür Burcu Uyumu Hesaplama</h3>
-            <p>Düşünce yapınız, öğrenme şekliniz ve iletişim diliniz ne kadar uyumlu?</p>
+            <h3>Merkür Burcu Uyumu Hesaplama (İletişim ve Zihinsel Uyum)</h3>
+            <p class="hc-subtitle">Doğum tarihlerinizi girerek Merkür burçlarınızı otomatik tespit edin; düşünce yapısı, zihinsel rezonans ve iletişim uyumunuzu öğrenin.</p>
         </div>
-        
-        <div class="hc-form-row">
-            <div class="hc-form-group">
-                <label for="hc-mu-sign1">Sizin Merkür Burcunuz</label>
-                <select id="hc-mu-sign1" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+        <div class="hc-mer-persons-grid">
+            <div class="hc-mer-person-box">
+                <div class="hc-mer-pbadge">👤 1. Kişi (Siz)</div>
+                <div class="hc-form-group">
+                    <label for="hc-mer-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-mer-d1" value="1995-05-15" class="hc-input" required>
+                </div>
             </div>
-            <div class="hc-form-group">
-                <label for="hc-mu-sign2">Onun Merkür Burcunuz</label>
-                <select id="hc-mu-sign2" class="hc-input">
-                    <option value="koc">Koç</option>
-                    <option value="boga">Boğa</option>
-                    <option value="ikizler">İkizler</option>
-                    <option value="yengec">Yengeç</option>
-                    <option value="aslan">Aslan</option>
-                    <option value="basak">Başak</option>
-                    <option value="terazi">Terazi</option>
-                    <option value="akrep">Akrep</option>
-                    <option value="yay">Yay</option>
-                    <option value="oglak">Oğlak</option>
-                    <option value="kova">Kova</option>
-                    <option value="balik">Balık</option>
-                </select>
+
+            <div class="hc-mer-person-box">
+                <div class="hc-mer-pbadge hc-badge-p2">❤️ 2. Kişi (Partner)</div>
+                <div class="hc-form-group">
+                    <label for="hc-mer-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-mer-d2" value="1996-09-20" class="hc-input" required>
+                </div>
             </div>
         </div>
 
-        <button class="hc-btn" onclick="hcMerkurUyumHesapla()">İletişim Uyumunu Gör</button>
+        <button type="button" class="hc-btn" onclick="hcMerkurUyumHesapla()">🗣️ Merkür ve İletişim Uyumunu Hesapla</button>
 
         <div class="hc-result" id="hc-mu-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Zihinsel Rezonans:</span>
-                <span class="hc-result-value" id="hc-mu-value">% -</span>
+            <div class="hc-mer-hero" id="hc-mer-hero"></div>
+
+            <div class="hc-mer-section">
+                <h4 class="hc-mer-sec-title">📊 4 İletişim ve Zihinsel Uyum Boyutu</h4>
+                <div class="hc-mer-dim-grid" id="hc-mer-dim-grid"></div>
             </div>
-            <div class="hc-result-content" id="hc-mu-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-mer-section">
+                <h4 class="hc-mer-sec-title">📖 Merkür - Merkür Sinastri Analizi</h4>
+                <div class="hc-result-content" id="hc-mu-desc"></div>
             </div>
         </div>
     </div>

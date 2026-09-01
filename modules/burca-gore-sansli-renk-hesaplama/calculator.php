@@ -15,38 +15,47 @@ function hc_render_burca_gore_sansli_renk_hesaplama( $atts ) {
     ?>
     <div class="hc-calculator" id="hc-burc-sansli-renk">
         <div class="hc-header">
-            <h3>Şanslı Renk Hesaplama</h3>
-            <p>Renklerin frekansları ruh halimizi ve enerjimizi etkiler. Burcunuzla en uyumlu renkleri keşfedin.</p>
-        </div>
-        
-        <div class="hc-form-group">
-            <label for="hc-sr-sign">Burcunuzu Seçin</label>
-            <select id="hc-sr-sign" class="hc-input">
-                <option value="koc">Koç</option>
-                <option value="boga">Boğa</option>
-                <option value="ikizler">İkizler</option>
-                <option value="yengec">Yengeç</option>
-                <option value="aslan">Aslan</option>
-                <option value="basak">Başak</option>
-                <option value="terazi">Terazi</option>
-                <option value="akrep">Akrep</option>
-                <option value="yay">Yay</option>
-                <option value="oglak">Oğlak</option>
-                <option value="kova">Kova</option>
-                <option value="balik">Balık</option>
-            </select>
+            <h3>Burca Göre Şanslı Renk ve Aura Paleti Hesaplama</h3>
+            <p class="hc-subtitle">Doğum tarihinizi girerek veya burcunuzu seçerek auranızı güçlendiren şanslı renklerinizi, çakra frekansınızı ve uğurlu doğal taş tonlarınızı öğrenin.</p>
         </div>
 
-        <button class="hc-btn" onclick="hcBurcSansliRenkHesapla()">Rengimi Bul</button>
+        <div class="hc-form-row">
+            <div class="hc-form-group">
+                <label for="hc-sr-date">Doğum Tarihi *</label>
+                <input type="date" id="hc-sr-date" value="1995-05-15" class="hc-input" onchange="hcSrSyncDateToSign()">
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-sr-sign">Veya Burcunuzu Seçin</label>
+                <select id="hc-sr-sign" class="hc-input">
+                    <option value="koc">♈ Koç (Kırmızı & Ateş Tonları)</option>
+                    <option value="boga" selected>♉ Boğa (Zümrüt Yeşili & Pudra Pembesi)</option>
+                    <option value="ikizler">♊ İkizler (Güneş Sarısı & Açık Mavi)</option>
+                    <option value="yengec">♋ Yengeç (Gümüş Beyazı & Deniz Köpüğü)</option>
+                    <option value="aslan">♌ Aslan (Altın Sarısı & Kraliyet Turuncusu)</option>
+                    <option value="basak">♍ Başak (Toprak Kahvesi & Zeytin Yeşili)</option>
+                    <option value="terazi">♎ Terazi (Pastel Pembe & Gökyüzü Mavisi)</option>
+                    <option value="akrep">♏ Akrep (Derin Bordo & Gece Siyahı)</option>
+                    <option value="yay">♐ Yay (Kraliyet Moru & Çivit Mavisi)</option>
+                    <option value="oglak">♑ Oğlak (Kömür Grisi & Orman Yeşili)</option>
+                    <option value="kova">♒ Kova (Elektrik Mavisi & Turkuaz)</option>
+                    <option value="balik">♓ Balık (Deniz Yeşili & Lavanta Moru)</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcBurcSansliRenkHesapla()">🎨 Şanslı Renk Paletimi Keşfet</button>
 
         <div class="hc-result" id="hc-sr-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">Şanslı Renginiz:</span>
-                <span class="hc-result-value" id="hc-sr-value">-</span>
-                <div id="hc-sr-box" style="width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; display: inline-block; margin-left: 10px; vertical-align: middle;"></div>
+            <div class="hc-sr-hero" id="hc-sr-hero"></div>
+
+            <div class="hc-sr-section">
+                <h4 class="hc-sr-sec-title">🎨 Uğurlu Renk Paleti & Çakra Frekansı</h4>
+                <div class="hc-sr-palette" id="hc-sr-palette"></div>
             </div>
-            <div class="hc-result-content" id="hc-sr-desc">
-                <!-- Detaylı yorum buraya gelecek -->
+
+            <div class="hc-sr-section">
+                <h4 class="hc-sr-sec-title">📖 Aura Enerjisi ve Günlük Kullanım Rehberi</h4>
+                <div class="hc-result-content" id="hc-sr-desc"></div>
             </div>
         </div>
     </div>

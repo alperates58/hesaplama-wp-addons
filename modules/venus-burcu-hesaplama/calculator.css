@@ -1,16 +1,143 @@
-.hc-venus-burcu-result {
+#hc-venus-burcu-hesaplama {
+    max-width: 680px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-venus-burcu-hesaplama .hc-header {
     text-align: center;
+    margin-bottom: 22px;
 }
 
-.hc-venus-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #f1948a;
-    margin: 10px 0;
+#hc-venus-burcu-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-.hc-venus-desc {
-    font-style: italic;
-    color: #666;
+#hc-venus-burcu-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#hc-venus-burcu-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-venus-burcu-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-venus-summary-card {
+    background: linear-gradient(180deg, #fff1f2 0%, #ffe4e6 100%);
+    border: 2px solid #fda4af;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(225, 29, 72, 0.08);
+}
+
+.hc-venus-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.hc-venus-badge-deg {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e11d48;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-venus-badge-motion {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-venus-result-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #9f1239;
+    margin-bottom: 4px;
+}
+
+.hc-venus-result-subtitle {
+    font-size: 14px;
+    color: #be123c;
+    font-weight: 600;
+}
+
+.hc-venus-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+.hc-venus-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hc-venus-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
     line-height: 1.6;
+    color: #334155;
 }
+
+.hc-venus-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hc-venus-retro-box {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    color: #9a3412;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+

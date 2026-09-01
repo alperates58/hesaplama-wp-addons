@@ -1,60 +1,169 @@
 function hcMarsBurcuHesapla() {
     const tarihStr = document.getElementById('hc-mars-tarih').value;
-    if (!tarihStr) { alert('Lütfen doğum tarihinizi girin.'); return; }
-    const date = new Date(tarihStr);
-    
-    function getJD(d) { return (d.getTime() / 86400000) + 2440587.5; }
-    const jd = getJD(date);
-    const d = jd - 2451543.5;
-    const rad = Math.PI / 180;
+    const saatStr = document.getElementById('hc-mars-saat').value;
 
-    function norm(x) { x %= 360; return x < 0 ? x + 360 : x; }
-
-    function getHeliocentric(planet, d) {
-        let { N, i, w, a, e, M0, M1 } = planet;
-        let M = norm(M0 + M1 * d);
-        let E = M + (180 / Math.PI) * e * Math.sin(M * rad) * (1 + e * Math.cos(M * rad));
-        for(let j=0; j<3; j++) E = E - (E - (180/Math.PI)*e*Math.sin(E*rad) - M) / (1 - e*Math.cos(E*rad));
-        let xv = a * (Math.cos(E * rad) - e);
-        let yv = a * (Math.sqrt(1 - e * e) * Math.sin(E * rad));
-        let v = Math.atan2(yv, xv) / rad;
-        let r = Math.sqrt(xv * xv + yv * yv);
-        let lonecl = norm(v + w);
-        let x = r * (Math.cos(N * rad) * Math.cos(lonecl * rad) - Math.sin(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let y = r * (Math.sin(N * rad) * Math.cos(lonecl * rad) + Math.cos(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let z = r * Math.sin(lonecl * rad) * Math.sin(i * rad);
-        return { x, y, z };
+    if (!tarihStr) {
+        alert('Lütfen doğum tarihinizi girin.');
+        return;
     }
 
-    const earth = { N: 0, i: 0, w: 102.9404 + 0.0000470935 * d, a: 1.00000011, e: 0.01671022 - 0.0000000012 * d, M0: 357.5291, M1: 0.98560028 };
-    const mars = { N: 49.5574 + 0.000021108 * d, i: 1.8497 - 0.0000000178 * d, w: 336.0408 + 0.00001228 * d, a: 1.523688, e: 0.093405, M0: 18.6021, M1: 0.5240207 };
+    const parts = tarihStr.split('-').map(Number);
+    const timeParts = (saatStr || '12:00').split(':').map(Number);
+    let Y = parts[0], M = parts[1], D = parts[2];
+    let hour = timeParts[0] + (timeParts[1] || 0) / 60;
 
-    const pE = getHeliocentric(earth, d);
-    const pM = getHeliocentric(mars, d);
+    let tzOffset = 3;
+    if (Y < 2016 || (Y === 2016 && M < 9)) {
+        if (M > 3 && M < 10) tzOffset = 3;
+        else if (M === 3 && D >= 25) tzOffset = 3;
+        else if (M === 10 && D < 25) tzOffset = 3;
+        else tzOffset = 2;
+    }
 
-    const xG = pM.x - pE.x;
-    const yG = pM.y - pE.y;
-    const lonG = norm(Math.atan2(yG, xG) / rad);
+    let ut = hour - tzOffset;
+    let yCalc = Y, mCalc = M;
+    if (mCalc <= 2) { yCalc -= 1; mCalc += 12; }
+    const A = Math.floor(yCalc / 100);
+    const B = 2 - A + Math.floor(A / 4);
+    const JD = Math.floor(365.25 * (yCalc + 4716)) + Math.floor(30.6001 * (mCalc + 1)) + D + B - 1524.5 + (ut / 24);
 
-    const burclar = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
-    const burc = burclar[Math.floor(lonG / 30)];
+    const rad = Math.PI / 180;
+    function norm(deg) {
+        deg = deg % 360;
+        return deg < 0 ? deg + 360 : deg;
+    }
 
-    const yorumlar = {
-        "Koç": "Mars'ın kendi yöneticisi olduğu Koç burcunda olması, saf ve durdurulamaz bir enerji patlamasını temsil eder. Bu kişiler son derece cesur, doğrudan ve harekete geçmekte bir an bile tereddüt etmeyen bireylerdir. Rekabetçi ruhları çok gelişmiştir ve her zaman birinci olmayı hedeflerler. Öfkeleri saman alevi gibidir; hızla parlar ve aynı hızla söner. Sabırsızlık en büyük zorlukları olsa da, öncü nitelikleri sayesinde başkalarının cesaret edemediği işlere gözü kapalı atılabilirler. Hayata karşı tam bir savaşçı ruhuyla yaklaşırlar.",
-        "Boğa": "Mars'ı Boğa burcunda olanlar için enerji daha yavaş, istikrarlı ve dayanıklı bir şekilde akar. Bir hedefe odaklandıklarında ne kadar zaman alırsa alsın ondan vazgeçmezler; tam bir 'maraton koşucusu' gibidirler. Fiziksel güçleri ve dayanıklılıkları çok yüksektir. Öfkelenmeleri zordur ancak bir kez o noktaya ulaştıklarında yıkıcı olabilirler. Maddi güvenliklerini sağlamak ve somut sonuçlar elde etmek en büyük motivasyon kaynaklarıdır. İnandıkları yolda sarsılmaz bir inatçılıkla ilerlerler ve değişimden pek hoşlanmazlar.",
-        "İkizler": "Mars İkizler kişileri için enerji zihinsel bir alana kaymıştır; onlar kelimeleriyle savaşırlar. Son derece hızlı düşünen, esprili ve tartışmacı bir yapıları olabilir. Aynı anda birden fazla işle uğraşmak onlara enerji verir; tek bir şeye odaklanmak ise sıkıcı gelir. Ellerini ve zekalarını kullanma yetenekleri çok gelişmiştir. Öfkelerini genellikle laf sokarak veya eleştirerek ifade ederler. Merakları onları sürekli yeni projelere iter ancak başladıkları işleri bitirmekte zorlanabilirler. Hareketli ve değişken bir yaşam tarzı ruhlarını besler.",
-        "Yengeç": "Mars'ı Yengeç burcunda olan bireylerde enerji duygularla ve koruma içgüdüsüyle yönetilir. Doğrudan bir saldırı yerine, daha dolaylı ve stratejik bir yaklaşım sergileyebilirler. Sevdiklerini ve yuvalarını korumak için inanılmaz bir güç sergilerler. Motivasyonları tamamen duygusal güvenliğe dayalıdır; kendilerini tehdit altında hissettiklerinde savunmacı bir kabuğa çekilebilirler. Öfkelerini içe atma eğilimleri olabilir, bu da zaman zaman pasif-agresif davranışlara yol açabilir. Ancak inandıkları değerler için sessiz ama çok derin bir kararlılıkla mücadele ederler.",
-        "Aslan": "Mars Aslan kişileri için enerji büyük bir yaratıcılık, gurur ve dramatik bir güçle ifade edilir. Girdikleri her ortamda liderliklerini sergilemek ve parlamak isterler. Motivasyonları takdir edilmek ve alkışlanmaktır. Oldukça cömert, asil ve korumacı bir savaşçı ruhları vardır. Bir işe başladıklarında onu büyük bir şevk ve özgüvenle yaparlar. Öfkeleri genellikle gururlarının incinmesiyle tetiklenir ve bu anlarda oldukça görkemli bir şekilde tepki verebilirler. Kalpleriyle hareket ederler ve inandıkları davalarda sonuna kadar savaşırlar.",
-        "Başak": "Mars'ı Başak burcunda olanlar için enerji titiz bir çalışma, hizmet ve teknik beceriye odaklanmıştır. Onlar mükemmeliyetçiliğin ve detayların savaşçılarıdır. Enerjilerini verimli kullanmakta ustadırlar ve dağınıklıktan, plansızlıktan nefret ederler. Motivasyonları işe yarar olmak ve hataları düzeltmektir. Öfkelerini genellikle eleştiri yaparak veya işleri daha fazla kontrol altına almaya çalışarak gösterirler. Oldukça çalışkan ve disiplinli bireylerdir; en zorlu teknik detayları bile büyük bir sabırla çözerler. Pratiklikleri en büyük silahlarıdır.",
-        "Terazi": "Mars Terazi kişileri için enerji dengeyi kurmak, adalet aramak ve ilişkileri yönetmek üzerinedir. Doğrudan çatışmadan hoşlanmazlar ve her zaman diplomatik çözümler üretmeye çalışırlar. Motivasyonları uyumu yakalamaktır. Bir karar vermeden önce tüm tarafları dinlemek istedikleri için kararsızlık yaşayabilirler, bu da harekete geçmelerini geciktirebilir. Ancak haksızlık gördüklerinde zarif ama çok kararlı bir şekilde karşı çıkarlar. Estetik ve etik değerler için mücadele ederler. İş birliği içinde çalışmak onlara bireysel hareket etmekten daha fazla enerji verir.",
-        "Akrep": "Mars'ın klasik yöneticisi olduğu Akrep burcunda olması, enerjinin en derin, en odaklanmış ve en sarsılmaz halini temsil eder. Bu kişiler sessiz ama inanılmaz derecede güçlü bir kararlılığa sahiptirler. Stratejik düşünme yetenekleri sayesinde hedeflerine ulaşmak için en doğru zamanı beklerler. Motivasyonları kontrol sahibi olmak ve gizemleri çözmektir. Öfkeleri derindedir ve kolay unutmazlar; bir saldırı karşısında çok etkili ve dönüştürücü bir şekilde cevap verebilirler. Dayanıklılıkları ve küllerinden yeniden doğma güçleri onları yenilmez kılar.",
-        "Yay": "Mars'ı Yay burcunda olan bireyler için enerji özgürlük, keşif ve idealler peşinde koşmaktır. Maceracı bir ruhları vardır ve kısıtlanmaya gelemezler. Motivasyonları gerçeği bulmak ve ufuklarını genişletmektir. Doğrudan, dürüst ve bazen patavatsız bir şekilde tepki verebilirler. İnandıkları felsefeler veya etik değerler için büyük bir ateşle savaşırlar. İyimserlikleri en büyük güçleridir; en zor durumlarda bile bir çıkış yolu bulacaklarına inanırlar. Fiziksel olarak çok hareketli olabilirler ve hayatı bir oyun alanı gibi görürler.",
-        "Oğlak": "Mars'ın yüceldiği Oğlak burcunda olması, enerjinin en kontrollü, en disiplinli ve en başarılı halini temsil eder. Onlar 'dağın zirvesine' tırmanan sabırlı tırmanıcılardır. Duygularıyla değil, mantıklarıyla ve stratejileriyle hareket ederler. Motivasyonları statü kazanmak ve kalıcı eserler bırakmaktır. Oldukça dayanıklı, çalışkan ve sorumluluk sahibi bireylerdir. Öfkelerini bile kontrol altında tutarlar ve bunu bir enerjiye dönüştürerek işlerine odaklanırlar. Otoriteye saygı duyarlar ancak kendi otoritelerini kurmak için de durmaksızın çalışırlar.",
-        "Kova": "Mars Kova kişileri için enerji bağımsızlık, yenilik ve toplumsal değişim üzerine kuruludur. Geleneksel yöntemlerle savaşmak yerine, zekalarıyla ve teknolojiyle fark yaratırlar. Motivasyonları bireysel özgürlükleri savunmak ve geleceği inşa etmektir. Beklenmedik ve aykırı tepkiler verebilirler; bir gruba ait olsalar bile her zaman kendi özgünlüklerini korurlar. Haksızlıklara ve baskıya karşı çok güçlü bir direnç gösterirler. Zihinsel olarak çok aktif ve devrimci bir ruhları vardır. İş birliği yaparken bile her zaman bir mesafe bırakmayı tercih ederler.",
-        "Balık": "Mars'ı Balık burcunda olan bireylerde enerji daha akışkan, sezgisel ve çoğu zaman manevi bir alana kaymıştır. Doğrudan mücadele yerine, olaylara uyum sağlamayı veya geri çekilmeyi tercih edebilirler. Motivasyonları şifa vermek, yardım etmek ve ilham almaktır. Öfkelerini ifade etmekte zorlanabilirler, bu da onların melankolik veya kurban psikolojisine girmelerine neden olabilir. Ancak yaratıcılık ve sanat söz konusu olduğunda inanılmaz bir enerji sergilerler. Sessiz bir güçleri vardır; sezgileriyle insanların niyetlerini anlar ve en karmaşık durumlardan bile sessizce sıyrılabilirler."
+    function calcMars(jdVal) {
+        const dVal = jdVal - 2451543.5;
+        const TVal = dVal / 36525;
+
+        // Earth Helio
+        const L0_e = norm(280.46646 + 36000.76983 * TVal);
+        const M_e = norm(357.52911 + 35999.05029 * TVal);
+        const C_e = (1.914602 - 0.004817 * TVal) * Math.sin(M_e * rad) + (0.019993 - 0.000101 * TVal) * Math.sin(2 * M_e * rad);
+        const sunLon = norm(L0_e + C_e);
+        const e_e = 0.016708634 - 0.000042037 * TVal;
+        const R_e = 1.000001018 * (1 - e_e * e_e) / (1 + e_e * Math.cos((M_e + C_e) * rad));
+        const Xe = R_e * Math.cos(sunLon * rad);
+        const Ye = R_e * Math.sin(sunLon * rad);
+
+        // Mars Helio
+        const N_ma = norm(49.5574 + 2.11081e-5 * dVal);
+        const i_ma = 1.8497 - 1.78e-8 * dVal;
+        const w_ma = norm(286.5016 + 2.92961e-5 * dVal);
+        const a_ma = 1.523688;
+        const e_ma = 0.093405 + 2.516e-9 * dVal;
+        const M_ma = norm(18.6021 + 0.5240207766 * dVal);
+
+        let E_ma = M_ma;
+        for (let k = 0; k < 5; k++) {
+            E_ma = E_ma - (E_ma - e_ma * (180 / Math.PI) * Math.sin(E_ma * rad) - M_ma) / (1 - e_ma * Math.cos(E_ma * rad));
+        }
+
+        const xv_ma = a_ma * (Math.cos(E_ma * rad) - e_ma);
+        const yv_ma = a_ma * (Math.sqrt(1 - e_ma * e_ma) * Math.sin(E_ma * rad));
+        const v_ma = norm(Math.atan2(yv_ma, xv_ma) / rad);
+        const r_ma = Math.sqrt(xv_ma * xv_ma + yv_ma * yv_ma);
+
+        const xh = r_ma * (Math.cos(N_ma * rad) * Math.cos((v_ma + w_ma) * rad) - Math.sin(N_ma * rad) * Math.sin((v_ma + w_ma) * rad) * Math.cos(i_ma * rad));
+        const yh = r_ma * (Math.sin(N_ma * rad) * Math.cos((v_ma + w_ma) * rad) + Math.cos(N_ma * rad) * Math.sin((v_ma + w_ma) * rad) * Math.cos(i_ma * rad));
+
+        const xg = xh - Xe;
+        const yg = yh - Ye;
+        return norm(Math.atan2(yg, xg) / rad);
+    }
+
+    const lon1 = calcMars(JD);
+    const lon2 = calcMars(JD + 1);
+    let delta = lon2 - lon1;
+    if (delta < -180) delta += 360;
+    if (delta > 180) delta -= 360;
+    const isRetro = delta < 0;
+
+    const burclar = [
+        { name: "Koç", element: "Ateş", modality: "Öncü", symbol: "♈" },
+        { name: "Boğa", element: "Toprak", modality: "Sabit", symbol: "♉" },
+        { name: "İkizler", element: "Hava", modality: "Değişken", symbol: "♊" },
+        { name: "Yengeç", element: "Su", modality: "Öncü", symbol: "♋" },
+        { name: "Aslan", element: "Ateş", modality: "Sabit", symbol: "♌" },
+        { name: "Başak", element: "Toprak", modality: "Değişken", symbol: "♍" },
+        { name: "Terazi", element: "Hava", modality: "Öncü", symbol: "♎" },
+        { name: "Akrep", element: "Su", modality: "Sabit", symbol: "♏" },
+        { name: "Yay", element: "Ateş", modality: "Değişken", symbol: "♐" },
+        { name: "Oğlak", element: "Toprak", modality: "Öncü", symbol: "♑" },
+        { name: "Kova", element: "Hava", modality: "Sabit", symbol: "♒" },
+        { name: "Balık", element: "Su", modality: "Değişken", symbol: "♓" }
+    ];
+
+    const signIdx = Math.floor(lon1 / 30) % 12;
+    const signObj = burclar[signIdx];
+    const degInSign = Math.floor(lon1 % 30);
+    const minInSign = Math.floor((lon1 % 1) * 60);
+
+    const marsYorumlari = {
+        "Koç": `
+            <p><strong>Eylem & Mücadele Gücü (Mars Kendi Evinde):</strong> Saf savaşçı arketipi. Durdurulamaz bir cesaret, anında eyleme geçme gücü ve öncülük arzusu. Engeller sizi yavaşlatmaz, aksine ateşler.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Çabuk parlar, saman alevi gibi anında söner. Kin tutmaz, doğrudan yüzleşirsiniz.</p>
+        `,
+        "Boğa": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Sarsılmaz dayanıklılık, metodik ve kararlı ilerleyiş. Bir hedefe kilitlendiğinizde dağları delecek bir sabır ve inatla sonuca ulaşırsınız.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Kolay öfkelenmezsiniz; ancak sabrınız taştığında volkan gibi kalıcı bir tepki verirsiniz.</p>
+        `,
+        "İkizler": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Zihinsel hız, kelimelerle savaşma becerisi ve çok yönlü aksiyon. Tartışmalarda ve müzakerelerde kıvrak zekanızla galip gelirsiniz.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> İronik, esprili veya iğneleyici sözlerle tepki verirsiniz. Enerjinizi çeşitlilik besler.</p>
+        `,
+        "Yengeç": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Koruyucu, sezgisel ve duygusal motivasyon. Sevdiklerinizi ve yuvanızı savunurken olağanüstü bir güç sergilersiniz.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Dolaylı tepkiler, kabuğuna çekilme veya pasif-agresiflik. Güvende hissetmek enerjinizi yükseltir.</p>
+        `,
+        "Aslan": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Asil, karizmatik, gururlu ve lider odaklı eylem. Büyük projelere cesaretle atılır, ilham vererek yönetirsiniz.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Gururunuz kırıldığında kükrersiniz. Alkış ve takdir enerjinizi katlar.</p>
+        `,
+        "Başak": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Stratejik, detaycı, kusursuz iş bitirici ve pratik enerji. Kaotik krizleri adım adım çözme ustalığınız vardır.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Eleştirel sözler ve mükemmeliyetçi baskı. İşleri yoluna koymak en büyük rahatlamanızdır.</p>
+        `,
+        "Terazi": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Diplomatik, adaleti savunan, müzakereci ve stratejik denge ustası. Çatışmaları zarafetle ve mantıkla çözersiniz.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Açık çatışmadan kaçınma, nezaketi koruma. Haksızlık karşısında güçlü bir barış savaşçısı olursunuz.</p>
+        `,
+        "Akrep": `
+            <p><strong>Eylem & Mücadele Gücü (Mars Kendi Evinde):</strong> Muazzam içsel güç, stratejik sabır, odaklanma ve kriz yönetimi dehası. Asla pes etmez, hedefinize sessizce ulaşırsınız.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Soğukkanlı, derin ve unutmayan bir hafıza. Krizlerden küllerinizden doğarak çıkarsınız.</p>
+        `,
+        "Yay": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Maceracı, vizyoner, idealleri uğruna savaşan ve sınırsız iyimser enerji. Büyük keşifler ve inançlar peşinde koşarsınız.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Doğrudan, açık sözlü ve patavatsız tepkiler. Özgürlük kısıtlandığında isyan edersiniz.</p>
+        `,
+        "Oğlak": `
+            <p><strong>Eylem & Mücadele Gücü (Mars Yücelimde):</strong> Demir gibi disiplin, çelik irade, stratejik sabır ve zirveye ulaşma hırsı. Enerjinizi boşa harcamaz, kalıcı imparatorluklar kurarsınız.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Son derece kontrollü, profesyonel ve sonuç odaklı tepkiler.</p>
+        `,
+        "Kova": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Sıradışı, devrimci, bağımsız ve toplumsal idealler peşinde koşan enerji. Geleneksel otoriteye meydan okursunuz.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> Soğuk mantık, entelektüel isyan ve kural tanımazlık.</p>
+        `,
+        "Balık": `
+            <p><strong>Eylem & Mücadele Gücü:</strong> Sezgisel, sanatsal ilhamla hareket eden, fedakar ve manevi savaşçı. Mantığın tıkandığı yerde sezgilerinizle yol açarsınız.</p>
+            <p><strong>Öfke ve Enerji Yönetimi:</strong> İçselleştirme, pasif direnç ve sanatsal üretimle öfkeyi dönüştürme.</p>
+        `
     };
 
-    document.getElementById('hc-mars-value').innerText = burc;
-    document.getElementById('hc-mars-desc').innerText = yorumlar[burc];
+    const retroText = isRetro ? "♂ Retro (İçselleştirilmiş Savaşçı Enerjisi)" : "♂ Direkt Hareket";
+    let retroDesc = "";
+    if (isRetro) {
+        retroDesc = `<div class="hc-mars-retro-box"><strong>Doğum Anında Mars Retro:</strong> Mars doğum haritanızda geri hareketteydi. Bu konum, fiziksel ve eylemsel enerjiyi dışa kontrolsüzce patlatmak yerine, içeride derin bir stratejiye ve zihinsel/ruhsal dayanıklılığa dönüştürür. Pasif-agresif kalıplara düşmeden kendi gücünüzü doğrudan sahiplenmeyi öğrenmek sizin en büyük gücünüzdür.</div>`;
+    }
+
+    document.getElementById('hc-mars-deg-badge').innerText = `♂ ${degInSign}° ${minInSign}' ${signObj.name}`;
+    document.getElementById('hc-mars-motion-badge').innerText = retroText;
+    document.getElementById('hc-mars-value').innerText = `${signObj.symbol} Mars Burcunuz: ${signObj.name}`;
+    document.getElementById('hc-mars-meta').innerText = `${signObj.element} Elementi • ${signObj.modality} Nitelik`;
+    document.getElementById('hc-mars-desc').innerHTML = marsYorumlari[signObj.name] + retroDesc;
+
     document.getElementById('hc-mars-burcu-result').classList.add('visible');
+    document.getElementById('hc-mars-burcu-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+

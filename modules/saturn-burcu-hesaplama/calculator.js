@@ -1,60 +1,158 @@
 function hcSaturnBurcuHesapla() {
     const tarihStr = document.getElementById('hc-saturn-tarih').value;
-    if (!tarihStr) { alert('Lütfen doğum tarihinizi girin.'); return; }
-    const date = new Date(tarihStr);
-    
-    function getJD(d) { return (d.getTime() / 86400000) + 2440587.5; }
-    const jd = getJD(date);
-    const d = jd - 2451543.5;
-    const rad = Math.PI / 180;
 
-    function norm(x) { x %= 360; return x < 0 ? x + 360 : x; }
-
-    function getHeliocentric(planet, d) {
-        let { N, i, w, a, e, M0, M1 } = planet;
-        let M = norm(M0 + M1 * d);
-        let E = M + (180 / Math.PI) * e * Math.sin(M * rad) * (1 + e * Math.cos(M * rad));
-        for(let j=0; j<3; j++) E = E - (E - (180/Math.PI)*e*Math.sin(E*rad) - M) / (1 - e*Math.cos(E*rad));
-        let xv = a * (Math.cos(E * rad) - e);
-        let yv = a * (Math.sqrt(1 - e * e) * Math.sin(E * rad));
-        let v = Math.atan2(yv, xv) / rad;
-        let r = Math.sqrt(xv * xv + yv * yv);
-        let lonecl = norm(v + w);
-        let x = r * (Math.cos(N * rad) * Math.cos(lonecl * rad) - Math.sin(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let y = r * (Math.sin(N * rad) * Math.cos(lonecl * rad) + Math.cos(N * rad) * Math.sin(lonecl * rad) * Math.cos(i * rad));
-        let z = r * Math.sin(lonecl * rad) * Math.sin(i * rad);
-        return { x, y, z };
+    if (!tarihStr) {
+        alert('Lütfen doğum tarihinizi girin.');
+        return;
     }
 
-    const earth = { N: 0, i: 0, w: 102.9404 + 0.0000470935 * d, a: 1.00000011, e: 0.01671022 - 0.0000000012 * d, M0: 357.5291, M1: 0.98560028 };
-    const saturn = { N: 113.6634 + 0.000023981 * d, i: 2.4886 - 0.0000001081 * d, w: 339.3939 + 0.0000297661 * d, a: 9.55475, e: 0.055546 - 0.00000000949 * d, M0: 316.9670, M1: 0.033444228 };
+    const parts = tarihStr.split('-').map(Number);
+    let Y = parts[0], M = parts[1], D = parts[2];
+    let hour = 12;
 
-    const pE = getHeliocentric(earth, d);
-    const pS = getHeliocentric(saturn, d);
+    let yCalc = Y, mCalc = M;
+    if (mCalc <= 2) { yCalc -= 1; mCalc += 12; }
+    const A = Math.floor(yCalc / 100);
+    const B = 2 - A + Math.floor(A / 4);
+    const JD = Math.floor(365.25 * (yCalc + 4716)) + Math.floor(30.6001 * (mCalc + 1)) + D + B - 1524.5 + (hour / 24);
 
-    const xG = pS.x - pE.x;
-    const yG = pS.y - pE.y;
-    const lonG = norm(Math.atan2(yG, xG) / rad);
+    const rad = Math.PI / 180;
+    function norm(deg) {
+        deg = deg % 360;
+        return deg < 0 ? deg + 360 : deg;
+    }
 
-    const burclar = ["Koç", "Boğa", "İkizler", "Yengeç", "Aslan", "Başak", "Terazi", "Akrep", "Yay", "Oğlak", "Kova", "Balık"];
-    const burc = burclar[Math.floor(lonG / 30)];
+    function calcSaturn(jdVal) {
+        const dVal = jdVal - 2451543.5;
+        const TVal = dVal / 36525;
 
-    const yorumlar = {
-        "Koç": "Satürn'ü Koç burcunda olan bireyler için hayat dersleri sabır, öz disiplin ve öfke kontrolü üzerine kuruludur. Kendi başlarına hareket etme arzuları çok yüksektir, ancak bu yolculukta sorumluluk almayı ve sonuçlara katlanmayı öğrenmeleri gerekir. Aceleci tavırları, Satürn'ün kısıtlayıcı enerjisiyle karşılaştığında hayal kırıklığı yaratabilir. Onlar için asıl başarı, enerjilerini bir plana sadık kalarak ve uzun vadeli hedeflere odaklanarak kullanmayı öğrendiklerinde gelir. İçsel otoritelerini inşa etmek en büyük sınavlarıdır.",
-        "Boğa": "Satürn Boğa kişileri için hayat dersleri maddi güvenlik, öz değer ve kalıcılık üzerinedir. Sahip oldukları kaynakları yönetmeyi, tutumlu olmayı ve emeğin değerini öğrenmek zorundadırlar. Finansal konularda veya öz güvenle ilgili alanlarda kısıtlamalar yaşayabilirler, ancak bu kısıtlamalar onları daha sağlam bir temel kurmaya iter. Sabırları ve dayanıklılıkları sayesinde en büyük başarılarını geç yaşlarda ama kalıcı bir şekilde elde ederler. Onlar için başarı, emekle işlenmiş huzurlu ve güvenli bir hayat inşa etmektir.",
-        "İkizler": "Satürn'ü İkizler burcunda olanlar için sorumluluklar iletişim, eğitim ve zihinsel disiplin alanındadır. Bilgiyi yüzeysel değil, derinlemesine ve sistemli bir şekilde öğrenmeyi öğrenmeleri gerekir. Konuşma veya yazma konularında başlangıçta bazı engeller yaşayabilirler, ancak bu onları bu alanlarda uzmanlaşmaya ve çok daha etkili bir iletişim tarzı geliştirmeye iter. Mantık ve rasyonellik hayatlarının temel taşıdır. Onlar için asıl gelişim, zihinsel dağınıklığı toplayıp odaklanmış bir düşünce yapısına sahip olduklarında gerçekleşir.",
-        "Yengeç": "Satürn'ü Yengeç burcunda olan bireyler için hayat dersleri duygusal güvenlik, aile ve geçmişle yüzleşmek üzerinedir. Duygularını ifade etmekte veya aidiyet hissetmekte zorluklar yaşayabilirler, ancak bu onları içsel bir güç inşa etmeye ve kendi kendilerine yetmeye iter. Ailevi sorumluluklar hayatlarında önemli bir yer tutar. Duygusal bir kabuk inşa etmek yerine, hassasiyetlerini bir güç olarak kullanmayı öğrenmeleri gerekir. Onlar için başarı, kendi iç dünyalarında sarsılmaz bir temel ve güvenli bir yuva kurabilmektir.",
-        "Aslan": "Satürn Aslan kişileri için sorumluluklar yaratıcılık, özgüven ve liderlik alanındadır. Takdir edilme arzuları Satürn'ün ciddiyetiyle karşılaştığında, kendilerini ifade etmekte çekingen davranabilirler. Ancak bu sınav onları, dış onaydan bağımsız, gerçek bir içsel güven geliştirmeye iter. Liderlik vasıflarını sadece egoları için değil, başkalarının sorumluluğunu almak için kullanmayı öğrenmeleri gerekir. Sanatsal yeteneklerini disiplinli bir çalışma ile somut bir başarıya dönüştürebilirler. Onlar için asıl büyüklük, mütevazı bir asalet sergilemektedir.",
-        "Başak": "Satürn'ü Başak burcunda olanlar için hayat dersleri düzen, sağlık ve mükemmeliyetçilik üzerinedir. Detaylara olan aşırı düşkünlükleri onları zaman zaman endişeli yapabilir, ancak bu disiplin onları işlerinde usta kılar. Pratik zekalarını başkalarına faydalı olmak ve sistemler kurmak için kullanmayı öğrenmeleri gerekir. Sağlık ve rutinlerine dikkat etmek onlar için bir zorunluluktur. Eleştirel yönlerini yıkıcı değil, yapıcı bir şekilde kullanmayı öğrendiklerinde hayatta büyük bir düzen ve verimlilik sağlarlar. Başarıları, titiz çalışmalarının meyvesidir.",
-        "Terazi": "Satürn'ün yüceldiği Terazi burcunda olması, sorumlulukların ilişkiler, adalet ve diplomasi alanında olduğunu temsil eder. Bu kişiler için evlilik ve ortaklıklar ciddi birer sınavdır; ilişkilerinde dengeyi ve adaleti kurmayı öğrenmek zorundadırlar. Yalnız kalma korkusuyla veya aşırı fedakarlıkla yüzleşebilirler. Ancak bu süreç onları, sağlam ve kalıcı bağlar kurabilen, diplomatik gücü yüksek bireylere dönüştürür. Hak ve hukuk konularında çok titizdirler. Onlar için başarı, hayatın her alanında mutlak bir denge ve adalet sağlamaktır.",
-        "Akrep": "Satürn'ü Akrep burcunda olan bireyler için hayat dersleri güç, dönüşüm ve derin duygusal bağlar üzerinedir. Kontrolü kaybetme korkusu veya güven sorunlarıyla yüzleşebilirler, ancak bu sınav onları ruhsal bir simyacıya dönüştürür. Kendi gölgeleriyle yüzleşmek ve küllerinden yeniden doğmayı öğrenmek zorundadırlar. Maddi ve manevi paylaşımlarda sorumluluk almak hayatlarının temel temasıdır. Sezgilerini ve güçlerini gizli tutmayı, sadece gerektiğinde dönüştürücü bir şekilde kullanmayı öğrenirler. Onlar için başarı, ruhun en derinliklerindeki güce hakim olmaktır.",
-        "Yay": "Satürn'ü Yay burcunda olanlar için sorumluluklar inançlar, felsefe ve etik değerler alanındadır. Hayatın anlamını sadece teoride değil, pratikte de yaşamayı ve dürüstlükten asla ödün vermemeyi öğrenmeleri gerekir. Yüksek öğrenim veya inanç sistemleri konusunda kısıtlamalar veya sorgulamalar yaşayabilirler; ancak bu süreç onları çok daha sağlam bir dünya görüşüne ulaştırır. Vizyonlarını somutlaştırmak ve idealleri için disiplinle çalışmak zorundadırlar. Onlar için asıl bilgelik, geniş ufuklara sahip olurken ayaklarını yere sağlam basabilmektir.",
-        "Oğlak": "Satürn'ün kendi burcu Oğlak'ta olması, sorumluluğun ve disiplinin en saf halini temsil eder. Bu kişiler hayatı ciddi bir görev gibi görürler ve zirveye ulaşmak için her türlü zorluğa göğüs gererler. Otorite figürleriyle ilgili sınavlar yaşayabilir veya erken yaşta büyük sorumluluklar alabilirler. Sabırları ve stratejik düşünme yetenekleri sayesinde kalıcı başarılar elde ederler. Duygularını kontrol altında tutup hedeflerine odaklanmakta ustadırlar. Onlar için başarı, yıllar süren emeğin sonucunda inşa edilmiş sağlam bir kariyer ve saygın bir toplumsal statüdür.",
-        "Kova": "Satürn'ün klasik yöneticisi olduğu Kova burcunda olması, sorumlulukların toplumsal idealler, bağımsızlık ve yenilikçilik alanında olduğunu temsil eder. Geleneksel olanla modern olan arasında bir köprü kurmayı ve toplumu ileriye taşıyacak sistemleri disiplinle inşa etmeyi öğrenmeleri gerekir. Arkadaş çevrelerinde veya sosyal gruplarda bazı kısıtlamalar yaşayabilirler, ancak bu onları daha seçici ve kaliteli bağlar kurmaya iter. Özgürlüklerini korurken başkalarının haklarına saygı duymayı öğrenirler. Onlar için başarı, geleceği inşa eden akılcı bir devrimdir.",
-        "Balık": "Satürn'ü Balık burcunda olan bireyler için hayat dersleri sınır koymak, maneviyat ve fedakarlık üzerinedir. Duygusal sınırlarını korumayı, hayallerini gerçeğe dönüştürmeyi ve kurban psikolojisinden çıkmayı öğrenmek zorundadırlar. Kaosun içinde bir düzen kurmak ve sezgilerini disiplinle kullanmak en büyük sınavlarıdır. Yalnızlık veya melankoli ile yüzleşebilirler, ancak bu süreç onları derin bir şefkate ve ruhsal bir bilgeliğe ulaştırır. Sanatsal yeteneklerini veya şifa güçlerini somut bir faydaya dönüştürmeyi öğrendiklerinde, hayatın manevi derinliğini dünyaya taşıyan köprüler olurlar."
+        // Earth Helio
+        const L0_e = norm(280.46646 + 36000.76983 * TVal);
+        const M_e = norm(357.52911 + 35999.05029 * TVal);
+        const C_e = (1.914602 - 0.004817 * TVal) * Math.sin(M_e * rad) + (0.019993 - 0.000101 * TVal) * Math.sin(2 * M_e * rad);
+        const sunLon = norm(L0_e + C_e);
+        const e_e = 0.016708634 - 0.000042037 * TVal;
+        const R_e = 1.000001018 * (1 - e_e * e_e) / (1 + e_e * Math.cos((M_e + C_e) * rad));
+        const Xe = R_e * Math.cos(sunLon * rad);
+        const Ye = R_e * Math.sin(sunLon * rad);
+
+        // Saturn Helio
+        const N_s = norm(113.6634 + 2.38980e-5 * dVal);
+        const i_s = 2.4886 - 1.081e-7 * dVal;
+        const w_s = norm(339.3939 + 2.97661e-5 * dVal);
+        const a_s = 9.55475;
+        const e_s = 0.055546 - 9.499e-9 * dVal;
+        const M_s = norm(316.9670 + 0.0334442282 * dVal);
+
+        let E_s = M_s;
+        for (let k = 0; k < 5; k++) {
+            E_s = E_s - (E_s - e_s * (180 / Math.PI) * Math.sin(E_s * rad) - M_s) / (1 - e_s * Math.cos(E_s * rad));
+        }
+
+        const xv_s = a_s * (Math.cos(E_s * rad) - e_s);
+        const yv_s = a_s * (Math.sqrt(1 - e_s * e_s) * Math.sin(E_s * rad));
+        const v_s = norm(Math.atan2(yv_s, xv_s) / rad);
+        const r_s = Math.sqrt(xv_s * xv_s + yv_s * yv_s);
+
+        const xh = r_s * (Math.cos(N_s * rad) * Math.cos((v_s + w_s) * rad) - Math.sin(N_s * rad) * Math.sin((v_s + w_s) * rad) * Math.cos(i_s * rad));
+        const yh = r_s * (Math.sin(N_s * rad) * Math.cos((v_s + w_s) * rad) + Math.cos(N_s * rad) * Math.sin((v_s + w_s) * rad) * Math.cos(i_s * rad));
+
+        const xg = xh - Xe;
+        const yg = yh - Ye;
+        return norm(Math.atan2(yg, xg) / rad);
+    }
+
+    const lon1 = calcSaturn(JD);
+    const lon2 = calcSaturn(JD + 1);
+    let delta = lon2 - lon1;
+    if (delta < -180) delta += 360;
+    if (delta > 180) delta -= 360;
+    const isRetro = delta < 0;
+
+    const burclar = [
+        { name: "Koç", element: "Ateş", modality: "Öncü", symbol: "♈" },
+        { name: "Boğa", element: "Toprak", modality: "Sabit", symbol: "♉" },
+        { name: "İkizler", element: "Hava", modality: "Değişken", symbol: "♊" },
+        { name: "Yengeç", element: "Su", modality: "Öncü", symbol: "♋" },
+        { name: "Aslan", element: "Ateş", modality: "Sabit", symbol: "♌" },
+        { name: "Başak", element: "Toprak", modality: "Değişken", symbol: "♍" },
+        { name: "Terazi", element: "Hava", modality: "Öncü", symbol: "♎" },
+        { name: "Akrep", element: "Su", modality: "Sabit", symbol: "♏" },
+        { name: "Yay", element: "Ateş", modality: "Değişken", symbol: "♐" },
+        { name: "Oğlak", element: "Toprak", modality: "Öncü", symbol: "♑" },
+        { name: "Kova", element: "Hava", modality: "Sabit", symbol: "♒" },
+        { name: "Balık", element: "Su", modality: "Değişken", symbol: "♓" }
+    ];
+
+    const signIdx = Math.floor(lon1 / 30) % 12;
+    const signObj = burclar[signIdx];
+    const degInSign = Math.floor(lon1 % 30);
+    const minInSign = Math.floor((lon1 % 1) * 60);
+
+    const saturnYorumlari = {
+        "Koç": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Özgüven, cesaret ve kendi gücünü başkalarına bağımlı olmadan inşa etme sınavı. Hayatınızın ilk yıllarında inisiyatif almakta çekingenlik yaşayabilir, olgunlaştıkça sarsılmaz bir öncü lidere dönüşürsünüz.</p>
+            <p><strong>Ustalık Alanı:</strong> Disiplinli cesaret ve bağımsız projeleri başarıyla tamamlama gücü.</p>
+        `,
+        "Boğa": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Maddi güvenlik, öz değer ve kaynak yönetimi sınavı. Kendi emeğinizle kalıcı zenginlik üretmeyi ve yokluk korkusunu yenmeyi öğrenirsiniz.</p>
+            <p><strong>Ustalık Alanı:</strong> Sarsılmaz finansal dayanıklılık ve kalıcı değer inşa etme dehası.</p>
+        `,
+        "İkizler": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Zihinsel odaklanma, derinleşme ve bilgiyi ciddiyetle yapılandırma sınavı. Yüzeysel gevezelikten uzaklaşıp alanınızda uzman bir yazar, hatip veya araştırmacı olursunuz.</p>
+            <p><strong>Ustalık Alanı:</strong> Yapılandırılmış iletişim, akademik disiplin ve sistemli düşünce.</p>
+        `,
+        "Yengeç": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Duygusal olgunluk, ailevi sorumluluklar ve içsel güvenliği dış dünyadan değil kendi içinden sağlama sınavı. Kendi duygularınızın ebeveyni olmayı öğrenirsiniz.</p>
+            <p><strong>Ustalık Alanı:</strong> Duygusal dayanıklılık ve sevdiklerine sarsılmaz bir kale olma ustalığı.</p>
+        `,
+        "Aslan": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Gerçek öz sevgi, yaratıcı otorite ve alkış beklemeden kalpten liderlik etme sınavı. Egoyu aşıp gerçek bir kraliyet asaletiyle parlamayı öğrenirsiniz.</p>
+            <p><strong>Ustalık Alanı:</strong> Saygın liderlik, kalıcı sanatsal üretim ve cömert mentorluk.</p>
+        `,
+        "Başak": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Mükemmeliyetçilik kaygısını aşma, iş ahlakı ve beden sağlığını koruma sınavı. Kaosu kusursuz sistemlere dönüştürmeyi öğrenirsiniz.</p>
+            <p><strong>Ustalık Alanı:</strong> Kusursuz süreç yönetimi, sağlık disiplini ve pratik problem çözme.</p>
+        `,
+        "Terazi": `
+            <p><strong>Karmik Yaşam Dersi (Satürn Yücelimde):</strong> Evlilik, ortaklıklar, adalet ve etik sınırlar kurma sınavı. Gerçek eşitliğe ve vefaya dayalı uzun ömürlü ilişkiler inşa edersiniz.</p>
+            <p><strong>Ustalık Alanı:</strong> Üst düzey diplomasi, adil yargı ve sarsılmaz ortaklık taahhütleri.</p>
+        `,
+        "Akrep": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Kriz yönetimi, güç savaşları, psikolojik derinlik ve kontrol arzusunu teslimiyete dönüştürme sınavı. En zorlu travmaları aşarak ruhsal bir simyacıya dönüşürsünüz.</p>
+            <p><strong>Ustalık Alanı:</strong> Psikolojik güç, kriz çözücülük ve finansal yeniden doğuş.</p>
+        `,
+        "Yay": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Kendi inanç sistemini, felsefesini ve ahlak anlayışını inşa etme sınavı. Dogmalardan arınıp gerçek bir bilge ve öğretmen olursunuz.</p>
+            <p><strong>Ustalık Alanı:</strong> Yüksek vizyon, uluslararası uzmanlık ve felsefi bilgelik.</p>
+        `,
+        "Oğlak": `
+            <p><strong>Karmik Yaşam Dersi (Satürn Kendi Evinde):</strong> Saf otorite, stratejik sabır, kurumsal inşa ve zirve sınavı. Hayatınızın ikinci yarısında toplumun en saygın ve güçlü figürlerinden biri olursunuz.</p>
+            <p><strong>Ustalık Alanı:</strong> Kurumsal liderlik, stratejik sabır ve zamana meydan okuyan başarı.</p>
+        `,
+        "Kova": `
+            <p><strong>Karmik Yaşam Dersi (Satürn Kendi Evinde):</strong> Toplumsal sorumluluk, geleceği yapılandırma ve kolektif projelere liderlik etme sınavı. İdealist fikirleri somut kurumlara dönüştürürsünüz.</p>
+            <p><strong>Ustalık Alanı:</strong> İnovatif sistemler, teknolojik ve toplumsal örgütlenme dehası.</p>
+        `,
+        "Balık": `
+            <p><strong>Karmik Yaşam Dersi:</strong> Maneviyatı somutlaştırma, kurban psikolojisinden çıkıp sağlıklı sınırlar koyma sınavı. Sanatsal ve ruhsal ilhamları dünyada somut şifaya dönüştürürsünüz.</p>
+            <p><strong>Ustalık Alanı:</strong> Ruhsal olgunluk, şifacılık ve sanatsal disiplin.</p>
+        `
     };
 
-    document.getElementById('hc-saturn-value').innerText = burc;
-    document.getElementById('hc-saturn-desc').innerText = yorumlar[burc];
+    const retroText = isRetro ? "♄ Retro (Derin Karmik Hafıza)" : "♄ Direkt Hareket";
+    let retroDesc = "";
+    if (isRetro) {
+        retroDesc = `<div class="hc-saturn-retro-box"><strong>Doğum Anında Satürn Retro:</strong> Satürn doğum anınızda geri hareketteydi. Bu durum geçmiş yaşam deneyimlerinden gelen güçlü bir sorumluluk ve içsel vicdan mekanizması verir. Kendinize karşı aşırı katı olmaktan kaçınarak, zamanın size getirdiği olgunluğa güvenmelisiniz.</div>`;
+    }
+
+    document.getElementById('hc-saturn-deg-badge').innerText = `♄ ${degInSign}° ${minInSign}' ${signObj.name}`;
+    document.getElementById('hc-saturn-motion-badge').innerText = retroText;
+    document.getElementById('hc-saturn-value').innerText = `${signObj.symbol} Satürn Burcunuz: ${signObj.name}`;
+    document.getElementById('hc-saturn-meta').innerText = `${signObj.element} Elementi • ${signObj.modality} Nitelik`;
+    document.getElementById('hc-saturn-desc').innerHTML = saturnYorumlari[signObj.name] + retroDesc;
+
     document.getElementById('hc-saturn-burcu-result').classList.add('visible');
+    document.getElementById('hc-saturn-burcu-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+

@@ -14,24 +14,35 @@ function hc_render_progres_harita_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-progres-harita">
-        <h3>Progres (İlerletilmiş) Harita Hesaplama</h3>
-        <div class="hc-form-grid">
+        <div class="hc-header">
+            <h3>Progres (İkincil İlerletilmiş) Harita Hesaplama</h3>
+            <p class="hc-subtitle">Astrolojide "1 gün = 1 yıl" kuralıyla ruhsal olgunlaşmanızı, Progres Ay döngünüzü ve burç değiştiren gezegenlerinizi keşfedin.</p>
+        </div>
+
+        <div class="hc-form-grid-2">
             <div class="hc-form-group">
-                <label>Doğum Tarihiniz</label>
-                <input type="date" id="hc-prog-birth" class="hc-input">
+                <label for="hc-prog-birth">Doğum Tarihiniz *</label>
+                <input type="date" id="hc-prog-birth" value="1995-05-15" class="hc-input" required>
             </div>
             <div class="hc-form-group">
-                <label>Hedef Yıl</label>
-                <input type="number" id="hc-prog-year" class="hc-input" value="2026">
+                <label for="hc-prog-year">Hedef Yıl / Yaşınız *</label>
+                <input type="number" id="hc-prog-year" class="hc-input" value="2026" min="1900" max="2100" required>
             </div>
         </div>
-        <button class="hc-btn" onclick="hcProgresHaritaHesapla()">Progres Haritayı Hesapla</button>
+
+        <button type="button" class="hc-btn" onclick="hcProgresHaritaHesapla()">⏳ Progres Haritayı Hesapla</button>
+
         <div class="hc-result" id="hc-progres-harita-result">
-            <div id="hc-prog-summary" class="hc-prog-summary">
-                <!-- Özet -->
+            <div class="hc-prog-hero" id="hc-prog-hero"></div>
+
+            <div class="hc-prog-section">
+                <h4 class="hc-prog-sec-title">🌙 İlerletilmiş Ay Fazı ve 29.5 Yıllık Ruh Döngüsü</h4>
+                <div class="hc-prog-moon-box" id="hc-prog-moon-box"></div>
             </div>
-            <div id="hc-prog-planets" class="hc-prog-planets">
-                <!-- Gezegenler -->
+
+            <div class="hc-prog-section">
+                <h4 class="hc-prog-sec-title">🪐 Natal vs Progres Gezegen Karşılaştırması</h4>
+                <div id="hc-prog-table-container"></div>
             </div>
         </div>
     </div>

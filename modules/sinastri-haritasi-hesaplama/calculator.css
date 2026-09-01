@@ -1,49 +1,180 @@
-#hc-sinastri-haritasi .hc-form-grid {
+#hc-sinastri-haritasi {
+    max-width: 820px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-sinastri-haritasi .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-sinastri-haritasi .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+#hc-sinastri-haritasi .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-sh-persons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 16px;
+    margin-bottom: 18px;
 }
 
-#hc-sinastri-haritasi .hc-table-wrapper {
+.hc-sh-person-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.hc-sh-pbadge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.hc-badge-p2 {
+    background: #e11d48;
+}
+
+#hc-sinastri-haritasi-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-sinastri-haritasi-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-sh-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-sh-sec-title {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-table-wrapper {
     overflow-x: auto;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 8px;
 }
 
-#hc-sinastri-haritasi .hc-aspect-table {
+.hc-aspect-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-#hc-sinastri-haritasi .hc-aspect-table th, 
-#hc-sinastri-haritasi .hc-aspect-table td {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px;
+    font-size: 12px;
     text-align: center;
-    min-width: 60px;
 }
 
-#hc-sinastri-haritasi .hc-aspect-table th {
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffd700;
+.hc-aspect-table th, .hc-aspect-table td {
+    padding: 8px 6px;
+    border: 1px solid #e2e8f0;
+    min-width: 36px;
 }
 
-#hc-sinastri-haritasi .hc-asp-good {
-    color: #2ed573;
-    font-weight: bold;
-    font-size: 1.2rem;
+.hc-aspect-table th {
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
 }
 
-#hc-sinastri-haritasi .hc-asp-hard {
-    color: #ff4757;
-    font-weight: bold;
-    font-size: 1.2rem;
+.hc-th-sub {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 500;
 }
 
-@media (max-width: 480px) {
-    #hc-sinastri-haritasi .hc-aspect-table {
-        font-size: 0.75rem;
+.hc-row-head {
+    background: #f1f5f9;
+    text-align: left;
+    white-space: nowrap;
+    color: #0f172a;
+}
+
+.hc-asp-conj { color: #8b5cf6; font-weight: 800; font-size: 14px; background: #ede9fe; }
+.hc-asp-tri { color: #16a34a; font-weight: 800; font-size: 14px; background: #dcfce7; }
+.hc-asp-sext { color: #0284c7; font-weight: 800; font-size: 14px; background: #e0f2fe; }
+.hc-asp-sq { color: #dc2626; font-weight: 800; font-size: 14px; background: #fee2e2; }
+.hc-asp-opp { color: #ea580c; font-weight: 800; font-size: 14px; background: #ffedd5; }
+.hc-asp-none { color: #cbd5e1; }
+
+.hc-sh-major-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hc-sh-aspect-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.hc-sh-sym {
+    font-size: 20px;
+    font-weight: 800;
+    color: #4f46e5;
+    background: #eef2ff;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.hc-sh-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.hc-sh-orb {
+    font-size: 11px;
+    color: #64748b;
+}
+
+@media (max-width: 650px) {
+    .hc-sh-persons-grid {
+        grid-template-columns: 1fr;
     }
 }
+

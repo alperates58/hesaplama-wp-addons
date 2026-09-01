@@ -14,16 +14,35 @@ function hc_render_transit_harita_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-transit-harita-hesaplama">
-        <h3>Transit Harita Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-trans-birth">Doğum Tarihiniz</label>
-            <input type="date" id="hc-trans-birth">
+        <div class="hc-header">
+            <h3>Transit Harita ve Güncel Gezegen Etkileri Hesaplama</h3>
+            <p class="hc-subtitle">Doğum haritanız ile gökyüzündeki güncel transit gezegenlerin temaslarını, dönüm noktası açılarını ve tetiklenen yaşam temalarını analiz edin.</p>
         </div>
-        <button class="hc-btn" onclick="hcTransitHesapla()">Transitleri Gör</button>
+
+        <div class="hc-form-grid-2">
+            <div class="hc-form-group">
+                <label for="hc-trans-birth">Doğum Tarihiniz *</label>
+                <input type="date" id="hc-trans-birth" value="1995-05-15" class="hc-input" required>
+            </div>
+            <div class="hc-form-group">
+                <label for="hc-trans-target">Transit Tarihi (Hedef Gün) *</label>
+                <input type="date" id="hc-trans-target" value="<?php echo date('Y-m-d'); ?>" class="hc-input" required>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcTransitHesapla()">⚡ Transitleri ve Aktif Açıları Hesapla</button>
+
         <div class="hc-result" id="hc-trans-result">
-            <div id="hc-trans-table" class="hc-table-container"></div>
-            <div class="hc-result-desc">
-                Transitler, şu anki gezegen konumlarının doğum haritanızdaki noktalarla etkileşimini gösterir. Bu etkileşimler hayatınızdaki güncel olayları, fırsatları ve zorlukları tetikler. Tabloda doğum anınızdaki burçlar ile 2026 yılındaki güncel burç konumlarını karşılaştırabilirsiniz.
+            <div class="hc-trans-highlight-card" id="hc-trans-highlights"></div>
+
+            <div class="hc-trans-section">
+                <h4 class="hc-trans-sec-title">🪐 Natal vs Transit Gezegen Konumları</h4>
+                <div id="hc-trans-table" class="hc-table-container"></div>
+            </div>
+
+            <div class="hc-trans-section">
+                <h4 class="hc-trans-sec-title">🎯 Aktif Majör Transit Açıları ve Etkileri</h4>
+                <div id="hc-trans-aspects-list"></div>
             </div>
         </div>
     </div>

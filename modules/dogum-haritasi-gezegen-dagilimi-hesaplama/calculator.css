@@ -1,39 +1,199 @@
-#hc-gezegen-dagilimi .hc-dist-bars {
-    display: flex;
-    height: 30px;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    background: rgba(255, 255, 255, 0.1);
+#hc-gezegen-dagilimi {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
 }
 
-#hc-gezegen-dagilimi .hc-dist-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #fff;
-    transition: width 1s ease-in-out;
+#hc-gezegen-dagilimi .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
 }
 
-#hc-gezegen-dagilimi .hc-dist-bar.personal {
-    background: linear-gradient(90deg, #ff4757, #ffa502);
+#hc-gezegen-dagilimi .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-#hc-gezegen-dagilimi .hc-dist-bar.social {
-    background: linear-gradient(90deg, #70a1ff, #2ed573);
+#hc-gezegen-dagilimi .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
 }
 
-#hc-gezegen-dagilimi .hc-dist-desc {
+.hc-form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#hc-gezegen-dagilimi-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-gezegen-dagilimi-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-gd-hero-card {
+    background: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 100%);
+    border: 2px solid #5eead4;
+    border-radius: 16px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    line-height: 1.6;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    margin-bottom: 18px;
 }
 
-#hc-gezegen-dagilimi h4 {
-    margin-top: 0;
-    color: #ffd700;
+.hc-gd-hero-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #0f766e;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
 }
+
+.hc-gd-hero-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #134e4a;
+    margin-bottom: 8px;
+}
+
+.hc-gd-hero-sub {
+    margin: 0;
+    font-size: 13px;
+    color: #0f766e;
+    line-height: 1.5;
+}
+
+.hc-gd-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-gd-sec-title {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-gd-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.hc-gd-hemi-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.hc-gd-hemi-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.hc-gd-split-bar {
+    display: flex;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.hc-gd-split-left {
+    background: #0284c7;
+    height: 100%;
+    transition: width 0.5s ease-out;
+}
+
+.hc-gd-split-right {
+    background: #f59e0b;
+    height: 100%;
+    transition: width 0.5s ease-out;
+}
+
+.hc-south-color {
+    background: #8b5cf6;
+}
+
+.hc-north-color {
+    background: #10b981;
+}
+
+.hc-gd-quad-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hc-gd-quad-card {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.hc-gd-qtitle {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.hc-gd-qpct {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.hc-gd-qdesc {
+    margin: 0;
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.hc-gd-desc p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.hc-gd-desc p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    .hc-form-grid-3, .hc-gd-quad-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

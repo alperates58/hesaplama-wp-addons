@@ -1,96 +1,127 @@
-function hcGetCinBurcu(dateStr) {
-    const d = new Date(dateStr);
-    const year = d.getFullYear();
-    const cnyDates = {
-        1930: "1930-01-30", 1931: "1931-02-17", 1932: "1932-02-06", 1933: "1933-01-26", 1934: "1934-02-14",
-        1935: "1935-02-04", 1936: "1936-01-24", 1937: "1937-02-11", 1938: "1938-01-31", 1939: "1939-02-19",
-        1940: "1940-02-08", 1941: "1941-01-27", 1942: "1942-02-15", 1943: "1943-02-05", 1944: "1944-01-25",
-        1945: "1945-02-13", 1946: "1946-02-02", 1947: "1947-01-22", 1948: "1948-02-10", 1949: "1949-01-29",
-        1950: "1950-02-17", 1951: "1951-02-06", 1952: "1952-01-27", 1953: "1953-02-14", 1954: "1954-02-03",
-        1955: "1955-01-24", 1956: "1956-02-12", 1957: "1957-01-31", 1958: "1958-02-18", 1959: "1959-02-08",
-        1960: "1960-01-28", 1961: "1961-02-15", 1962: "1962-02-05", 1963: "1963-01-25", 1964: "1964-02-13",
-        1965: "1965-02-02", 1966: "1966-01-21", 1967: "1967-02-09", 1968: "1968-01-30", 1969: "1969-02-17",
-        1970: "1970-02-06", 1971: "1971-01-27", 1972: "1972-02-15", 1973: "1973-02-03", 1974: "1974-01-23",
-        1975: "1975-02-11", 1976: "1976-01-31", 1977: "1977-02-18", 1978: "1978-02-07", 1979: "1979-01-28",
-        1980: "1980-02-16", 1981: "1981-02-05", 1982: "1982-01-25", 1983: "1983-02-13", 1984: "1984-02-02",
-        1985: "1985-02-20", 1986: "1986-02-09", 1987: "1987-01-29", 1988: "1988-02-17", 1989: "1989-02-06",
-        1990: "1990-01-27", 1991: "1991-02-15", 1992: "1992-02-04", 1993: "1993-01-23", 1994: "1994-02-10",
-        1995: "1995-01-31", 1996: "1996-02-19", 1997: "1997-02-07", 1998: "1998-01-28", 1999: "1999-02-16",
-        2000: "2000-02-05", 2001: "2001-01-24", 2002: "2002-02-12", 2003: "2003-02-01", 2004: "2004-01-22",
-        2005: "2005-02-09", 2006: "2006-01-29", 2007: "2007-02-18", 2008: "2008-02-07", 2009: "2009-01-26",
-        2010: "2010-02-14", 2011: "2011-02-03", 2012: "2012-01-23", 2013: "2013-02-10", 2014: "2014-01-31",
-        2015: "2015-02-19", 2016: "2016-02-08", 2017: "2017-01-28", 2018: "2018-02-16", 2019: "2019-02-05",
-        2020: "2020-01-25", 2021: "2021-02-12", 2022: "2022-02-01", 2023: "2023-01-22", 2024: "2024-02-10",
-        2025: "2025-01-29", 2026: "2026-02-17"
-    };
-
-    let effYear = year;
-    const cny = cnyDates[year] ? new Date(cnyDates[year]) : new Date(year, 0, 30);
-    if (d < cny) effYear = year - 1;
-
-    const animals = ["Fare", "Öküz", "Kaplan", "Tavşan", "Ejderha", "Yılan", "At", "Keçi", "Maymun", "Horoz", "Köpek", "Domuz"];
-    let idx = (effYear - 1900) % 12;
-    if (idx < 0) idx += 12;
-    return { name: animals[idx], index: idx };
-}
-
 function hcCinAskUyumuHesapla() {
-    const d1 = document.getElementById('hc-cluy-date1').value;
-    const d2 = document.getElementById('hc-cluy-date2').value;
+    const d1Str = document.getElementById('hc-cluy-date1').value;
+    const d2Str = document.getElementById('hc-cluy-date2').value;
 
-    if (!d1 || !d2) {
+    if (!d1Str || !d2Str) {
         alert('Lütfen her iki doğum tarihini de seçin.');
         return;
     }
 
-    const b1 = hcGetCinBurcu(d1);
-    const b2 = hcGetCinBurcu(d2);
-
     const animals = ["Fare", "Öküz", "Kaplan", "Tavşan", "Ejderha", "Yılan", "At", "Keçi", "Maymun", "Horoz", "Köpek", "Domuz"];
-    
-    // Trines (4 years apart)
-    const trines = [
-        [0, 4, 8], // Fare, Ejderha, Maymun
-        [1, 5, 9], // Öküz, Yılan, Horoz
+    const animalIcons = ["🐀", "🐂", "🐅", "🐇", "🐉", "🐍", "🐎", "🐐", "🐒", "🐓", "🐕", "🐖"];
+    const elements = ["Ahşap", "Ateş", "Toprak", "Metal", "Su"];
+
+    function getAnimal(dStr) {
+        const parts = dStr.split('-').map(Number);
+        let y = parts[0], m = parts[1], d = parts[2];
+        if (m === 1 || (m === 2 && d < 4)) y -= 1;
+
+        const idx = (y - 4) % 12;
+        const normIdx = idx < 0 ? idx + 12 : idx;
+
+        const lastDigit = y % 10;
+        let elemIdx = 0;
+        if (lastDigit === 4 || lastDigit === 5) elemIdx = 0;
+        else if (lastDigit === 6 || lastDigit === 7) elemIdx = 1;
+        else if (lastDigit === 8 || lastDigit === 9) elemIdx = 2;
+        else if (lastDigit === 0 || lastDigit === 1) elemIdx = 3;
+        else elemIdx = 4;
+
+        return {
+            name: animals[normIdx],
+            icon: animalIcons[normIdx],
+            index: normIdx,
+            element: elements[elemIdx]
+        };
+    }
+
+    const b1 = getAnimal(d1Str);
+    const b2 = getAnimal(d2Str);
+
+    const triads = [
+        [0, 4, 8],  // Fare, Ejderha, Maymun
+        [1, 5, 9],  // Öküz, Yılan, Horoz
         [2, 6, 10], // Kaplan, At, Köpek
         [3, 7, 11]  // Tavşan, Keçi, Domuz
     ];
 
-    // Clashes (6 years apart)
-    const isClash = (idx1, idx2) => Math.abs(idx1 - idx2) === 6;
+    const secretFriends = [
+        [0, 1],   // Fare - Öküz
+        [2, 11],  // Kaplan - Domuz
+        [3, 10],  // Tavşan - Köpek
+        [4, 9],   // Ejderha - Horoz
+        [5, 8],   // Yılan - Maymun
+        [6, 7]    // At - Keçi
+    ];
 
-    const isSameTrine = (idx1, idx2) => {
-        for (let t of trines) {
-            if (t.includes(idx1) && t.includes(idx2)) return true;
-        }
-        return false;
-    };
+    let isTriad = triads.some(t => t.includes(b1.index) && t.includes(b2.index));
+    let isSecretFriend = secretFriends.some(f => (f[0] === b1.index && f[1] === b2.index) || (f[1] === b1.index && f[0] === b2.index));
+    let isClash = Math.abs(b1.index - b2.index) === 6;
 
-    let score = 50;
+    let score = 75;
+    let sRomance = 75, sLoyalty = 75, sWealth = 75, sHarmony = 75;
+    let title = "";
     let desc = "";
 
-    if (b1.index === b2.index) {
-        score = 75;
-        desc = "Aynı burca sahipsiniz! Birbirinizin karakterini çok iyi anlıyorsunuz, ancak bu durum bazen benzer inatçılıklar yaratabilir.";
-    } else if (isSameTrine(b1.index, b2.index)) {
-        score = 95;
-        desc = "Mükemmel Uyum! Çin astrolojisine göre siz aynı 'Üçlü Grup' içindesiniz. Birbirinizi doğal bir şekilde tamamlıyor ve destekliyorsunuz.";
-    } else if (isClash(b1.index, b2.index)) {
-        score = 20;
-        desc = "Zorlayıcı İlişki. Burçlarınız arasında 'Zıtlık' (Clash) bulunuyor. Bu, birbirinizi anlamakta zorlanabileceğiniz ve sıkça fikir ayrılığı yaşayabileceğiniz anlamına gelir.";
+    if (isSecretFriend) {
+        score = 99;
+        sRomance = 98; sLoyalty = 100; sWealth = 96; sHarmony = 98;
+        title = "Liu He (Gizli Ruh Eşi Aşkı)";
+        desc = `<strong>${b1.name}</strong> ve <strong>${b2.name}</strong> Çin Astrolojisinde birbirine en derin aşk ve sadakatle bağlı olan Liu He çiftidir. Birbirinizin kalbini kelimesiz hisseder, birlikte bolluk, zenginlik ve sonsuz huzur inşa edersiniz.`;
+    } else if (isTriad) {
+        score = 96;
+        sRomance = 95; sLoyalty = 96; sWealth = 98; sHarmony = 94;
+        title = "San He (Kozmik Aşk Üçgeni)";
+        desc = `<strong>${b1.name}</strong> ve <strong>${b2.name}</strong> zodyakın aynı aşk ve mizaç frekansındadır. Romantik diyaloglarınız çok akıcı, eğlenceli ve tutkuludur. Birlikteyken kendinizi çok şanslı hissedersiniz.`;
+    } else if (b1.index === b2.index) {
+        score = 88;
+        sRomance = 86; sLoyalty = 90; sWealth = 88; sHarmony = 86;
+        title = `Aynı Zodyak Hayvanı Aşkı (${b1.name} & ${b2.name})`;
+        desc = `İkiniz de <strong>${b1.name}</strong> burcusunuz. Birbirinizin romantik beklentilerini çok iyi bilirsiniz. Aşkınız derin ve karşılıklı anlayışla doludur.`;
+    } else if (isClash) {
+        score = 62;
+        sRomance = 70; sLoyalty = 65; sWealth = 60; sHarmony = 55;
+        title = "Zıt Kutupların Manyetik Aşkı (Chong)";
+        desc = `<strong>${b1.name}</strong> ve <strong>${b2.name}</strong> zodyakta birbirinin tam karşısındadır. Büyük bir çekim ve tutku olsa da zaman zaman inatlaşmalar yaşanabilir. Karşılıklı hoşgörüyle bu ilişki eşsiz bir olgunluğa evrilir.`;
     } else {
-        score = 65;
-        desc = "Uyumlu İlişki. Doğrudan bir zıtlığınız yok. İlişkiniz çaba ve karşılıklı anlayışla çok güzel bir noktaya taşınabilir.";
+        score = 82;
+        sRomance = 82; sLoyalty = 84; sWealth = 80; sHarmony = 82;
+        title = "Uyumlu ve Dengeli Doğu Aşkı";
+        desc = `<strong>${b1.name}</strong> ve <strong>${b2.name}</strong> aşkta birbirini tamamlayan güzel bir dengeye sahiptir. Birbirinizin özgürlüğüne saygı duyarak aşkı her gün taze tutabilirsiniz.`;
     }
 
-    document.getElementById('hc-cluy-content').innerHTML = `
-        <p>1. Kişi: <strong>${b1.name}</strong></p>
-        <p>2. Kişi: <strong>${b2.name}</strong></p>
-        <div class="hc-score-box">
-            <span class="hc-score-label">Uyum Skoru:</span>
-            <span class="hc-score-value">${score}%</span>
+    const heroHtml = `
+        <div class="hc-cla-hero-card">
+            <div class="hc-cla-hero-badge">${title}</div>
+            <div class="hc-cla-hero-title">%${score} Çin Astrolojisi Aşk Skoru</div>
+            <p class="hc-cla-hero-sub">1. Kişi: <strong>${b1.icon} ${b1.name}</strong> (${b1.element}) ⇄ 2. Kişi: <strong>${b2.icon} ${b2.name}</strong> (${b2.element})</p>
         </div>
-        <p class="hc-desc">${desc}</p>
     `;
+
+    const dimHtml = `
+        <div class="hc-cla-dim-card">
+            <div class="hc-cla-dim-head"><span>💖 Romantik Çekim & Flört</span><span>%${sRomance}</span></div>
+            <div class="hc-cla-dim-bar"><div class="hc-cla-dim-fill" style="width: ${sRomance}%; background: #ec4899;"></div></div>
+        </div>
+        <div class="hc-cla-dim-card">
+            <div class="hc-cla-dim-head"><span>💍 Sadakat & Evlilik Temeli</span><span>%${sLoyalty}</span></div>
+            <div class="hc-cla-dim-bar"><div class="hc-cla-dim-fill" style="width: ${sLoyalty}%; background: #10b981;"></div></div>
+        </div>
+        <div class="hc-cla-dim-card">
+            <div class="hc-cla-dim-head"><span>💰 Birlikte Zenginleşme & Bereket</span><span>%${sWealth}</span></div>
+            <div class="hc-cla-dim-bar"><div class="hc-cla-dim-fill" style="width: ${sWealth}%; background: #f59e0b;"></div></div>
+        </div>
+        <div class="hc-cla-dim-card">
+            <div class="hc-cla-dim-head"><span>🕊️ Huzur & Karşılıklı Hoşgörü</span><span>%${sHarmony}</span></div>
+            <div class="hc-cla-dim-bar"><div class="hc-cla-dim-fill" style="width: ${sHarmony}%; background: #8b5cf6;"></div></div>
+        </div>
+    `;
+
+    document.getElementById('hc-cla-hero').innerHTML = heroHtml;
+    document.getElementById('hc-cla-dim-grid').innerHTML = dimHtml;
+    document.getElementById('hc-cluy-content').innerHTML = desc;
+
     document.getElementById('hc-cin-love-uyum-result').classList.add('visible');
+    document.getElementById('hc-cin-love-uyum-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+

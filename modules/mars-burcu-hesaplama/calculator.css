@@ -1,16 +1,143 @@
-.hc-mars-burcu-result {
+#hc-mars-burcu-hesaplama {
+    max-width: 680px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-mars-burcu-hesaplama .hc-header {
     text-align: center;
+    margin-bottom: 22px;
 }
 
-.hc-mars-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #c0392b;
-    margin: 10px 0;
+#hc-mars-burcu-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-.hc-mars-desc {
-    font-style: italic;
-    color: #666;
+#hc-mars-burcu-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hc-form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#hc-mars-burcu-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-mars-burcu-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-mars-summary-card {
+    background: linear-gradient(180deg, #fef2f2 0%, #fee2e2 100%);
+    border: 2px solid #fca5a5;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.08);
+}
+
+.hc-mars-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.hc-mars-badge-deg {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #dc2626;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-mars-badge-motion {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+.hc-mars-result-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #991b1b;
+    margin-bottom: 4px;
+}
+
+.hc-mars-result-subtitle {
+    font-size: 14px;
+    color: #b91c1c;
+    font-weight: 600;
+}
+
+.hc-mars-report-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+.hc-mars-report-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hc-mars-report-card p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
     line-height: 1.6;
+    color: #334155;
 }
+
+.hc-mars-report-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hc-mars-retro-box {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    color: #9a3412;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .hc-form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
