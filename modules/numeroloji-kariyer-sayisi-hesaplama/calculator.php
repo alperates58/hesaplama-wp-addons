@@ -14,16 +14,30 @@ function hc_render_numeroloji_kariyer_sayisi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-career-number">
-        <h3>Numeroloji Kariyer Sayısı Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-cn-name">Tam Adınız:</label>
-            <input type="text" id="hc-cn-name" class="hc-input" placeholder="Örn: Serkan Arı">
+        <div class="hc-header">
+            <h3>Numeroloji Kariyer & Para Sayısı Hesaplama</h3>
+            <p class="hc-subtitle">Adınız ve soyadınızın iş dünyasındaki titreşiminden ideal sektörlerinizi, liderlik tarzınızı ve finansal başarı kapılarınızı keşfedin.</p>
         </div>
-        <button class="hc-btn" onclick="hcCareerNumberHesapla()">Kariyer Analizi Yap</button>
+
+        <div class="hc-form-group">
+            <label for="hc-cn-name">Adınız ve Soyadınız *</label>
+            <input type="text" id="hc-cn-name" class="hc-input" placeholder="Örn: Serkan Arı" value="Serkan Arı" required>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcCareerNumberHesapla()">💼 Kariyer & Başarı Sayımı Analiz Et</button>
+
         <div class="hc-result" id="hc-numeroloji-kariyer-sayisi-hesaplama-result">
-            <div class="hc-result-label">Kariyer Sayınız:</div>
-            <div class="hc-result-value" id="hc-res-cn-val">-</div>
-            <div id="hc-res-cn-desc" class="hc-res-desc"></div>
+            <div class="hc-num-hero" id="hc-cn-hero"></div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">🏢 İdeal Sektörler, Liderlik Tarzı & Finansal Bereket</h4>
+                <div class="hc-num-grid" id="hc-cn-grid"></div>
+            </div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">📖 2026 İş Hayatı Stratejisi & Kariyer Tavsiyeleri</h4>
+                <div class="hc-result-content" id="hc-res-cn-desc"></div>
+            </div>
         </div>
     </div>
     <?php

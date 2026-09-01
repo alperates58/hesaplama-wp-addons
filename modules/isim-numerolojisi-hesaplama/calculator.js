@@ -1,49 +1,148 @@
 function hcNameNumHesapla() {
-    const name = document.getElementById('hc-name-input').value.trim().toUpperCase();
-    if (!name) { alert('Lütfen adınızı girin.'); return; }
+    const rawName = document.getElementById('hc-name-input').value.trim();
+    if (!rawName) {
+        alert('Lütfen adınızı ve soyadınızı giriniz.');
+        return;
+    }
 
-    const map = {
+    const pythagoreanMap = {
         'A': 1, 'J': 1, 'S': 1, 'Ş': 1,
         'B': 2, 'K': 2, 'T': 2,
         'C': 3, 'Ç': 3, 'L': 3, 'U': 3, 'Ü': 3,
         'D': 4, 'M': 4, 'V': 4,
-        'E': 5, 'N': 5,
-        'F': 6, 'O': 6, 'Ö': 6,
-        'G': 7, 'Ğ': 7, 'P': 7,
-        'H': 8, 'Z': 8,
+        'E': 5, 'N': 5, 'W': 5,
+        'F': 6, 'O': 6, 'Ö': 6, 'X': 6,
+        'G': 7, 'Ğ': 7, 'P': 7, 'Y': 7,
+        'H': 8, 'Q': 8, 'Z': 8,
         'I': 9, 'İ': 9, 'R': 9
     };
 
-    let total = 0;
-    for (let char of name) {
-        if (map[char]) total += map[char];
-    }
+    const vowels = new Set(['A', 'E', 'I', 'İ', 'O', 'Ö', 'U', 'Ü']);
 
-    function reduce(num) {
+    function reduceToSingleOrMaster(num) {
         if (num === 11 || num === 22 || num === 33) return num;
-        if (num < 10) return num;
-        const sum = num.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
-        return reduce(sum);
+        while (num > 9 && num !== 11 && num !== 22 && num !== 33) {
+            let s = 0;
+            num.toString().split('').forEach(d => s += parseInt(d));
+            num = s;
+        }
+        return num;
     }
 
-    const num = reduce(total);
+    const cleanChars = rawName.toLocaleUpperCase('tr-TR').replace(/[^A-ZÇĞİÖŞÜ]/g, '');
+    if (cleanChars.length === 0) {
+        alert('Lütfen geçerli harfler içeren bir isim giriniz.');
+        return;
+    }
 
-    const yorumlar = {
-        1: "İsim sayısı 1 olan kişiler, hayata karşı bağımsız, kararlı ve öncü bir tavır sergilerler. Kendi kararlarını kendileri vermek isterler ve başkalarının yönetimi altında kalmaktan hoşlanmazlar. Liderlik vasıfları çok gelişmiştir ve çevrelerine güven verirler. İsimlerinin enerjisi onlara her zaman yeni başlangıçlar yapma ve zorlukları aşma gücü verir. Ancak bu güçlü enerji, zaman zaman inatçılığa veya aşırı bencilliğe dönüşebilir; dengeyi korumak önemlidir.",
-        2: "İsim sayısı 2 olan bireyler, çevrelerine uyum, nezaket ve huzur yayan kişilerdir. İletişim tarzları çok yumuşaktır ve arabuluculuk yapma konusunda doğal bir yetenekleri vardır. Sevdiklerine karşı son derece sadık ve destekleyicidirler. İsimlerinin enerjisi onlara derin bir sezgi ve empati gücü katar. Yalnız kalmaktan ziyade ortaklıklar içinde çalışmayı ve paylaşmayı severler. Sabırları ve hassasiyetleri, onları sosyal çevrelerinde vazgeçilmez birer denge unsuru haline getirir.",
-        3: "İsim sayısı 3 olanlar, neşeli, yaratıcı ve sosyal enerjisi çok yüksek bireylerdir. Kendilerini ifade etmek, konuşmak, yazmak veya sanatla ilgilenmek isimlerinin getirdiği doğal bir eğilimdir. Hayata pozitif bir pencereden bakarlar ve girdikleri her ortamda dikkat çekmeyi başarırlar. İsimlerinin enerjisi onlara şans ve popülerlik getirir. Ancak odaklanmakta güçlük çekebilir ve enerjilerini gereksiz yere tüketebilirler. Yaratıcılıklarını somut bir işe yönlendirdiklerinde büyük başarılar elde ederler.",
-        4: "İsim sayısı 4 olan kişiler, güvenilirliğin, dürüstlüğün ve çalışkanlığın sembolüdürler. Hayatlarını bir düzen üzerine kurmayı ve her şeyi planlı yapmayı severler. Sabırları ve dayanıklılıkları sayesinde en zorlu süreçleri bile başarıyla yönetirler. İsimlerinin enerjisi onlara sarsılmaz bir temel ve disiplin katar. Geleneklere ve kurallara önem verirler, ancak bu durum bazen esnekliklerini azaltabilir. Sevdikleri için her zaman güvenli bir liman olma görevini üstlenirler.",
-        5: "İsim sayısı 5 olan bireylerin enerjisi sürekli hareket, değişim ve özgürlük üzerinedir. Meraklı yapıları onları her zaman yeni deneyimlere ve maceralara iter. Çok yönlüdürler ve her türlü duruma hızla adapte olabilirler. İsimlerinin enerjisi onlara zihinsel bir kıvraklık ve iletişim gücü katar. Monotonluktan nefret ederler ve kısıtlanmaya gelemezler. Hayatları boyunca birçok farklı alanda deneyim sahibi olma potansiyelleri vardır; bu da onlara zengin bir bakış açısı kazandırır.",
-        6: "İsim sayısı 6 olanlar, sevginin, ailenin ve toplumsal sorumluluğun temsilcileridir. Koruyucu ve besleyici bir yapıları vardır; çevrelerindeki her şeyin uyumlu ve güzel olmasını isterler. İsimlerinin enerjisi onlara doğal bir şifacılık ve hizmet etme arzusu katar. Adalet duyguları çok gelişmiştir ve haksızlıklara karşı sessiz kalmazlar. Evleri ve aileleri onlar için kutsaldır. Ancak bazen başkalarının hayatına aşırı müdahale edebilirler; bu dengeyi korumak ruhsal huzurları için önemlidir.",
-        7: "İsim sayısı 7 olan bireyler, derin düşünürler, araştırmacılar ve ruhsal arayış içindeki bilgelerdir. Yüzeysel olanla yetinmezler; her zaman hayatın gizemli ve derin anlamlarını keşfetmek isterler. Yalnızlık onlar için bir ihtiyaçtır; kendi iç dünyalarına çekilip düşünmek ruhlarını besler. İsimlerinin enerjisi onlara analitik bir zeka ve güçlü sezgiler katar. Maddi dünyadan ziyade maneviyat ve bilimle ilgilenirler. Sessiz ve vakur duruşları, çevrelerinde büyük bir saygı uyandırır.",
-        8: "İsim sayısı 8 olan kişiler, güç, otorite ve maddi başarı enerjisi taşırlar. İş dünyasında ve yönetim kademelerinde çok başarılı olma potansiyelleri vardır. Stratejik düşünme yetenekleri ve hırsları sayesinde büyük hedeflere ulaşırlar. İsimlerinin enerjisi onlara dayanıklılık ve liderlik gücü katar. Ancak bu gücü adaletli ve cömert bir şekilde kullanmayı öğrenmeleri gerekir. Maddi bolluğu yakaladıklarında, bunu toplumsal faydaya dönüştürerek ruhsal olarak da tatmin olurlar.",
-        9: "İsim sayısı 9 olanlar, evrensel sevgi, merhamet ve yardımseverlik enerjisiyle doludurlar. Hiçbir ayrım yapmadan tüm insanlığa hizmet etme arzusu taşırlar. Hoşgörülü ve bilge yapıları sayesinde çevrelerine ışık tutarlar. İsimlerinin enerjisi onlara sanatsal bir duyarlılık ve yüksek bir idealizm katar. Hayatları boyunca birçok insana rehberlik edebilirler. Tamamlanma enerjisini temsil ettikleri için bir döngüyü bitirme ve yeni bir bilince geçme konusunda ustadırlar.",
-        11: "İsim sayısı 11 olanlar, çok yüksek bir sezgisel güç ve ilham yeteneğine sahiptirler. 'Üstad Sayı' olarak bilinen 11, bu kişilere ruhsal bir liderlik vasfı katar. İnsanlığın bilincini yükseltecek fikirler üretir ve birer ışık işçisi gibi çalışırlar. İsimlerinin enerjisi onları bazen aşırı hassas yapabilir, ancak bu hassasiyet onların en büyük gücüdür. Sezgilerine güvenerek hareket ettiklerinde, çevrelerinde mucizeler yaratabilir ve başkalarına rehberlik edebilirler.",
-        22: "İsim sayısı 22 olan bireyler, 'Usta Mimar' enerjisi taşırlar. Büyük hayalleri gerçeğe dönüştürme ve dünyada kalıcı, topluma faydalı devasa yapılar veya sistemler inşa etme gücüne sahiptirler. Hem 4'ün disiplinini hem de 11'in vizyonunu bünyelerinde barındırırlar. Sorumlulukları çok büyüktür ve isimlerinin enerjisi onlara sarsılmaz bir sabır ve güç katar. İmkansız görünen projeleri hayata geçirme konusunda doğuştan yeteneklidirler.",
-        33: "İsim sayısı 33 olanlar, en yüksek sevgi ve şifa enerjisini temsil eden 'Usta Öğreticilerdir'. Hayatlarını başkalarına rehberlik etmeye, onları iyileştirmeye ve evrensel sevgiyi öğretmeye adarlar. Koşulsuz sevgi ve merhamet onların en belirgin özelliğidir. İsimlerinin enerjisi onlara sanatsal bir yaratıcılık ve ruhsal bir derinlik katar. Başkalarının acısını hissederek onlara derman olmaya çalışırlar. Onlar için asıl başarı, sevginin iyileştirici gücünü dünyaya yaymaktır."
+    let totalSum = 0;
+    let vowelSum = 0;
+    let consonantSum = 0;
+    const digitCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 };
+    const letterBreakdown = [];
+
+    for (let char of cleanChars) {
+        const val = pythagoreanMap[char] || 0;
+        if (val > 0) {
+            totalSum += val;
+            digitCounts[val]++;
+            const isVowel = vowels.has(char);
+            if (isVowel) vowelSum += val;
+            else consonantSum += val;
+            letterBreakdown.push({ char, val, isVowel });
+        }
+    }
+
+    const expressionNum = reduceToSingleOrMaster(totalSum);
+    const soulUrgeNum = reduceToSingleOrMaster(vowelSum);
+    const personalityNum = reduceToSingleOrMaster(consonantSum);
+
+    // Karmik Dersler (İsimde hiç bulunmayan sayılar)
+    const karmicLessons = [];
+    for (let i = 1; i <= 9; i++) {
+        if (digitCounts[i] === 0) karmicLessons.push(i);
+    }
+
+    // Karmik Borçlar (Toplamda 13, 14, 16, 19 geçişi)
+    const karmicDebts = [];
+    if (totalSum === 13 || totalSum === 14 || totalSum === 16 || totalSum === 19) {
+        karmicDebts.push(totalSum);
+    }
+
+    const numberArchetypes = {
+        1: { name: "1 - Öncü Lider & Yaratıcı Güç", planet: "☀️ Güneş", chakra: "Boğaz / Taç", theme: "Bağımsızlık, inisiyatif, cesaret ve sıfırdan kurma potansiyeli." },
+        2: { name: "2 - Diplomat & Sezgisel Arabulucu", planet: "🌙 Ay", chakra: "Üçüncü Göz / Kalp", theme: "Uyum, şefkat, iş birliği ve derin sezgisel algı." },
+        3: { name: "3 - Yaratıcı Sanatçı & Neşe Kaynağı", planet: "♃ Jüpiter", chakra: "Sakral Çakra", theme: "Sanat, kendini ifade etme, mizah, popülerlik ve yüksek sosyal çekim." },
+        4: { name: "4 - Usta İnşaatçı & Güvenilir Sistem", planet: "♄ Satürn / ♅ Uranüs", chakra: "Kök Çakra", theme: "Disiplin, sadakat, sarsılmaz sabır ve kalıcı yapılar kurma." },
+        5: { name: "5 - Özgür Gezgin & Değişim Öncüsü", planet: "☿️ Merkür", chakra: "Boğaz Çakrası", theme: "Macera, esneklik, çok yönlülük ve kitlelerle hızlı iletişim." },
+        6: { name: "6 - Şifacı Ebeveyn & Sevgi Mimarı", planet: "♀️ Venüs", chakra: "Kalp Çakrası", theme: "Koşulsuz sevgi, koruyuculuk, estetik ve ailevi sorumluluk." },
+        7: { name: "7 - Mistik Düşünür & Hakikat Arayıcısı", planet: "♆ Neptün", chakra: "Taç Çakra", theme: "Derin felsefe, analitik zeka, maneviyat ve yalnızlıkta parlayan ışık." },
+        8: { name: "8 - Güç Sahibi & Finansal Lider", planet: "♄ Satürn", chakra: "Solar Pleksus", theme: "Maddi bolluk, organizasyonel güç, adalet ve büyük hedefleri yönetme." },
+        9: { name: "9 - Evrensel Hümanist & Bilge Işık", planet: "♂️ Mars", chakra: "Taç / Tüm Çakralar", theme: "Merhamet, insanlığa hizmet, sanatsal ilham ve döngü tamamlama." },
+        11: { name: "11 - Üstat Sezgisel Rehber (Master 11)", planet: "🌙 / ♅", chakra: "Üçüncü Göz / Taç", theme: "Kozmik ilham kanallığı, yüksek sezgiler ve insanlığın bilincini yükseltme." },
+        22: { name: "22 - Büyük Usta Mimar (Master 22)", planet: "♄ / ♅", chakra: "Tüm Çakralar", theme: "Küresel hayalleri fiziksel dünyada devasa yapılara dönüştürme dehası." },
+        33: { name: "33 - Evrensel Şifa Öğretmeni (Master 33)", planet: "♀️ / ♆", chakra: "Kalp / Taç", theme: "Koşulsuz evrensel sevgi, şifa dağıtma ve ruhsal fedakarlık zirvesi." }
     };
 
-    document.getElementById('hc-name-val').innerText = num;
-    document.getElementById('hc-name-desc').innerText = yorumlar[num] || "İsim analizi tamamlandı.";
+    const expInfo = numberArchetypes[expressionNum] || numberArchetypes[1];
+    const soulInfo = numberArchetypes[soulUrgeNum] || numberArchetypes[1];
+    const persInfo = numberArchetypes[personalityNum] || numberArchetypes[1];
+
+    const heroHtml = `
+        <div class="hc-num-hero-card">
+            <div class="hc-num-badge">🔢 Ana İfade (Kader) Sayınız: ${expressionNum}</div>
+            <div class="hc-num-title">${expInfo.name}</div>
+            <p class="hc-num-sub">Kozmik Yönetici: <strong>${expInfo.planet}</strong> | Çakra Rezonansı: <strong>${expInfo.chakra}</strong></p>
+        </div>
+    `;
+
+    const gridHtml = `
+        <div class="hc-num-card-box">
+            <div class="hc-num-card-tag">🌟 İfade / Kader Sayısı (${expressionNum})</div>
+            <div class="hc-num-card-title">${expInfo.name}</div>
+            <p class="hc-num-card-p"><strong>Dış Dünyadaki Misyonunuz:</strong> ${expInfo.theme}</p>
+        </div>
+
+        <div class="hc-num-card-box" style="border: 2px solid #ec4899; background: #fdf2f8;">
+            <div class="hc-num-card-tag" style="color: #db2777;">💖 Ruh Güdüsü / Kalp Arzusu (${soulUrgeNum})</div>
+            <div class="hc-num-card-title" style="color: #9d174d;">${soulInfo.name}</div>
+            <p class="hc-num-card-p"><strong>İçsel En Derin Arzunuz:</strong> ${soulInfo.theme}</p>
+        </div>
+
+        <div class="hc-num-card-box" style="border: 2px solid #3b82f6; background: #eff6ff;">
+            <div class="hc-num-card-tag" style="color: #2563eb;">🎭 Dış Kişilik / İlk İzlenim (${personalityNum})</div>
+            <div class="hc-num-card-title" style="color: #1e40af;">${persInfo.name}</div>
+            <p class="hc-num-card-p"><strong>İnsanların Sizi Algılayışı:</strong> ${persInfo.theme}</p>
+        </div>
+    `;
+
+    let lettersHtml = `<div class="hc-letters-chips">`;
+    letterBreakdown.forEach(item => {
+        lettersHtml += `<span class="hc-letter-chip ${item.isVowel ? 'vowel' : 'consonant'}"><strong>${item.char}</strong><small>=${item.val}</small></span>`;
+    });
+    lettersHtml += `</div>`;
+
+    if (karmicLessons.length > 0) {
+        lettersHtml += `<div class="hc-karmic-box">
+            <strong>⚠️ Karmik Ders Sayılarınız (İsimde Eksik Enerjiler):</strong> Sayı ${karmicLessons.join(', ')}. Bu sayılara karşılık gelen yaşam temalarını (örn: sabır, inisiyatif, diplomasi) bilinçli olarak geliştirmelisiniz.
+        </div>`;
+    } else {
+        lettersHtml += `<div class="hc-karmic-box" style="background: #f0fdf4; border-color: #bbf7d0; color: #166534;">
+            <strong>✨ Tam Çakra Dengesi:</strong> İsminiz 1'den 9'a kadar tüm rakamların frekansını içermektedir. Çok yönlü ve dengeli bir potansiyele sahipsiniz.
+        </div>`;
+    }
+
+    const descHtml = `
+        <p><strong>İsim Enerjinizin Yaşam Yansıması:</strong> ${rawName} ismi, Pisagor tablosuna göre toplamda <strong>${totalSum}</strong> sayısına (${expressionNum}) ulaşır. Bu frekans size hayatta ${expInfo.theme} şeklinde büyük bir güç bahşeder.</p>
+        <p><strong>Ruhsal Denge Tavsiyesi:</strong> Kalbinizin fısıltısı olan <strong>Ruh Güdüsü (${soulUrgeNum})</strong> ile dış dünyadaki eylemleriniz olan <strong>İfade Sayınızı (${expressionNum})</strong> uyumlu hale getirdiğinizde hayatınızda maksimum doyum ve bereket sağlarsınız.</p>
+    `;
+
+    document.getElementById('hc-name-hero').innerHTML = heroHtml;
+    document.getElementById('hc-name-grid').innerHTML = gridHtml;
+    document.getElementById('hc-name-letters-table').innerHTML = lettersHtml;
+    document.getElementById('hc-name-desc').innerHTML = descHtml;
+
     document.getElementById('hc-isim-num-result').classList.add('visible');
+    document.getElementById('hc-isim-num-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+

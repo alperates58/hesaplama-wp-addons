@@ -1,111 +1,55 @@
-function hcYghPad(sayi) {
-    return String(sayi).padStart(2, '0');
-}
-
-function hcYghTarihOku(id) {
-    var deger = document.getElementById(id).value;
-    var parca;
-
-    if (!deger) return null;
-
-    parca = deger.split('-');
-    return new Date(parseInt(parca[0], 10), parseInt(parca[1], 10) - 1, parseInt(parca[2], 10), 0, 0, 0);
-}
-
-function hcYghInputTarih(date) {
-    return date.getFullYear() + '-' + hcYghPad(date.getMonth() + 1) + '-' + hcYghPad(date.getDate());
-}
-
-function hcYghGunEkle(date, gun) {
-    var yeni = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
-    yeni.setDate(yeni.getDate() + gun);
-    return yeni;
-}
-
-function hcYghTarihFormatla(date) {
+function hcYumurtlamaGunuFormat(date) {
     return date.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-function hcYghTarihAraligiFormatla(baslangic, bitis) {
-    if (baslangic.getTime() === bitis.getTime()) {
-        return hcYghTarihFormatla(baslangic);
-    }
-
-    return hcYghTarihFormatla(baslangic) + ' - ' + hcYghTarihFormatla(bitis);
-}
-
-function hcYghBugun() {
-    var simdi = new Date();
-    return new Date(simdi.getFullYear(), simdi.getMonth(), simdi.getDate(), 0, 0, 0);
-}
-
-function hcYghDonguYorumu(dongu) {
-    if (dongu < 24) {
-        return 'Döngünüz kısa aralıkta görünüyor; tarih tahmini kişiden kişiye daha fazla değişebilir.';
-    }
-
-    if (dongu > 32) {
-        return 'Döngünüz uzun aralıkta görünüyor; yumurtlama tarihi her ay aynı güne denk gelmeyebilir.';
-    }
-
-    return 'Döngü uzunluğunuza göre yumurtlama günü, sonraki adetten yaklaşık 14 gün önce tahmin edilir.';
-}
-
 function hcYumurtlamaGunuHesapla() {
-    var sonAdet = hcYghTarihOku('hc-ygh-son-adet');
-    var dongu = parseInt(document.getElementById('hc-ygh-dongu').value, 10);
-    var bugun = hcYghBugun();
-    var sonrakiAdet;
-    var yumurtlama;
-    var olasiBaslangic;
-    var olasiBitis;
-    var dogurganBaslangic;
-    var dogurganBitis;
-    var gecenGun;
+    const satInput = document.getElementById('hc-ygh-son-adet').value;
+    const donguInput = parseInt(document.getElementById('hc-ygh-dongu').value, 10);
 
-    if (!sonAdet || isNaN(dongu)) {
-        alert('Lütfen son adet tarihini ve ortalama döngü uzunluğunu girin.');
+    if (!satInput || isNaN(donguInput) || donguInput < 20 || donguInput > 50) {
+        alert('Lütfen geçerli bir son adet tarihi ve 20-50 gün arası döngü uzunluğu giriniz.');
         return;
     }
 
-    if (sonAdet > bugun) {
-        alert('Son adet tarihi gelecekte olamaz.');
-        return;
-    }
+    const satParts = satInput.split('-').map(Number);
+    const sat = new Date(satParts[0], satParts[1] - 1, satParts[2]);
 
-    if (dongu < 21 || dongu > 35) {
-        alert('Lütfen döngü uzunluğunu 21-35 gün arasında girin.');
-        return;
-    }
+    // Luteal faz kuralı: Yumurtlama, bir sonraki adetten 14 gün önce gerçekleşir.
+    const ovulasyonGunuOffset = donguInput - 14;
+    const ovulasyonTarihi = new Date(sat.getTime() + (ovulasyonGunuOffset * 24 * 60 * 60 * 1000));
 
-    gecenGun = Math.floor((bugun.getTime() - sonAdet.getTime()) / 86400000) + 1;
+    // Doğurganlık Penceresi: Yumurtlamadan 5 gün önce başlar, yumurtlama günü biter (toplam 6 gün)
+    const pencereBaslangic = new Date(ovulasyonTarihi.getTime() - (5 * 24 * 60 * 60 * 1000));
+    const pencereBitis = new Date(ovulasyonTarihi.getTime() + (1 * 24 * 60 * 60 * 1000));
 
-    if (gecenGun > 90) {
-        alert('Son adet tarihi 90 günden eski görünüyor. Lütfen tarihi kontrol edin.');
-        return;
-    }
+    // İmplantasyon (Yerleşme): Yumurtlamadan 7-10 gün sonra
+    const implantasyonTarihi = new Date(ovulasyonTarihi.getTime() + (9 * 24 * 60 * 60 * 1000));
 
-    sonrakiAdet = hcYghGunEkle(sonAdet, dongu);
-    yumurtlama = hcYghGunEkle(sonrakiAdet, -14);
-    olasiBaslangic = hcYghGunEkle(sonrakiAdet, -14);
-    olasiBitis = hcYghGunEkle(sonrakiAdet, -12);
-    dogurganBaslangic = hcYghGunEkle(yumurtlama, -5);
-    dogurganBitis = hcYghGunEkle(yumurtlama, 1);
+    // Sonraki Beklenen Adet
+    const sonrakiAdet = new Date(sat.getTime() + (donguInput * 24 * 60 * 60 * 1000));
 
-    document.getElementById('hc-ygh-ana-sonuc').textContent = hcYghTarihFormatla(yumurtlama);
-    document.getElementById('hc-ygh-ozet').textContent = 'Tahmini yumurtlama günü';
-    document.getElementById('hc-ygh-dogurgan').textContent = hcYghTarihAraligiFormatla(dogurganBaslangic, dogurganBitis);
-    document.getElementById('hc-ygh-aralik').textContent = hcYghTarihAraligiFormatla(olasiBaslangic, olasiBitis);
-    document.getElementById('hc-ygh-sonraki-adet').textContent = hcYghTarihFormatla(sonrakiAdet);
-    document.getElementById('hc-ygh-dongu-gunu').textContent = gecenGun.toLocaleString('tr-TR') + '. gün';
-    document.getElementById('hc-ygh-yorum').textContent = hcYghDonguYorumu(dongu) + ' Doğurgan günler, tahmini yumurtlama gününden önceki 5 gün ile yumurtlama gününün ertesi gününü kapsayacak şekilde gösterilir.';
+    // Erken Gebelik Testi: Beklenen adetten 2 gün önce veya yumurtlamadan 12 gün sonra
+    const testTarihi = new Date(ovulasyonTarihi.getTime() + (12 * 24 * 60 * 60 * 1000));
+
+    document.getElementById('hc-ygh-ana-sonuc').innerText = hcYumurtlamaGunuFormat(ovulasyonTarihi);
+    document.getElementById('hc-ygh-ozet').innerText = `Döngünüzün ${ovulasyonGunuOffset}. gününe denk gelmektedir.`;
+
+    document.getElementById('hc-fertility-window-box').innerHTML = `
+        <div class="hc-fert-card">
+            <div class="hc-fert-badge">🌸 Gebe Kalma İhtimalinin En Yüksek Olduğu 6 Gün</div>
+            <div class="hc-fert-dates">${hcYumurtlamaGunuFormat(pencereBaslangic)} — ${hcYumurtlamaGunuFormat(pencereBitis)}</div>
+            <p class="hc-fert-sub">Sperm hücreleri kadın vücudunda 3-5 güne kadar canlı kalabildiği için bu aralıkta girilen ilişkiler gebelik şansını maksimuma çıkarır.</p>
+        </div>
+    `;
+
+    document.getElementById('hc-ygh-dogurgan').innerText = `${hcYumurtlamaGunuFormat(pencereBaslangic)} - ${hcYumurtlamaGunuFormat(pencereBitis)}`;
+    document.getElementById('hc-ygh-implantasyon').innerText = hcYumurtlamaGunuFormat(implantasyonTarihi);
+    document.getElementById('hc-ygh-test-tarihi').innerText = hcYumurtlamaGunuFormat(testTarihi);
+    document.getElementById('hc-ygh-sonraki-adet').innerText = hcYumurtlamaGunuFormat(sonrakiAdet);
+
+    let yorum = `Ortalama ${donguInput} günlük döngünüze göre en verimli gününüz <strong>${hcYumurtlamaGunuFormat(ovulasyonTarihi)}</strong> olarak hesaplanmıştır. Gebelik planlıyorsanız doğurganlık pencereniz boyunca 2 günde bir düzenli birliktelik önerilir.`;
+    document.getElementById('hc-ygh-yorum').innerHTML = yorum;
+
     document.getElementById('hc-ygh-result').classList.add('visible');
+    document.getElementById('hc-ygh-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    var dongu = document.getElementById('hc-ygh-dongu');
-
-    if (dongu && !dongu.value) {
-        dongu.value = '28';
-    }
-});

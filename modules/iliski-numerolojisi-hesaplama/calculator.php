@@ -14,39 +14,50 @@ function hc_render_iliski_numerolojisi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-iliski-numerolojisi">
-        <h3>İlişki Numerolojisi Hesaplama</h3>
-        <div class="hc-form-grid">
-            <div class="hc-person-form">
-                <h4>1. Kişi</h4>
+        <div class="hc-header">
+            <h3>İlişki Numerolojisi & Çift Uyumu Hesaplama</h3>
+            <p class="hc-subtitle">Partnerinizle adlarınız ve doğum tarihlerinizin ezoterik titreşiminden ortak İlişki Sayınızı, aşk kimyanızı ve kadersel bağınızı hesaplayın.</p>
+        </div>
+
+        <div class="hc-partner-grid">
+            <div class="hc-partner-card">
+                <h4>👤 1. Partner</h4>
                 <div class="hc-form-group">
-                    <label>Ad Soyad</label>
-                    <input type="text" id="hc-num-n1" class="hc-input" placeholder="Adınız">
+                    <label for="hc-num-n1">Ad Soyad *</label>
+                    <input type="text" id="hc-num-n1" class="hc-input" placeholder="Adınız Soyadınız" value="Kerem Aktürk" required>
                 </div>
                 <div class="hc-form-group">
-                    <label>Doğum Tarihi</label>
-                    <input type="date" id="hc-num-d1" class="hc-input">
+                    <label for="hc-num-d1">Doğum Tarihi *</label>
+                    <input type="date" id="hc-num-d1" class="hc-input" value="1995-05-15" required>
                 </div>
             </div>
-            <div class="hc-person-form">
-                <h4>2. Kişi</h4>
+
+            <div class="hc-partner-card">
+                <h4>👤 2. Partner</h4>
                 <div class="hc-form-group">
-                    <label>Ad Soyad</label>
-                    <input type="text" id="hc-num-n2" class="hc-input" placeholder="Partnerinizin Adı">
+                    <label for="hc-num-n2">Ad Soyad *</label>
+                    <input type="text" id="hc-num-n2" class="hc-input" placeholder="Partnerinizin Adı Soyadı" value="Aslı Yılmaz" required>
                 </div>
                 <div class="hc-form-group">
-                    <label>Doğum Tarihi</label>
-                    <input type="date" id="hc-num-d2" class="hc-input">
+                    <label for="hc-num-d2">Doğum Tarihi *</label>
+                    <input type="date" id="hc-num-d2" class="hc-input" value="1996-08-20" required>
                 </div>
             </div>
         </div>
-        <button class="hc-btn" onclick="hcIliskiNumerolojisiHesapla()">Numerolojik Analiz Yap</button>
+
+        <button type="button" class="hc-btn" onclick="hcIliskiNumerolojisiHesapla()">💖 İlişki Numerolojisi Haritamızı Çıkar</button>
+
         <div class="hc-result" id="hc-iliski-numerolojisi-result">
-            <div class="hc-result-header">
-                <span class="hc-result-label">İlişki Sayısı</span>
-                <div class="hc-result-value" id="hc-num-rel-value">-</div>
+            <div class="hc-num-hero" id="hc-in-hero"></div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">🎴 Çift Numeroloji Matrisi (Yaşam Yolu & Ruh Sinerjisi)</h4>
+                <div class="hc-num-compare-grid" id="hc-in-grid"></div>
             </div>
-            <div class="hc-num-details" id="hc-num-details">
-                <!-- Analiz buraya -->
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">📖 İlişkinin Kimyası, Güçlü Yönleri & Kadersel Tavsiyeler</h4>
+                <div class="hc-result-content" id="hc-num-details"></div>
             </div>
         </div>
     </div>

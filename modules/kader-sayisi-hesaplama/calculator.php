@@ -14,16 +14,30 @@ function hc_render_kader_sayisi_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-kader-sayisi-hesaplama">
-        <h3>Kader Sayısı Hesaplama</h3>
-        <div class="hc-form-group">
-            <label for="hc-kader-name">Tam Adınız</label>
-            <input type="text" id="hc-kader-name" placeholder="Adınız ve Soyadınız">
+        <div class="hc-header">
+            <h3>Kader Sayısı Hesaplama (Yaşam Amacı & Kadersel Misyon)</h3>
+            <p class="hc-subtitle">Adınızdaki harflerin titreşiminden kaderinizin ana misyonunu, gizli yeteneklerinizi ve kadersel sınavlarınızı öğrenin.</p>
         </div>
-        <button class="hc-btn" onclick="hcKaderHesapla()">Hesapla</button>
+
+        <div class="hc-form-group">
+            <label for="hc-kader-name">Adınız ve Soyadınız (Kimlikte Yazan) *</label>
+            <input type="text" id="hc-kader-name" placeholder="Örn: Burak Demir" class="hc-input" value="Burak Demir" required>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcKaderHesapla()">⭐ Kader Sayımı & Yaşam Misyonumu Hesapla</button>
+
         <div class="hc-result" id="hc-kader-result">
-            <div class="hc-result-label">Kader Sayınız:</div>
-            <div class="hc-result-value" id="hc-kader-val"></div>
-            <div class="hc-result-desc" id="hc-kader-desc"></div>
+            <div class="hc-num-hero" id="hc-kader-hero"></div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">🏛️ Kadersel Yetenekler, Çakra & Yaşam Gücü</h4>
+                <div class="hc-num-grid" id="hc-kader-grid"></div>
+            </div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">📖 Detaylı Kadersel Misyon & Ruhsal Rehberlik</h4>
+                <div class="hc-result-content" id="hc-kader-desc"></div>
+            </div>
         </div>
     </div>
     <?php

@@ -1,25 +1,72 @@
 function hcCinElemHesapla() {
     const dateStr = document.getElementById('hc-cine-date').value;
-    if (!dateStr) { alert('Lütfen doğum tarihinizi girin.'); return; }
-    
-    const year = new Date(dateStr).getFullYear();
-    const lastDigit = year % 10;
+    if (!dateStr) {
+        alert('Lütfen doğum tarihinizi giriniz.');
+        return;
+    }
 
-    const elementler = {
-        0: { name: "Metal", desc: "Metal elementi, sarsılmaz bir iradeyi, disiplini ve kararlılığı temsil eder. Bu elemente sahip olanlar, hedeflerine ulaşmak için büyük bir dayanıklılık sergilerler. Kendi kurallarıyla yaşamayı severler ve oldukça dürüsttürler. Ancak bazen fazla katı ve tavizsiz olabilirler. Hayatlarında düzen ve kalite en önemli unsurlardır." },
-        1: { name: "Metal", desc: "Metal elementi, sarsılmaz bir iradeyi, disiplini ve kararlılığı temsil eder. Bu elemente sahip olanlar, hedeflerine ulaşmak için büyük bir dayanıklılık sergilerler. Kendi kurallarıyla yaşamayı severler ve oldukça dürüsttürler. Ancak bazen fazla katı ve tavizsiz olabilirler. Hayatlarında düzen ve kalite en önemli unsurlardır." },
-        2: { name: "Su", desc: "Su elementi, sezgiselliği, esnekliği ve derin duygusal bir kavrayışı simgeler. Bu kişiler çevrelerine çok kolay uyum sağlarlar ve insanların niyetlerini anlama konusunda çok yeteneklidirler. Sessiz ama derinden ilerleyen bir güçleri vardır. İletişim kurma yetenekleri çok gelişmiştir, ancak bazen fazla pasif veya kararsız olabilirler. Hayatın akışına güvenmek onların ana felsefesidir." },
-        3: { name: "Su", desc: "Su elementi, sezgiselliği, esnekliği ve derin duygusal bir kavrayışı simgeler. Bu kişiler çevrelerine çok kolay uyum sağlarlar ve insanların niyetlerini anlama konusunda çok yeteneklidirler. Sessiz ama derinden ilerleyen bir güçleri vardır. İletişim kurma yetenekleri çok gelişmiştir, ancak bazen fazla pasif veya kararsız olabilirler. Hayatın akışına güvenmek onların ana felsefesidir." },
-        4: { name: "Tahta", desc: "Tahta elementi, büyümeyi, yaratıcılığı ve yenilikçiliği temsil eder. Bu elemente sahip olanlar, her zaman ileriye bakarlar ve sürekli kendilerini geliştirmek isterler. Cömert ve yardımsever bir yapıları vardır; başkalarının potansiyelini keşfetmesine yardımcı olmayı severler. Ancak bazen fazla hırslı ve öfkeli olabilirler. Doğayla iç içe olmak ve üretmek ruhlarını besler." },
-        5: { name: "Tahta", desc: "Tahta elementi, büyümeyi, yaratıcılığı ve yenilikçiliği temsil eder. Bu elemente sahip olanlar, her zaman ileriye bakarlar ve sürekli kendilerini geliştirmek isterler. Cömert ve yardımsever bir yapıları vardır; başkalarının potansiyelini keşfetmesine yardımcı olmayı severler. Ancak bazen fazla hırslı ve öfkeli olabilirler. Doğayla iç içe olmak ve üretmek ruhlarını besler." },
-        6: { name: "Ateş", desc: "Ateş elementi, tutkuyu, dinamizmi ve liderlik gücünü simgeler. Bu kişiler inanılmaz bir enerjiye sahiptirler ve çevrelerine ışık saçarlar. Maceracı ruhları onları her zaman aksiyonun merkezine iter. Sosyal becerileri çok yüksektir ve insanları peşlerinden sürükleyebilirler. Ancak sabırsızlık ve dürtüsellik en büyük zorluklarıdır. Hayatı dolu dolu ve büyük bir heyecanla yaşarlar." },
-        7: { name: "Ateş", desc: "Ateş elementi, tutkuyu, dinamizmi ve liderlik gücünü simgeler. Bu kişiler inanılmaz bir enerjiye sahiptirler ve çevrelerine ışık saçarlar. Maceracı ruhları onları her zaman aksiyonun merkezine iter. Sosyal becerileri çok yüksektir ve insanları peşlerinden sürükleyebilirler. Ancak sabırsızlık ve dürtüsellik en büyük zorluklarıdır. Hayatı dolu dolu ve büyük bir heyecanla yaşarlar." },
-        8: { name: "Toprak", desc: "Toprak elementi, istikrarı, güvenilirliği ve pratikliği temsil eder. Bu elemente sahip olanlar, ayakları yere sağlam basan ve sorumluluk sahibi bireylerdir. Sabırları sayesinde en zorlu süreçleri başarıyla yönetirler. Analitik zekaları gelişmiştir ve her adımı planlı atarlar. Ancak bazen fazla muhafazakar ve değişime kapalı olabilirler. Onlar için en büyük başarı, güvenli ve bereketli bir temel inşa etmektir." },
-        9: { name: "Toprak", desc: "Toprak elementi, istikrarı, güvenilirliği ve pratikliği temsil eder. Bu elemente sahip olanlar, ayakları yere sağlam basan ve sorumluluk sahibi bireylerdir. Sabırları sayesinde en zorlu süreçleri başarıyla yönetirler. Analitik zekaları gelişmiştir ve her adımı planlı atarlar. Ancak bazen fazla muhafazakar ve değişime kapalı olabilirler. Onlar için en büyük başarı, güvenli ve bereketli bir temel inşa etmektir." }
-    };
+    const d = new Date(dateStr);
+    let year = d.getFullYear();
+    const month = d.getMonth() + 1;
+    const day = d.getDate();
 
-    const res = elementler[lastDigit];
-    document.getElementById('hc-cine-val').innerText = res.name;
-    document.getElementById('hc-cine-desc').innerText = res.desc;
+    if (month < 2 || (month === 2 && day < 4)) {
+        year -= 1;
+    }
+
+    const elements10 = [
+        { elem: "Metal", polarity: "Yang", symbol: "⚔️", theme: "Adalet, kararlılık, disiplin ve keskin mantık.", feeds: "Su", feedsBy: "Toprak", clashes: "Ateş", color: "Beyaz, Altın, Gümüş", season: "Sonbahar", organ: "Akciğerler" },
+        { elem: "Metal", polarity: "Yin", symbol: "🪙", theme: "Zarafet, incelik, estetik ve içsel değer.", feeds: "Su", feedsBy: "Toprak", clashes: "Ateş", color: "Gümüş, Gri", season: "Sonbahar", organ: "Akciğerler" },
+        { elem: "Su", polarity: "Yang", symbol: "🌊", theme: "Derin bilgelik, akışkan güç, esneklik ve sezgi.", feeds: "Ağaç", feedsBy: "Metal", clashes: "Toprak", color: "Siyah, Koyu Mavi", season: "Kış", organ: "Böbrekler" },
+        { elem: "Su", polarity: "Yin", symbol: "💧", theme: "Huzur, şefkat, duyarlılık ve zihinsel sakinlik.", feeds: "Ağaç", feedsBy: "Metal", clashes: "Toprak", color: "Mavi, Turkuaz", season: "Kış", organ: "Böbrekler" },
+        { elem: "Ağaç", polarity: "Yang", symbol: "🌳", theme: "Büyüme, vizyon, liderlik ve sarsılmaz kökler.", feeds: "Ateş", feedsBy: "Su", clashes: "Metal", color: "Yeşil, Zümrüt", season: "İlkbahar", organ: "Karaciğer" },
+        { elem: "Ağaç", polarity: "Yin", symbol: "🌿", theme: "Uyum, esneklik, yaratıcılık ve nezaket.", feeds: "Ateş", feedsBy: "Su", clashes: "Metal", color: "Açık Yeşil, Nane", season: "İlkbahar", organ: "Karaciğer" },
+        { elem: "Ateş", polarity: "Yang", symbol: "🔥", theme: "Tutku, cesaret, dinamizm ve kitleleri aydınlatan ışık.", feeds: "Toprak", feedsBy: "Ağaç", clashes: "Su", color: "Kırmızı, Turuncu", season: "Yaz", organ: "Kalp" },
+        { elem: "Ateş", polarity: "Yin", symbol: "🕯️", theme: "Sıcaklık, ilham, romantizm ve içsel alev.", feeds: "Toprak", feedsBy: "Ağaç", clashes: "Su", color: "Bordo, Pembe", season: "Yaz", organ: "Kalp" },
+        { elem: "Toprak", polarity: "Yang", symbol: "⛰️", theme: "Güvenilirlik, istikrar, sabır ve sağlam temel.", feeds: "Metal", feedsBy: "Ateş", clashes: "Ağaç", color: "Kahverengi, Toprak Rengi", season: "Mevsim Geçişleri", organ: "Dalak / Mide" },
+        { elem: "Toprak", polarity: "Yin", symbol: "🌾", theme: "Besleyicilik, hoşgörü, üretkenlik ve bereket.", feeds: "Metal", feedsBy: "Ateş", clashes: "Ağaç", color: "Sarı, Bej", season: "Mevsim Geçişleri", organ: "Dalak / Mide" }
+    ];
+
+    const lastDigit = Math.abs(year % 10);
+    const elemData = elements10[lastDigit];
+
+    const heroHtml = `
+        <div class="hc-num-hero-card">
+            <div class="hc-num-badge">☯️ Doğum Yılı Elementiniz (${year})</div>
+            <div class="hc-num-title">${elemData.symbol} ${elemData.polarity} ${elemData.elem}</div>
+            <p class="hc-num-sub">Kozmik Enerji: <strong>${elemData.theme}</strong></p>
+        </div>
+    `;
+
+    const matrixHtml = `
+        <div class="hc-matrix-card" style="border-color: #86efac; background: #f0fdf4;">
+            <div class="hc-mat-tag" style="color: #16a34a;">🌱 Sizi Besleyen Element (Generating)</div>
+            <div class="hc-mat-val">${elemData.feedsBy} Elementi</div>
+            <p class="hc-mat-desc">${elemData.feedsBy} enerjisi size canlılık, şans ve güç katar.</p>
+        </div>
+
+        <div class="hc-matrix-card" style="border-color: #93c5fd; background: #eff6ff;">
+            <div class="hc-mat-tag" style="color: #2563eb;">✨ Sizin Beslediğiniz Element (Output)</div>
+            <div class="hc-mat-val">${elemData.feeds} Elementi</div>
+            <p class="hc-mat-desc">${elemData.elem} olarak ${elemData.feeds} elementini besler ve üretirsiniz.</p>
+        </div>
+
+        <div class="hc-matrix-card" style="border-color: #fca5a5; background: #fef2f2;">
+            <div class="hc-mat-tag" style="color: #dc2626;">⚠️ Zıt / Sınayan Element (Clashing)</div>
+            <div class="hc-mat-val">${elemData.clashes} Elementi</div>
+            <p class="hc-mat-desc">${elemData.clashes} enerjisiyle karşılaştığınızda sakin ve esnek kalmalısınız.</p>
+        </div>
+    `;
+
+    const descHtml = `
+        <p><strong>${elemData.polarity} ${elemData.elem} Enerjisinin Hayatınıza Etkisi:</strong> Çin felsefesinde Wu Xing (5 Element) sistemi, kişinin doğasını ve kozmik akışını belirler. Siz <strong>${elemData.theme}</strong></p>
+        <p><strong>Feng Shui & Sağlık Dengesi:</strong> Uğurlu Renkleriniz: <strong>${elemData.color}</strong> | Bağlantılı Mevsim: <strong>${elemData.season}</strong> | Enerjetik Organ: <strong>${elemData.organ}</strong>.</p>
+    `;
+
+    document.getElementById('hc-cine-hero').innerHTML = heroHtml;
+    document.getElementById('hc-cine-matrix').innerHTML = matrixHtml;
+    document.getElementById('hc-cine-desc').innerHTML = descHtml;
+
     document.getElementById('hc-cine-result').classList.add('visible');
+    document.getElementById('hc-cine-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

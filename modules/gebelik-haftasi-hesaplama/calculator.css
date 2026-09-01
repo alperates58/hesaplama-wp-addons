@@ -1,146 +1,211 @@
-.hc-gebelik-haftasi-intro {
-    margin: 0 0 16px;
-    color: #4b5563;
-    line-height: 1.55;
+#hc-gebelik-haftasi-hesaplama {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-gebelik-haftasi-hesaplama .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-gebelik-haftasi-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+#hc-gebelik-haftasi-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
 }
 
 .hc-gebelik-haftasi-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+#hc-gebelik-haftasi-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-gebelik-haftasi-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hc-gebelik-haftasi-hero {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 16px;
+    background: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 100%);
+    border: 2px solid #fbcfe8;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
 }
 
 .hc-gebelik-haftasi-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 78px;
-    height: 78px;
-    flex: 0 0 78px;
-    border: 1px solid #d6e4ff;
-    border-radius: 16px;
-    background: #eef4ff;
-    color: #174ea6;
-    font-size: 14px;
-    font-weight: 800;
-    text-align: center;
+    display: inline-block;
+    padding: 4px 12px;
+    background: #db2777;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
 }
 
 .hc-gebelik-haftasi-subtitle {
-    margin-top: 5px;
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.45;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #9d174d;
+    font-weight: 600;
+}
+
+.hc-baby-fruit-box {
+    margin-bottom: 18px;
+}
+
+.hc-fruit-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 2px solid #f472b6;
+    border-radius: 14px;
+    padding: 16px;
+}
+
+.hc-fruit-icon {
+    font-size: 38px;
+    line-height: 1;
+}
+
+.hc-fruit-title {
+    font-size: 16px;
+    color: #831843;
+    margin-bottom: 4px;
+}
+
+.hc-fruit-stats {
+    font-size: 13px;
+    color: #475569;
 }
 
 .hc-gebelik-haftasi-cards {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-    margin: 14px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
 }
 
-.hc-gebelik-haftasi-cards div {
-    padding: 12px;
+.hc-gebelik-haftasi-cards > div {
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    background: #fff;
-}
-
-.hc-gebelik-haftasi-cards span,
-.hc-gebelik-haftasi-cards strong {
-    display: block;
+    padding: 14px;
 }
 
 .hc-gebelik-haftasi-cards span {
-    margin-bottom: 6px;
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
     color: #64748b;
-    font-size: 12px;
-    font-weight: 700;
+    margin-bottom: 4px;
+    text-transform: uppercase;
 }
 
 .hc-gebelik-haftasi-cards strong {
-    color: #101828;
     font-size: 14px;
-    line-height: 1.35;
+    color: #0f172a;
 }
 
 .hc-gebelik-haftasi-progress {
-    margin-top: 14px;
-    padding: 14px;
-    border: 1px solid #dbe7ff;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 14px;
-    background: #f7faff;
+    padding: 16px;
+    margin-bottom: 18px;
 }
 
 .hc-gebelik-haftasi-progress-head {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 10px;
-    color: #475569;
     font-size: 13px;
-    font-weight: 700;
-}
-
-.hc-gebelik-haftasi-progress-head strong {
-    color: #174ea6;
+    color: #334155;
+    margin-bottom: 8px;
 }
 
 .hc-gebelik-haftasi-bar {
-    height: 10px;
+    height: 12px;
+    background: #f1f5f9;
+    border-radius: 6px;
     overflow: hidden;
-    border-radius: 999px;
-    background: #e7edf5;
 }
 
-.hc-gebelik-haftasi-bar span {
+#hc-gebelik-haftasi-bar-fill {
     display: block;
-    width: 0;
     height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #155eef 0%, #0f8a5f 100%);
-    transition: width .3s ease;
+    background: linear-gradient(90deg, #ec4899, #db2777);
+    border-radius: 6px;
+    transition: width 0.5s ease-out;
 }
 
-.hc-gebelik-haftasi-yorum {
-    margin: 14px 0 0;
-    color: #334155;
-    line-height: 1.55;
+.hc-screenings-box {
+    background: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 18px;
 }
 
-.hc-gebelik-haftasi-not {
-    margin: 12px 0 0;
-    padding: 12px 14px;
-    border: 1px solid #f3cc74;
-    border-radius: 12px;
-    background: #fff8e7;
-    color: #8a5a03;
+.hc-screenings-box h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 800;
+    color: #86198f;
+}
+
+.hc-screenings-box p {
+    margin: 0;
     font-size: 13px;
+    color: #4a044e;
     line-height: 1.5;
 }
 
-@media (max-width: 640px) {
-    .hc-gebelik-haftasi-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.hc-gebelik-haftasi-yorum {
+    font-size: 13px;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 8px;
 }
 
-@media (max-width: 480px) {
+.hc-gebelik-haftasi-not {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
     .hc-gebelik-haftasi-grid,
     .hc-gebelik-haftasi-cards {
         grid-template-columns: 1fr;
     }
-
-    .hc-gebelik-haftasi-hero {
-        align-items: flex-start;
+    .hc-fruit-card {
+        flex-direction: column;
+        text-align: center;
     }
 }

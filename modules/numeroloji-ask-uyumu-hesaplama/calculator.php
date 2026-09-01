@@ -14,22 +14,36 @@ function hc_render_numeroloji_ask_uyumu_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-num-love">
-        <h3>Numeroloji Aşk Uyumu Hesaplama</h3>
-        <div class="hc-num-grid">
+        <div class="hc-header">
+            <h3>Numeroloji Aşk Uyumu Hesaplama</h3>
+            <p class="hc-subtitle">Partnerinizle doğum tarihlerinizin Pisagor Yaşam Yolu titreşiminden aşk uyumunuzu, tutku seviyenizi ve uzun vadeli evlilik potansiyelinizi test edin.</p>
+        </div>
+
+        <div class="hc-num-grid-dates">
             <div class="hc-num-col">
-                <label>1. Kişi Doğum Tarihi:</label>
-                <input type="date" id="hc-nl-birth-1" class="hc-input">
+                <label for="hc-nl-birth-1">1. Kişi Doğum Tarihi *</label>
+                <input type="date" id="hc-nl-birth-1" class="hc-input" value="1995-03-21" required>
             </div>
             <div class="hc-num-col">
-                <label>2. Kişi Doğum Tarihi:</label>
-                <input type="date" id="hc-nl-birth-2" class="hc-input">
+                <label for="hc-nl-birth-2">2. Kişi Doğum Tarihi *</label>
+                <input type="date" id="hc-nl-birth-2" class="hc-input" value="1997-07-14" required>
             </div>
         </div>
-        <button class="hc-btn" onclick="hcNumerologyLoveHesapla()">Uyumu Hesapla</button>
+
+        <button type="button" class="hc-btn" onclick="hcNumerologyLoveHesapla()">💘 Aşk & Evlilik Uyumumuzu Hesapla</button>
+
         <div class="hc-result" id="hc-numeroloji-ask-uyumu-hesaplama-result">
-            <div class="hc-result-label">Aşk Uyumu Puanı:</div>
-            <div class="hc-result-value" id="hc-res-nl-val">-</div>
-            <div id="hc-res-nl-desc" class="hc-res-desc"></div>
+            <div class="hc-num-hero" id="hc-nl-hero"></div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">📊 3 Boyutlu Aşk Dinamiği Çubukları</h4>
+                <div class="hc-bars-wrapper" id="hc-nl-bars"></div>
+            </div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">📖 Yaşam Yolları Sinerjisi & Romantik Gelecek</h4>
+                <div class="hc-result-content" id="hc-res-nl-desc"></div>
+            </div>
         </div>
     </div>
     <?php

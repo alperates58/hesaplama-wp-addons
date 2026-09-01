@@ -1,107 +1,158 @@
-.hc-yumurtlama-gunu-hesaplama-intro {
-    margin: 0 0 16px;
-    color: #4b5563;
-    line-height: 1.55;
+#hc-yumurtlama-gunu-hesaplama {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-yumurtlama-gunu-hesaplama .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-yumurtlama-gunu-hesaplama .hc-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+#hc-yumurtlama-gunu-hesaplama .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
 }
 
 .hc-yumurtlama-gunu-hesaplama-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+#hc-ygh-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-ygh-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hc-yumurtlama-gunu-hesaplama-hero {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 16px;
+    background: linear-gradient(180deg, #fdf4ff 0%, #fae8ff 100%);
+    border: 2px solid #f5d0fe;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
 }
 
 .hc-yumurtlama-gunu-hesaplama-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 78px;
-    height: 78px;
-    flex: 0 0 78px;
-    border: 1px solid #f7c8d8;
-    border-radius: 16px;
-    background: #fff1f5;
-    color: #a31950;
-    font-size: 13px;
-    font-weight: 800;
-    text-align: center;
+    display: inline-block;
+    padding: 4px 12px;
+    background: #c026d3;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
 }
 
 .hc-yumurtlama-gunu-hesaplama-subtitle {
-    margin-top: 5px;
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.45;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #86198f;
+    font-weight: 600;
+}
+
+.hc-fertility-window-box {
+    margin-bottom: 18px;
+}
+
+.hc-fert-card {
+    background: #ffffff;
+    border: 2px solid #e879f9;
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+}
+
+.hc-fert-badge {
+    font-size: 12px;
+    font-weight: 800;
+    color: #a21caf;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.hc-fert-dates {
+    font-size: 18px;
+    font-weight: 800;
+    color: #701a75;
+    margin-bottom: 6px;
+}
+
+.hc-fert-sub {
+    margin: 0;
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.4;
 }
 
 .hc-yumurtlama-gunu-hesaplama-cards {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
-    margin: 14px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
 }
 
-.hc-yumurtlama-gunu-hesaplama-cards div {
-    padding: 12px;
+.hc-yumurtlama-gunu-hesaplama-cards > div {
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    background: #fff;
-}
-
-.hc-yumurtlama-gunu-hesaplama-cards span,
-.hc-yumurtlama-gunu-hesaplama-cards strong {
-    display: block;
+    padding: 14px;
 }
 
 .hc-yumurtlama-gunu-hesaplama-cards span {
-    margin-bottom: 6px;
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
     color: #64748b;
-    font-size: 12px;
-    font-weight: 700;
+    margin-bottom: 4px;
+    text-transform: uppercase;
 }
 
 .hc-yumurtlama-gunu-hesaplama-cards strong {
-    color: #101828;
     font-size: 14px;
-    line-height: 1.35;
+    color: #0f172a;
 }
 
 .hc-yumurtlama-gunu-hesaplama-yorum {
-    margin: 14px 0 0;
+    font-size: 13px;
     color: #334155;
-    line-height: 1.55;
+    line-height: 1.6;
+    margin-bottom: 8px;
 }
 
 .hc-yumurtlama-gunu-hesaplama-not {
-    margin: 12px 0 0;
-    padding: 12px 14px;
-    border: 1px solid #f3cc74;
-    border-radius: 12px;
-    background: #fff8e7;
-    color: #8a5a03;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+    margin: 0;
 }
 
-@media (max-width: 640px) {
-    .hc-yumurtlama-gunu-hesaplama-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .hc-yumurtlama-gunu-hesaplama-grid,
     .hc-yumurtlama-gunu-hesaplama-cards {
         grid-template-columns: 1fr;
-    }
-
-    .hc-yumurtlama-gunu-hesaplama-hero {
-        align-items: flex-start;
     }
 }

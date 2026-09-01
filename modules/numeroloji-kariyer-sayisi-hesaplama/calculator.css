@@ -1,4 +1,129 @@
-#hc-career-number .hc-result-value {
-    font-size: 3.5rem;
-    color: #27ae60;
+#hc-career-number {
+    max-width: 740px;
+    margin: 24px auto;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1e293b;
+}
+
+#hc-career-number .hc-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#hc-career-number .hc-header h3 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+#hc-career-number .hc-subtitle {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+#hc-numeroloji-kariyer-sayisi-hesaplama-result {
+    display: none;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 2px dashed #cbd5e1;
+}
+
+#hc-numeroloji-kariyer-sayisi-hesaplama-result.visible {
+    display: block;
+    animation: hcFadeIn 0.3s ease-out;
+}
+
+@keyframes hcFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hc-num-hero-card {
+    background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #bbf7d0;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hc-num-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.hc-num-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #166534;
+    margin-bottom: 6px;
+}
+
+.hc-num-sub {
+    margin: 0;
+    font-size: 13px;
+    color: #15803d;
+    font-weight: 600;
+}
+
+.hc-num-section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 18px;
+}
+
+.hc-num-sec-title {
+    margin: 0 0 14px 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hc-num-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.hc-num-card-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.hc-num-card-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.hc-num-card-p {
+    margin: 0;
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.hc-result-content p {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.hc-result-content p:last-child {
+    margin-bottom: 0;
 }

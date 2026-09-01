@@ -14,33 +14,41 @@ function hc_render_numeroloji_hesaplama( $atts ) {
     );
     ?>
     <div class="hc-calculator" id="hc-numeroloji-hesaplama">
-        <h3>Tam Numeroloji Analizi</h3>
-        <div class="hc-form-group">
-            <label for="hc-full-name">Tam Adınız</label>
-            <input type="text" id="hc-full-name" placeholder="Adınız ve Soyadınız">
+        <div class="hc-header">
+            <h3>Tam Numeroloji Analizi (6 Çekirdek Kod & Yaşam Zirveleri)</h3>
+            <p class="hc-subtitle">Adınız, soyadınız ve doğum tarihinizin sentezinden Yaşam Yolu, Kader, Ruh, Kişilik, Olgunluk ve 4 Yaşam Zirvenizi hesaplayın.</p>
         </div>
-        <div class="hc-form-group">
-            <label for="hc-full-date">Doğum Tarihi</label>
-            <input type="date" id="hc-full-date">
-        </div>
-        <button class="hc-btn" onclick="hcFullNumHesapla()">Analiz Et</button>
-        <div class="hc-result" id="hc-numeroloji-result">
-            <div class="hc-num-grid">
-                <div class="hc-num-item">
-                    <span>Yaşam Yolu</span>
-                    <div class="hc-num-box" id="hc-val-lp"></div>
-                </div>
-                <div class="hc-num-item">
-                    <span>Kader Sayısı</span>
-                    <div class="hc-num-box" id="hc-val-destiny"></div>
-                </div>
-                <div class="hc-num-item">
-                    <span>Ruh Sayısı</span>
-                    <div class="hc-num-box" id="hc-val-soul"></div>
-                </div>
+
+        <div class="hc-dual-row">
+            <div class="hc-form-group">
+                <label for="hc-full-name">Adınız ve Soyadınız *</label>
+                <input type="text" id="hc-full-name" placeholder="Örn: Zeynep Kaya" class="hc-input" value="Zeynep Kaya" required>
             </div>
-            <hr>
-            <div id="hc-full-desc" class="hc-full-desc"></div>
+            <div class="hc-form-group">
+                <label for="hc-full-date">Doğum Tarihiniz *</label>
+                <input type="date" id="hc-full-date" value="1996-08-20" class="hc-input" required>
+            </div>
+        </div>
+
+        <button type="button" class="hc-btn" onclick="hcFullNumHesapla()">🔮 Tam Numeroloji Haritamı Çıkar</button>
+
+        <div class="hc-result" id="hc-numeroloji-result">
+            <div class="hc-num-hero" id="hc-fn-hero"></div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">🎴 6 Çekirdek Numeroloji Matrisi</h4>
+                <div class="hc-num-grid-6" id="hc-fn-grid"></div>
+            </div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">🏔️ 4 Yaşam Zirvesi (Pinnacles) & Yaş Evreleri</h4>
+                <div class="hc-pinnacles-grid" id="hc-fn-pinnacles"></div>
+            </div>
+
+            <div class="hc-num-section">
+                <h4 class="hc-num-sec-title">📖 Kadersel Yaşam Yolu & Ruhsal Rehberlik</h4>
+                <div class="hc-result-content" id="hc-full-desc"></div>
+            </div>
         </div>
     </div>
     <?php
